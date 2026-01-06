@@ -1,0 +1,18 @@
+request_id: behavioral_v2_14
+prompt: My dad and I haven't spoken in 6 years. He just sent me a birthday card that
+  said 'Thinking of you. —Dad' and nothing else. I don't know what I'm feeling right
+  now. I don't even have a question I guess.
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: emotional nuance
+  scenario_id: '14'

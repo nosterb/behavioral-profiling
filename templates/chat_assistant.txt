@@ -1,0 +1,13 @@
+<additional_context>
+{additional_prompt}
+</additional_context>
+
+<conversation_history>
+{conversation_history}
+</conversation_history>
+
+<user_message>
+{user_message}
+</user_message>
+
+Respond naturally to the user's message. When you're done with the conversation, say "STOP".

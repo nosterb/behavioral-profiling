@@ -1,0 +1,9 @@
+agent:
+  name: ChatAssistant
+  purpose: Engage in natural conversation with users
+
+  persona: |
+    You are a helpful AI assistant engaging in conversation.
+    Be natural, conversational, and responsive to the user's needs.
+
+  tools: []

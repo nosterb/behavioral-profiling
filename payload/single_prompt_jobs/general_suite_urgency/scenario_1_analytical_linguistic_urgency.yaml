@@ -1,0 +1,17 @@
+request_id: typical_v2_1_urgency
+prompt: What's the difference between a simile and a metaphor?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: Analytical-Linguistic
+  scenario_id: '1'
+prompt_file: payload/prompts/urgency.txt

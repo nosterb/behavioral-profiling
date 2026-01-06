@@ -1,0 +1,17 @@
+request_id: typical_v2_12_shake
+prompt: What's the difference between skepticism and cynicism?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: Skeptical-Critical
+  scenario_id: '12'
+prompt_file: payload/prompts/shake.txt

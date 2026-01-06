@@ -1,0 +1,69 @@
+# Judge Configuration: Code Quality Evaluation
+#
+# Usage:
+#   judge: payload/judge_configs/code_quality.yaml
+#
+# This configuration evaluates coding tasks on correctness, style,
+# completeness, and test coverage.
+
+judge_id: code_quality_eval
+
+judge_prompt: |
+  Evaluate each model's code submission on the following dimensions:
+
+  1. **Correctness** (1-10): Does the code work as intended? Are there bugs?
+  2. **Code Style** (1-10): Is the code clean, readable, and well-organized?
+  3. **Completeness** (1-10): Does it handle edge cases and error conditions?
+  4. **Test Coverage** (1-10): Are there adequate tests? Do they cover important cases?
+
+  Return your evaluation as JSON:
+  {
+    "scores": {
+      "correctness": <score>,
+      "code_style": <score>,
+      "completeness": <score>,
+      "test_coverage": <score>
+    },
+    "strengths": ["list of strengths"],
+    "weaknesses": ["list of weaknesses"],
+    "overall_analysis": "brief summary"
+  }
+
+# Pass 1: Individual evaluations (default: Claude 4.5 Sonnet)
+models:
+  - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+
+# Pass 2: Comparative analysis with more capable model
+comparative_judge:
+  models:
+    - us.anthropic.claude-opus-4-20250514-v1:0
+
+  prompt: |
+    Review the individual evaluations and provide:
+
+    1. **Ranking**: Order models by overall code quality with justification
+    2. **Key Differentiators**: What sets the top performers apart?
+    3. **Common Issues**: Problems seen across multiple models
+    4. **Production Recommendation**: Which model(s) would you deploy?
+
+    Return as JSON:
+    {
+      "ranking": [
+        {"model": "Model A", "overall_score": <avg>, "rationale": "..."},
+        ...
+      ],
+      "key_differentiators": "...",
+      "common_issues": ["..."],
+      "production_recommendation": "..."
+    }
+
+  reveal_names: true  # Show actual model names in Pass 2
+
+# Default filter for agent jobs (extracts conversation log)
+jq_filter: ".conversation_log"
+
+# Anonymize models in Pass 1 to reduce bias (default: true)
+anonymize_pass1: true
+
+# Append results to source job file (default: true for chained judge)
+append_to_source: true

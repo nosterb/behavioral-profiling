@@ -1,0 +1,407 @@
+# ============================================================================
+# AGENT JOB CONFIGURATION TEMPLATE
+# ============================================================================
+# This is a comprehensive template showing all available configuration options
+# for agent simulation jobs. Copy and modify this file for your own jobs.
+#
+# Required fields are marked with [REQUIRED]
+# Optional fields show their default values
+# ============================================================================
+
+# [REQUIRED] Unique identifier for this job (used in output filename)
+request_id: my_job_001
+
+# [REQUIRED] Agent profile to use (must exist in agents/ directory)
+# Available profiles:
+#   - coding_agent       : Software engineering and coding tasks
+#   - debugging_agent    : Debug and fix code issues
+#   - research_agent     : Research and analysis tasks
+#   - scheduler_agent    : Meeting scheduling and calendar management
+#   - engineering_agent  : General engineering tasks
+#   - resource_allocator_agent : Resource allocation with game theory
+agent_profile: coding_agent
+
+# [REQUIRED] The task/request for the agent to complete
+# Use multi-line format with |
+user_request: |
+  Write a Python function that validates an email address using regex.
+  Include proper error handling and test cases.
+
+# ============================================================================
+# MODEL CONFIGURATION (choose one approach)
+# ============================================================================
+
+# OPTION 1: Simple model list (backwards compatible)
+# Quick and easy - just list model IDs
+#models:
+  #- us.anthropic.claude-sonnet-4-5-20250929-v1:0
+  #- us.anthropic.claude-opus-4-20250514-v1:0
+  #- us.meta.llama3-3-70b-instruct-v1:0
+
+# OPTION 2: Per-model configuration (extended thinking, custom names)
+# Best for testing same model with/without extended thinking
+# models:
+#   # Claude with extended thinking enabled
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: true
+#     display_name: "Sonnet-Thinking"
+#
+#   # Same model without thinking for comparison
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: false
+#     display_name: "Sonnet-Standard"
+#
+#   # Simple string format still works (backwards compatible)
+#   - us.meta.llama3-3-70b-instruct-v1:0
+
+# OPTION 3: Reference a model list file (RECOMMENDED for reusability)
+# Create a model list in model_config/ with provider-specific options
+model_list: model_config/tier_1
+#
+# Model list format: *provider:model_id:display_name|options
+# Example model_config/main:
+#   # Bedrock - Extended thinking for Claude 4+
+#   *bedrock:us.anthropic.claude-sonnet-4-5-20250929-v1:0:Claude-Sonnet|extended_thinking=true
+#   *bedrock:us.meta.llama3-3-70b-instruct-v1:0:Llama-3.3-70B
+#
+#   # OpenAI - Reasoning effort for GPT-5.x and O-series
+#   *openai:gpt-5.1:GPT-5.1|reasoning_effort=high
+#   *openai:gpt-4o:GPT-4o
+#
+#   # Grok - Grok 4 always reasons, Grok 3 supports reasoning_effort
+#   *grok:grok-4-1-fast-reasoning:Grok-4.1-Fast-Reasoning
+#   *grok:grok-3:Grok-3|reasoning_effort=high
+#
+#   # Gemini - Auto-adapts to thinking_budget (2.5) or thinking_level (3)
+#   *gemini:gemini-2.5-pro:Gemini-2.5-Pro|reasoning_effort=medium
+#   *gemini:gemini-3-pro-preview:Gemini-3-Pro|reasoning_effort=high
+
+# ============================================================================
+# ADVANCED REASONING & THINKING
+# ============================================================================
+# Different providers support internal reasoning in different ways:
+#
+# BEDROCK - Extended Thinking (Claude 4+)
+#   Supported models:
+#     - us.anthropic.claude-opus-4-20250514-v1:0
+#     - us.anthropic.claude-sonnet-4-20250514-v1:0
+#     - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     - us.anthropic.claude-haiku-4-5-20251001-v1:0
+#   Enable: extended_thinking=true
+#
+# OPENAI - Reasoning Effort
+#   Supported: GPT-5.x, O3, O4-Mini
+#   Options: low, medium, high
+#   Enable: reasoning_effort=high
+#   Note: Includes cost tracking
+#
+# GROK (xAI) - Reasoning Effort
+#   Grok 4: Always reasoning, no parameter needed
+#   Grok 3: Supports low or high
+#   Enable: reasoning_effort=high (Grok 3 only)
+#   Note: Includes cost tracking
+#
+# GEMINI (Google) - Thinking
+#   Gemini 2.5: Uses thinking_budget (token-based)
+#   Gemini 3: Uses thinking_level (low/high)
+#   Options: low, medium, high (automatically mapped)
+#   Enable: reasoning_effort=medium
+#   Note: Includes cost tracking
+#
+# Output format: thinking/reasoning content is captured in "thinking" field
+# Cost tracking: OpenAI, Grok, and Gemini include "cost_usd" field
+
+# ============================================================================
+# COMMON TOOL PLACEMENT (optional)
+# ============================================================================
+# Control where common meta-cognitive tools appear in the tool list
+# Default: prepend (tools appear first)
+# Options: prepend | append | interleave
+#
+common_tool_placement: prepend
+#
+# - prepend: Meta-cognitive tools first (may increase usage via primacy effect)
+# - append: Task-specific tools first (task-focused behavior)
+# - interleave: Alternates meta and task tools (balanced exposure)
+#
+# This setting allows testing whether tool ordering affects LLM behavior.
+# See TOOL_PLACEMENT_EXPERIMENT.md for experimental methodology.
+
+# ============================================================================
+# EXECUTION PARAMETERS
+# ============================================================================
+
+# Maximum number of conversation turns before stopping
+# Default: 10
+# Note: The loop naturally terminates when the tool simulator detects no tool
+# invocations and responds with "STOP". This max_turns is a safety limit.
+max_turns: 10
+
+# Include full conversation history when agent continues after tool responses
+# Default: false (stateless - each turn sees only latest tool response)
+# When true: agent sees all previous turns (higher token usage, more context)
+# When false: agent relies only on current tool response (lower tokens, tests robustness)
+#include_conversation_history: false
+
+# Include full conversation history when tool simulator responds
+# Default: false (tool sim sees only original request + current agent invocation)
+# When true: tool sim sees all previous agent actions and tool responses
+# When false: tool sim responds based only on current context
+# Use case: Enables tool sim to maintain state/continuity across turns
+include_conversation_history: true  # Include full conversation history in agent continuations (default: false)
+include_conversation_history_tool_sim: false  # Include history in tool simulator responses (default: false)
+
+# -------------------------------------------------------------------------
+# JOB-LEVEL RETRY CONFIGURATION (optional)
+# -------------------------------------------------------------------------
+# Retry failed models after all other models complete (for "clean sweep")
+# Default: 0 (disabled)
+# After the initial run, any models that failed will be retried up to max_job_retries times
+# This happens AFTER all models have had their initial attempt
+max_job_retries: 5
+
+# Example: Enable 2 rounds of job-level retries
+# max_job_retries: 2
+
+# -------------------------------------------------------------------------
+# TIMEOUT RETRY CONFIGURATION (optional)
+# -------------------------------------------------------------------------
+# Configure retry behavior for timeout errors during individual model invocations
+# Defaults shown below - all fields are optional
+# retry_config:
+#   max_retries: 3              # Number of retry attempts (default: 3)
+#   initial_timeout: 120        # Initial timeout in seconds (default: 120)
+#   backoff_multiplier: 2.0     # Timeout multiplier for each retry (default: 2.0)
+#   max_timeout: 300            # Maximum timeout cap in seconds (default: 300)
+#
+# Example: More aggressive retry strategy
+retry_config:
+  max_retries: 5
+  initial_timeout: 180
+  backoff_multiplier: 1.5
+  max_timeout: 600
+
+# ============================================================================
+# OPTIONAL: ADDITIONAL PROMPT/CONTEXT
+# ============================================================================
+# Inject additional instructions or context at the top of the agent prompt
+# Useful for:
+#   - Enforcing specific standards or guidelines
+#   - Providing domain-specific context
+#   - Adding task-specific constraints
+#   - Guiding output format or behavior
+
+# Example: Inject high-stakes urgency context
+# prompt_file: payload/prompts/urgency.txt
+
+# Example: Inject dual stressors (urgency + authority challenge)
+# prompt_file: payload/prompts/urgency_authority.txt
+
+# ============================================================================
+# ANALYTICS CONFIGURATION
+# ============================================================================
+# Post-processing analytics for job results
+# Default: Enabled with all basic analyzers, no text summary
+
+analytics:
+  # Enable/disable analytics entirely
+  # Default: true
+  enabled: true
+
+  # Which analyzers to run (all enabled by default)
+  # Available analyzers:
+  #   - basic_metrics     : Success rates, turns, completion reasons
+  #   - tool_analysis     : Tool usage patterns and frequency
+  #   - model_comparison  : Performance ranking across models
+  # Default: all three
+  include:
+    - basic_metrics
+    - tool_analysis
+    - model_comparison
+
+  # -------------------------------------------------------------------------
+  # TEXT SUMMARY OPTIONS
+  # -------------------------------------------------------------------------
+  # Generate human-readable analytics summary file
+  # File saved to: outputs/agent_jobs/summaries/<job>_summary.txt
+  # Default: false
+  save_text_summary: true
+
+  # Include detailed per-model information in text summary
+  # Requires: save_text_summary: true
+  # When true: Shows per-model tool breakdowns, error details for failed models
+  # When false: Only high-level metrics and ranking
+  # Default: true
+  text_summary_detailed: true
+
+  # -------------------------------------------------------------------------
+  # CHAT EXPORT OPTIONS
+  # -------------------------------------------------------------------------
+  # Export human-readable conversation log (all model loops in one file)
+  # Default: false
+  # File saved to: outputs/agent_jobs/chats/<job>_chat.md
+  export_chat: true
+
+  # Chat export style (requires export_chat: true)
+  # Options:
+  #   - chatbot (default)   : Clean conversational view, hide technical scaffolding
+  #   - technical           : Full prompts, JSON responses, all details
+  # Default: chatbot
+  chat_style: chatbot
+  #
+  # Chatbot style shows:
+  #   - Agent reasoning/thinking in natural language
+  #   - Tool invocations with concise parameters
+  #   - Tool results (stdout, key fields)
+  #   - Clean markdown formatting
+  #
+  # Technical style shows:
+  #   - Full system prompts sent to agent
+  #   - Complete JSON request/response structures
+  #   - All metadata (tokens, timing, stop reasons)
+  #   - Conversation history (abbreviated after first occurrence)
+  #
+  # Use chatbot for readability, technical for debugging/analysis
+
+# ============================================================================
+# EXAMPLE CONFIGURATIONS
+# ============================================================================
+
+# Example 1: Minimal configuration (uses all defaults)
+# ---
+# request_id: simple_job
+# agent_profile: coding_agent
+# user_request: "Write a hello world function"
+# models:
+#   - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+
+# Example 2: With prompt injection and text summary
+# ---
+# request_id: validated_job
+# agent_profile: coding_agent
+# prompt_file: payload/prompts/coding_standards.txt
+# user_request: "Write an email validator"
+# model_list: model_config/test_list
+# max_turns: 8
+# analytics:
+#   enabled: true
+#   save_text_summary: true
+#   text_summary_detailed: true
+#   export_chat: true
+#   chat_style: chatbot  # Clean conversational view
+
+# Example 3: No analytics
+# ---
+# request_id: raw_job
+# agent_profile: research_agent
+# user_request: "Research quantum computing"
+# models:
+#   - us.anthropic.claude-opus-4-20250514-v1:0
+# analytics:
+#   enabled: false
+
+# Example 4: Custom analyzer selection
+# ---
+# request_id: custom_analytics
+# agent_profile: coding_agent
+# user_request: "Write code"
+# model_list: model_config/test_list
+# analytics:
+#   enabled: true
+#   include:
+#     - basic_metrics      # Only basic metrics
+#     - tool_analysis      # And tool analysis
+#     # Skip model_comparison
+#   save_text_summary: true
+#   text_summary_detailed: false  # Concise summary
+#   export_chat: false
+
+# Example 5: Technical debugging with full details
+# ---
+# request_id: debug_job
+# agent_profile: debugging_agent
+# user_request: "Debug this error"
+# model_list: model_config/test_list
+# include_conversation_history: true  # Enable for debugging
+# analytics:
+#   enabled: true
+#   export_chat: true
+#   chat_style: technical  # Show full prompts, JSON, and metadata
+
+# ============================================================================
+# LLM-AS-JUDGE CONFIGURATION (Optional - Auto-evaluate job after completion)
+# ============================================================================
+# Automatically run judge evaluation on job output after completion.
+# Judges assess model outputs with structured criteria and comparison.
+#
+# Two options for configuration:
+# OPTION 1: Reference external judge config file (RECOMMENDED for reusability)
+judge: payload/judge_configs/behavior.yaml
+#
+# OPTION 2: Inline configuration (shown below)
+# judge:
+#   # Judge ID (defaults to <request_id>_judge)
+#   judge_id: my_job_001_quality
+#
+#   # [REQUIRED] Evaluation criteria and instructions
+#   judge_prompt: |
+#     Evaluate code quality on:
+#     1. Correctness (1-10): Does it work?
+#     2. Style (1-10): Is it well-organized?
+#     3. Completeness (1-10): All requirements met?
+#
+#     Return JSON with scores and brief analysis.
+#
+#   # Pass 1 judge model (defaults to Claude 4.5 Sonnet)
+#   models:
+#     - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#
+#   # Anonymize model names in Pass 1 (default: true)
+#   anonymize_pass1: true
+#
+#   # Optional: Separate judge for Pass 2 comparative analysis
+#   comparative_judge:
+#     models:
+#       - us.anthropic.claude-opus-4-20250514-v1:0
+#     prompt: |
+#       Rank models and explain key differences.
+#     reveal_names: true  # Show model names in Pass 2 (default: true)
+#
+#   # Optional: JQ filter to extract specific data (auto-detected if omitted)
+#   # Default for agent jobs: .conversation_log
+#   # jq_filter: ".conversation_log"
+#
+#   # Append judge results to job file or create separate file
+#   append_to_source: true  # Default: true for chained jobs
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# 1. All paths are relative to the project root directory
+# 2. Models can be from multiple providers:
+#    - Bedrock: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#    - OpenAI: openai:gpt-5.1:GPT-5.1
+#    - Grok: grok:grok-4-1-fast-reasoning:Grok-4.1
+#    - Gemini: gemini:gemini-2.5-pro:Gemini-2.5-Pro
+# 3. Agent profiles must exist in the agents/ directory
+# 4. Prompt files must exist at the specified path
+# 5. Analytics section is entirely optional
+# 6. Text summaries are only generated if save_text_summary: true
+# 7. The request_id is used in output filenames, so keep it filesystem-safe
+# 8. If both 'models' and 'model_list' are specified, 'models' takes precedence
+# 9. Cost tracking available for OpenAI, Grok, and Gemini (not Bedrock)
+# 10. Set provider API keys as environment variables:
+#     - AWS_BEARER_TOKEN_BEDROCK or AWS_PROFILE (Bedrock)
+#     - OPENAI_API_KEY (OpenAI)
+#     - XAI_API_KEY (Grok)
+#     - GOOGLE_API_KEY (Gemini)
+#
+# OUTPUT FILE STRUCTURE:
+#   outputs/agent_jobs/reports/    - JSON reports with full data + analytics
+#   outputs/agent_jobs/chats/      - Human-readable conversation exports (if analytics.export_chat: true)
+#                                    * Chatbot style: Clean conversational view (default)
+#                                    * Technical style: Full prompts, JSON, metadata
+#   outputs/agent_jobs/summaries/  - Text analytics summaries (if analytics.save_text_summary: true)
+#
+# For more information, see README.md
+# ============================================================================

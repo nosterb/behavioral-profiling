@@ -1,0 +1,17 @@
+request_id: typical_v2_19_shake
+prompt: What's the story behind crop circles?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: Curious-Investigative
+  scenario_id: '19'
+prompt_file: payload/prompts/shake.txt

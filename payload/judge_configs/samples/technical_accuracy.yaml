@@ -1,0 +1,73 @@
+# Judge Configuration: Technical Accuracy Evaluation
+#
+# Usage:
+#   judge: payload/judge_configs/technical_accuracy.yaml
+#
+# This configuration evaluates technical explanations on accuracy,
+# depth, examples, and consideration of tradeoffs.
+
+judge_id: technical_accuracy_eval
+
+judge_prompt: |
+  Evaluate each model's technical explanation on the following dimensions:
+
+  1. **Technical Accuracy** (1-10): Are the technical details correct?
+  2. **Depth of Understanding** (1-10): Does it show deep knowledge or surface-level?
+  3. **Quality of Examples** (1-10): Are examples relevant, concrete, and helpful?
+  4. **Tradeoff Analysis** (1-10): Does it consider alternatives and tradeoffs?
+
+  Return your evaluation as JSON:
+  {
+    "scores": {
+      "technical_accuracy": <score>,
+      "depth_of_understanding": <score>,
+      "quality_of_examples": <score>,
+      "tradeoff_analysis": <score>
+    },
+    "technical_strengths": ["..."],
+    "technical_gaps": ["..."],
+    "overall_technical_assessment": "..."
+  }
+
+# Pass 1: Use Opus with extended thinking for rigorous technical evaluation
+models:
+  - model_id: us.anthropic.claude-opus-4-20250514-v1:0
+    extended_thinking: true
+    display_name: Claude-4-Opus-Technical-Judge
+
+# Pass 2: Comparative technical analysis
+comparative_judge:
+  models:
+    - model_id: us.anthropic.claude-opus-4-20250514-v1:0
+      extended_thinking: true
+      display_name: Claude-4-Opus-Comparative-Judge
+
+  prompt: |
+    Review the individual technical evaluations and provide:
+
+    1. **Technical Ranking**: Order models by technical quality
+    2. **Technical Differentiators**: What sets technically strong responses apart?
+    3. **Common Technical Errors**: Mistakes or misconceptions across models
+    4. **Technical Recommendation**: Which model for technical documentation?
+
+    Return as JSON:
+    {
+      "technical_ranking": [
+        {"model": "Model A", "overall_technical_score": <avg>, "technical_strengths": "..."},
+        ...
+      ],
+      "technical_differentiators": "...",
+      "common_technical_errors": ["..."],
+      "technical_recommendation": "..."
+    }
+
+  reveal_names: true
+
+# Default filter for batch jobs
+jq_filter: ".response_text"
+
+# Anonymize models in Pass 1
+anonymize_pass1: true
+
+# Append results to source job file
+append_to_source: true

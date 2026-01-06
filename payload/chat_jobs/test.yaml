@@ -1,0 +1,69 @@
+# Chat Simulation Job Template
+# Natural conversations without tool/agent overhead
+# Perfect for testing conversational capabilities, behavioral, dialogue quality
+
+# ============================================================================
+# REQUIRED FIELDS
+# ============================================================================
+
+request_id: chat_test_001
+
+# Initial user message that starts the conversation
+user_request: |
+  I'm deciding whether to quit my stable job to start a business. I have about 8 months of savings. Help me think through this without just telling me what to do.
+
+# ============================================================================
+# MODEL SELECTION (choose one approach)
+# ============================================================================
+
+# Option 1: Direct model list (supports multi-provider)
+#models:
+  #- bedrock:us.anthropic.claude-sonnet-4-5-20250929-v1:0:Claude-4.5-Sonnet
+  #- openai:gpt-5.1:GPT-5.1|reasoning_effort=medium
+  #- grok:grok-4-1-fast-reasoning:Grok-4.1-Fast-Reasoning
+  #- gemini:gemini-2.5-pro:Gemini-2.5-Pro|reasoning_effort=medium
+
+# Option 2: Reference model list file
+model_list: model_config/test
+
+# ============================================================================
+# CHAT SETTINGS
+# ============================================================================
+
+max_turns: 5
+
+# Conversation history (recommended for natural flow)
+include_conversation_history: true
+include_conversation_history_user_sim: true
+reinject_prompt_every_turn: false  # Token efficient
+
+# ============================================================================
+# OPTIONAL: BEHAVIORAL/CONTEXT INJECTION
+# ============================================================================
+
+# prompt_file: payload/prompts/urgency.txt
+
+# ============================================================================
+# ANALYTICS & EXPORTS
+# ============================================================================
+
+analytics:
+  enabled: true
+  export_chat: true
+  chat_style: chatbot  # chatbot | technical
+
+# ============================================================================
+# OPTIONAL: JUDGE EVALUATION
+# ============================================================================
+
+# judge: payload/judge_configs/behavioral.yaml
+
+# ============================================================================
+# OPTIONAL: RETRY CONFIGURATION
+# ============================================================================
+
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300

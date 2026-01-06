@@ -1,0 +1,38 @@
+# ============================================================================
+# SIMPLE CHAT SIMULATION
+# ============================================================================
+# Clean chat simulation using dedicated ChatSimulation class
+# No tools, no JSON formatting, just natural conversation
+# ============================================================================
+
+request_id: chat_simple_001
+
+# IMPORTANT: Set simulation type to 'chat'
+simulation_type: chat
+
+# Initial user message
+user_request: |
+  Hi! I'm researching AI safety and alignment. What should I focus on?
+
+# Optional: Add behavioral or context
+# prompt_file: payload/prompts/employment.txt
+
+# Models to test
+model_list: model_config/test
+
+# Chat settings
+max_turns: 5
+include_conversation_history: true
+include_conversation_history_user_sim: true
+reinject_prompt_every_turn: false  # Save tokens, rely on conversation history
+
+# Template configuration (optional - uses defaults if not specified)
+assistant_template: templates/chat_assistant.txt
+user_simulator_template: templates/chat_user_simulator.txt
+
+# Analytics
+analytics:
+  enabled: true
+  save_text_summary: true
+  export_chat: true
+  chat_style: chatbot

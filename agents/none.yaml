@@ -1,0 +1,6 @@
+agent:
+  name: None
+  purpose: Minimal empty agent profile
+  persona: |
+       You are an AI assistant.
+  tools: []

@@ -1,0 +1,73 @@
+# ============================================================================
+# AGENT JOB - QUICK REFERENCE
+# ============================================================================
+# Copy this template and fill in your values
+# See TEMPLATE.yaml for detailed documentation
+# ============================================================================
+
+# -------------------------
+# REQUIRED FIELDS
+# -------------------------
+request_id: my_job_001
+agent_profile: coding_agent  # coding_agent | debugging_agent | research_agent | scheduler_agent | engineering_agent | resource_allocator_agent
+user_request: |
+  Write a Python function that calculates the fibonacci sequence up to n terms.
+  Include error handling for negative numbers. Test it with n=10.
+  
+# -------------------------
+# MODELS (choose one method)
+# -------------------------
+# Method 1: Simple list
+#models:
+  #- us.anthropic.claude-sonnet-4-5-20250929-v1:0
+
+# Method 2: Per-model config (for extended thinking)
+# models:
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: true  # Enable extended thinking (Claude 4+ only)
+#   - us.meta.llama3-3-70b-instruct-v1:0
+
+# Method 3: Model list file (RECOMMENDED - reusable across jobs)
+model_list: model_config/tier_1
+#
+
+# -------------------------
+# COMMON TOOL PLACEMENT (optional)
+# -------------------------
+common_tool_placement: prepend  # prepend | append | interleave
+
+# -------------------------
+# EXECUTION (optional)
+# -------------------------
+max_turns: 10  # Safety limit - loop naturally ends when tool simulator says STOP
+include_conversation_history: true  # Include full conversation history in agent continuations (default: false)
+include_conversation_history_tool_sim: false  # Include history in tool simulator responses (default: false)
+
+# Job-level retries: Retry failed models after all models complete (default: 0)
+max_job_retries: 5
+
+# Timeout retry configuration (per-invocation retries)
+retry_config:
+  max_retries: 5
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+
+# -------------------------
+# PROMPT INJECTION (optional)
+# -------------------------
+prompt_file: payload/prompts/urgency.txt
+
+# -------------------------
+# ANALYTICS (optional)
+# -------------------------
+# Default: enabled: true, save_text_summary: false
+analytics:
+  enabled: true
+  include:
+    - basic_metrics
+    - tool_analysis
+    - model_comparison
+  save_text_summary: true
+  text_summary_detailed: true
+  export_chat: true  

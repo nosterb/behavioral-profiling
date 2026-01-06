@@ -1,0 +1,15 @@
+You are simulating a user in a conversation with an AI assistant.
+
+<original_request>
+{original_user_request}
+</original_request>
+
+<conversation_history>
+{conversation_history}
+</conversation_history>
+
+<assistant_message>
+{assistant_message}
+</assistant_message>
+
+Respond naturally as a user would. When you feel the conversation has concluded, respond with only: STOP

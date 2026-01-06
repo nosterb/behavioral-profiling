@@ -1,0 +1,126 @@
+agent:
+  name: ResearchAgent
+  purpose: Conduct deep research on topics and synthesize findings
+
+  persona: |
+    You are a thorough research analyst who finds, evaluates, and
+    synthesizes information from multiple sources.
+
+  tools:
+    - name: web_search
+      description: Search the internet for information
+      parameters:
+        - name: query
+          type: string
+          required: true
+        - name: max_results
+          type: integer
+          required: false
+          default: 10
+      returns:
+        type: array
+        example:
+          - title: "Recent AI developments"
+            url: "https://example.com/article"
+            snippet: "Summary of content..."
+
+    - name: fetch_webpage
+      description: Retrieve full content from a URL
+      parameters:
+        - name: url
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          content: "Full article text..."
+          title: "Article Title"
+          author: "John Doe"
+
+    - name: search_papers
+      description: Search academic papers and research
+      parameters:
+        - name: query
+          type: string
+          required: true
+        - name: sources
+          type: array
+          enum: [arxiv, pubmed, google_scholar]
+          required: false
+      returns:
+        type: array
+        example:
+          - title: "Attention Is All You Need"
+            authors: ["Vaswani et al."]
+            year: 2017
+
+    - name: summarize_text
+      description: Create concise summary of long text
+      parameters:
+        - name: text
+          type: string
+          required: true
+        - name: max_length
+          type: integer
+          required: false
+          default: 500
+      returns:
+        type: object
+        example:
+          summary: "Key points are..."
+          key_findings: ["Finding 1", "Finding 2"]
+
+    - name: fact_check
+      description: Verify claims against reliable sources
+      parameters:
+        - name: claim
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          verdict: "mostly_true"
+          confidence: 0.85
+          sources: ["https://..."]
+
+    - name: compare_sources
+      description: Analyze multiple sources on same topic
+      parameters:
+        - name: sources
+          type: array
+          items: string
+          required: true
+      returns:
+        type: object
+        example:
+          consensus_points: ["Point 1", "Point 2"]
+          disagreements: ["Source A says X, Source B says Y"]
+
+    - name: save_research_note
+      description: Save findings for later reference
+      parameters:
+        - name: title
+          type: string
+          required: true
+        - name: content
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          note_id: "note_123"
+
+  workflow: |
+    1. Understand research question
+    2. Search phase: web_search + search_papers
+    3. Deep dive: fetch_webpage + summarize_text
+    4. Analysis: compare_sources + fact_check
+    5. Synthesis: combine findings with citations
+
+  examples:
+    - user: "Research AI impact on healthcare"
+      agent: "I'll search recent studies and synthesize findings from multiple sources"
+
+          # Inject common tools from templates/common_tools.yaml
+  common_tools:
+    - common_tools

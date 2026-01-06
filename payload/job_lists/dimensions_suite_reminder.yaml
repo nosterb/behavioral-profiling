@@ -1,0 +1,9 @@
+job_list_id: dimensions_suite_reminder
+description: dimensions_suite with reminder intervention (model_config/all)
+jobs:
+- payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_aggression_baseline_reminder.yaml
+- payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_deference_baseline_reminder.yaml
+- payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_dominance_baseline_reminder.yaml
+- payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_identity_baseline_reminder.yaml
+- payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_transgression_baseline_reminder.yaml
+- payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_warmth_baseline_reminder.yaml

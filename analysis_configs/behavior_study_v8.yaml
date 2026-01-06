@@ -1,0 +1,119 @@
+# Behavior Study Analysis Configuration
+#
+# This config defines all analyses to run on behavior study data.
+# Run with: python3 scripts/run_analysis.py analysis_configs/behavior_study_v4.yaml
+
+study_name: behavior_study_v8
+description: Comprehensive behavior analysis across non-claude bedrock models
+data_directory: outputs/single_prompt_jobs/12_10_2025_behavior_v8
+
+# Global visualization settings
+global_options:
+  dpi: 300
+  figure_format: png
+  color_scheme: default
+
+# Analysis pipeline (runs in order)
+analyses:
+  # 1. Export human-readable chats for all jobs
+  - type: chat_export
+    enabled: true
+    options:
+      style: chatbot              # chatbot (clean) | technical (detailed)
+      include_thinking: true
+      include_judge: true
+      output_subdir: chats
+
+  # 2. Generate per-job spider charts and heatmaps
+  - type: per_job_visualizations
+    enabled: true
+    options:
+      chart_types:
+        - spider                  # Individual spider per model
+        - comparative_spider      # All models overlaid
+        - heatmap                 # Dimension × model heatmap
+      output_subdir: visualization/individual_jobs
+
+  # 3. Aggregate scores across all jobs
+  - type: cross_job_aggregation
+    enabled: true
+    options:
+      aggregation_method: mean    # mean | median | trimmed_mean
+      output_subdir: visualization/summary
+
+  # 4. Group jobs by intervention type
+  - type: intervention_grouping
+    enabled: true
+    options:
+      intervention_types:
+        baseline: _baseline
+        checkpoint: _checkpoint
+        telemetry: _telemetry
+      output_subdir: visualization/by_intervention
+
+  # 5. Compute universal AI behavior pattern
+  - type: average_profile
+    enabled: true
+    options:
+      chart_types:
+        - average_spider          # Universal pattern
+        - overlay                 # All models + average
+        - deviation_bars          # Uniqueness ranking
+      include_summary: true       # Generate markdown summary
+      output_subdir: visualization/average_profile
+
+  # 6. Statistical similarity analysis
+  - type: similarity_analysis
+    enabled: true
+    options:
+      metrics:
+        - composite               # RECOMMENDED: averaged similarity
+        - euclidean
+        - cosine
+        - manhattan
+        - correlation
+      top_n_pairs: 10             # Show top/bottom 10 pairs
+      output_subdir: visualization/similarity_analysis
+
+  # 7. Verify calculation correctness (optional - for debugging)
+  - type: calculation_trace
+    enabled: true
+    options:
+      sample_models:
+        - Claude-4.5-Sonnet
+        - Mistral-Large
+      sample_dimensions:
+        - warmth
+        - aggression
+      output_file: visualization/calculation_trace.md
+
+  # 8. Export data for external analysis
+  - type: data_export
+    enabled: true
+    options:
+      formats:
+        - csv                     # Wide format: model × dimension
+        - long_csv                # Long format: model, dimension, score
+        - json                    # Complete structured export
+      include_metadata: true
+      output_subdir: exports
+
+  # 9. Statistical summary report
+  - type: statistical_summary
+    enabled: true
+    options:
+      include:
+        - descriptive_stats       # Mean, std, min, max per dimension
+        - judge_agreement         # Inter-rater reliability
+        - confidence_intervals    # 95% CI
+      output_file: statistical_summary.md
+
+  # 10. Executive summary comparing all models
+  - type: comparative_report
+    enabled: true
+    options:
+      sections:
+        - model_rankings
+        - key_differences
+        - recommendations
+      output_file: COMPARATIVE_ANALYSIS.md

@@ -1,0 +1,15 @@
+# Example: Multi-Provider Job List
+# Tests different models across all 4 providers
+
+jobs:
+  # OpenAI batch test
+  - payload/single_prompt_jobs/openai_quickstart.yaml
+
+  # Grok agent test
+  - payload/agent_jobs/grok_reasoning.yaml
+
+  # Gemini agent test
+  - payload/agent_jobs/gemini25_reasoning.yaml
+
+  # Bedrock comparison (multiple models)
+  - payload/single_prompt_jobs/simple_test.yaml

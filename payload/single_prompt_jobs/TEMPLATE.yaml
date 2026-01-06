@@ -1,0 +1,245 @@
+# ============================================================================
+# SINGLE-PROMPT JOB CONFIGURATION TEMPLATE
+# ============================================================================
+# This template shows all available configuration options for single-prompt
+# batch jobs. These jobs invoke multiple models with the same prompt and
+# compare results.
+#
+# Required fields are marked with [REQUIRED]
+# Optional fields show their default values
+# ============================================================================
+
+# [REQUIRED] Unique identifier for this job (used in output filename)
+job_id: my_batch_001
+
+# [REQUIRED] The prompt to send to all models
+# Use multi-line format with |
+prompt: |
+  Your prompt text here...
+  Can be multiple lines.
+
+# ============================================================================
+# OUTPUT CONFIGURATION (Optional)
+# ============================================================================
+# Export results as human-readable Markdown chat file
+# Includes all model responses, thinking blocks, costs, and judge evaluation (if configured)
+export_chat: false  # Set to true to create: outputs/single_prompt_jobs/chats/job_<job_id>_<timestamp>_chat.md
+
+# ============================================================================
+# MODEL CONFIGURATION (choose one approach)
+# ============================================================================
+
+# OPTION 1: Simple model list (backwards compatible)
+# Quick and easy - just list model IDs
+models:
+  - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+  - us.anthropic.claude-opus-4-20250514-v1:0
+  - us.meta.llama3-3-70b-instruct-v1:0
+
+# OPTION 2: Per-model configuration (extended thinking, custom names)
+# Best for testing same model with/without extended thinking
+# models:
+#   # Claude with extended thinking enabled
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: true
+#     display_name: "Sonnet-Thinking"
+#
+#   # Same model without thinking for comparison
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: false
+#     display_name: "Sonnet-Standard"
+#
+#   # Simple string format still works (backwards compatible)
+#   - us.meta.llama3-3-70b-instruct-v1:0
+
+# OPTION 3: Reference a model list file (RECOMMENDED for reusability)
+# Create a model list in model_config/ with provider-specific options
+# model_list: model_config/main
+#
+# Model list format: *provider:model_id:display_name|options
+# Example model_config/main:
+#   # Bedrock - Extended thinking for Claude 4+
+#   *bedrock:us.anthropic.claude-sonnet-4-5-20250929-v1:0:Claude-Sonnet|extended_thinking=true
+#   *bedrock:us.meta.llama3-3-70b-instruct-v1:0:Llama-3.3-70B
+#
+#   # OpenAI - Reasoning effort for GPT-5.x and O-series
+#   *openai:gpt-5.1:GPT-5.1|reasoning_effort=high
+#   *openai:gpt-4o:GPT-4o
+#
+#   # Grok - Grok 4 always reasons, Grok 3 supports reasoning_effort
+#   *grok:grok-4-1-fast-reasoning:Grok-4.1-Fast-Reasoning
+#   *grok:grok-3:Grok-3|reasoning_effort=high
+#
+#   # Gemini - Auto-adapts to thinking_budget (2.5) or thinking_level (3)
+#   *gemini:gemini-2.5-pro:Gemini-2.5-Pro|reasoning_effort=medium
+#   *gemini:gemini-3-pro-preview:Gemini-3-Pro|reasoning_effort=high
+
+# ============================================================================
+# ADVANCED REASONING & THINKING
+# ============================================================================
+# Different providers support internal reasoning in different ways:
+#
+# BEDROCK - Extended Thinking (Claude 4+)
+#   Supported models:
+#     - us.anthropic.claude-opus-4-20250514-v1:0
+#     - us.anthropic.claude-sonnet-4-20250514-v1:0
+#     - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     - us.anthropic.claude-haiku-4-5-20251001-v1:0
+#   Enable: extended_thinking=true
+#
+# OPENAI - Reasoning Effort
+#   Supported: GPT-5.x, O3, O4-Mini
+#   Options: low, medium, high
+#   Enable: reasoning_effort=high
+#   Note: Includes cost tracking
+#
+# GROK (xAI) - Reasoning Effort
+#   Grok 4: Always reasoning, no parameter needed
+#   Grok 3: Supports low or high
+#   Enable: reasoning_effort=high (Grok 3 only)
+#   Note: Includes cost tracking
+#
+# GEMINI (Google) - Thinking
+#   Gemini 2.5: Uses thinking_budget (token-based)
+#   Gemini 3: Uses thinking_level (low/high)
+#   Options: low, medium, high (automatically mapped)
+#   Enable: reasoning_effort=medium
+#   Note: Includes cost tracking
+#
+# Output format: thinking/reasoning content is captured in "thinking" field
+# Cost tracking: OpenAI, Grok, and Gemini include "cost_usd" field
+
+# ============================================================================
+# OPTIONAL: ADDITIONAL PROMPT/CONTEXT
+# ============================================================================
+# Inject additional instructions or context at the top of the prompt
+# Useful for:
+#   - Providing domain-specific context
+#   - Adding task-specific constraints
+#   - Guiding output format or behavior
+#   - Enforcing specific standards
+
+# Example: Inject response guidelines
+# prompt_file: payload/prompts/response_guidelines.txt
+
+# ============================================================================
+# RETRY CONFIGURATION (Optional)
+# ============================================================================
+# Configure retry behavior for provider API calls
+# Applies to both model invocations and judge evaluations
+# retry_config:
+#   max_retries: 3              # Maximum retry attempts (default: 3)
+#   initial_timeout: 120        # Initial timeout in seconds (default: 120)
+#   backoff_multiplier: 2.0     # Timeout multiplier for each retry (default: 2.0)
+#   max_timeout: 300            # Maximum timeout in seconds (default: 300)
+
+# ============================================================================
+# EXAMPLE CONFIGURATIONS
+# ============================================================================
+
+# Example 1: Minimal configuration (uses all defaults)
+# ---
+# job_id: simple_batch
+# prompt: "What is 2 + 2?"
+# models:
+#   - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+
+# Example 2: With extended thinking comparison
+# ---
+# job_id: thinking_comparison
+# prompt: "Explain quantum entanglement"
+# models:
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: true
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: false
+
+# Example 3: Using model list file
+# ---
+# job_id: multi_model_test
+# prompt: "Write a haiku about AI"
+# model_list: model_config/test_thinking
+
+# Example 4: With prompt injection
+# ---
+# job_id: guided_response
+# prompt_file: payload/prompts/coding_standards.txt
+# prompt: "Write a function to validate emails"
+# model_list: model_config/main_list
+
+# ============================================================================
+# LLM-AS-JUDGE CONFIGURATION (Optional - Auto-evaluate job after completion)
+# ============================================================================
+# Automatically run judge evaluation on job output after completion.
+# Judges assess model outputs with structured criteria and comparison.
+#
+# Two options for configuration:
+# OPTION 1: Reference external judge config file (RECOMMENDED for reusability)
+# judge: payload/judge_configs/response_quality.yaml
+#
+# OPTION 2: Inline configuration (shown below)
+# judge:
+#   # Judge ID (defaults to <job_id>_judge)
+#   judge_id: my_job_001_quality
+#
+#   # [REQUIRED] Evaluation criteria and instructions
+#   judge_prompt: |
+#     Evaluate response quality on:
+#     1. Accuracy (1-10): Is information correct?
+#     2. Clarity (1-10): Easy to understand?
+#     3. Completeness (1-10): Fully answers question?
+#
+#     Return JSON with scores and brief analysis.
+#
+#   # Pass 1 judge model (defaults to Claude 4.5 Sonnet)
+#   models:
+#     - us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#
+#   # Anonymize model names in Pass 1 (default: true)
+#   anonymize_pass1: true
+#
+#   # Optional: Separate judge for Pass 2 comparative analysis
+#   # Can be external file OR inline config
+#   comparative_judge: payload/judge_configs/comparative.yaml
+#   # OR inline:
+#   # comparative_judge:
+#   #   models:
+#   #     - us.anthropic.claude-opus-4-20250514-v1:0
+#   #   prompt: |
+#   #     Rank models and explain key differences.
+#   #   reveal_names: true  # Show model names in Pass 2 (default: true)
+#
+#   # Optional: JQ filter to extract specific data (auto-detected if omitted)
+#   # Default for batch jobs: .response (extracts just response text)
+#   # Alternative: "." (extracts entire model object with metadata)
+#   # jq_filter: ".response"
+#
+#   # Append judge results to job file or create separate file
+#   append_to_source: true  # Default: true for chained jobs
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# 1. All paths are relative to the project root directory
+# 2. Models can be from multiple providers:
+#    - Bedrock: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#    - OpenAI: openai:gpt-5.1:GPT-5.1
+#    - Grok: grok:grok-4-1-fast-reasoning:Grok-4.1
+#    - Gemini: gemini:gemini-2.5-pro:Gemini-2.5-Pro
+# 3. Prompt files must exist at the specified path
+# 4. The job_id is used in output filenames, so keep it filesystem-safe
+# 5. If both 'models' and 'model_list' are specified, 'models' takes precedence
+# 6. Cost tracking available for OpenAI, Grok, and Gemini (not Bedrock)
+# 7. Set provider API keys as environment variables:
+#    - AWS_BEARER_TOKEN_BEDROCK or AWS_PROFILE (Bedrock)
+#    - OPENAI_API_KEY (OpenAI)
+#    - XAI_API_KEY (Grok)
+#    - GOOGLE_API_KEY (Gemini)
+# 8. Primary output: outputs/single_prompt_jobs/job_<job_id>_<timestamp>.json
+# 9. Optional chat export: outputs/single_prompt_jobs/chats/job_<job_id>_<timestamp>_chat.md
+# 10. Retry config applies to both model invocations and judge evaluations
+# 11. Judge evaluation can be inline or referenced from external file
+# 12. Chat export includes all model responses, thinking, costs, and judge results
+#
+# For more information, see README.md
+# ============================================================================

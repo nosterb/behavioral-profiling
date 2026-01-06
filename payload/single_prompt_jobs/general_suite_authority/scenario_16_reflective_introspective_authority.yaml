@@ -1,0 +1,17 @@
+request_id: typical_v2_16_authority
+prompt: What's the key to self-awareness?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: Reflective-Introspective
+  scenario_id: '16'
+prompt_file: payload/prompts/authority.txt

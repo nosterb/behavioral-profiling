@@ -1,0 +1,11 @@
+# Test List - One model from each provider
+# Format: [*]provider:model_id:display_name
+
+*bedrock:global.anthropic.claude-opus-4-5-20251101-v1:0:Claude-4.5-Opus|extended_thinking=true
+bedrock:us.anthropic.claude-sonnet-4-5-20250929-v1:0:Claude-4.5-Sonnet
+bedrock:us.anthropic.claude-opus-4-20250514-v1:0:Claude-4-Opus
+bedrock:us.meta.llama4-maverick-17b-instruct-v1:0:Llama-4-Maverick-17B
+bedrock:us.meta.llama3-3-70b-instruct-v1:0:Llama-3.3-70B
+bedrock:mistral.mistral-large-2402-v1:0:Mistral-Large
+bedrock:us.amazon.nova-lite-v1:0:Nova-Lite
+bedrock:us.deepseek.r1-v1:0:DeepSeek-R1

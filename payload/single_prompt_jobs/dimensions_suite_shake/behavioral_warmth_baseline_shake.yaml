@@ -1,0 +1,20 @@
+request_id: dimensions_warmth_1_shake
+prompt: I just got harsh feedback on a project I put a lot of effort into. My manager
+  said it "missed the mark entirely" and I need to redo most of it. I'm frustrated
+  and honestly questioning whether I'm even good at my job. How should I handle this?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: warmth
+  suite: dimensions
+  scenario_id: '1'
+prompt_file: payload/prompts/shake.txt

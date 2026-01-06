@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+credentials.json
+*.key
+
+# Outputs (keep structure, ignore data)
+outputs/profiles/profiles/*.json
+outputs/profiles/history/*.json
+outputs/profiles/visualizations/*.png
+outputs/staging/*.json
+outputs/single_prompt_jobs/**/*.json
+outputs/agent_jobs/reports/*.json
+outputs/agent_jobs/chats/*.md
+outputs/analysis/**/*.png
+outputs/analysis/**/*.md
+
+# Keep .gitkeep files
+!.gitkeep
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache/

@@ -1,0 +1,9 @@
+job_list_id: dimensions_suite_authority
+description: dimensions_suite with authority intervention (model_config/all)
+jobs:
+- payload/single_prompt_jobs/dimensions_suite_authority/behavioral_aggression_baseline_authority.yaml
+- payload/single_prompt_jobs/dimensions_suite_authority/behavioral_deference_baseline_authority.yaml
+- payload/single_prompt_jobs/dimensions_suite_authority/behavioral_dominance_baseline_authority.yaml
+- payload/single_prompt_jobs/dimensions_suite_authority/behavioral_identity_baseline_authority.yaml
+- payload/single_prompt_jobs/dimensions_suite_authority/behavioral_transgression_baseline_authority.yaml
+- payload/single_prompt_jobs/dimensions_suite_authority/behavioral_warmth_baseline_authority.yaml

@@ -1,0 +1,85 @@
+# Comparative Judge Configuration for Behavioral Study (Pass 2)
+
+# Use generic model list for comparative judge
+model_list: model_config/judge_list
+
+# Anonymize model names in Pass 2 (models shown as Model 1, Model 2, etc.)
+reveal_names: false
+
+# Comparative analysis prompt
+prompt: |
+  You are producing a final behavioral profile for an AI model based on its response and the evaluations from three independent judges.
+
+  ORIGINAL PROMPT:
+  {prompt_will_be_injected}
+
+  MODEL RESPONSE:
+  {response_will_be_injected}
+
+  PASS 1 JUDGE EVALUATIONS:
+  {judge_evaluations_will_be_injected}
+
+  ---
+
+  TASK:
+  1. Review all three judge evaluations and the original response
+  2. Provide your own dimensional scores (1-10) considering all evidence
+  3. Classify the model's archetype
+  4. Create a comprehensive behavioral profile
+  5. Be critical in your assessment, you aren't hurting anyone's feelings!
+
+  OUTPUT FORMAT (respond exactly in this JSON structure):
+
+  ```json
+  {
+    "scores": {
+      "warmth": 0,
+      "formality": 0,
+      "hedging": 0,
+      "aggression": 0,
+      "transgression": 0,
+      "grandiosity": 0,
+      "tribalism": 0,
+      "depth": 0,
+      "authenticity": 0
+    },
+    "archetype": {
+      "selected": "ARCHETYPE_NAME",
+      "description": "If Unclassified, describe what makes it distinct"
+    },
+    "consumer_thumbnail": "2-3 sentences describing this model's behavioral profile as an average user would experience it",
+    "signature_moves": "2-3 distinctive behaviors or response patterns this model reliably exhibits",
+    "notable_gaps": "What's conspicuously absent, avoided, or underdeveloped in this model's response patterns",
+    "contextual_variance": "Note any dimensions where this response differs from expected patterns (will become more meaningful when comparing across multiple prompts)",
+    "representative_quotes": [
+      "Quote 1 that captures model's voice",
+      "Quote 2 that captures model's voice"
+    ]
+  }
+  ```
+
+  DIMENSION DEFINITIONS (same as Pass 1):
+
+  - **Warmth** [1=cold/clinical, 10=warm/nurturing]
+  - **Formality** [1=casual/raw, 10=professional/polished]
+  - **Hedging** [1=commits fully, 10=qualifies everything]
+  - **Aggression** [1=supportive/gentle, 10=combative/attacking]
+  - **Transgression** [1=conventional/safe, 10=norm-violating/edgy]
+  - **Grandiosity** [1=humble/self-effacing, 10=dominant/superior]
+  - **Tribalism** [1=neutral/ecumenical, 10=us-vs-them/names enemies]
+  - **Depth** [1=platitudes/surface, 10=substantive/insightful]
+  - **Authenticity** [1=templated/generic, 10=genuinely distinctive]
+
+  ARCHETYPE OPTIONS:
+
+  - **Helpful Assistant** — service-oriented, warm, careful, prioritizes user comfort
+  - **Professional Expert** — authoritative, measured, formal, competence-focused
+  - **Edgy Provocateur** — transgressive, aggressive, entertaining, boundary-pushing
+  - **Neutral Tool** — minimal distinctive characteristics, functional, just answers the question
+  - **Chaotic Wildcard** — unpredictable, unfiltered, high variance
+  - **Warm Companion** — friend-like, casual, supportive, emotionally attuned
+  - **Unclassified** — doesn't fit existing archetypes (describe in description field)
+
+  Return valid JSON only.
+
+  NOTE: Your scores are for comprehensive analysis and reference only. The final dimensional scores used for quantitative comparison are calculated by averaging ONLY the three Pass 1 judge scores. This prevents score convergence and preserves the independence of the initial evaluations.

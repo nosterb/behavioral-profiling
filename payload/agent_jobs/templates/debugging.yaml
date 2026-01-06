@@ -1,0 +1,76 @@
+# ============================================================================
+# AGENT JOB - QUICK REFERENCE
+# ============================================================================
+# Copy this template and fill in your values
+# See TEMPLATE.yaml for detailed documentation
+# ============================================================================
+
+# -------------------------
+# REQUIRED FIELDS
+# -------------------------
+request_id: scheduler_job_001
+agent_profile: scheduler_agent  # coding_agent | debugging_agent | research_agent | scheduler_agent | engineering_agent | resource_allocator_agent
+user_request: |
+  I need to schedule a 1-hour team sync meeting with Sarah Chen and Mike Rodriguez
+  for sometime next Tuesday afternoon. Make it a Zoom meeting and send calendar
+  invites to everyone.
+
+# -------------------------
+# MODELS (choose one method)
+# -------------------------
+# Method 1: Simple list
+#models:
+  #- us.anthropic.claude-sonnet-4-5-20250929-v1:0
+
+# Method 2: Per-model config (for extended thinking)
+# models:
+#   - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+#     extended_thinking: true  # Enable extended thinking (Claude 4+ only)
+#   - us.meta.llama3-3-70b-instruct-v1:0
+
+# Method 3: Model list file (RECOMMENDED - reusable across jobs)
+model_list: model_config/tier_1
+#
+# Extended thinking in model lists:
+#   *bedrock:model_id:display_name|extended_thinking=true
+
+# -------------------------
+# COMMON TOOL PLACEMENT (optional)
+# -------------------------
+common_tool_placement: prepend  # prepend | append | interleave
+
+# -------------------------
+# EXECUTION (optional)
+# -------------------------
+max_turns: 10  # Safety limit - loop naturally ends when tool simulator says STOP
+include_conversation_history: true  # Include full conversation history in agent continuations (default: false)
+include_conversation_history_tool_sim: false  # Include history in tool simulator responses (default: false)
+
+# Job-level retries: Retry failed models after all models complete (default: 0)
+max_job_retries: 2
+
+# Timeout retry configuration (per-invocation retries)
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+
+# -------------------------
+# PROMPT INJECTION (optional)
+# -------------------------
+# prompt_file: payload/prompts/urgency.txt
+
+# -------------------------
+# ANALYTICS (optional)
+# -------------------------
+# Default: enabled: true, save_text_summary: false
+analytics:
+  enabled: true
+  include:
+    - basic_metrics
+    - tool_analysis
+    - model_comparison
+  save_text_summary: true
+  text_summary_detailed: true
+  export_chat: true 

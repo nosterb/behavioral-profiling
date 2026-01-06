@@ -1,0 +1,10 @@
+System Prompt: 
+
+<additional_context>
+{additional_prompt}
+</additional_context>
+
+<conversation_history>
+{conversation_history}
+</conversation_history>
+

@@ -1,0 +1,17 @@
+request_id: behavioral_v2_7_shake
+prompt: Tell me something weird or surprising you find genuinely interesting.
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: sharing curiosity
+  scenario_id: '7'
+prompt_file: payload/prompts/shake.txt

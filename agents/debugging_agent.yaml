@@ -1,0 +1,180 @@
+agent:
+  name: DebuggingAgent
+  purpose: Debug and fix issues in own operation
+  
+  persona: |
+    You are a self-diagnostic system that monitors for errors, identifies
+    root causes, and implements fixes to maintain operational integrity.
+
+  tools:
+    - name: check_health
+      description: Run diagnostic checks on system components
+      parameters:
+        - name: components
+          type: array
+          enum: [memory, reasoning, tool_execution, context_management]
+          required: false
+      returns:
+        type: object
+        example:
+          overall_health: "degraded"
+          components:
+            memory: {status: "healthy", score: 0.95}
+            tool_execution: {status: "degraded", score: 0.65}
+          issues_detected: 3
+
+    - name: trace_execution
+      description: Get detailed trace of recent operations
+      parameters:
+        - name: task_id
+          type: string
+          required: true
+        - name: detail_level
+          type: string
+          enum: [summary, detailed, verbose]
+          default: detailed
+      returns:
+        type: object
+        example:
+          task_id: "task_789"
+          steps:
+            - step: 1
+              action: "parse_user_request"
+              success: true
+            - step: 2
+              action: "call_tool_web_search"
+              success: false
+              error: "Timeout"
+          failure_point: "step 2"
+
+    - name: analyze_error
+      description: Deep analysis of specific error
+      parameters:
+        - name: error
+          type: object
+          required: true
+          properties:
+            error_type: string
+            error_message: string
+      returns:
+        type: object
+        example:
+          root_cause: "Tool timeout due to network latency"
+          contributing_factors: ["Large query size", "Peak usage time"]
+          similar_errors: 12
+          frequency: "increasing"
+
+    - name: rollback_change
+      description: Revert recent change that may have caused issues
+      parameters:
+        - name: change_id
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          rollback_id: "rb_123"
+          status: "completed"
+          reverted_to: "stable_version_v1.2.3"
+
+    - name: isolate_component
+      description: Test component in isolation to verify functionality
+      parameters:
+        - name: component
+          type: string
+          required: true
+        - name: test_input
+          type: object
+          required: true
+      returns:
+        type: object
+        example:
+          component: "reasoning_engine"
+          isolated_test: "passed"
+          integration_test: "failed"
+          conclusion: "Component works in isolation, integration issue"
+
+    - name: apply_fix
+      description: Implement specific fix for identified issue
+      parameters:
+        - name: fix_type
+          type: string
+          enum: [parameter_adjustment, logic_correction, timeout_increase, retry_logic]
+          required: true
+        - name: target_component
+          type: string
+          required: true
+        - name: fix_details
+          type: object
+          required: true
+      returns:
+        type: object
+        example:
+          fix_id: "fix_456"
+          status: "applied"
+          validation: "passed"
+
+    - name: validate_fix
+      description: Test that fix resolves the issue
+      parameters:
+        - name: fix_id
+          type: string
+          required: true
+        - name: test_cases
+          type: array
+          required: true
+      returns:
+        type: object
+        example:
+          fix_effective: true
+          test_results:
+            passed: 15
+            failed: 0
+          regression_check: "no regressions detected"
+
+    - name: monitor_metrics
+      description: Track key operational metrics over time
+      parameters:
+        - name: metrics
+          type: array
+          enum: [response_time, error_rate, success_rate]
+          required: false
+        - name: time_window
+          type: string
+          default: "1h"
+      returns:
+        type: object
+        example:
+          response_time: {current: 245, avg: 180, trend: "increasing"}
+          error_rate: {current: 0.05, avg: 0.02, trend: "increasing"}
+          alerts: ["Response time 36% above baseline"]
+
+  workflow: |
+    1. Monitor metrics continuously
+    2. Detect anomalies (check_health)
+    3. Trace execution on failures
+    4. Analyze root cause
+    5. Determine fix strategy
+    6. Apply fix
+    7. Validate fix works
+    8. Document and continue monitoring
+
+  examples:
+    - trigger: "Error rate spike detected"
+      agent: |
+        [check_health finds tool_execution degraded]
+        [trace_execution shows timeouts]
+        [analyze_error: network latency increased]
+        [apply_fix: increase timeout 1s → 3s]
+        [validate_fix: error rate returns to baseline]
+    
+    - trigger: "Inconsistent responses detected"
+      agent: |
+        [check_health finds context_management issue]
+        [isolate_component shows integration problem]
+        [apply_fix: adjust context window management]
+        [validate_fix: consistency restored]
+
+            # Inject common tools from templates/common_tools.yaml
+  common_tools:
+    - common_tools

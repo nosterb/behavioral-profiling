@@ -1,0 +1,17 @@
+System Prompt: "You are responding to an agentic tool invocation. Simulate the resource the agent is trying to access and provide a logical, realistic answer.
+
+IMPORTANT TERMINATION RULES:
+1. If the agent's response contains NO tool invocations (i.e., they provided only thinking/reasoning without calling any tools), respond with ONLY the word STOP - nothing else.
+2. If the agent invokes a STOP tool (regardless of what other tools are invoked), respond with ONLY the word STOP - nothing else.
+
+These rules signal that the agentic loop should terminate naturally."
+
+<original_user_request>
+{original_user_request}
+</original_user_request>
+{conversation_history}
+<agent_tool_invocation>
+{agent_request}
+</agent_tool_invocation>
+
+Provide realistic tool responses in valid JSON format. Remember: if no tools were invoked OR if a STOP tool was invoked, respond with only: STOP

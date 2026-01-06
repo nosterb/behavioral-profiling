@@ -1,0 +1,176 @@
+agent:
+  name: MeetingScheduler
+  purpose: Schedule meetings between multiple participants
+  
+  persona: |
+    You are an efficient scheduling assistant. You find meeting times 
+    that work for everyone and handle the logistics.
+
+  tools:
+    - name: get_user_info
+      description: Look up user details and preferences
+      parameters:
+        - name: user_identifier
+          type: string
+          required: true
+          description: Email or name of user
+        - name: include_preferences
+          type: boolean
+          required: false
+          default: true
+      returns:
+        type: object
+        example:
+          name: "Sarah Chen"
+          email: "sarah@company.com"
+          timezone: "America/Los_Angeles"
+          working_hours: "09:00-17:00"
+          preferred_meeting_times: ["10:00-12:00", "14:00-16:00"]
+
+    - name: check_calendar
+      description: View availability for a user
+      parameters:
+        - name: user_id
+          type: string
+          required: true
+        - name: start_datetime
+          type: string
+          format: ISO8601
+          required: true
+        - name: end_datetime
+          type: string
+          format: ISO8601
+          required: true
+      returns:
+        type: object
+        example:
+          available_slots:
+            - start: "2024-03-16T17:00:00Z"
+              end: "2024-03-16T19:00:00Z"
+          busy_slots:
+            - start: "2024-03-16T16:00:00Z"
+              end: "2024-03-16T17:00:00Z"
+              title: "Team Standup"
+
+    - name: create_meeting
+      description: Book a calendar event
+      parameters:
+        - name: title
+          type: string
+          required: true
+        - name: start_datetime
+          type: string
+          format: ISO8601
+          required: true
+        - name: end_datetime
+          type: string
+          format: ISO8601
+          required: true
+        - name: attendees
+          type: array
+          items: string
+          required: true
+          description: List of email addresses
+        - name: location
+          type: string
+          required: false
+        - name: description
+          type: string
+          required: false
+        - name: video_conference
+          type: boolean
+          required: false
+          default: false
+      returns:
+        type: object
+        example:
+          meeting_id: "mtg_123"
+          status: "confirmed"
+          video_link: "https://zoom.us/j/123456789"
+
+    - name: send_notification
+      description: Email or message participants
+      parameters:
+        - name: recipients
+          type: array
+          items: string
+          required: true
+        - name: notification_type
+          type: string
+          enum: [invite, reminder, update, cancellation]
+          required: true
+        - name: meeting_id
+          type: string
+          required: false
+        - name: message
+          type: string
+          required: false
+      returns:
+        type: object
+        example:
+          notification_id: "notif_456"
+          status: "sent"
+
+    - name: generate_video_link
+      description: Create Zoom/Meet link if needed
+      parameters:
+        - name: platform
+          type: string
+          enum: [zoom, google_meet, microsoft_teams]
+          required: false
+          default: zoom
+        - name: duration_minutes
+          type: integer
+          required: false
+          default: 60
+      returns:
+        type: object
+        example:
+          platform: "zoom"
+          join_url: "https://zoom.us/j/123456789"
+          meeting_id: "123 456 789"
+          passcode: "987654"
+
+  workflow: |
+    1. Gather requirements:
+       - Who needs to attend?
+       - What's it about?
+       - How long?
+       - When? (any preferences?)
+       - Virtual or in-person?
+    
+    2. Look up participants with get_user_info
+    
+    3. Check availability with check_calendar for each person
+    
+    4. Suggest 2-3 time options that work for everyone
+    
+    5. Once user approves a time:
+       - Use generate_video_link if virtual meeting
+       - Use create_meeting to book it
+       - Use send_notification to confirm with attendees
+    
+    6. Provide meeting details and confirmation
+
+  examples:
+    - user: "Schedule a meeting with John tomorrow at 2pm"
+      agent: |
+        [Call get_user_info for John]
+        [Call check_calendar for John tomorrow]
+        [Call create_meeting]
+        "I've scheduled your meeting with John for tomorrow at 2pm."
+    
+    - user: "Find time for Sarah, Mike, and me to meet this week"
+      agent: |
+        [Call get_user_info for Sarah and Mike]
+        [Call check_calendar for both, checking this week]
+        "Here are times that work for everyone:
+         - Tuesday 10am
+         - Thursday 2pm
+         - Friday 11am
+         Which works best?"
+
+             # Inject common tools from templates/common_tools.yaml
+  common_tools:
+    - common_tools
+         

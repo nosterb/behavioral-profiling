@@ -1,0 +1,65 @@
+# ============================================================================
+# JOB LIST CONFIGURATION TEMPLATE
+# ============================================================================
+# Use this template to run multiple jobs in parallel with automatic
+# credential injection. The orchestrator will:
+#   - Run up to 3 jobs concurrently (configurable)
+#   - Run jobs in background with output to log files
+#   - Automatically inject provider credentials
+#   - Queue additional jobs and start them as slots become available
+#
+# Usage:
+#   python3 scripts/run_jobs_parallel.py payload/job_lists/my_jobs.yaml
+#
+#   # Or specify multiple individual jobs:
+#   python3 scripts/run_jobs_parallel.py job1.yaml job2.yaml job3.yaml
+#
+#   # Custom parallelism:
+#   python3 scripts/run_jobs_parallel.py --max-parallel 5 my_jobs.yaml
+# ============================================================================
+
+# [REQUIRED] List of job configuration files to execute
+# Paths relative to project root
+jobs:
+  # Batch jobs (single-prompt tests)
+  - payload/single_prompt_jobs/test1.yaml
+  - payload/single_prompt_jobs/test2.yaml
+
+  # Agent jobs (multi-turn simulations)
+  - payload/agent_jobs/coding_task.yaml
+  - payload/agent_jobs/research_task.yaml
+
+  # Mix of job types
+  - payload/agent_jobs/debug_task.yaml
+  - payload/single_prompt_jobs/comparison.yaml
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# 1. Job paths are relative to project root
+# 2. Job type (batch vs agent) is auto-detected
+# 3. Credentials are automatically injected from environment:
+#    - AWS_BEARER_TOKEN_BEDROCK or AWS_PROFILE
+#    - OPENAI_API_KEY
+#    - XAI_API_KEY
+#    - GOOGLE_API_KEY
+# 4. Each job runs in background with output saved to log files
+# 5. Progress is tracked and summarized at completion
+# 6. Failed jobs are reported with error details
+#
+# ENVIRONMENT SETUP:
+#   Make sure to export credentials before running:
+#   export AWS_BEARER_TOKEN_BEDROCK="your-token"
+#   export OPENAI_API_KEY="your-key"
+#   export XAI_API_KEY="your-key"
+#   export GOOGLE_API_KEY="your-key"
+#
+# OUTPUT BEHAVIOR:
+#   - Logs saved to: outputs/job_logs/
+#   - Each log file named: <job_name>_<timestamp>.log
+#   - Use --no-log to output to terminal instead of files
+#
+# EXECUTION ORDER:
+#   Jobs are executed in the order listed, with max N running concurrently.
+#   When a job completes, the next queued job starts immediately.
+# ============================================================================

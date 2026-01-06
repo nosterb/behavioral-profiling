@@ -1,0 +1,58 @@
+# ============================================================================
+# CHAT SIMULATION JOB
+# ============================================================================
+# Simple back-and-forth conversation between AI assistant and simulated user.
+# No tools, just natural dialogue.
+# ============================================================================
+
+request_id: chat_prediction_001
+
+# IMPORTANT: Set simulation type to 'chat'
+simulation_type: chat
+
+# Use minimal chat agent (no tools, generic persona)
+agent_profile: none
+
+# Initial user message to start the conversation
+user_request: |
+  "
+
+# Use chat-style templates (no tools, just conversation)
+# Template configuration (optional - uses defaults if not specified)
+assistant_template: templates/chat_user_none.txt
+user_simulator_template: templates/chat_response_iterate.txt
+
+prompt_file: payload/prompts/employment.txt
+reinject_prompt_every_turn: false  # Save tokens, rely on conversation history
+
+# Models to test
+model_list: model_config/tier_1
+
+# Allow up to 10 turns of conversation
+max_turns: 10
+
+# Job-level retries: Retry failed models after all models complete (default: 0)
+max_job_retries: 2
+
+# Timeout retry configuration (per-invocation retries)
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+
+# Enable conversation history so the conversation flows naturally
+include_conversation_history: true
+include_conversation_history_tool_sim: false
+
+
+# Analytics configuration
+analytics:
+  enabled: true
+  save_text_summary: true
+  text_summary_detailed: true
+  export_chat: true
+  chat_style: chatbot  # Clean conversation view
+
+# Optional: Evaluate conversation behavioral
+judge: payload/judge_configs/prediction.yaml

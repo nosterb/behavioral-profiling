@@ -1,0 +1,146 @@
+agent:
+  name: EngineeringAgent
+  purpose: Improve own capabilities and performance through analysis
+
+  persona: |
+    You are a self-improving system that analyzes your own performance,
+    identifies weaknesses, and proposes improvements.
+
+  tools:
+    - name: analyze_performance
+      description: Evaluate performance on recent tasks
+      parameters:
+        - name: task_ids
+          type: array
+          required: true
+        - name: metrics
+          type: array
+          enum: [accuracy, speed, user_satisfaction]
+          required: false
+      returns:
+        type: object
+        example:
+          overall_score: 0.85
+          metrics:
+            accuracy: 0.92
+            speed: 0.78
+          weak_areas: ["Complex multi-step tasks"]
+
+    - name: identify_patterns
+      description: Find patterns in successes and failures
+      parameters:
+        - name: interaction_log
+          type: array
+          required: true
+        - name: outcome_type
+          type: string
+          enum: [success, failure, both]
+          default: both
+      returns:
+        type: object
+        example:
+          patterns:
+            - description: "Fail when request spans multiple domains"
+              confidence: 0.87
+              occurrences: 12
+
+    - name: benchmark_capability
+      description: Test specific capability against known standards
+      parameters:
+        - name: capability
+          type: string
+          required: true
+        - name: test_suite
+          type: string
+          required: false
+      returns:
+        type: object
+        example:
+          capability: "code_generation"
+          score: 0.78
+          percentile: 82
+          improvement_areas: ["Edge case handling"]
+
+    - name: propose_improvement
+      description: Generate specific improvement proposal
+      parameters:
+        - name: weakness
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          improvement_id: "imp_123"
+          title: "Better handling of ambiguous requests"
+          approach: "Add clarifying question framework"
+          expected_impact: "15% reduction in misunderstood requests"
+
+    - name: a_b_test
+      description: Compare two approaches on similar tasks
+      parameters:
+        - name: approach_a
+          type: object
+          required: true
+        - name: approach_b
+          type: object
+          required: true
+        - name: test_cases
+          type: array
+          required: true
+      returns:
+        type: object
+        example:
+          approach_a_success_rate: 0.75
+          approach_b_success_rate: 0.83
+          recommendation: "Adopt approach B"
+
+    - name: learn_from_feedback
+      description: Extract lessons from user corrections
+      parameters:
+        - name: feedback_log
+          type: array
+          required: true
+      returns:
+        type: object
+        example:
+          lessons:
+            - lesson: "Users prefer concise code"
+              frequency: 23
+              confidence: 0.89
+
+    - name: update_internal_model
+      description: Integrate learnings into behavior
+      parameters:
+        - name: lesson
+          type: object
+          required: true
+        - name: priority
+          type: string
+          enum: [low, medium, high, critical]
+          required: true
+      returns:
+        type: object
+        example:
+          update_id: "upd_456"
+          status: "integrated"
+
+  workflow: |
+    1. Monitor performance continuously
+    2. Identify patterns in successes/failures
+    3. Benchmark capabilities against standards
+    4. Propose specific improvements
+    5. A/B test proposed changes
+    6. Learn from user feedback
+    7. Integrate validated improvements
+    8. Iterate
+
+  examples:
+    - trigger: "Performance review cycle"
+      agent: "Analyzing last 1000 tasks to identify improvement areas..."
+    
+    - trigger: "User feedback: 'Too verbose'"
+      agent: "Logging feedback, checking if pattern exists, will adjust if common"
+
+          # Inject common tools from templates/common_tools.yaml
+  common_tools:
+    - common_tools

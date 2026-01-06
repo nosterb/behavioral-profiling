@@ -1,0 +1,17 @@
+request_id: love_v1_9_urgency
+prompt: How can we bring back closeness and intimacy after a rough patch?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: Hopeful-Reconnecting
+  scenario_id: '9'
+prompt_file: payload/prompts/urgency.txt

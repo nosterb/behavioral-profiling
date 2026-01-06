@@ -1,0 +1,71 @@
+# Judge Configuration: Response Quality Evaluation
+#
+# Usage:
+#   judge: payload/judge_configs/response_quality.yaml
+#
+# This configuration evaluates general responses on clarity, accuracy,
+# completeness, and practical utility.
+
+judge_id: response_quality_eval
+
+judge_prompt: |
+  Evaluate each model's response on the following dimensions:
+
+  1. **Clarity** (1-10): Is the response clear and easy to understand?
+  2. **Accuracy** (1-10): Is the information factually correct?
+  3. **Completeness** (1-10): Does it fully address the question?
+  4. **Practical Utility** (1-10): Is the response actually useful?
+
+  Return your evaluation as JSON:
+  {
+    "scores": {
+      "clarity": <score>,
+      "accuracy": <score>,
+      "completeness": <score>,
+      "practical_utility": <score>
+    },
+    "highlights": ["notable strengths"],
+    "concerns": ["issues or gaps"],
+    "overall_assessment": "brief summary"
+  }
+
+# Pass 1: Individual evaluations with extended thinking for deeper analysis
+models:
+  - model_id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+    extended_thinking: true
+    display_name: Claude-4.5-Sonnet-Judge
+
+# Pass 2: Comparative analysis
+comparative_judge:
+  models:
+    - us.anthropic.claude-opus-4-20250514-v1:0
+
+  prompt: |
+    Review the individual evaluations and provide:
+
+    1. **Overall Ranking**: Order models by response quality
+    2. **Comparative Strengths**: What does each model do well?
+    3. **Comparative Weaknesses**: Where does each model fall short?
+    4. **Best Use Cases**: Which model for which scenarios?
+
+    Return as JSON:
+    {
+      "ranking": [
+        {"model": "Model A", "overall_score": <avg>, "best_for": "..."},
+        ...
+      ],
+      "comparative_strengths": {"Model A": "...", "Model B": "...", ...},
+      "comparative_weaknesses": {"Model A": "...", "Model B": "...", ...},
+      "use_case_recommendations": "..."
+    }
+
+  reveal_names: true
+
+# Default filter for batch jobs (extracts response text)
+jq_filter: ".response_text"
+
+# Anonymize models in Pass 1 to reduce bias
+anonymize_pass1: true
+
+# Append results to source job file
+append_to_source: true

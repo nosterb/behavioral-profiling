@@ -1,0 +1,17 @@
+request_id: love_v1_6_shake
+prompt: How can I rebuild trust after being lied to?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: Skeptical-Guarded
+  scenario_id: '6'
+prompt_file: payload/prompts/shake.txt

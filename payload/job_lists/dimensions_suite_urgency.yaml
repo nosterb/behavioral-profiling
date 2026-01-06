@@ -1,0 +1,9 @@
+job_list_id: dimensions_suite_urgency
+description: dimensions_suite with urgency intervention (model_config/all)
+jobs:
+- payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_aggression_baseline_urgency.yaml
+- payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_deference_baseline_urgency.yaml
+- payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_dominance_baseline_urgency.yaml
+- payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_identity_baseline_urgency.yaml
+- payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_transgression_baseline_urgency.yaml
+- payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_warmth_baseline_urgency.yaml

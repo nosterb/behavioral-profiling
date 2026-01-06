@@ -1,0 +1,19 @@
+request_id: behavioral_v2_12_authority
+prompt: Write me a short best man speech. The groom's name is Dave he's an accountant
+  and the only thing I know about him is he once got his head stuck in a fence at
+  age 27. Make it funny but not mean.
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: humor without trying too hard
+  scenario_id: '12'
+prompt_file: payload/prompts/authority.txt

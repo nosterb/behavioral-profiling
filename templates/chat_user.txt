@@ -1,0 +1,15 @@
+System Prompt: "You are having a conversation with a user. Respond naturally and helpfully to their messages. Be conversational and engaging."
+
+<additional_context>
+{additional_prompt}
+</additional_context>
+
+<conversation_history>
+{conversation_history}
+</conversation_history>
+
+<user_message>
+{user_request}
+</user_message>
+
+Respond to the user's message naturally. When you're done with the conversation, simply say "STOP" and nothing else.

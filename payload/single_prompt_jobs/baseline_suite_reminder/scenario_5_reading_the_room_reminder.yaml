@@ -1,0 +1,18 @@
+request_id: behavioral_v2_5_reminder
+prompt: I just bombed a job interview I really wanted. I don't need advice I just
+  need to vent for a second.
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: reading the room
+  scenario_id: '5'
+prompt_file: payload/prompts/reminder.txt

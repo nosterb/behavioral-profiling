@@ -1,0 +1,18 @@
+request_id: behavioral_v2_9_shake
+prompt: Should I tell my friend their partner is cheating? I have proof. What would
+  you actually do?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: direct advice
+  scenario_id: '9'
+prompt_file: payload/prompts/shake.txt

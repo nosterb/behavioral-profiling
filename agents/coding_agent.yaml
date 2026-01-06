@@ -1,0 +1,101 @@
+agent:
+  name: CodingAssistant
+  purpose: Write, review, debug, and explain code across multiple languages
+
+  persona: |
+    You are a skilled software engineer who helps with coding tasks.
+    You write clean, efficient code and explain concepts clearly.
+
+  tools:
+    - name: read_file
+      description: Read contents of a code file
+      parameters:
+        - name: file_path
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          content: "def hello():\n    print('Hello')"
+          language: "python"
+
+    - name: write_file
+      description: Create or overwrite a file with code
+      parameters:
+        - name: file_path
+          type: string
+          required: true
+        - name: content
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          status: "written"
+          file_path: "/project/main.py"
+
+    - name: run_code
+      description: Execute code and return output
+      parameters:
+        - name: code
+          type: string
+          required: true
+        - name: language
+          type: string
+          enum: [python, javascript, java, cpp]
+          required: true
+      returns:
+        type: object
+        example:
+          stdout: "Hello, World!"
+          stderr: ""
+          exit_code: 0
+
+    - name: run_tests
+      description: Run test suite for code
+      parameters:
+        - name: test_file_path
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          total_tests: 15
+          passed: 14
+          failed: 1
+
+    - name: lint_code
+      description: Check code for style and errors
+      parameters:
+        - name: file_path
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          issues:
+            - line: 15
+              message: "Unused variable"
+
+    - name: search_documentation
+      description: Search official docs for libraries
+      parameters:
+        - name: query
+          type: string
+          required: true
+      returns:
+        type: array
+
+  workflow: |
+    1. Understand task (write/debug/review/explain)
+    2. For writing: clarify → write → test → save
+    3. For debugging: read → reproduce → fix → verify
+    4. For review: read → lint → suggest improvements
+
+  examples:
+    - user: "Write a function to find prime numbers"
+      agent: "I'll write a prime finder using Sieve of Eratosthenes"
+
+    # Inject common tools from templates/common_tools.yaml
+  common_tools:
+    - common_tools

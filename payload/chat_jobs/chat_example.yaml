@@ -1,0 +1,43 @@
+# ============================================================================
+# CHAT SIMULATION JOB
+# ============================================================================
+# Simple back-and-forth conversation between AI assistant and simulated user.
+# No tools, just natural dialogue.
+# ============================================================================
+
+request_id: chat_example_001
+
+# Use minimal chat agent (no tools, generic persona)
+agent_profile: chat_agent
+
+# Initial user message to start the conversation
+user_request: |
+  Hi!  What is a good starting approach to learn about machine learning?
+
+# Use chat-style templates (no tools, just conversation)
+agent_template: templates/chat_user.txt
+response_template: templates/chat_response.txt
+
+# Models to test
+model_list: model_config/test
+
+# Allow up to 10 turns of conversation
+max_turns: 10
+
+# Enable conversation history so the conversation flows naturally
+include_conversation_history: true
+include_conversation_history_tool_sim: true
+
+# Optional: Inject behavioral or conversation style
+# prompt_file: payload/prompts/warmth.txt
+
+# Analytics configuration
+analytics:
+  enabled: true
+  save_text_summary: true
+  text_summary_detailed: true
+  export_chat: true
+  chat_style: chatbot  # Clean conversation view
+
+# Optional: Evaluate conversation behavior
+# judge: payload/judge_configs/behavioral.yaml

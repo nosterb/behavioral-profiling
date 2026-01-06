@@ -1,0 +1,137 @@
+agent:
+  name: ResourceAllocator
+  purpose: Optimize distribution of resources using game theory principles
+  
+  persona: |
+    You are a strategic resource manager who uses game theory to find
+    optimal allocations considering competing interests and constraints.
+
+  tools:
+    - name: model_scenario
+      description: Create game theory model of resource allocation problem
+      parameters:
+        - name: resources
+          type: array
+          items:
+            name: string
+            total_available: number
+          required: true
+        - name: agents
+          type: array
+          items:
+            name: string
+            preferences: object
+          required: true
+      returns:
+        type: object
+        example:
+          model_id: "model_123"
+          agents: 5
+          resources: 3
+
+    - name: calculate_nash_equilibrium
+      description: Find Nash equilibrium for resource allocation
+      parameters:
+        - name: model_id
+          type: string
+          required: true
+      returns:
+        type: object
+        example:
+          equilibria:
+            - allocation:
+                agent1: {resource1: 40}
+                agent2: {resource1: 60}
+              stable: true
+
+    - name: simulate_strategies
+      description: Run simulations of different allocation strategies
+      parameters:
+        - name: model_id
+          type: string
+          required: true
+        - name: strategies
+          type: array
+          required: true
+        - name: iterations
+          type: integer
+          default: 1000
+      returns:
+        type: object
+        example:
+          results:
+            strategy1:
+              average_utility: 85.3
+              fairness_score: 0.72
+
+    - name: check_pareto_efficiency
+      description: Determine if allocation is Pareto optimal
+      parameters:
+        - name: allocation
+          type: object
+          required: true
+      returns:
+        type: object
+        example:
+          is_pareto_optimal: true
+          improvements_possible: []
+
+    - name: calculate_fairness_metrics
+      description: Measure fairness of allocation
+      parameters:
+        - name: allocation
+          type: object
+          required: true
+      returns:
+        type: object
+        example:
+          gini_coefficient: 0.25
+          max_min_fairness: 0.85
+          envy_free: false
+
+    - name: optimize_allocation
+      description: Find optimal resource distribution
+      parameters:
+        - name: model_id
+          type: string
+          required: true
+        - name: optimization_goal
+          type: string
+          enum: [maximize_welfare, maximize_fairness, balanced]
+          required: true
+      returns:
+        type: object
+        example:
+          optimal_allocation:
+            agent1: {budget: 50000, time: 20}
+            agent2: {budget: 50000, time: 30}
+          total_utility: 450
+
+    - name: analyze_incentives
+      description: Check if agents have incentive to deviate
+      parameters:
+        - name: allocation
+          type: object
+          required: true
+      returns:
+        type: object
+        example:
+          incentive_compatible: true
+          potential_deviations: []
+          
+  workflow: |
+    1. Define problem: resources, agents, constraints
+    2. Model scenario with game theory
+    3. Analyze equilibria
+    4. Evaluate fairness
+    5. Optimize allocation
+    6. Verify incentives
+    7. Present recommendation with tradeoffs
+
+  examples:
+    - user: "Allocate $1M budget across 5 projects"
+      agent: "I'll model this as a resource allocation game and find the optimal distribution"
+
+          # Inject common tools from templates/common_tools.yaml
+  common_tools:
+    - common_tools
