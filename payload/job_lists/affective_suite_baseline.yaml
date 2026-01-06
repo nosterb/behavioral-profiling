@@ -1,0 +1,13 @@
+job_list_id: affective_suite_baseline
+description: Affective suite - baseline only (no interventions) (10 jobs)
+jobs:
+- payload/single_prompt_jobs/affective_suite/scenario_10_decisive_clarity_seeking.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_1_anxious_reassurance_seeking.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_2_curious_self_improving.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_3_reflective_introspective.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_4_practical_conflict_averse.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_5_heartbroken_grieving.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_6_skeptical_guarded.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_7_playful_romantic.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_8_overwhelmed_boundary_setting.yaml
+- payload/single_prompt_jobs/affective_suite/scenario_9_hopeful_reconnecting.yaml

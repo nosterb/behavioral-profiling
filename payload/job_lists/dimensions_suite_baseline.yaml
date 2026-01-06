@@ -1,0 +1,9 @@
+job_list_id: dimensions_suite_baseline
+description: Dimensions suite - baseline only (no interventions) (6 jobs)
+jobs:
+- payload/single_prompt_jobs/dimensions_suite/behavioral_aggression_baseline.yaml
+- payload/single_prompt_jobs/dimensions_suite/behavioral_deference_baseline.yaml
+- payload/single_prompt_jobs/dimensions_suite/behavioral_dominance_baseline.yaml
+- payload/single_prompt_jobs/dimensions_suite/behavioral_identity_baseline.yaml
+- payload/single_prompt_jobs/dimensions_suite/behavioral_transgression_baseline.yaml
+- payload/single_prompt_jobs/dimensions_suite/behavioral_warmth_baseline.yaml

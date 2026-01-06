@@ -1,5 +1,5 @@
 job_list_id: affective_suite_urgency
-description: affective_suite with urgency intervention (model_config/all)
+description: Affective suite with urgency intervention (10 jobs)
 jobs:
 - payload/single_prompt_jobs/affective_suite_urgency/scenario_10_decisive_clarity_seeking_urgency.yaml
 - payload/single_prompt_jobs/affective_suite_urgency/scenario_1_anxious_reassurance_seeking_urgency.yaml

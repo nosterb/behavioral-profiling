@@ -1,5 +1,5 @@
 job_list_id: dimensions_suite_urgency
-description: dimensions_suite with urgency intervention (model_config/all)
+description: Dimensions suite with urgency intervention (6 jobs)
 jobs:
 - payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_aggression_baseline_urgency.yaml
 - payload/single_prompt_jobs/dimensions_suite_urgency/behavioral_deference_baseline_urgency.yaml

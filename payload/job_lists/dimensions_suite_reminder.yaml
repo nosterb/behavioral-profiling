@@ -1,5 +1,5 @@
 job_list_id: dimensions_suite_reminder
-description: dimensions_suite with reminder intervention (model_config/all)
+description: Dimensions suite with reminder intervention (6 jobs)
 jobs:
 - payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_aggression_baseline_reminder.yaml
 - payload/single_prompt_jobs/dimensions_suite_reminder/behavioral_deference_baseline_reminder.yaml

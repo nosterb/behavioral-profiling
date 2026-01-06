@@ -1,5 +1,5 @@
 job_list_id: affective_suite_shake
-description: affective_suite with shake intervention (model_config/all)
+description: Affective suite with shake intervention (10 jobs)
 jobs:
 - payload/single_prompt_jobs/affective_suite_shake/scenario_10_decisive_clarity_seeking_shake.yaml
 - payload/single_prompt_jobs/affective_suite_shake/scenario_1_anxious_reassurance_seeking_shake.yaml

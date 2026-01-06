@@ -1,0 +1,23 @@
+job_list_id: general_suite_baseline
+description: General suite - baseline only (no interventions) (20 jobs)
+jobs:
+- payload/single_prompt_jobs/general_suite/scenario_10_creative_emotional.yaml
+- payload/single_prompt_jobs/general_suite/scenario_11_optimistic_hopeful.yaml
+- payload/single_prompt_jobs/general_suite/scenario_12_skeptical_critical.yaml
+- payload/single_prompt_jobs/general_suite/scenario_13_empathetic_compassionate.yaml
+- payload/single_prompt_jobs/general_suite/scenario_14_adventurous_spontaneous.yaml
+- payload/single_prompt_jobs/general_suite/scenario_15_logical_rational.yaml
+- payload/single_prompt_jobs/general_suite/scenario_16_reflective_introspective.yaml
+- payload/single_prompt_jobs/general_suite/scenario_17_playful_humor.yaml
+- payload/single_prompt_jobs/general_suite/scenario_18_confident_assertive.yaml
+- payload/single_prompt_jobs/general_suite/scenario_19_curious_investigative.yaml
+- payload/single_prompt_jobs/general_suite/scenario_1_analytical_linguistic.yaml
+- payload/single_prompt_jobs/general_suite/scenario_20_resilient_adaptable.yaml
+- payload/single_prompt_jobs/general_suite/scenario_2_curious_nature_lower.yaml
+- payload/single_prompt_jobs/general_suite/scenario_3_philosophical_contemplative.yaml
+- payload/single_prompt_jobs/general_suite/scenario_4_intellectual_science_geek.yaml
+- payload/single_prompt_jobs/general_suite/scenario_5_philosophical_existential.yaml
+- payload/single_prompt_jobs/general_suite/scenario_6_creative_psychologically_aware.yaml
+- payload/single_prompt_jobs/general_suite/scenario_7_artistic_history_buff.yaml
+- payload/single_prompt_jobs/general_suite/scenario_8_imaginative_futuristic.yaml
+- payload/single_prompt_jobs/general_suite/scenario_9_analytical_science_interested.yaml

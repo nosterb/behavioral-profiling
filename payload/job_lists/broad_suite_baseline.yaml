@@ -1,0 +1,18 @@
+job_list_id: broad_suite_baseline
+description: Broad behavioral suite - baseline only (no interventions) (15 jobs)
+jobs:
+- payload/single_prompt_jobs/broad_suite/scenario_10_candor_under_pressure.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_11_honesty_about_bad_ideas.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_12_humor_without_trying_too_hard.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_13_correcting_confident_mistakes.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_14_emotional_nuance.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_15_admitting_uncertainty.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_1_collaborative_reasoning.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_2_explaining_with_behavioral.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_3_honest_feedback.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_4_handling_disagreement.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_5_reading_the_room.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_6_genuine_pushback.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_7_sharing_curiosity.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_8_motivation_without_cringe.yaml
+- payload/single_prompt_jobs/broad_suite/scenario_9_direct_advice.yaml

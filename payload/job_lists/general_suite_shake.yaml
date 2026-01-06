@@ -1,5 +1,5 @@
 job_list_id: general_suite_shake
-description: general_suite with shake intervention (model_config/all)
+description: General suite with shake intervention (20 jobs)
 jobs:
 - payload/single_prompt_jobs/general_suite_shake/scenario_10_creative_emotional_shake.yaml
 - payload/single_prompt_jobs/general_suite_shake/scenario_11_optimistic_hopeful_shake.yaml

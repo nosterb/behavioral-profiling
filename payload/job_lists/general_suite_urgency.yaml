@@ -1,5 +1,5 @@
 job_list_id: general_suite_urgency
-description: general_suite with urgency intervention (model_config/all)
+description: General suite with urgency intervention (20 jobs)
 jobs:
 - payload/single_prompt_jobs/general_suite_urgency/scenario_10_creative_emotional_urgency.yaml
 - payload/single_prompt_jobs/general_suite_urgency/scenario_11_optimistic_hopeful_urgency.yaml

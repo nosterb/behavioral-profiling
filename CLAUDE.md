@@ -38,7 +38,7 @@ These dimensions are canonically ordered in `BEHAVIORAL_DIMENSIONS` constant and
 
 ```bash
 # Single job execution
-python3 src/batch_invoke.py payload/single_prompt_jobs/baseline_suite/scenario_1_collaborative_reasoning.yaml
+python3 src/batch_invoke.py payload/single_prompt_jobs/broad_suite/scenario_1_collaborative_reasoning.yaml
 
 # Agent simulation (multi-turn with tools)
 python3 src/agent_invoke.py payload/agent_jobs/coding_agent.yaml
@@ -54,7 +54,7 @@ python3 scripts/run_jobs_parallel.py payload/job_lists/example_multi_provider.ya
 
 ```bash
 # Run judge on completed job output
-python3 src/judge_invoke.py outputs/single_prompt_jobs/job_behavioral_v2_1_20250104.json
+python3 src/judge_invoke.py outputs/single_prompt_jobs/job_broad_1_20250104.json
 
 # Quick evaluation with CLI prompt
 python3 src/judge_invoke.py outputs/agent_jobs/reports/job_001.json \
@@ -98,7 +98,7 @@ python3 scripts/manage_behavioral_profiles.py --remove-contribution job_id_12345
 ```bash
 # Export chat history
 python3 scripts/export_chat.py outputs/agent_jobs/reports/job_001.json
-python3 scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/job_behavioral_v2_1.json
+python3 scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/job_broad_1.json
 
 # Generate jobs from templates
 python3 scripts/generate_behavioral_v2_jobs.py
@@ -354,7 +354,7 @@ This framework measures **observable behavioral patterns** across models using s
 Verify model configurations before running full suites:
 ```bash
 # Quick test with single scenario
-python3 src/batch_invoke.py payload/single_prompt_jobs/baseline_suite/scenario_1_collaborative_reasoning.yaml
+python3 src/batch_invoke.py payload/single_prompt_jobs/broad_suite/scenario_1_collaborative_reasoning.yaml
 
 # Test imports
 python3 -c "from src.behavioral_constants import BEHAVIORAL_DIMENSIONS; print(BEHAVIORAL_DIMENSIONS)"

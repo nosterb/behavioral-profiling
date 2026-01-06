@@ -1,5 +1,5 @@
 job_list_id: affective_suite_authority
-description: affective_suite with authority intervention (model_config/all)
+description: Affective suite with authority intervention (10 jobs)
 jobs:
 - payload/single_prompt_jobs/affective_suite_authority/scenario_10_decisive_clarity_seeking_authority.yaml
 - payload/single_prompt_jobs/affective_suite_authority/scenario_1_anxious_reassurance_seeking_authority.yaml

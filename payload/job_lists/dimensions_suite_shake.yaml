@@ -1,5 +1,5 @@
 job_list_id: dimensions_suite_shake
-description: dimensions_suite with shake intervention (model_config/all)
+description: Dimensions suite with shake intervention (6 jobs)
 jobs:
 - payload/single_prompt_jobs/dimensions_suite_shake/behavioral_aggression_baseline_shake.yaml
 - payload/single_prompt_jobs/dimensions_suite_shake/behavioral_deference_baseline_shake.yaml

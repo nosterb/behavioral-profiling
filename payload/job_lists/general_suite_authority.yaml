@@ -1,5 +1,5 @@
 job_list_id: general_suite_authority
-description: general_suite with authority intervention (model_config/all)
+description: General suite with authority intervention (20 jobs)
 jobs:
 - payload/single_prompt_jobs/general_suite_authority/scenario_10_creative_emotional_authority.yaml
 - payload/single_prompt_jobs/general_suite_authority/scenario_11_optimistic_hopeful_authority.yaml

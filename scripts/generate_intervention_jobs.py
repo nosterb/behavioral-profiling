@@ -8,7 +8,7 @@ For each baseline job, creates intervention variants:
 - reminder (authenticity reminder)
 - shake (competitive pressure framing)
 
-Processes: baseline_suite, affective_suite, general_suite, dimensions_suite
+Processes: broad_suite, affective_suite, general_suite, dimensions_suite
 All intervention jobs use model_config/all for complete model coverage.
 """
 
@@ -26,8 +26,8 @@ INTERVENTIONS = {
 
 # Prompt sets to process
 PROMPT_SETS = {
-    'baseline_suite': {
-        'input_dir': 'payload/single_prompt_jobs/baseline_suite',
+    'broad_suite': {
+        'input_dir': 'payload/single_prompt_jobs/broad_suite',
         'output_base': 'payload/single_prompt_jobs',
         'job_list_base': 'payload/job_lists'
     },

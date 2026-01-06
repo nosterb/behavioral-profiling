@@ -1,5 +1,5 @@
 job_list_id: affective_suite_reminder
-description: affective_suite with reminder intervention (model_config/all)
+description: Affective suite with reminder intervention (10 jobs)
 jobs:
 - payload/single_prompt_jobs/affective_suite_reminder/scenario_10_decisive_clarity_seeking_reminder.yaml
 - payload/single_prompt_jobs/affective_suite_reminder/scenario_1_anxious_reassurance_seeking_reminder.yaml

@@ -49,13 +49,13 @@ cp .env.example .env
 ### 1. Run a Single Job
 
 ```bash
-python3 src/batch_invoke.py payload/single_prompt_jobs/baseline_suite/scenario_1_collaborative_reasoning.yaml
+python3 src/batch_invoke.py payload/single_prompt_jobs/broad_suite/scenario_1_collaborative_reasoning.yaml
 ```
 
 ### 2. Run Full Suite with Parallel Execution
 
 ```bash
-python3 scripts/run_jobs_parallel.py payload/job_lists/baseline_suite.yaml --max-parallel 3
+python3 scripts/run_jobs_parallel.py payload/job_lists/broad_suite_full.yaml --max-parallel 3
 ```
 
 ### 3. Analyze Results
