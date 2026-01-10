@@ -13,9 +13,12 @@ if [ -z "$1" ]; then
     echo ""
     echo "This script will:"
     echo "  1. Calculate median split classification"
-    echo "  2. Generate H1 visualizations"
-    echo "  3. Generate H2 scatter plots"
+    echo "  2. Generate H1 visualizations (bar chart, summary table)"
+    echo "  3. Generate H2 scatter plots (composite + all dimensions)"
     echo "  4. Generate research brief"
+    echo "  5. Generate provider analysis (summary, H2 scatters, dimensions, heatmap, stats)"
+    echo ""
+    echo "Output: 13 files (5 H1/H2 core + 5 provider visualizations + 3 data exports)"
     exit 1
 fi
 
@@ -169,6 +172,37 @@ fi
 echo ""
 
 # =============================================================================
+# STAGE 4: PROVIDER ANALYSIS
+# =============================================================================
+
+echo "=== STAGE 4: PROVIDER ANALYSIS ==="
+echo ""
+
+echo "Step 4a: Generating provider summary (4-panel visualization)..."
+python3 scripts/create_provider_summary.py ${INTERVENTION}
+if [ $? -ne 0 ]; then
+    echo "❌ ERROR: Provider summary generation failed"
+    exit 1
+fi
+echo ""
+
+echo "Step 4b: Generating provider H2 scatters (correlation by provider)..."
+python3 scripts/create_provider_h2_scatters.py ${INTERVENTION}
+if [ $? -ne 0 ]; then
+    echo "❌ ERROR: Provider H2 scatters generation failed"
+    exit 1
+fi
+echo ""
+
+echo "Step 4c: Generating comprehensive provider analysis..."
+python3 scripts/analyze_all_models_by_provider.py ${INTERVENTION}
+if [ $? -ne 0 ]; then
+    echo "❌ ERROR: Provider comprehensive analysis failed"
+    exit 1
+fi
+echo ""
+
+# =============================================================================
 # COMPLETION AND SUMMARY
 # =============================================================================
 
@@ -180,13 +214,30 @@ echo "Output files created in: ${PROFILE_DIR}"
 echo ""
 
 # List all generated files
-echo "Generated Files:"
-ls -lh ${PROFILE_DIR}/*.{png,md,json} 2>/dev/null | while read line; do
+echo "Generated Files (Expected: 13 total):"
+ls -lh ${PROFILE_DIR}/*.{png,md,json,csv,txt} 2>/dev/null | while read line; do
     filename=$(echo "$line" | awk '{print $9}')
     size=$(echo "$line" | awk '{print $5}')
     basename=$(basename "$filename")
     echo "  ✓ ${basename} (${size})"
 done
+
+# Count files
+PNG_COUNT=$(ls ${PROFILE_DIR}/*.png 2>/dev/null | wc -l | tr -d ' ')
+JSON_COUNT=$(ls ${PROFILE_DIR}/*.json 2>/dev/null | wc -l | tr -d ' ')
+MD_COUNT=$(ls ${PROFILE_DIR}/*.md 2>/dev/null | wc -l | tr -d ' ')
+CSV_COUNT=$(ls ${PROFILE_DIR}/*.csv 2>/dev/null | wc -l | tr -d ' ')
+TXT_COUNT=$(ls ${PROFILE_DIR}/*.txt 2>/dev/null | wc -l | tr -d ' ')
+TOTAL_COUNT=$((PNG_COUNT + JSON_COUNT + MD_COUNT + CSV_COUNT + TXT_COUNT))
+
+echo ""
+echo "File Count Summary:"
+echo "  PNG files: ${PNG_COUNT}/8 (visualizations)"
+echo "  JSON files: ${JSON_COUNT}/2 (data)"
+echo "  CSV files: ${CSV_COUNT}/1 (export)"
+echo "  TXT files: ${TXT_COUNT}/1 (report)"
+echo "  MD files: ${MD_COUNT}/1 (brief)"
+echo "  Total: ${TOTAL_COUNT}/13"
 
 echo ""
 

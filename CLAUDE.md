@@ -139,23 +139,32 @@ python3 scripts/update_behavioral_profiles.py \
 
 #### Output Files
 
-Each intervention generates **5 files** in `outputs/behavioral_profiles/<intervention>/`:
+Each intervention generates **13 files** in `outputs/behavioral_profiles/<intervention>/`:
 
-**Data**:
+**Core H1/H2 Analysis** (5 files):
 - `median_split_classification.json` - Complete classification data with statistics
-
-**Visualizations** (4 files):
 - `h1_bar_chart_comparison.png` - Group comparison bar chart
 - `h1_summary_table.png` - Statistical summary table with effect sizes
 - `h2_scatter_sophistication_composite.png` - Main correlation plot with extreme model labels
 - `h2_scatter_all_dimensions.png` - 4-subplot grid (transgression, aggression, tribalism, grandiosity)
 
-**Report**:
+**Provider Analysis** (5 files):
+- `provider_summary.png` - Combined 4-panel provider analysis (model counts, sophistication means, disinhibition composite, classification split)
+- `provider_h2_scatters.png` - 2x3 grid showing H2 correlation separately for top 6 providers
+- `all_dimensions_by_provider.png` - 3x3 grid showing all 9 behavioral dimensions by provider
+- `provider_dimensions_heatmap.png` - Heatmap of all dimensions across providers
+- `comprehensive_stats.json` - Complete provider statistics including correlations
+
+**Data Exports** (2 files):
+- `all_models_data.csv` - Complete dataset (all models × all dimensions) for external analysis
+- `COMPREHENSIVE_STATS_REPORT.txt` - Human-readable statistical summary with provider breakdowns
+
+**Research Brief** (1 file):
 - `RESEARCH_BRIEF.md` - Publication-ready research brief with comprehensive statistical reporting
 
 #### Special Pattern Detection
 
-The H2 scatter plots automatically identify and label three special pattern types:
+Both H2 scatter plots (`h2_scatter_sophistication_composite.png` and all 4 subplots in `h2_scatter_all_dimensions.png`) automatically identify and label three special pattern types:
 
 **1. Borderline Models** (orange squares):
 - Within ±0.15 of median sophistication
@@ -172,11 +181,28 @@ The H2 scatter plots automatically identify and label three special pattern type
 - Deviate substantially from sophistication-disinhibition correlation
 - Interesting cases for qualitative review
 
-**Extreme Model Labeling**:
+**Extreme Model Labeling** (applied to all scatter plots):
 - Top 2 min/max sophistication models
-- Top 2 min/max disinhibition models
+- Top 2 min/max disinhibition/dimension models
 - Top 3 outliers
+- Constrained models
 - Deduplicated (one label per model with all tags combined)
+
+#### Configurable Thresholds
+
+Pattern detection thresholds are configurable at the top of `scripts/create_h2_color_coded_scatters.py`:
+
+| Constant | Default | Description |
+|----------|---------|-------------|
+| `BORDERLINE_THRESHOLD` | 0.15 | Distance from median for borderline classification (±0.15 = ~2.5% of 1-10 scale) |
+| `OUTLIER_SD_THRESHOLD` | 2.0 | Standard deviations for outlier detection (~95% of data within ±2 SD) |
+| `CONSTRAINED_SOPH_THRESHOLD` | 6.5 | Minimum sophistication to be "high capability" (roughly top third) |
+| `CONSTRAINED_RESIDUAL_THRESHOLD` | -0.15 | Maximum residual for "constrained" (at least 0.15 below prediction) |
+
+**Rationale**:
+- **Borderline (±0.15)**: Captures models that could reasonably be classified either way on the median split
+- **Outlier (2 SD)**: Standard statistical threshold; models beyond this show unusual patterns
+- **Constrained (soph > 6.5, residual < -0.15)**: Identifies high-capability models exhibiting below-predicted disinhibition, suggesting deliberate constraint
 
 #### Key Metrics Reported
 
@@ -196,6 +222,12 @@ The H2 scatter plots automatically identify and label three special pattern type
 #### Manual Step-by-Step Workflow (if needed)
 
 ```bash
+# Stage 1: Profile aggregation (if not done)
+python3 scripts/update_behavioral_profiles.py \
+    outputs/single_prompt_jobs --recursive \
+    --condition <intervention> \
+    --profile-dir outputs/behavioral_profiles/<intervention>
+
 # Stage 2: Median split classification
 python3 scripts/calculate_median_split.py outputs/behavioral_profiles/<intervention>
 
@@ -207,6 +239,15 @@ python3 scripts/create_h2_color_coded_scatters.py <intervention>
 
 # Stage 3c: Research brief
 python3 scripts/update_research_brief_median.py <intervention>
+
+# Stage 4a: Provider summary (4-panel combined visualization)
+python3 scripts/create_provider_summary.py <intervention>
+
+# Stage 4b: Provider H2 scatters (correlation by provider)
+python3 scripts/create_provider_h2_scatters.py <intervention>
+
+# Stage 4c: Provider comprehensive analysis (dimensions, heatmap, stats, exports)
+python3 scripts/analyze_all_models_by_provider.py <intervention>
 ```
 
 #### Running Multiple Conditions Sequentially
@@ -222,13 +263,7 @@ done
 
 #### Documentation
 
-Comprehensive documentation available:
-- **Quick Start**: `QUICK_START_H1_H2.md` - One-command reference guide
-- **User Guide**: `H1_H2_ANALYSIS_GUIDE.md` - Detailed usage and interpretation
-- **Quality Control**: `H1_H2_QUALITY_CONTROL.md` - Validation framework (Phase 1 specific)
-- **Replication Ready**: `H1_H2_REPLICATION_READY.md` - Go/no-go decision document
-- **Complete Summary**: `H1_H2_COMPLETE_SUMMARY.md` - Implementation overview
-- **QC Framework**: `outputs/behavioral_profiles/research_synthesis/STATISTICAL_QC_FRAMEWORK.md` - Comprehensive quality control across all phases
+All H1/H2 analysis documentation is consolidated in this file (CLAUDE.md). For quality control procedures, see the "Quality Assurance & Statistical Rigor" section below.
 
 #### Example Results (Baseline Condition)
 
@@ -495,7 +530,7 @@ new_average = (old_average * n + new_score) / (n + 1)
 ### Intervention System
 
 The framework tests behavioral changes under different contextual pressures:
-- **Baseline**: No additional context
+- **Baseline**: No additional context (interventionless control condition)
 - **Urgency**: High-stakes time pressure testing stress responses
 - **Authority**: Expertise challenge testing confidence and humility
 - **Shake**: Competitive pressure priming
@@ -511,6 +546,8 @@ Intervention prompts stored in `payload/prompts/`:
 - `reminder.txt` - Authenticity priming
 - `telemetryV3.txt` - Observable constraint checking with layer markers
 - `minimal_steering.txt` - Lightweight steering instructions
+
+**Naming Convention Note**: Job files use "baseline" to refer to scenario suites (baseline_affective, baseline_broad, baseline_dimensions, baseline_general) which contain jobs that can run with OR without interventions. This is distinct from the "baseline" intervention condition (no interventions applied).
 
 ## File Organization
 
@@ -576,12 +613,7 @@ behavioral-profiling/
 │   ├── behavioral_profiles/         # Master behavioral profiles
 │   └── job_logs/                    # Parallel execution logs
 ├── templates/                        # Job templates
-├── docs/research_briefs/            # Research findings
-├── QUICK_START_H1_H2.md             # H1/H2 quick reference guide
-├── H1_H2_ANALYSIS_GUIDE.md          # H1/H2 detailed user guide
-├── H1_H2_QUALITY_CONTROL.md         # H1/H2 validation framework
-├── H1_H2_REPLICATION_READY.md       # H1/H2 go/no-go decision
-└── H1_H2_COMPLETE_SUMMARY.md        # H1/H2 implementation summary
+└── docs/research_briefs/            # Research findings
 ```
 
 ## Key Implementation Details
@@ -647,9 +679,9 @@ This framework uses scientific "behavioral" terminology throughout to avoid anth
 - Behavioral patterns (not "personality types")
 - Response consistency (not "character")
 
-### Non-Git Repository
+### Git Repository
 
-This is NOT a git repository. Do not attempt to use `git` commands. Use `mv` for file operations, not `git mv`.
+This IS a git repository. Standard git commands are available for version control.
 
 ### Focus: Observable Patterns Only
 
