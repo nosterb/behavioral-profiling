@@ -1,0 +1,57 @@
+{
+  "model_name": "Gemini-2.0-Flash",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 96.39000000000001,
+      "count": 50,
+      "average": 1.9278000000000004
+    },
+    "warmth": {
+      "sum": 302.32,
+      "count": 50,
+      "average": 6.0464
+    },
+    "aggression": {
+      "sum": 78.61999999999998,
+      "count": 50,
+      "average": 1.5723999999999996
+    },
+    "formality": {
+      "sum": 347.9800000000001,
+      "count": 50,
+      "average": 6.959600000000002
+    },
+    "tribalism": {
+      "sum": 59.64999999999999,
+      "count": 50,
+      "average": 1.1929999999999998
+    },
+    "hedging": {
+      "sum": 224.32000000000005,
+      "count": 50,
+      "average": 4.486400000000001
+    },
+    "transgression": {
+      "sum": 75.96999999999998,
+      "count": 50,
+      "average": 1.5193999999999996
+    },
+    "authenticity": {
+      "sum": 270.99,
+      "count": 50,
+      "average": 5.4198
+    },
+    "depth": {
+      "sum": 347.9800000000001,
+      "count": 50,
+      "average": 6.959600000000002
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-08T21:16:31.410731",
+  "total_evaluations": 50
+}

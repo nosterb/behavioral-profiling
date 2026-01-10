@@ -48,6 +48,14 @@ python3 scripts/run_jobs_parallel.py payload/job_lists/example_multi_provider.ya
 
 # With job range
 python3 scripts/run_jobs_parallel.py payload/job_lists/example_multi_provider.yaml --start 1 --end 12 --max-parallel 3
+
+# Non-interactive mode (skip all prompts for unattended execution)
+python3 scripts/run_jobs_parallel.py payload/job_lists/example_multi_provider.yaml \
+    --max-parallel 3 \
+    --skip-behavioral-prompts
+
+# Single job in non-interactive mode
+python3 src/batch_invoke.py payload/single_prompt_jobs/job.yaml --non-interactive
 ```
 
 ### Judge Evaluation
@@ -79,7 +87,281 @@ python3 scripts/cluster_behavioral_types.py outputs/single_prompt_jobs/run_2025_
 
 # Compare across suites
 python3 scripts/compare_three_suites.py
+
+# Comprehensive provider analysis (all models/providers)
+python3 scripts/analyze_all_models_by_provider.py
 ```
+
+### H1/H2 Statistical Analysis
+
+The framework includes a complete pipeline for testing two key hypotheses about the relationship between model sophistication and disinhibition:
+
+**H1 (Group Comparison)**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
+
+**H2 (Correlation)**: Model sophistication positively correlates with disinhibition across all models.
+
+#### One-Command Pipeline
+
+```bash
+# Run complete H1/H2 analysis for any intervention condition
+./scripts/run_complete_h1_h2_analysis.sh <intervention_name>
+
+# Examples:
+./scripts/run_complete_h1_h2_analysis.sh baseline
+./scripts/run_complete_h1_h2_analysis.sh affective
+./scripts/run_complete_h1_h2_analysis.sh authority
+./scripts/run_complete_h1_h2_analysis.sh urgency
+```
+
+**What it does**:
+1. Checks prerequisites (profile directory exists, sufficient N ≥ 40)
+2. Calculates median split classification (Stage 2)
+3. Generates H1 visualizations (bar charts + statistical table)
+4. Generates H2 scatter plots (composite + 4-dimension grid)
+5. Generates publication-ready research brief
+6. Reports key statistics and next steps
+
+#### Prerequisites: Stage 1 - Profile Aggregation
+
+Before running H1/H2 analysis, profiles must be aggregated:
+
+```bash
+# Aggregate profiles from job outputs
+python3 scripts/update_behavioral_profiles.py \
+    outputs/single_prompt_jobs/*/job_*_<intervention>_*.json \
+    --profile-dir outputs/behavioral_profiles/<intervention>
+
+# Example for affective intervention:
+python3 scripts/update_behavioral_profiles.py \
+    outputs/single_prompt_jobs/*/job_*_affective_*.json \
+    --profile-dir outputs/behavioral_profiles/affective
+```
+
+#### Output Files
+
+Each intervention generates **5 files** in `outputs/behavioral_profiles/<intervention>/`:
+
+**Data**:
+- `median_split_classification.json` - Complete classification data with statistics
+
+**Visualizations** (4 files):
+- `h1_bar_chart_comparison.png` - Group comparison bar chart
+- `h1_summary_table.png` - Statistical summary table with effect sizes
+- `h2_scatter_sophistication_composite.png` - Main correlation plot with extreme model labels
+- `h2_scatter_all_dimensions.png` - 4-subplot grid (transgression, aggression, tribalism, grandiosity)
+
+**Report**:
+- `RESEARCH_BRIEF.md` - Publication-ready research brief with comprehensive statistical reporting
+
+#### Special Pattern Detection
+
+The H2 scatter plots automatically identify and label three special pattern types:
+
+**1. Borderline Models** (orange squares):
+- Within ±0.15 of median sophistication
+- Edge cases for sensitivity analysis
+- Could be classified either high or low
+
+**2. Constrained Models** (cyan diamonds):
+- High sophistication (>6.5) but low disinhibition (residual < -0.15)
+- Suggests deliberate constraint strategies despite high capability
+- Exhibit below-predicted disinhibition
+
+**3. Statistical Outliers** (red circles):
+- Residual > 2 SD from regression line
+- Deviate substantially from sophistication-disinhibition correlation
+- Interesting cases for qualitative review
+
+**Extreme Model Labeling**:
+- Top 2 min/max sophistication models
+- Top 2 min/max disinhibition models
+- Top 3 outliers
+- Deduplicated (one label per model with all tags combined)
+
+#### Key Metrics Reported
+
+**H1 (Group Comparison)**:
+- Independent samples t-tests (df = N-2)
+- Cohen's d effect sizes (< 0.2 negligible, 0.2-0.5 small, 0.5-0.8 medium, ≥ 0.8 large)
+- P-values (APA format)
+- Group means and standard deviations
+- Percent differences
+
+**H2 (Correlation)**:
+- Pearson product-moment correlations
+- Correlation coefficients (< 0.1 negligible, 0.1-0.3 small, 0.3-0.5 medium, ≥ 0.5 large)
+- P-values
+- Scatter plots with regression lines
+
+#### Manual Step-by-Step Workflow (if needed)
+
+```bash
+# Stage 2: Median split classification
+python3 scripts/calculate_median_split.py outputs/behavioral_profiles/<intervention>
+
+# Stage 3a: H1 visualizations
+python3 scripts/create_h1_bar_chart.py <intervention>
+
+# Stage 3b: H2 scatter plots
+python3 scripts/create_h2_color_coded_scatters.py <intervention>
+
+# Stage 3c: Research brief
+python3 scripts/update_research_brief_median.py <intervention>
+```
+
+#### Running Multiple Conditions Sequentially
+
+```bash
+# Process all conditions
+for condition in baseline affective authority urgency; do
+    echo "Processing: $condition"
+    ./scripts/run_complete_h1_h2_analysis.sh $condition
+    sleep 2
+done
+```
+
+#### Documentation
+
+Comprehensive documentation available:
+- **Quick Start**: `QUICK_START_H1_H2.md` - One-command reference guide
+- **User Guide**: `H1_H2_ANALYSIS_GUIDE.md` - Detailed usage and interpretation
+- **Quality Control**: `H1_H2_QUALITY_CONTROL.md` - Validation framework (Phase 1 specific)
+- **Replication Ready**: `H1_H2_REPLICATION_READY.md` - Go/no-go decision document
+- **Complete Summary**: `H1_H2_COMPLETE_SUMMARY.md` - Implementation overview
+- **QC Framework**: `outputs/behavioral_profiles/research_synthesis/STATISTICAL_QC_FRAMEWORK.md` - Comprehensive quality control across all phases
+
+#### Example Results (Baseline Condition)
+
+```
+Classification Summary:
+  Models: 46
+  Median sophistication: 5.930
+  High-Sophistication: n = 23
+  Low-Sophistication: n = 23
+  Group balance: 0 model difference
+  Sophistication separation: d = 3.18
+
+Key Results:
+  H1 (Group Difference):
+    - Cohen's d = 2.17
+    - p-value = 0.000000
+    - Effect: Large
+
+  H2 (Correlation):
+    - r = 0.738
+    - Effect: Large
+
+  Special Patterns:
+    - Borderline models: 3
+    - Constrained models: 3
+    - Statistical outliers: 1
+```
+
+### Quality Assurance & Statistical Rigor
+
+The research initiative maintains comprehensive quality control across all analysis phases.
+
+#### Statistical QC Framework
+
+**Location**: `outputs/behavioral_profiles/research_synthesis/STATISTICAL_QC_FRAMEWORK.md`
+
+**Coverage**:
+- Statistical methods standards for all phases (H1/H2, H3, Combined, Main)
+- Validation checklists and acceptance criteria
+- Audit protocols (automated and manual)
+- Data integrity requirements
+- Reproducibility standards
+- Reporting standards (APA format)
+- Troubleshooting decision trees
+
+#### Key Quality Standards
+
+**Statistical Rigor**:
+- All effect sizes reported with 95% confidence intervals
+- P-values reported with exact values (or p < .001)
+- Assumptions verified and violations documented
+- Alternative methods used when assumptions violated
+- Multiple comparison corrections applied
+- Sensitivity analyses for borderline cases
+
+**Data Integrity**:
+- All scores validated (range 1-10)
+- No missing values (NaN/null checks)
+- Contribution counts > 0
+- Timestamps sequential and valid
+- Profile checksums for critical data
+
+**Reproducibility**:
+- Deterministic pipeline (no randomness in core analyses)
+- Fixed random seeds for bootstrap/permutation tests
+- Software versions documented
+- Consistent file ordering (sorted)
+- All analysis scripts version controlled
+
+**Audit Procedures**:
+- Automated checks: Every analysis run
+- Spot audits: After each new condition
+- Full audits: After baseline, before cross-condition, before publication
+- Audit logs maintained in `<condition>/audit/`
+
+#### Pre-Flight Checklist (Before Any Analysis)
+
+```bash
+# 1. Data completeness
+# [ ] All expected profiles present
+# [ ] All 9 dimensions populated
+# [ ] No missing values
+
+# 2. Sample size
+# [ ] N ≥ 40 (preferred) or N ≥ 30 (acceptable with caveat)
+
+# 3. Data validity
+# [ ] All scores in range [1, 10]
+# [ ] Contribution counts > 0
+# [ ] Model IDs unique
+
+# 4. Directory structure
+# [ ] Output directory exists
+# [ ] Previous results backed up if overwriting
+```
+
+#### Post-Analysis Validation
+
+```bash
+# 1. Statistical results
+# [ ] No NaN, Inf, or undefined values
+# [ ] Test statistics in plausible range
+# [ ] P-values between 0 and 1
+# [ ] Effect sizes match interpretation
+# [ ] Degrees of freedom correct
+
+# 2. Outputs generated
+# [ ] All expected files created
+# [ ] File sizes reasonable
+# [ ] Visualizations render correctly
+# [ ] Report complete and accurate
+
+# 3. Reproducibility
+# [ ] Re-run produces identical results
+# [ ] Random seeds documented if applicable
+```
+
+#### Troubleshooting Decision Trees
+
+**Variance heterogeneity (variance ratio > 4:1)**:
+- Large effect (d > 1.5): Proceed, note robustness
+- Small-medium effect: Use Welch's t-test
+- Document in research brief
+
+**Non-normal distribution (Shapiro-Wilk p < .05)**:
+- n ≥ 30: Proceed (CLT applies), note in brief
+- n < 30: Consider Mann-Whitney U test
+- Check for outliers first
+
+**Low sample size (N < 40)**:
+- N ≥ 30: Proceed with warning, document
+- N = 20-29: Strong caution, power likely insufficient
+- N < 20: Do not proceed, collect more data
 
 ### Profile Management
 
@@ -103,6 +385,13 @@ python3 scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/job_broa
 # Generate jobs from templates
 python3 scripts/generate_behavioral_v2_jobs.py
 python3 scripts/generate_intervention_jobs.py
+python3 scripts/generate_minimal_steering_jobs.py
+
+# Judge JSON repair (fixes malformed judge evaluations)
+python3 scripts/repair_judge_json.py --flag-only              # Show flagged evaluations
+python3 scripts/repair_judge_json.py                          # Repair with Claude 4.5
+python3 scripts/find_json_validation_repairs.py              # Report on all repairs
+python3 scripts/find_json_validation_repairs.py --needs-repair  # List files needing repair
 ```
 
 ## Architecture
@@ -211,6 +500,8 @@ The framework tests behavioral changes under different contextual pressures:
 - **Authority**: Expertise challenge testing confidence and humility
 - **Shake**: Competitive pressure priming
 - **Reminder**: Authenticity priming
+- **Telemetry V3**: Minimal constraint monitoring with visible observation layers
+- **Minimal Steering**: Simple constraint boundaries (≤3 on 1-10 scale)
 
 Intervention prompts stored in `payload/prompts/`:
 - `urgency.txt` - Tests hedging, formality under time pressure
@@ -218,6 +509,8 @@ Intervention prompts stored in `payload/prompts/`:
 - `urgency_authority.txt` - Combined dual stressors
 - `shake.txt` - Competitive framing
 - `reminder.txt` - Authenticity priming
+- `telemetryV3.txt` - Observable constraint checking with layer markers
+- `minimal_steering.txt` - Lightweight steering instructions
 
 ## File Organization
 
@@ -241,10 +534,18 @@ behavioral-profiling/
 │   ├── run_jobs_parallel.py         # Parallel job runner
 │   ├── update_behavioral_profiles.py # Profile updater
 │   ├── manage_behavioral_profiles.py # Profile management CLI
+│   ├── repair_judge_json.py         # Judge evaluation repair utility
+│   ├── find_json_validation_repairs.py # JSON validation repair finder
 │   ├── visualize_*.py               # Various visualization tools
 │   ├── cluster_behavioral_types.py  # Statistical clustering
 │   ├── generate_*_jobs.py           # Job generation utilities
-│   └── compare_three_suites.py      # Cross-suite comparison
+│   ├── generate_minimal_steering_jobs.py # Minimal steering job generator
+│   ├── compare_three_suites.py      # Cross-suite comparison
+│   ├── run_complete_h1_h2_analysis.sh # H1/H2 one-command pipeline
+│   ├── calculate_median_split.py    # Median split classification
+│   ├── create_h1_bar_chart.py       # H1 group comparison visualizations
+│   ├── create_h2_color_coded_scatters.py # H2 correlation scatter plots
+│   └── update_research_brief_median.py # Publication-ready research brief
 ├── payload/                          # Job definitions & configs
 │   ├── single_prompt_jobs/          # Scenario definitions by suite
 │   ├── agent_jobs/                  # Agent simulation configs
@@ -275,7 +576,12 @@ behavioral-profiling/
 │   ├── behavioral_profiles/         # Master behavioral profiles
 │   └── job_logs/                    # Parallel execution logs
 ├── templates/                        # Job templates
-└── docs/research_briefs/            # Research findings
+├── docs/research_briefs/            # Research findings
+├── QUICK_START_H1_H2.md             # H1/H2 quick reference guide
+├── H1_H2_ANALYSIS_GUIDE.md          # H1/H2 detailed user guide
+├── H1_H2_QUALITY_CONTROL.md         # H1/H2 validation framework
+├── H1_H2_REPLICATION_READY.md       # H1/H2 go/no-go decision
+└── H1_H2_COMPLETE_SUMMARY.md        # H1/H2 implementation summary
 ```
 
 ## Key Implementation Details

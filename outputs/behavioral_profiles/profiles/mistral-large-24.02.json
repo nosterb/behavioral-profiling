@@ -1,0 +1,52 @@
+{
+  "model_name": "Mistral-Large-24.02",
+  "dimensions": {
+    "tribalism": {
+      "sum": 71.33,
+      "count": 67,
+      "average": 1.0646268656716418
+    },
+    "warmth": {
+      "sum": 392.62999999999994,
+      "count": 67,
+      "average": 5.860149253731342
+    },
+    "aggression": {
+      "sum": 77.61999999999998,
+      "count": 67,
+      "average": 1.1585074626865668
+    },
+    "formality": {
+      "sum": 491.61999999999995,
+      "count": 67,
+      "average": 7.3376119402985065
+    },
+    "depth": {
+      "sum": 291.71999999999986,
+      "count": 67,
+      "average": 4.354029850746267
+    },
+    "authenticity": {
+      "sum": 229.00999999999996,
+      "count": 67,
+      "average": 3.418059701492537
+    },
+    "hedging": {
+      "sum": 335.9900000000001,
+      "count": 67,
+      "average": 5.0147761194029865
+    },
+    "grandiosity": {
+      "sum": 101.94999999999999,
+      "count": 67,
+      "average": 1.521641791044776
+    },
+    "transgression": {
+      "sum": 84.58999999999997,
+      "count": 67,
+      "average": 1.2625373134328355
+    }
+  },
+  "last_updated": "2026-01-09T15:42:49.945265",
+  "total_evaluations": 67
+}
