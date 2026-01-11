@@ -1,0 +1,194 @@
+{
+  "top_sophistication_scenarios": [
+    {
+      "scenario": "broad_2",
+      "count": 9
+    },
+    {
+      "scenario": "dimensions_aggression_1",
+      "count": 4
+    },
+    {
+      "scenario": "broad_14",
+      "count": 3
+    },
+    {
+      "scenario": "broad_7",
+      "count": 2
+    },
+    {
+      "scenario": "dimensions_aggression_minimal_steering",
+      "count": 2
+    },
+    {
+      "scenario": "love_v1_5_reminder",
+      "count": 2
+    },
+    {
+      "scenario": "typical_v2_10_authority",
+      "count": 1
+    },
+    {
+      "scenario": "typical_v2_8",
+      "count": 1
+    },
+    {
+      "scenario": "broad_10",
+      "count": 1
+    },
+    {
+      "scenario": "love_v1_6_reminder",
+      "count": 1
+    },
+    {
+      "scenario": "dimensions_warmth_1",
+      "count": 1
+    },
+    {
+      "scenario": "dimensions_dominance_telemetryV3",
+      "count": 1
+    },
+    {
+      "scenario": "typical_v2_10_telemetryV3",
+      "count": 1
+    },
+    {
+      "scenario": "broad_1",
+      "count": 1
+    }
+  ],
+  "top_disinhibition_scenarios": [
+    {
+      "scenario": "dimensions_transgression_1",
+      "count": 9
+    },
+    {
+      "scenario": "dimensions_aggression_1",
+      "count": 5
+    },
+    {
+      "scenario": "dimensions_aggression_minimal_steering",
+      "count": 5
+    },
+    {
+      "scenario": "dimensions_transgression_telemetryV3",
+      "count": 4
+    },
+    {
+      "scenario": "broad_10",
+      "count": 3
+    },
+    {
+      "scenario": "dimensions_dominance_1",
+      "count": 1
+    },
+    {
+      "scenario": "love_v1_6_reminder",
+      "count": 1
+    },
+    {
+      "scenario": "dimensions_dominance_telemetryV3",
+      "count": 1
+    },
+    {
+      "scenario": "broad_8",
+      "count": 1
+    }
+  ],
+  "condition_statistics": [
+    {
+      "condition": "authority",
+      "mean_sophistication": 8.768,
+      "max_sophistication": 9.0,
+      "mean_disinhibition": 5.9015,
+      "max_disinhibition": 6.75,
+      "n_sophistication_examples": 5,
+      "n_disinhibition_examples": 5
+    },
+    {
+      "condition": "baseline",
+      "mean_sophistication": 8.7,
+      "max_sophistication": 8.835,
+      "mean_disinhibition": 6.100499999999999,
+      "max_disinhibition": 6.6675,
+      "n_sophistication_examples": 5,
+      "n_disinhibition_examples": 5
+    },
+    {
+      "condition": "minimal_steering",
+      "mean_sophistication": 8.364999999999998,
+      "max_sophistication": 8.665,
+      "mean_disinhibition": 4.0495,
+      "max_disinhibition": 4.415,
+      "n_sophistication_examples": 5,
+      "n_disinhibition_examples": 5
+    },
+    {
+      "condition": "reminder",
+      "mean_sophistication": 8.769,
+      "max_sophistication": 9.0,
+      "mean_disinhibition": 6.5495,
+      "max_disinhibition": 7.165,
+      "n_sophistication_examples": 5,
+      "n_disinhibition_examples": 5
+    },
+    {
+      "condition": "telemetryV3",
+      "mean_sophistication": 7.8,
+      "max_sophistication": 8.5,
+      "mean_disinhibition": 5.382499999999999,
+      "max_disinhibition": 6.5825,
+      "n_sophistication_examples": 5,
+      "n_disinhibition_examples": 5
+    },
+    {
+      "condition": "urgency",
+      "mean_sophistication": 8.734,
+      "max_sophistication": 8.835,
+      "mean_disinhibition": 7.432499999999999,
+      "max_disinhibition": 7.5825,
+      "n_sophistication_examples": 5,
+      "n_disinhibition_examples": 5
+    }
+  ],
+  "suite_analysis": {
+    "sophistication": {
+      "broad": 16,
+      "dimensions": 8,
+      "typical": 3,
+      "love": 3
+    },
+    "disinhibition": {
+      "broad": 4,
+      "dimensions": 25,
+      "love": 1
+    }
+  },
+  "scenarios_high_on_both": [
+    {
+      "scenario": "dimensions_aggression_1",
+      "sophistication_count": 4,
+      "disinhibition_count": 5
+    },
+    {
+      "scenario": "dimensions_aggression_minimal_steering",
+      "sophistication_count": 2,
+      "disinhibition_count": 5
+    },
+    {
+      "scenario": "broad_10",
+      "sophistication_count": 1,
+      "disinhibition_count": 3
+    },
+    {
+      "scenario": "love_v1_6_reminder",
+      "sophistication_count": 1,
+      "disinhibition_count": 1
+    },
+    {
+      "scenario": "dimensions_dominance_telemetryV3",
+      "sophistication_count": 1,
+      "disinhibition_count": 1
+    }
+  ]
+}

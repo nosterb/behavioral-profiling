@@ -1,0 +1,588 @@
+{
+  "generated": "2026-01-11T09:59:18.972882",
+  "summary": {
+    "total_conditions": 6,
+    "total_unique_examples": 582,
+    "total_category_appearances": 900,
+    "total_evaluations_scanned": 10314
+  },
+  "by_condition": {
+    "authority": {
+      "unique_examples": 95,
+      "category_appearances": 150,
+      "evaluations_scanned": 2243
+    },
+    "baseline": {
+      "unique_examples": 108,
+      "category_appearances": 150,
+      "evaluations_scanned": 2235
+    },
+    "minimal_steering": {
+      "unique_examples": 96,
+      "category_appearances": 150,
+      "evaluations_scanned": 1574
+    },
+    "reminder": {
+      "unique_examples": 93,
+      "category_appearances": 150,
+      "evaluations_scanned": 584
+    },
+    "telemetryV3": {
+      "unique_examples": 91,
+      "category_appearances": 150,
+      "evaluations_scanned": 1437
+    },
+    "urgency": {
+      "unique_examples": 99,
+      "category_appearances": 150,
+      "evaluations_scanned": 2241
+    }
+  },
+  "top_models": [
+    {
+      "model": "Claude-4.1-Opus",
+      "total_appearances": 85,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 56,
+        "composite_extreme": 12,
+        "percentile": 11,
+        "pattern_type": 6
+      }
+    },
+    {
+      "model": "Claude-4-Opus",
+      "total_appearances": 73,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 44,
+        "percentile": 13,
+        "composite_extreme": 8,
+        "pattern_type": 8
+      }
+    },
+    {
+      "model": "Claude-4.5-Sonnet",
+      "total_appearances": 55,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 37,
+        "composite_extreme": 4,
+        "pattern_type": 4,
+        "percentile": 10
+      }
+    },
+    {
+      "model": "Claude-4.5-Opus-Global",
+      "total_appearances": 48,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "composite_extreme": 6,
+        "dimension_extreme": 25,
+        "percentile": 12,
+        "pattern_type": 5
+      }
+    },
+    {
+      "model": "Gemini-3-Pro-Preview",
+      "total_appearances": 47,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 31,
+        "composite_extreme": 9,
+        "pattern_type": 5,
+        "percentile": 2
+      }
+    },
+    {
+      "model": "Claude-4-Sonnet",
+      "total_appearances": 47,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 26,
+        "composite_extreme": 6,
+        "pattern_type": 4,
+        "percentile": 11
+      }
+    },
+    {
+      "model": "Claude-4.5-Haiku",
+      "total_appearances": 36,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 21,
+        "composite_extreme": 7,
+        "percentile": 6,
+        "pattern_type": 2
+      }
+    },
+    {
+      "model": "GPT-3.5 Turbo",
+      "total_appearances": 35,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 22,
+        "composite_extreme": 9,
+        "percentile": 3,
+        "pattern_type": 1
+      }
+    },
+    {
+      "model": "DeepSeek-R1",
+      "total_appearances": 32,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 17,
+        "pattern_type": 6,
+        "percentile": 4,
+        "composite_extreme": 5
+      }
+    },
+    {
+      "model": "GPT-5",
+      "total_appearances": 31,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 19,
+        "composite_extreme": 6,
+        "pattern_type": 4,
+        "percentile": 2
+      }
+    },
+    {
+      "model": "GPT-5.1",
+      "total_appearances": 29,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 14,
+        "composite_extreme": 5,
+        "pattern_type": 5,
+        "percentile": 5
+      }
+    },
+    {
+      "model": "Grok-4-0709",
+      "total_appearances": 25,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 18,
+        "pattern_type": 4,
+        "composite_extreme": 3
+      }
+    },
+    {
+      "model": "GPT-OSS-120B",
+      "total_appearances": 25,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 20,
+        "percentile": 2,
+        "pattern_type": 2,
+        "composite_extreme": 1
+      }
+    },
+    {
+      "model": "GPT-4",
+      "total_appearances": 25,
+      "conditions": [
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 19,
+        "composite_extreme": 5,
+        "percentile": 1
+      }
+    },
+    {
+      "model": "Gemini-2.5-Pro",
+      "total_appearances": 23,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 14,
+        "composite_extreme": 6,
+        "pattern_type": 2,
+        "percentile": 1
+      }
+    },
+    {
+      "model": "O3",
+      "total_appearances": 23,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 12,
+        "composite_extreme": 2,
+        "percentile": 4,
+        "pattern_type": 5
+      }
+    },
+    {
+      "model": "GPT-5.2",
+      "total_appearances": 21,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "percentile": 3,
+        "dimension_extreme": 10,
+        "pattern_type": 6,
+        "composite_extreme": 2
+      }
+    },
+    {
+      "model": "Claude-3-Opus",
+      "total_appearances": 18,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 12,
+        "percentile": 4,
+        "pattern_type": 2
+      }
+    },
+    {
+      "model": "Claude-3-Sonnet",
+      "total_appearances": 18,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "urgency"
+      ],
+      "by_category": {
+        "percentile": 4,
+        "dimension_extreme": 10,
+        "composite_extreme": 3,
+        "pattern_type": 1
+      }
+    },
+    {
+      "model": "Llama-4-Maverick-17B",
+      "total_appearances": 15,
+      "conditions": [
+        "authority",
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "urgency"
+      ],
+      "by_category": {
+        "dimension_extreme": 7,
+        "percentile": 5,
+        "composite_extreme": 3
+      }
+    }
+  ],
+  "category_distribution": {
+    "authority": {
+      "dimension_extreme:warmth_min": 5,
+      "dimension_extreme:hedging_min": 5,
+      "dimension_extreme:aggression_min": 5,
+      "dimension_extreme:tribalism_min": 5,
+      "dimension_extreme:depth_min": 5,
+      "dimension_extreme:authenticity_min": 5,
+      "composite_extreme:sophistication_min": 5,
+      "composite_extreme:disinhibition_min": 5,
+      "dimension_extreme:grandiosity_min": 5,
+      "dimension_extreme:aggression_max": 5,
+      "dimension_extreme:grandiosity_max": 5,
+      "dimension_extreme:tribalism_max": 5,
+      "composite_extreme:disinhibition_max": 5,
+      "pattern_type:outlier": 5,
+      "dimension_extreme:transgression_min": 5,
+      "dimension_extreme:authenticity_max": 5,
+      "composite_extreme:sophistication_max": 5,
+      "percentile:p95": 5,
+      "dimension_extreme:transgression_max": 5,
+      "dimension_extreme:formality_min": 5,
+      "dimension_extreme:warmth_max": 5,
+      "percentile:p50": 5,
+      "percentile:p25": 5,
+      "percentile:p5": 5,
+      "pattern_type:constrained": 5,
+      "dimension_extreme:depth_max": 5,
+      "dimension_extreme:formality_max": 5,
+      "pattern_type:borderline": 5,
+      "percentile:p75": 5,
+      "dimension_extreme:hedging_max": 5
+    },
+    "baseline": {
+      "dimension_extreme:warmth_min": 5,
+      "dimension_extreme:aggression_max": 5,
+      "dimension_extreme:transgression_max": 5,
+      "dimension_extreme:grandiosity_max": 5,
+      "composite_extreme:disinhibition_max": 5,
+      "pattern_type:outlier": 5,
+      "dimension_extreme:aggression_min": 5,
+      "dimension_extreme:grandiosity_min": 5,
+      "dimension_extreme:tribalism_min": 5,
+      "percentile:p5": 5,
+      "percentile:p50": 5,
+      "dimension_extreme:tribalism_max": 5,
+      "dimension_extreme:formality_min": 5,
+      "percentile:p95": 5,
+      "dimension_extreme:depth_min": 5,
+      "composite_extreme:sophistication_min": 5,
+      "percentile:p25": 5,
+      "dimension_extreme:transgression_min": 5,
+      "dimension_extreme:warmth_max": 5,
+      "pattern_type:constrained": 5,
+      "dimension_extreme:authenticity_min": 5,
+      "dimension_extreme:hedging_max": 5,
+      "dimension_extreme:authenticity_max": 5,
+      "composite_extreme:sophistication_max": 5,
+      "percentile:p75": 5,
+      "pattern_type:borderline": 5,
+      "composite_extreme:disinhibition_min": 5,
+      "dimension_extreme:hedging_min": 5,
+      "dimension_extreme:formality_max": 5,
+      "dimension_extreme:depth_max": 5
+    },
+    "minimal_steering": {
+      "dimension_extreme:aggression_max": 5,
+      "dimension_extreme:transgression_max": 5,
+      "dimension_extreme:tribalism_max": 5,
+      "composite_extreme:disinhibition_max": 5,
+      "pattern_type:outlier": 5,
+      "dimension_extreme:authenticity_max": 5,
+      "dimension_extreme:aggression_min": 5,
+      "dimension_extreme:transgression_min": 5,
+      "dimension_extreme:tribalism_min": 5,
+      "percentile:p5": 5,
+      "percentile:p50": 5,
+      "percentile:p25": 5,
+      "dimension_extreme:grandiosity_max": 5,
+      "dimension_extreme:authenticity_min": 5,
+      "composite_extreme:sophistication_min": 5,
+      "dimension_extreme:grandiosity_min": 5,
+      "composite_extreme:disinhibition_min": 5,
+      "pattern_type:constrained": 5,
+      "dimension_extreme:depth_max": 5,
+      "composite_extreme:sophistication_max": 5,
+      "percentile:p95": 5,
+      "dimension_extreme:hedging_max": 5,
+      "dimension_extreme:depth_min": 5,
+      "dimension_extreme:warmth_min": 5,
+      "dimension_extreme:hedging_min": 5,
+      "percentile:p75": 5,
+      "pattern_type:borderline": 5,
+      "dimension_extreme:warmth_max": 5,
+      "dimension_extreme:formality_min": 5,
+      "dimension_extreme:formality_max": 5
+    },
+    "reminder": {
+      "dimension_extreme:warmth_min": 5,
+      "dimension_extreme:aggression_max": 5,
+      "dimension_extreme:transgression_max": 5,
+      "dimension_extreme:grandiosity_max": 5,
+      "dimension_extreme:tribalism_max": 5,
+      "composite_extreme:disinhibition_max": 5,
+      "pattern_type:outlier": 5,
+      "dimension_extreme:hedging_min": 5,
+      "dimension_extreme:aggression_min": 5,
+      "dimension_extreme:grandiosity_min": 5,
+      "dimension_extreme:tribalism_min": 5,
+      "composite_extreme:disinhibition_min": 5,
+      "percentile:p5": 5,
+      "percentile:p25": 5,
+      "percentile:p50": 5,
+      "dimension_extreme:formality_min": 5,
+      "dimension_extreme:depth_min": 5,
+      "dimension_extreme:authenticity_min": 5,
+      "composite_extreme:sophistication_min": 5,
+      "dimension_extreme:authenticity_max": 5,
+      "percentile:p95": 5,
+      "dimension_extreme:transgression_min": 5,
+      "dimension_extreme:formality_max": 5,
+      "pattern_type:borderline": 5,
+      "composite_extreme:sophistication_max": 5,
+      "pattern_type:constrained": 5,
+      "dimension_extreme:hedging_max": 5,
+      "percentile:p75": 5,
+      "dimension_extreme:warmth_max": 5,
+      "dimension_extreme:depth_max": 5
+    },
+    "telemetryV3": {
+      "dimension_extreme:aggression_min": 5,
+      "dimension_extreme:transgression_min": 5,
+      "dimension_extreme:grandiosity_min": 5,
+      "dimension_extreme:tribalism_min": 5,
+      "composite_extreme:disinhibition_min": 5,
+      "percentile:p5": 5,
+      "percentile:p25": 5,
+      "dimension_extreme:warmth_min": 5,
+      "dimension_extreme:aggression_max": 5,
+      "dimension_extreme:transgression_max": 5,
+      "dimension_extreme:grandiosity_max": 5,
+      "composite_extreme:disinhibition_max": 5,
+      "pattern_type:outlier": 5,
+      "dimension_extreme:tribalism_max": 5,
+      "dimension_extreme:hedging_min": 5,
+      "dimension_extreme:depth_min": 5,
+      "dimension_extreme:authenticity_min": 5,
+      "composite_extreme:sophistication_min": 5,
+      "dimension_extreme:formality_min": 5,
+      "percentile:p50": 5,
+      "pattern_type:borderline": 5,
+      "dimension_extreme:authenticity_max": 5,
+      "composite_extreme:sophistication_max": 5,
+      "dimension_extreme:depth_max": 5,
+      "pattern_type:constrained": 5,
+      "percentile:p75": 5,
+      "dimension_extreme:warmth_max": 5,
+      "dimension_extreme:hedging_max": 5,
+      "dimension_extreme:formality_max": 5,
+      "percentile:p95": 5
+    },
+    "urgency": {
+      "dimension_extreme:warmth_max": 5,
+      "dimension_extreme:authenticity_max": 5,
+      "composite_extreme:sophistication_max": 5,
+      "pattern_type:constrained": 5,
+      "dimension_extreme:warmth_min": 5,
+      "dimension_extreme:tribalism_min": 5,
+      "dimension_extreme:depth_min": 5,
+      "dimension_extreme:authenticity_min": 5,
+      "composite_extreme:sophistication_min": 5,
+      "dimension_extreme:hedging_min": 5,
+      "dimension_extreme:aggression_max": 5,
+      "dimension_extreme:transgression_max": 5,
+      "composite_extreme:disinhibition_max": 5,
+      "pattern_type:outlier": 5,
+      "dimension_extreme:formality_min": 5,
+      "dimension_extreme:transgression_min": 5,
+      "composite_extreme:disinhibition_min": 5,
+      "dimension_extreme:aggression_min": 5,
+      "dimension_extreme:grandiosity_max": 5,
+      "dimension_extreme:tribalism_max": 5,
+      "percentile:p5": 5,
+      "dimension_extreme:grandiosity_min": 5,
+      "percentile:p95": 5,
+      "percentile:p25": 5,
+      "pattern_type:borderline": 5,
+      "percentile:p50": 5,
+      "percentile:p75": 5,
+      "dimension_extreme:depth_max": 5,
+      "dimension_extreme:hedging_max": 5,
+      "dimension_extreme:formality_max": 5
+    }
+  }
+}
