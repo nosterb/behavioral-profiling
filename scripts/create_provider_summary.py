@@ -98,7 +98,7 @@ def analyze_by_provider(data):
 
     return provider_stats
 
-def create_combined_provider_figure(data, output_path):
+def create_combined_provider_figure(data, output_path, condition="baseline"):
     """Create single combined figure with all provider analyses."""
 
     # Analyze by provider
@@ -254,8 +254,8 @@ def create_combined_provider_figure(data, output_path):
     ax4.grid(axis='y', alpha=0.3, linestyle='--')
     ax4.set_axisbelow(True)
 
-    # Overall title
-    fig.suptitle('Provider Analysis: Baseline Condition',
+    # Overall title with condition label
+    fig.suptitle(f'Provider Analysis: Condition: {condition}',
                 fontsize=16, fontweight='bold', y=0.995)
 
     # Save figure
@@ -292,7 +292,7 @@ def main():
     print(f"Median sophistication: {data['median_sophistication']:.3f}")
 
     print("\nCreating combined provider analysis figure...")
-    provider_stats = create_combined_provider_figure(data, output_path)
+    provider_stats = create_combined_provider_figure(data, output_path, condition=intervention)
 
     print("\nProvider Statistics Summary:")
     print("-" * 80)

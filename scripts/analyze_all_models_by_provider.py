@@ -308,7 +308,7 @@ def plot_all_dimensions_by_provider(df, output_path):
         ax.axhline(df[dim].mean(), color='red', linestyle='--', linewidth=1, alpha=0.5)
         ax.grid(axis='y', alpha=0.3)
 
-    plt.suptitle('All Behavioral Dimensions by Provider', fontsize=16, fontweight='bold', y=0.995)
+    plt.suptitle(f'All Behavioral Dimensions by Provider\nCondition: {intervention}', fontsize=16, fontweight='bold', y=1.01)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
@@ -328,7 +328,7 @@ def plot_provider_heatmap(df, output_path):
                 vmin=1, vmax=10, center=5.5)
     ax.set_xlabel('Provider', fontsize=12)
     ax.set_ylabel('Dimension', fontsize=12)
-    ax.set_title('Behavioral Dimensions Heatmap by Provider', fontsize=14, fontweight='bold')
+    ax.set_title(f'Behavioral Dimensions Heatmap by Provider\nCondition: {intervention}', fontsize=14, fontweight='bold')
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')

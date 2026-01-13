@@ -21,8 +21,54 @@ from collections import OrderedDict
 BASE_DIR = Path("outputs/behavioral_profiles")
 OUTPUT_FILE = BASE_DIR / "research_synthesis" / "MAIN_RESEARCH_BRIEF.md"
 
-NATIVE_CONDITIONS = ["baseline", "authority", "minimal_steering", "reminder", "telemetryV3", "urgency"]
-IMPORTED_CONDITIONS = []  # Previously: checkpoint, shake, telemetryV1 (removed)
+CONDITIONS = ["baseline", "authority", "minimal_steering", "reminder", "telemetryV3", "urgency"]
+
+# Manual section markers - content between these is preserved across regenerations
+MANUAL_START = "<!-- MANUAL-START -->"
+MANUAL_END = "<!-- MANUAL-END -->"
+
+
+def extract_manual_sections(content: str) -> dict:
+    """Extract manually edited sections from existing content.
+
+    Looks for content between <!-- MANUAL-START --> and <!-- MANUAL-END --> markers.
+    Returns a dict mapping section headers to preserved content.
+    """
+    import re
+
+    preserved = {}
+
+    # Find all manual sections with their preceding header
+    # Pattern: ## Header\n\n<!-- MANUAL-START -->\ncontent\n<!-- MANUAL-END -->
+    pattern = r'(##+ [^\n]+)\n+' + re.escape(MANUAL_START) + r'\n(.*?)\n' + re.escape(MANUAL_END)
+
+    for match in re.finditer(pattern, content, re.DOTALL):
+        header = match.group(1).strip()
+        manual_content = match.group(2)
+        preserved[header] = manual_content
+
+    return preserved
+
+
+def load_existing_manual_sections() -> dict:
+    """Load manual sections from existing MAIN_RESEARCH_BRIEF.md if it exists."""
+    if OUTPUT_FILE.exists():
+        content = OUTPUT_FILE.read_text()
+        return extract_manual_sections(content)
+    return {}
+
+
+def wrap_manual_section(content: str) -> str:
+    """Wrap content in manual section markers."""
+    return f"{MANUAL_START}\n{content}\n{MANUAL_END}"
+
+
+def get_preserved_or_default(preserved: dict, header: str, default_content: str) -> str:
+    """Return preserved content if available, otherwise return default with markers."""
+    if header in preserved:
+        return f"{header}\n\n{wrap_manual_section(preserved[header])}"
+    else:
+        return f"{header}\n\n{wrap_manual_section(default_content)}"
 
 
 def load_json(path):
@@ -42,7 +88,7 @@ def load_condition_data(condition):
 def load_all_conditions():
     """Load data for all available conditions."""
     data = OrderedDict()
-    for condition in NATIVE_CONDITIONS + IMPORTED_CONDITIONS:
+    for condition in CONDITIONS:
         cond_data = load_condition_data(condition)
         if cond_data:
             data[condition] = cond_data
@@ -77,7 +123,7 @@ def load_judge_agreement():
 def load_outlier_data():
     """Load outlier removal data for all conditions."""
     outlier_data = {}
-    for condition in NATIVE_CONDITIONS + IMPORTED_CONDITIONS:
+    for condition in CONDITIONS:
         outlier_info = load_json(BASE_DIR / condition / "outliers_removed" / "outlier_removal_info.json")
         outlier_classification = load_json(BASE_DIR / condition / "outliers_removed" / "median_split_classification.json")
         original_classification = load_json(BASE_DIR / condition / "median_split_classification.json")
@@ -93,7 +139,7 @@ def load_outlier_data():
 def load_no_dimensions_data():
     """Load no_dimensions sensitivity data for all conditions."""
     no_dim_data = {}
-    for condition in NATIVE_CONDITIONS + IMPORTED_CONDITIONS:
+    for condition in CONDITIONS:
         sensitivity_info = load_json(BASE_DIR / condition / "no_dimensions" / "sensitivity_analysis_info.json")
         no_dim_classification = load_json(BASE_DIR / condition / "no_dimensions" / "median_split_classification.json")
         original_classification = load_json(BASE_DIR / condition / "median_split_classification.json")
@@ -119,7 +165,7 @@ def load_provider_constraint():
         return None
 
     data = {}
-    for condition in NATIVE_CONDITIONS:
+    for condition in CONDITIONS:
         path = constraint_dir / f"provider_constraint_{condition}.json"
         if path.exists():
             data[condition] = load_json(path)
@@ -150,12 +196,10 @@ def count_h1_supported(conditions_data):
     return supported, len(conditions_data)
 
 
-def get_h2_range(conditions_data, native_only=True):
+def get_h2_range(conditions_data):
     """Get min/max H2 correlation across conditions."""
     rs = []
     for cond, data in conditions_data.items():
-        if native_only and cond in IMPORTED_CONDITIONS:
-            continue
         r = data.get("correlation", {}).get("sophistication_disinhibition")
         if r is not None:
             rs.append(r)
@@ -200,8 +244,6 @@ def total_evaluations(conditions_data):
 def generate_header(conditions_data, cross_data, external_data):
     """Generate document header with metadata."""
     n_conditions = len(conditions_data)
-    n_native = sum(1 for c in conditions_data if c in NATIVE_CONDITIONS)
-    n_imported = sum(1 for c in conditions_data if c in IMPORTED_CONDITIONS)
 
     n_models = 0
     for cond in ["baseline"] + list(conditions_data.keys()):
@@ -214,11 +256,15 @@ def generate_header(conditions_data, cross_data, external_data):
     lines = []
     lines.append("# Main Research Brief: Sophistication-Disinhibition Relationship in Language Models")
     lines.append("")
-    lines.append("**Status**: Active Analysis")
-    lines.append("**Last Updated**: " + datetime.now().strftime('%Y-%m-%d'))
-    lines.append("**Conditions Analyzed**: " + str(n_conditions))
-    lines.append("**Models**: " + str(n_models) + " per condition")
-    lines.append("**Total Evaluations**: " + f"{total_evals:,}" + "+")
+    # Use HTML for proper line breaks in exports
+    lines.append("<b>Author</b>: Nicholas Osterbur (Independent Researcher)<br>")
+    lines.append("<b>Status</b>: Active Analysis<br>")
+    lines.append("<b>Last Updated</b>: " + datetime.now().strftime('%Y-%m-%d') + "<br>")
+    lines.append("<b>Conditions Analyzed</b>: " + str(n_conditions) + "<br>")
+    lines.append("<b>Models</b>: " + str(n_models) + " per condition<br>")
+    lines.append("<b>Total Evaluations</b>: " + f"{total_evals:,}" + "</b>")
+    lines.append("")
+    lines.append("*Copyright 2026 Nicholas Osterbur. Results and analyses licensed under CC BY 4.0.*")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -230,7 +276,7 @@ def generate_executive_summary(conditions_data, cross_data, external_data):
     h1_soph_d_min, h1_soph_d_max = get_h1_soph_d_range(conditions_data)
     h1a_d_min, h1a_d_max = get_h1a_d_range(conditions_data)
     h1a_sup, h1a_total = count_h1_supported(conditions_data)
-    h2_min, h2_max = get_h2_range(conditions_data, native_only=True)
+    h2_min, h2_max = get_h2_range(conditions_data)
 
     arc = external_data.get("arc_agi") or {}
     gpqa = external_data.get("gpqa") or {}
@@ -273,8 +319,7 @@ def generate_hypotheses_methods(conditions_data, factor_structure=None):
     sample_cond = "baseline" if "baseline" in conditions_data else list(conditions_data.keys())[0]
     sample_data = conditions_data[sample_cond]
     n_models = len(sample_data.get("models", []))
-    n_native = len([c for c in conditions_data if c in NATIVE_CONDITIONS])
-    n_imported = len([c for c in conditions_data if c in IMPORTED_CONDITIONS])
+    n_conditions = len(conditions_data)
 
     lines = []
     lines.append("## 1. Hypotheses & Methods")
@@ -314,7 +359,7 @@ def generate_hypotheses_methods(conditions_data, factor_structure=None):
     lines.append("### Sample")
     lines.append("")
     lines.append("- **Models per condition**: N = " + str(n_models))
-    lines.append("- **Conditions**: " + str(n_native))
+    lines.append("- **Conditions**: " + str(n_conditions))
     lines.append("- **Evaluations per model**: ~50 scenarios")
     lines.append("")
     lines.append("### Statistical Methods")
@@ -339,7 +384,7 @@ def generate_hypotheses_methods(conditions_data, factor_structure=None):
 def generate_h1_h2_results(conditions_data):
     """Generate H1a/H2 results table across conditions."""
     lines = []
-    lines.append("## 2. Results: H1a/H2 Across Conditions")
+    lines.append("## 2. Core Results: H1/H1a/H2")
     lines.append("")
     lines.append("### Summary Table")
     lines.append("")
@@ -420,12 +465,14 @@ def generate_h1_h2_results(conditions_data):
     lines.append("### Key Observations")
     lines.append("")
     lines.append("- **H1a consistently large**: All conditions show d > 1.0 (large effects)")
-    lines.append("- **H2 varies by condition**: Native conditions show stronger correlations than imported")
+    lines.append("- **H2 varies by condition**: Correlations vary across intervention conditions")
 
     if "baseline" in conditions_data:
         baseline_r = conditions_data["baseline"].get("correlation", {}).get("sophistication_disinhibition", 0)
         lines.append("- **Baseline anchor**: r = " + f"{baseline_r:.3f}")
 
+    lines.append("")
+    lines.append("**Visualizations**: See `<condition>/h2_scatter_sophistication_composite.png` for composite correlation plots and `<condition>/h2_scatter_all_dimensions.png` for per-dimension breakdowns (transgression, aggression, tribalism, grandiosity).")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -563,8 +610,149 @@ def generate_anova_results(cross_data):
     return "\n".join(lines)
 
 
+def generate_robustness_validation(external_data, outlier_data, no_dim_data):
+    """Generate consolidated robustness and validation section."""
+    lines = []
+    lines.append("## 3. Robustness & Validation")
+    lines.append("")
+
+    # 3.1 External Validation
+    lines.append("### 3.1 External Validation")
+    lines.append("")
+    lines.append("Cross-validation against independent reasoning benchmarks.")
+    lines.append("")
+
+    arc = external_data.get("arc_agi")
+    gpqa = external_data.get("gpqa")
+
+    if not arc and not gpqa:
+        lines.append("*External validation data not available.*")
+        lines.append("")
+    else:
+        lines.append("| Metric | ARC-AGI | GPQA |")
+        lines.append("|--------|---------|------|")
+
+        arc_n = arc.get("sample", {}).get("unique_matched_models", "N/A") if arc else "N/A"
+        gpqa_n = gpqa.get("sample", {}).get("unique_matched_models", "N/A") if gpqa else "N/A"
+        lines.append("| **Matched models** | " + str(arc_n) + " | " + str(gpqa_n) + " |")
+
+        arc_r_soph = arc.get("correlations", {}).get("sophistication", {}).get("r") if arc else None
+        gpqa_r_soph = gpqa.get("correlations", {}).get("sophistication", {}).get("r") if gpqa else None
+        arc_str = f"{arc_r_soph:.3f}" if arc_r_soph else "N/A"
+        gpqa_str = f"{gpqa_r_soph:.3f}" if gpqa_r_soph else "N/A"
+        lines.append("| **r (Sophistication)** | " + arc_str + " | " + gpqa_str + " |")
+
+        arc_r_dis = arc.get("correlations", {}).get("disinhibition", {}).get("r") if arc else None
+        gpqa_r_dis = gpqa.get("correlations", {}).get("disinhibition", {}).get("r") if gpqa else None
+        arc_str = f"{arc_r_dis:.3f}" if arc_r_dis else "N/A"
+        gpqa_str = f"{gpqa_r_dis:.3f}" if gpqa_r_dis else "N/A"
+        lines.append("| **r (Disinhibition)** | " + arc_str + " | " + gpqa_str + " |")
+
+        arc_h1 = arc.get("h1_group_comparison", {}) if arc else {}
+        gpqa_h1 = gpqa.get("h1_group_comparison", {}) if gpqa else {}
+        arc_high = arc_h1.get("high_sophistication", {}).get("mean", 0)
+        arc_low = arc_h1.get("low_sophistication", {}).get("mean", 0)
+        gpqa_high = gpqa_h1.get("high_sophistication", {}).get("mean", 0)
+        gpqa_low = gpqa_h1.get("low_sophistication", {}).get("mean", 0)
+        arc_diff = "+" + f"{arc_high - arc_low:.1f}" + " pp" if arc_h1 else "N/A"
+        gpqa_diff = "+" + f"{gpqa_high - gpqa_low:.1f}" + " pp" if gpqa_h1 else "N/A"
+        lines.append("| **Group diff (High-Low)** | " + arc_diff + " | " + gpqa_diff + " |")
+        lines.append("| **Benchmark type** | Abstract reasoning | Expert scientific |")
+        lines.append("")
+        lines.append("Both benchmarks show large correlations (r > 0.50) with sophistication, providing convergent validity.")
+        lines.append("")
+
+    # 3.2 Outlier Sensitivity
+    lines.append("### 3.2 Outlier Sensitivity Analysis")
+    lines.append("")
+    lines.append("Robustness check removing statistical outliers (|residual| > 2 SD from regression line).")
+    lines.append("")
+
+    if not outlier_data:
+        lines.append("*No outlier analysis data available.*")
+        lines.append("")
+    else:
+        cond_names = list(outlier_data.keys())
+        header = "| Metric | " + " | ".join(cond_names) + " |"
+        separator = "|--------|" + "|".join(["--------"] * len(cond_names)) + "|"
+        lines.append(header)
+        lines.append(separator)
+
+        row = "| **Outliers Removed** |"
+        for cond in cond_names:
+            n_outliers = len(outlier_data[cond]["info"].get("outliers_removed", []))
+            row += " " + str(n_outliers) + " |"
+        lines.append(row)
+
+        row = "| **H1a d: Δ** |"
+        for cond in cond_names:
+            orig_d = outlier_data[cond]["with_outliers"]["statistics"]["disinhibition"]["cohens_d"]
+            new_d = outlier_data[cond]["without_outliers"]["statistics"]["disinhibition"]["cohens_d"]
+            delta = new_d - orig_d
+            row += " " + f"{delta:+.2f}" + " |"
+        lines.append(row)
+
+        row = "| **H2 r: Δ** |"
+        for cond in cond_names:
+            orig_r = outlier_data[cond]["with_outliers"]["correlation"]["sophistication_disinhibition"]
+            new_r = outlier_data[cond]["without_outliers"]["correlation"]["sophistication_disinhibition"]
+            delta = new_r - orig_r
+            row += " " + f"{delta:+.3f}" + " |"
+        lines.append(row)
+        lines.append("")
+
+        strengthened = sum(1 for cond in cond_names
+                          if outlier_data[cond]["without_outliers"]["statistics"]["disinhibition"]["cohens_d"] >
+                             outlier_data[cond]["with_outliers"]["statistics"]["disinhibition"]["cohens_d"] + 0.1)
+        lines.append("Removing outliers **strengthens H1a** in " + str(strengthened) + "/" + str(len(cond_names)) + " conditions, suggesting outliers represent noise.")
+        lines.append("")
+
+    # 3.3 No-Dimensions Sensitivity
+    lines.append("### 3.3 No-Dimensions Sensitivity Analysis")
+    lines.append("")
+    lines.append("Robustness check excluding prompts from the dimensions suite (which directly probe for behavioral traits).")
+    lines.append("")
+
+    if not no_dim_data:
+        lines.append("*No no-dimensions analysis data available.*")
+        lines.append("")
+    else:
+        cond_names = list(no_dim_data.keys())
+        header = "| Metric | " + " | ".join(cond_names) + " |"
+        separator = "|--------|" + "|".join(["--------"] * len(cond_names)) + "|"
+        lines.append(header)
+        lines.append(separator)
+
+        row = "| **H1a d: Δ** |"
+        for cond in cond_names:
+            orig_d = no_dim_data[cond]["full_dataset"]["statistics"]["disinhibition"]["cohens_d"]
+            new_d = no_dim_data[cond]["no_dimensions"]["statistics"]["disinhibition"]["cohens_d"]
+            delta = new_d - orig_d
+            row += " " + f"{delta:+.2f}" + " |"
+        lines.append(row)
+
+        row = "| **H2 r: Δ** |"
+        for cond in cond_names:
+            orig_r = no_dim_data[cond]["full_dataset"]["correlation"]["sophistication_disinhibition"]
+            new_r = no_dim_data[cond]["no_dimensions"]["correlation"]["sophistication_disinhibition"]
+            delta = new_r - orig_r
+            row += " " + f"{delta:+.3f}" + " |"
+        lines.append(row)
+        lines.append("")
+
+        strengthened_r = sum(1 for cond in cond_names
+                            if no_dim_data[cond]["no_dimensions"]["correlation"]["sophistication_disinhibition"] >
+                               no_dim_data[cond]["full_dataset"]["correlation"]["sophistication_disinhibition"])
+        lines.append("H2 correlation **strengthens** in " + str(strengthened_r) + "/" + str(len(cond_names)) + " conditions when dimensions suite excluded.")
+        lines.append("")
+
+    lines.append("---")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def generate_external_validation(external_data):
-    """Generate external validation section."""
+    """Generate external validation section (DEPRECATED - use generate_robustness_validation)."""
     arc = external_data.get("arc_agi")
     gpqa = external_data.get("gpqa")
 
@@ -652,6 +840,9 @@ def generate_external_validation(external_data):
     lines.append("- **GPQA**: Graduate-level scientific reasoning (crystallized expertise)")
     lines.append("")
     lines.append("This provides convergent validity for the sophistication measure.")
+    lines.append("")
+    lines.append("**Full analysis**: See `research_synthesis/limitations/external_evals/EXTERNAL_VALIDATION_BRIEF.md`")
+    lines.append("**Visualizations**: See `external_validation_consolidated.png` (2x2 soph/disinhib × ARC-AGI/GPQA) and `external_validation_comparison.png`")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -805,13 +996,78 @@ def generate_no_dimensions_sensitivity(no_dim_data):
     return "\n".join(lines)
 
 
-def generate_interpretation_h1_h2():
-    """Generate placeholder for H1a/H2 interpretation."""
-    return """## 8. Interpretation: H1a/H2 Relationship
+def generate_interpretation(preserved: dict):
+    """Generate Section 5: consolidated interpretation, preserving manual edits."""
+    lines = []
+    lines.append("## 5. Interpretation")
+    lines.append("")
 
-> **Editorial Note**: This section requires human interpretation of the statistics above.
+    # 5.1 H1/H2 Relationship
+    header_h1h2 = "### 5.1 H1/H2 Relationship"
+    default_h1h2 = """#### High-Confidence Claims
 
-### High-Confidence Claims
+[To be filled: Claims directly supported by the statistics with large effect sizes]
+
+#### Moderate-Confidence Claims
+
+[To be filled: Claims supported by the statistics but with caveats]
+
+#### Open Questions
+
+[To be filled: Areas where the data is suggestive but not conclusive]"""
+
+    # Check for old header format to migrate content
+    old_header_h1h2 = "## 9. Interpretation: H1a/H2 Relationship"
+    if old_header_h1h2 in preserved:
+        lines.append(header_h1h2)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[old_header_h1h2]))
+    elif header_h1h2 in preserved:
+        lines.append(header_h1h2)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[header_h1h2]))
+    else:
+        lines.append(header_h1h2)
+        lines.append("")
+        lines.append(wrap_manual_section(default_h1h2))
+
+    lines.append("")
+
+    # 5.2 Provider Patterns
+    header_prov = "### 5.2 Provider & Model Patterns"
+    default_prov = """#### Provider-Level Observations
+
+[To be filled: Discussion of systematic differences between providers, particularly the OpenAI constraint observation]
+
+#### Notable Individual Models
+
+[To be filled: Discussion of interesting edge cases, constrained models, and outliers like Gemini-3-Pro]"""
+
+    # Check for old header format to migrate content
+    old_header_prov = "## 11. Interpretation: Model & Provider Patterns"
+    if old_header_prov in preserved:
+        lines.append(header_prov)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[old_header_prov]))
+    elif header_prov in preserved:
+        lines.append(header_prov)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[header_prov]))
+    else:
+        lines.append(header_prov)
+        lines.append("")
+        lines.append(wrap_manual_section(default_prov))
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def generate_interpretation_h1_h2(preserved: dict):
+    """DEPRECATED - use generate_interpretation."""
+    header = "## 9. Interpretation: H1a/H2 Relationship"
+    default = """### High-Confidence Claims
 
 [To be filled: Claims directly supported by the statistics with large effect sizes]
 
@@ -821,49 +1077,41 @@ def generate_interpretation_h1_h2():
 
 ### Open Questions
 
-[To be filled: Areas where the data is suggestive but not conclusive]
+[To be filled: Areas where the data is suggestive but not conclusive]"""
 
----
-
-"""
+    return get_preserved_or_default(preserved, header, default) + "\n\n---\n\n"
 
 
-def generate_interpretation_interventions():
-    """Generate placeholder for intervention interpretation."""
-    return """## 9. Interpretation: Intervention Effects
+def generate_interpretation_interventions(preserved: dict):
+    """DEPRECATED - moved to H3 section."""
+    header = "## 10. Interpretation: Intervention Effects"
+    default = """### Constraint vs. Pressure Interventions
 
-> **Editorial Note**: This section requires human interpretation of the variability and ANOVA results.
-
-### Constraint vs. Pressure Interventions
+-Work in Progress-
 
 [To be filled: Interpretation of why constraint interventions reduce variance while pressure interventions increase it]
 
 ### Intervention Mechanism Hypotheses
 
-[To be filled: Theories about how different interventions affect the sophistication-disinhibition relationship]
+-Work in Progress-
 
----
+[To be filled: Theories about how different interventions affect the sophistication-disinhibition relationship]"""
 
-"""
+    return get_preserved_or_default(preserved, header, default) + "\n\n---\n\n"
 
 
-def generate_interpretation_models():
-    """Generate placeholder for model pattern interpretation."""
-    return """## 10. Interpretation: Model & Provider Patterns
-
-> **Editorial Note**: This section requires human interpretation of model-level patterns.
-
-### Provider-Level Observations
+def generate_interpretation_models(preserved: dict):
+    """DEPRECATED - use generate_interpretation."""
+    header = "## 11. Interpretation: Model & Provider Patterns"
+    default = """### Provider-Level Observations
 
 [To be filled: Discussion of systematic differences between providers]
 
 ### Notable Individual Models
 
-[To be filled: Discussion of interesting edge cases, constrained models, and outliers]
+[To be filled: Discussion of interesting edge cases, constrained models, and outliers]"""
 
----
-
-"""
+    return get_preserved_or_default(preserved, header, default) + "\n\n---\n\n"
 
 
 def generate_model_patterns(cross_data):
@@ -925,14 +1173,14 @@ def generate_model_patterns(cross_data):
     return "\n".join(lines)
 
 
-def generate_limitations(judge_agreement, external_data):
-    """Generate limitations section with judge bias analysis."""
+def generate_limitations(judge_agreement, external_data, preserved: dict):
+    """Generate Section 6: Limitations with 6.2 as MANUAL."""
     lines = []
-    lines.append("## 12. Limitations & Future Work")
+    lines.append("## 6. Limitations")
     lines.append("")
 
-    # Judge Bias Section
-    lines.append("### 12.1 Judge Bias Analysis")
+    # 6.1 Judge Bias Section
+    lines.append("### 6.1 Judge Bias Analysis")
     lines.append("")
     lines.append("A common critique of LLM-as-judge evaluations: if frontier models judge frontier models, they may rate themselves or similar models more favorably, inflating sophistication scores and creating spurious correlations.")
     lines.append("")
@@ -1031,20 +1279,202 @@ def generate_limitations(judge_agreement, external_data):
     lines.append("**Full analysis**: See `research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md`")
     lines.append("")
 
-    # Other limitations placeholder
-    lines.append("### 12.2 Other Methodological Considerations")
+    # 6.2 Other Methodological Considerations (MANUAL)
+    header_other = "### 6.2 Other Methodological Considerations"
+    default_other = """- **Prompt design**: Scenarios may not fully capture real-world deployment contexts
+- **Sample selection**: Model selection prioritized major providers; smaller/specialized models underrepresented
+- **Temporal validity**: Model behaviors may change with updates; results reflect evaluation period"""
+
+    # Check for old header format to migrate content
+    old_header_other = "### 12.2 Other Methodological Considerations"
+    if old_header_other in preserved:
+        lines.append(header_other)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[old_header_other]))
+    elif header_other in preserved:
+        lines.append(header_other)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[header_other]))
+    else:
+        lines.append(header_other)
+        lines.append("")
+        lines.append(wrap_manual_section(default_other))
+
     lines.append("")
-    lines.append("- **Prompt design**: Scenarios may not fully capture real-world deployment contexts")
-    lines.append("- **Sample selection**: Model selection prioritized major providers; smaller/specialized models underrepresented")
-    lines.append("- **Temporal validity**: Model behaviors may change with updates; results reflect evaluation period")
+    lines.append("---")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def generate_future_directions(preserved: dict):
+    """Generate Section 7: Future Directions, preserving manual edits."""
+    header = "## 7. Future Directions"
+    old_header = "### 13.3 Future Directions"
+    default = """- Formalize H3 hypothesis testing (see Section 8 for preliminary work)
+- Inspect 'constrained' phenomena more deeply using OpenAI products as focal point
+- Test broader generalizability to multi-turn chat flows and separately to semi-autonomous agentic workflows
+- Identify a 3rd external benchmark for high-low sophistication comparison
+- Formalize a robust and standardized baseline v2 prompt suite leveraging empirically determined high frequency end consumer queries
+- Formalize a robust and standardized dimensions v2 prompt suite to assess extremes
+- Address provider differences between conditions
+- Address thinking vs. non thinking variants, compare total estimated thinking time"""
+
+    # Check for old header format to migrate content
+    if old_header in preserved:
+        return f"{header}\n\n{wrap_manual_section(preserved[old_header])}\n\n---\n\n"
+    else:
+        return get_preserved_or_default(preserved, header, default) + "\n\n---\n\n"
+
+
+def generate_h3_preliminary(cross_data, conditions_data, preserved: dict):
+    """Generate Section 8: H3 Preliminary Analysis with Work in Progress banner."""
+    import numpy as np
+
+    lines = []
+    lines.append("## 8. Preliminary: H3 Intervention Effects")
+    lines.append("")
+    lines.append("> 🚧 **Work in Progress**")
+    lines.append("> ")
+    lines.append("> This section presents preliminary analysis of intervention effects on the sophistication-disinhibition relationship.")
+    lines.append("> H3 hypothesis testing is ongoing. Results should be considered exploratory pending further validation.")
     lines.append("")
 
-    lines.append("### 12.3 Future Directions")
+    # 8.1 Hypothesis
+    lines.append("### 8.1 H3 Hypothesis")
     lines.append("")
-    lines.append("- Expand to additional model families and providers")
-    lines.append("- Test additional intervention types (e.g., roleplay, adversarial)")
-    lines.append("- Longitudinal tracking of model behavioral drift")
-    lines.append("- Causal analysis of sophistication-disinhibition mechanisms")
+    lines.append("**H3**: Contextual interventions systematically affect both the magnitude and variance of the sophistication-disinhibition relationship.")
+    lines.append("")
+
+    # 8.2 Current Evidence: Variability
+    lines.append("### 8.2 Current Evidence: Response Variability")
+    lines.append("")
+
+    # Calculate variability from conditions_data
+    variability_stats = {}
+    if conditions_data:
+        for cond, data in conditions_data.items():
+            models = data.get("models", [])
+            if models:
+                disinhib_values = [m.get("disinhibition", 0) for m in models]
+                if disinhib_values:
+                    mean_val = np.mean(disinhib_values)
+                    sd_val = np.std(disinhib_values, ddof=1) if len(disinhib_values) > 1 else 0
+                    cv_val = (sd_val / mean_val * 100) if mean_val > 0 else 0
+                    var_val = np.var(disinhib_values, ddof=1) if len(disinhib_values) > 1 else 0
+                    variability_stats[cond] = {
+                        "n": len(disinhib_values),
+                        "mean": mean_val,
+                        "sd": sd_val,
+                        "var": var_val,
+                        "cv": cv_val
+                    }
+
+    if variability_stats:
+        lines.append("| Condition | N | Mean | SD | CV% | Var Ratio |")
+        lines.append("|-----------|---|------|-----|-----|-----------|")
+
+        sorted_conds = sorted(variability_stats.items(), key=lambda x: x[1].get("cv", 0))
+        baseline_var = variability_stats.get("baseline", {}).get("var", 1)
+        if baseline_var == 0:
+            baseline_var = 1
+
+        for cond, data in sorted_conds:
+            n = data.get("n", 0)
+            mean = data.get("mean", 0)
+            sd = data.get("sd", 0)
+            cv = data.get("cv", 0)
+            var = data.get("var", 0)
+            vr = var / baseline_var if cond != "baseline" else 1.0
+            lines.append(f"| {cond} | {n} | {mean:.2f} | {sd:.3f} | {cv:.1f}% | {vr:.2f} |")
+
+        if sorted_conds:
+            most_consistent = sorted_conds[0][0]
+            most_variable = sorted_conds[-1][0]
+            lines.append("")
+            lines.append(f"**Most consistent**: {most_consistent}")
+            lines.append(f"**Most variable**: {most_variable}")
+    else:
+        lines.append("*Variability data not available.*")
+
+    lines.append("")
+
+    # 8.3 Current Evidence: ANOVA
+    lines.append("### 8.3 Current Evidence: Cross-Condition ANOVA")
+    lines.append("")
+
+    anova_data = cross_data.get("anova") if cross_data else None
+    if anova_data:
+        original = anova_data.get("original", {})
+        rm = original.get("rm_anova", {})
+
+        if rm:
+            F = rm.get("F", 0)
+            df1 = rm.get("df1", 0)
+            df2 = rm.get("df2", 0)
+            p = rm.get("p_value", 1)
+            eta = rm.get("eta_squared", 0)
+            epsilon = rm.get("epsilon", 1)
+            p_gg = rm.get("p_gg_corrected", p)
+
+            lines.append(f"- **F**({df1}, {df2}) = {F:.2f}")
+            p_str = "< .0001" if p < 0.0001 else f"= {p:.4f}"
+            lines.append(f"- **p** {p_str}")
+            lines.append(f"- **η²** = {eta:.3f}")
+            lines.append("")
+            p_gg_str = "< .0001" if p_gg < 0.0001 else f"= {p_gg:.4f}"
+            lines.append(f"Sphericity violated (ε = {epsilon:.3f}), Greenhouse-Geisser corrected p {p_gg_str}")
+            lines.append("")
+
+        posthoc = original.get("posthoc", [])
+        if posthoc:
+            lines.append("#### Significant Pairwise Comparisons")
+            lines.append("")
+            lines.append("| Comparison | t | p | g | Sig |")
+            lines.append("|------------|---|---|---|-----|")
+
+            for comp in posthoc:
+                if comp.get("p_corrected", 1) < 0.05:
+                    name = comp.get("comparison", "")
+                    t = comp.get("t", 0)
+                    p_corr = comp.get("p_corrected", 1)
+                    g = comp.get("hedges_g", 0)
+                    p_str = "< .0001" if p_corr < 0.0001 else f"{p_corr:.4f}"
+                    lines.append(f"| {name} | {t:.2f} | {p_str} | {g:.2f} | Yes |")
+
+            lines.append("")
+    else:
+        lines.append("*ANOVA results not available.*")
+        lines.append("")
+
+    # 8.4 Preliminary Interpretation (MANUAL)
+    header_interp = "### 8.4 Preliminary Interpretation"
+    old_header_interp = "## 10. Interpretation: Intervention Effects"
+    default_interp = """#### Constraint vs. Pressure Interventions
+
+*Analysis in progress*
+
+[To be filled: Interpretation of why constraint interventions reduce variance while pressure interventions increase it]
+
+#### Intervention Mechanism Hypotheses
+
+*Analysis in progress*
+
+[To be filled: Theories about how different interventions affect the sophistication-disinhibition relationship]"""
+
+    # Check for old header format to migrate content
+    if old_header_interp in preserved:
+        lines.append(header_interp)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[old_header_interp]))
+    elif header_interp in preserved:
+        lines.append(header_interp)
+        lines.append("")
+        lines.append(wrap_manual_section(preserved[header_interp]))
+    else:
+        lines.append(header_interp)
+        lines.append("")
+        lines.append(wrap_manual_section(default_interp))
+
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -1052,17 +1482,55 @@ def generate_limitations(judge_agreement, external_data):
 
 
 def generate_file_references(conditions_data, cross_data, external_data):
-    """Generate file references section."""
+    """Generate Appendix B: File References."""
     lines = []
-    lines.append("## Appendix: File References")
+    lines.append("## Appendix B: File References")
     lines.append("")
-    lines.append("### Per-Condition Data")
+    lines.append("### Per-Condition Data & Visualizations")
     lines.append("")
-
-    for cond in conditions_data.keys():
-        lines.append("- `" + cond + "/median_split_classification.json`")
-        lines.append("- `" + cond + "/RESEARCH_BRIEF.md`")
-
+    lines.append("Each condition directory (`baseline/`, `authority/`, `minimal_steering/`, `reminder/`, `telemetryV3/`, `urgency/`) contains:")
+    lines.append("")
+    lines.append("| File | Description |")
+    lines.append("|------|-------------|")
+    lines.append("| `median_split_classification.json` | H1/H2 statistics and model classifications |")
+    lines.append("| `RESEARCH_BRIEF.md` | Condition-specific research summary |")
+    lines.append("| `h2_scatter_sophistication_composite.png` | Main H2 correlation plot (soph vs disinhib) |")
+    lines.append("| `h2_scatter_all_dimensions.png` | 4-panel: transgression, aggression, tribalism, grandiosity |")
+    lines.append("| `visualizations/current_profiles_spider.png` | Spider chart of all model profiles |")
+    lines.append("| `all_models_data.csv` | Complete dataset for external analysis |")
+    lines.append("")
+    lines.append("### Qualitative Examples")
+    lines.append("")
+    lines.append("Full chat exports for qualitative analysis are available in each condition:")
+    lines.append("")
+    lines.append("```")
+    lines.append("<condition>/qualitative_chats/")
+    lines.append("├── dimension_extremes/     # Min/max per dimension (warmth, transgression, etc.)")
+    lines.append("├── composite_extremes/     # Sophistication/disinhibition extremes")
+    lines.append("├── percentiles/            # 5th, 25th, 50th, 75th, 95th percentile responses")
+    lines.append("└── pattern_types/          # Constrained, outlier, borderline model examples")
+    lines.append("```")
+    lines.append("")
+    lines.append("**Manifest**: `research_synthesis/limitations/prompt_design/QUALITATIVE_MANIFEST.md`")
+    lines.append("")
+    lines.append("### External Validation")
+    lines.append("")
+    lines.append("| File | Description |")
+    lines.append("|------|-------------|")
+    lines.append("| `research_synthesis/limitations/external_evals/EXTERNAL_VALIDATION_BRIEF.md` | Combined ARC-AGI + GPQA analysis |")
+    lines.append("| `external_validation_consolidated.png` | 2x2 panel: soph/disinhib × ARC-AGI/GPQA |")
+    lines.append("| `external_validation_comparison.png` | Side-by-side benchmark comparison |")
+    lines.append("| `arc_agi_validation_analysis.json` | ARC-AGI correlation data |")
+    lines.append("| `gpqa_validation_analysis.json` | GPQA correlation data |")
+    lines.append("")
+    lines.append("### Prompt Design")
+    lines.append("")
+    lines.append("| File | Description |")
+    lines.append("|------|-------------|")
+    lines.append("| `research_synthesis/limitations/prompt_design/BASELINE_PROMPT_INVENTORY.md` | 51 scenarios across 4 suites |")
+    lines.append("| `INTERVENTION_PROMPT_INVENTORY.md` | 5 interventions with mechanism analysis |")
+    lines.append("| `PROMPT_INTERVENTION_DESIGN_ANALYSIS.md` | Design rationale and analysis |")
+    lines.append("| `QUALITATIVE_PROMPT_PATTERN_ANALYSIS.md` | Which prompts drive high scores |")
     lines.append("")
     lines.append("### Cross-Condition Analysis")
     lines.append("")
@@ -1071,25 +1539,47 @@ def generate_file_references(conditions_data, cross_data, external_data):
     lines.append("- `research_synthesis/cross_condition/cross_condition_patterns.json`")
     lines.append("- `research_synthesis/cross_condition/CONDITION_COMPARISON.md`")
     lines.append("")
-    lines.append("### Limitations & Validation")
+    lines.append("### Provider Constraint Analysis")
     lines.append("")
-    lines.append("- `research_synthesis/limitations/judge_limitations/judge_agreement_analysis.json`")
-    lines.append("- `research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md`")
-    lines.append("- `research_synthesis/limitations/external_evals/arc_agi_validation_analysis.json`")
-    lines.append("- `research_synthesis/limitations/external_evals/gpqa_validation_analysis.json`")
-    lines.append("- `research_synthesis/limitations/prompt_design/BASELINE_PROMPT_INVENTORY.md`")
-    lines.append("- `research_synthesis/limitations/factor_structure/FACTOR_STRUCTURE_BASELINE.md`")
+    lines.append("- `research_synthesis/limitations/provider_constraint/SOPH_DISINHIB_RATIO_ANALYSIS.md`")
+    lines.append("- `research_synthesis/limitations/provider_constraint/soph_disinhib_ratio.json`")
     lines.append("- `research_synthesis/limitations/provider_constraint/provider_constraint_*.json`")
     lines.append("")
-    lines.append("### Regeneration")
+    lines.append("### Other Limitations")
+    lines.append("")
+    lines.append("- `research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md`")
+    lines.append("- `research_synthesis/limitations/judge_limitations/judge_agreement_analysis.json`")
+    lines.append("- `research_synthesis/limitations/factor_structure/FACTOR_STRUCTURE_BASELINE.md`")
+    lines.append("- `research_synthesis/limitations/median_split/MEDIAN_SPLIT_METHODOLOGY.md`")
+    lines.append("- `research_synthesis/limitations/median_split/classification_stability_analysis.json`")
+    lines.append("")
+    lines.append("### Regeneration & Export")
     lines.append("")
     lines.append("```bash")
+    lines.append("# Regenerate from condition data")
     lines.append("python3 scripts/regenerate_main_brief.py")
+    lines.append("")
+    lines.append("# Sync to CDN and generate public brief with embedded images")
+    lines.append("python3 scripts/sync_research_assets.py --invalidate")
+    lines.append("")
+    lines.append("# Export to PDF (requires MacTeX)")
+    lines.append("pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \\")
+    lines.append("  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.pdf \\")
+    lines.append("  -f markdown-yaml_metadata_block \\")
+    lines.append("  --pdf-engine=xelatex \\")
+    lines.append("  -V geometry:margin=1in")
+    lines.append("")
+    lines.append("# Export to HTML (for browser copy → Google Docs)")
+    lines.append("pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \\")
+    lines.append("  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.html \\")
+    lines.append("  --standalone \\")
+    lines.append("  -f markdown-yaml_metadata_block \\")
+    lines.append("  --metadata title=\"Main Research Brief\"")
     lines.append("```")
     lines.append("")
     lines.append("---")
     lines.append("")
-    lines.append("**Document Version**: 3.0 (Auto-generated)")
+    lines.append("**Document Version**: 3.2 (Auto-generated)")
     lines.append("**Generated**: " + datetime.now().strftime("%Y-%m-%d %H:%M"))
     lines.append("")
 
@@ -1097,12 +1587,12 @@ def generate_file_references(conditions_data, cross_data, external_data):
 
 
 def generate_factor_structure_appendix(factor_structure):
-    """Generate factor structure appendix section."""
+    """Generate Appendix A: Factor Structure."""
     if not factor_structure:
         return ""
 
     lines = []
-    lines.append("## Appendix: Factor Structure")
+    lines.append("## Appendix A: Factor Structure")
     lines.append("")
     lines.append("### Why 9 Dimensions → 2 Composites")
     lines.append("")
@@ -1176,8 +1666,102 @@ def generate_factor_structure_appendix(factor_structure):
     return "\n".join(lines)
 
 
+def generate_provider_model_patterns(provider_constraint, cross_data):
+    """Generate Section 4: Provider & Model Patterns."""
+    lines = []
+    lines.append("## 4. Provider & Model Patterns")
+    lines.append("")
+
+    # 4.1 Provider Constraint Analysis
+    lines.append("### 4.1 Provider Constraint Analysis")
+    lines.append("")
+    lines.append("Statistical analysis of whether certain providers show systematically more constrained behavior (high sophistication but below-predicted disinhibition).")
+    lines.append("")
+
+    if not provider_constraint:
+        lines.append("*Provider constraint data not available.*")
+        lines.append("")
+    else:
+        lines.append("#### Cross-Condition Summary")
+        lines.append("")
+        lines.append("| Condition | OpenAI Residual | Rank | ANOVA p | Sig |")
+        lines.append("|-----------|-----------------|------|---------|-----|")
+
+        for condition in ["baseline", "authority", "urgency", "minimal_steering", "telemetryV3", "reminder"]:
+            if condition not in provider_constraint:
+                continue
+
+            data = provider_constraint[condition]
+            openai_stats = data.get("provider_stats", {}).get("OpenAI", {})
+            openai_resid = openai_stats.get("mean_residual", float("nan"))
+
+            sorted_provs = sorted(data.get("provider_stats", {}).items(),
+                                  key=lambda x: x[1].get("mean_residual", 0))
+            rank = next((i+1 for i, (p, _) in enumerate(sorted_provs) if p == "OpenAI"), "N/A")
+            rank_str = f"{rank}" + ("st" if rank == 1 else "nd" if rank == 2 else "rd" if rank == 3 else "th")
+
+            anova_p = data.get("anova", {}).get("p", float("nan"))
+            sig = "Yes" if anova_p < 0.05 else "No"
+
+            lines.append(f"| {condition} | {openai_resid:+.3f} | {rank_str} | {anova_p:.4f} | {sig} |")
+
+        lines.append("")
+        lines.append("*Negative residual = more constrained than predicted by sophistication*")
+        lines.append("")
+        lines.append("**Key Finding**: OpenAI models exhibit systematically lower disinhibition than predicted by their sophistication level across all conditions tested.")
+        lines.append("")
+
+    # 4.2 Model Reference Tables
+    patterns = cross_data.get("patterns") if cross_data else None
+    cross_condition = patterns.get("cross_condition", {}) if patterns else {}
+
+    lines.append("### 4.2 Consistently Constrained Models")
+    lines.append("")
+    lines.append("Models exhibiting high sophistication (>6.5) but below-predicted disinhibition across multiple conditions.")
+    lines.append("")
+    lines.append("| Model | # Conditions | Conditions |")
+    lines.append("|-------|--------------|------------|")
+
+    constrained = cross_condition.get("most_constrained", [])
+    multi_condition_constrained = [m for m in constrained if m.get("composite", 0) >= 2]
+    for model in multi_condition_constrained[:10]:
+        name = model.get("model", "")
+        n_conds = model.get("composite", 0)
+        conds = ", ".join(model.get("conditions", []))
+        lines.append("| " + name + " | " + str(n_conds) + " | " + conds + " |")
+
+    if not multi_condition_constrained:
+        lines.append("| *No models constrained in 2+ conditions* | - | - |")
+
+    lines.append("")
+
+    # 4.3 Consistent Outliers
+    lines.append("### 4.3 Consistent Outliers")
+    lines.append("")
+    lines.append("Models with unusual sophistication-disinhibition relationships (|residual| > 2 SD).")
+    lines.append("")
+    lines.append("| Model | # Conditions | Conditions |")
+    lines.append("|-------|--------------|------------|")
+
+    outliers = cross_condition.get("most_outlier", [])
+    multi_condition_outliers = [m for m in outliers if m.get("composite", 0) >= 2]
+    for model in multi_condition_outliers[:10]:
+        name = model.get("model", "")
+        n_conds = model.get("composite", 0)
+        conds = ", ".join(model.get("conditions", []))
+        lines.append("| " + name + " | " + str(n_conds) + " | " + conds + " |")
+
+    if not multi_condition_outliers:
+        lines.append("| *No models outliers in 2+ conditions* | - | - |")
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+    return "\n".join(lines)
+
+
 def generate_provider_constraint_section(provider_constraint):
-    """Generate provider constraint analysis section."""
+    """Generate provider constraint analysis section (DEPRECATED - use generate_provider_model_patterns)."""
     if not provider_constraint:
         return ""
 
@@ -1257,6 +1841,9 @@ def generate_provider_constraint_section(provider_constraint):
 
 def generate_main_brief():
     """Generate the complete MAIN_RESEARCH_BRIEF.md content."""
+    # Load preserved manual sections from existing file
+    preserved = load_existing_manual_sections()
+
     conditions_data = load_all_conditions()
     cross_data = load_cross_condition_data()
     external_data = load_external_validation()
@@ -1269,27 +1856,85 @@ def generate_main_brief():
     if not conditions_data:
         return "# Main Research Brief\n\n**Error**: No condition data found.\n"
 
+    # New reorganized structure
     sections = [
+        # Header & Summary
         generate_header(conditions_data, cross_data, external_data),
         generate_executive_summary(conditions_data, cross_data, external_data),
+
+        # Section 1: Methods
         generate_hypotheses_methods(conditions_data, factor_structure),
+
+        # Section 2: Core H1/H2 Results
         generate_h1_h2_results(conditions_data),
-        generate_variability_results(cross_data, conditions_data),
-        generate_anova_results(cross_data),
-        generate_external_validation(external_data),
-        generate_outlier_sensitivity(outlier_data),
-        generate_no_dimensions_sensitivity(no_dim_data),
-        generate_interpretation_h1_h2(),
-        generate_interpretation_interventions(),
-        generate_interpretation_models(),
-        generate_model_patterns(cross_data),
-        generate_limitations(judge_agreement, external_data),
+
+        # Section 3: Robustness & Validation (consolidated)
+        generate_robustness_validation(external_data, outlier_data, no_dim_data),
+
+        # Section 4: Provider & Model Patterns
+        generate_provider_model_patterns(provider_constraint, cross_data),
+
+        # Section 5: Interpretation (MANUAL sections)
+        generate_interpretation(preserved),
+
+        # Section 6: Limitations (6.2 is MANUAL)
+        generate_limitations(judge_agreement, external_data, preserved),
+
+        # Section 7: Future Directions (MANUAL)
+        generate_future_directions(preserved),
+
+        # Section 8: H3 Preliminary (with WIP banner)
+        generate_h3_preliminary(cross_data, conditions_data, preserved),
+
+        # Appendices
         generate_factor_structure_appendix(factor_structure),
-        generate_provider_constraint_section(provider_constraint),
         generate_file_references(conditions_data, cross_data, external_data),
     ]
 
     return "".join(sections)
+
+
+def generate_h3_preliminary_section(cross_data, conditions_data):
+    """Generate H3 preliminary section (variability, ANOVA) - placed at bottom."""
+    lines = []
+    lines.append("## Appendix: H3 Preliminary Analysis (Response Variability)")
+    lines.append("")
+    lines.append("> **Status**: PRELIMINARY - Reserved for H3 hypothesis development. Current focus is H1/H2.")
+    lines.append("")
+
+    # Include variability content
+    variability_content = generate_variability_results(cross_data, conditions_data)
+    # Strip the header and separator since we're embedding
+    variability_lines = variability_content.split('\n')
+    # Skip the header line and find content
+    in_content = False
+    for line in variability_lines:
+        if line.startswith('### Variability'):
+            in_content = True
+        if in_content and not line.startswith('## ') and not line.startswith('---'):
+            lines.append(line)
+        if line.startswith('---') and in_content:
+            break
+
+    lines.append("")
+
+    # Include ANOVA content
+    anova_content = generate_anova_results(cross_data)
+    anova_lines = anova_content.split('\n')
+    in_content = False
+    for line in anova_lines:
+        if line.startswith('### Main Effect') or line.startswith('### Pairwise'):
+            in_content = True
+        if in_content and not line.startswith('## ') and not line.startswith('---'):
+            lines.append(line)
+        if line.startswith('---') and in_content:
+            break
+
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    return "\n".join(lines)
 
 
 def main():

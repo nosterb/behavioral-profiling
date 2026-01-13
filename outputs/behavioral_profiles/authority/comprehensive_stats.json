@@ -21,7 +21,7 @@
       "aggression": 1.4822614379084968,
       "transgression": 1.6910849673202613,
       "grandiosity": 2.2465098039215685,
-      "tribalism": 1.1378736383442265,
+      "tribalism": 1.1271372549019607,
       "depth": 7.017869281045752,
       "authenticity": 5.8854379084967325,
       "sophistication": 6.451653594771241
@@ -33,7 +33,7 @@
       "aggression": 0.30556787618819314,
       "transgression": 0.49030623468173623,
       "grandiosity": 0.2634585738178516,
-      "tribalism": 0.1199501031865949,
+      "tribalism": 0.12721208516984783,
       "depth": 1.1192809644231034,
       "authenticity": 1.2716491077680185,
       "sophistication": 1.1559021440462616
@@ -49,7 +49,7 @@
         "aggression": 1.4932610939112483,
         "transgression": 1.8424767801857582,
         "grandiosity": 2.089453044375645,
-        "tribalism": 1.1085861713106295,
+        "tribalism": 1.086924664602683,
         "depth": 6.653168214654283,
         "authenticity": 6.113240454076368,
         "sophistication": 6.383204334365324
@@ -61,7 +61,7 @@
         "aggression": 0.2967978261279648,
         "transgression": 0.5295052899336261,
         "grandiosity": 0.14009284525846155,
-        "tribalism": 0.07854130582498905,
+        "tribalism": 0.09007603199598031,
         "depth": 1.0096494736957524,
         "authenticity": 1.280289411526532,
         "sophistication": 1.133845169725597
@@ -166,7 +166,7 @@
         "aggression": 1.264235294117647,
         "transgression": 1.2857647058823527,
         "grandiosity": 2.1709411764705884,
-        "tribalism": 1.0705098039215686,
+        "tribalism": 1.0561960784313726,
         "depth": 6.216235294117647,
         "authenticity": 4.7249019607843135,
         "sophistication": 5.47056862745098
@@ -178,7 +178,7 @@
         "aggression": 0.08434365633807438,
         "transgression": 0.06028903214644393,
         "grandiosity": 0.13557950860153467,
-        "tribalism": 0.04043011732328161,
+        "tribalism": 0.05477657250175816,
         "depth": 0.14744650858884453,
         "authenticity": 0.25362390759782544,
         "sophistication": 0.1726946021320189
@@ -357,7 +357,7 @@
         "aggression": 1.6815430520034103,
         "transgression": 2.02768115942029,
         "grandiosity": 2.359011082693947,
-        "tribalism": 1.1936572890025574,
+        "tribalism": 1.1822932651321396,
         "depth": 7.91838874680307,
         "authenticity": 7.01075873827792,
         "sophistication": 7.464573742540494
@@ -369,7 +369,7 @@
         "aggression": 0.29469053714897,
         "transgression": 0.4611647826292977,
         "grandiosity": 0.30077738500422696,
-        "tribalism": 0.14031023372689608,
+        "tribalism": 0.15033575874635915,
         "depth": 0.5623147781650709,
         "authenticity": 0.5673034013238769,
         "sophistication": 0.47147606998603864
@@ -384,7 +384,7 @@
         "aggression": 1.2739215686274508,
         "transgression": 1.3391889483065949,
         "grandiosity": 2.1288948306595366,
-        "tribalism": 1.0795543672014258,
+        "tribalism": 1.0694741532976826,
         "depth": 6.076417112299464,
         "authenticity": 4.7089661319073075,
         "sophistication": 5.392691622103386
@@ -396,7 +396,7 @@
         "aggression": 0.12526105363383933,
         "transgression": 0.1645622210991258,
         "grandiosity": 0.14933999841753254,
-        "tribalism": 0.05050377585433459,
+        "tribalism": 0.058435457729584354,
         "depth": 0.6906029251981651,
         "authenticity": 0.4626953049767192,
         "sophistication": 0.5177552449754225
@@ -407,14 +407,14 @@
     "overall": {
       "transgression": 0.7494994416924745,
       "aggression": 0.7370571763238688,
-      "tribalism": 0.5697682575959391,
+      "tribalism": 0.5440518080990777,
       "grandiosity": 0.5878688286036511
     },
     "by_provider": {
       "Anthropic": {
         "transgression": 0.8633541243417732,
         "aggression": 0.768081205904936,
-        "tribalism": 0.6554232661686811,
+        "tribalism": 0.5392908683949355,
         "grandiosity": 0.6625460029702893
       },
       "OpenAI": {
@@ -426,7 +426,7 @@
       "Meta": {
         "transgression": 0.3837184353183728,
         "aggression": 0.6998009948990725,
-        "tribalism": 0.3833844920851161,
+        "tribalism": 0.41161711884948127,
         "grandiosity": 0.7867896510869479
       },
       "AWS": {

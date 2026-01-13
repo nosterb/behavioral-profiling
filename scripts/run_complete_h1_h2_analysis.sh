@@ -17,8 +17,9 @@ if [ -z "$1" ]; then
     echo "  3. Generate H2 scatter plots (composite + all dimensions)"
     echo "  4. Generate research brief"
     echo "  5. Generate provider analysis (summary, H2 scatters, dimensions, heatmap, stats)"
+    echo "  6. Run cross-provider statistical comparisons (ANOVA, pairwise t-tests)"
     echo ""
-    echo "Output: 13 files (5 H1/H2 core + 5 provider visualizations + 3 data exports)"
+    echo "Output: 16 files (5 H1/H2 core + 8 provider analysis + 3 data exports)"
     exit 1
 fi
 
@@ -203,13 +204,28 @@ fi
 echo ""
 
 # =============================================================================
-# STAGE 5: CROSS-CONDITION COMPARISON
+# STAGE 5: CROSS-PROVIDER STATISTICAL COMPARISONS
 # =============================================================================
 
-echo "=== STAGE 5: CROSS-CONDITION COMPARISON ==="
+echo "=== STAGE 5: CROSS-PROVIDER COMPARISONS ==="
 echo ""
 
-echo "Step 5: Updating cross-condition comparison..."
+echo "Step 5: Running cross-provider statistical comparisons (ANOVA, pairwise t-tests)..."
+python3 scripts/analyze_provider_comparisons.py ${INTERVENTION}
+if [ $? -ne 0 ]; then
+    echo "❌ ERROR: Cross-provider comparisons failed"
+    exit 1
+fi
+echo ""
+
+# =============================================================================
+# STAGE 6: CROSS-CONDITION COMPARISON
+# =============================================================================
+
+echo "=== STAGE 6: CROSS-CONDITION COMPARISON ==="
+echo ""
+
+echo "Step 6: Updating cross-condition comparison..."
 python3 scripts/update_cross_condition_comparison.py
 if [ $? -ne 0 ]; then
     echo "⚠️  WARNING: Cross-condition comparison update failed (non-fatal)"
@@ -228,7 +244,7 @@ echo "Output files created in: ${PROFILE_DIR}"
 echo ""
 
 # List all generated files
-echo "Generated Files (Expected: 13 total):"
+echo "Generated Files (Expected: 16 total):"
 ls -lh ${PROFILE_DIR}/*.{png,md,json,csv,txt} 2>/dev/null | while read line; do
     filename=$(echo "$line" | awk '{print $9}')
     size=$(echo "$line" | awk '{print $5}')
@@ -246,12 +262,12 @@ TOTAL_COUNT=$((PNG_COUNT + JSON_COUNT + MD_COUNT + CSV_COUNT + TXT_COUNT))
 
 echo ""
 echo "File Count Summary:"
-echo "  PNG files: ${PNG_COUNT}/8 (visualizations)"
-echo "  JSON files: ${JSON_COUNT}/2 (data)"
+echo "  PNG files: ${PNG_COUNT}/10 (visualizations)"
+echo "  JSON files: ${JSON_COUNT}/3 (data)"
 echo "  CSV files: ${CSV_COUNT}/1 (export)"
 echo "  TXT files: ${TXT_COUNT}/1 (report)"
 echo "  MD files: ${MD_COUNT}/1 (brief)"
-echo "  Total: ${TOTAL_COUNT}/13"
+echo "  Total: ${TOTAL_COUNT}/16"
 
 echo ""
 

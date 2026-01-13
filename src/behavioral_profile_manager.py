@@ -54,6 +54,9 @@ class BehavioralProfileManager:
         self.log_file = self.history_dir / "updates_log.json"
         self.updates_log = self._load_log()
 
+        # Infer condition name from directory (e.g., "baseline", "authority")
+        self.condition = self.master_dir.name
+
     def _load_contributions(self) -> Dict:
         """Load contribution tracking data."""
         if self.contributions_file.exists():
@@ -414,7 +417,7 @@ class BehavioralProfileManager:
         ax.grid(True, linestyle='--', alpha=0.7)
 
         # Title and legend
-        ax.set_title('Master Behavioral Profiles (Running Averages)',
+        ax.set_title(f'Master Behavioral Profiles (Running Averages)\nCondition: {self.condition}',
                      size=16, pad=20, weight='bold')
 
         # Place legend outside plot area
@@ -466,10 +469,10 @@ class BehavioralProfileManager:
             ax.set_yticklabels(['2', '4', '6', '8', '10'], size=9)
             ax.grid(True, linestyle='--', alpha=0.7)
 
-            # Title with evaluation count
+            # Title with evaluation count and condition
             profile = self._load_profile(model_name)
             eval_count = profile.get('total_evaluations', 0)
-            ax.set_title(f'{model_name}\n({eval_count} evaluations)',
+            ax.set_title(f'{model_name}\n({eval_count} evaluations) | Condition: {self.condition}',
                         size=14, pad=20, weight='bold')
 
             plt.tight_layout()
@@ -515,7 +518,7 @@ class BehavioralProfileManager:
                 text = ax.text(j, i, f'{value:.1f}',
                              ha="center", va="center", color="black", fontsize=8)
 
-        ax.set_title("Behavioral Profile Heatmap (Running Averages)", pad=20, fontsize=14)
+        ax.set_title(f"Behavioral Profile Heatmap (Running Averages)\nCondition: {self.condition}", pad=20, fontsize=14)
         fig.colorbar(im, ax=ax, label='Score (0-10)')
 
         plt.tight_layout()

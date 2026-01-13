@@ -60,7 +60,7 @@ def organize_by_provider(data):
     return provider_data
 
 
-def create_provider_h2_scatters(data, output_path):
+def create_provider_h2_scatters(data, output_path, condition="baseline"):
     """Create multi-panel H2 scatter plots by provider."""
 
     provider_data = organize_by_provider(data)
@@ -175,9 +175,9 @@ def create_provider_h2_scatters(data, output_path):
     for idx in range(len(providers), len(axes)):
         axes[idx].axis('off')
 
-    # Add overall title
-    fig.suptitle('Sophistication-Disinhibition Correlation by Provider (H2)',
-                fontsize=16, fontweight='bold', y=0.995)
+    # Add overall title with condition label
+    fig.suptitle(f'Sophistication-Disinhibition Correlation by Provider (H2)\nCondition: {condition}',
+                fontsize=16, fontweight='bold', y=1.01)
 
     # Add legend
     from matplotlib.patches import Patch
@@ -226,7 +226,7 @@ def main():
 
     print("\nCreating provider-specific H2 scatter plots...")
     output_path = profile_dir / "provider_h2_scatters.png"
-    create_provider_h2_scatters(data, output_path)
+    create_provider_h2_scatters(data, output_path, condition=intervention)
 
     print("\n" + "="*80)
     print("COMPLETE")

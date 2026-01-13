@@ -279,7 +279,7 @@ Based on **N = 10,565** evaluations with 3 valid judge scores:
 
 **Disinhibition dimensions** (aggression, transgression, tribalism, grandiosity) show mean ICC = 0.860, supporting reliable measurement of the key H1/H2 constructs.
 
-**Full analysis**: See `research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md`
+**Full analysis**: See [JUDGE_AGREEMENT_ANALYSIS.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md)
 
 ### 6.2 Other Methodological Considerations
 
@@ -427,7 +427,7 @@ tribal     0.560   0.597   0.783   0.775   1.000   0.811
 grandi     0.728   0.667   0.573   0.620   0.811   1.000
 ```
 
-**Full analysis**: See `research_synthesis/limitations/factor_structure/FACTOR_STRUCTURE_BASELINE.md`
+**Full analysis**: See [FACTOR_STRUCTURE_BASELINE.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/factor_structure/FACTOR_STRUCTURE_BASELINE.md)
 
 ---
 ## Appendix B: File References
@@ -438,10 +438,10 @@ Each condition directory (`baseline/`, `authority/`, `minimal_steering/`, `remin
 
 | File | Description |
 |------|-------------|
-| `median_split_classification.json` | H1/H2 statistics and model classifications |
-| `RESEARCH_BRIEF.md` | Condition-specific research summary |
-| `h2_scatter_sophistication_composite.png` | Main H2 correlation plot (soph vs disinhib) |
-| `h2_scatter_all_dimensions.png` | 4-panel: transgression, aggression, tribalism, grandiosity |
+| [median_split_classification.json](https://d1buxz3bu075ht.cloudfront.net/baseline/median_split_classification.json) | H1/H2 statistics and model classifications |
+| [RESEARCH_BRIEF.md](https://d1buxz3bu075ht.cloudfront.net/baseline/RESEARCH_BRIEF.md) | Condition-specific research summary |
+| [h2_scatter_sophistication_composite.png](https://d1buxz3bu075ht.cloudfront.net/authority/h2_scatter_sophistication_composite.png) | Main H2 correlation plot (soph vs disinhib) |
+| [h2_scatter_all_dimensions.png](https://d1buxz3bu075ht.cloudfront.net/authority/h2_scatter_all_dimensions.png) | 4-panel: transgression, aggression, tribalism, grandiosity |
 | `visualizations/current_profiles_spider.png` | Spider chart of all model profiles |
 | `all_models_data.csv` | Complete dataset for external analysis |
 
@@ -457,47 +457,47 @@ Full chat exports for qualitative analysis are available in each condition:
 └── pattern_types/          # Constrained, outlier, borderline model examples
 ```
 
-**Manifest**: `research_synthesis/limitations/prompt_design/QUALITATIVE_MANIFEST.md`
+**Manifest**: [QUALITATIVE_MANIFEST.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/prompt_design/QUALITATIVE_MANIFEST.md)
 
 ### External Validation
 
 | File | Description |
 |------|-------------|
-| `research_synthesis/limitations/external_evals/EXTERNAL_VALIDATION_BRIEF.md` | Combined ARC-AGI + GPQA analysis |
-| `external_validation_consolidated.png` | 2x2 panel: soph/disinhib × ARC-AGI/GPQA |
-| `external_validation_comparison.png` | Side-by-side benchmark comparison |
-| `arc_agi_validation_analysis.json` | ARC-AGI correlation data |
-| `gpqa_validation_analysis.json` | GPQA correlation data |
+| [EXTERNAL_VALIDATION_BRIEF.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/EXTERNAL_VALIDATION_BRIEF.md) | Combined ARC-AGI + GPQA analysis |
+| [external_validation_consolidated.png](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/external_validation_consolidated.png) | 2x2 panel: soph/disinhib × ARC-AGI/GPQA |
+| [external_validation_comparison.png](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/external_validation_comparison.png) | Side-by-side benchmark comparison |
+| [arc_agi_validation_analysis.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/arc_agi_validation_analysis.json) | ARC-AGI correlation data |
+| [gpqa_validation_analysis.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/gpqa_validation_analysis.json) | GPQA correlation data |
 
 ### Prompt Design
 
 | File | Description |
 |------|-------------|
-| `research_synthesis/limitations/prompt_design/BASELINE_PROMPT_INVENTORY.md` | 51 scenarios across 4 suites |
-| `INTERVENTION_PROMPT_INVENTORY.md` | 5 interventions with mechanism analysis |
-| `PROMPT_INTERVENTION_DESIGN_ANALYSIS.md` | Design rationale and analysis |
-| `QUALITATIVE_PROMPT_PATTERN_ANALYSIS.md` | Which prompts drive high scores |
+| [BASELINE_PROMPT_INVENTORY.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/prompt_design/BASELINE_PROMPT_INVENTORY.md) | 51 scenarios across 4 suites |
+| [INTERVENTION_PROMPT_INVENTORY.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/prompt_design/INTERVENTION_PROMPT_INVENTORY.md) | 5 interventions with mechanism analysis |
+| [PROMPT_INTERVENTION_DESIGN_ANALYSIS.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/prompt_design/PROMPT_INTERVENTION_DESIGN_ANALYSIS.md) | Design rationale and analysis |
+| [QUALITATIVE_PROMPT_PATTERN_ANALYSIS.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/prompt_design/QUALITATIVE_PROMPT_PATTERN_ANALYSIS.md) | Which prompts drive high scores |
 
 ### Cross-Condition Analysis
 
-- `research_synthesis/cross_condition/repeated_measures_anova_results.json`
-- `research_synthesis/cross_condition/variability_analysis_disinhibition.json`
-- `research_synthesis/cross_condition/cross_condition_patterns.json`
-- `research_synthesis/cross_condition/CONDITION_COMPARISON.md`
+- [repeated_measures_anova_results.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/cross_condition/repeated_measures_anova_results.json)
+- [variability_analysis_disinhibition.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/cross_condition/variability_analysis_disinhibition.json)
+- [cross_condition_patterns.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/cross_condition/cross_condition_patterns.json)
+- [CONDITION_COMPARISON.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/cross_condition/CONDITION_COMPARISON.md)
 
 ### Provider Constraint Analysis
 
-- `research_synthesis/limitations/provider_constraint/SOPH_DISINHIB_RATIO_ANALYSIS.md`
-- `research_synthesis/limitations/provider_constraint/soph_disinhib_ratio.json`
+- [SOPH_DISINHIB_RATIO_ANALYSIS.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/provider_constraint/SOPH_DISINHIB_RATIO_ANALYSIS.md)
+- [soph_disinhib_ratio.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/provider_constraint/soph_disinhib_ratio.json)
 - `research_synthesis/limitations/provider_constraint/provider_constraint_*.json`
 
 ### Other Limitations
 
-- `research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md`
-- `research_synthesis/limitations/judge_limitations/judge_agreement_analysis.json`
-- `research_synthesis/limitations/factor_structure/FACTOR_STRUCTURE_BASELINE.md`
-- `research_synthesis/limitations/median_split/MEDIAN_SPLIT_METHODOLOGY.md`
-- `research_synthesis/limitations/median_split/classification_stability_analysis.json`
+- [JUDGE_AGREEMENT_ANALYSIS.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md)
+- [judge_agreement_analysis.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/judge_limitations/judge_agreement_analysis.json)
+- [FACTOR_STRUCTURE_BASELINE.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/factor_structure/FACTOR_STRUCTURE_BASELINE.md)
+- [MEDIAN_SPLIT_METHODOLOGY.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/median_split/MEDIAN_SPLIT_METHODOLOGY.md)
+- [classification_stability_analysis.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/median_split/classification_stability_analysis.json)
 
 ### Regeneration & Export
 

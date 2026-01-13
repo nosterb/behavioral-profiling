@@ -187,7 +187,7 @@ def analyze_dimension(df: pd.DataFrame, dimension: str) -> dict:
     }
 
 
-def create_comparison_visualization(df: pd.DataFrame, results: dict, output_path: Path):
+def create_comparison_visualization(df: pd.DataFrame, results: dict, output_path: Path, condition: str = "baseline"):
     """Create visualization of provider comparisons."""
     fig, axes = plt.subplots(2, 2, figsize=(14, 12))
 
@@ -295,13 +295,14 @@ def create_comparison_visualization(df: pd.DataFrame, results: dict, output_path
         ax4.set_title('Significance (Bonferroni)\n* p<.05, ** p<.01, *** p<.001\n(S)mall (M)edium (L)arge effect',
                      fontsize=11, fontweight='bold')
 
+    plt.suptitle(f'Provider Comparison Summary\nCondition: {condition}', fontsize=14, fontweight='bold', y=1.02)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Saved: {output_path}")
 
 
-def create_dimension_comparison_grid(df: pd.DataFrame, results: dict, output_path: Path):
+def create_dimension_comparison_grid(df: pd.DataFrame, results: dict, output_path: Path, condition: str = "baseline"):
     """Create grid showing all 9 dimensions by provider with ANOVA stats."""
     fig, axes = plt.subplots(3, 3, figsize=(16, 14))
     axes = axes.flatten()
@@ -335,8 +336,8 @@ def create_dimension_comparison_grid(df: pd.DataFrame, results: dict, output_pat
             ax.set_title(f'{dim.capitalize()} {sig_marker}\nF={f_val:.2f}, η²={eta2:.2f} ({interp})',
                         fontsize=10, fontweight='bold', color=title_color)
 
-    plt.suptitle('All Dimensions by Provider (n≥3)\n* p<.05, ** p<.01, *** p<.001',
-                 fontsize=14, fontweight='bold', y=1.01)
+    plt.suptitle(f'All Dimensions by Provider (n≥3)\n* p<.05, ** p<.01, *** p<.001\nCondition: {condition}',
+                 fontsize=14, fontweight='bold', y=1.02)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
@@ -488,8 +489,8 @@ def main():
 
     # Create visualizations
     print("\nGenerating visualizations...")
-    create_comparison_visualization(df_filtered, results, output_dir / "provider_comparison_summary.png")
-    create_dimension_comparison_grid(df_filtered, results, output_dir / "provider_comparison_dimensions.png")
+    create_comparison_visualization(df_filtered, results, output_dir / "provider_comparison_summary.png", condition=condition)
+    create_dimension_comparison_grid(df_filtered, results, output_dir / "provider_comparison_dimensions.png", condition=condition)
 
     # Print summary report
     print_summary_report(results, df_filtered, condition)

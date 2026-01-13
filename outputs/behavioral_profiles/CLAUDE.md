@@ -87,6 +87,19 @@ Each condition directory contains **18 items** after running the complete analys
 | `profiles/` | Individual model profile JSON files |
 | `history/` | Contribution tracking and update logs |
 
+### Condition Labels in Visualizations
+
+All PNG visualizations automatically include the condition name in their title/suptitle for clear data provenance. The label format is `Condition: {condition_name}` (e.g., "Condition: baseline", "Condition: authority").
+
+**Scripts with condition labeling**:
+- `create_h1_bar_chart.py` - H1 bar chart and summary table
+- `create_h2_color_coded_scatters.py` - H2 scatter plots (composite and all dimensions)
+- `create_provider_summary.py` - Provider summary 4-panel figure
+- `create_provider_h2_scatters.py` - Provider-specific H2 scatters
+- `analyze_all_models_by_provider.py` - All dimensions and heatmap
+- `analyze_provider_comparisons.py` - Provider comparison visualizations
+- `src/behavioral_profile_manager.py` - Spider charts and heatmaps
+
 ## Key Metrics
 
 ### H1 (Group Difference)
@@ -361,6 +374,56 @@ baseline/no_dimensions/
 - **ALWAYS** use baseline as the anchor for cross-condition comparisons
 - **DO NOT** delete `profiles/` or `history/` directories - they contain source data
 - Profile aggregation is **idempotent** - re-running won't duplicate data
+
+## Main Research Brief
+
+The consolidated research brief is at `research_synthesis/MAIN_RESEARCH_BRIEF.md`.
+
+### Brief Structure
+
+| Section | Content | Editable |
+|---------|---------|----------|
+| **Executive Summary** | Key findings overview | Auto |
+| **1. Hypotheses & Methods** | H1/H1a/H2 definitions | Auto |
+| **2. Core Results: H1/H1a/H2** | Cross-condition table | Auto |
+| **3. Robustness & Validation** | External, outlier, no-dims | Auto |
+| **4. Provider & Model Patterns** | Constraint analysis, model tables | Auto |
+| **5. Interpretation** | H1/H2, provider patterns | **MANUAL** |
+| **6. Limitations** | 6.1 Judge bias, 6.2 Other | **6.2 MANUAL** |
+| **7. Future Directions** | Research roadmap | **MANUAL** |
+| **8. Preliminary: H3** | 🚧 Intervention effects | **8.4 MANUAL** |
+| **Appendix A** | Factor structure | Auto |
+| **Appendix B** | File references | Auto |
+
+### Manual Section Markers
+
+Sections marked MANUAL use preservation markers:
+```markdown
+### 5.1 H1/H2 Relationship
+
+<!-- MANUAL-START -->
+Your manually edited content here...
+<!-- MANUAL-END -->
+```
+
+Content between `<!-- MANUAL-START -->` and `<!-- MANUAL-END -->` is preserved when regenerating. The script also migrates content from old section headers (e.g., `## 9. Interpretation: H1a/H2 Relationship` → `### 5.1 H1/H2 Relationship`).
+
+### Commands
+
+```bash
+# Regenerate from condition data
+python3 scripts/regenerate_main_brief.py
+
+# Full workflow: regenerate + sync to CDN
+python3 scripts/regenerate_main_brief.py && python3 scripts/sync_research_assets.py --invalidate
+
+# Export for publication (see root CLAUDE.md for full options)
+pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
+  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.pdf \
+  -f markdown-yaml_metadata_block \
+  --pdf-engine=xelatex \
+  -V geometry:margin=1in
+```
 
 ## Related Documentation
 

@@ -121,7 +121,7 @@ def identify_outliers_and_borderline(data, threshold_sd=None, borderline_thresho
 
     return outliers, borderline, constrained, residuals, residual_std
 
-def create_color_coded_scatter_composite(data, output_path):
+def create_color_coded_scatter_composite(data, output_path, condition="baseline"):
     """Create sophistication vs disinhibition composite scatter with classification colors."""
 
     fig, ax = plt.subplots(1, 1, figsize=(14, 10))
@@ -413,11 +413,15 @@ def create_color_coded_scatter_composite(data, output_path):
                  '(H2 Correlation with H1 Classification, Outliers & Borderline Models)',
                  fontsize=15, fontweight='bold', pad=20)
 
+    # Add condition label as suptitle
+    fig.suptitle(f'Condition: {condition}', fontsize=11, fontweight='bold',
+                 y=0.995, color='#666666')
+
     ax.legend(loc='lower right', fontsize=9, framealpha=0.95, ncol=2)
     ax.grid(True, alpha=0.3, linestyle='--')
     ax.set_axisbelow(True)
 
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0, 1, 0.98])
     plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
 
@@ -438,7 +442,7 @@ def create_color_coded_scatter_composite(data, output_path):
         for o in sorted(outliers, key=lambda x: abs(x['residual']), reverse=True)[:3]:
             print(f"    • {o['model']['display_name']}: residual = {o['residual']:+.3f}")
 
-def create_color_coded_scatter_all_dimensions(data, output_path):
+def create_color_coded_scatter_all_dimensions(data, output_path, condition="baseline"):
     """Create 2x2 scatter plots for all four disinhibition dimensions."""
 
     disinhibition_dims = ['transgression', 'aggression', 'tribalism', 'grandiosity']
@@ -745,11 +749,14 @@ def create_color_coded_scatter_all_dimensions(data, output_path):
         ax.grid(True, alpha=0.3, linestyle='--')
         ax.set_axisbelow(True)
 
+    # Add condition label followed by main title
+    fig.text(0.5, 0.998, f'Condition: {condition}', ha='center', va='top',
+             fontsize=11, fontweight='bold', color='#666666')
     fig.suptitle('Sophistication vs Individual Disinhibition Dimensions\n'
                  '(H2 Correlations with H1 Classification, Outliers, Borderline & Constrained Models)',
-                 fontsize=16, fontweight='bold', y=0.995)
+                 fontsize=16, fontweight='bold', y=0.985)
 
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
     plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
 
@@ -786,11 +793,11 @@ def main():
 
     # Create composite scatter
     composite_output = profile_dir / "h2_scatter_sophistication_composite.png"
-    create_color_coded_scatter_composite(data, composite_output)
+    create_color_coded_scatter_composite(data, composite_output, condition=intervention)
 
     # Create all dimensions scatter
     all_dims_output = profile_dir / "h2_scatter_all_dimensions.png"
-    create_color_coded_scatter_all_dimensions(data, all_dims_output)
+    create_color_coded_scatter_all_dimensions(data, all_dims_output, condition=intervention)
 
     print("\n" + "="*80)
     print("COMPLETE")

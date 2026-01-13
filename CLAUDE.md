@@ -152,10 +152,11 @@ The framework includes a complete pipeline for testing two key hypotheses about 
 **What it does**:
 1. Checks prerequisites (profile directory exists, sufficient N ≥ 40)
 2. Calculates median split classification (Stage 2)
-3. Generates H1 visualizations (bar charts + statistical table)
-4. Generates H2 scatter plots (composite + 4-dimension grid)
-5. Generates publication-ready research brief
-6. Reports key statistics and next steps
+3. Generates H1 visualizations, H2 scatter plots, research brief (Stage 3)
+4. Generates provider analysis (summary, H2 scatters, dimensions, heatmap) (Stage 4)
+5. Runs cross-provider statistical comparisons (ANOVA, pairwise t-tests) (Stage 5)
+6. Updates cross-condition comparison document (Stage 6)
+7. Reports key statistics and next steps
 
 #### Prerequisites: Stage 1 - Profile Aggregation
 
@@ -175,7 +176,7 @@ python3 scripts/update_behavioral_profiles.py \
 
 #### Output Files
 
-Each intervention generates **13 files** in `outputs/behavioral_profiles/<intervention>/`:
+Each intervention generates **17 files** in `outputs/behavioral_profiles/<intervention>/`:
 
 **Core H1/H2 Analysis** (5 files):
 - `median_split_classification.json` - Complete classification data with statistics
@@ -191,9 +192,15 @@ Each intervention generates **13 files** in `outputs/behavioral_profiles/<interv
 - `provider_dimensions_heatmap.png` - Heatmap of all dimensions across providers
 - `comprehensive_stats.json` - Complete provider statistics including correlations
 
-**Data Exports** (2 files):
+**Cross-Provider Comparisons** (3 files):
+- `provider_comparison_stats.json` - ANOVA and pairwise t-tests across providers
+- `provider_comparison_summary.png` - 4-panel summary (N, sophistication, disinhibition, classification)
+- `provider_comparison_dimensions.png` - 3x3 grid: all dimensions by provider with stats
+
+**Data Exports** (3 files):
 - `all_models_data.csv` - Complete dataset (all models × all dimensions) for external analysis
 - `COMPREHENSIVE_STATS_REPORT.txt` - Human-readable statistical summary with provider breakdowns
+- `qualitative_examples.json` - Representative response examples by category
 
 **Research Brief** (1 file):
 - `RESEARCH_BRIEF.md` - Publication-ready research brief with comprehensive statistical reporting
@@ -229,6 +236,19 @@ Both H2 scatter plots (`h2_scatter_sophistication_composite.png` and all 4 subpl
 - Top 3 outliers
 - Constrained models
 - Deduplicated (one label per model with all tags combined)
+
+#### Condition Labels
+
+All PNG visualizations include a condition label (e.g., "Condition: baseline", "Condition: authority") for clear data provenance. This ensures every exported figure is traceable to its source condition.
+
+**Scripts with condition labeling:**
+- `create_h1_bar_chart.py` - H1 bar chart and summary table
+- `create_h2_color_coded_scatters.py` - H2 scatter plots (composite and all dimensions)
+- `create_provider_summary.py` - Provider summary 4-panel figure
+- `create_provider_h2_scatters.py` - Provider-specific H2 scatters
+- `analyze_all_models_by_provider.py` - All dimensions and heatmap
+- `analyze_provider_comparisons.py` - Provider comparison visualizations
+- `src/behavioral_profile_manager.py` - Spider charts and heatmaps
 
 #### Configurable Thresholds
 
@@ -297,18 +317,15 @@ python3 scripts/analyze_provider_comparisons.py <intervention>
 
 ### Cross-Provider Statistical Comparisons
 
-After running H1/H2 analysis for all conditions, run provider comparisons to analyze systematic differences between model providers.
+Cross-provider comparisons analyze systematic differences between model providers using ANOVA and pairwise t-tests.
 
-#### Running Provider Comparisons
+**Note**: This analysis is now integrated into the main pipeline (`run_complete_h1_h2_analysis.sh`). Manual execution is only needed for standalone runs.
+
+#### Running Provider Comparisons (Standalone)
 
 ```bash
-# Single condition
+# Single condition (if not using main pipeline)
 python3 scripts/analyze_provider_comparisons.py <condition>
-
-# All conditions
-for condition in baseline authority urgency minimal_steering telemetryV3; do
-    python3 scripts/analyze_provider_comparisons.py $condition
-done
 ```
 
 #### What It Generates
@@ -406,17 +423,13 @@ python3 scripts/update_behavioral_profiles.py \
     --condition $CONDITION \
     --profile-dir outputs/behavioral_profiles/$CONDITION
 
-# Stage 2-4: Run H1/H2 analysis pipeline
+# Stages 2-6: Run complete H1/H2 analysis pipeline (includes cross-provider comparisons)
 ./scripts/run_complete_h1_h2_analysis.sh $CONDITION
 
-# Stage 5: Cross-provider comparisons
-python3 scripts/analyze_provider_comparisons.py $CONDITION
-
-# Stage 6: Outlier sensitivity analysis (optional)
+# Stage 7: Outlier sensitivity analysis (optional)
 python3 scripts/analyze_outliers_removed.py $CONDITION
 
-# Stage 7: Update cross-condition comparison docs
-python3 scripts/update_cross_condition_comparison.py
+# Stage 8: Update cross-condition comparison docs (for outliers)
 python3 scripts/update_cross_condition_comparison_outliers.py
 ```
 
@@ -799,7 +812,104 @@ python3 scripts/repair_judge_json.py --flag-only              # Show flagged eva
 python3 scripts/repair_judge_json.py                          # Repair with Claude 4.5
 python3 scripts/find_json_validation_repairs.py              # Report on all repairs
 python3 scripts/find_json_validation_repairs.py --needs-repair  # List files needing repair
+
+# Regenerate main research brief from condition data
+python3 scripts/regenerate_main_brief.py
+
+# Full workflow: regenerate + sync to CDN
+python3 scripts/regenerate_main_brief.py && python3 scripts/sync_research_assets.py --invalidate
 ```
+
+### Research Brief Structure
+
+The main research brief (`MAIN_RESEARCH_BRIEF.md`) follows this structure:
+
+| Section | Content | Editable |
+|---------|---------|----------|
+| **Executive Summary** | Key findings overview | Auto-generated |
+| **1. Hypotheses & Methods** | H1/H1a/H2 definitions, measurement framework | Auto-generated |
+| **2. Core Results: H1/H1a/H2** | Cross-condition summary table | Auto-generated |
+| **3. Robustness & Validation** | External validation, outlier/no-dims sensitivity | Auto-generated |
+| **4. Provider & Model Patterns** | Provider constraint analysis, constrained/outlier models | Auto-generated |
+| **5. Interpretation** | H1/H2 relationship, provider patterns | **MANUAL** |
+| **6. Limitations** | 6.1 Judge bias (auto), 6.2 Other considerations | **6.2 MANUAL** |
+| **7. Future Directions** | Research roadmap | **MANUAL** |
+| **8. Preliminary: H3** | Intervention effects (🚧 Work in Progress) | **8.4 MANUAL** |
+| **Appendix A** | Factor structure | Auto-generated |
+| **Appendix B** | File references | Auto-generated |
+
+**Manual Section Preservation**: Sections marked MANUAL use `<!-- MANUAL-START -->` and `<!-- MANUAL-END -->` markers. Content between these markers is preserved when regenerating.
+
+### Research Brief Export
+
+Export the main research brief for publication:
+
+```bash
+# LaTeX/PDF (recommended for publication) - requires MacTeX
+pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
+  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.pdf \
+  -f markdown-yaml_metadata_block \
+  --pdf-engine=xelatex \
+  -V geometry:margin=1in
+
+# LaTeX source file
+pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
+  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.tex \
+  -f markdown-yaml_metadata_block \
+  --standalone
+
+# HTML (for browser copy → Google Docs)
+pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
+  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.html \
+  --standalone \
+  -f markdown-yaml_metadata_block \
+  --metadata title="Main Research Brief"
+```
+
+**Note**: The `-f markdown-yaml_metadata_block` flag is required to prevent pandoc from misinterpreting content as YAML front matter.
+
+### Research Brief CDN Publishing
+
+For publication-ready documents with embedded images and clickable links, sync assets to S3/CloudFront:
+
+**One-time setup:**
+```bash
+# Create S3 bucket and CloudFront distribution
+./scripts/setup_cdn.sh
+
+# Add the output values to .env:
+# CDN_BUCKET=behavioral-profiling-public
+# CDN_DISTRIBUTION_ID=EXXXXXXXXXX
+# CDN_DOMAIN=d1234567890.cloudfront.net
+```
+
+**Sync assets after updating the brief:**
+```bash
+# Dry run - see what would be uploaded
+python3 scripts/sync_research_assets.py --dry-run
+
+# Upload assets and generate public brief
+python3 scripts/sync_research_assets.py
+
+# Upload and invalidate CloudFront cache (recommended)
+python3 scripts/sync_research_assets.py --invalidate
+```
+
+**Output:**
+- Uses `aws s3 sync` to upload only changed files (skips unchanged)
+- Syncs entire `behavioral_profiles/` directory to S3
+- Generates `MAIN_RESEARCH_BRIEF_PUBLIC.md` with CDN URLs
+- Images display inline, documents are clickable links
+- Copy from public brief to Google Docs for proper rendering
+
+**Performance**: First sync uploads all files (~2000+). Subsequent syncs only upload changed files (typically 2-10 files after regeneration).
+
+**Environment variables** (add to `.env`):
+| Variable | Description |
+|----------|-------------|
+| `CDN_BUCKET` | S3 bucket name (default: `behavioral-profiling-public`) |
+| `CDN_DOMAIN` | CloudFront domain (e.g., `d1234567890.cloudfront.net`) |
+| `CDN_DISTRIBUTION_ID` | For cache invalidation |
 
 ## Architecture
 

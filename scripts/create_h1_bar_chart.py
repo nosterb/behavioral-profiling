@@ -38,7 +38,7 @@ def get_significance_marker(p):
     else:
         return 'ns'
 
-def create_h1_bar_chart(data, output_path):
+def create_h1_bar_chart(data, output_path, condition="baseline"):
     """Create side-by-side bar chart for H1a group comparisons (disinhibition)."""
 
     # Dimensions to plot: disinhibition composite + 4 individual dimensions
@@ -120,6 +120,10 @@ def create_h1_bar_chart(data, output_path):
     ax.set_title('H1a: High-Sophistication vs Low-Sophistication Group Comparison\n'
                  'Disinhibition Composite and Individual Dimensions',
                  fontsize=15, fontweight='bold', pad=20)
+
+    # Add condition label as suptitle
+    fig.suptitle(f'Condition: {condition}', fontsize=11, fontweight='bold',
+                 y=0.995, color='#666666')
     ax.set_xticks(x)
     ax.set_xticklabels(display_names, fontsize=11, fontweight='bold')
     ax.legend(loc='upper left', fontsize=12, framealpha=0.95)
@@ -135,13 +139,13 @@ def create_h1_bar_chart(data, output_path):
             ha='right', va='bottom',
             bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
 
-    plt.tight_layout()
+    plt.tight_layout(rect=[0, 0, 1, 0.98])
     plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close()
 
     print(f"✓ Created: {output_path}")
 
-def create_h1_summary_table(data, output_path):
+def create_h1_summary_table(data, output_path, condition="baseline"):
     """Create summary table image for H1a results."""
 
     dimensions = ['disinhibition', 'transgression', 'aggression', 'tribalism', 'grandiosity']
@@ -204,8 +208,11 @@ def create_h1_summary_table(data, output_path):
             else:
                 cell.set_facecolor('#f0f0f0' if i % 2 == 0 else 'white')
 
-    # Add title
-    ax.text(0.5, 0.95, 'H1a: Statistical Comparison of High vs Low Sophistication Groups',
+    # Add title with condition
+    ax.text(0.5, 0.98, f'Condition: {condition}',
+            ha='center', va='top', fontsize=11, fontweight='bold', color='#666666',
+            transform=ax.transAxes)
+    ax.text(0.5, 0.93, 'H1a: Statistical Comparison of High vs Low Sophistication Groups',
             ha='center', va='top', fontsize=14, fontweight='bold',
             transform=ax.transAxes)
 
@@ -255,11 +262,11 @@ def main():
 
     # Create bar chart
     bar_chart_output = profile_dir / "h1_bar_chart_comparison.png"
-    create_h1_bar_chart(data, bar_chart_output)
+    create_h1_bar_chart(data, bar_chart_output, condition=intervention)
 
     # Create summary table
     table_output = profile_dir / "h1_summary_table.png"
-    create_h1_summary_table(data, table_output)
+    create_h1_summary_table(data, table_output, condition=intervention)
 
     print("\n" + "="*80)
     print("COMPLETE")

@@ -539,7 +539,7 @@ def create_combined_panel(
     fig.legend(handles=legend_elements, loc='lower center', ncol=4, fontsize=9,
                bbox_to_anchor=(0.5, -0.02))
 
-    plt.suptitle(f'{benchmark_name} External Validation', fontsize=14, fontweight='bold', y=1.02)
+    plt.suptitle(f'{benchmark_name} External Validation\nCondition: baseline', fontsize=14, fontweight='bold', y=1.02)
     plt.tight_layout()
     plt.savefig(output_path, dpi=150, bbox_inches='tight')
     plt.close()
@@ -579,7 +579,7 @@ def main():
         x_key="sophistication",
         y_key="arc_agi_1",
         y_label="ARC-AGI-1 Score (%)",
-        title="ARC-AGI Performance vs Behavioral Sophistication",
+        title="ARC-AGI Performance vs Behavioral Sophistication\nCondition: baseline",
         output_path=external_evals_dir / "arc_agi_scatter.png",
         median_soph=median_soph,
         borderline_threshold=borderline_threshold,
@@ -592,7 +592,7 @@ def main():
         data=arc_models,
         y_key="arc_agi_1",
         y_label="ARC-AGI-1 Score (%)",
-        title="ARC-AGI by Sophistication Group",
+        title="ARC-AGI by Sophistication Group\nCondition: baseline",
         output_path=external_evals_dir / "arc_agi_boxplot.png",
         h1_stats=arc_data["h1_group_comparison"],
     )
@@ -620,7 +620,7 @@ def main():
         x_key="sophistication",
         y_key="gpqa_score_pct",
         y_label="GPQA Score (%)",
-        title="GPQA Performance vs Behavioral Sophistication",
+        title="GPQA Performance vs Behavioral Sophistication\nCondition: baseline",
         output_path=external_evals_dir / "gpqa_scatter.png",
         median_soph=median_soph,
         borderline_threshold=borderline_threshold,
@@ -633,7 +633,7 @@ def main():
         data=gpqa_models,
         y_key="gpqa_score_pct",
         y_label="GPQA Score (%)",
-        title="GPQA by Sophistication Group",
+        title="GPQA by Sophistication Group\nCondition: baseline",
         output_path=external_evals_dir / "gpqa_boxplot.png",
         h1_stats=gpqa_data["h1_group_comparison"],
     )
@@ -804,7 +804,7 @@ def main():
     fig.legend(handles=legend_elements, loc='lower center', ncol=4, fontsize=9,
                bbox_to_anchor=(0.5, -0.02))
 
-    plt.suptitle('External Benchmark Validation: Sophistication Predicts Performance',
+    plt.suptitle('External Benchmark Validation: Sophistication Predicts Performance\nCondition: baseline',
                  fontsize=14, fontweight='bold', y=1.02)
     plt.tight_layout()
 
@@ -998,7 +998,7 @@ def create_consolidated_figure(
     fig.legend(handles=legend_elements, loc='lower center', ncol=4, fontsize=10,
                bbox_to_anchor=(0.5, -0.01))
 
-    plt.suptitle('External Validation: Sophistication & Disinhibition Predict Benchmark Performance',
+    plt.suptitle('External Validation: Sophistication & Disinhibition Predict Benchmark Performance\nCondition: baseline',
                  fontsize=14, fontweight='bold', y=0.98)
     plt.tight_layout(rect=[0, 0.03, 1, 0.96])
     plt.savefig(output_path, dpi=150, bbox_inches='tight')
@@ -1042,7 +1042,7 @@ def create_summary_correlation_bar(
 
     ax.set_ylabel('Pearson Correlation (r)', fontsize=12)
     ax.set_xlabel('Behavioral Dimension', fontsize=12)
-    ax.set_title('Correlation with External Benchmarks by Dimension', fontsize=14, fontweight='bold')
+    ax.set_title('Correlation with External Benchmarks by Dimension\nCondition: baseline', fontsize=14, fontweight='bold')
     ax.set_xticks(x)
     ax.set_xticklabels(dimensions, rotation=45, ha='right')
     ax.legend(loc='upper right')

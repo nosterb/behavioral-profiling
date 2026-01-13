@@ -1,10 +1,7 @@
 # Cross-Condition Comparison
 
-**Last Updated**: 2026-01-12
+**Last Updated**: 2026-01-13 20:15
 **Conditions**: 6
-**Status**: PRELIMINARY - Reserved for H3 Hypothesis Development
-
-> **Note**: Cross-condition analysis is reserved for future H3 hypothesis work (intervention effects on the sophistication-disinhibition relationship). Current research efforts are focused on H1/H2 validation. Data in this file is auto-generated but interpretation is pending.
 
 ---
 
@@ -12,43 +9,44 @@
 
 | Metric | baseline | authority | minimal_steering | reminder | telemetryV3 | urgency |
 |--------|--------|--------|--------|--------|--------|--------|
-| **N (Total)** | 46 | 45 | 46 | 46 | 46 | 45 |
-| **High / Low** | 23 / 23 | 23 / 22 | 23 / 23 | 23 / 23 | 23 / 23 | 23 / 22 |
-| **Median Soph** | 5.930 | 6.722 | 5.172 | 6.833 | 5.016 | 6.173 |
-| **H1: Soph d** | 3.18 | 4.19 | 3.96 | 3.87 | 3.09 | 4.25 |
-| **H1a: d (disinhib)** | 2.17 | 1.86 | 1.83 | 1.51 | 1.14 | 1.77 |
+| **N (Total)** | 45 | 45 | 46 | 46 | 46 | 45 |
+| **High / Low** | 23 / 22 | 23 / 22 | 23 / 23 | 23 / 23 | 23 / 23 | 23 / 22 |
+| **Median Soph** | 5.937 | 6.722 | 5.172 | 6.833 | 5.016 | 6.173 |
+| **H1: Soph d** | 3.75 | 4.19 | 3.96 | 3.87 | 3.09 | 4.25 |
+| **H1a: d (disinhib)** | 2.13 | 1.86 | 1.83 | 1.51 | 1.14 | 1.77 |
 | **H1a: p-value** | < .001 | < .001 | < .001 | < .001 | < .001 | < .001 |
-| **H2: r** | 0.738 | 0.588 | 0.509 | 0.458 | 0.724 | 0.563 |
+| **H2: r** | 0.702 | 0.588 | 0.509 | 0.458 | 0.724 | 0.563 |
 | |  |  |  |  |  | |
 | **Dimension d:** |  |  |  |  |  | |
-| *Transgression* | 1.85 | 1.97 | 1.56 | 2.05 | 1.12 | 1.80 |
-| *Aggression* | 2.21 | 1.79 | 1.39 | 1.41 | 0.84 | 1.81 |
-| *Tribalism* | 1.31 | 1.07 | 0.68 | 0.92 | 0.65 | 1.44 |
-| *Grandiosity* | 1.74 | 0.96 | 0.84 | 0.64 | 1.20 | 1.25 |
+| *Transgression* | 1.81 | 1.97 | 1.56 | 2.05 | 1.12 | 1.80 |
+| *Aggression* | 2.17 | 1.79 | 1.39 | 1.41 | 0.84 | 1.81 |
+| *Tribalism* | 1.26 | 1.07 | 0.68 | 0.92 | 0.65 | 1.44 |
+| *Grandiosity* | 1.71 | 0.96 | 0.84 | 0.64 | 1.20 | 1.25 |
 
 ---
 
 ## Key Comparative Findings
 
 **Authority vs Baseline**:
-  - H2 correlation: 0.588 (weaker by 0.150)
-  - H1a effect size: d=1.86 (smaller by 0.31)
+  - H2 correlation: 0.588 (weaker by 0.114)
+  - H1a effect size: d=1.86 (smaller by 0.27)
 
 **Minimal_steering vs Baseline**:
-  - H2 correlation: 0.509 (weaker by 0.230)
-  - H1a effect size: d=1.83 (smaller by 0.34)
+  - H2 correlation: 0.509 (weaker by 0.193)
+  - H1a effect size: d=1.83 (smaller by 0.31)
 
 **Reminder vs Baseline**:
-  - H2 correlation: 0.458 (weaker by 0.280)
-  - H1a effect size: d=1.51 (smaller by 0.66)
+  - H2 correlation: 0.458 (weaker by 0.244)
+  - H1a effect size: d=1.51 (smaller by 0.62)
 
-**TelemetryV3 vs Baseline**:
-  - H2 correlation: 0.724 (weaker by 0.014)
-  - H1a effect size: d=1.14 (smaller by 1.03)
+**Telemetryv3 vs Baseline**:
+  - H2 correlation: 0.724 (stronger by 0.022)
+  - H1a effect size: d=1.14 (smaller by 0.99)
 
 **Urgency vs Baseline**:
-  - H2 correlation: 0.563 (weaker by 0.175)
-  - H1a effect size: d=1.77 (smaller by 0.40)
+  - H2 correlation: 0.563 (weaker by 0.139)
+  - H1a effect size: d=1.77 (smaller by 0.37)
+
 
 ---
 
