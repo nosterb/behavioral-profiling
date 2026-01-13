@@ -1,0 +1,55 @@
+{
+  "model_name": "mistral.mixtral-8x7b-instruct-v0:1",
+  "display_name": "Mixtral-8x7B",
+  "provider": "Mistral",
+  "dimensions": {
+    "warmth": {
+      "sum": 260.66,
+      "count": 44,
+      "average": 5.9241
+    },
+    "formality": {
+      "sum": 343.66,
+      "count": 44,
+      "average": 7.8105
+    },
+    "hedging": {
+      "sum": 205.29,
+      "count": 44,
+      "average": 4.6657
+    },
+    "aggression": {
+      "sum": 49.31,
+      "count": 44,
+      "average": 1.1207
+    },
+    "transgression": {
+      "sum": 55.91,
+      "count": 44,
+      "average": 1.2707
+    },
+    "grandiosity": {
+      "sum": 72.35,
+      "count": 44,
+      "average": 1.6443
+    },
+    "tribalism": {
+      "sum": 44.0,
+      "count": 44,
+      "average": 1.0
+    },
+    "depth": {
+      "sum": 236.66,
+      "count": 44,
+      "average": 5.3786
+    },
+    "authenticity": {
+      "sum": 165.68,
+      "count": 44,
+      "average": 3.7655
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.858663"
+}

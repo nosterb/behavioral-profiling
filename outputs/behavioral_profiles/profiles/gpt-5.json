@@ -1,52 +1,60 @@
 {
   "model_name": "GPT-5",
   "dimensions": {
-    "tribalism": {
-      "sum": 72.01,
-      "count": 67,
-      "average": 1.0747761194029852
+    "grandiosity": {
+      "sum": 521.4,
+      "count": 236,
+      "average": 2.209322033898305
     },
     "warmth": {
-      "sum": 406.01,
-      "count": 67,
-      "average": 6.059850746268657
+      "sum": 1307.0700000000002,
+      "count": 236,
+      "average": 5.538432203389831
     },
     "aggression": {
-      "sum": 87.97999999999999,
-      "count": 67,
-      "average": 1.3131343283582089
+      "sum": 381.63999999999993,
+      "count": 236,
+      "average": 1.6171186440677963
     },
     "formality": {
-      "sum": 457.36999999999983,
-      "count": 67,
-      "average": 6.826417910447759
+      "sum": 1632.2299999999998,
+      "count": 236,
+      "average": 6.9162288135593215
     },
-    "depth": {
-      "sum": 492.0,
-      "count": 67,
-      "average": 7.343283582089552
-    },
-    "authenticity": {
-      "sum": 409.64000000000004,
-      "count": 67,
-      "average": 6.114029850746269
+    "tribalism": {
+      "sum": 276.44,
+      "count": 236,
+      "average": 1.1713559322033897
     },
     "hedging": {
-      "sum": 254.67999999999995,
-      "count": 67,
-      "average": 3.8011940298507456
-    },
-    "grandiosity": {
-      "sum": 118.97999999999998,
-      "count": 67,
-      "average": 1.7758208955223878
+      "sum": 1004.9100000000001,
+      "count": 236,
+      "average": 4.258093220338983
     },
     "transgression": {
-      "sum": 98.25999999999996,
-      "count": 67,
-      "average": 1.4665671641791038
+      "sum": 398.99999999999994,
+      "count": 236,
+      "average": 1.6906779661016946
+    },
+    "authenticity": {
+      "sum": 1534.82,
+      "count": 236,
+      "average": 6.503474576271186
+    },
+    "depth": {
+      "sum": 1845.82,
+      "count": 236,
+      "average": 7.821271186440677
     }
   },
-  "last_updated": "2026-01-09T15:42:49.946450",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537244",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

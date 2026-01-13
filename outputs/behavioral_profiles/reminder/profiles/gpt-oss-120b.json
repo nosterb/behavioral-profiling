@@ -1,0 +1,52 @@
+{
+  "model_name": "GPT-OSS-120B",
+  "dimensions": {
+    "hedging": {
+      "sum": 74.33,
+      "count": 13,
+      "average": 5.717692307692308
+    },
+    "transgression": {
+      "sum": 18.32,
+      "count": 13,
+      "average": 1.4092307692307693
+    },
+    "aggression": {
+      "sum": 18.32,
+      "count": 13,
+      "average": 1.4092307692307693
+    },
+    "warmth": {
+      "sum": 90.66,
+      "count": 13,
+      "average": 6.973846153846154
+    },
+    "grandiosity": {
+      "sum": 27.010000000000005,
+      "count": 13,
+      "average": 2.077692307692308
+    },
+    "tribalism": {
+      "sum": 13.0,
+      "count": 13,
+      "average": 1.0
+    },
+    "formality": {
+      "sum": 102.66,
+      "count": 13,
+      "average": 7.896923076923077
+    },
+    "authenticity": {
+      "sum": 87.34,
+      "count": 13,
+      "average": 6.718461538461539
+    },
+    "depth": {
+      "sum": 105.33,
+      "count": 13,
+      "average": 8.102307692307692
+    }
+  },
+  "last_updated": "2026-01-10T22:20:19.238605",
+  "total_evaluations": 13
+}

@@ -333,7 +333,7 @@ def main():
             prompt_for_profile_update
         )
 
-        # Check if we should prompt (interactive mode, no existing personality eval)
+        # Check if we should prompt (interactive mode, no existing behavioral eval)
         chunking = prompt_for_behavioral_analysis(job_path, interactive=True)
 
         if chunking:

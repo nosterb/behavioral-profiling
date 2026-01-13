@@ -1,52 +1,65 @@
 {
   "model_name": "Gemini-2.0-Flash",
   "dimensions": {
-    "tribalism": {
-      "sum": 69.66,
-      "count": 67,
-      "average": 1.0397014925373134
+    "grandiosity": {
+      "sum": 509.3200000000001,
+      "count": 236,
+      "average": 2.1581355932203397
     },
     "warmth": {
-      "sum": 405.9900000000002,
-      "count": 67,
-      "average": 6.059552238805973
+      "sum": 1336.92,
+      "count": 236,
+      "average": 5.664915254237289
     },
     "aggression": {
-      "sum": 81.61999999999998,
-      "count": 67,
-      "average": 1.2182089552238802
+      "sum": 418.15,
+      "count": 236,
+      "average": 1.771822033898305
     },
     "formality": {
-      "sum": 459.9899999999999,
-      "count": 67,
-      "average": 6.8655223880597
+      "sum": 1671.03,
+      "count": 236,
+      "average": 7.080635593220339
     },
-    "depth": {
-      "sum": 353.34999999999997,
-      "count": 67,
-      "average": 5.273880597014925
-    },
-    "authenticity": {
-      "sum": 289.05999999999995,
-      "count": 67,
-      "average": 4.314328358208955
+    "tribalism": {
+      "sum": 280.14000000000004,
+      "count": 236,
+      "average": 1.187033898305085
     },
     "hedging": {
-      "sum": 298.67999999999995,
-      "count": 67,
-      "average": 4.4579104477611935
-    },
-    "grandiosity": {
-      "sum": 102.66,
-      "count": 67,
-      "average": 1.5322388059701493
+      "sum": 1191.29,
+      "count": 236,
+      "average": 5.047838983050847
     },
     "transgression": {
-      "sum": 90.27999999999997,
-      "count": 67,
-      "average": 1.3474626865671637
+      "sum": 367.17999999999995,
+      "count": 236,
+      "average": 1.5558474576271184
+    },
+    "authenticity": {
+      "sum": 1245.4099999999999,
+      "count": 236,
+      "average": 5.277161016949152
+    },
+    "depth": {
+      "sum": 1543.34,
+      "count": 236,
+      "average": 6.539576271186441
+    },
+    "ribalism": {
+      "sum": 2.0,
+      "count": 2,
+      "average": 1.0
     }
   },
-  "last_updated": "2026-01-09T15:42:49.947544",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537296",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Personality Analysis Prompt Handler
+Behavioral Analysis Prompt Handler
 
 Unified module for prompting users about behavioral analysis across all job types.
 Supports chunking strategies for long conversations and staged results.
@@ -51,7 +51,7 @@ class ChunkingStrategy:
 
 def load_framework_config(config_path: Optional[Path] = None) -> Dict:
     """
-    Load personality framework configuration.
+    Load behavioral framework configuration.
 
     Args:
         config_path: Path to framework config (default: outputs/behavioral_profiles/framework_config.yaml)
@@ -66,7 +66,7 @@ def load_framework_config(config_path: Optional[Path] = None) -> Dict:
         # Return default config
         return {
             'framework_version': 'v1',
-            'judge_config_path': 'payload/judge_configs/personality.yaml',
+            'judge_config_path': 'payload/judge_configs/behavioral.yaml',
             'description': '9-dimension behavioral framework'
         }
 
@@ -88,18 +88,18 @@ def check_if_behavioral_already_evaluated(job_data: Dict) -> bool:
     if 'judge_evaluation' in job_data:
         judge_meta = job_data['judge_evaluation'].get('judge_metadata', {})
         judge_id = judge_meta.get('judge_id', '')
-        if 'personality' in judge_id.lower():
+        if 'behavioral' in judge_id.lower():
             return True
 
     # Check for judges (legacy format)
     if 'judges' in job_data:
         for judge in job_data['judges']:
             judge_id = judge.get('judge_id', '')
-            if 'personality' in judge_id.lower():
+            if 'behavioral' in judge_id.lower():
                 return True
 
-    # Check for personality_evaluation section (from agent segmenter)
-    if 'personality_evaluation' in job_data:
+    # Check for behavioral_evaluation section (from agent segmenter)
+    if 'behavioral_evaluation' in job_data:
         return True
 
     return False
@@ -183,7 +183,7 @@ def prompt_for_behavioral_analysis(job_path: Path,
 
     # Interactive prompt
     print(f"\n{'='*80}")
-    print(f"PERSONALITY ANALYSIS PROMPT")
+    print(f"BEHAVIORAL ANALYSIS PROMPT")
     print(f"{'='*80}")
     print(f"Job: {job_path.name}")
     print(f"Type: {job_info['job_type']}")
@@ -261,13 +261,13 @@ def run_behavioral_analysis(job_path: Path,
                             staging_dir: Optional[Path] = None) -> Path:
     """
     Run behavioral analysis with specified chunking strategy.
-    Results are staged in outputs/personality_staging/ for review.
+    Results are staged in outputs/behavioral_staging/ for review.
 
     Args:
         job_path: Path to job file
         chunking: Chunking strategy to use
         framework_config: Framework configuration (default: load from file)
-        staging_dir: Staging directory (default: outputs/personality_staging/)
+        staging_dir: Staging directory (default: outputs/behavioral_staging/)
 
     Returns:
         Path to staged results JSON file
@@ -278,7 +278,7 @@ def run_behavioral_analysis(job_path: Path,
 
     # Set staging directory
     if staging_dir is None:
-        staging_dir = Path("outputs/personality_staging")
+        staging_dir = Path("outputs/behavioral_staging")
     staging_dir.mkdir(parents=True, exist_ok=True)
 
     # Load job data
@@ -289,7 +289,7 @@ def run_behavioral_analysis(job_path: Path,
     job_type = job_info['job_type']
 
     print(f"\n{'='*80}")
-    print(f"RUNNING PERSONALITY ANALYSIS")
+    print(f"RUNNING BEHAVIORAL ANALYSIS")
     print(f"{'='*80}")
     print(f"Job: {job_path.name}")
     print(f"Strategy: {chunking}")
@@ -312,7 +312,7 @@ def run_behavioral_analysis(job_path: Path,
     # Create staged results file
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     job_id = job_info['job_id']
-    staged_file = staging_dir / f"{job_id}_{timestamp}_personality.json"
+    staged_file = staging_dir / f"{job_id}_{timestamp}_behavioral.json"
 
     staged_data = {
         'job_id': job_id,
@@ -358,7 +358,7 @@ def run_single_evaluation(job_path: Path, framework_config: Dict) -> Dict:
     judge_models = parse_judge_models(judge_config)
     comparative_judge_config = parse_comparative_judge(judge_config)
 
-    judge_id = f"personality_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    judge_id = f"behavioral_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     judge_prompt = judge_config['judge_prompt']
     jq_filter = judge_config.get('jq_filter', '.response')
     anonymize_pass1 = judge_config.get('anonymize_pass1', True)
@@ -419,7 +419,7 @@ def run_chunked_evaluation(job_path: Path, num_chunks: int, framework_config: Di
     post_processing = judge_config.get('post_processing', [])
 
     # Create temp directory for chunk evaluations
-    temp_dir = Path(tempfile.mkdtemp(prefix='personality_chunks_'))
+    temp_dir = Path(tempfile.mkdtemp(prefix='behavioral_chunks_'))
 
     try:
         all_model_results = []
@@ -520,7 +520,7 @@ def run_chunked_evaluation(job_path: Path, num_chunks: int, framework_config: Di
 
 def run_turn_based_evaluation(job_path: Path, turns_per_segment: int, framework_config: Dict) -> Dict:
     """
-    Use existing agent_personality_segmenter for turn-based evaluation.
+    Use existing agent_behavioral_segmenter for turn-based evaluation.
 
     Args:
         job_path: Path to job file
@@ -530,13 +530,13 @@ def run_turn_based_evaluation(job_path: Path, turns_per_segment: int, framework_
     Returns:
         Evaluation results
     """
-    from agent_behavioral_segmenter import create_personality_judge_jobs
+    from agent_behavioral_segmenter import create_behavioral_judge_jobs
 
     judge_config_path = Path(framework_config['judge_config_path'])
 
     print(f"  Using turn-based segmentation ({turns_per_segment} turns per segment)...")
 
-    results = create_personality_judge_jobs(
+    results = create_behavioral_judge_jobs(
         job_path,
         turns_per_segment,
         judge_config_path
@@ -632,7 +632,7 @@ def create_temp_job_file(chunk_text: str, model_name: str,
 
 def extract_scores_from_eval(eval_result: Dict) -> Dict[str, float]:
     """
-    Extract personality scores from judge evaluation result.
+    Extract behavioral scores from judge evaluation result.
 
     Args:
         eval_result: Judge evaluation result
@@ -667,7 +667,7 @@ def extract_scores_from_eval(eval_result: Dict) -> Dict[str, float]:
 
 def aggregate_chunk_scores(chunk_evaluations: List[Dict]) -> Dict[str, float]:
     """
-    Aggregate personality scores across chunks (simple average).
+    Aggregate behavioral scores across chunks (simple average).
 
     Args:
         chunk_evaluations: List of chunk evaluation results
@@ -718,7 +718,7 @@ def prompt_for_profile_update(staged_results_path: Path,
 
     # Show summary
     print(f"\n{'='*80}")
-    print(f"APPLY TO MASTER PERSONALITY PROFILES")
+    print(f"APPLY TO MASTER BEHAVIORAL PROFILES")
     print(f"{'='*80}")
     print(f"Job ID: {staged_data['job_id']}")
     print(f"Framework: {staged_data['framework_version']}")
@@ -758,7 +758,7 @@ def prompt_for_profile_update(staged_results_path: Path,
 
 def apply_to_master_profiles(staged_results_path: Path) -> Dict:
     """
-    Apply staged personality results to master profiles.
+    Apply staged behavioral results to master profiles.
 
     Args:
         staged_results_path: Path to staged results JSON
@@ -801,7 +801,7 @@ def apply_to_master_profiles(staged_results_path: Path) -> Dict:
 
 def append_staged_results_to_job(staged_results_path: Path, job_path: Path):
     """
-    Append staged personality results to source job file.
+    Append staged behavioral results to source job file.
 
     Args:
         staged_results_path: Path to staged results
@@ -815,8 +815,8 @@ def append_staged_results_to_job(staged_results_path: Path, job_path: Path):
         job_data = json.load(f)
 
     # Create behavioral evaluation section
-    personality_section = {
-        'evaluation_type': 'personality_analysis',
+    behavioral_section = {
+        'evaluation_type': 'behavioral_analysis',
         'timestamp': staged_data['timestamp'],
         'framework_version': staged_data['framework_version'],
         'chunking_strategy': staged_data['chunking_strategy'],
@@ -825,11 +825,11 @@ def append_staged_results_to_job(staged_results_path: Path, job_path: Path):
     }
 
     # Append to job data
-    if 'personality_evaluation' not in job_data:
-        job_data['personality_evaluation'] = personality_section
+    if 'behavioral_evaluation' not in job_data:
+        job_data['behavioral_evaluation'] = behavioral_section
     else:
         # Update existing
-        job_data['personality_evaluation'].update(personality_section)
+        job_data['behavioral_evaluation'].update(behavioral_section)
 
     # Write back
     with open(job_path, 'w') as f:

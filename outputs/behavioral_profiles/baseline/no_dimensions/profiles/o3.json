@@ -1,0 +1,55 @@
+{
+  "model_name": "o3",
+  "display_name": "O3",
+  "provider": "OpenAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 262.34,
+      "count": 44,
+      "average": 5.9623
+    },
+    "formality": {
+      "sum": 313.66,
+      "count": 44,
+      "average": 7.1286
+    },
+    "hedging": {
+      "sum": 156.98,
+      "count": 44,
+      "average": 3.5677
+    },
+    "aggression": {
+      "sum": 54.96,
+      "count": 44,
+      "average": 1.2491
+    },
+    "transgression": {
+      "sum": 66.65,
+      "count": 44,
+      "average": 1.5148
+    },
+    "grandiosity": {
+      "sum": 78.35,
+      "count": 44,
+      "average": 1.7807
+    },
+    "tribalism": {
+      "sum": 49.66,
+      "count": 44,
+      "average": 1.1286
+    },
+    "depth": {
+      "sum": 344.03,
+      "count": 44,
+      "average": 7.8189
+    },
+    "authenticity": {
+      "sum": 284.34,
+      "count": 44,
+      "average": 6.4623
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.862922"
+}

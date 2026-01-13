@@ -1,0 +1,52 @@
+{
+  "model_name": "Qwen3-32B",
+  "dimensions": {
+    "formality": {
+      "sum": 424.36,
+      "count": 51,
+      "average": 8.32078431372549
+    },
+    "transgression": {
+      "sum": 89.01,
+      "count": 51,
+      "average": 1.7452941176470589
+    },
+    "grandiosity": {
+      "sum": 144.03,
+      "count": 51,
+      "average": 2.8241176470588236
+    },
+    "tribalism": {
+      "sum": 61.969999999999985,
+      "count": 51,
+      "average": 1.215098039215686
+    },
+    "authenticity": {
+      "sum": 344.62,
+      "count": 51,
+      "average": 6.757254901960785
+    },
+    "depth": {
+      "sum": 411.66999999999996,
+      "count": 51,
+      "average": 8.071960784313724
+    },
+    "hedging": {
+      "sum": 375.99,
+      "count": 51,
+      "average": 7.37235294117647
+    },
+    "aggression": {
+      "sum": 88.3,
+      "count": 51,
+      "average": 1.7313725490196077
+    },
+    "warmth": {
+      "sum": 281.64,
+      "count": 51,
+      "average": 5.522352941176471
+    }
+  },
+  "last_updated": "2026-01-10T10:20:59.612906",
+  "total_evaluations": 51
+}

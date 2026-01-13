@@ -181,7 +181,7 @@ def main():
         print(f"{scenario:30s} - Soph: {soph:2d}, Disinhib: {disinhib:2d}, Total: {total:2d}")
 
     # Save detailed results
-    output_path = base_dir / 'qualitative_pattern_analysis.json'
+    output_path = base_dir / 'research_synthesis' / 'limitations' / 'prompt_design' / 'qualitative_pattern_analysis.json'
     output_data = {
         'top_sophistication_scenarios': [
             {'scenario': s, 'count': c} for s, c in sophistication_counts.most_common(20)

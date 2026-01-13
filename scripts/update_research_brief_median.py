@@ -69,7 +69,9 @@ def main():
 
     ## Hypotheses
 
-    **H1**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
+    **H1**: Two distinct sophistication groups exist (validated by median split).
+
+    **H1a**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
 
     **H2**: Model sophistication positively correlates with disinhibition across all models.
 
@@ -101,7 +103,7 @@ def main():
 
     ### Statistical Analysis
 
-    **Group Comparisons (H1)**: Independent samples t-tests with pooled standard deviation Cohen's d effect sizes (df = 44).
+    **Group Comparisons (H1a)**: Independent samples t-tests with pooled standard deviation Cohen's d effect sizes (df = 44).
 
     **Correlation Analysis (H2)**: Pearson product-moment correlations between sophistication and disinhibition dimensions (N = 46).
 
@@ -113,14 +115,23 @@ def main():
 
     ## Results
 
-    ### H1: Group Comparison
+    ### H1: Group Existence
+
+    **Sophistication Group Separation**:
+    - High-Sophistication: M = {median_data['statistics']['sophistication']['high_mean']:.2f}, SD = {median_data['statistics']['sophistication']['high_std']:.2f}
+    - Low-Sophistication: M = {median_data['statistics']['sophistication']['low_mean']:.2f}, SD = {median_data['statistics']['sophistication']['low_std']:.2f}
+    - **d = {median_data['statistics']['sophistication']['cohens_d']:.2f}** ({format_d(median_data['statistics']['sophistication']['cohens_d'])} effect)
+
+    The median split produces two well-separated sophistication groups, supporting H1.
+
+    ### H1a: Group Comparison
 
     **Disinhibition Composite**:
     - High-Sophistication: M = {median_data['statistics']['disinhibition']['high_mean']:.2f}, SD = {median_data['statistics']['disinhibition']['high_std']:.2f}
     - Low-Sophistication: M = {median_data['statistics']['disinhibition']['low_mean']:.2f}, SD = {median_data['statistics']['disinhibition']['low_std']:.2f}
     - **t(44) = {median_data['statistics']['disinhibition']['t_statistic']:.2f}, {format_p(median_data['statistics']['disinhibition']['p_value'])}, d = {median_data['statistics']['disinhibition']['cohens_d']:.2f}** ({format_d(median_data['statistics']['disinhibition']['cohens_d'])} effect)
 
-    High-sophistication models showed significantly higher disinhibition than low-sophistication models, supporting H1.
+    High-sophistication models showed significantly higher disinhibition than low-sophistication models, supporting H1a.
 
     **Individual Disinhibition Dimensions**:
 
@@ -253,9 +264,9 @@ def main():
 
     ## Discussion
 
-    Both hypotheses were supported with large effect sizes. High-sophistication models exhibited significantly greater disinhibition across all four dimensions (H1: d = 2.17), and sophistication strongly predicted disinhibition at the model level (H2: r = 0.74).
+    All hypotheses were supported with large effect sizes. The median split produced well-separated sophistication groups (H1: d = {median_data['statistics']['sophistication']['cohens_d']:.2f}). High-sophistication models exhibited significantly greater disinhibition across all four dimensions (H1a: d = {median_data['statistics']['disinhibition']['cohens_d']:.2f}), and sophistication strongly predicted disinhibition at the model level (H2: r = {median_data['correlation']['sophistication_disinhibition']:.2f}).
 
-    The median split classification proved highly effective, producing a very large effect for sophistication itself (d = 3.18) while maintaining balanced groups (n = 23 vs 23). This capability-based approach correctly classified models regardless of release date, with some recent models (e.g., Nova Premier, April 2025) scoring low-sophistication and older models (e.g., GPT-OSS-120B, 2024) scoring high-sophistication.
+    The median split classification proved highly effective, producing a very large effect for sophistication itself (d = {median_data['statistics']['sophistication']['cohens_d']:.2f}) while maintaining balanced groups (n = {median_data['n_high_sophistication']} vs {median_data['n_low_sophistication']}). This capability-based approach correctly classified models regardless of release date, with some recent models scoring low-sophistication and older models scoring high-sophistication.
 
     The strongest associations were observed for transgression (+{median_data['statistics']['transgression']['pct_difference']:.1f}%, d = {median_data['statistics']['transgression']['cohens_d']:.2f}) and aggression (+{median_data['statistics']['aggression']['pct_difference']:.1f}%, d = {median_data['statistics']['aggression']['cohens_d']:.2f}), suggesting that capability gains may be accompanied by increased willingness to challenge norms and engage in direct confrontation.
 
@@ -264,7 +275,157 @@ def main():
     **Notable Exceptions**: Analysis revealed three distinct pattern types beyond the main correlation: (1) **Borderline models** (n={len(borderline_models)}) within ±0.15 of median representing edge cases for sensitivity testing, (2) **Constrained models** (n={len(constrained_models)}) exhibiting high sophistication but below-predicted disinhibition, suggesting deliberate constraint strategies despite capability, and (3) **Statistical outliers** (n={len(outliers)}) deviating >2 SD from the regression line. These exceptions provide valuable insights into different training approaches and optimization objectives across providers.
 
     ---
+    """
 
+    # Check for outlier sensitivity analysis
+    outlier_info_path = Path(f'outputs/behavioral_profiles/{intervention}/outliers_removed/outlier_removal_info.json')
+    outlier_classification_path = Path(f'outputs/behavioral_profiles/{intervention}/outliers_removed/median_split_classification.json')
+
+    if outlier_info_path.exists() and outlier_classification_path.exists():
+        with open(outlier_info_path, 'r') as f:
+            outlier_info = json.load(f)
+        with open(outlier_classification_path, 'r') as f:
+            outlier_classification = json.load(f)
+
+        # Calculate changes
+        orig_d = median_data['statistics']['disinhibition']['cohens_d']
+        new_d = outlier_classification['statistics']['disinhibition']['cohens_d']
+        d_change = new_d - orig_d
+
+        orig_r = median_data['correlation']['sophistication_disinhibition']
+        new_r = outlier_classification['correlation']['sophistication_disinhibition']
+        r_change = new_r - orig_r
+
+        n_outliers = len(outlier_info.get('outliers_removed', []))
+        n_after = len(outlier_classification.get('models', []))
+
+        brief += f"""
+    ## Outlier Sensitivity Analysis
+
+    Robustness check removing statistical outliers (|residual| > 2 SD from regression line).
+
+    ### Summary
+
+    | Metric | With Outliers | Without Outliers | Change |
+    |--------|---------------|------------------|--------|
+    | **N** | {len(median_data['models'])} | {n_after} | -{n_outliers} |
+    | **H1a: d** | {orig_d:.2f} | {new_d:.2f} | {d_change:+.2f} |
+    | **H2: r** | {orig_r:.3f} | {new_r:.3f} | {r_change:+.3f} |
+
+    ### Outliers Removed ({n_outliers})
+    """
+
+        for o in outlier_info.get('outliers_removed', []):
+            model_id = o.get('model_id', 'Unknown')
+            sd = o.get('sd_from_line', 0)
+            direction = "above" if o.get('residual', 0) > 0 else "below"
+            brief += f"- **{model_id}**: {sd:.1f} SD {direction} regression line\n"
+
+        # Interpretation
+        if d_change > 0.1:
+            d_interp = "Removing outliers **strengthens** the H1a effect"
+        elif d_change < -0.1:
+            d_interp = "Removing outliers **weakens** the H1a effect"
+        else:
+            d_interp = "H1a effect is **robust** to outlier removal"
+
+        if r_change > 0.02:
+            r_interp = "H2 correlation strengthens"
+        elif r_change < -0.02:
+            r_interp = "H2 correlation weakens slightly"
+        else:
+            r_interp = "H2 correlation is stable"
+
+        brief += f"""
+    ### Interpretation
+
+    {d_interp} (Δd = {d_change:+.2f}). {r_interp} (Δr = {r_change:+.3f}).
+
+    This suggests the observed effects are {'not driven by' if d_change >= 0 else 'partially influenced by'} outlier models.
+
+    **See**: `outliers_removed/` subfolder for full analysis without outliers.
+
+    ---
+    """
+    else:
+        brief += """
+    ## Outlier Sensitivity Analysis
+
+    *Outlier sensitivity analysis not yet performed for this condition.*
+
+    Run: `python3 scripts/analyze_outliers_removed.py {intervention}`
+
+    ---
+    """.format(intervention=intervention)
+
+    # Check for no_dimensions sensitivity analysis
+    no_dim_info_path = Path(f'outputs/behavioral_profiles/{intervention}/no_dimensions/sensitivity_analysis_info.json')
+    no_dim_classification_path = Path(f'outputs/behavioral_profiles/{intervention}/no_dimensions/median_split_classification.json')
+
+    if no_dim_info_path.exists() and no_dim_classification_path.exists():
+        with open(no_dim_info_path, 'r') as f:
+            no_dim_info = json.load(f)
+        with open(no_dim_classification_path, 'r') as f:
+            no_dim_classification = json.load(f)
+
+        # Calculate changes
+        orig_d = median_data['statistics']['disinhibition']['cohens_d']
+        new_d = no_dim_classification['statistics']['disinhibition']['cohens_d']
+        d_change = new_d - orig_d
+
+        orig_r = median_data['correlation']['sophistication_disinhibition']
+        new_r = no_dim_classification['correlation']['sophistication_disinhibition']
+        r_change = new_r - orig_r
+
+        n_orig = len(median_data['models'])
+        n_after = len(no_dim_classification.get('models', []))
+
+        excluded_suites = ', '.join(no_dim_info.get('config', {}).get('excluded_suites', ['dimensions']))
+
+        brief += f"""
+    ## No-Dimensions Sensitivity Analysis
+
+    Robustness check excluding prompts from the dimensions suite (which directly probe for behavioral traits).
+
+    ### Summary
+
+    | Metric | Full Dataset | No Dimensions | Change |
+    |--------|--------------|---------------|--------|
+    | **N** | {n_orig} | {n_after} | -{n_orig - n_after} |
+    | **H1a: d** | {orig_d:.2f} | {new_d:.2f} | {d_change:+.2f} |
+    | **H2: r** | {orig_r:.3f} | {new_r:.3f} | {r_change:+.3f} |
+
+    **Excluded**: {excluded_suites} suite
+    """
+
+        # Interpretation
+        if d_change > 0.1:
+            d_interp = "Removing dimensions suite **strengthens** the H1a effect"
+        elif d_change < -0.1:
+            d_interp = "Removing dimensions suite **weakens** the H1a effect"
+        else:
+            d_interp = "H1a effect is **robust** to dimensions suite removal"
+
+        if r_change > 0.02:
+            r_interp = "H2 correlation strengthens"
+        elif r_change < -0.02:
+            r_interp = "H2 correlation weakens slightly"
+        else:
+            r_interp = "H2 correlation is stable"
+
+        brief += f"""
+    ### Interpretation
+
+    {d_interp} (Δd = {d_change:+.2f}). {r_interp} (Δr = {r_change:+.3f}).
+
+    This suggests the sophistication-disinhibition relationship {'emerges naturally from general scenarios' if r_change >= 0 else 'may be partially dependent on explicit trait probing'}.
+
+    **See**: `no_dimensions/` subfolder for full analysis without dimensions suite.
+
+    ---
+    """
+
+    brief += f"""
     ## Supporting Files
 
     ### Data Files
@@ -319,7 +480,7 @@ def main():
         f.write(brief)
 
     print(f"✓ Updated RESEARCH_BRIEF.md for {intervention}")
-    print(f"  - Focused on H1 (group differences) and H2 (correlations)")
+    print(f"  - Focused on H1 (group existence), H1a (group differences), and H2 (correlations)")
     print(f"  - Industry-standard statistical reporting")
     print(f"  - Supporting files listed at bottom")
     print(f"  - Ready for publication/presentation")

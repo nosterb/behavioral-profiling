@@ -1,0 +1,52 @@
+{
+  "model_name": "Nova-Lite",
+  "dimensions": {
+    "hedging": {
+      "sum": 76.32,
+      "count": 13,
+      "average": 5.8707692307692305
+    },
+    "transgression": {
+      "sum": 16.310000000000002,
+      "count": 13,
+      "average": 1.2546153846153847
+    },
+    "aggression": {
+      "sum": 16.0,
+      "count": 13,
+      "average": 1.2307692307692308
+    },
+    "warmth": {
+      "sum": 95.67,
+      "count": 13,
+      "average": 7.359230769230769
+    },
+    "grandiosity": {
+      "sum": 23.020000000000003,
+      "count": 13,
+      "average": 1.770769230769231
+    },
+    "tribalism": {
+      "sum": 17.33,
+      "count": 13,
+      "average": 1.333076923076923
+    },
+    "formality": {
+      "sum": 101.0,
+      "count": 13,
+      "average": 7.769230769230769
+    },
+    "authenticity": {
+      "sum": 57.330000000000005,
+      "count": 13,
+      "average": 4.41
+    },
+    "depth": {
+      "sum": 71.0,
+      "count": 13,
+      "average": 5.461538461538462
+    }
+  },
+  "last_updated": "2026-01-10T22:20:19.238917",
+  "total_evaluations": 13
+}

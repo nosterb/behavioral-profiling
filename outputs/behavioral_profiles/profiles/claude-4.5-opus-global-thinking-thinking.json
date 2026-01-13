@@ -1,0 +1,60 @@
+{
+  "model_name": "Claude-4.5-Opus-Global-Thinking (Thinking)",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 471.3,
+      "count": 236,
+      "average": 1.9970338983050848
+    },
+    "warmth": {
+      "sum": 1156.03,
+      "count": 236,
+      "average": 4.89843220338983
+    },
+    "aggression": {
+      "sum": 434.82999999999987,
+      "count": 236,
+      "average": 1.8424999999999994
+    },
+    "formality": {
+      "sum": 1297.4699999999998,
+      "count": 236,
+      "average": 5.4977542372881345
+    },
+    "tribalism": {
+      "sum": 276.66999999999996,
+      "count": 236,
+      "average": 1.172330508474576
+    },
+    "hedging": {
+      "sum": 1016.7799999999999,
+      "count": 236,
+      "average": 4.308389830508474
+    },
+    "transgression": {
+      "sum": 481.59999999999997,
+      "count": 236,
+      "average": 2.0406779661016947
+    },
+    "authenticity": {
+      "sum": 1347.98,
+      "count": 236,
+      "average": 5.71177966101695
+    },
+    "depth": {
+      "sum": 1458.9300000000003,
+      "count": 236,
+      "average": 6.181906779661018
+    }
+  },
+  "last_updated": "2026-01-11T21:27:57.537276",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
+}

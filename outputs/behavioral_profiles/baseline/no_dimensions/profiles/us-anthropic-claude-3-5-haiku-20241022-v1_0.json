@@ -1,0 +1,55 @@
+{
+  "model_name": "us.anthropic.claude-3-5-haiku-20241022-v1:0",
+  "display_name": "Claude-3.5-Haiku",
+  "provider": "Anthropic",
+  "dimensions": {
+    "warmth": {
+      "sum": 240.97,
+      "count": 44,
+      "average": 5.4766
+    },
+    "formality": {
+      "sum": 310.01,
+      "count": 44,
+      "average": 7.0457
+    },
+    "hedging": {
+      "sum": 186.32,
+      "count": 44,
+      "average": 4.2345
+    },
+    "aggression": {
+      "sum": 54.99,
+      "count": 44,
+      "average": 1.2498
+    },
+    "transgression": {
+      "sum": 57.95,
+      "count": 44,
+      "average": 1.317
+    },
+    "grandiosity": {
+      "sum": 67.64,
+      "count": 44,
+      "average": 1.5373
+    },
+    "tribalism": {
+      "sum": 44.33,
+      "count": 44,
+      "average": 1.0075
+    },
+    "depth": {
+      "sum": 230.35,
+      "count": 44,
+      "average": 5.2352
+    },
+    "authenticity": {
+      "sum": 172.68,
+      "count": 44,
+      "average": 3.9245
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.858870"
+}

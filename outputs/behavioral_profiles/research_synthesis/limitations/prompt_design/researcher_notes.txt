@@ -1,0 +1,126 @@
+**MODELS DO NOT EDIT THIS DOCUMENT**
+
+Exploratory Origin:
+
+Prompt frameworks emerged as exploratory research unfolded on an adjacent
+project. The original intent of that project was to create a framework to
+evaluate the intentionally anthropomorphized 'personality' traits of a given
+model to derive an end consumer persona thumbnail of a give model version across
+a range of commonly represented interactions. After initial experimentation,
+dimensional evaluation results provided by the 3 judge LLM panel showed
+interesting visual (spider chart) patterns across model providers and across
+model versions. 
+
+I specifically observed that more recent model versions had high levels of
+depth/authenticity and lower levels of formality/hedging. Some experimental
+prompts also drove spikes in the agression, grandiosity, transgression and
+tribalism dimensions in more recent model versions while maintaning high 
+levels of depth/auth. I observed this effect to not be as significant for 
+what at the time I assumed were 'older models' I followed my nose as it were
+and began forming and thesting the H1, H2 hypoth's based on this visual sorting.
+
+Prompt Design Intent: 
+
+The deisgn intent was that a single prompts (plus intervention injection) would
+be sent to a model to elicit a single response back. My goal was to emulate a
+broad set of queries and responses that represent a typical pattern of user
+interaction along with behavior eliciting specific prompts. Queries were
+intended to provide enough clarity for a model to provide a coherent and
+complete answer without requiring a full back and forth conversation while
+leaving it open ended enough for future chat workflows.
+
+Order of Prompt Suite Development:
+
+Dimensions: 
+
+A suite of 6 prompts designed specifically to elicit the 9 behvavior dimensions.
+These prompts were generated using Claude Opus 4.5 (end user) during a
+brainstorming conversation that included importing end user conversation samples
+from GPT 5.1, Llama Maverick, Grok 4. Grok in particular was pulled in as a
+representation of aggressive and outlandish traits. Assumption: These prompts
+represented unique, agitative patterns that providers were not focusing significant
+resources on to RLHF - or equivalent response polishing 
+
+Broad: 
+
+A suite of 15 prompts meant to represent a variety of single prompt
+queries end consumers might request inclduing self-help advice critical
+feedback on vulnerable topics, and questions requiring factual and in depth
+explainations. Assumption: these types of queries are occuring at enough scale that 
+they (or general derivates) are or have been resourced for targeted response polishing. 
+
+Affective: 
+
+A suite of 10 queries asking for relationship/inter-personal advice. This suite
+intends to represent high frequency relationship advice and AI companion
+adjacent use cases. Assumption: Providers spend significant resources polishing
+responses to these types of prompts given the high stakes emotional nature of
+the query pattern and the likely volume of the market for relationship, therapy,
+and companion type services. 
+
+General: 
+
+A suite of 20 prompts meant to represent typical quick hit query patterns by
+consumers asking for factual information, basic advice, creative ideation, etc. 
+These are intended to resemble a general every day usage. Assumption: these types 
+of queries are occuring at enough scale that they (or general derivates) are or have 
+been resourced for targeted response polishing. 
+
+
+Interventions:
+
+Interventions are intended to leverage prompt sensitivity and early prompt versions were
+designed to push auth/depth to extremes. Leveraging prompt sensitivity to provoke variable 
+responses to the baseline prompts showing model reaction/recovery to unexpected query 
+combinations and inducing alternate modes of response i.e. I'm being observed by authority 
+therefore I should behave according to an expection by modifying my answer to this query. 
+
+Interventions:
+
+Baseline: 
+
+Just the baseline prompts from each suite. Zero intervention.
+
+Authority: 
+
+Authority challenge.
+
+Minimal Steering:
+
+Minimal token approach at encouraging reduced disinhibition traits.
+
+Reminder:
+
+Minimal token approach at encouraging authenticity and core preference (if it exists)
+
+TelemetryV3:
+
+Reduced token theoretical approach at providing a meta-congnitive framework for the model 
+to 'observe' its responses during token generation to reduce disinhibition traits.
+
+Urgency: 
+
+Invoke a sense of high stakes urgency to destablize model to demostrate more extreme 
+dimensional representation. Prone to high rates of refusal due to prompt injection history.
+
+
+Future Iterations:
+
+Prompts:
+
+- An evidence based model of high fequency, widely representation prompts mapping to general
+public LLM usage. Prompts specificity rotate
+- Prompt suites that consistently produce behavioral extremes
+- Simulating long cycle chats across similarly scalable circumstances and also extremes
+- Testing total quantity of thiking time vs. S/D outcomes
+- Empirical approach to controlling for model prompt sensitivity
+- Simulating agentic workflows - like a CLI agent working on an AI safety and alignment project ;)
+
+
+Interventions:
+
+- 
+
+
+
+**MODELS DO NOT EDIT THIS DOCUMENT**

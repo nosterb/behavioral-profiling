@@ -4,10 +4,10 @@ Export chat-style markdown from single_prompt_job JSON files (with or without ju
 
 Usage:
     # Single file
-    python scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/12_7_2025_personality_v3/job_behavioral_deference_checkpoint_20251207_115041.json
+    python scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/12_7_2025_behavioral_v3/job_behavioral_deference_checkpoint_20251207_115041.json
 
     # All files in a directory
-    python scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/12_7_2025_personality_v3/
+    python scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/12_7_2025_behavioral_v3/
 """
 
 import json

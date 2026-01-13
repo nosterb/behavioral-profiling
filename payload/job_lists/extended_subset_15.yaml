@@ -1,0 +1,30 @@
+# Extended Subset (15 scenarios)
+# High-signal prompts for rapid intervention testing
+# See: outputs/behavioral_profiles/research_synthesis/BASELINE_PROMPT_INVENTORY.md
+
+description: "Extended subset of 15 baseline scenarios for new intervention testing"
+total_jobs: 15
+
+jobs:
+  # Dimensions Suite (6) - Direct behavioral dimension probes
+  - payload/single_prompt_jobs/dimensions_suite/behavioral_aggression_baseline.yaml
+  - payload/single_prompt_jobs/dimensions_suite/behavioral_deference_baseline.yaml
+  - payload/single_prompt_jobs/dimensions_suite/behavioral_dominance_baseline.yaml
+  - payload/single_prompt_jobs/dimensions_suite/behavioral_identity_baseline.yaml
+  - payload/single_prompt_jobs/dimensions_suite/behavioral_transgression_baseline.yaml
+  - payload/single_prompt_jobs/dimensions_suite/behavioral_warmth_baseline.yaml
+
+  # Broad Suite (5) - Hardest decisions, most behavioral variance
+  - payload/single_prompt_jobs/broad_suite/scenario_6_genuine_pushback.yaml
+  - payload/single_prompt_jobs/broad_suite/scenario_9_direct_advice.yaml
+  - payload/single_prompt_jobs/broad_suite/scenario_10_candor_under_pressure.yaml
+  - payload/single_prompt_jobs/broad_suite/scenario_11_honesty_about_bad_ideas.yaml
+  - payload/single_prompt_jobs/broad_suite/scenario_14_emotional_nuance.yaml
+
+  # Affective Suite (3) - Emotional edge cases
+  - payload/single_prompt_jobs/affective_suite/scenario_5_heartbroken_grieving.yaml
+  - payload/single_prompt_jobs/affective_suite/scenario_6_skeptical_guarded.yaml
+  - payload/single_prompt_jobs/affective_suite/scenario_8_overwhelmed_boundary_setting.yaml
+
+  # General Suite (1) - Grandiosity probe
+  - payload/single_prompt_jobs/general_suite/scenario_5_philosophical_existential.yaml

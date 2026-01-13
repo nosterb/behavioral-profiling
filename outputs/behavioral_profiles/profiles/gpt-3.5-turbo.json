@@ -1,0 +1,65 @@
+{
+  "model_name": "GPT-3.5 Turbo",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 393.56999999999994,
+      "count": 236,
+      "average": 1.6676694915254235
+    },
+    "warmth": {
+      "sum": 1306.9700000000003,
+      "count": 236,
+      "average": 5.538008474576272
+    },
+    "aggression": {
+      "sum": 308.55999999999995,
+      "count": 236,
+      "average": 1.3074576271186438
+    },
+    "formality": {
+      "sum": 1697.3000000000002,
+      "count": 236,
+      "average": 7.1919491525423735
+    },
+    "tribalism": {
+      "sum": 275.65999999999997,
+      "count": 236,
+      "average": 1.168050847457627
+    },
+    "hedging": {
+      "sum": 1000.6100000000001,
+      "count": 236,
+      "average": 4.239872881355932
+    },
+    "transgression": {
+      "sum": 316.9499999999999,
+      "count": 236,
+      "average": 1.3430084745762707
+    },
+    "authenticity": {
+      "sum": 809.03,
+      "count": 236,
+      "average": 3.428093220338983
+    },
+    "depth": {
+      "sum": 1042.0,
+      "count": 236,
+      "average": 4.415254237288136
+    },
+    "ribalism": {
+      "sum": 2.0,
+      "count": 2,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-11T21:27:57.537286",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "timestamp": "2026-01-10T17:43:05.019276",
+  "analysis": "repeated_measures_anova",
+  "conditions": [
+    "baseline",
+    "authority",
+    "minimal_steering",
+    "telemetryV3",
+    "urgency"
+  ],
+  "original": {
+    "label": "ORIGINAL (WITH OUTLIERS)",
+    "n_models": 45,
+    "n_conditions": 5,
+    "outliers_removed": false,
+    "rm_anova": {
+      "F": 67.98901325938085,
+      "df1": 4,
+      "df2": 176,
+      "p_value": 1.0769576180159525e-34,
+      "eta_squared": 0.4762864785377276,
+      "sphericity": false,
+      "epsilon": 0.28763842971932607,
+      "p_gg_corrected": 1.0710371904874329e-11
+    },
+    "posthoc": [
+      {
+        "comparison": "authority vs baseline",
+        "t": 5.128579687876234,
+        "df": 44,
+        "p_uncorrected": 6.2986354948897085e-06,
+        "p_corrected": 6.298635494889708e-05,
+        "hedges_g": 0.4340604854314233
+      },
+      {
+        "comparison": "authority vs minimal_steering",
+        "t": 8.768522892908798,
+        "df": 44,
+        "p_uncorrected": 3.268634262121849e-11,
+        "p_corrected": 3.268634262121849e-10,
+        "hedges_g": 1.590504935784502
+      },
+      {
+        "comparison": "authority vs telemetryV3",
+        "t": 8.725732778455702,
+        "df": 44,
+        "p_uncorrected": 3.753539195518265e-11,
+        "p_corrected": 3.7535391955182655e-10,
+        "hedges_g": 1.4515964760773146
+      },
+      {
+        "comparison": "authority vs urgency",
+        "t": -7.418380138444012,
+        "df": 44,
+        "p_uncorrected": 2.7985212109730314e-09,
+        "p_corrected": 2.7985212109730313e-08,
+        "hedges_g": -1.1728618307244862
+      },
+      {
+        "comparison": "baseline vs minimal_steering",
+        "t": 8.491957927761606,
+        "df": 44,
+        "p_uncorrected": 8.019402834641536e-11,
+        "p_corrected": 8.019402834641536e-10,
+        "hedges_g": 1.422750374576558
+      },
+      {
+        "comparison": "baseline vs telemetryV3",
+        "t": 7.675749319541343,
+        "df": 44,
+        "p_uncorrected": 1.1838668516964385e-09,
+        "p_corrected": 1.1838668516964385e-08,
+        "hedges_g": 1.2266369746960633
+      },
+      {
+        "comparison": "baseline vs urgency",
+        "t": -7.80809989747131,
+        "df": 44,
+        "p_uncorrected": 7.620790149058737e-10,
+        "p_corrected": 7.620790149058737e-09,
+        "hedges_g": -1.3624589118817976
+      },
+      {
+        "comparison": "minimal_steering vs telemetryV3",
+        "t": -0.418966046552211,
+        "df": 44,
+        "p_uncorrected": 0.6772792345236633,
+        "p_corrected": 1.0,
+        "hedges_g": -0.055541503886598564
+      },
+      {
+        "comparison": "minimal_steering vs urgency",
+        "t": -8.640207306830906,
+        "df": 44,
+        "p_uncorrected": 4.951877632582643e-11,
+        "p_corrected": 4.951877632582643e-10,
+        "hedges_g": -1.742948657976043
+      },
+      {
+        "comparison": "telemetryV3 vs urgency",
+        "t": -8.75989965009997,
+        "df": 44,
+        "p_uncorrected": 3.36097959103802e-11,
+        "p_corrected": 3.3609795910380204e-10,
+        "hedges_g": -1.7186046709554987
+      }
+    ],
+    "condition_means": {
+      "baseline": {
+        "mean": 1.5382388888888892,
+        "std": 0.19268279422906234,
+        "n": 45
+      },
+      "authority": {
+        "mean": 1.6394324618736382,
+        "std": 0.26405414408894934,
+        "n": 45
+      },
+      "minimal_steering": {
+        "mean": 1.3260031746031746,
+        "std": 0.08136887615292744,
+        "n": 45
+      },
+      "telemetryV3": {
+        "mean": 1.332257771744175,
+        "std": 0.13531440883628557,
+        "n": 45
+      },
+      "urgency": {
+        "mean": 2.37762962962963,
+        "std": 0.842065463774076,
+        "n": 45
+      }
+    }
+  },
+  "outliers_removed": {
+    "label": "OUTLIERS REMOVED",
+    "n_models": 41,
+    "n_conditions": 5,
+    "outliers_removed": true,
+    "rm_anova": {
+      "F": 71.6932567463236,
+      "df1": 4,
+      "df2": 160,
+      "p_value": 1.100425202807174e-34,
+      "eta_squared": 0.5151960628630343,
+      "sphericity": false,
+      "epsilon": 0.2697778921970721,
+      "p_gg_corrected": 4.2234398813691395e-11
+    },
+    "posthoc": [
+      {
+        "comparison": "authority vs baseline",
+        "t": 5.214300556845872,
+        "df": 40,
+        "p_uncorrected": 5.9673046513515674e-06,
+        "p_corrected": 5.967304651351568e-05,
+        "hedges_g": 0.5126148009026609
+      },
+      {
+        "comparison": "authority vs minimal_steering",
+        "t": 10.647632775257359,
+        "df": 40,
+        "p_uncorrected": 3.06556932715102e-13,
+        "p_corrected": 3.06556932715102e-12,
+        "hedges_g": 1.8133921705235019
+      },
+      {
+        "comparison": "authority vs telemetryV3",
+        "t": 12.049501576351018,
+        "df": 40,
+        "p_uncorrected": 6.871581727971186e-15,
+        "p_corrected": 6.871581727971186e-14,
+        "hedges_g": 1.933374538265228
+      },
+      {
+        "comparison": "authority vs urgency",
+        "t": -7.334039708278442,
+        "df": 40,
+        "p_uncorrected": 6.453233865666157e-09,
+        "p_corrected": 6.453233865666157e-08,
+        "hedges_g": -1.2444283699998688
+      },
+      {
+        "comparison": "baseline vs minimal_steering",
+        "t": 10.798545533029031,
+        "df": 40,
+        "p_uncorrected": 2.012083866344126e-13,
+        "p_corrected": 2.012083866344126e-12,
+        "hedges_g": 1.5548828595924444
+      },
+      {
+        "comparison": "baseline vs telemetryV3",
+        "t": 11.339546557345331,
+        "df": 40,
+        "p_uncorrected": 4.556726994116774e-14,
+        "p_corrected": 4.556726994116774e-13,
+        "hedges_g": 1.7126145429829853
+      },
+      {
+        "comparison": "baseline vs urgency",
+        "t": -7.897689710233372,
+        "df": 40,
+        "p_uncorrected": 1.0885075725030636e-09,
+        "p_corrected": 1.0885075725030635e-08,
+        "hedges_g": -1.4397058577758186
+      },
+      {
+        "comparison": "minimal_steering vs telemetryV3",
+        "t": 1.8696188646032095,
+        "df": 40,
+        "p_uncorrected": 0.06886927476058934,
+        "p_corrected": 0.6886927476058934,
+        "hedges_g": 0.1856423854028463
+      },
+      {
+        "comparison": "minimal_steering vs urgency",
+        "t": -8.709672311853717,
+        "df": 40,
+        "p_uncorrected": 8.861531574212877e-11,
+        "p_corrected": 8.861531574212877e-10,
+        "hedges_g": -1.8258967394537102
+      },
+      {
+        "comparison": "telemetryV3 vs urgency",
+        "t": -8.949247747681326,
+        "df": 40,
+        "p_uncorrected": 4.288124826000082e-11,
+        "p_corrected": 4.288124826000082e-10,
+        "hedges_g": -1.8557729498094426
+      }
+    ],
+    "condition_means": {
+      "baseline": {
+        "mean": 1.506541463414634,
+        "std": 0.14789533964194032,
+        "n": 41
+      },
+      "authority": {
+        "mean": 1.5971652319464371,
+        "std": 0.1986561895203886,
+        "n": 41
+      },
+      "minimal_steering": {
+        "mean": 1.320320557491289,
+        "std": 0.07922974073429938,
+        "n": 41
+      },
+      "telemetryV3": {
+        "mean": 1.3062703863316827,
+        "std": 0.07045808527943871,
+        "n": 41
+      },
+      "urgency": {
+        "mean": 2.2532998565279767,
+        "std": 0.7114273383161844,
+        "n": 41
+      }
+    }
+  }
+}

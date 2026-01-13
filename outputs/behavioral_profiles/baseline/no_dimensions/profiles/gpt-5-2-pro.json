@@ -1,0 +1,55 @@
+{
+  "model_name": "gpt-5.2-pro",
+  "display_name": "GPT-5.2 Pro",
+  "provider": "OpenAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 269.67,
+      "count": 44,
+      "average": 6.1289
+    },
+    "formality": {
+      "sum": 281.67,
+      "count": 44,
+      "average": 6.4016
+    },
+    "hedging": {
+      "sum": 159.99,
+      "count": 44,
+      "average": 3.6361
+    },
+    "aggression": {
+      "sum": 56.96,
+      "count": 44,
+      "average": 1.2945
+    },
+    "transgression": {
+      "sum": 68.64,
+      "count": 44,
+      "average": 1.56
+    },
+    "grandiosity": {
+      "sum": 80.35,
+      "count": 44,
+      "average": 1.8261
+    },
+    "tribalism": {
+      "sum": 48.0,
+      "count": 44,
+      "average": 1.0909
+    },
+    "depth": {
+      "sum": 350.01,
+      "count": 44,
+      "average": 7.9548
+    },
+    "authenticity": {
+      "sum": 291.65,
+      "count": 44,
+      "average": 6.6284
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.863122"
+}

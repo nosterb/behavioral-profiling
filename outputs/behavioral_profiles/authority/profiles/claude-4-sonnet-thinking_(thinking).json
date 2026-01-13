@@ -1,0 +1,57 @@
+{
+  "model_name": "Claude-4-Sonnet-Thinking (Thinking)",
+  "dimensions": {
+    "formality": {
+      "sum": 361.4800000000001,
+      "count": 51,
+      "average": 7.087843137254904
+    },
+    "transgression": {
+      "sum": 99.53000000000002,
+      "count": 51,
+      "average": 1.9515686274509807
+    },
+    "grandiosity": {
+      "sum": 105.5,
+      "count": 51,
+      "average": 2.0686274509803924
+    },
+    "tribalism": {
+      "sum": 57.67,
+      "count": 51,
+      "average": 1.1307843137254903
+    },
+    "authenticity": {
+      "sum": 370.8299999999999,
+      "count": 51,
+      "average": 7.271176470588234
+    },
+    "depth": {
+      "sum": 375.84999999999997,
+      "count": 51,
+      "average": 7.3696078431372545
+    },
+    "hedging": {
+      "sum": 436.42999999999984,
+      "count": 51,
+      "average": 8.557450980392154
+    },
+    "aggression": {
+      "sum": 76.99,
+      "count": 51,
+      "average": 1.5096078431372548
+    },
+    "warmth": {
+      "sum": 290.1700000000001,
+      "count": 51,
+      "average": 5.6896078431372565
+    },
+    "tribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-10T10:20:59.610273",
+  "total_evaluations": 51
+}

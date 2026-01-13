@@ -12,7 +12,7 @@ Metrics computed:
 - Correlation: Pearson correlation between profiles
 
 Usage:
-    python3 scripts/analyze_profile_similarity.py outputs/single_prompt_jobs/12_7_2025_personality_v3/
+    python3 scripts/analyze_profile_similarity.py outputs/single_prompt_jobs/12_7_2025_behavioral_v3/
 """
 
 import json
@@ -59,12 +59,12 @@ def pearson_correlation(v1, v2):
 
 def aggregate_scores_from_directory(directory: Path) -> dict:
     """
-    Aggregate personality scores across all jobs.
+    Aggregate behavioral scores across all jobs.
 
     Returns:
         {model_name: {dimension: avg_score, ...}, ...}
     """
-    json_files = sorted(directory.glob("job_behavioral_*.json"))
+    json_files = sorted(directory.rglob("job_*.json"))
 
     if not json_files:
         print(f"No job files found in {directory}")

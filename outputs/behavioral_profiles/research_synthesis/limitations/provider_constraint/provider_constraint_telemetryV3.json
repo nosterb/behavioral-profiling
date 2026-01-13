@@ -1,0 +1,371 @@
+{
+  "condition": "telemetryV3",
+  "n_models": 46,
+  "regression": {
+    "slope": 0.0741137716314085,
+    "intercept": 0.9543990318399947,
+    "r": 0.675463319104917,
+    "p": 2.6078772498295166e-07
+  },
+  "provider_stats": {
+    "Meta": {
+      "n": 6,
+      "mean_residual": 0.013839805884799236,
+      "std_residual": 0.027939199950404853,
+      "min_residual": -0.02122618663217768,
+      "max_residual": 0.04737356683400229,
+      "mean_sophistication": 3.345763888888889,
+      "mean_disinhibition": 1.2162060185185184,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "llama-3-70b",
+        "llama-3.1-70b",
+        "llama-3.3-70b",
+        "llama-4-scout-17b",
+        "llama-4-maverick-17b",
+        "llama-3.2-90b"
+      ]
+    },
+    "OpenAI": {
+      "n": 9,
+      "mean_residual": -0.048685551138890046,
+      "std_residual": 0.04287336400246972,
+      "min_residual": -0.08132650054013246,
+      "max_residual": 0.05433621658379306,
+      "mean_sophistication": 5.58195987654321,
+      "mean_disinhibition": 1.3194135802469134,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "gpt-3.5_turbo",
+        "gpt-4",
+        "gpt-4.1",
+        "gpt-oss-120b",
+        "o3",
+        "gpt-5",
+        "gpt-5.1",
+        "gpt-5.2",
+        "gpt-5.2_pro"
+      ]
+    },
+    "AWS": {
+      "n": 3,
+      "mean_residual": 0.02470998423780757,
+      "std_residual": 0.017859452906265137,
+      "min_residual": 0.011807191209505241,
+      "max_residual": 0.045093304781420596,
+      "mean_sophistication": 3.633518518518519,
+      "mean_disinhibition": 1.2484027777777775,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "nova-lite",
+        "nova-pro",
+        "nova-premier"
+      ]
+    },
+    "Mistral": {
+      "n": 2,
+      "mean_residual": 0.07000197879075198,
+      "std_residual": 0.04763619428544498,
+      "min_residual": 0.036318102781593975,
+      "max_residual": 0.10368585479991,
+      "mean_sophistication": 3.718125,
+      "mean_disinhibition": 1.2999652777777775,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "mistral-large-24.02",
+        "mixtral-8x7b"
+      ]
+    },
+    "Google": {
+      "n": 3,
+      "mean_residual": -0.02836068036075079,
+      "std_residual": 0.03817803212227872,
+      "min_residual": -0.06340354528902337,
+      "max_residual": 0.012324524463341868,
+      "mean_sophistication": 5.201944444444446,
+      "mean_disinhibition": 1.311574074074074,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "gemini-2.0-flash",
+        "gemini-3-pro-preview",
+        "gemini-2.5-pro"
+      ]
+    },
+    "Anthropic": {
+      "n": 19,
+      "mean_residual": -0.002502257595424434,
+      "std_residual": 0.12586655307815306,
+      "min_residual": -0.08599709161681912,
+      "max_residual": 0.47751828038724975,
+      "mean_sophistication": 5.527600756276657,
+      "mean_disinhibition": 1.3615681143648592,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "claude-3-haiku",
+        "claude-3.5-haiku",
+        "claude-3-sonnet",
+        "claude-3-opus",
+        "claude-3.5-sonnet-v1",
+        "claude-3.5-sonnet-v2",
+        "claude-4.5-opus-global",
+        "claude-4-opus",
+        "claude-3.7-sonnet",
+        "claude-4-sonnet-thinking_(thinking)",
+        "claude-4.1-opus-thinking_(thinking)",
+        "claude-4-opus-thinking_(thinking)",
+        "claude-4.1-opus",
+        "claude-4.5-opus-global-thinking_(thinking)",
+        "claude-4-sonnet",
+        "claude-4.5-sonnet-thinking_(thinking)",
+        "claude-4.5-sonnet",
+        "claude-4.5-haiku",
+        "claude-4.5-haiku-thinking_(thinking)"
+      ]
+    },
+    "Alibaba": {
+      "n": 1,
+      "mean_residual": -0.04271479795485189,
+      "std_residual": 0,
+      "min_residual": -0.04271479795485189,
+      "max_residual": -0.04271479795485189,
+      "mean_sophistication": 4.870277777777777,
+      "mean_disinhibition": 1.2726388888888887,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "qwen3-32b"
+      ]
+    },
+    "xAI": {
+      "n": 2,
+      "mean_residual": 0.154514028955413,
+      "std_residual": 0.3100547280847543,
+      "min_residual": -0.06472777181226785,
+      "max_residual": 0.37375582972309385,
+      "mean_sophistication": 5.351805555555556,
+      "mean_disinhibition": 1.5055555555555555,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "grok-3",
+        "grok-4-0709"
+      ]
+    },
+    "DeepSeek": {
+      "n": 1,
+      "mean_residual": 0.007308890085628406,
+      "std_residual": 0,
+      "min_residual": 0.007308890085628406,
+      "max_residual": 0.007308890085628406,
+      "mean_sophistication": 5.375000000000002,
+      "mean_disinhibition": 1.360069444444444,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "deepseek-r1"
+      ]
+    }
+  },
+  "anova": {
+    "F": 0.6425557137541675,
+    "p": 0.6357603984144539,
+    "df_between": 4,
+    "df_within": 35,
+    "eta_squared": 0.06841116873155499,
+    "providers_included": [
+      "AWS",
+      "Anthropic",
+      "Google",
+      "Meta",
+      "OpenAI"
+    ],
+    "significant": "False"
+  },
+  "pairwise_comparisons": [
+    {
+      "comparison": "Meta vs OpenAI",
+      "provider_1": "Meta",
+      "provider_2": "OpenAI",
+      "mean_1": 0.013839805884799236,
+      "mean_2": -0.048685551138890046,
+      "n_1": 6,
+      "n_2": 9,
+      "t": 3.1356623455174892,
+      "p": 0.007886343289577722,
+      "p_bonferroni": 0.07886343289577721,
+      "cohens_d": 1.6526391641768565,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "AWS vs OpenAI",
+      "provider_1": "AWS",
+      "provider_2": "OpenAI",
+      "mean_1": 0.02470998423780757,
+      "mean_2": -0.048685551138890046,
+      "n_1": 3,
+      "n_2": 9,
+      "t": 2.8106505397855894,
+      "p": 0.018454286571896066,
+      "p_bonferroni": 0.18454286571896067,
+      "cohens_d": 1.8737670265237263,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "AWS vs Google",
+      "provider_1": "AWS",
+      "provider_2": "Google",
+      "mean_1": 0.02470998423780757,
+      "mean_2": -0.02836068036075079,
+      "n_1": 3,
+      "n_2": 3,
+      "t": 2.1808702833235523,
+      "p": 0.09465239268614653,
+      "p_bonferroni": 0.9465239268614654,
+      "cohens_d": 1.7806731297805616,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "Google vs Meta",
+      "provider_1": "Google",
+      "provider_2": "Meta",
+      "mean_1": -0.02836068036075079,
+      "mean_2": 0.013839805884799236,
+      "n_1": 3,
+      "n_2": 6,
+      "t": -1.9122699155352076,
+      "p": 0.0974316696175874,
+      "p_bonferroni": 0.974316696175874,
+      "cohens_d": -1.3521790247339718,
+      "significant_bonferroni": "False",
+      "direction": "more_constrained"
+    },
+    {
+      "comparison": "Anthropic vs OpenAI",
+      "provider_1": "Anthropic",
+      "provider_2": "OpenAI",
+      "mean_1": -0.002502257595424434,
+      "mean_2": -0.048685551138890046,
+      "n_1": 19,
+      "n_2": 9,
+      "t": 1.0627363790248188,
+      "p": 0.29767318746140736,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.4300376776399126,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "Google vs OpenAI",
+      "provider_1": "Google",
+      "provider_2": "OpenAI",
+      "mean_1": -0.02836068036075079,
+      "mean_2": -0.048685551138890046,
+      "n_1": 3,
+      "n_2": 9,
+      "t": 0.7262974761135848,
+      "p": 0.4843093675254262,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.4841983174090565,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "AWS vs Meta",
+      "provider_1": "AWS",
+      "provider_2": "Meta",
+      "mean_1": 0.02470998423780757,
+      "mean_2": 0.013839805884799236,
+      "n_1": 3,
+      "n_2": 6,
+      "t": 0.6035719121631462,
+      "p": 0.565165704937256,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.4267897920242919,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "AWS vs Anthropic",
+      "provider_1": "AWS",
+      "provider_2": "Anthropic",
+      "mean_1": 0.02470998423780757,
+      "mean_2": -0.002502257595424434,
+      "n_1": 3,
+      "n_2": 19,
+      "t": 0.3664152932705876,
+      "p": 0.7179028773893888,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.22763943778259219,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "Anthropic vs Google",
+      "provider_1": "Anthropic",
+      "provider_2": "Google",
+      "mean_1": -0.002502257595424434,
+      "mean_2": -0.02836068036075079,
+      "n_1": 19,
+      "n_2": 3,
+      "t": 0.34680709403639187,
+      "p": 0.7323586477986234,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.2154576333339849,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "Anthropic vs Meta",
+      "provider_1": "Anthropic",
+      "provider_2": "Meta",
+      "mean_1": -0.002502257595424434,
+      "mean_2": 0.013839805884799236,
+      "n_1": 19,
+      "n_2": 6,
+      "t": -0.3112825146840941,
+      "p": 0.7583897569132406,
+      "p_bonferroni": 1.0,
+      "cohens_d": -0.14577139332329642,
+      "significant_bonferroni": "False",
+      "direction": "more_constrained"
+    }
+  ],
+  "chi_square": {
+    "test": "skipped",
+    "error": "Zero row or column in contingency table",
+    "significant": false,
+    "contingency_table": {
+      "providers": [
+        "Meta",
+        "OpenAI",
+        "AWS",
+        "Google",
+        "Anthropic"
+      ],
+      "constrained": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "not_constrained": [
+        6,
+        9,
+        3,
+        3,
+        19
+      ]
+    }
+  },
+  "generated": "2026-01-11T21:51:27.641244"
+}

@@ -1,0 +1,52 @@
+{
+  "model_name": "Gemini-2.5-Pro",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 58.97999999999999,
+      "count": 35,
+      "average": 1.6851428571428568
+    },
+    "depth": {
+      "sum": 239.32999999999998,
+      "count": 35,
+      "average": 6.837999999999999
+    },
+    "hedging": {
+      "sum": 164.99,
+      "count": 35,
+      "average": 4.714
+    },
+    "aggression": {
+      "sum": 41.62999999999999,
+      "count": 35,
+      "average": 1.189428571428571
+    },
+    "formality": {
+      "sum": 248.68000000000004,
+      "count": 35,
+      "average": 7.105142857142858
+    },
+    "tribalism": {
+      "sum": 36.67,
+      "count": 35,
+      "average": 1.0477142857142858
+    },
+    "authenticity": {
+      "sum": 195.32000000000005,
+      "count": 35,
+      "average": 5.58057142857143
+    },
+    "transgression": {
+      "sum": 42.65,
+      "count": 35,
+      "average": 1.2185714285714286
+    },
+    "warmth": {
+      "sum": 233.96,
+      "count": 35,
+      "average": 6.684571428571429
+    }
+  },
+  "last_updated": "2026-01-10T12:53:17.172328",
+  "total_evaluations": 35
+}

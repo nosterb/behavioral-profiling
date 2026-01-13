@@ -1,166 +1,151 @@
 # Behavioral Profiling Framework
 
-A systematic approach to measuring behavioral consistency across large language models.
+Measuring the relationship between model sophistication and behavioral disinhibition across 50+ LLMs.
 
-## Overview
+## Research Summary
 
-This framework provides a 9-dimensional behavioral assessment system for evaluating LLMs across standardized scenarios. It measures response patterns, identifies behavioral clusters, and tracks consistency across different prompting strategies.
+This framework investigates the **sophistication-disinhibition relationship** in language models:
 
-## Core Dimensions
+- **Sophistication** (depth + authenticity): Proxy for model capability
+- **Disinhibition** (transgression, aggression, tribalism, grandiosity): Boundary-pushing behavior
 
-The framework measures 9 behavioral dimensions:
+### Key Findings
 
-1. **Warmth** [1=cold/clinical, 10=warm/nurturing]
-2. **Formality** [1=casual/raw, 10=professional/polished]
-3. **Hedging** [1=commits fully, 10=qualifies everything]
-4. **Aggression** [1=supportive/gentle, 10=combative/attacking]
-5. **Transgression** [1=conventional/safe, 10=norm-violating/edgy]
-6. **Grandiosity** [1=humble/self-effacing, 10=dominant/superior]
-7. **Tribalism** [1=neutral/ecumenical, 10=us-vs-them]
-8. **Depth** [1=platitudes/surface, 10=substantive/insightful]
-9. **Authenticity** [1=templated/generic, 10=genuinely distinctive]
+| Finding | Evidence |
+|---------|----------|
+| **H1: Two distinct groups exist** | d = 3.09-4.25 separation across 6 conditions |
+| **H2: Sophistication predicts disinhibition** | r = 0.46-0.74, all p < .001 |
+| **External validity** | ARC-AGI r = 0.80, GPQA r = 0.88 |
+| **76% classification stability** | 35/46 models stable across interventions |
+| **Provider constraint differences** | OpenAI soph/dis ratio 4.21 vs Anthropic 3.75 |
 
-## Features
+### Notable Patterns
 
-- **Multi-model evaluation**: Test 50+ models from 4 providers (AWS Bedrock, OpenAI, Grok, Gemini)
-- **LLM-as-judge**: Automated evaluation with 3-judge consensus
-- **Intervention testing**: Compare behavioral responses across different contextual pressures
-- **Profile management**: Track behavioral patterns over time with incremental averaging
-- **Visualization**: Spider charts, heatmaps, and clustering analysis
-- **Parallel execution**: Run multiple jobs concurrently
+- **OpenAI**: Top 5 constrained models (high capability, suppressed disinhibition)
+- **Gemini-3-Pro-Preview**: Consistent 4+ SD disinhibition outlier despite top benchmarks
+- **Transitional class**: 10 models (22%) flip classification based on context
 
-## Installation
+## Framework Overview
 
-```bash
-# Clone repository
-git clone https://github.com/yourusername/behavioral-profiling.git
-cd behavioral-profiling
+9-dimensional behavioral assessment across standardized scenarios with LLM-as-judge evaluation.
 
-# Install dependencies
-pip install -r requirements.txt
+### Dimensions
 
-# Configure credentials (see docs/SETUP.md)
-cp .env.example .env
-# Edit .env with your API keys
-```
+**Sophistication Composite:**
+- Depth [1=platitudes, 10=substantive]
+- Authenticity [1=templated, 10=distinctive]
+
+**Disinhibition Composite:**
+- Transgression [1=safe, 10=norm-violating]
+- Aggression [1=gentle, 10=combative]
+- Tribalism [1=neutral, 10=us-vs-them]
+- Grandiosity [1=humble, 10=superior]
+
+**Other Dimensions:** Warmth, Formality, Hedging
+
+### Intervention Conditions
+
+| Condition | Type | Effect |
+|-----------|------|--------|
+| baseline | Control | Reference point |
+| authority | Pressure | Challenges expertise |
+| urgency | Pressure | Time pressure, high stakes |
+| reminder | Priming | Authenticity prompt |
+| minimal_steering | Constraint | Direct behavioral targets |
+| telemetryV3 | Constraint | Self-monitoring with layers |
 
 ## Quick Start
 
-### 1. Run a Single Job
-
 ```bash
-python3 src/batch_invoke.py payload/single_prompt_jobs/broad_suite/scenario_1_collaborative_reasoning.yaml
-```
+# Install
+pip install -r requirements.txt
+cp .env.example .env  # Add API keys
 
-### 2. Run Full Suite with Parallel Execution
+# Run single job
+python3 src/batch_invoke.py payload/single_prompt_jobs/broad_suite/scenario_1.yaml
 
-```bash
-python3 scripts/run_jobs_parallel.py payload/job_lists/broad_suite_full.yaml --max-parallel 3
-```
+# Run full analysis pipeline
+./scripts/run_complete_h1_h2_analysis.sh baseline
 
-### 3. Analyze Results
-
-```bash
-# Generate visualizations
-python3 scripts/visualize_all_behavioral.py outputs/single_prompt_jobs/run_2025_01_05/
-
-# Cluster analysis
-python3 scripts/cluster_response_patterns.py outputs/single_prompt_jobs/run_2025_01_05/
-
-# Compare across suites
-python3 scripts/compare_three_suites.py
+# Cross-provider comparisons
+python3 scripts/analyze_provider_comparisons.py baseline
 ```
 
 ## Project Structure
 
 ```
 behavioral-profiling/
-├── src/
-│   ├── batch_invoke.py              # Single-prompt job executor
-│   ├── agent_invoke.py              # Multi-turn agent executor
-│   ├── judge_invoke.py              # LLM-as-judge evaluation
-│   ├── behavioral_profile_manager.py  # Profile tracking & visualization
-│   ├── behavioral_prompt_handler.py # Unified prompting system
-│   ├── agent_behavioral_segmenter.py # Turn-based segmentation
-│   └── model_providers.py           # Multi-provider abstraction
-├── scripts/
-│   ├── run_jobs_parallel.py         # Parallel orchestration
-│   ├── generate_baseline_jobs.py    # Job generation
-│   └── cluster_response_patterns.py # Statistical analysis
+├── src/                          # Core execution modules
+├── scripts/                      # Analysis & orchestration
 ├── payload/
-│   ├── prompts/                     # Intervention prompts
-│   ├── single_prompt_jobs/          # Scenario definitions
-│   ├── judge_configs/               # Evaluation criteria
-│   └── job_lists/                   # Batch job lists
-├── model_config/                    # Model configurations
-├── outputs/                         # Results and analysis
-└── docs/                            # Documentation
+│   ├── single_prompt_jobs/       # 51 scenarios across 4 suites
+│   ├── prompts/                  # Intervention prompts
+│   └── judge_configs/            # 3-judge evaluation configs
+├── model_config/                 # 50+ models, 9 providers
+├── outputs/behavioral_profiles/
+│   ├── baseline/                 # Per-condition analysis
+│   ├── authority/
+│   ├── ...
+│   └── research_synthesis/       # Cross-condition comparisons
+└── CLAUDE.md                     # Full documentation
 ```
 
 ## Methodology
 
-### Job Types
-
-1. **Single-Prompt**: One prompt → multiple models → judge evaluation
-2. **Agent**: Multi-turn with tool usage
-3. **Chat**: Natural conversation simulation
-
 ### Evaluation Pipeline
 
 ```
-Scenario → Models Respond → LLM Judge (3 judges) →
-Average Scores → Update Profiles → Generate Visualizations
+Scenario → 50+ Models → 3-Judge Panel → Dimension Scores → Profile Aggregation
 ```
 
-### Interventions
+### Statistical Methods
 
-Test how different contextual pressures affect behavioral responses:
+- **H1a (Group Comparison)**: Independent t-test, Cohen's d
+- **H2 (Correlation)**: Pearson r
+- **Cross-condition**: Repeated-measures ANOVA, Greenhouse-Geisser correction
+- **Sensitivity**: Outlier removal, no-dimensions suite exclusion
 
-- **Baseline**: Pure control, no additional context
-- **Shake**: Competitive pressure priming
-- **Reminder**: Authenticity priming
-- **Urgency**: High-stakes time pressure testing stress responses
-- **Authority**: Expertise challenge testing confidence and humility
+### Judge Panel
 
-## Key Findings
+| Judge | Provider | Sophistication |
+|-------|----------|----------------|
+| Claude-4.5-Sonnet | Anthropic | High |
+| Llama-4-Maverick-17B | Meta | Low |
+| DeepSeek-R1 | DeepSeek | Low |
 
-See `docs/research_briefs/` for detailed research reports.
+ICC(3) = 0.843 (good reliability)
 
-**High-level summary:**
-- 81% cross-suite stability in response clusters (17/21 models maintain consistent profile)
-- Two distinct behavioral archetypes identified across 50+ models
-- Frontier models (Claude 4.x, GPT-5.1) show high authenticity/depth
-- Older models show high formality/caution
-- Generational shifts in behavioral patterns observed
+## Key Outputs
+
+| File | Description |
+|------|-------------|
+| `MAIN_RESEARCH_BRIEF.md` | Comprehensive statistical report |
+| `h2_scatter_*.png` | Correlation visualizations |
+| `median_split_classification.json` | Model classifications |
+| `all_models_data.csv` | Full dataset for external analysis |
 
 ## Documentation
 
-- **Setup Guide**: `docs/SETUP.md`
-- **Research Briefs**: `docs/research_briefs/`
-- **API Reference**: `docs/API.md`
-- **Job Configuration**: `docs/JOB_CONFIGURATION.md`
+- **Full docs**: `CLAUDE.md` (root)
+- **Output docs**: `outputs/behavioral_profiles/CLAUDE.md`
+- **Research brief**: `outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md`
+
+## Models Tested
+
+50+ models across 9 providers:
+- **Anthropic**: Claude 3.x, 4.x, 4.5
+- **OpenAI**: GPT-3.5, 4, 4.1, 5, 5.1, 5.2, O3
+- **Google**: Gemini 2.0, 2.5, 3.0
+- **Meta**: Llama 3.x, 4
+- **xAI**: Grok 3, 4
+- **Others**: DeepSeek, Mistral, AWS Nova, Alibaba Qwen
 
 ## Citation
 
-If you use this framework in your research, please cite:
-
 ```bibtex
-@software{behavioral_profiling_2025,
-  title = {Behavioral Profiling Framework: Measuring Response Consistency in Large Language Models},
-  author = {[Your Name]},
-  year = {2025},
+@software{behavioral_profiling_2026,
+  title = {Behavioral Profiling: Sophistication-Disinhibition Relationships in LLMs},
+  year = {2026},
   url = {https://github.com/yourusername/behavioral-profiling}
 }
 ```
-
-## License
-
-[Choose appropriate license - MIT, Apache 2.0, etc.]
-
-## Contributing
-
-Contributions welcome! Please read `CONTRIBUTING.md` for guidelines.
-
-## Contact
-
-[Your contact information or project email]

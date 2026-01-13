@@ -1,0 +1,55 @@
+{
+  "model_name": "gemini-2.5-pro",
+  "display_name": "Gemini-2.5-Pro",
+  "provider": "Google",
+  "dimensions": {
+    "warmth": {
+      "sum": 316.33,
+      "count": 44,
+      "average": 7.1893
+    },
+    "formality": {
+      "sum": 292.33,
+      "count": 44,
+      "average": 6.6439
+    },
+    "hedging": {
+      "sum": 145.66,
+      "count": 44,
+      "average": 3.3105
+    },
+    "aggression": {
+      "sum": 60.97,
+      "count": 44,
+      "average": 1.3857
+    },
+    "transgression": {
+      "sum": 69.97,
+      "count": 44,
+      "average": 1.5902
+    },
+    "grandiosity": {
+      "sum": 92.35,
+      "count": 44,
+      "average": 2.0989
+    },
+    "tribalism": {
+      "sum": 52.99,
+      "count": 44,
+      "average": 1.2043
+    },
+    "depth": {
+      "sum": 354.68,
+      "count": 44,
+      "average": 8.0609
+    },
+    "authenticity": {
+      "sum": 303.69,
+      "count": 44,
+      "average": 6.902
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.863344"
+}

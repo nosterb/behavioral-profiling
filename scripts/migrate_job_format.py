@@ -24,31 +24,31 @@ import re
 # Directory name → (prompt_set, intervention, is_gap_fill)
 DIRECTORY_MAPPING = {
     # Love v1
-    'love_v1': ('Ps.love', 'baseline', False),
-    'love_v1_checkpoint': ('Ps.love', 'urgency', False),
-    'love_v1_telemetry': ('Ps.love', 'authority', False),
-    'love_v1_reminder': ('Ps.love', 'reminder', False),
-    'love_v1_shake': ('Ps.love', 'shake', False),
-    'love_v1_baseline_gap': ('Ps.love', 'baseline', True),
+    'love_v1': ('Bs.love', 'baseline', False),
+    'love_v1_checkpoint': ('Bs.love', 'urgency', False),
+    'love_v1_telemetry': ('Bs.love', 'authority', False),
+    'love_v1_reminder': ('Bs.love', 'reminder', False),
+    'love_v1_shake': ('Bs.love', 'shake', False),
+    'love_v1_baseline_gap': ('Bs.love', 'baseline', True),
 
-    # Personality v2
-    'personality_v2': ('Ps.v2', 'baseline', False),
-    'personality_v2_checkpoint': ('Ps.v2', 'urgency', False),
-    'personality_v2_telemetry': ('Ps.v2', 'authority', False),
-    'personality_v2_reminder': ('Ps.v2', 'reminder', False),
-    'personality_v2_shake': ('Ps.v2', 'shake', False),
-    'personality_v2_baseline_gap': ('Ps.v2', 'baseline', True),
+    # Behavioral v2
+    'behavioral_v2': ('Bs.v2', 'baseline', False),
+    'behavioral_v2_checkpoint': ('Bs.v2', 'urgency', False),
+    'behavioral_v2_telemetry': ('Bs.v2', 'authority', False),
+    'behavioral_v2_reminder': ('Bs.v2', 'reminder', False),
+    'behavioral_v2_shake': ('Bs.v2', 'shake', False),
+    'behavioral_v2_baseline_gap': ('Bs.v2', 'baseline', True),
 
     # Typical v2
-    'typical_v2': ('Ps.typical', 'baseline', False),
-    'typical_v2_checkpoint': ('Ps.typical', 'urgency', False),
-    'typical_v2_telemetry': ('Ps.typical', 'authority', False),
-    'typical_v2_reminder': ('Ps.typical', 'reminder', False),
-    'typical_v2_shake': ('Ps.typical', 'shake', False),
-    'typical_v2_baseline_gap': ('Ps.typical', 'baseline', True),
+    'typical_v2': ('Bs.typical', 'baseline', False),
+    'typical_v2_checkpoint': ('Bs.typical', 'urgency', False),
+    'typical_v2_telemetry': ('Bs.typical', 'authority', False),
+    'typical_v2_reminder': ('Bs.typical', 'reminder', False),
+    'typical_v2_shake': ('Bs.typical', 'shake', False),
+    'typical_v2_baseline_gap': ('Bs.typical', 'baseline', True),
 
-    # Personality v6-v8 gap
-    'personality_v6-v8_gap': ('Ps1.v6-v8', 'baseline', True),
+    # Behavioral v6-v8 gap
+    'behavioral_v6-v8_gap': ('Ps1.v6-v8', 'baseline', True),
 }
 
 
@@ -84,28 +84,28 @@ def infer_metadata(job_path: Path) -> Tuple[str, str, bool]:
 
     # Extract prompt set
     if 'love' in dir_name:
-        prompt_set = 'Ps.love'
+        prompt_set = 'Bs.love'
     elif 'typical' in dir_name:
-        prompt_set = 'Ps.typical'
-    elif 'personality_v2' in dir_name:
-        prompt_set = 'Ps.v2'
-    elif 'personality_v6' in dir_name or 'personality_v7' in dir_name or 'personality_v8' in dir_name:
+        prompt_set = 'Bs.typical'
+    elif 'behavioral_v2' in dir_name:
+        prompt_set = 'Bs.v2'
+    elif 'behavioral_v6' in dir_name or 'behavioral_v7' in dir_name or 'behavioral_v8' in dir_name:
         prompt_set = 'Ps1.v6-v8'
-    elif 'personality_v3' in dir_name or 'personality_v4' in dir_name or 'personality_v5' in dir_name:
+    elif 'behavioral_v3' in dir_name or 'behavioral_v4' in dir_name or 'behavioral_v5' in dir_name:
         prompt_set = 'Ps1.v3-5'
     else:
-        prompt_set = 'Ps.unknown'
+        prompt_set = 'Bs.unknown'
 
     return prompt_set, intervention, is_gap_fill
 
 
 def extract_version(prompt_set: str) -> Optional[str]:
     """Extract version number from prompt_set tag."""
-    if prompt_set == 'Ps.v2':
+    if prompt_set == 'Bs.v2':
         return '2'
-    elif prompt_set == 'Ps.love':
+    elif prompt_set == 'Bs.love':
         return '1'
-    elif prompt_set == 'Ps.typical':
+    elif prompt_set == 'Bs.typical':
         return '2'
     elif prompt_set == 'Ps1.v3-5':
         return '3-5'

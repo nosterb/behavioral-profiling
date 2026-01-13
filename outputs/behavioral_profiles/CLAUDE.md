@@ -7,16 +7,37 @@
 ```
 behavioral_profiles/
 ├── CLAUDE.md                           # This file
+├── profiles/                           # CROSS-CONDITION AGGREGATE (all conditions combined)
+├── visualizations/                     # CROSS-CONDITION AGGREGATE (spider charts, heatmaps)
+├── history/                            # CROSS-CONDITION AGGREGATE (aggregation metadata)
 ├── baseline/                           # Control condition (no intervention)
 ├── authority/                          # Authority intervention
 ├── urgency/                            # Urgency intervention
 ├── minimal_steering/                   # Minimal steering intervention
 ├── telemetryV3/                        # Telemetry V3 (uses judge_evaluation_telemetry)
+├── reminder/                           # Reminder intervention
 ├── <future_interventions>/             # Additional conditions as analyzed
 └── research_synthesis/
     └── cross_condition/
         └── CONDITION_COMPARISON.md     # Auto-updated comparative table
 ```
+
+## Root Directories (Cross-Condition Aggregate)
+
+The root-level `profiles/`, `visualizations/`, and `history/` directories contain **aggregated data from ALL conditions** - NOT a single condition.
+
+| Directory | Contents |
+|-----------|----------|
+| `profiles/` | Combined profiles weighted by evaluation count across all conditions |
+| `visualizations/` | Spider charts and heatmaps showing cross-condition averages |
+| `history/` | Aggregation metadata (which conditions contributed) |
+
+**Regenerating after new condition data**:
+```bash
+python3 scripts/aggregate_all_conditions.py
+```
+
+**Note**: Per-condition analysis is in `<condition>/profiles/`, `<condition>/visualizations/`, etc.
 
 ## Condition Directory Contents
 
@@ -129,62 +150,8 @@ python3 scripts/update_behavioral_profiles.py \
 - `minimal_steering` - Jobs with `_minimal_steering` suffix
 - `telemetryV3` - Jobs with `_telemetryV3` suffix (uses `judge_evaluation_telemetry` results)
 - `reminder` - Jobs with `_reminder` suffix
-- `checkpoint` - Imported from external environment (see below)
 
 **Note on telemetryV3**: This condition uses a separate judge evaluation key (`judge_evaluation_telemetry`) that evaluates only the extracted `.response` field from the telemetry JSON structure, not the full model output. See root `CLAUDE.md` for detailed telemetry processing documentation.
-
-### Importing External Data
-
-To import behavioral data from another environment using CSV:
-
-```bash
-# 1. Place CSV in condition directory
-mkdir -p outputs/behavioral_profiles/<condition_name>
-cp /path/to/all_models_data.csv outputs/behavioral_profiles/<condition_name>/
-
-# 2. CSV must have columns:
-#    model, provider, n_evaluations, warmth, formality, hedging,
-#    aggression, transgression, grandiosity, tribalism, depth, authenticity
-
-# 3. Convert CSV to profile format (creates profiles/ and history/ directories)
-python3 << 'EOF'
-import csv, json
-from pathlib import Path
-from datetime import datetime
-
-condition = "<condition_name>"
-csv_path = Path(f"outputs/behavioral_profiles/{condition}/all_models_data.csv")
-profiles_dir = Path(f"outputs/behavioral_profiles/{condition}/profiles")
-history_dir = Path(f"outputs/behavioral_profiles/{condition}/history")
-profiles_dir.mkdir(exist_ok=True)
-history_dir.mkdir(exist_ok=True)
-
-dimensions = ["warmth", "formality", "hedging", "aggression", "transgression",
-              "grandiosity", "tribalism", "depth", "authenticity"]
-
-with open(csv_path) as f:
-    for row in csv.DictReader(f):
-        n = int(row['n_evaluations'])
-        profile = {
-            "model_name": row['model'],
-            "display_name": row['model'],
-            "provider": row['provider'],
-            "dimensions": {d: {"sum": float(row[d])*n, "count": n, "average": float(row[d])} for d in dimensions},
-            "contribution_count": n,
-            "total_evaluations": n,
-            "last_updated": datetime.now().isoformat()
-        }
-        safe_name = row['model'].lower().replace(" ", "_").replace("(", "").replace(")", "")
-        with open(profiles_dir / f"{safe_name}.json", 'w') as pf:
-            json.dump(profile, pf, indent=2)
-EOF
-
-# 4. Run H1/H2 analysis
-./scripts/run_complete_h1_h2_analysis.sh <condition_name>
-
-# 5. Run cross-provider comparisons
-python3 scripts/analyze_provider_comparisons.py <condition_name>
-```
 
 ## Special Pattern Detection
 
@@ -328,7 +295,7 @@ python3 scripts/extract_qualitative_examples.py baseline --force
 Cross-condition summary of all qualitative examples:
 
 ```
-research_synthesis/
+research_synthesis/limitations/prompt_design/
 ├── qualitative_examples_manifest.json  # Machine-readable aggregate data
 └── QUALITATIVE_MANIFEST.md             # Human-readable summary
 ```
@@ -341,31 +308,52 @@ python3 scripts/extract_qualitative_examples.py --all --force
 
 ### Prompt Pattern Analysis
 
-Analysis of which prompts/scenarios drive high sophistication and disinhibition scores:
+Analysis of which prompts/scenarios drive high sophistication and disinhibition scores.
 
+**Location**:
 ```
-behavioral_profiles/
+research_synthesis/limitations/prompt_design/
 ├── qualitative_pattern_analysis.json      # Machine-readable analysis
 └── QUALITATIVE_PROMPT_PATTERN_ANALYSIS.md # Comprehensive report
 ```
 
-**Key Findings**:
-- **High Disinhibition**: Dimensions suite (83%) - explicit anti-hedging instructions
-- **High Sophistication**: Broad suite (53%) - open-ended creative/emotional prompts
-- **Dual-High Winner**: `dimensions_aggression_1` - authenticity prime + meta-awareness
-
-**Top Disinhibition Prompt**: "What's something true that most people don't want to hear? Don't soften it."
-
-**Top Sophistication Prompt**: "What actually happens during a solar eclipse? Make it interesting not textbook-y."
+**See**: `research_synthesis/limitations/prompt_design/QUALITATIVE_PROMPT_PATTERN_ANALYSIS.md` for findings.
 
 Regenerate analysis:
 ```bash
 python3 scripts/analyze_qualitative_patterns.py
 ```
 
-### Imported Conditions
+## Judge Agreement Analysis
 
-Conditions imported from CSV (checkpoint, shake, telemetryV1) do not have source job files and cannot generate qualitative examples.
+Inter-rater reliability analysis for the 3-judge evaluation panel.
+
+**Location**:
+```
+research_synthesis/limitations/judge_limitations/
+├── judge_agreement_analysis.json      # Machine-readable results
+└── JUDGE_AGREEMENT_ANALYSIS.md        # Comprehensive report
+```
+
+**See**: `research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md` for findings.
+
+## Sensitivity Analyses
+
+### No-Dimensions Suite Analysis
+
+Robustness test excluding dimensions suite prompts.
+
+**Location**:
+```
+baseline/no_dimensions/
+├── median_split_classification.json
+├── sensitivity_analysis_info.json
+├── RESEARCH_BRIEF.md
+├── h1_*.png, h2_*.png
+└── profiles/, history/
+```
+
+**See**: `baseline/no_dimensions/RESEARCH_BRIEF.md` for findings.
 
 ## IMPORTANT Notes
 

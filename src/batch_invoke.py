@@ -269,14 +269,25 @@ def save_individual_output(payload_name: str, model_result: Dict[str, Any], prom
     return output_path
 
 
-def save_job_output(payload_name: str, prompt: str, model_results: List[Dict[str, Any]]) -> Path:
+def save_job_output(payload_name: str, prompt: str, model_results: List[Dict[str, Any]], config: Dict[str, Any] = None) -> Path:
     """Save consolidated job output as JSON."""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     job_filename = f"job_{payload_name}_{timestamp}.json"
-    job_path = OUTPUT_DIR / job_filename
 
-    # Ensure output directory exists
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    # Determine output location based on metadata (if present)
+    output_dir = OUTPUT_DIR
+    if config and 'metadata' in config:
+        metadata = config['metadata']
+        if metadata.get('suite') and metadata.get('intervention'):
+            # Organize by intervention_suite subdirectory
+            intervention = metadata['intervention']
+            suite = metadata['suite']
+            output_dir = OUTPUT_DIR / f"{intervention}_{suite}"
+
+    # Create job subdirectory
+    job_dir = output_dir / f"job_{payload_name}_{timestamp}"
+    job_dir.mkdir(parents=True, exist_ok=True)
+    job_path = job_dir / job_filename
 
     # Calculate summary statistics
     total_models = len(model_results)
@@ -350,6 +361,8 @@ Examples:
                         help='Custom output directory (default: outputs/single_prompt_jobs)')
     parser.add_argument('--models', type=str,
                         help='Override model list from config file')
+    parser.add_argument('--non-interactive', action='store_true',
+                        help='Skip interactive prompts (for parallel execution)')
 
     args = parser.parse_args()
 
@@ -360,6 +373,9 @@ Examples:
         print(f"Using custom output directory: {OUTPUT_DIR}")
 
     first_arg = Path(args.config)
+
+    # Initialize config (will be None for legacy mode)
+    config = None
 
     # Detect mode: YAML config or legacy text file
     if first_arg.suffix in ['.yaml', '.yml']:
@@ -481,8 +497,8 @@ Examples:
 
     # Save consolidated job output
     print(f"Saving job results...")
-    job_path = save_job_output(payload_name, prompt, model_results)
-    print(f"  JSON Report → {job_path.name}")
+    job_path = save_job_output(payload_name, prompt, model_results, config)
+    print(f"  JSON Report → {job_path}")
 
     # Export chat if configured (YAML mode only)
     chat_path = None
@@ -499,8 +515,10 @@ Examples:
         if 'T' in timestamp:
             timestamp = timestamp.replace('T', '_').replace(':', '').replace('-', '').split('.')[0]
 
-        chat_path = export_batch_job_chat(job_data, job_id, timestamp, OUTPUT_DIR)
-        print(f"  Chat Export → {chat_path.name}")
+        # Save chat to the job directory (parent of job_path)
+        job_dir = job_path.parent
+        chat_path = export_batch_job_chat(job_data, job_id, timestamp, job_dir)
+        print(f"  Chat Export → {chat_path}")
 
     # Run judge evaluation if configured (YAML mode only)
     if first_arg.suffix in ['.yaml', '.yml'] and 'judge' in config:
@@ -612,8 +630,9 @@ Examples:
             prompt_for_profile_update
         )
 
-        # Check if we should prompt (interactive mode, no existing personality eval)
-        chunking = prompt_for_behavioral_analysis(job_path, interactive=True)
+        # Check if we should prompt (interactive mode, no existing behavioral eval)
+        interactive = not args.non_interactive
+        chunking = prompt_for_behavioral_analysis(job_path, interactive=interactive)
 
         if chunking:
             # Run analysis and stage results
@@ -625,7 +644,7 @@ Examples:
             )
 
             # Prompt to apply to master profiles
-            prompt_for_profile_update(staged_results_path, interactive=True)
+            prompt_for_profile_update(staged_results_path, interactive=interactive)
 
     except Exception as e:
         print(f"Warning: Behavioral analysis prompt failed: {e}\n")

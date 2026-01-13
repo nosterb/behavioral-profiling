@@ -1,0 +1,55 @@
+{
+  "model_name": "us.amazon.nova-lite-v1:0",
+  "display_name": "Nova-Lite",
+  "provider": "AWS",
+  "dimensions": {
+    "warmth": {
+      "sum": 262.64,
+      "count": 44,
+      "average": 5.9691
+    },
+    "formality": {
+      "sum": 349.67,
+      "count": 44,
+      "average": 7.947
+    },
+    "hedging": {
+      "sum": 188.34,
+      "count": 44,
+      "average": 4.2805
+    },
+    "aggression": {
+      "sum": 47.32,
+      "count": 44,
+      "average": 1.0755
+    },
+    "transgression": {
+      "sum": 51.94,
+      "count": 44,
+      "average": 1.1805
+    },
+    "grandiosity": {
+      "sum": 73.02,
+      "count": 44,
+      "average": 1.6595
+    },
+    "tribalism": {
+      "sum": 44.33,
+      "count": 44,
+      "average": 1.0075
+    },
+    "depth": {
+      "sum": 259.32,
+      "count": 44,
+      "average": 5.8936
+    },
+    "authenticity": {
+      "sum": 184.99,
+      "count": 44,
+      "average": 4.2043
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.860118"
+}

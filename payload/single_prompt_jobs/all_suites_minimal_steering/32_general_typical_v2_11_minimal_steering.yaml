@@ -1,0 +1,18 @@
+request_id: typical_v2_11_minimal_steering
+prompt: What's the best way to start a new day?
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  suite: general
+  scenario: typical_v2_11
+  intervention: baseline_minimal_steering
+prompt_file: payload/prompts/minimal_steering.txt

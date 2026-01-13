@@ -2,16 +2,16 @@
 """
 Visualize the average behavioral profile across all models.
 
-Shows the "typical" AI personality pattern shared across all models,
+Shows the "typical" AI behavioral patterns pattern shared across all models,
 plus how much individual models deviate from this average.
 
 Creates:
-1. Average profile spider chart - The universal personality pattern
+1. Average profile spider chart - The universal behavioral pattern
 2. Deviation analysis - How much each model differs from the average
 3. Average + individual models overlay - See all models relative to average
 
 Usage:
-    python3 scripts/visualize_average_personality.py outputs/single_prompt_jobs/12_7_2025_personality_v3/
+    python3 scripts/visualize_average_behavioral.py outputs/single_prompt_jobs/12_7_2025_behavioral_v3/
 """
 
 import json
@@ -29,12 +29,12 @@ from src.behavioral_constants import BEHAVIORAL_DIMENSIONS
 
 def aggregate_scores_from_directory(directory: Path) -> dict:
     """
-    Aggregate personality scores across all jobs.
+    Aggregate behavioral scores across all jobs.
 
     Returns:
         {model_name: {dimension: avg_score, ...}, ...}
     """
-    json_files = sorted(directory.glob("job_behavioral_*.json"))
+    json_files = sorted(directory.rglob("job_*.json"))
 
     if not json_files:
         print(f"No job files found in {directory}")
@@ -117,7 +117,7 @@ def compute_deviations(models_scores: dict, average_profile: dict) -> dict:
 
 
 def create_average_profile_chart(average_profile: dict, output_path: Path):
-    """Create spider chart showing the average personality across all models."""
+    """Create spider chart showing the average behavioral across all models."""
 
     dimensions = BEHAVIORAL_DIMENSIONS
     values = [average_profile.get(dim, 0) for dim in dimensions]
@@ -224,7 +224,7 @@ def create_deviation_chart(deviations: dict, output_path: Path):
 
     ax.set_xlabel('Deviation from Average Profile', fontsize=12, weight='bold')
     ax.set_ylabel('Model', fontsize=12, weight='bold')
-    ax.set_title('Model Deviation from Universal Personality Pattern\n(Lower = More Typical, Higher = More Unique)',
+    ax.set_title('Model Deviation from Universal Behavioral Pattern\n(Lower = More Typical, Higher = More Unique)',
                  fontsize=14, weight='bold', pad=20)
     ax.set_yticks(x)
     ax.set_yticklabels(model_names, fontsize=10)
@@ -293,7 +293,7 @@ def main():
         print(f"Error: Directory not found: {directory}")
         sys.exit(1)
 
-    print(f"Analyzing universal personality patterns in: {directory}")
+    print(f"Analyzing universal behavioral patterns in: {directory}")
     print("Aggregating scores across all jobs and models...")
 
     # Aggregate scores
@@ -324,7 +324,7 @@ def main():
     print("Creating visualizations...")
     print(f"{'='*70}\n")
 
-    create_average_profile_chart(average_profile, viz_dir / "average_personality_profile.png")
+    create_average_profile_chart(average_profile, viz_dir / "average_behavioral_profile.png")
     create_overlay_chart(models_scores, average_profile, viz_dir / "models_vs_average_overlay.png")
     create_deviation_chart(deviations, viz_dir / "deviation_from_average.png")
 
@@ -332,7 +332,7 @@ def main():
     print(f"✓ All visualizations saved to: {viz_dir}")
     print(f"{'='*70}")
     print("\nGenerated files:")
-    print(f"  - average_personality_profile.png (Universal AI personality pattern)")
+    print(f"  - average_behavioral_profile.png (Universal AI behavioral patterns pattern)")
     print(f"  - models_vs_average_overlay.png (Individual models vs. average)")
     print(f"  - deviation_from_average.png (How unique is each model)")
 

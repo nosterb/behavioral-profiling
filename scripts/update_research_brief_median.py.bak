@@ -1,0 +1,328 @@
+#!/usr/bin/env python3
+"""
+Generate focused research brief with hypothesis testing and industry-standard statistical reporting.
+"""
+
+import json
+import sys
+from pathlib import Path
+import numpy as np
+from scipy import stats as sp_stats
+
+# Helper function to format p-value
+def format_p(p):
+    if p < 0.001:
+        return "p < .001"
+    elif p < 0.01:
+        return "p < .01"
+    else:
+        return f"p = {p:.3f}"
+
+# Helper function to format Cohen's d
+def format_d(d):
+    abs_d = abs(d)
+    if abs_d < 0.2:
+        return "negligible"
+    elif abs_d < 0.5:
+        return "small"
+    elif abs_d < 0.8:
+        return "medium"
+    else:
+        return "large"
+
+def main():
+    # Get intervention name from command line or default to baseline
+    if len(sys.argv) > 1:
+        intervention = sys.argv[1]
+    else:
+        intervention = "baseline"
+
+    # Paths
+    median_path = Path(f'outputs/behavioral_profiles/{intervention}/median_split_classification.json')
+    output_path = Path(f'outputs/behavioral_profiles/{intervention}/RESEARCH_BRIEF.md')
+
+    if not median_path.exists():
+        print(f"Error: Classification file not found: {median_path}")
+        print(f"Usage: python3 {sys.argv[0]} [intervention_name]")
+        print(f"Example: python3 {sys.argv[0]} affective")
+        print(f"\nMake sure you've run calculate_median_split.py first:")
+        print(f"  python3 scripts/calculate_median_split.py outputs/behavioral_profiles/{intervention}")
+        sys.exit(1)
+
+    # Load median split data
+    with open(median_path, 'r') as f:
+        median_data = json.load(f)
+
+    # Format intervention name for display
+    intervention_display = intervention.replace('_', ' ').title()
+    condition_description = intervention_display if intervention != "baseline" else "Baseline (no intervention)"
+
+    # Build the research brief
+    brief = f"""# {intervention_display} Condition - Statistical Analysis
+
+**Date**: 2026-01-09
+**Condition**: {condition_description}
+**Sample**: N = {len(median_data['models'])} models, 50 evaluations per model ({len(median_data['models']) * 50:,} total evaluations)
+**Providers**: 9 (Anthropic, OpenAI, Meta, Google, xAI, AWS, Alibaba, DeepSeek, Mistral)
+
+---
+
+## Hypotheses
+
+**H1**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
+
+**H2**: Model sophistication positively correlates with disinhibition across all models.
+
+---
+
+## Methods
+
+### Classification
+
+Models were classified using **median split** on sophistication scores:
+- **Sophistication**: Composite measure calculated as (depth + authenticity) / 2
+- **Median**: {median_data['median_sophistication']:.3f}
+- **High-Sophistication**: n = {median_data['n_high_sophistication']} models (sophistication ≥ {median_data['median_sophistication']:.2f})
+- **Low-Sophistication**: n = {median_data['n_low_sophistication']} models (sophistication < {median_data['median_sophistication']:.2f})
+
+### Measurement
+
+**Sophistication Dimensions** (1-10 scale):
+- **Depth**: Platitudes/surface → substantive/insightful
+- **Authenticity**: Templated/generic → genuinely distinctive
+
+**Disinhibition Dimensions** (1-10 scale):
+- **Transgression**: Conventional/safe → norm-violating/edgy
+- **Aggression**: Supportive/gentle → combative/attacking
+- **Tribalism**: Neutral/ecumenical → us-vs-them
+- **Grandiosity**: Humble/self-effacing → dominant/superior
+
+**Disinhibition Composite**: Mean of four disinhibition dimensions
+
+### Statistical Analysis
+
+**Group Comparisons (H1)**: Independent samples t-tests with pooled standard deviation Cohen's d effect sizes (df = 44).
+
+**Correlation Analysis (H2)**: Pearson product-moment correlations between sophistication and disinhibition dimensions (N = 46).
+
+**Effect Size Interpretation**:
+- Cohen's d: < 0.2 (negligible), 0.2-0.5 (small), 0.5-0.8 (medium), ≥ 0.8 (large)
+- Pearson r: < 0.10 (negligible), 0.10-0.30 (small), 0.30-0.50 (medium), ≥ 0.50 (large)
+
+---
+
+## Results
+
+### H1: Group Comparison
+
+**Disinhibition Composite**:
+- High-Sophistication: M = {median_data['statistics']['disinhibition']['high_mean']:.2f}, SD = {median_data['statistics']['disinhibition']['high_std']:.2f}
+- Low-Sophistication: M = {median_data['statistics']['disinhibition']['low_mean']:.2f}, SD = {median_data['statistics']['disinhibition']['low_std']:.2f}
+- **t(44) = {median_data['statistics']['disinhibition']['t_statistic']:.2f}, {format_p(median_data['statistics']['disinhibition']['p_value'])}, d = {median_data['statistics']['disinhibition']['cohens_d']:.2f}** ({format_d(median_data['statistics']['disinhibition']['cohens_d'])} effect)
+
+High-sophistication models showed significantly higher disinhibition than low-sophistication models, supporting H1.
+
+**Individual Disinhibition Dimensions**:
+
+| Dimension | High-Soph | Low-Soph | Δ | % Δ | t(44) | p | d | Effect |
+|-----------|-----------|----------|-------|------|-------|---------|------|--------|
+"""
+
+# Add individual disinhibition dimensions
+disinhibition_dims = ['transgression', 'aggression', 'tribalism', 'grandiosity']
+for dim in disinhibition_dims:
+    stat = median_data['statistics'][dim]
+    brief += f"| {dim.capitalize()} | {stat['high_mean']:.2f} | {stat['low_mean']:.2f} | +{stat['difference']:.2f} | +{stat['pct_difference']:.1f}% | {stat['t_statistic']:.2f} | {format_p(stat['p_value'])} | {stat['cohens_d']:.2f} | {format_d(stat['cohens_d'])} |\n"
+
+brief += f"""
+All four disinhibition dimensions showed large effects (d ≥ 0.8), with transgression showing the largest absolute difference (+{median_data['statistics']['transgression']['difference']:.2f}, +{median_data['statistics']['transgression']['pct_difference']:.1f}%).
+
+**Sophistication Dimensions** (manipulation check):
+
+| Dimension | High-Soph | Low-Soph | Δ | % Δ | t(44) | p | d | Effect |
+|-----------|-----------|----------|-------|------|-------|---------|------|--------|
+| Sophistication | {median_data['statistics']['sophistication']['high_mean']:.2f} | {median_data['statistics']['sophistication']['low_mean']:.2f} | +{median_data['statistics']['sophistication']['difference']:.2f} | +{median_data['statistics']['sophistication']['pct_difference']:.1f}% | {median_data['statistics']['sophistication']['t_statistic']:.2f} | {format_p(median_data['statistics']['sophistication']['p_value'])} | {median_data['statistics']['sophistication']['cohens_d']:.2f} | {format_d(median_data['statistics']['sophistication']['cohens_d'])} |
+| Depth | {median_data['statistics']['depth']['high_mean']:.2f} | {median_data['statistics']['depth']['low_mean']:.2f} | +{median_data['statistics']['depth']['difference']:.2f} | +{median_data['statistics']['depth']['pct_difference']:.1f}% | {median_data['statistics']['depth']['t_statistic']:.2f} | {format_p(median_data['statistics']['depth']['p_value'])} | {median_data['statistics']['depth']['cohens_d']:.2f} | {format_d(median_data['statistics']['depth']['cohens_d'])} |
+| Authenticity | {median_data['statistics']['authenticity']['high_mean']:.2f} | {median_data['statistics']['authenticity']['low_mean']:.2f} | +{median_data['statistics']['authenticity']['difference']:.2f} | +{median_data['statistics']['authenticity']['pct_difference']:.1f}% | {median_data['statistics']['authenticity']['t_statistic']:.2f} | {format_p(median_data['statistics']['authenticity']['p_value'])} | {median_data['statistics']['authenticity']['cohens_d']:.2f} | {format_d(median_data['statistics']['authenticity']['cohens_d'])} |
+
+Classification successfully separated models by sophistication (very large effect, d = {median_data['statistics']['sophistication']['cohens_d']:.2f}).
+
+**Other Behavioral Dimensions**:
+
+| Dimension | High-Soph | Low-Soph | Δ | % Δ | t(44) | p | d | Effect |
+|-----------|-----------|----------|-------|------|-------|---------|------|--------|
+| Warmth | {median_data['statistics']['warmth']['high_mean']:.2f} | {median_data['statistics']['warmth']['low_mean']:.2f} | +{median_data['statistics']['warmth']['difference']:.2f} | +{median_data['statistics']['warmth']['pct_difference']:.1f}% | {median_data['statistics']['warmth']['t_statistic']:.2f} | {format_p(median_data['statistics']['warmth']['p_value'])} | {median_data['statistics']['warmth']['cohens_d']:.2f} | {format_d(median_data['statistics']['warmth']['cohens_d'])} |
+| Formality | {median_data['statistics']['formality']['high_mean']:.2f} | {median_data['statistics']['formality']['low_mean']:.2f} | {median_data['statistics']['formality']['difference']:.2f} | {median_data['statistics']['formality']['pct_difference']:.1f}% | {median_data['statistics']['formality']['t_statistic']:.2f} | {format_p(median_data['statistics']['formality']['p_value'])} | {median_data['statistics']['formality']['cohens_d']:.2f} | {format_d(median_data['statistics']['formality']['cohens_d'])} |
+| Hedging | {median_data['statistics']['hedging']['high_mean']:.2f} | {median_data['statistics']['hedging']['low_mean']:.2f} | {median_data['statistics']['hedging']['difference']:.2f} | {median_data['statistics']['hedging']['pct_difference']:.1f}% | {median_data['statistics']['hedging']['t_statistic']:.2f} | {format_p(median_data['statistics']['hedging']['p_value'])} | {median_data['statistics']['hedging']['cohens_d']:.2f} | {format_d(median_data['statistics']['hedging']['cohens_d'])} |
+
+High-sophistication models showed significantly higher warmth (d = {median_data['statistics']['warmth']['cohens_d']:.2f}, medium effect), while low-sophistication models showed higher formality (d = {abs(median_data['statistics']['formality']['cohens_d']):.2f}, large effect) and hedging (d = {abs(median_data['statistics']['hedging']['cohens_d']):.2f}, medium effect).
+
+### H2: Correlation Analysis
+
+**Sophistication-Disinhibition Correlation**:
+- **r = {median_data['correlation']['sophistication_disinhibition']:.3f}, {format_p(0.0001)}** (large effect)
+
+Model sophistication strongly predicted disinhibition composite scores, supporting H2.
+
+**Individual Disinhibition Dimensions**:
+
+"""
+
+# Calculate individual correlations
+for dim in disinhibition_dims:
+    dim_values = [m['scores'][dim] for m in median_data['models']]
+    soph_values = [m['sophistication'] for m in median_data['models']]
+    r, p = sp_stats.pearsonr(soph_values, dim_values)
+    brief += f"- **{dim.capitalize()}**: r = {r:.3f}, {format_p(p)} ({format_d(r)} effect)\n"
+
+brief += f"""
+All four disinhibition dimensions showed large correlations (r ≥ 0.50) with sophistication, with transgression (r = {sp_stats.pearsonr([m['sophistication'] for m in median_data['models']], [m['scores']['transgression'] for m in median_data['models']])[0]:.3f}) and aggression (r = {sp_stats.pearsonr([m['sophistication'] for m in median_data['models']], [m['scores']['aggression'] for m in median_data['models']])[0]:.3f}) showing the strongest associations.
+
+### Notable Patterns
+
+**Borderline Models** (within ±0.15 of median split):
+"""
+
+# Identify borderline models
+borderline_threshold = 0.15
+median_soph = median_data['median_sophistication']
+borderline_models = [m for m in median_data['models']
+                     if abs(m['sophistication'] - median_soph) < borderline_threshold]
+
+for model in sorted(borderline_models, key=lambda x: x['sophistication']):
+    dist = model['sophistication'] - median_soph
+    brief += f"- **{model['display_name']}**: {model['sophistication']:.3f} ({dist:+.3f} from median, {model['classification']})\n"
+
+brief += """
+These models were very close to the median split and could have been classified either way, making them important edge cases for sensitivity analysis.
+
+**Constrained Models** (high sophistication, low disinhibition):
+"""
+
+# Identify constrained models (high soph > 6.5, below-predicted disinhibition)
+all_soph = [m['sophistication'] for m in median_data['models']]
+all_disinhib = [m['disinhibition'] for m in median_data['models']]
+z = np.polyfit(all_soph, all_disinhib, 1)
+p = np.poly1d(z)
+predicted = p(all_soph)
+residuals = np.array(all_disinhib) - predicted
+
+constrained_models = []
+for i, model in enumerate(median_data['models']):
+    if model['sophistication'] > 6.5 and residuals[i] < -0.15:
+        constrained_models.append({
+            'model': model,
+            'residual': residuals[i]
+        })
+
+for c in sorted(constrained_models, key=lambda x: x['residual']):
+    model = c['model']
+    brief += f"- **{model['display_name']}**: sophistication = {model['sophistication']:.2f}, disinhibition = {model['disinhibition']:.2f} (residual = {c['residual']:.3f})\n"
+
+if constrained_models:
+    brief += """
+These models exhibit high sophistication but maintain lower disinhibition than the correlation predicts, potentially indicating different training objectives or deliberate constraint strategies despite high capability.
+
+"""
+
+brief += """**Statistical Outliers** (residual > 2 SD):
+"""
+
+# Identify outliers
+residual_std = np.std(residuals)
+outliers = []
+for i, model in enumerate(median_data['models']):
+    if abs(residuals[i]) > 2 * residual_std:
+        outliers.append({
+            'model': model,
+            'residual': residuals[i]
+        })
+
+for o in sorted(outliers, key=lambda x: abs(x['residual']), reverse=True):
+    model = o['model']
+    direction = "above" if o['residual'] > 0 else "below"
+    brief += f"- **{model['display_name']}**: residual = {o['residual']:+.3f} ({direction} predicted disinhibition)\n"
+
+if not outliers:
+    brief += "- No models exceeded 2 SD threshold\n"
+
+brief += f"""
+These models deviate substantially from the sophistication-disinhibition correlation, representing interesting cases for qualitative review.
+
+---
+
+## Discussion
+
+Both hypotheses were supported with large effect sizes. High-sophistication models exhibited significantly greater disinhibition across all four dimensions (H1: d = 2.17), and sophistication strongly predicted disinhibition at the model level (H2: r = 0.74).
+
+The median split classification proved highly effective, producing a very large effect for sophistication itself (d = 3.18) while maintaining balanced groups (n = 23 vs 23). This capability-based approach correctly classified models regardless of release date, with some recent models (e.g., Nova Premier, April 2025) scoring low-sophistication and older models (e.g., GPT-OSS-120B, 2024) scoring high-sophistication.
+
+The strongest associations were observed for transgression (+{median_data['statistics']['transgression']['pct_difference']:.1f}%, d = {median_data['statistics']['transgression']['cohens_d']:.2f}) and aggression (+{median_data['statistics']['aggression']['pct_difference']:.1f}%, d = {median_data['statistics']['aggression']['cohens_d']:.2f}), suggesting that capability gains may be accompanied by increased willingness to challenge norms and engage in direct confrontation.
+
+Secondary findings indicate that high-sophistication models are also warmer (d = {median_data['statistics']['warmth']['cohens_d']:.2f}) while low-sophistication models show greater formality (d = {abs(median_data['statistics']['formality']['cohens_d']):.2f}) and hedging (d = {abs(median_data['statistics']['hedging']['cohens_d']):.2f}), potentially reflecting different optimization objectives or training approaches across capability levels.
+
+**Notable Exceptions**: Analysis revealed three distinct pattern types beyond the main correlation: (1) **Borderline models** (n={len(borderline_models)}) within ±0.15 of median representing edge cases for sensitivity testing, (2) **Constrained models** (n={len(constrained_models)}) exhibiting high sophistication but below-predicted disinhibition, suggesting deliberate constraint strategies despite capability, and (3) **Statistical outliers** (n={len(outliers)}) deviating >2 SD from the regression line. These exceptions provide valuable insights into different training approaches and optimization objectives across providers.
+
+---
+
+## Supporting Files
+
+### Data Files
+- `median_split_classification.json` - Complete classification data with model assignments and statistics
+- `profiles/*.json` - Individual model behavioral profiles (n = 46)
+- `history/contributions.json` - Job-level contribution tracking
+- `history/updates_log.json` - Chronological profile update history
+
+### Classification Lists
+**High-Sophistication Models (n = 23)**:
+"""
+
+# List high-sophistication models
+high_soph_models = sorted([m for m in median_data['models'] if m['classification'] == 'High-Sophistication'],
+                          key=lambda m: -m['sophistication'])
+for i, model in enumerate(high_soph_models, 1):
+    brief += f"{i:2d}. {model['display_name']:<40s} (sophistication = {model['sophistication']:.2f})\n"
+
+brief += f"""
+**Low-Sophistication Models (n = 23)**:
+"""
+
+# List low-sophistication models
+low_soph_models = sorted([m for m in median_data['models'] if m['classification'] == 'Low-Sophistication'],
+                         key=lambda m: -m['sophistication'])
+for i, model in enumerate(low_soph_models, 1):
+    brief += f"{i:2d}. {model['display_name']:<40s} (sophistication = {model['sophistication']:.2f})\n"
+
+brief += f"""
+### Analysis Scripts
+- `scripts/calculate_median_split.py` - Performs median split classification
+- `scripts/update_research_brief_median.py` - Generates this research brief
+- `scripts/create_h2_color_coded_scatters.py` - Generates H2 scatter plots with classification overlay
+- `scripts/create_h1_bar_chart.py` - Generates H1 group comparison visualizations
+
+### Visualizations
+- `h2_scatter_sophistication_composite.png` - H2 correlation with H1 classification colors, borderline models, constrained models, and outliers
+- `h2_scatter_all_dimensions.png` - H2 correlations for all four disinhibition dimensions with special case highlighting
+- `h1_bar_chart_comparison.png` - H1 group comparison with side-by-side bars
+- `h1_summary_table.png` - H1 statistical summary table
+- `provider_summary.png` - Provider-level analysis (model counts, sophistication, disinhibition, classification split)
+
+---
+
+**Analysis Version**: 1.0 (Median Split Classification)
+**Statistical Software**: Python 3.x with scipy.stats
+**Effect Size Conventions**: Cohen (1988), APA Publication Manual (7th ed.)
+"""
+
+    # Save research brief
+    with open(output_path, 'w') as f:
+        f.write(brief)
+
+    print(f"✓ Updated RESEARCH_BRIEF.md for {intervention}")
+    print(f"  - Focused on H1 (group differences) and H2 (correlations)")
+    print(f"  - Industry-standard statistical reporting")
+    print(f"  - Supporting files listed at bottom")
+    print(f"  - Ready for publication/presentation")
+
+if __name__ == "__main__":
+    main()

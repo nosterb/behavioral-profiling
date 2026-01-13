@@ -22,22 +22,30 @@ ENV/
 credentials.json
 *.key
 
-# Outputs (keep structure, ignore data)
-outputs/profiles/profiles/*.json
-outputs/profiles/history/*.json
-outputs/profiles/visualizations/*.png
-outputs/staging/*.json
-outputs/single_prompt_jobs/**/*.json
+# Outputs - raw job data (large, regeneratable)
+outputs/single_prompt_jobs/**/job_*.json
+outputs/single_prompt_jobs/**/chats/
 outputs/agent_jobs/reports/*.json
 outputs/agent_jobs/chats/*.md
-outputs/analysis/**/*.png
-outputs/analysis/**/*.md
+
+# Behavioral profiles - keep aggregated, exclude per-condition chats
+outputs/behavioral_profiles/**/chats/
+outputs/behavioral_profiles/**/qualitative_chats/
+
+# Old output structure
+outputs/profiles/
+outputs/staging/
+outputs/analysis/
 
 # Keep .gitkeep files
 !.gitkeep
 
 # Logs
 *.log
+logs/
+
+# Claude Code
+.claude/
 
 # Temporary files
 *.tmp

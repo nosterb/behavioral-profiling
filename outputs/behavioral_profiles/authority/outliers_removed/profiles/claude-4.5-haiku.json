@@ -1,0 +1,52 @@
+{
+  "model_name": "Claude-4.5-Haiku",
+  "dimensions": {
+    "formality": {
+      "sum": 327.33,
+      "count": 51,
+      "average": 6.418235294117647
+    },
+    "transgression": {
+      "sum": 133.67000000000002,
+      "count": 51,
+      "average": 2.620980392156863
+    },
+    "grandiosity": {
+      "sum": 118.33,
+      "count": 51,
+      "average": 2.3201960784313727
+    },
+    "tribalism": {
+      "sum": 56.639999999999986,
+      "count": 51,
+      "average": 1.1105882352941174
+    },
+    "authenticity": {
+      "sum": 404.33,
+      "count": 51,
+      "average": 7.928039215686274
+    },
+    "depth": {
+      "sum": 411.65,
+      "count": 51,
+      "average": 8.07156862745098
+    },
+    "hedging": {
+      "sum": 411.0400000000001,
+      "count": 51,
+      "average": 8.059607843137256
+    },
+    "aggression": {
+      "sum": 96.96,
+      "count": 51,
+      "average": 1.9011764705882352
+    },
+    "warmth": {
+      "sum": 283.6600000000001,
+      "count": 51,
+      "average": 5.561960784313727
+    }
+  },
+  "last_updated": "2026-01-10T10:20:59.610040",
+  "total_evaluations": 51
+}

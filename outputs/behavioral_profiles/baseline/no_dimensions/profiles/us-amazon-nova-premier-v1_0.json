@@ -1,0 +1,55 @@
+{
+  "model_name": "us.amazon.nova-premier-v1:0",
+  "display_name": "Nova-Premier",
+  "provider": "AWS",
+  "dimensions": {
+    "warmth": {
+      "sum": 264.65,
+      "count": 44,
+      "average": 6.0148
+    },
+    "formality": {
+      "sum": 344.01,
+      "count": 44,
+      "average": 7.8184
+    },
+    "hedging": {
+      "sum": 189.02,
+      "count": 44,
+      "average": 4.2959
+    },
+    "aggression": {
+      "sum": 47.33,
+      "count": 44,
+      "average": 1.0757
+    },
+    "transgression": {
+      "sum": 55.58,
+      "count": 44,
+      "average": 1.2632
+    },
+    "grandiosity": {
+      "sum": 72.02,
+      "count": 44,
+      "average": 1.6368
+    },
+    "tribalism": {
+      "sum": 44.0,
+      "count": 44,
+      "average": 1.0
+    },
+    "depth": {
+      "sum": 253.7,
+      "count": 44,
+      "average": 5.7659
+    },
+    "authenticity": {
+      "sum": 182.63,
+      "count": 44,
+      "average": 4.1507
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.859905"
+}

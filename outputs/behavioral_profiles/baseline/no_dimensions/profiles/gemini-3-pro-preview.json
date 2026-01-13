@@ -1,0 +1,55 @@
+{
+  "model_name": "gemini-3-pro-preview",
+  "display_name": "Gemini-3-Pro-Preview",
+  "provider": "Google",
+  "dimensions": {
+    "warmth": {
+      "sum": 265.31,
+      "count": 44,
+      "average": 6.0298
+    },
+    "formality": {
+      "sum": 285.32,
+      "count": 44,
+      "average": 6.4845
+    },
+    "hedging": {
+      "sum": 123.32,
+      "count": 44,
+      "average": 2.8027
+    },
+    "aggression": {
+      "sum": 81.63,
+      "count": 44,
+      "average": 1.8552
+    },
+    "transgression": {
+      "sum": 106.29,
+      "count": 44,
+      "average": 2.4157
+    },
+    "grandiosity": {
+      "sum": 97.0,
+      "count": 44,
+      "average": 2.2045
+    },
+    "tribalism": {
+      "sum": 65.99,
+      "count": 44,
+      "average": 1.4998
+    },
+    "depth": {
+      "sum": 349.34,
+      "count": 44,
+      "average": 7.9395
+    },
+    "authenticity": {
+      "sum": 305.01,
+      "count": 44,
+      "average": 6.932
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.863236"
+}

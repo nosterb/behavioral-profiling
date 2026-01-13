@@ -1,0 +1,52 @@
+{
+  "model_name": "Llama-3.2-90B",
+  "dimensions": {
+    "formality": {
+      "sum": 413.66,
+      "count": 51,
+      "average": 8.110980392156863
+    },
+    "warmth": {
+      "sum": 237.30000000000007,
+      "count": 51,
+      "average": 4.6529411764705895
+    },
+    "tribalism": {
+      "sum": 59.67,
+      "count": 51,
+      "average": 1.17
+    },
+    "authenticity": {
+      "sum": 210.97,
+      "count": 51,
+      "average": 4.136666666666667
+    },
+    "depth": {
+      "sum": 293.27,
+      "count": 51,
+      "average": 5.750392156862745
+    },
+    "hedging": {
+      "sum": 178.9800000000001,
+      "count": 51,
+      "average": 3.5094117647058845
+    },
+    "grandiosity": {
+      "sum": 151.65000000000003,
+      "count": 51,
+      "average": 2.9735294117647064
+    },
+    "aggression": {
+      "sum": 91.97999999999999,
+      "count": 51,
+      "average": 1.8035294117647056
+    },
+    "transgression": {
+      "sum": 84.59999999999998,
+      "count": 51,
+      "average": 1.6588235294117644
+    }
+  },
+  "last_updated": "2026-01-10T12:42:30.901706",
+  "total_evaluations": 51
+}

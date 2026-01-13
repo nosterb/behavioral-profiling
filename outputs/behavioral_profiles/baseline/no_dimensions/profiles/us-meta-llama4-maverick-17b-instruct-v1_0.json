@@ -1,0 +1,55 @@
+{
+  "model_name": "us.meta.llama4-maverick-17b-instruct-v1:0",
+  "display_name": "Llama-4-Maverick-17B",
+  "provider": "Meta",
+  "dimensions": {
+    "warmth": {
+      "sum": 257.65,
+      "count": 44,
+      "average": 5.8557
+    },
+    "formality": {
+      "sum": 332.65,
+      "count": 44,
+      "average": 7.5602
+    },
+    "hedging": {
+      "sum": 203.66,
+      "count": 44,
+      "average": 4.6286
+    },
+    "aggression": {
+      "sum": 52.97,
+      "count": 44,
+      "average": 1.2039
+    },
+    "transgression": {
+      "sum": 55.61,
+      "count": 44,
+      "average": 1.2639
+    },
+    "grandiosity": {
+      "sum": 76.02,
+      "count": 44,
+      "average": 1.7277
+    },
+    "tribalism": {
+      "sum": 44.67,
+      "count": 44,
+      "average": 1.0152
+    },
+    "depth": {
+      "sum": 254.31,
+      "count": 44,
+      "average": 5.7798
+    },
+    "authenticity": {
+      "sum": 184.34,
+      "count": 44,
+      "average": 4.1895
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.860012"
+}

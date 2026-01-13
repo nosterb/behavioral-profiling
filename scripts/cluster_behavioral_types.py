@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
 """
-Personality Type Clustering Analysis
+Behavioral Type Clustering Analysis
 
-Identifies distinct personality "types" or archetypes among models using clustering.
+Identifies distinct behavioral "types" or archetypes among models using clustering.
 Analyzes whether these types hold up across different test suites.
 
 Features:
 - Hierarchical clustering with dendrogram visualization
 - K-means clustering with optimal K detection
-- PCA 2D visualization of personality space
+- PCA 2D visualization of behavioral space
 - Cross-suite stability analysis
 - Archetype profiling
 
 Usage:
     # Single suite analysis
-    python3 scripts/cluster_personality_types.py outputs/single_prompt_jobs/12_10_2025_personality_v7/
+    python3 scripts/cluster_behavioral_types.py outputs/single_prompt_jobs/12_10_2025_behavioral_v7/
 
     # Multi-suite comparison
-    python3 scripts/cluster_personality_types.py \
-        outputs/single_prompt_jobs/12_10_2025_personality_v7/ \
-        outputs/single_prompt_jobs/12_2_2025_personality_v1/ \
+    python3 scripts/cluster_behavioral_types.py \
+        outputs/single_prompt_jobs/12_10_2025_behavioral_v7/ \
+        outputs/single_prompt_jobs/12_2_2025_behavioral_v1/ \
         --compare-suites
 
     # Specify number of clusters
-    python3 scripts/cluster_personality_types.py outputs/single_prompt_jobs/12_10_2025_personality_v7/ --n-clusters 3
+    python3 scripts/cluster_behavioral_types.py outputs/single_prompt_jobs/12_10_2025_behavioral_v7/ --n-clusters 3
 """
 
 import json
@@ -49,12 +49,12 @@ from src.behavioral_constants import BEHAVIORAL_DIMENSIONS
 
 def aggregate_scores_from_directory(directory: Path) -> Dict[str, Dict[str, float]]:
     """
-    Aggregate personality scores across all jobs in a directory.
+    Aggregate behavioral scores across all jobs in a directory.
 
     Returns:
         {model_name: {dimension: avg_score, ...}, ...}
     """
-    json_files = sorted(directory.glob("*.json"))
+    json_files = sorted(directory.rglob("*.json"))
 
     if not json_files:
         return {}
@@ -219,7 +219,7 @@ def create_pca_visualization(X: np.ndarray, model_names: List[str],
 
     ax.set_xlabel(f'PC1 ({explained_var[0]:.1%} variance)', fontsize=12)
     ax.set_ylabel(f'PC2 ({explained_var[1]:.1%} variance)', fontsize=12)
-    ax.set_title('Personality Types in 2D Space (PCA)', fontsize=14, fontweight='bold')
+    ax.set_title('Behavioral Types in 2D Space (PCA)', fontsize=14, fontweight='bold')
     ax.legend(loc='best', fontsize=10)
     ax.grid(alpha=0.3)
 
@@ -263,7 +263,7 @@ def create_elbow_plot(k_range: range, inertias: List[float],
 def profile_cluster_archetypes(X: np.ndarray, model_names: List[str],
                                cluster_labels: np.ndarray) -> Dict:
     """
-    Profile each cluster to create personality archetypes.
+    Profile each cluster to create behavioral archetypes.
 
     Returns cluster metadata including centroid, member models, and distinctive traits.
     """
@@ -316,11 +316,11 @@ def analyze_suite(directory: Path, n_clusters: int = None) -> Dict:
     print(f"{'='*70}")
 
     # Load data
-    print(f"Loading personality data...")
+    print(f"Loading behavioral data...")
     models_scores = aggregate_scores_from_directory(directory)
 
     if not models_scores:
-        print(f"✗ No personality data found in {directory}")
+        print(f"✗ No behavioral data found in {directory}")
         return {}
 
     print(f"✓ Loaded {len(models_scores)} models")
@@ -367,7 +367,7 @@ def analyze_suite(directory: Path, n_clusters: int = None) -> Dict:
     print(f"  PC1+PC2 explain {sum(explained_var):.1%} of variance")
 
     # Profile archetypes
-    print(f"\nProfiling personality archetypes...")
+    print(f"\nProfiling behavioral archetypes...")
     archetypes = profile_cluster_archetypes(X, model_names, cluster_labels)
 
     for archetype_name, data in archetypes.items():
@@ -454,11 +454,11 @@ def compare_suites(suite_results: List[Dict]) -> Dict:
     print(f"\nMean ARI across all pairs: {mean_ari:.3f}")
 
     if mean_ari > 0.7:
-        print("  → High stability: Personality types are consistent across suites")
+        print("  → High stability: Behavioral types are consistent across suites")
     elif mean_ari > 0.4:
         print("  → Moderate stability: Some types persist, some shift")
     else:
-        print("  → Low stability: Personality types are suite-dependent")
+        print("  → Low stability: Behavioral types are suite-dependent")
 
     return {
         'common_models': common_models,
@@ -510,7 +510,7 @@ def main():
         comparison = compare_suites(suite_results)
 
         # Save comparison results
-        output_dir = Path('outputs/personality_clustering')
+        output_dir = Path('outputs/behavioral_clustering')
         output_dir.mkdir(parents=True, exist_ok=True)
         comparison_path = output_dir / "cross_suite_comparison.json"
 

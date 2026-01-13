@@ -1,0 +1,106 @@
+# ARC-AGI Evaluation Framework — Brief
+
+## Overview
+**ARC-AGI (Abstraction and Reasoning Corpus for Artificial General Intelligence)** is an evaluation framework designed to measure **general, human-like reasoning** in AI systems. It focuses on abstraction, pattern discovery, and rule generalization from **very few examples**, rather than memorization or domain-specific knowledge.
+
+ARC-AGI is widely regarded as one of the strongest benchmarks for assessing progress toward **general intelligence**, not just task proficiency.
+
+---
+
+## What ARC-AGI Tests
+
+ARC-AGI consists of **grid-based reasoning puzzles**. Each task provides:
+- A small number of **input → output examples**
+- A **novel test input** requiring the same abstract transformation
+
+The system must:
+1. Infer the underlying rule or concept
+2. Generalize it correctly to a new case
+3. Do so **without additional training data**
+
+All tasks are intentionally:
+- Easy for humans
+- Difficult for current AI systems
+
+---
+
+## Key Properties
+
+### 1. **Few-Shot Generalization**
+Unlike most benchmarks, ARC-AGI provides **no large training set**. Success requires genuine inference, not statistical pattern matching.
+
+### 2. **Abstract Reasoning**
+Tasks involve concepts such as:
+- Symmetry
+- Object persistence
+- Spatial transformations
+- Counting and grouping
+- Relational rules
+
+### 3. **Resistance to Scale**
+Simply increasing model size or compute yields limited gains. ARC-AGI exposes reasoning gaps that scaling alone does not fix.
+
+### 4. **Clear Success Criterion**
+Solutions are **binary** (correct or incorrect), avoiding subjective grading and making results auditable and reproducible.
+
+---
+
+## ARC-AGI Versions
+
+- **ARC-AGI-1**  
+  Original benchmark focused on core abstraction and reasoning.
+
+- **ARC-AGI-2**  
+  Increased difficulty and reduced susceptibility to brute-force or memorization-based approaches.
+
+- **ARC-AGI-3 (announced / upcoming)**  
+  Extends evaluation to **interactive and adaptive reasoning**, closer to real-world problem solving.
+
+---
+
+## Why ARC-AGI Matters
+
+### Measures “Fluid Intelligence”
+ARC-AGI evaluates the ability to **learn new concepts on the fly**, a defining trait of human intelligence and a key requirement for AGI.
+
+### Separates Capability from Memorization
+Many models perform well on language benchmarks through data exposure. ARC-AGI strips that advantage away, revealing true reasoning ability.
+
+### Guides Research Direction
+Progress on ARC-AGI typically requires:
+- Better reasoning architectures
+- Improved inductive biases
+- Algorithmic and symbolic components
+
+This steers research toward **fundamental intelligence**, not just larger models.
+
+### Benchmark Credibility
+Because humans solve ARC tasks easily and consistently, the benchmark has strong **face validity** as a measure of general reasoning.
+
+### Community and Incentives
+The **ARC Prize** competition has created a shared target for the AI research community, accelerating innovation and open exploration of reasoning systems.
+
+---
+
+## Limitations (Explicitly Acknowledged)
+
+- Narrow modality (grid puzzles only)
+- Does not measure language ability, knowledge, or social reasoning
+- High sensitivity to evaluation setup and prompting
+- Not a complete definition of intelligence
+
+ARC-AGI is best viewed as a **stress test for reasoning**, not a holistic intelligence score.
+
+---
+
+## Bottom Line
+
+> **ARC-AGI matters because it tests what most benchmarks avoid: the ability to infer, abstract, and generalize from minimal information.**  
+> Strong performance indicates progress toward general intelligence, not just better pattern matching.
+
+---
+
+## Recommended Use
+- As a **capability benchmark**, not a product metric
+- For **model comparison under controlled conditions**
+- To track **longitudinal progress in reasoning**, not short-term leaderboard wins

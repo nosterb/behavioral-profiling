@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Trace Personality Math - Show all raw numbers and calculations
+Trace Behavioral Math - Show all raw numbers and calculations
 
-This script provides a complete trace of how personality scores are calculated:
+This script provides a complete trace of how behavioral scores are calculated:
 1. Individual judge scores (Pass 1) - 3 judges
 2. Comparative judge scores (if present)
 3. Per-job averages (averaging 3 Pass 1 judges only)
@@ -207,7 +207,7 @@ def trace_aggregation(directory: Path, output_lines: List[str]):
     model_scores = defaultdict(lambda: defaultdict(list))
     job_files = []
 
-    for filepath in sorted(directory.glob("job_behavioral_*.json")):
+    for filepath in sorted(directory.rglob("job_*.json")):
         job_files.append(filepath.name)
         job_data = load_job_file(filepath)
         evaluations = job_data.get('judge_evaluation', {}).get('evaluations', [])
@@ -261,12 +261,12 @@ def trace_aggregation(directory: Path, output_lines: List[str]):
 def main():
     if len(sys.argv) < 2:
         print("Usage:")
-        print("  Single job:  python trace_personality_math.py <job_file.json>")
-        print("  Directory:   python trace_personality_math.py <directory_path>")
+        print("  Single job:  python trace_behavioral_math.py <job_file.json>")
+        print("  Directory:   python trace_behavioral_math.py <directory_path>")
         print("")
         print("Examples:")
-        print("  python trace_personality_math.py outputs/single_prompt_jobs/job_behavioral_warmth_baseline_*.json")
-        print("  python trace_personality_math.py outputs/single_prompt_jobs/")
+        print("  python trace_behavioral_math.py outputs/single_prompt_jobs/job_behavioral_warmth_baseline_*.json")
+        print("  python trace_behavioral_math.py outputs/single_prompt_jobs/")
         sys.exit(1)
 
     input_path = Path(sys.argv[1])
@@ -274,11 +274,11 @@ def main():
 
     # Header
     output_lines.append("="*80)
-    output_lines.append("PERSONALITY SCORE CALCULATION TRACE")
+    output_lines.append("BEHAVIORAL SCORE CALCULATION TRACE")
     output_lines.append("="*80)
     output_lines.append("")
     output_lines.append("This file shows all raw judge scores and the mathematical calculations")
-    output_lines.append("used to produce the final personality spider charts.")
+    output_lines.append("used to produce the final behavioral spider charts.")
     output_lines.append("")
     output_lines.append("Data Flow:")
     output_lines.append("  1. Pass 1 Judge Scores - 3 judges independently evaluate each model")
@@ -305,12 +305,12 @@ def main():
         output_lines.append(f"Input: {input_path}")
 
         # Trace each job
-        job_files = sorted(input_path.glob("job_behavioral_*.json"))
+        job_files = sorted(input_path.rglob("job_*.json"))
         if not job_files:
-            print(f"Error: No job_behavioral_*.json files found in {input_path}")
+            print(f"Error: No job_*.json files found in {input_path}")
             sys.exit(1)
 
-        output_lines.append(f"\nFound {len(job_files)} personality job files\n")
+        output_lines.append(f"\nFound {len(job_files)} behavioral job files\n")
 
         for job_file in job_files:
             trace_single_job(job_file, output_lines)
@@ -318,7 +318,7 @@ def main():
         # Show cross-job aggregation
         trace_aggregation(input_path, output_lines)
 
-        output_file = input_path / "personality_math_trace_FULL.txt"
+        output_file = input_path / "behavioral_math_trace_FULL.txt"
 
     else:
         print(f"Error: {input_path} is not a file or directory")

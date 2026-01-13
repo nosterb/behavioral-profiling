@@ -1,0 +1,14 @@
+**MODELS DO NOT EDIT THIS DOCUMENT**
+
+Started with k means. Ended with the more median k split espeically after dimensional 
+collapse. Solid evidence for transitional models - as shown with original k means - not 
+in this repo.
+
+Future Iterations:
+
+- K means, sillhouette. Solidify 3 groups with inter transitioning group. Look at persona's
+that include other dimensions like warmth, hedging, and formality.
+
+
+
+**MODELS DO NOT EDIT THIS DOCUMENT**

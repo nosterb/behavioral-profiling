@@ -1,57 +1,70 @@
 {
   "model_name": "Claude-3-Opus",
   "dimensions": {
-    "tribalism": {
-      "sum": 72.01,
-      "count": 67,
-      "average": 1.0747761194029852
+    "grandiosity": {
+      "sum": 424.17,
+      "count": 236,
+      "average": 1.7973305084745763
     },
     "warmth": {
-      "sum": 417.02000000000015,
-      "count": 67,
-      "average": 6.2241791044776145
+      "sum": 1426.2399999999998,
+      "count": 236,
+      "average": 6.043389830508474
     },
     "aggression": {
-      "sum": 76.97999999999999,
-      "count": 67,
-      "average": 1.148955223880597
+      "sum": 301.9,
+      "count": 236,
+      "average": 1.2792372881355931
     },
     "formality": {
-      "sum": 477.34000000000015,
-      "count": 67,
-      "average": 7.124477611940301
+      "sum": 1794.3100000000002,
+      "count": 236,
+      "average": 7.603008474576272
     },
-    "depth": {
-      "sum": 337.3599999999999,
-      "count": 67,
-      "average": 5.035223880597013
-    },
-    "authenticity": {
-      "sum": 267.5399999999999,
-      "count": 67,
-      "average": 3.9931343283582077
+    "tribalism": {
+      "sum": 247.01,
+      "count": 236,
+      "average": 1.0466525423728814
     },
     "hedging": {
-      "sum": 304.99999999999994,
-      "count": 67,
-      "average": 4.552238805970148
-    },
-    "grandiosity": {
-      "sum": 107.64999999999999,
-      "count": 67,
-      "average": 1.6067164179104476
+      "sum": 1478.31,
+      "count": 236,
+      "average": 6.264025423728813
     },
     "transgression": {
-      "sum": 87.58999999999997,
-      "count": 67,
-      "average": 1.3073134328358205
+      "sum": 306.48999999999995,
+      "count": 236,
+      "average": 1.298686440677966
+    },
+    "authenticity": {
+      "sum": 1032.16,
+      "count": 236,
+      "average": 4.373559322033898
+    },
+    "depth": {
+      "sum": 1249.4900000000002,
+      "count": 236,
+      "average": 5.294449152542374
     },
     "observability": {
       "sum": 4.0,
       "count": 1,
       "average": 4.0
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
     }
   },
-  "last_updated": "2026-01-09T15:42:49.943289",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537330",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

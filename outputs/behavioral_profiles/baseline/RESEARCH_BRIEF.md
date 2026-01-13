@@ -9,7 +9,9 @@
 
     ## Hypotheses
 
-    **H1**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
+    **H1**: Two distinct sophistication groups exist (validated by median split).
+
+    **H1a**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
 
     **H2**: Model sophistication positively correlates with disinhibition across all models.
 
@@ -41,7 +43,7 @@
 
     ### Statistical Analysis
 
-    **Group Comparisons (H1)**: Independent samples t-tests with pooled standard deviation Cohen's d effect sizes (df = 44).
+    **Group Comparisons (H1a)**: Independent samples t-tests with pooled standard deviation Cohen's d effect sizes (df = 44).
 
     **Correlation Analysis (H2)**: Pearson product-moment correlations between sophistication and disinhibition dimensions (N = 46).
 
@@ -53,14 +55,23 @@
 
     ## Results
 
-    ### H1: Group Comparison
+    ### H1: Group Existence
+
+    **Sophistication Group Separation**:
+    - High-Sophistication: M = 6.76, SD = 0.47
+    - Low-Sophistication: M = 4.89, SD = 0.69
+    - **d = 3.18** (large effect)
+
+    The median split produces two well-separated sophistication groups, supporting H1.
+
+    ### H1a: Group Comparison
 
     **Disinhibition Composite**:
     - High-Sophistication: M = 1.68, SD = 0.16
     - Low-Sophistication: M = 1.39, SD = 0.09
     - **t(44) = 7.35, p < .001, d = 2.17** (large effect)
 
-    High-sophistication models showed significantly higher disinhibition than low-sophistication models, supporting H1.
+    High-sophistication models showed significantly higher disinhibition than low-sophistication models, supporting H1a.
 
     **Individual Disinhibition Dimensions**:
 
@@ -134,9 +145,9 @@
 
     ## Discussion
 
-    Both hypotheses were supported with large effect sizes. High-sophistication models exhibited significantly greater disinhibition across all four dimensions (H1: d = 2.17), and sophistication strongly predicted disinhibition at the model level (H2: r = 0.74).
+    All hypotheses were supported with large effect sizes. The median split produced well-separated sophistication groups (H1: d = 3.18). High-sophistication models exhibited significantly greater disinhibition across all four dimensions (H1a: d = 2.17), and sophistication strongly predicted disinhibition at the model level (H2: r = 0.74).
 
-    The median split classification proved highly effective, producing a very large effect for sophistication itself (d = 3.18) while maintaining balanced groups (n = 23 vs 23). This capability-based approach correctly classified models regardless of release date, with some recent models (e.g., Nova Premier, April 2025) scoring low-sophistication and older models (e.g., GPT-OSS-120B, 2024) scoring high-sophistication.
+    The median split classification proved highly effective, producing a very large effect for sophistication itself (d = 3.18) while maintaining balanced groups (n = 23 vs 23). This capability-based approach correctly classified models regardless of release date, with some recent models scoring low-sophistication and older models scoring high-sophistication.
 
     The strongest associations were observed for transgression (+29.9%, d = 1.85) and aggression (+25.3%, d = 2.21), suggesting that capability gains may be accompanied by increased willingness to challenge norms and engage in direct confrontation.
 
@@ -145,7 +156,56 @@
     **Notable Exceptions**: Analysis revealed three distinct pattern types beyond the main correlation: (1) **Borderline models** (n=3) within ±0.15 of median representing edge cases for sensitivity testing, (2) **Constrained models** (n=3) exhibiting high sophistication but below-predicted disinhibition, suggesting deliberate constraint strategies despite capability, and (3) **Statistical outliers** (n=1) deviating >2 SD from the regression line. These exceptions provide valuable insights into different training approaches and optimization objectives across providers.
 
     ---
+    
+    ## Outlier Sensitivity Analysis
 
+    Robustness check removing statistical outliers (|residual| > 2 SD from regression line).
+
+    ### Summary
+
+    | Metric | With Outliers | Without Outliers | Change |
+    |--------|---------------|------------------|--------|
+    | **N** | 46 | 44 | -1 |
+    | **H1a: d** | 2.17 | 2.84 | +0.68 |
+    | **H2: r** | 0.738 | 0.696 | -0.042 |
+
+    ### Outliers Removed (1)
+    - **Gemini-3-Pro-Preview**: 4.4 SD above regression line
+
+    ### Interpretation
+
+    Removing outliers **strengthens** the H1a effect (Δd = +0.68). H2 correlation weakens slightly (Δr = -0.042).
+
+    This suggests the observed effects are not driven by outlier models.
+
+    **See**: `outliers_removed/` subfolder for full analysis without outliers.
+
+    ---
+    
+    ## No-Dimensions Sensitivity Analysis
+
+    Robustness check excluding prompts from the dimensions suite (which directly probe for behavioral traits).
+
+    ### Summary
+
+    | Metric | Full Dataset | No Dimensions | Change |
+    |--------|--------------|---------------|--------|
+    | **N** | 46 | 40 | -6 |
+    | **H1a: d** | 2.17 | 2.04 | -0.12 |
+    | **H2: r** | 0.738 | 0.778 | +0.039 |
+
+    **Excluded**: dimensions suite
+    
+    ### Interpretation
+
+    Removing dimensions suite **weakens** the H1a effect (Δd = -0.12). H2 correlation strengthens (Δr = +0.039).
+
+    This suggests the sophistication-disinhibition relationship emerges naturally from general scenarios.
+
+    **See**: `no_dimensions/` subfolder for full analysis without dimensions suite.
+
+    ---
+    
     ## Supporting Files
 
     ### Data Files

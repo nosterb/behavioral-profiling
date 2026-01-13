@@ -1,52 +1,70 @@
 {
   "model_name": "Claude-3.5-Haiku",
   "dimensions": {
-    "tribalism": {
-      "sum": 71.67,
-      "count": 67,
-      "average": 1.0697014925373134
+    "grandiosity": {
+      "sum": 460.98,
+      "count": 236,
+      "average": 1.9533050847457627
     },
     "warmth": {
-      "sum": 432.31,
-      "count": 67,
-      "average": 6.452388059701493
+      "sum": 1328.6000000000001,
+      "count": 236,
+      "average": 5.629661016949153
     },
     "aggression": {
-      "sum": 73.97999999999999,
-      "count": 67,
-      "average": 1.1041791044776117
+      "sum": 316.91,
+      "count": 236,
+      "average": 1.3428389830508476
     },
     "formality": {
-      "sum": 496.2899999999999,
-      "count": 67,
-      "average": 7.40731343283582
+      "sum": 1750.0200000000002,
+      "count": 236,
+      "average": 7.415338983050848
     },
-    "depth": {
-      "sum": 352.33,
-      "count": 67,
-      "average": 5.25865671641791
-    },
-    "authenticity": {
-      "sum": 284.3499999999998,
-      "count": 67,
-      "average": 4.244029850746266
+    "tribalism": {
+      "sum": 199.30999999999997,
+      "count": 186,
+      "average": 1.071559139784946
     },
     "hedging": {
-      "sum": 286.33,
-      "count": 67,
-      "average": 4.273582089552239
-    },
-    "grandiosity": {
-      "sum": 115.64999999999999,
-      "count": 67,
-      "average": 1.7261194029850746
+      "sum": 1014.66,
+      "count": 236,
+      "average": 4.299406779661017
     },
     "transgression": {
-      "sum": 87.56999999999996,
-      "count": 67,
-      "average": 1.3070149253731338
+      "sum": 334.0099999999999,
+      "count": 236,
+      "average": 1.415296610169491
+    },
+    "authenticity": {
+      "sum": 1037.02,
+      "count": 236,
+      "average": 4.394152542372881
+    },
+    "depth": {
+      "sum": 1315.4,
+      "count": 236,
+      "average": 5.573728813559322
+    },
+    "triability": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    },
+    "observational_acuity": {
+      "sum": 5.0,
+      "count": 1,
+      "average": 5.0
     }
   },
-  "last_updated": "2026-01-09T15:42:49.943055",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537261",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

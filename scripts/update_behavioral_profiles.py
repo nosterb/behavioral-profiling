@@ -21,8 +21,8 @@ from behavioral_profile_manager import BehavioralProfileManager
 import json
 
 
-def find_jobs(job_path: Path, recursive: bool = False) -> list:
-    """Find all job JSON files in a path."""
+def find_jobs(job_path: Path, recursive: bool = False, condition: str = None) -> list:
+    """Find all job JSON files in a path, optionally filtered by condition."""
     jobs = []
 
     if job_path.is_file():
@@ -39,6 +39,26 @@ def find_jobs(job_path: Path, recursive: bool = False) -> list:
     # Filter to only job files (not other JSON files)
     jobs = [j for j in jobs if j.stem.startswith('job_') or j.stem.startswith('chat_job_')]
 
+    # Filter by condition
+    if condition == 'baseline':
+        # Exclude jobs with intervention suffixes
+        jobs = [j for j in jobs if '_authority' not in j.stem and '_urgency' not in j.stem and '_minimal_steering' not in j.stem and '_telemetryV3' not in j.stem and '_reminder' not in j.stem]
+    elif condition == 'authority':
+        # Only jobs with _authority suffix
+        jobs = [j for j in jobs if '_authority' in j.stem]
+    elif condition == 'urgency':
+        # Only jobs with _urgency suffix
+        jobs = [j for j in jobs if '_urgency' in j.stem]
+    elif condition == 'minimal_steering':
+        # Only jobs with _minimal_steering suffix
+        jobs = [j for j in jobs if '_minimal_steering' in j.stem]
+    elif condition == 'telemetryV3':
+        # Only jobs with _telemetryV3 suffix
+        jobs = [j for j in jobs if '_telemetryV3' in j.stem or 'telemetryV3' in j.stem]
+    elif condition == 'reminder':
+        # Only jobs with _reminder suffix
+        jobs = [j for j in jobs if '_reminder' in j.stem]
+
     return sorted(jobs)
 
 
@@ -49,19 +69,19 @@ def main():
         epilog="""
 Examples:
   # Add all jobs from a directory
-  %(prog)s outputs/single_prompt_jobs/12_16_2025_personality_v2/
+  %(prog)s outputs/single_prompt_jobs/12_16_2025_behavioral_v2/
 
   # Add specific job file
-  %(prog)s outputs/single_prompt_jobs/12_16_2025_personality_v2/job_batch_20251216_205725.json
+  %(prog)s outputs/single_prompt_jobs/12_16_2025_behavioral_v2/job_batch_20251216_205725.json
 
   # Add jobs recursively from all subdirectories
   %(prog)s outputs/single_prompt_jobs/ --recursive
 
   # Force re-add jobs (skip duplicate check)
-  %(prog)s outputs/single_prompt_jobs/12_16_2025_personality_v2/ --force
+  %(prog)s outputs/single_prompt_jobs/12_16_2025_behavioral_v2/ --force
 
   # Dry run (show what would be added without making changes)
-  %(prog)s outputs/single_prompt_jobs/12_16_2025_personality_v2/ --dry-run
+  %(prog)s outputs/single_prompt_jobs/12_16_2025_behavioral_v2/ --dry-run
         """
     )
 
@@ -89,12 +109,18 @@ Examples:
         '--profile-dir',
         type=Path,
         default=Path('outputs/behavioral_profiles'),
-        help='Personality profiles directory (default: outputs/behavioral_profiles)'
+        help='Behavioral profiles directory (default: outputs/behavioral_profiles)'
     )
     parser.add_argument(
         '--skip-viz',
         action='store_true',
         help='Skip visualization updates (faster, update manually later)'
+    )
+    parser.add_argument(
+        '--condition',
+        type=str,
+        choices=['baseline', 'authority', 'urgency', 'minimal_steering', 'telemetryV3', 'reminder'],
+        help='Filter jobs by condition (baseline=no suffix, authority=_authority, urgency=_urgency, minimal_steering=_minimal_steering, telemetryV3=telemetryV3 jobs, reminder=_reminder)'
     )
 
     args = parser.parse_args()
@@ -108,8 +134,10 @@ Examples:
     print(f"Searching for job files in: {args.job_path}")
     if args.recursive:
         print("  (recursive search enabled)")
+    if args.condition:
+        print(f"  (filtering for condition: {args.condition})")
 
-    jobs = find_jobs(args.job_path, args.recursive)
+    jobs = find_jobs(args.job_path, args.recursive, args.condition)
 
     if not jobs:
         print(f"✗ No job files found")
@@ -143,15 +171,21 @@ Examples:
                 job_file.stem
             )
 
-            # Check if has behavioral evaluation
-            has_eval = (
-                'judge_evaluation' in job_data or
-                'personality_evaluation' in job_data
-            )
+            # Determine which evaluation key to use based on condition
+            if args.condition == 'telemetryV3':
+                eval_key = 'judge_evaluation_telemetry'
+                has_eval = eval_key in job_data
+            else:
+                eval_key = None  # Use default logic in manager
+                has_eval = (
+                    'judge_evaluation' in job_data or
+                    'behavioral_evaluation' in job_data
+                )
 
             if not has_eval:
                 print(f"[{i}/{len(jobs)}] {job_id}")
-                print(f"  ⊘ No behavioral evaluation in job (skipping)")
+                expected_key = eval_key if eval_key else 'judge_evaluation/behavioral_evaluation'
+                print(f"  ⊘ No {expected_key} in job (skipping)")
                 skipped_count += 1
                 continue
 
@@ -182,7 +216,8 @@ Examples:
             result = manager.add_job_evaluation(
                 job_id,
                 job_file,
-                update_viz=False  # Update viz once at end
+                update_viz=False,  # Update viz once at end
+                eval_key=eval_key  # Pass telemetry key if applicable
             )
 
             if result['status'] == 'success':

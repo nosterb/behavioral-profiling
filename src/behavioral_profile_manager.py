@@ -109,7 +109,7 @@ class BehavioralProfileManager:
         """Convert model name to safe filename."""
         return name.replace('/', '_').replace(':', '_').replace(' ', '_').lower()
 
-    def add_job_evaluation(self, job_id: str, job_file: Path, update_viz: bool = True) -> Dict[str, str]:
+    def add_job_evaluation(self, job_id: str, job_file: Path, update_viz: bool = True, eval_key: str = None) -> Dict[str, str]:
         """
         Add behavioral evaluations from a job to running profiles.
 
@@ -117,6 +117,8 @@ class BehavioralProfileManager:
             job_id: Unique identifier for this job
             job_file: Path to job JSON file with judge_evaluation
             update_viz: Whether to regenerate visualizations
+            eval_key: Optional key to use for evaluation data (e.g., 'judge_evaluation_telemetry')
+                      If None, uses 'judge_evaluation' or 'behavioral_evaluation'
 
         Returns:
             Dictionary with status and messages
@@ -126,7 +128,11 @@ class BehavioralProfileManager:
             job_data = json.load(f)
 
         # Check for judge evaluation or behavioral evaluation
-        if 'judge_evaluation' in job_data:
+        # If eval_key is specified, use that; otherwise try standard keys
+        if eval_key and eval_key in job_data:
+            eval_data = job_data[eval_key]
+            evaluations = eval_data.get('evaluations', [])
+        elif 'judge_evaluation' in job_data:
             eval_data = job_data['judge_evaluation']
             evaluations = eval_data.get('evaluations', [])
         elif 'behavioral_evaluation' in job_data:

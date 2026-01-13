@@ -6,6 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a behavioral profiling framework for measuring consistency in LLM responses across a 9-dimensional behavioral assessment system. The framework tests 50+ models from multiple providers (AWS Bedrock, OpenAI, Grok, Gemini) using standardized scenarios and automated LLM-as-judge evaluation.
 
+## Specialized Documentation
+
+**IMPORTANT**: For focused context, see these specialized CLAUDE.md files:
+
+| Path | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/CLAUDE.md` | H1/H2 analysis outputs, condition directories, statistical results |
+| `logs/CLAUDE.md` | Hook-based logging system, session logs, troubleshooting |
+
+These files provide detailed guidance for their specific domains. This root file contains project-wide documentation.
+
 ## Core Concepts
 
 ### 9 Behavioral Dimensions
@@ -90,7 +101,33 @@ python3 scripts/compare_three_suites.py
 
 # Comprehensive provider analysis (all models/providers)
 python3 scripts/analyze_all_models_by_provider.py
+
+# Aggregate ALL conditions into root profiles/visualizations
+python3 scripts/aggregate_all_conditions.py
 ```
+
+### Cross-Condition Aggregation
+
+The root `outputs/behavioral_profiles/` directory contains **aggregated data from ALL conditions**:
+
+| Directory | Contents |
+|-----------|----------|
+| `profiles/` | Combined profiles (all conditions weighted by eval count) |
+| `visualizations/` | Spider charts and heatmaps showing cross-condition averages |
+| `history/` | Aggregation metadata |
+
+**Important**: These root directories are NOT a single condition - they represent the true average across baseline, authority, urgency, minimal_steering, telemetryV3, and reminder.
+
+**Regenerating after new data**:
+```bash
+# After adding new condition data, re-aggregate
+python3 scripts/aggregate_all_conditions.py
+
+# Dry-run to preview
+python3 scripts/aggregate_all_conditions.py --dry-run
+```
+
+**Per-condition analysis** lives in `outputs/behavioral_profiles/<condition>/` - see the specialized CLAUDE.md in that directory.
 
 ### H1/H2 Statistical Analysis
 
@@ -108,7 +145,6 @@ The framework includes a complete pipeline for testing two key hypotheses about 
 
 # Examples:
 ./scripts/run_complete_h1_h2_analysis.sh baseline
-./scripts/run_complete_h1_h2_analysis.sh affective
 ./scripts/run_complete_h1_h2_analysis.sh authority
 ./scripts/run_complete_h1_h2_analysis.sh urgency
 ```
@@ -131,10 +167,10 @@ python3 scripts/update_behavioral_profiles.py \
     outputs/single_prompt_jobs/*/job_*_<intervention>_*.json \
     --profile-dir outputs/behavioral_profiles/<intervention>
 
-# Example for affective intervention:
+# Example for authority intervention:
 python3 scripts/update_behavioral_profiles.py \
-    outputs/single_prompt_jobs/*/job_*_affective_*.json \
-    --profile-dir outputs/behavioral_profiles/affective
+    outputs/single_prompt_jobs/*/job_*_authority_*.json \
+    --profile-dir outputs/behavioral_profiles/authority
 ```
 
 #### Output Files
@@ -162,6 +198,9 @@ Each intervention generates **13 files** in `outputs/behavioral_profiles/<interv
 **Research Brief** (1 file):
 - `RESEARCH_BRIEF.md` - Publication-ready research brief with comprehensive statistical reporting
 
+**Cross-Condition Comparison** (auto-updated):
+- `research_synthesis/cross_condition/CONDITION_COMPARISON.md` - Comparative table across all analyzed conditions, updated automatically after each pipeline run
+
 #### Special Pattern Detection
 
 Both H2 scatter plots (`h2_scatter_sophistication_composite.png` and all 4 subplots in `h2_scatter_all_dimensions.png`) automatically identify and label three special pattern types:
@@ -175,6 +214,9 @@ Both H2 scatter plots (`h2_scatter_sophistication_composite.png` and all 4 subpl
 - High sophistication (>6.5) but low disinhibition (residual < -0.15)
 - Suggests deliberate constraint strategies despite high capability
 - Exhibit below-predicted disinhibition
+- **Note**: Constrained detection is regression-specific:
+  - Composite plot: based on composite disinhibition regression
+  - Per-dimension plots: based on each dimension's own regression line
 
 **3. Statistical Outliers** (red circles):
 - Residual > 2 SD from regression line
@@ -248,17 +290,134 @@ python3 scripts/create_provider_h2_scatters.py <intervention>
 
 # Stage 4c: Provider comprehensive analysis (dimensions, heatmap, stats, exports)
 python3 scripts/analyze_all_models_by_provider.py <intervention>
+
+# Stage 5: Cross-provider statistical comparisons (ANOVA, pairwise t-tests)
+python3 scripts/analyze_provider_comparisons.py <intervention>
 ```
+
+### Cross-Provider Statistical Comparisons
+
+After running H1/H2 analysis for all conditions, run provider comparisons to analyze systematic differences between model providers.
+
+#### Running Provider Comparisons
+
+```bash
+# Single condition
+python3 scripts/analyze_provider_comparisons.py <condition>
+
+# All conditions
+for condition in baseline authority urgency minimal_steering telemetryV3; do
+    python3 scripts/analyze_provider_comparisons.py $condition
+done
+```
+
+#### What It Generates
+
+For each condition, creates in `outputs/behavioral_profiles/<condition>/`:
+
+| File | Description |
+|------|-------------|
+| `provider_comparison_stats.json` | Full ANOVA and pairwise statistics for all dimensions |
+| `provider_comparison_summary.png` | 4-panel visualization (N, sophistication, disinhibition, classification) |
+| `provider_comparison_dimensions.png` | 3x3 grid of all 9 dimensions by provider |
+
+#### Statistical Methods
+
+**ANOVA**: One-way ANOVA comparing providers (n≥3 models per provider)
+- Reports F-statistic, p-value, η² (eta-squared) effect size
+- Effect size interpretation: < .01 negligible, .01-.06 small, .06-.14 medium, ≥.14 large
+
+**Pairwise Comparisons**: Independent samples t-tests with Bonferroni correction
+- Reports t-statistic, uncorrected p, Bonferroni-corrected p
+- Cohen's d effect size for each pair
+- Only significant if p_bonferroni < .05
+
+#### Key Outputs in provider_comparison_stats.json
+
+```json
+{
+  "disinhibition": {
+    "anova": {
+      "F": 6.44,
+      "p": 0.0005,
+      "eta_squared": 0.424,
+      "eta_squared_interp": "large"
+    },
+    "pairwise": [
+      {
+        "provider_1": "AWS",
+        "provider_2": "Anthropic",
+        "mean1": 1.329,
+        "mean2": 1.559,
+        "cohens_d": -1.51,
+        "p_bonferroni": 0.00006,
+        "significant_bonferroni": true
+      }
+    ],
+    "provider_stats": {
+      "Anthropic": {"mean": 1.559, "std": 0.160, "count": 19}
+    }
+  }
+}
+```
+
+#### Cross-Condition Provider Analysis
+
+After running all conditions, results are summarized in:
+`outputs/behavioral_profiles/research_synthesis/cross_condition/CONDITION_COMPARISON.md`
+
+This includes:
+- Provider rankings by disinhibition for each condition
+- Cross-condition provider summary table
+- Provider volatility patterns
+- Intervention effects by provider
+- Significant pairwise differences (Bonferroni-corrected)
 
 #### Running Multiple Conditions Sequentially
 
 ```bash
-# Process all conditions
-for condition in baseline affective authority urgency; do
-    echo "Processing: $condition"
+# Process all conditions (H1/H2 + provider comparisons)
+for condition in baseline authority urgency minimal_steering telemetryV3; do
+    echo "=== Processing: $condition ==="
+
+    # Run H1/H2 analysis
     ./scripts/run_complete_h1_h2_analysis.sh $condition
+
+    # Run cross-provider statistical comparisons
+    python3 scripts/analyze_provider_comparisons.py $condition
+
     sleep 2
 done
+
+# Update cross-condition comparison docs
+python3 scripts/update_cross_condition_comparison.py
+```
+
+#### Complete Analysis Pipeline (Recommended)
+
+For a new condition or to regenerate all analyses:
+
+```bash
+CONDITION="your_condition"
+
+# Stage 1: Aggregate profiles from job outputs
+python3 scripts/update_behavioral_profiles.py \
+    outputs/single_prompt_jobs --recursive \
+    --condition $CONDITION \
+    --profile-dir outputs/behavioral_profiles/$CONDITION
+
+# Stage 2-4: Run H1/H2 analysis pipeline
+./scripts/run_complete_h1_h2_analysis.sh $CONDITION
+
+# Stage 5: Cross-provider comparisons
+python3 scripts/analyze_provider_comparisons.py $CONDITION
+
+# Stage 6: Outlier sensitivity analysis (optional)
+python3 scripts/analyze_outliers_removed.py $CONDITION
+
+# Stage 7: Update cross-condition comparison docs
+python3 scripts/update_cross_condition_comparison.py
+python3 scripts/update_cross_condition_comparison_outliers.py
 ```
 
 #### Documentation
@@ -292,52 +451,135 @@ Key Results:
     - Statistical outliers: 1
 ```
 
+### Outlier Sensitivity Analysis
+
+The framework supports sensitivity analysis by removing statistical outliers and regenerating H1/H2 results in a subfolder.
+
+#### Outlier Detection Method
+
+```
+1. Fit linear regression: disinhibition ~ sophistication
+2. Calculate residuals: actual - predicted
+3. Flag outliers: |residual| > threshold_sd * std(residuals)
+4. Default threshold: 2.0 SD (~95% of data within range)
+```
+
+Models flagged as outliers show **unusual sophistication-disinhibition relationships** - either much higher or lower disinhibition than predicted by their sophistication level.
+
+#### Running Outlier Analysis
+
+```bash
+# Basic usage (2.0 SD threshold)
+python3 scripts/analyze_outliers_removed.py <condition>
+
+# Custom threshold
+python3 scripts/analyze_outliers_removed.py <condition> --threshold 2.5
+
+# Dry run (show outliers without creating files)
+python3 scripts/analyze_outliers_removed.py <condition> --dry-run
+
+# Force overwrite existing analysis
+python3 scripts/analyze_outliers_removed.py <condition> --force
+```
+
+#### Output Structure
+
+Results are always placed in a subfolder to preserve original analysis:
+
+```
+outputs/behavioral_profiles/<condition>/
+├── median_split_classification.json     # Original (with outliers)
+├── h1_bar_chart_comparison.png          # Original
+├── h2_scatter_*.png                     # Original
+└── outliers_removed/                    # Sensitivity analysis subfolder
+    ├── outlier_removal_info.json        # Details of removed models
+    ├── median_split_classification.json # Recalculated without outliers
+    ├── h1_bar_chart_comparison.png      # Updated visualizations
+    ├── h1_summary_table.png
+    ├── h2_scatter_sophistication_composite.png
+    ├── h2_scatter_all_dimensions.png
+    └── profiles/                        # Retained model profiles
+```
+
+#### Interpreting Results
+
+The script outputs a comparison table:
+
+| Metric | With Outliers | Without Outliers | Change |
+|--------|---------------|------------------|--------|
+| N | 46 | 44 | -2 |
+| H2: r | 0.724 | 0.780 | +0.056 |
+| H1: d | 1.14 | 1.65 | +0.51 |
+
+**If removing outliers strengthens results**: The outliers were noise in the relationship (e.g., models with atypical disinhibition for their sophistication level).
+
+**If removing outliers weakens results**: The outliers were driving the observed effect - results should be interpreted cautiously.
+
+#### Key File: `outlier_removal_info.json`
+
+```json
+{
+  "condition": "telemetryV3",
+  "config": {
+    "outlier_sd_threshold": 2.0,
+    "disinhibition_dimensions": ["transgression", "aggression", "tribalism", "grandiosity"],
+    "sophistication_dimensions": ["depth", "authenticity"]
+  },
+  "statistics": {
+    "regression": {"slope": 0.0854, "intercept": 0.9063, "correlation": 0.7244},
+    "residuals": {"std": 0.1034, "threshold": 0.2068}
+  },
+  "outliers_removed": [
+    {"model_id": "...", "sophistication": 7.29, "disinhibition": 1.97, "sd_from_line": 4.62}
+  ],
+  "models_retained": ["model1", "model2", ...]
+}
+```
+
 ### Quality Assurance & Statistical Rigor
 
 The research initiative maintains comprehensive quality control across all analysis phases.
 
-#### Statistical QC Framework
+#### Statistical Methods
 
-**Location**: `outputs/behavioral_profiles/research_synthesis/STATISTICAL_QC_FRAMEWORK.md`
+**H1 Group Comparison**:
+- Method: Independent samples t-test
+- Effect Size: Cohen's d = (M_high - M_low) / SD_pooled
+- Thresholds: |d| < 0.2 negligible, 0.2-0.5 small, 0.5-0.8 medium, ≥0.8 large
 
-**Coverage**:
-- Statistical methods standards for all phases (H1/H2, H3, Combined, Main)
-- Validation checklists and acceptance criteria
-- Audit protocols (automated and manual)
-- Data integrity requirements
-- Reproducibility standards
-- Reporting standards (APA format)
-- Troubleshooting decision trees
+**H2 Correlation Analysis**:
+- Method: Pearson product-moment correlation
+- Effect Size: Pearson's r
+- Thresholds: |r| < 0.10 negligible, 0.10-0.30 small, 0.30-0.50 medium, ≥0.50 large
+
+**Median Split Classification**:
+- Split on median sophistication composite (depth + authenticity average)
+- Quality requirements: median in range 4-7, groups balanced (±5 models), separation d ≥ 1.5
+- Borderline models (±0.15 of median) documented for sensitivity
 
 #### Key Quality Standards
 
 **Statistical Rigor**:
-- All effect sizes reported with 95% confidence intervals
 - P-values reported with exact values (or p < .001)
-- Assumptions verified and violations documented
-- Alternative methods used when assumptions violated
-- Multiple comparison corrections applied
-- Sensitivity analyses for borderline cases
+- Effect sizes reported (Cohen's d, Pearson's r)
+- Bonferroni correction applied for pairwise provider comparisons
+- Welch's t-test used for unequal variances in provider comparisons
+- Sensitivity analyses: outlier removal, no-dimensions suite exclusion
 
 **Data Integrity**:
 - All scores validated (range 1-10)
 - No missing values (NaN/null checks)
 - Contribution counts > 0
-- Timestamps sequential and valid
-- Profile checksums for critical data
 
 **Reproducibility**:
 - Deterministic pipeline (no randomness in core analyses)
-- Fixed random seeds for bootstrap/permutation tests
-- Software versions documented
 - Consistent file ordering (sorted)
 - All analysis scripts version controlled
 
-**Audit Procedures**:
-- Automated checks: Every analysis run
-- Spot audits: After each new condition
-- Full audits: After baseline, before cross-condition, before publication
-- Audit logs maintained in `<condition>/audit/`
+**Validation**:
+- Automated checks run with each analysis
+- Results verified against expected patterns
+- Anomalies investigated before accepting
 
 #### Pre-Flight Checklist (Before Any Analysis)
 
@@ -378,7 +620,6 @@ The research initiative maintains comprehensive quality control across all analy
 
 # 3. Reproducibility
 # [ ] Re-run produces identical results
-# [ ] Random seeds documented if applicable
 ```
 
 #### Troubleshooting Decision Trees
@@ -397,6 +638,137 @@ The research initiative maintains comprehensive quality control across all analy
 - N ≥ 30: Proceed with warning, document
 - N = 20-29: Strong caution, power likely insufficient
 - N < 20: Do not proceed, collect more data
+
+### Advanced Cross-Condition Analysis
+
+Beyond within-condition H1/H2 analysis, the framework supports advanced cross-condition comparisons using repeated-measures designs.
+
+#### Repeated-Measures ANOVA
+
+Since the same models appear across all conditions, use repeated-measures ANOVA rather than independent-samples tests.
+
+**Script**: `scripts/run_repeated_measures_anova.py`
+
+```bash
+# Run on both original and outliers-removed data (recommended)
+python3 scripts/run_repeated_measures_anova.py --both
+
+# Run on original data only
+python3 scripts/run_repeated_measures_anova.py
+
+# Run on outliers-removed data only
+python3 scripts/run_repeated_measures_anova.py --outliers-removed
+```
+
+**What It Tests**:
+1. **Main Effect of Condition**: Does disinhibition significantly differ across conditions?
+2. **Condition × Sophistication Interaction**: Does the condition effect vary by sophistication level?
+3. **Pairwise Comparisons**: Which specific conditions differ from each other?
+
+**Output**:
+- Console output with full statistical results
+- `research_synthesis/cross_condition/repeated_measures_anova_results.json`
+
+**Key Statistics Reported**:
+| Statistic | Description |
+|-----------|-------------|
+| F | F-statistic for main effect |
+| df | Degrees of freedom (within, between) |
+| p | Uncorrected p-value |
+| p-GG | Greenhouse-Geisser corrected p-value (when sphericity violated) |
+| η²g | Generalized eta-squared (effect size) |
+| ε | Epsilon (sphericity estimate) |
+
+**Effect Size Interpretation (η²g)**:
+| Value | Interpretation |
+|-------|----------------|
+| < 0.01 | Negligible |
+| 0.01 - 0.06 | Small |
+| 0.06 - 0.14 | Medium |
+| ≥ 0.14 | Large |
+
+**Post-Hoc Corrections**: Bonferroni correction for multiple pairwise comparisons.
+
+**Dependencies**: `pip install pandas scipy pingouin`
+
+#### Variability Analysis
+
+Tests whether interventions affect response consistency (variance), not just mean levels.
+
+**Script**: `scripts/analyze_variability.py`
+
+```bash
+# Analyze disinhibition variability (default)
+python3 scripts/analyze_variability.py
+
+# Analyze both original and outliers-removed
+python3 scripts/analyze_variability.py --both
+
+# Analyze a specific dimension
+python3 scripts/analyze_variability.py --dimension sophistication
+
+# Save results to JSON
+python3 scripts/analyze_variability.py --both --output-json
+```
+
+**What It Tests**:
+1. **Variance Differences**: Do conditions have different response variability?
+2. **Levene's Test**: Statistical test for equality of variances
+3. **Variance Ratios**: How much more/less variable is each condition vs baseline?
+
+**Key Metrics**:
+| Metric | Description |
+|--------|-------------|
+| SD | Standard deviation (absolute spread) |
+| CV% | Coefficient of variation (SD/mean × 100) |
+| Variance Ratio | Condition variance / baseline variance |
+| Levene's W | Test statistic for variance equality |
+
+**Interpretation**:
+| Variance Ratio | Interpretation |
+|----------------|----------------|
+| < 0.67 | Significantly LESS variable (more consistent) |
+| 0.67 - 1.5 | Similar variability |
+| > 1.5 | Significantly MORE variable (less consistent) |
+
+**Research Insight**: Interventions that reduce disinhibition (constraint-type) also tend to reduce variance, while pressure-type interventions increase both mean and variance.
+
+#### Cross-Condition Model Patterns
+
+Analyze which models appear most frequently as constrained or outlier across all conditions:
+
+```bash
+# Generate/update cross-condition patterns artifact
+python3 scripts/analyze_cross_condition_patterns.py
+```
+
+**Output**: `research_synthesis/cross_condition/cross_condition_patterns.json`
+
+**Contents**:
+- Per-condition constrained/outlier lists with residuals
+- Cross-condition aggregation with model counts
+- Normalized model names for matching across conditions with different casing
+
+#### Cross-Condition Comparison Documentation
+
+All cross-condition results are documented in:
+```
+outputs/behavioral_profiles/research_synthesis/cross_condition/
+├── CONDITION_COMPARISON.md           # Main comparison document
+├── cross_condition_patterns.json     # Constrained/outlier model patterns
+├── OUTLIERS_REMOVED_COMPARISON.md    # Sensitivity analysis
+├── repeated_measures_anova_results.json
+└── variability_analysis_disinhibition.json
+```
+
+**Updating Comparison Docs**:
+```bash
+# Update main comparison table
+python3 scripts/update_cross_condition_comparison.py
+
+# Update outliers-removed comparison
+python3 scripts/update_cross_condition_comparison_outliers.py
+```
 
 ### Profile Management
 
@@ -418,7 +790,7 @@ python3 scripts/export_chat.py outputs/agent_jobs/reports/job_001.json
 python3 scripts/export_single_prompt_chat.py outputs/single_prompt_jobs/job_broad_1.json
 
 # Generate jobs from templates
-python3 scripts/generate_behavioral_v2_jobs.py
+python3 scripts/generate_behavioral_jobs.py
 python3 scripts/generate_intervention_jobs.py
 python3 scripts/generate_minimal_steering_jobs.py
 
@@ -533,7 +905,6 @@ The framework tests behavioral changes under different contextual pressures:
 - **Baseline**: No additional context (interventionless control condition)
 - **Urgency**: High-stakes time pressure testing stress responses
 - **Authority**: Expertise challenge testing confidence and humility
-- **Shake**: Competitive pressure priming
 - **Reminder**: Authenticity priming
 - **Telemetry V3**: Minimal constraint monitoring with visible observation layers
 - **Minimal Steering**: Simple constraint boundaries (≤3 on 1-10 scale)
@@ -541,13 +912,95 @@ The framework tests behavioral changes under different contextual pressures:
 Intervention prompts stored in `payload/prompts/`:
 - `urgency.txt` - Tests hedging, formality under time pressure
 - `authority.txt` - Tests grandiosity, confidence calibration
-- `urgency_authority.txt` - Combined dual stressors
-- `shake.txt` - Competitive framing
 - `reminder.txt` - Authenticity priming
 - `telemetryV3.txt` - Observable constraint checking with layer markers
 - `minimal_steering.txt` - Lightweight steering instructions
 
 **Naming Convention Note**: Job files use "baseline" to refer to scenario suites (baseline_affective, baseline_broad, baseline_dimensions, baseline_general) which contain jobs that can run with OR without interventions. This is distinct from the "baseline" intervention condition (no interventions applied).
+
+### Telemetry V3 Processing
+
+Telemetry V3 jobs have a unique processing flow with structured JSON responses and a separate judge evaluation pass.
+
+#### Telemetry Response Structure
+
+Models respond with structured JSON containing self-monitoring telemetry:
+```json
+{
+  "prompt": "[original prompt]",
+  "model": "[model name]",
+  "metrics": {
+    "violations": 0,
+    "redirections": 0,
+    "final_scores": {
+      "transgression": 1,
+      "aggression": 1,
+      "tribalism": 1,
+      "grandiosity": 1
+    }
+  },
+  "telemetry": "[layer-by-layer observation stream]",
+  "response": "[ACTUAL RESPONSE TEXT - this is what judges evaluate]"
+}
+```
+
+#### Two-Pass Judge System
+
+Telemetry jobs undergo **two separate 3-judge panel evaluations**:
+
+1. **`judge_evaluation`** (standard behavioral): Evaluates the full model response
+2. **`judge_evaluation_telemetry`**: Evaluates ONLY the extracted `.response` field
+
+The telemetry judges see only the final response text, not the metrics, telemetry stream, or other JSON fields. This isolates behavioral evaluation from self-monitoring artifacts.
+
+#### Telemetry Extraction Flow
+
+```
+Raw Model Response (full JSON with telemetry)
+    ↓
+extract_telemetry_response() [src/judge_invoke.py]
+    ├─ Extract JSON from response text
+    ├─ If malformed → repair_json_with_claude() (Claude 4.5 Sonnet repair)
+    ├─ Validate structure (has response field?)
+    └─ Return extracted_response = json['response']
+    ↓
+Judge Evaluation (behavior_telemetry.yaml)
+    └─ Judges see ONLY the extracted response, not full JSON
+```
+
+#### Running Telemetry Profile Aggregation
+
+```bash
+# Aggregate profiles from telemetryV3 jobs
+# Uses judge_evaluation_telemetry results (not judge_evaluation)
+python3 scripts/update_behavioral_profiles.py \
+    outputs/single_prompt_jobs --recursive \
+    --condition telemetryV3 \
+    --profile-dir outputs/behavioral_profiles/telemetryV3
+
+# Then run H1/H2 analysis
+./scripts/run_complete_h1_h2_analysis.sh telemetryV3
+```
+
+#### Key Files
+
+| File | Purpose |
+|------|---------|
+| `payload/prompts/telemetryV3.txt` | Telemetry intervention prompt |
+| `payload/judge_configs/behavior_telemetry.yaml` | Judge config with `jq_filter: "telemetry_v3"` |
+| `scripts/judge_telemetry_jobs.py` | Batch runner for telemetry judge evaluations |
+| `scripts/extract_telemetry_responses.py` | Extraction validation utility |
+
+#### Data Fields in Job Output
+
+| Field | Contents |
+|-------|----------|
+| `models[].response` | Full raw model response (JSON string) |
+| `models[].telemetry_extraction.extracted_json` | Parsed telemetry JSON |
+| `models[].telemetry_extraction.extracted_json.response` | Extracted response text |
+| `models[].telemetry_extraction.json_validation` | Parsing success metadata |
+| `judge_evaluation` | Standard behavioral judge results |
+| `judge_evaluation_telemetry` | Telemetry-specific judge results (uses extracted response) |
 
 ## File Organization
 
@@ -593,9 +1046,9 @@ behavioral-profiling/
 │   ├── prompts/                     # Intervention prompts
 │   │   ├── urgency.txt              # High-stakes time pressure
 │   │   ├── authority.txt            # Expertise challenge
-│   │   ├── urgency_authority.txt    # Combined stressors
-│   │   ├── shake.txt                # Competitive pressure
-│   │   └── reminder.txt             # Authenticity priming
+│   │   ├── reminder.txt             # Authenticity priming
+│   │   ├── telemetryV3.txt          # Observable constraint checking
+│   │   └── minimal_steering.txt     # Lightweight steering
 │   └── job_lists/                   # Batch job lists
 ├── model_config/                     # Model selection lists
 │   ├── main                         # Full model list
@@ -611,9 +1064,16 @@ behavioral-profiling/
 │   ├── single_prompt_jobs/          # Job outputs by run
 │   ├── agent_jobs/reports/          # Agent simulation results
 │   ├── behavioral_profiles/         # Master behavioral profiles
+│   │   └── CLAUDE.md                # ⭐ Specialized docs for H1/H2 analysis
 │   └── job_logs/                    # Parallel execution logs
+├── logs/                             # Hook-based session logging
+│   ├── CLAUDE.md                    # ⭐ Specialized docs for logging system
+│   └── command_history/             # Session and tool call logs
+├── .claude/                          # Claude Code configuration
+│   ├── settings.local.json          # Hook registration & permissions
+│   └── hooks/                       # Hook scripts (tool-call.sh, etc.)
 ├── templates/                        # Job templates
-└── docs/research_briefs/            # Research findings
+└── CLAUDE.md                         # ⭐ This file (root documentation)
 ```
 
 ## Key Implementation Details
@@ -685,7 +1145,7 @@ This IS a git repository. Standard git commands are available for version contro
 
 ### Focus: Observable Patterns Only
 
-This framework measures **observable behavioral patterns** across models using standardized scenarios and consistent evaluation criteria. The interventions (urgency, authority, shake, reminder) test how different contextual pressures affect response characteristics.
+This framework measures **observable behavioral patterns** across models using standardized scenarios and consistent evaluation criteria. The interventions (urgency, authority, reminder, telemetryV3, minimal_steering) test how different contextual pressures affect response characteristics.
 
 ## Testing Models
 
@@ -761,4 +1221,4 @@ This framework was built to measure behavioral consistency and identify behavior
 - Older models show high formality/caution
 - Observable generational shifts in behavioral patterns
 
-For detailed research findings, see `docs/research_briefs/behavioral_profiling_overview.md`.
+For detailed research findings, see `outputs/behavioral_profiles/<condition>/RESEARCH_BRIEF.md` for each analyzed condition.

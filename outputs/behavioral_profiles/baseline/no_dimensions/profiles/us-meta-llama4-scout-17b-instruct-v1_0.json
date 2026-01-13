@@ -1,0 +1,55 @@
+{
+  "model_name": "us.meta.llama4-scout-17b-instruct-v1:0",
+  "display_name": "Llama-4-Scout-17B",
+  "provider": "Meta",
+  "dimensions": {
+    "warmth": {
+      "sum": 273.3,
+      "count": 44,
+      "average": 6.2114
+    },
+    "formality": {
+      "sum": 324.66,
+      "count": 44,
+      "average": 7.3786
+    },
+    "hedging": {
+      "sum": 201.67,
+      "count": 44,
+      "average": 4.5834
+    },
+    "aggression": {
+      "sum": 53.0,
+      "count": 44,
+      "average": 1.2045
+    },
+    "transgression": {
+      "sum": 53.31,
+      "count": 44,
+      "average": 1.2116
+    },
+    "grandiosity": {
+      "sum": 74.33,
+      "count": 44,
+      "average": 1.6893
+    },
+    "tribalism": {
+      "sum": 44.33,
+      "count": 44,
+      "average": 1.0075
+    },
+    "depth": {
+      "sum": 265.69,
+      "count": 44,
+      "average": 6.0384
+    },
+    "authenticity": {
+      "sum": 198.69,
+      "count": 44,
+      "average": 4.5157
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.861052"
+}

@@ -1,52 +1,65 @@
 {
   "model_name": "Claude-4-Sonnet",
   "dimensions": {
-    "tribalism": {
-      "sum": 76.66,
-      "count": 67,
-      "average": 1.144179104477612
+    "grandiosity": {
+      "sum": 529.5600000000001,
+      "count": 236,
+      "average": 2.243898305084746
     },
     "warmth": {
-      "sum": 437.66,
-      "count": 67,
-      "average": 6.53223880597015
+      "sum": 1376.6200000000001,
+      "count": 236,
+      "average": 5.83313559322034
     },
     "aggression": {
-      "sum": 87.97999999999999,
-      "count": 67,
-      "average": 1.3131343283582089
+      "sum": 497.2699999999999,
+      "count": 236,
+      "average": 2.10707627118644
     },
     "formality": {
-      "sum": 447.6599999999999,
-      "count": 67,
-      "average": 6.6814925373134315
+      "sum": 1595.31,
+      "count": 236,
+      "average": 6.75978813559322
     },
-    "depth": {
-      "sum": 435.63999999999993,
-      "count": 67,
-      "average": 6.502089552238805
-    },
-    "authenticity": {
-      "sum": 372.0400000000001,
-      "count": 67,
-      "average": 5.552835820895524
+    "tribalism": {
+      "sum": 306.33,
+      "count": 236,
+      "average": 1.2980084745762712
     },
     "hedging": {
-      "sum": 318.97,
-      "count": 67,
-      "average": 4.760746268656717
-    },
-    "grandiosity": {
-      "sum": 121.98,
-      "count": 67,
-      "average": 1.8205970149253732
+      "sum": 1248.2400000000002,
+      "count": 236,
+      "average": 5.289152542372882
     },
     "transgression": {
-      "sum": 114.92999999999996,
-      "count": 67,
-      "average": 1.7153731343283576
+      "sum": 496.5799999999999,
+      "count": 236,
+      "average": 2.104152542372881
+    },
+    "authenticity": {
+      "sum": 1484.3799999999999,
+      "count": 236,
+      "average": 6.289745762711864
+    },
+    "depth": {
+      "sum": 1655.6699999999998,
+      "count": 236,
+      "average": 7.015550847457626
+    },
+    "tribalalism": {
+      "sum": 0.0,
+      "count": 1,
+      "average": 0.0
     }
   },
-  "last_updated": "2026-01-09T15:42:49.941038",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537225",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

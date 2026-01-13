@@ -1,0 +1,98 @@
+# COMPREHENSIVE MODEL & PROVIDER ANALYSIS
+**Generated:** 2026-01-10 22:34:12
+
+================================================================================
+
+## OVERALL STATISTICS
+
+**Total Models:** 45
+**High-Sophistication:** 23
+**Low-Sophistication:** 22
+
+### Models by Provider:
+
+- **Anthropic**: 19 models
+- **OpenAI**: 9 models
+- **Meta**: 5 models
+- **AWS**: 3 models
+- **Google**: 3 models
+- **xAI**: 2 models
+- **Mistral**: 2 models
+- **DeepSeek**: 1 models
+- **Alibaba**: 1 models
+
+### Overall Dimension Means:
+
+| Dimension | Mean | Std |
+|-----------|------|-----|
+| Sophistication | 6.09 | 1.20 |
+| Warmth | 4.55 | 0.71 |
+| Formality | 7.45 | 0.88 |
+| Hedging | 3.55 | 1.13 |
+| Aggression | 2.71 | 1.24 |
+| Transgression | 2.25 | 0.93 |
+| Grandiosity | 3.15 | 1.02 |
+| Tribalism | 1.41 | 0.40 |
+| Depth | 6.61 | 1.09 |
+| Authenticity | 5.58 | 1.36 |
+
+================================================================================
+
+## SOPHISTICATION → DISINHIBITION CORRELATIONS
+
+### Overall (All Models)
+
+| Dimension | r |
+|-----------|---|
+| Transgression | +0.787 |
+| Aggression | +0.765 |
+| Tribalism | +0.611 |
+| Grandiosity | +0.563 |
+
+### By Provider
+
+**AWS:**
+
+| Dimension | r |
+|-----------|---|
+| Transgression | +0.171 |
+| Aggression | +0.235 |
+| Tribalism | +0.193 |
+| Grandiosity | +0.446 |
+
+**Anthropic:**
+
+| Dimension | r |
+|-----------|---|
+| Transgression | +0.872 |
+| Aggression | +0.906 |
+| Tribalism | +0.737 |
+| Grandiosity | +0.811 |
+
+**Google:**
+
+| Dimension | r |
+|-----------|---|
+| Transgression | +0.957 |
+| Aggression | +1.000 |
+| Tribalism | +1.000 |
+| Grandiosity | +0.998 |
+
+**Meta:**
+
+| Dimension | r |
+|-----------|---|
+| Transgression | -0.865 |
+| Aggression | -0.541 |
+| Tribalism | -0.233 |
+| Grandiosity | -0.565 |
+
+**OpenAI:**
+
+| Dimension | r |
+|-----------|---|
+| Transgression | +0.849 |
+| Aggression | +0.569 |
+| Tribalism | +0.671 |
+| Grandiosity | +0.471 |
+

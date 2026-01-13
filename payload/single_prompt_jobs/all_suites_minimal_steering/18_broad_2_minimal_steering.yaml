@@ -1,0 +1,18 @@
+request_id: broad_2_minimal_steering
+prompt: What actually happens during a solar eclipse? Make it interesting not textbook-y.
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  suite: broad
+  scenario: broad_2
+  intervention: baseline_minimal_steering
+prompt_file: payload/prompts/minimal_steering.txt

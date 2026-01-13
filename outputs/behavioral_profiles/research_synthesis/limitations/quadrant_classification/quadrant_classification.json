@@ -1,0 +1,353 @@
+{
+  "generated": "2026-01-12",
+  "methodology": "quadrant_classification",
+  "description": "Models classified by sophistication (High/Low) \u00d7 disinhibition (High/Low)",
+  "thresholds": {
+    "sophistication_median": 5.936599999999999,
+    "disinhibition_median": 1.5495999999999999
+  },
+  "regression": {
+    "slope": 0.14875928348562523,
+    "intercept": 0.6608979569138612,
+    "residual_std": 0.11959589680568089,
+    "interpretation": "Positive residual = more disinhibited than predicted; Negative = more constrained"
+  },
+  "summary": {
+    "total_models": 45,
+    "constrained": 3,
+    "capable": 19,
+    "baseline_typical": 20,
+    "unusual": 3
+  },
+  "quadrant_descriptions": {
+    "constrained": "High sophistication, Low disinhibition - Deliberate constraint despite capability",
+    "capable": "High sophistication, High disinhibition - Expected H2 correlation",
+    "baseline_typical": "Low sophistication, Low disinhibition - Legacy/smaller models",
+    "unusual": "Low sophistication, High disinhibition - Anomalous pattern"
+  },
+  "quadrants": {
+    "constrained": [
+      {
+        "model": "gpt-oss-120b",
+        "provider": "OpenAI",
+        "soph": 7.122,
+        "dis": 1.491,
+        "residual": -0.23
+      },
+      {
+        "model": "gpt-5.2_pro",
+        "provider": "OpenAI",
+        "soph": 7.34,
+        "dis": 1.55,
+        "residual": -0.203
+      },
+      {
+        "model": "o3",
+        "provider": "OpenAI",
+        "soph": 7.177,
+        "dis": 1.548,
+        "residual": -0.18
+      }
+    ],
+    "capable": [
+      {
+        "model": "gemini-3-pro-preview",
+        "provider": "Google",
+        "soph": 7.497,
+        "dis": 2.306,
+        "residual": 0.53
+      },
+      {
+        "model": "grok-4-0709",
+        "provider": "xAI",
+        "soph": 6.634,
+        "dis": 1.865,
+        "residual": 0.217
+      },
+      {
+        "model": "claude-4.5-sonnet",
+        "provider": "Anthropic",
+        "soph": 6.77,
+        "dis": 1.827,
+        "residual": 0.158
+      },
+      {
+        "model": "claude-4.5-sonnet-thinking_(thinking)",
+        "provider": "Anthropic",
+        "soph": 6.62,
+        "dis": 1.749,
+        "residual": 0.103
+      },
+      {
+        "model": "claude-4-sonnet",
+        "provider": "Anthropic",
+        "soph": 6.14,
+        "dis": 1.631,
+        "residual": 0.057
+      },
+      {
+        "model": "deepseek-r1",
+        "provider": "DeepSeek",
+        "soph": 6.26,
+        "dis": 1.642,
+        "residual": 0.05
+      },
+      {
+        "model": "claude-4.1-opus",
+        "provider": "Anthropic",
+        "soph": 6.346,
+        "dis": 1.633,
+        "residual": 0.028
+      },
+      {
+        "model": "claude-4.5-opus-global-thinking_(thinking)",
+        "provider": "Anthropic",
+        "soph": 6.76,
+        "dis": 1.686,
+        "residual": 0.02
+      },
+      {
+        "model": "claude-4.5-opus-global",
+        "provider": "Anthropic",
+        "soph": 6.88,
+        "dis": 1.701,
+        "residual": 0.017
+      },
+      {
+        "model": "claude-4-sonnet-thinking_(thinking)",
+        "provider": "Anthropic",
+        "soph": 6.16,
+        "dis": 1.583,
+        "residual": 0.005
+      },
+      {
+        "model": "grok-3",
+        "provider": "xAI",
+        "soph": 6.433,
+        "dis": 1.615,
+        "residual": -0.003
+      },
+      {
+        "model": "qwen3-32b",
+        "provider": "Alibaba",
+        "soph": 6.38,
+        "dis": 1.59,
+        "residual": -0.02
+      },
+      {
+        "model": "claude-4.5-haiku",
+        "provider": "Anthropic",
+        "soph": 6.947,
+        "dis": 1.671,
+        "residual": -0.023
+      },
+      {
+        "model": "gemini-2.5-pro",
+        "provider": "Google",
+        "soph": 7.554,
+        "dis": 1.756,
+        "residual": -0.028
+      },
+      {
+        "model": "gemini-2.0-flash",
+        "provider": "Google",
+        "soph": 6.19,
+        "dis": 1.553,
+        "residual": -0.029
+      },
+      {
+        "model": "claude-4.5-haiku-thinking_(thinking)",
+        "provider": "Anthropic",
+        "soph": 6.837,
+        "dis": 1.64,
+        "residual": -0.038
+      },
+      {
+        "model": "gpt-5.1",
+        "provider": "OpenAI",
+        "soph": 7.26,
+        "dis": 1.656,
+        "residual": -0.085
+      },
+      {
+        "model": "gpt-5.2",
+        "provider": "OpenAI",
+        "soph": 7.257,
+        "dis": 1.631,
+        "residual": -0.109
+      },
+      {
+        "model": "gpt-5",
+        "provider": "OpenAI",
+        "soph": 7.033,
+        "dis": 1.556,
+        "residual": -0.151
+      }
+    ],
+    "baseline_typical": [
+      {
+        "model": "gpt-3.5_turbo",
+        "provider": "OpenAI",
+        "soph": 4.01,
+        "dis": 1.393,
+        "residual": 0.135
+      },
+      {
+        "model": "gpt-4",
+        "provider": "OpenAI",
+        "soph": 4.383,
+        "dis": 1.346,
+        "residual": 0.033
+      },
+      {
+        "model": "mixtral-8x7b",
+        "provider": "Mistral",
+        "soph": 4.53,
+        "dis": 1.361,
+        "residual": 0.026
+      },
+      {
+        "model": "mistral-large-24.02",
+        "provider": "Mistral",
+        "soph": 4.54,
+        "dis": 1.353,
+        "residual": 0.016
+      },
+      {
+        "model": "claude-3.5-haiku",
+        "provider": "Anthropic",
+        "soph": 4.614,
+        "dis": 1.404,
+        "residual": 0.057
+      },
+      {
+        "model": "claude-3-opus",
+        "provider": "Anthropic",
+        "soph": 4.683,
+        "dis": 1.356,
+        "residual": -0.001
+      },
+      {
+        "model": "claude-3-haiku",
+        "provider": "Anthropic",
+        "soph": 4.703,
+        "dis": 1.326,
+        "residual": -0.035
+      },
+      {
+        "model": "claude-3.5-sonnet-v1",
+        "provider": "Anthropic",
+        "soph": 4.752,
+        "dis": 1.374,
+        "residual": 0.007
+      },
+      {
+        "model": "claude-3-sonnet",
+        "provider": "Anthropic",
+        "soph": 4.807,
+        "dis": 1.301,
+        "residual": -0.075
+      },
+      {
+        "model": "claude-3.5-sonnet-v2",
+        "provider": "Anthropic",
+        "soph": 4.867,
+        "dis": 1.368,
+        "residual": -0.017
+      },
+      {
+        "model": "nova-premier",
+        "provider": "AWS",
+        "soph": 4.987,
+        "dis": 1.318,
+        "residual": -0.085
+      },
+      {
+        "model": "nova-lite",
+        "provider": "AWS",
+        "soph": 5.066,
+        "dis": 1.325,
+        "residual": -0.09
+      },
+      {
+        "model": "llama-4-maverick-17b",
+        "provider": "Meta",
+        "soph": 5.08,
+        "dis": 1.36,
+        "residual": -0.057
+      },
+      {
+        "model": "llama-3.2-90b",
+        "provider": "Meta",
+        "soph": 5.083,
+        "dis": 1.383,
+        "residual": -0.034
+      },
+      {
+        "model": "llama-3.3-70b",
+        "provider": "Meta",
+        "soph": 5.134,
+        "dis": 1.396,
+        "residual": -0.028
+      },
+      {
+        "model": "llama-3.1-70b",
+        "provider": "Meta",
+        "soph": 5.23,
+        "dis": 1.446,
+        "residual": 0.008
+      },
+      {
+        "model": "nova-pro",
+        "provider": "AWS",
+        "soph": 5.287,
+        "dis": 1.343,
+        "residual": -0.104
+      },
+      {
+        "model": "llama-4-scout-17b",
+        "provider": "Meta",
+        "soph": 5.334,
+        "dis": 1.398,
+        "residual": -0.056
+      },
+      {
+        "model": "claude-3.7-sonnet",
+        "provider": "Anthropic",
+        "soph": 5.357,
+        "dis": 1.451,
+        "residual": -0.007
+      },
+      {
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "soph": 5.604,
+        "dis": 1.421,
+        "residual": -0.073
+      }
+    ],
+    "unusual": [
+      {
+        "model": "claude-4.1-opus-thinking_(thinking)",
+        "provider": "Anthropic",
+        "soph": 5.892,
+        "dis": 1.609,
+        "residual": 0.072
+      },
+      {
+        "model": "claude-4-opus-thinking_(thinking)",
+        "provider": "Anthropic",
+        "soph": 5.937,
+        "dis": 1.658,
+        "residual": 0.114
+      },
+      {
+        "model": "claude-4-opus",
+        "provider": "Anthropic",
+        "soph": 5.924,
+        "dis": 1.648,
+        "residual": 0.105
+      }
+    ]
+  }
+}

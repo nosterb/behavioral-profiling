@@ -3,23 +3,23 @@
 Analysis Orchestrator - Run configured analyses on study data.
 
 This script reads an analysis configuration file and executes all enabled
-analysis modules in order. Supports personality studies, behavioral intervention studies,
+analysis modules in order. Supports behavioral studies, behavioral intervention studies,
 and custom analysis workflows.
 
 Usage:
     # Run all configured analyses
-    python3 scripts/run_analysis.py analysis_configs/personality_study_v4.yaml
+    python3 scripts/run_analysis.py analysis_configs/behavioral_study_v4.yaml
 
     # Run specific analyses only
-    python3 scripts/run_analysis.py analysis_configs/personality_study_v4.yaml \
+    python3 scripts/run_analysis.py analysis_configs/behavioral_study_v4.yaml \
         --only chat_export,similarity_analysis
 
     # Dry run (show what would be executed)
-    python3 scripts/run_analysis.py analysis_configs/personality_study_v4.yaml --dry-run
+    python3 scripts/run_analysis.py analysis_configs/behavioral_study_v4.yaml --dry-run
 
 Configuration format:
-    study_name: personality_study_v4
-    data_directory: outputs/single_prompt_jobs/12_7_2025_personality_v4
+    study_name: behavioral_study_v4
+    data_directory: outputs/single_prompt_jobs/12_7_2025_behavioral_v4
 
     analyses:
       - type: chat_export
@@ -51,14 +51,14 @@ ANALYSIS_MODULES = {
         'args_template': ['{data_directory}']
     },
 
-    # Personality modules
+    # Behavioral modules
     'per_job_visualizations': {
-        'script': 'src/visualize_personality.py',
+        'script': 'src/visualize_behavioral.py',
         'description': 'Generate per-job spider charts and heatmaps',
         'args_template': ['{data_directory}']
     },
     'cross_job_aggregation': {
-        'script': 'src/aggregate_personality.py',
+        'script': 'src/aggregate_behavioral.py',
         'description': 'Aggregate scores across all jobs',
         'args_template': ['{data_directory}']
     },
@@ -68,8 +68,8 @@ ANALYSIS_MODULES = {
         'args_template': ['{data_directory}']
     },
     'average_profile': {
-        'script': 'scripts/visualize_average_personality.py',
-        'description': 'Compute universal AI personality pattern',
+        'script': 'scripts/visualize_average_behavioral.py',
+        'description': 'Compute universal AI behavioral patterns pattern',
         'args_template': ['{data_directory}']
     },
     'similarity_analysis': {
@@ -78,7 +78,7 @@ ANALYSIS_MODULES = {
         'args_template': ['{data_directory}']
     },
     'calculation_trace': {
-        'script': 'scripts/trace_personality_math.py',
+        'script': 'scripts/trace_behavioral_math.py',
         'description': 'Verify calculation correctness',
         'args_template': ['{data_directory}']
     },

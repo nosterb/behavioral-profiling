@@ -1,0 +1,65 @@
+{
+  "model_name": "Claude-4.1-Opus-Thinking (Thinking)",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 470.63,
+      "count": 236,
+      "average": 1.9941949152542373
+    },
+    "warmth": {
+      "sum": 1375.01,
+      "count": 236,
+      "average": 5.826313559322034
+    },
+    "aggression": {
+      "sum": 424.18999999999994,
+      "count": 236,
+      "average": 1.7974152542372879
+    },
+    "formality": {
+      "sum": 1549.14,
+      "count": 236,
+      "average": 6.564152542372882
+    },
+    "tribalism": {
+      "sum": 276.65999999999997,
+      "count": 236,
+      "average": 1.1722881355932202
+    },
+    "hedging": {
+      "sum": 1149.94,
+      "count": 236,
+      "average": 4.872627118644068
+    },
+    "transgression": {
+      "sum": 468.57,
+      "count": 236,
+      "average": 1.9854661016949153
+    },
+    "authenticity": {
+      "sum": 1423.8700000000003,
+      "count": 236,
+      "average": 6.03334745762712
+    },
+    "depth": {
+      "sum": 1626.9499999999998,
+      "count": 236,
+      "average": 6.893855932203389
+    },
+    "organicness": {
+      "sum": 7.0,
+      "count": 1,
+      "average": 7.0
+    }
+  },
+  "last_updated": "2026-01-11T21:27:57.537303",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
+}

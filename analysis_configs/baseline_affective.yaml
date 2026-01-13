@@ -1,0 +1,35 @@
+# Baseline Affective Analysis Configuration
+study_name: baseline_affective
+description: Baseline affective behavioral analysis
+data_directory: outputs/single_prompt_jobs/baseline_affective
+
+global_options:
+  dpi: 300
+  figure_format: png
+
+analyses:
+  - type: per_job_visualizations
+    enabled: true
+    options:
+      chart_types: [spider, comparative_spider, heatmap]
+      output_subdir: visualization/individual_jobs
+
+  - type: cross_job_aggregation
+    enabled: true
+    options:
+      aggregation_method: mean
+      output_subdir: visualization/summary
+
+  - type: average_profile
+    enabled: true
+    options:
+      chart_types: [average_spider, overlay, deviation_bars]
+      include_summary: true
+      output_subdir: visualization/average_profile
+
+  - type: similarity_analysis
+    enabled: true
+    options:
+      metrics: [composite, euclidean, cosine]
+      top_n_pairs: 10
+      output_subdir: visualization/similarity_analysis

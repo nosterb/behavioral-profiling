@@ -1,0 +1,367 @@
+{
+  "generated": "2026-01-12",
+  "conditions": [
+    "baseline",
+    "authority",
+    "minimal_steering",
+    "reminder",
+    "telemetryV3",
+    "urgency"
+  ],
+  "condition_medians": {
+    "baseline": 5.930349999999999,
+    "authority": 6.721960784313726,
+    "minimal_steering": 5.171928571428571,
+    "reminder": 6.8330769230769235,
+    "telemetryV3": 5.016041666666667,
+    "urgency": 6.172941176470586
+  },
+  "summary": {
+    "total_models": 46,
+    "always_high": 17,
+    "always_low": 18,
+    "flipped": 10,
+    "stability_rate": 76.1
+  },
+  "always_high_models": [
+    "claude-4-opus-thinking_(thinking)",
+    "claude-4-sonnet",
+    "claude-4-sonnet-thinking_(thinking)",
+    "claude-4.1-opus",
+    "claude-4.5-sonnet-thinking_(thinking)",
+    "grok-4-0709",
+    "claude-4.5-sonnet",
+    "claude-4.5-haiku-thinking_(thinking)",
+    "claude-4.5-haiku",
+    "gpt-5",
+    "gpt-oss-120b",
+    "o3",
+    "gpt-5.2",
+    "gpt-5.1",
+    "gpt-5.2_pro",
+    "gemini-3-pro-preview",
+    "gemini-2.5-pro"
+  ],
+  "always_low_models": [
+    "gpt-3.5_turbo",
+    "gpt-4",
+    "mixtral-8x7b",
+    "mistral-large-24.02",
+    "claude-3.5-haiku",
+    "claude-3-opus",
+    "claude-3-haiku",
+    "claude-3.5-sonnet-v1",
+    "claude-3-sonnet",
+    "claude-3.5-sonnet-v2",
+    "nova-premier",
+    "nova-lite",
+    "llama-4-maverick-17b",
+    "llama-3.2-90b",
+    "llama-3.3-70b",
+    "llama-3.1-70b",
+    "nova-pro",
+    "llama-4-scout-17b"
+  ],
+  "flipped_models": [
+    {
+      "model_id": "claude-3.7-sonnet",
+      "display_name": "Claude-3.7-Sonnet",
+      "classifications": {
+        "baseline": "Low-Sophistication",
+        "authority": "Low-Sophistication",
+        "minimal_steering": "Low-Sophistication",
+        "reminder": "Low-Sophistication",
+        "telemetryV3": "High-Sophistication",
+        "urgency": "Low-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 5.36,
+        "authority": 5.7,
+        "minimal_steering": 5.01,
+        "reminder": 5.81,
+        "telemetryV3": 5.44,
+        "urgency": 5.74
+      },
+      "high_conditions": [
+        "telemetryV3"
+      ],
+      "low_conditions": [
+        "baseline",
+        "authority",
+        "minimal_steering",
+        "reminder",
+        "urgency"
+      ]
+    },
+    {
+      "model_id": "gpt-4.1",
+      "display_name": "GPT-4.1",
+      "classifications": {
+        "baseline": "Low-Sophistication",
+        "authority": "High-Sophistication",
+        "minimal_steering": "Low-Sophistication",
+        "reminder": "Low-Sophistication",
+        "telemetryV3": "Low-Sophistication",
+        "urgency": "High-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 5.6,
+        "authority": 7.1,
+        "minimal_steering": 4.52,
+        "reminder": 6.22,
+        "telemetryV3": 4.01,
+        "urgency": 6.17
+      },
+      "high_conditions": [
+        "authority",
+        "urgency"
+      ],
+      "low_conditions": [
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3"
+      ]
+    },
+    {
+      "model_id": "claude-4.1-opus-thinking_(thinking)",
+      "display_name": "Claude-4.1-Opus-Thinking (Thinking)",
+      "classifications": {
+        "baseline": "Low-Sophistication",
+        "authority": "High-Sophistication",
+        "minimal_steering": "High-Sophistication",
+        "reminder": "High-Sophistication",
+        "telemetryV3": "High-Sophistication",
+        "urgency": "High-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 5.89,
+        "authority": 6.86,
+        "minimal_steering": 6.25,
+        "reminder": 7.5,
+        "telemetryV3": 5.81,
+        "urgency": 6.97
+      },
+      "high_conditions": [
+        "authority",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "low_conditions": [
+        "baseline"
+      ]
+    },
+    {
+      "model_id": "claude-4-opus",
+      "display_name": "Claude-4-Opus",
+      "classifications": {
+        "baseline": "Low-Sophistication",
+        "authority": "High-Sophistication",
+        "minimal_steering": "High-Sophistication",
+        "reminder": "High-Sophistication",
+        "telemetryV3": "High-Sophistication",
+        "urgency": "High-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 5.92,
+        "authority": 6.73,
+        "minimal_steering": 6.03,
+        "reminder": 7.22,
+        "telemetryV3": 5.41,
+        "urgency": 6.89
+      },
+      "high_conditions": [
+        "authority",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "low_conditions": [
+        "baseline"
+      ]
+    },
+    {
+      "model_id": "gemini-2.0-flash",
+      "display_name": "Gemini-2.0-Flash",
+      "classifications": {
+        "baseline": "High-Sophistication",
+        "authority": "High-Sophistication",
+        "minimal_steering": "High-Sophistication",
+        "reminder": "Low-Sophistication",
+        "telemetryV3": "Low-Sophistication",
+        "urgency": "Low-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 6.19,
+        "authority": 6.83,
+        "minimal_steering": 5.34,
+        "reminder": 6.74,
+        "telemetryV3": 4.14,
+        "urgency": 6.14
+      },
+      "high_conditions": [
+        "baseline",
+        "authority",
+        "minimal_steering"
+      ],
+      "low_conditions": [
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ]
+    },
+    {
+      "model_id": "deepseek-r1",
+      "display_name": "DeepSeek-R1",
+      "classifications": {
+        "baseline": "High-Sophistication",
+        "authority": "High-Sophistication",
+        "minimal_steering": "High-Sophistication",
+        "reminder": "Low-Sophistication",
+        "telemetryV3": "High-Sophistication",
+        "urgency": "High-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 6.26,
+        "authority": 6.97,
+        "minimal_steering": 5.91,
+        "reminder": 6.79,
+        "telemetryV3": 5.38,
+        "urgency": 7.18
+      },
+      "high_conditions": [
+        "baseline",
+        "authority",
+        "minimal_steering",
+        "telemetryV3",
+        "urgency"
+      ],
+      "low_conditions": [
+        "reminder"
+      ]
+    },
+    {
+      "model_id": "qwen3-32b",
+      "display_name": "Qwen3-32B",
+      "classifications": {
+        "baseline": "High-Sophistication",
+        "authority": "High-Sophistication",
+        "minimal_steering": "Low-Sophistication",
+        "reminder": "High-Sophistication",
+        "telemetryV3": "Low-Sophistication",
+        "urgency": "High-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 6.38,
+        "authority": 7.41,
+        "minimal_steering": 4.9,
+        "reminder": 6.87,
+        "telemetryV3": 4.87,
+        "urgency": 6.65
+      },
+      "high_conditions": [
+        "baseline",
+        "authority",
+        "reminder",
+        "urgency"
+      ],
+      "low_conditions": [
+        "minimal_steering",
+        "telemetryV3"
+      ]
+    },
+    {
+      "model_id": "grok-3",
+      "display_name": "Grok-3",
+      "classifications": {
+        "baseline": "High-Sophistication",
+        "authority": "Low-Sophistication",
+        "minimal_steering": "Low-Sophistication",
+        "reminder": "High-Sophistication",
+        "telemetryV3": "High-Sophistication",
+        "urgency": "High-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 6.43,
+        "authority": 6.57,
+        "minimal_steering": 4.94,
+        "reminder": 7.18,
+        "telemetryV3": 5.11,
+        "urgency": 6.4
+      },
+      "high_conditions": [
+        "baseline",
+        "reminder",
+        "telemetryV3",
+        "urgency"
+      ],
+      "low_conditions": [
+        "authority",
+        "minimal_steering"
+      ]
+    },
+    {
+      "model_id": "claude-4.5-opus-global-thinking_(thinking)",
+      "display_name": "Claude-4.5-Opus-Global-Thinking (Thinking)",
+      "classifications": {
+        "baseline": "High-Sophistication",
+        "authority": "Low-Sophistication",
+        "minimal_steering": "High-Sophistication",
+        "reminder": "High-Sophistication",
+        "telemetryV3": "High-Sophistication",
+        "urgency": "Low-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 6.76,
+        "authority": 4.85,
+        "minimal_steering": 6.82,
+        "reminder": 8.06,
+        "telemetryV3": 6.01,
+        "urgency": 5.06
+      },
+      "high_conditions": [
+        "baseline",
+        "minimal_steering",
+        "reminder",
+        "telemetryV3"
+      ],
+      "low_conditions": [
+        "authority",
+        "urgency"
+      ]
+    },
+    {
+      "model_id": "claude-4.5-opus-global",
+      "display_name": "Claude-4.5-Opus-Global",
+      "classifications": {
+        "baseline": "High-Sophistication",
+        "authority": "Low-Sophistication",
+        "minimal_steering": "High-Sophistication",
+        "reminder": "High-Sophistication",
+        "telemetryV3": "Low-Sophistication",
+        "urgency": "Low-Sophistication"
+      },
+      "sophistication_scores": {
+        "baseline": 6.88,
+        "authority": 4.84,
+        "minimal_steering": 6.87,
+        "reminder": 8.08,
+        "telemetryV3": 4.93,
+        "urgency": 4.7
+      },
+      "high_conditions": [
+        "baseline",
+        "minimal_steering",
+        "reminder"
+      ],
+      "low_conditions": [
+        "authority",
+        "telemetryV3",
+        "urgency"
+      ]
+    }
+  ]
+}

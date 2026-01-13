@@ -1,0 +1,55 @@
+{
+  "model_name": "gpt-3.5-turbo",
+  "display_name": "GPT-3.5 Turbo",
+  "provider": "OpenAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 251.01,
+      "count": 44,
+      "average": 5.7048
+    },
+    "formality": {
+      "sum": 322.62,
+      "count": 44,
+      "average": 7.3323
+    },
+    "hedging": {
+      "sum": 191.99,
+      "count": 44,
+      "average": 4.3634
+    },
+    "aggression": {
+      "sum": 52.65,
+      "count": 44,
+      "average": 1.1966
+    },
+    "transgression": {
+      "sum": 57.62,
+      "count": 44,
+      "average": 1.3095
+    },
+    "grandiosity": {
+      "sum": 67.65,
+      "count": 44,
+      "average": 1.5375
+    },
+    "tribalism": {
+      "sum": 44.67,
+      "count": 44,
+      "average": 1.0152
+    },
+    "depth": {
+      "sum": 202.35,
+      "count": 44,
+      "average": 4.5989
+    },
+    "authenticity": {
+      "sum": 152.68,
+      "count": 44,
+      "average": 3.47
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.858239"
+}

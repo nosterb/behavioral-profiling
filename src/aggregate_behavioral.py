@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Aggregate personality scores across multiple jobs and create overall visualizations.
+Aggregate behavioral scores across multiple jobs and create overall visualizations.
 
 This script reads multiple judge evaluation files, averages each model's scores
 across all jobs, and creates aggregated spider charts.
@@ -20,7 +20,7 @@ from behavioral_constants import BEHAVIORAL_DIMENSIONS
 
 def aggregate_scores_from_directory(directory: Path) -> Dict[str, Dict[str, float]]:
     """
-    Aggregate personality scores for each model across all jobs in a directory.
+    Aggregate behavioral scores for each model across all jobs in a directory.
 
     Args:
         directory: Path to directory containing judge evaluation JSON files
@@ -31,7 +31,7 @@ def aggregate_scores_from_directory(directory: Path) -> Dict[str, Dict[str, floa
     # Collect all scores per model
     model_scores = defaultdict(lambda: defaultdict(list))
 
-    json_files = list(directory.glob("*.json"))
+    json_files = list(directory.rglob("*.json"))
 
     if not json_files:
         raise ValueError(f"No JSON files found in {directory}")
@@ -154,11 +154,11 @@ def create_aggregated_spider_chart(
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 src/aggregate_personality.py <directory> [output_path]")
+        print("Usage: python3 src/aggregate_behavioral.py <directory> [output_path]")
         print("\nCreates a single aggregated spider chart showing each model's")
         print("average behavioral profile across all jobs in the directory.")
         print("\nExample:")
-        print("  python3 src/aggregate_personality.py outputs/single_prompt_jobs/12_2_2025_personality_v1")
+        print("  python3 src/aggregate_behavioral.py outputs/single_prompt_jobs/12_2_2025_behavioral_v1")
         sys.exit(1)
 
     input_dir = Path(sys.argv[1])

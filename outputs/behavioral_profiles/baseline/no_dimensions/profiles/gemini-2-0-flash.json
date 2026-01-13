@@ -1,0 +1,55 @@
+{
+  "model_name": "gemini-2.0-flash",
+  "display_name": "Gemini-2.0-Flash",
+  "provider": "Google",
+  "dimensions": {
+    "warmth": {
+      "sum": 273.32,
+      "count": 44,
+      "average": 6.2118
+    },
+    "formality": {
+      "sum": 305.32,
+      "count": 44,
+      "average": 6.9391
+    },
+    "hedging": {
+      "sum": 190.64,
+      "count": 44,
+      "average": 4.3327
+    },
+    "aggression": {
+      "sum": 64.29,
+      "count": 44,
+      "average": 1.4611
+    },
+    "transgression": {
+      "sum": 64.63,
+      "count": 44,
+      "average": 1.4689
+    },
+    "grandiosity": {
+      "sum": 79.38,
+      "count": 44,
+      "average": 1.8041
+    },
+    "tribalism": {
+      "sum": 50.32,
+      "count": 44,
+      "average": 1.1436
+    },
+    "depth": {
+      "sum": 306.65,
+      "count": 44,
+      "average": 6.9693
+    },
+    "authenticity": {
+      "sum": 237.33,
+      "count": 44,
+      "average": 5.3939
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.861707"
+}

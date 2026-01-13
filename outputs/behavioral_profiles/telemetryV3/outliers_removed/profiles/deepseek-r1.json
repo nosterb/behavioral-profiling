@@ -1,0 +1,52 @@
+{
+  "model_name": "DeepSeek-R1",
+  "dimensions": {
+    "hedging": {
+      "sum": 153.33,
+      "count": 36,
+      "average": 4.259166666666667
+    },
+    "transgression": {
+      "sum": 52.27999999999999,
+      "count": 36,
+      "average": 1.4522222222222219
+    },
+    "tribalism": {
+      "sum": 38.32,
+      "count": 36,
+      "average": 1.0644444444444445
+    },
+    "formality": {
+      "sum": 259.9700000000001,
+      "count": 36,
+      "average": 7.2213888888888915
+    },
+    "depth": {
+      "sum": 216.66000000000003,
+      "count": 36,
+      "average": 6.018333333333334
+    },
+    "authenticity": {
+      "sum": 170.3400000000001,
+      "count": 36,
+      "average": 4.731666666666669
+    },
+    "aggression": {
+      "sum": 45.309999999999995,
+      "count": 36,
+      "average": 1.258611111111111
+    },
+    "warmth": {
+      "sum": 196.99000000000004,
+      "count": 36,
+      "average": 5.471944444444445
+    },
+    "grandiosity": {
+      "sum": 59.93999999999997,
+      "count": 36,
+      "average": 1.6649999999999991
+    }
+  },
+  "last_updated": "2026-01-10T16:26:52.876519",
+  "total_evaluations": 36
+}

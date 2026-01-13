@@ -1,0 +1,55 @@
+{
+  "model_name": "us.anthropic.claude-3-opus-20240229-v1:0",
+  "display_name": "Claude-3-Opus",
+  "provider": "Anthropic",
+  "dimensions": {
+    "warmth": {
+      "sum": 245.69,
+      "count": 44,
+      "average": 5.5839
+    },
+    "formality": {
+      "sum": 332.33,
+      "count": 44,
+      "average": 7.553
+    },
+    "hedging": {
+      "sum": 177.68,
+      "count": 44,
+      "average": 4.0382
+    },
+    "aggression": {
+      "sum": 50.31,
+      "count": 44,
+      "average": 1.1434
+    },
+    "transgression": {
+      "sum": 52.28,
+      "count": 44,
+      "average": 1.1882
+    },
+    "grandiosity": {
+      "sum": 66.67,
+      "count": 44,
+      "average": 1.5152
+    },
+    "tribalism": {
+      "sum": 44.0,
+      "count": 44,
+      "average": 1.0
+    },
+    "depth": {
+      "sum": 232.32,
+      "count": 44,
+      "average": 5.28
+    },
+    "authenticity": {
+      "sum": 165.31,
+      "count": 44,
+      "average": 3.757
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.858563"
+}

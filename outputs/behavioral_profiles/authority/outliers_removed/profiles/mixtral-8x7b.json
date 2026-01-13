@@ -1,0 +1,52 @@
+{
+  "model_name": "Mixtral-8x7B",
+  "dimensions": {
+    "formality": {
+      "sum": 416.31000000000006,
+      "count": 51,
+      "average": 8.16294117647059
+    },
+    "transgression": {
+      "sum": 65.92999999999998,
+      "count": 51,
+      "average": 1.2927450980392152
+    },
+    "grandiosity": {
+      "sum": 119.34,
+      "count": 51,
+      "average": 2.34
+    },
+    "tribalism": {
+      "sum": 58.66,
+      "count": 51,
+      "average": 1.1501960784313725
+    },
+    "authenticity": {
+      "sum": 215.6799999999999,
+      "count": 51,
+      "average": 4.229019607843135
+    },
+    "depth": {
+      "sum": 299.97999999999996,
+      "count": 51,
+      "average": 5.8819607843137245
+    },
+    "hedging": {
+      "sum": 319.63000000000005,
+      "count": 51,
+      "average": 6.2672549019607855
+    },
+    "aggression": {
+      "sum": 66.95999999999998,
+      "count": 51,
+      "average": 1.3129411764705878
+    },
+    "warmth": {
+      "sum": 273.67999999999995,
+      "count": 51,
+      "average": 5.366274509803921
+    }
+  },
+  "last_updated": "2026-01-10T10:20:59.612663",
+  "total_evaluations": 51
+}

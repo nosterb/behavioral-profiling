@@ -1,0 +1,52 @@
+{
+  "model_name": "Nova-Pro",
+  "dimensions": {
+    "formality": {
+      "sum": 441.69,
+      "count": 51,
+      "average": 8.660588235294117
+    },
+    "transgression": {
+      "sum": 64.60999999999999,
+      "count": 51,
+      "average": 1.266862745098039
+    },
+    "grandiosity": {
+      "sum": 115.34,
+      "count": 51,
+      "average": 2.2615686274509805
+    },
+    "tribalism": {
+      "sum": 58.65,
+      "count": 51,
+      "average": 1.15
+    },
+    "authenticity": {
+      "sum": 249.64999999999992,
+      "count": 51,
+      "average": 4.895098039215685
+    },
+    "depth": {
+      "sum": 362.66000000000014,
+      "count": 51,
+      "average": 7.110980392156866
+    },
+    "hedging": {
+      "sum": 305.64,
+      "count": 51,
+      "average": 5.9929411764705875
+    },
+    "aggression": {
+      "sum": 63.61999999999998,
+      "count": 51,
+      "average": 1.2474509803921565
+    },
+    "warmth": {
+      "sum": 275.32,
+      "count": 51,
+      "average": 5.39843137254902
+    }
+  },
+  "last_updated": "2026-01-10T10:20:59.612367",
+  "total_evaluations": 51
+}

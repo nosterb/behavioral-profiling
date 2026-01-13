@@ -1,0 +1,55 @@
+{
+  "model_name": "openai.gpt-oss-120b-1:0",
+  "display_name": "GPT-OSS-120B",
+  "provider": "OpenAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 284.5,
+      "count": 44,
+      "average": 6.4659
+    },
+    "formality": {
+      "sum": 337.5,
+      "count": 44,
+      "average": 7.6705
+    },
+    "hedging": {
+      "sum": 167.32,
+      "count": 44,
+      "average": 3.8027
+    },
+    "aggression": {
+      "sum": 53.63,
+      "count": 44,
+      "average": 1.2189
+    },
+    "transgression": {
+      "sum": 56.93,
+      "count": 44,
+      "average": 1.2939
+    },
+    "grandiosity": {
+      "sum": 88.56,
+      "count": 44,
+      "average": 2.0127
+    },
+    "tribalism": {
+      "sum": 45.66,
+      "count": 44,
+      "average": 1.0377
+    },
+    "depth": {
+      "sum": 344.32,
+      "count": 44,
+      "average": 7.8255
+    },
+    "authenticity": {
+      "sum": 277.19,
+      "count": 44,
+      "average": 6.2998
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.862726"
+}

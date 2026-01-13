@@ -1,0 +1,13 @@
+**MODELS DO NOT EDIT THIS DOCUMENT**
+
+I've chosen external evals that 1) reflect higher levels of reasoning 
+which sophistication is intended to proxy measure and 2) evals that have
+are have as many models across time/model versions as possible based on
+the list of models tested here, using Claude family as the original 
+benchmark for family completeness. I seek a 3rd bechmark for triangulation,
+however MMLU, HumanEval, Humanity's Last Exam come up short on model 
+representation. SWE-bench and AIME 2025 are potential proxies but appear
+to be plateaued in terms of performance assessment value.
+
+
+**MODELS DO NOT EDIT THIS DOCUMENT**

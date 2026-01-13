@@ -1,0 +1,53 @@
+# Baseline General Analysis Configuration
+# Analysis of baseline general suite jobs
+
+study_name: baseline_general
+description: Baseline general behavioral analysis across all models
+data_directory: outputs/single_prompt_jobs/baseline_general
+
+# Global visualization settings
+global_options:
+  dpi: 300
+  figure_format: png
+  color_scheme: default
+
+# Analysis pipeline (runs in order)
+analyses:
+  # 1. Generate per-job spider charts and heatmaps
+  - type: per_job_visualizations
+    enabled: true
+    options:
+      chart_types:
+        - spider
+        - comparative_spider
+        - heatmap
+      output_subdir: visualization/individual_jobs
+
+  # 2. Aggregate scores across all jobs
+  - type: cross_job_aggregation
+    enabled: true
+    options:
+      aggregation_method: mean
+      output_subdir: visualization/summary
+
+  # 3. Compute average behavioral profile
+  - type: average_profile
+    enabled: true
+    options:
+      chart_types:
+        - average_spider
+        - overlay
+        - deviation_bars
+      include_summary: true
+      output_subdir: visualization/average_profile
+
+  # 4. Statistical similarity analysis
+  - type: similarity_analysis
+    enabled: true
+    options:
+      metrics:
+        - composite
+        - euclidean
+        - cosine
+      top_n_pairs: 10
+      output_subdir: visualization/similarity_analysis

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Three-way cross-suite stability analysis for personality clustering.
+Three-way cross-suite stability analysis for behavioral clustering.
 Compares cluster assignments across three different test suites.
 """
 

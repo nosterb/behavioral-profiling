@@ -616,11 +616,23 @@ def save_agent_job(config: Dict, model_results: List[Dict], output_dir: Path,
     analytics_config = config.get('analytics', {'enabled': True})
     job_data = add_analytics_to_job(job_data, analytics_config)
 
-    # Save JSON file to reports subdirectory
-    reports_dir = output_dir / "reports"
-    reports_dir.mkdir(parents=True, exist_ok=True)
-    filename = f"agent_job_{request_id}_{timestamp}.json"
-    output_path = reports_dir / filename
+    # Determine save location based on job type
+    is_single_prompt_job = "single_prompt_jobs" in str(output_dir)
+
+    if is_single_prompt_job:
+        # Single prompt job: save to job_{request_id}_{timestamp}/ subdirectory
+        job_dir = output_dir / f"job_{request_id}_{timestamp}"
+        job_dir.mkdir(parents=True, exist_ok=True)
+        filename = f"job_{request_id}_{timestamp}.json"
+        output_path = job_dir / filename
+        export_base_dir = job_dir  # For single prompt jobs, save exports to job directory
+    else:
+        # Agent job: save to reports/ subdirectory
+        reports_dir = output_dir / "reports"
+        reports_dir.mkdir(parents=True, exist_ok=True)
+        filename = f"agent_job_{request_id}_{timestamp}.json"
+        output_path = reports_dir / filename
+        export_base_dir = output_dir  # For agent jobs, save to output_dir (creates subdirs)
 
     with open(output_path, 'w') as f:
         json.dump(job_data, f, indent=2, ensure_ascii=False)
@@ -628,14 +640,14 @@ def save_agent_job(config: Dict, model_results: List[Dict], output_dir: Path,
     # Save text summary if requested
     text_summary_path = None
     if analytics_config.get('enabled', True) and analytics_config.get('save_text_summary', False):
-        text_summary_path = save_text_summary(job_data, request_id, timestamp, output_dir, analytics_config)
+        text_summary_path = save_text_summary(job_data, request_id, timestamp, export_base_dir, analytics_config)
 
     # Save human-readable chat if requested
     chat_path = None
     if analytics_config.get('export_chat', False):
         # Get chat style preference (default: "chatbot")
         chat_style = analytics_config.get('chat_style', 'chatbot')  # Options: "chatbot" or "technical"
-        chat_path = save_chat_export(job_data, request_id, timestamp, output_dir, chat_style=chat_style)
+        chat_path = save_chat_export(job_data, request_id, timestamp, export_base_dir, chat_style=chat_style)
 
     return output_path, text_summary_path, chat_path
 
@@ -1277,7 +1289,18 @@ def main():
 
     # Output directory relative to project root (parent of src/)
     project_root = Path(__file__).parent.parent
-    output_dir = project_root / "outputs" / "agent_jobs"
+
+    # Determine output directory based on metadata (for intervention-based organization)
+    metadata = config.get('metadata', {})
+    if metadata.get('suite') and metadata.get('intervention'):
+        # Single prompt job with intervention: outputs/single_prompt_jobs/{intervention}_{suite}/
+        intervention = metadata['intervention']
+        suite = metadata['suite']
+        output_dir = project_root / "outputs" / "single_prompt_jobs" / f"{intervention}_{suite}"
+    else:
+        # Default agent jobs directory
+        output_dir = project_root / "outputs" / "agent_jobs"
+
     model_results = []
 
     # Process each model
@@ -1528,7 +1551,7 @@ def main():
             prompt_for_profile_update
         )
 
-        # Check if we should prompt (interactive mode, no existing personality eval)
+        # Check if we should prompt (interactive mode, no existing behavioral eval)
         chunking = prompt_for_behavioral_analysis(job_path, interactive=True)
 
         if chunking:

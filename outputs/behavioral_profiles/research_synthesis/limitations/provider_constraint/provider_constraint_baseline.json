@@ -1,0 +1,373 @@
+{
+  "condition": "baseline",
+  "n_models": 46,
+  "regression": {
+    "slope": 0.14005378588306772,
+    "intercept": 0.7148177555589724,
+    "r": 0.7895574710021784,
+    "p": 6.985039946055217e-11
+  },
+  "provider_stats": {
+    "Meta": {
+      "n": 6,
+      "mean_residual": -0.01601400873882634,
+      "std_residual": 0.06884486928800657,
+      "min_residual": -0.06656297708778003,
+      "max_residual": 0.11597363905521219,
+      "mean_sophistication": 4.733333333333333,
+      "mean_disinhibition": 1.3617249999999999,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "llama-3-70b",
+        "llama-4-maverick-17b",
+        "llama-3.2-90b",
+        "llama-3.3-70b",
+        "llama-3.1-70b",
+        "llama-4-scout-17b"
+      ]
+    },
+    "OpenAI": {
+      "n": 9,
+      "mean_residual": -0.0944472888377626,
+      "std_residual": 0.10724643780436285,
+      "min_residual": -0.22168880248241596,
+      "max_residual": 0.11648855229274946,
+      "mean_sophistication": 6.354000000000001,
+      "mean_disinhibition": 1.510272222222222,
+      "n_constrained": 3,
+      "pct_constrained": 33.33333333333333,
+      "models": [
+        "gpt-3.5_turbo",
+        "gpt-4",
+        "gpt-4.1",
+        "gpt-5",
+        "gpt-oss-120b",
+        "o3",
+        "gpt-5.2",
+        "gpt-5.1",
+        "gpt-5.2_pro"
+      ]
+    },
+    "Mistral": {
+      "n": 2,
+      "mean_residual": 0.006942317393432762,
+      "std_residual": 0.0069752854164869755,
+      "min_residual": 0.0020100457747231903,
+      "max_residual": 0.011874589012142334,
+      "mean_sophistication": 4.53515,
+      "mean_disinhibition": 1.356925,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "mixtral-8x7b",
+        "mistral-large-24.02"
+      ]
+    },
+    "Anthropic": {
+      "n": 19,
+      "mean_residual": 0.025836036653904444,
+      "std_residual": 0.06366609524734596,
+      "min_residual": -0.0869502827845261,
+      "max_residual": 0.1634480871197177,
+      "mean_sophistication": 5.841826315789473,
+      "mean_disinhibition": 1.5588236842105263,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "claude-3.5-haiku",
+        "claude-3-opus",
+        "claude-3-haiku",
+        "claude-3.5-sonnet-v1",
+        "claude-3-sonnet",
+        "claude-3.5-sonnet-v2",
+        "claude-3.7-sonnet",
+        "claude-4.1-opus-thinking_(thinking)",
+        "claude-4-opus",
+        "claude-4-opus-thinking_(thinking)",
+        "claude-4-sonnet",
+        "claude-4-sonnet-thinking_(thinking)",
+        "claude-4.1-opus",
+        "claude-4.5-sonnet-thinking_(thinking)",
+        "claude-4.5-opus-global-thinking_(thinking)",
+        "claude-4.5-sonnet",
+        "claude-4.5-haiku-thinking_(thinking)",
+        "claude-4.5-opus-global",
+        "claude-4.5-haiku"
+      ]
+    },
+    "AWS": {
+      "n": 3,
+      "mean_residual": -0.10232410686960769,
+      "std_residual": 0.008769009171049438,
+      "min_residual": -0.11212610000839818,
+      "max_residual": -0.09522396962206625,
+      "mean_sophistication": 5.1132,
+      "mean_disinhibition": 1.3286166666666663,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "nova-premier",
+        "nova-lite",
+        "nova-pro"
+      ]
+    },
+    "Google": {
+      "n": 3,
+      "mean_residual": 0.16553010526271184,
+      "std_residual": 0.32559418421098313,
+      "min_residual": -0.028558674039397047,
+      "max_residual": 0.541427022432845,
+      "mean_sophistication": 7.080033333333334,
+      "mean_disinhibition": 1.871933333333333,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "gemini-2.0-flash",
+        "gemini-3-pro-preview",
+        "gemini-2.5-pro"
+      ]
+    },
+    "DeepSeek": {
+      "n": 1,
+      "mean_residual": 0.050201566327376934,
+      "std_residual": 0,
+      "min_residual": 0.050201566327376934,
+      "max_residual": 0.050201566327376934,
+      "mean_sophistication": 6.2596,
+      "mean_disinhibition": 1.6417000000000002,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "deepseek-r1"
+      ]
+    },
+    "Alibaba": {
+      "n": 1,
+      "mean_residual": -0.018460909492944433,
+      "std_residual": 0,
+      "min_residual": -0.018460909492944433,
+      "max_residual": -0.018460909492944433,
+      "mean_sophistication": 6.380000000000001,
+      "mean_disinhibition": 1.5899,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "qwen3-32b"
+      ]
+    },
+    "xAI": {
+      "n": 2,
+      "mean_residual": 0.10999083437400448,
+      "std_residual": 0.15689087256550022,
+      "min_residual": -0.0009477655233351978,
+      "max_residual": 0.22092943427134415,
+      "mean_sophistication": 6.5335,
+      "mean_disinhibition": 1.7398499999999997,
+      "n_constrained": 0,
+      "pct_constrained": 0.0,
+      "models": [
+        "grok-3",
+        "grok-4-0709"
+      ]
+    }
+  },
+  "anova": {
+    "F": 4.504365315537372,
+    "p": 0.004849193247553176,
+    "df_between": 4,
+    "df_within": 35,
+    "eta_squared": 0.33984013631019727,
+    "providers_included": [
+      "AWS",
+      "Anthropic",
+      "Google",
+      "Meta",
+      "OpenAI"
+    ],
+    "significant": "True"
+  },
+  "pairwise_comparisons": [
+    {
+      "comparison": "Anthropic vs OpenAI",
+      "provider_1": "Anthropic",
+      "provider_2": "OpenAI",
+      "mean_1": 0.025836036653904444,
+      "mean_2": -0.0944472888377626,
+      "n_1": 19,
+      "n_2": 9,
+      "t": 3.731659158088409,
+      "p": 0.0009375389632785531,
+      "p_bonferroni": 0.00937538963278553,
+      "cohens_d": 1.5100208007940736,
+      "significant_bonferroni": "True",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "AWS vs Anthropic",
+      "provider_1": "AWS",
+      "provider_2": "Anthropic",
+      "mean_1": -0.10232410686960769,
+      "mean_2": 0.025836036653904444,
+      "n_1": 3,
+      "n_2": 19,
+      "t": -3.4118691619912296,
+      "p": 0.0027646234532516163,
+      "p_bonferroni": 0.027646234532516162,
+      "cohens_d": -2.119660374682816,
+      "significant_bonferroni": "True",
+      "direction": "more_constrained"
+    },
+    {
+      "comparison": "Google vs OpenAI",
+      "provider_1": "Google",
+      "provider_2": "OpenAI",
+      "mean_1": 0.16553010526271184,
+      "mean_2": -0.0944472888377626,
+      "n_1": 3,
+      "n_2": 9,
+      "t": 2.236470867452016,
+      "p": 0.04929849472882301,
+      "p_bonferroni": 0.49298494728823006,
+      "cohens_d": 1.4909805783013441,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "Anthropic vs Google",
+      "provider_1": "Anthropic",
+      "provider_2": "Google",
+      "mean_1": 0.025836036653904444,
+      "mean_2": 0.16553010526271184,
+      "n_1": 19,
+      "n_2": 3,
+      "t": -1.8836878553800893,
+      "p": 0.07423044663310967,
+      "p_bonferroni": 0.7423044663310967,
+      "cohens_d": -1.1702613188690303,
+      "significant_bonferroni": "False",
+      "direction": "more_constrained"
+    },
+    {
+      "comparison": "AWS vs Meta",
+      "provider_1": "AWS",
+      "provider_2": "Meta",
+      "mean_1": -0.10232410686960769,
+      "mean_2": -0.01601400873882634,
+      "n_1": 3,
+      "n_2": 6,
+      "t": -2.09104991869498,
+      "p": 0.07485389728465855,
+      "p_bonferroni": 0.7485389728465854,
+      "cohens_d": -1.4785955773087993,
+      "significant_bonferroni": "False",
+      "direction": "more_constrained"
+    },
+    {
+      "comparison": "Meta vs OpenAI",
+      "provider_1": "Meta",
+      "provider_2": "OpenAI",
+      "mean_1": -0.01601400873882634,
+      "mean_2": -0.0944472888377626,
+      "n_1": 6,
+      "n_2": 9,
+      "t": 1.5773687291844338,
+      "p": 0.13872507310443585,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.8313463156913536,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "Anthropic vs Meta",
+      "provider_1": "Anthropic",
+      "provider_2": "Meta",
+      "mean_1": 0.025836036653904444,
+      "mean_2": -0.01601400873882634,
+      "n_1": 19,
+      "n_2": 6,
+      "t": 1.378547197007319,
+      "p": 0.18129661064322167,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.6455638726563847,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "Google vs Meta",
+      "provider_1": "Google",
+      "provider_2": "Meta",
+      "mean_1": 0.16553010526271184,
+      "mean_2": -0.01601400873882634,
+      "n_1": 3,
+      "n_2": 6,
+      "t": 1.3990938427897226,
+      "p": 0.2045011042239517,
+      "p_bonferroni": 1.0,
+      "cohens_d": 0.9893087437529584,
+      "significant_bonferroni": "False",
+      "direction": "less_constrained"
+    },
+    {
+      "comparison": "AWS vs Google",
+      "provider_1": "AWS",
+      "provider_2": "Google",
+      "mean_1": -0.10232410686960769,
+      "mean_2": 0.16553010526271184,
+      "n_1": 3,
+      "n_2": 3,
+      "t": -1.424377215423068,
+      "p": 0.22744995889697636,
+      "p_bonferroni": 1.0,
+      "cohens_d": -1.16299912634429,
+      "significant_bonferroni": "False",
+      "direction": "more_constrained"
+    },
+    {
+      "comparison": "AWS vs OpenAI",
+      "provider_1": "AWS",
+      "provider_2": "OpenAI",
+      "mean_1": -0.10232410686960769,
+      "mean_2": -0.0944472888377626,
+      "n_1": 3,
+      "n_2": 9,
+      "t": -0.12306982116789042,
+      "p": 0.9044901661803775,
+      "p_bonferroni": 1.0,
+      "cohens_d": -0.08204654744526028,
+      "significant_bonferroni": "False",
+      "direction": "more_constrained"
+    }
+  ],
+  "chi_square": {
+    "test": "chi_square",
+    "chi2": 11.171171171171169,
+    "p": 0.024706168562679903,
+    "dof": 4,
+    "significant": "True",
+    "contingency_table": {
+      "providers": [
+        "Meta",
+        "OpenAI",
+        "Anthropic",
+        "AWS",
+        "Google"
+      ],
+      "constrained": [
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      "not_constrained": [
+        6,
+        6,
+        19,
+        3,
+        3
+      ]
+    }
+  },
+  "generated": "2026-01-11T21:51:27.625214"
+}

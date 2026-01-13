@@ -1,57 +1,60 @@
 {
   "model_name": "Claude-3-Sonnet",
   "dimensions": {
-    "tribalism": {
-      "sum": 74.99,
-      "count": 67,
-      "average": 1.1192537313432835
+    "grandiosity": {
+      "sum": 500.69999999999993,
+      "count": 235,
+      "average": 2.13063829787234
     },
     "warmth": {
-      "sum": 418.0100000000001,
-      "count": 67,
-      "average": 6.238955223880598
+      "sum": 1309.96,
+      "count": 235,
+      "average": 5.574297872340425
     },
     "aggression": {
-      "sum": 84.99,
-      "count": 67,
-      "average": 1.268507462686567
+      "sum": 342.93,
+      "count": 235,
+      "average": 1.459276595744681
     },
     "formality": {
-      "sum": 494.65999999999997,
-      "count": 67,
-      "average": 7.382985074626865
+      "sum": 1800.5500000000002,
+      "count": 235,
+      "average": 7.6619148936170225
     },
-    "depth": {
-      "sum": 328.98999999999995,
-      "count": 67,
-      "average": 4.910298507462686
-    },
-    "authenticity": {
-      "sum": 268.3199999999999,
-      "count": 67,
-      "average": 4.004776119402983
+    "tribalism": {
+      "sum": 249.31,
+      "count": 235,
+      "average": 1.0608936170212766
     },
     "hedging": {
-      "sum": 341.36,
-      "count": 67,
-      "average": 5.094925373134329
-    },
-    "grandiosity": {
-      "sum": 123.7,
-      "count": 67,
-      "average": 1.846268656716418
+      "sum": 1306.94,
+      "count": 235,
+      "average": 5.561446808510638
     },
     "transgression": {
-      "sum": 101.91999999999997,
-      "count": 67,
-      "average": 1.5211940298507458
+      "sum": 333.7099999999999,
+      "count": 235,
+      "average": 1.420042553191489
     },
-    "observability": {
-      "sum": 9.0,
-      "count": 1,
-      "average": 9.0
+    "authenticity": {
+      "sum": 998.3300000000002,
+      "count": 235,
+      "average": 4.248212765957447
+    },
+    "depth": {
+      "sum": 1269.99,
+      "count": 235,
+      "average": 5.404212765957447
     }
   },
-  "last_updated": "2026-01-09T15:42:49.943423",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537345",
+  "total_evaluations": 235,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

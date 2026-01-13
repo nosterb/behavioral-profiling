@@ -1,0 +1,52 @@
+{
+  "model_name": "Gemini-3-Pro-Preview",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 58.36000000000001,
+      "count": 35,
+      "average": 1.6674285714285717
+    },
+    "depth": {
+      "sum": 240.99999999999997,
+      "count": 35,
+      "average": 6.885714285714285
+    },
+    "hedging": {
+      "sum": 163.98000000000005,
+      "count": 35,
+      "average": 4.685142857142859
+    },
+    "aggression": {
+      "sum": 40.30999999999999,
+      "count": 35,
+      "average": 1.1517142857142855
+    },
+    "formality": {
+      "sum": 263.01,
+      "count": 35,
+      "average": 7.514571428571428
+    },
+    "tribalism": {
+      "sum": 37.0,
+      "count": 35,
+      "average": 1.0571428571428572
+    },
+    "authenticity": {
+      "sum": 182.33999999999997,
+      "count": 35,
+      "average": 5.209714285714285
+    },
+    "transgression": {
+      "sum": 45.95999999999999,
+      "count": 35,
+      "average": 1.3131428571428567
+    },
+    "warmth": {
+      "sum": 200.35999999999996,
+      "count": 35,
+      "average": 5.724571428571427
+    }
+  },
+  "last_updated": "2026-01-10T12:53:17.172221",
+  "total_evaluations": 35
+}

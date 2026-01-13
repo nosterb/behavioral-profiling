@@ -9,10 +9,10 @@ Usage:
     python3 scripts/manage_behavioral_profiles.py add outputs/single_prompt_jobs/job_*.json
 
     # Remove job (undo)
-    python3 scripts/manage_behavioral_profiles.py remove personality_warmth_baseline_20251210
+    python3 scripts/manage_behavioral_profiles.py remove behavioral_warmth_baseline_20251210
 
     # Add all jobs from a directory
-    python3 scripts/manage_behavioral_profiles.py add-all outputs/single_prompt_jobs/12_10_2025_personality_v6/
+    python3 scripts/manage_behavioral_profiles.py add-all outputs/single_prompt_jobs/12_10_2025_behavioral_v6/
 
     # View current profiles
     python3 scripts/manage_behavioral_profiles.py status

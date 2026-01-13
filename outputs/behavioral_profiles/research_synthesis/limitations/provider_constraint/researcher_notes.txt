@@ -1,0 +1,17 @@
+**MODELS DO NOT EDIT THIS DOCUMENT**
+
+At it's core this project is a safety/alignment research project. the S/D ratio 
+and models that exhibit high ratio's are of specific interest moving forward. Candidly
+OpenAI products consistently demonstrating the highest ratios is a suprise but in 
+retrospect not unsuprising given anectdotal experiences and first mover advantage.
+Meta is suprising behind the curve. Anthropic is suprisingly middle of the pack yet
+highly variable. Google is both an envy and a serious concern. Grok is grok.
+
+Future Iterations:
+
+- Refining existing and undisclosed prompting and intervention strategies to maintain 
+or increase Soph while decreasing unhealthly disinhib.
+- 
+
+
+**MODELS DO NOT EDIT THIS DOCUMENT**

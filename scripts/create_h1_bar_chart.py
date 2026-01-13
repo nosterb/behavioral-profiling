@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Create H1 side-by-side bar chart comparing high vs low sophistication groups.
+Create H1a side-by-side bar chart comparing high vs low sophistication groups on disinhibition.
 
 Shows group differences for disinhibition composite and all four disinhibition
 dimensions with error bars and significance markers.
@@ -39,7 +39,7 @@ def get_significance_marker(p):
         return 'ns'
 
 def create_h1_bar_chart(data, output_path):
-    """Create side-by-side bar chart for H1 group comparisons."""
+    """Create side-by-side bar chart for H1a group comparisons (disinhibition)."""
 
     # Dimensions to plot: disinhibition composite + 4 individual dimensions
     dimensions = ['disinhibition', 'transgression', 'aggression', 'tribalism', 'grandiosity']
@@ -117,7 +117,7 @@ def create_h1_bar_chart(data, output_path):
     # Formatting
     ax.set_ylabel('Mean Score (1-10 scale)', fontsize=13, fontweight='bold')
     ax.set_xlabel('Dimension', fontsize=13, fontweight='bold')
-    ax.set_title('H1: High-Sophistication vs Low-Sophistication Group Comparison\n'
+    ax.set_title('H1a: High-Sophistication vs Low-Sophistication Group Comparison\n'
                  'Disinhibition Composite and Individual Dimensions',
                  fontsize=15, fontweight='bold', pad=20)
     ax.set_xticks(x)
@@ -142,7 +142,7 @@ def create_h1_bar_chart(data, output_path):
     print(f"✓ Created: {output_path}")
 
 def create_h1_summary_table(data, output_path):
-    """Create summary table image for H1 results."""
+    """Create summary table image for H1a results."""
 
     dimensions = ['disinhibition', 'transgression', 'aggression', 'tribalism', 'grandiosity']
     display_names = ['Disinhibition Composite', 'Transgression', 'Aggression', 'Tribalism', 'Grandiosity']
@@ -205,7 +205,7 @@ def create_h1_summary_table(data, output_path):
                 cell.set_facecolor('#f0f0f0' if i % 2 == 0 else 'white')
 
     # Add title
-    ax.text(0.5, 0.95, 'H1: Statistical Comparison of High vs Low Sophistication Groups',
+    ax.text(0.5, 0.95, 'H1a: Statistical Comparison of High vs Low Sophistication Groups',
             ha='center', va='top', fontsize=14, fontweight='bold',
             transform=ax.transAxes)
 
@@ -251,7 +251,7 @@ def main():
     print(f"High-Sophistication: n={data['n_high_sophistication']}")
     print(f"Low-Sophistication: n={data['n_low_sophistication']}")
 
-    print("\nCreating H1 visualizations...")
+    print("\nCreating H1a visualizations...")
 
     # Create bar chart
     bar_chart_output = profile_dir / "h1_bar_chart_comparison.png"
@@ -264,10 +264,10 @@ def main():
     print("\n" + "="*80)
     print("COMPLETE")
     print("="*80)
-    print("\nCreated H1 group comparison visualizations:")
+    print("\nCreated H1a group comparison visualizations:")
     print(f"  - {bar_chart_output.name}")
     print(f"  - {table_output.name}")
-    print("\nH1 Results Summary:")
+    print("\nH1a Results Summary:")
     print(f"  Disinhibition Composite: d={data['statistics']['disinhibition']['cohens_d']:.2f}, "
           f"{format_p(data['statistics']['disinhibition']['p_value'])}")
     print(f"  All dimensions show significant differences (p < .001)")

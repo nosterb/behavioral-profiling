@@ -1,52 +1,60 @@
 {
   "model_name": "Llama-4-Maverick-17B",
   "dimensions": {
-    "tribalism": {
-      "sum": 68.32,
-      "count": 67,
-      "average": 1.0197014925373133
+    "grandiosity": {
+      "sum": 452.03,
+      "count": 236,
+      "average": 1.9153813559322033
     },
     "warmth": {
-      "sum": 366.3400000000001,
-      "count": 67,
-      "average": 5.467761194029852
+      "sum": 1263.6000000000001,
+      "count": 236,
+      "average": 5.354237288135594
     },
     "aggression": {
-      "sum": 78.30999999999999,
-      "count": 67,
-      "average": 1.1688059701492535
+      "sum": 301.7899999999999,
+      "count": 236,
+      "average": 1.2787711864406777
     },
     "formality": {
-      "sum": 500.34000000000003,
-      "count": 67,
-      "average": 7.467761194029851
+      "sum": 1827.7,
+      "count": 236,
+      "average": 7.744491525423729
     },
-    "depth": {
-      "sum": 305.36000000000007,
-      "count": 67,
-      "average": 4.557611940298509
-    },
-    "authenticity": {
-      "sum": 232.68999999999997,
-      "count": 67,
-      "average": 3.472985074626865
+    "tribalism": {
+      "sum": 198.66,
+      "count": 186,
+      "average": 1.0680645161290323
     },
     "hedging": {
-      "sum": 335.33000000000004,
-      "count": 67,
-      "average": 5.004925373134329
-    },
-    "grandiosity": {
-      "sum": 100.94999999999997,
-      "count": 67,
-      "average": 1.5067164179104473
+      "sum": 1292.57,
+      "count": 236,
+      "average": 5.4769915254237285
     },
     "transgression": {
-      "sum": 86.91999999999997,
-      "count": 67,
-      "average": 1.2973134328358205
+      "sum": 304.43999999999994,
+      "count": 236,
+      "average": 1.2899999999999998
+    },
+    "authenticity": {
+      "sum": 974.71,
+      "count": 236,
+      "average": 4.130127118644068
+    },
+    "depth": {
+      "sum": 1325.68,
+      "count": 236,
+      "average": 5.6172881355932205
     }
   },
-  "last_updated": "2026-01-09T15:42:49.943690",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537298",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

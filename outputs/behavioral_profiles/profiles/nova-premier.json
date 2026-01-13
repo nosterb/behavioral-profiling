@@ -1,52 +1,60 @@
 {
   "model_name": "Nova-Premier",
   "dimensions": {
-    "tribalism": {
-      "sum": 70.32,
-      "count": 67,
-      "average": 1.0495522388059702
+    "grandiosity": {
+      "sum": 487.2199999999999,
+      "count": 236,
+      "average": 2.0644915254237284
     },
     "warmth": {
-      "sum": 368.32000000000005,
-      "count": 67,
-      "average": 5.4973134328358215
+      "sum": 1239.12,
+      "count": 236,
+      "average": 5.250508474576271
     },
     "aggression": {
-      "sum": 74.62999999999998,
-      "count": 67,
-      "average": 1.113880597014925
+      "sum": 342.90999999999997,
+      "count": 236,
+      "average": 1.453008474576271
     },
     "formality": {
-      "sum": 475.3299999999999,
-      "count": 67,
-      "average": 7.094477611940297
+      "sum": 1848.25,
+      "count": 236,
+      "average": 7.8315677966101696
     },
-    "depth": {
-      "sum": 267.0299999999999,
-      "count": 67,
-      "average": 3.9855223880597004
-    },
-    "authenticity": {
-      "sum": 223.34999999999997,
-      "count": 67,
-      "average": 3.3335820895522383
+    "tribalism": {
+      "sum": 266.32,
+      "count": 236,
+      "average": 1.1284745762711863
     },
     "hedging": {
-      "sum": 304.00999999999993,
-      "count": 67,
-      "average": 4.537462686567163
-    },
-    "grandiosity": {
-      "sum": 91.28999999999998,
-      "count": 67,
-      "average": 1.3625373134328356
+      "sum": 1102.5,
+      "count": 236,
+      "average": 4.671610169491525
     },
     "transgression": {
-      "sum": 88.56999999999995,
-      "count": 67,
-      "average": 1.321940298507462
+      "sum": 329.9399999999999,
+      "count": 236,
+      "average": 1.3980508474576265
+    },
+    "authenticity": {
+      "sum": 976.69,
+      "count": 236,
+      "average": 4.138516949152542
+    },
+    "depth": {
+      "sum": 1326.8799999999999,
+      "count": 236,
+      "average": 5.622372881355932
     }
   },
-  "last_updated": "2026-01-09T15:42:49.944655",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537278",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

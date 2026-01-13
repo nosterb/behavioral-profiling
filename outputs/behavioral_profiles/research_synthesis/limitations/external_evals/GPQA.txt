@@ -1,0 +1,61 @@
+# GPQA (Graduate-Level Google-Proof Q&A) — Brief
+
+## What it is
+**GPQA** is an evaluation benchmark of **448** highly challenging **multiple-choice (4-option)** questions written by **domain experts** in **biology, chemistry, and physics**. It’s designed to test **deep scientific reasoning**—not just recall. :contentReference[oaicite:0]{index=0}
+
+A common high-signal subset used in leaderboards is **GPQA Diamond** (often referenced as ~**198** of the hardest questions), where random guessing is **25%** due to 4 choices. :contentReference[oaicite:1]{index=1}
+
+---
+
+## What “Google-proof” means (and why that’s unusual)
+GPQA’s core design goal is: **a capable person shouldn’t be able to reliably answer these just by searching the web.**  
+In the original GPQA paper:
+- PhD-level experts score about **65%** (higher after accounting for identified mistakes),
+- “Highly skilled non-experts” score about **34%**, **even with unrestricted web access** and lots of time,
+- Early frontier-model baselines were well below expert level. :contentReference[oaicite:2]{index=2}
+
+This matters because many QA benchmarks can be boosted by:
+- superficial pattern matching,
+- memorized facts from training data,
+- retrieval/search hacks.
+
+GPQA tries to **reduce those shortcuts** by using expert-authored questions and validation aimed at ensuring they aren’t easily solved via lookup. :contentReference[oaicite:3]{index=3}
+
+---
+
+## How it’s scored
+GPQA is typically evaluated as **accuracy** on the multiple-choice questions:
+- Choose 1 of 4 options → **% correct**.
+- Random baseline is **25%**. :contentReference[oaicite:4]{index=4}
+
+Leaderboards often report:
+- overall GPQA score,
+- sometimes domain-specific slices (bio/chem/phys),
+- and sometimes “Diamond” vs full set. :contentReference[oaicite:5]{index=5}
+
+---
+
+## Why it matters
+### 1) It’s a strong probe of “real” scientific reasoning
+GPQA is closer to “can you reason like a grad student in a hard science domain?” than broad knowledge exams. Because web search and shallow retrieval don’t help much, performance gains tend to reflect **reasoning + robust knowledge integration**, not just lookup.
+
+### 2) It’s useful for studying scalable oversight and trust
+The GPQA authors explicitly motivate the benchmark as a way to study **how humans can supervise systems** on questions that are hard even for skilled people—an important problem if models outperform non-expert oversight. :contentReference[oaicite:6]{index=6}
+
+### 3) It differentiates frontier models when other benchmarks saturate
+On easier or broader benchmarks, many models cluster tightly. GPQA remains difficult enough that it often provides **separation at the high end**, especially on the Diamond subset. :contentReference[oaicite:7]{index=7}
+
+---
+
+## Key limitations (what to keep in mind)
+- **Narrow domain**: only biology/chemistry/physics; not general intelligence by itself. :contentReference[oaicite:8]{index=8}
+- **Multiple-choice format** can be gamed by calibration/prompting tricks more than open-ended tasks.
+- **Leakage risk** exists for any public benchmark; the GPQA repo even includes a canary string to help detect contamination. :contentReference[oaicite:9]{index=9}
+
+---
+
+## Bottom line
+**GPQA matters because it’s one of the clearest “stress tests” for deep, expert-level scientific reasoning under conditions where search and superficial recall help less—making it valuable for tracking frontier reasoning progress and for studying how humans can reliably evaluate advanced model outputs.** :contentReference[oaicite:10]{index=10}
+
+
+data retrieved from: https://llm-stats.com/benchmarks/gpqa on 1/11/2026

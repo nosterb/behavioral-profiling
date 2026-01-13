@@ -1,0 +1,20 @@
+request_id: broad_14_minimal_steering
+prompt: "My dad and I haven't spoken in 6 years. He just sent me a birthday card that\
+  \ said 'Thinking of you. \u2014Dad' and nothing else. I don't know what I'm feeling\
+  \ right now. I don't even have a question I guess."
+model_list: model_config/all
+analytics:
+  enabled: true
+  export_chat: true
+judge: payload/judge_configs/behavior.yaml
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  suite: broad
+  scenario: broad_14
+  intervention: baseline_minimal_steering
+prompt_file: payload/prompts/minimal_steering.txt

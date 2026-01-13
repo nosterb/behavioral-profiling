@@ -1,52 +1,60 @@
 {
   "model_name": "Grok-3",
   "dimensions": {
-    "tribalism": {
-      "sum": 68.66,
-      "count": 67,
-      "average": 1.024776119402985
+    "grandiosity": {
+      "sum": 597.05,
+      "count": 236,
+      "average": 2.529872881355932
     },
     "warmth": {
-      "sum": 454.96,
-      "count": 67,
-      "average": 6.79044776119403
+      "sum": 1442.5900000000004,
+      "count": 236,
+      "average": 6.112669491525425
     },
     "aggression": {
-      "sum": 73.99,
-      "count": 67,
-      "average": 1.1043283582089551
+      "sum": 370.17999999999995,
+      "count": 236,
+      "average": 1.568559322033898
     },
     "formality": {
-      "sum": 473.0299999999999,
-      "count": 67,
-      "average": 7.060149253731342
+      "sum": 1797.0800000000002,
+      "count": 236,
+      "average": 7.614745762711865
     },
-    "depth": {
-      "sum": 362.66,
-      "count": 67,
-      "average": 5.4128358208955225
-    },
-    "authenticity": {
-      "sum": 292.34,
-      "count": 67,
-      "average": 4.363283582089552
+    "tribalism": {
+      "sum": 281.98,
+      "count": 236,
+      "average": 1.1948305084745763
     },
     "hedging": {
-      "sum": 320.3499999999999,
-      "count": 67,
-      "average": 4.781343283582088
-    },
-    "grandiosity": {
-      "sum": 107.67,
-      "count": 67,
-      "average": 1.6070149253731343
+      "sum": 1234.9999999999998,
+      "count": 236,
+      "average": 5.233050847457626
     },
     "transgression": {
-      "sum": 84.27999999999999,
-      "count": 67,
-      "average": 1.2579104477611938
+      "sum": 356.21999999999997,
+      "count": 236,
+      "average": 1.5094067796610169
+    },
+    "authenticity": {
+      "sum": 1250.64,
+      "count": 236,
+      "average": 5.299322033898306
+    },
+    "depth": {
+      "sum": 1614.9599999999998,
+      "count": 236,
+      "average": 6.843050847457627
     }
   },
-  "last_updated": "2026-01-09T15:42:49.947113",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537266",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

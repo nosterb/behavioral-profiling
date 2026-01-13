@@ -8,12 +8,23 @@ This replaces temporal "Frontier vs Older" with capability-based
 
 import json
 import numpy as np
+import sys
 from pathlib import Path
 from scipy import stats
 from collections import defaultdict
 
-# Load all behavioral profiles
-profiles_dir = Path('outputs/behavioral_profiles/baseline/profiles')
+# Get profile directory from command line argument
+if len(sys.argv) > 1:
+    profile_base_dir = Path(sys.argv[1])
+else:
+    profile_base_dir = Path('outputs/behavioral_profiles/baseline')
+
+profiles_dir = profile_base_dir / 'profiles'
+
+if not profiles_dir.exists():
+    print(f"Error: Profile directory not found: {profiles_dir}")
+    sys.exit(1)
+
 profile_files = list(profiles_dir.glob('*.json'))
 
 print(f"Loading {len(profile_files)} model profiles...")
@@ -238,7 +249,7 @@ output = {
     }
 }
 
-output_path = Path('outputs/behavioral_profiles/baseline/median_split_classification.json')
+output_path = profile_base_dir / 'median_split_classification.json'
 with open(output_path, 'w') as f:
     json.dump(output, f, indent=2)
 

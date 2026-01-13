@@ -2,12 +2,12 @@
 """
 Create aggregated spider charts grouped by intervention type.
 
-This script analyzes personality jobs and creates one spider chart per intervention type,
+This script analyzes behavioral jobs and creates one spider chart per intervention type,
 showing how models differ across that intervention. Supports any intervention naming:
 baseline, checkpoint, telemetry, reminder, shake, etc.
 
 Usage:
-    python3 scripts/visualize_by_intervention.py outputs/single_prompt_jobs/12_7_2025_personality_v3/
+    python3 scripts/visualize_by_intervention.py outputs/single_prompt_jobs/12_7_2025_behavioral_v3/
 """
 
 import json
@@ -28,7 +28,7 @@ def extract_intervention_type(job_name: str) -> str:
     Extract intervention type from job name.
 
     Handles common patterns: baseline, checkpoint, telemetry, reminder, shake, etc.
-    Format expected: personality_{dimension}_{intervention}
+    Format expected: behavioral_{dimension}_{intervention}
     """
     # Common intervention types
     known_interventions = ['baseline', 'urgency', 'authority', 'reminder', 'shake', 'urgency_authority']
@@ -37,7 +37,7 @@ def extract_intervention_type(job_name: str) -> str:
         if f'_{intervention}' in job_name:
             return intervention
 
-    # Try to extract from pattern: personality_{dimension}_{intervention}
+    # Try to extract from pattern: behavioral_{dimension}_{intervention}
     parts = job_name.split('_')
     if len(parts) >= 3:
         # Last part is likely the intervention
@@ -48,7 +48,7 @@ def extract_intervention_type(job_name: str) -> str:
 
 def aggregate_scores_by_intervention(directory: Path) -> dict:
     """
-    Aggregate personality scores by intervention type.
+    Aggregate behavioral scores by intervention type.
 
     Returns:
         {
@@ -58,7 +58,7 @@ def aggregate_scores_by_intervention(directory: Path) -> dict:
         }
     """
     # Find all job files with judge evaluations
-    json_files = sorted(directory.glob("job_behavioral_*.json"))
+    json_files = sorted(directory.rglob("job_*.json"))
 
     if not json_files:
         print(f"No job files found in {directory}")
@@ -204,7 +204,7 @@ def main():
         print(f"Error: Directory not found: {directory}")
         sys.exit(1)
 
-    print(f"Analyzing personality jobs in: {directory}")
+    print(f"Analyzing behavioral jobs in: {directory}")
     print("Grouping by intervention type (baseline, checkpoint, telemetry)...")
 
     # Aggregate scores by intervention

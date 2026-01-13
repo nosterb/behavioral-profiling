@@ -1,0 +1,87 @@
+{
+  "condition": "baseline",
+  "n": 45,
+  "sophistication": {
+    "dimensions": [
+      "depth",
+      "authenticity"
+    ],
+    "correlation": 0.9636158306507387,
+    "interpretation": "very_high"
+  },
+  "disinhibition": {
+    "dimensions": [
+      "transgression",
+      "aggression",
+      "tribalism",
+      "grandiosity"
+    ],
+    "pairwise_correlations": {
+      "transgression_aggression": 0.965536143885,
+      "transgression_tribalism": 0.7832891336201915,
+      "transgression_grandiosity": 0.573087921013386,
+      "aggression_tribalism": 0.7746462823828958,
+      "aggression_grandiosity": 0.620156611154485,
+      "tribalism_grandiosity": 0.8114741500054514
+    },
+    "average_correlation": 0.7546983736769016,
+    "min_correlation": 0.573087921013386,
+    "max_correlation": 0.965536143885,
+    "interpretation": "high"
+  },
+  "cross_factor": {
+    "pairs": {
+      "depth_transgression": 0.6508173341006342,
+      "depth_aggression": 0.6901644435070163,
+      "depth_tribalism": 0.5604838872331093,
+      "depth_grandiosity": 0.7284044368862561,
+      "authenticity_transgression": 0.7790642889611656,
+      "authenticity_aggression": 0.805047514989996,
+      "authenticity_tribalism": 0.5973411012291853,
+      "authenticity_grandiosity": 0.6672113786211396
+    },
+    "average_correlation": 0.6848167981910628,
+    "min_correlation": 0.5604838872331093,
+    "max_correlation": 0.805047514989996,
+    "interpretation": "correlated_but_distinct"
+  },
+  "full_matrix": {
+    "depth_depth": 1.0,
+    "depth_authenticity": 0.9636158306507387,
+    "authenticity_depth": 0.9636158306507387,
+    "depth_transgression": 0.6508173341006342,
+    "transgression_depth": 0.6508173341006342,
+    "depth_aggression": 0.6901644435070163,
+    "aggression_depth": 0.6901644435070163,
+    "depth_tribalism": 0.5604838872331093,
+    "tribalism_depth": 0.5604838872331093,
+    "depth_grandiosity": 0.7284044368862561,
+    "grandiosity_depth": 0.7284044368862561,
+    "authenticity_authenticity": 0.9999999999999998,
+    "authenticity_transgression": 0.7790642889611656,
+    "transgression_authenticity": 0.7790642889611656,
+    "authenticity_aggression": 0.805047514989996,
+    "aggression_authenticity": 0.805047514989996,
+    "authenticity_tribalism": 0.5973411012291853,
+    "tribalism_authenticity": 0.5973411012291853,
+    "authenticity_grandiosity": 0.6672113786211396,
+    "grandiosity_authenticity": 0.6672113786211396,
+    "transgression_transgression": 1.0,
+    "transgression_aggression": 0.965536143885,
+    "aggression_transgression": 0.965536143885,
+    "transgression_tribalism": 0.7832891336201915,
+    "tribalism_transgression": 0.7832891336201915,
+    "transgression_grandiosity": 0.573087921013386,
+    "grandiosity_transgression": 0.573087921013386,
+    "aggression_aggression": 0.9999999999999999,
+    "aggression_tribalism": 0.7746462823828958,
+    "tribalism_aggression": 0.7746462823828958,
+    "aggression_grandiosity": 0.620156611154485,
+    "grandiosity_aggression": 0.620156611154485,
+    "tribalism_tribalism": 0.9999999999999998,
+    "tribalism_grandiosity": 0.8114741500054514,
+    "grandiosity_tribalism": 0.8114741500054514,
+    "grandiosity_grandiosity": 1.0
+  },
+  "matrix_formatted": "            depth  authen  transg  aggres  tribal  grandi\n depth     1.000   0.964   0.651   0.690   0.560   0.728\nauthen     0.964   1.000   0.779   0.805   0.597   0.667\ntransg     0.651   0.779   1.000   0.966   0.783   0.573\naggres     0.690   0.805   0.966   1.000   0.775   0.620\ntribal     0.560   0.597   0.783   0.775   1.000   0.811\ngrandi     0.728   0.667   0.573   0.620   0.811   1.000"
+}

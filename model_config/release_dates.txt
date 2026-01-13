@@ -1,0 +1,91 @@
+Anthropic
+
+Claude 3 Haiku – March 13, 2024
+
+Claude 3 Sonnet – March 4, 2024
+
+Claude 3 Opus – March 4, 2024
+
+Claude 3.5 Sonnet v1 – June 21, 2024
+
+Claude 3.5 Sonnet v2 – October 22, 2024
+
+Claude 3.5 Haiku – November 4, 2024
+
+Claude 3.7 Sonnet – February 24, 2025
+
+Claude 4 Sonnet – May 22, 2025
+
+Claude 4 Opus – May 22, 2025
+
+Claude 4.1 Opus – August 5, 2025
+
+Claude 4.5 Sonnet – September 29, 2025
+
+Claude 4.5 Haiku – October 15, 2025
+
+Claude 4.5 Opus – November 24, 2025
+
+OpenAI
+
+GPT-3.5 Turbo – March 1, 2023
+
+GPT-4 – March 14, 2023
+
+GPT-4.1 – April 14, 2025
+
+GPT-5 – August 7, 2025
+
+GPT-5.1 – November 12, 2025
+
+GPT-5.2 – December 11, 2025
+
+GPT-5.2 Pro – December 11, 2025
+
+Meta (LLaMA series)
+
+LLaMA 3.1 – July 23, 2024
+
+LLaMA 3.2 – September 25, 2024
+
+LLaMA 3.3 – December 7, 2024
+
+LLaMA 4 Scout – April 5, 2025
+
+LLaMA 4 Maverick – April 5, 2025
+
+Google (Gemini)
+
+Gemini 2.0 Flash – February 5, 2025
+
+Gemini 2.5 Pro – June 17, 2025
+
+Gemini 3 Pro (Preview) – December 23, 2025
+
+Mistral
+
+Mixtral 8×7B – December 8, 2023
+
+Mistral Large 24.02 – February 26, 2024
+
+Amazon (Nova models)
+
+Nova Lite – December 3, 2024
+
+Nova Pro – December 3, 2024
+
+Nova Premier – April 30, 2025
+
+xAI
+
+Grok 3 – February 17, 2025
+
+Grok 4 – July 9, 2025
+
+DeepSeek
+
+DeepSeek-R1 – January 20, 2025
+
+Qwen (Alibaba)
+
+Qwen3-32B – April 29, 2025

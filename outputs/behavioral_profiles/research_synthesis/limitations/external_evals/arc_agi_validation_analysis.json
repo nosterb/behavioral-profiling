@@ -1,0 +1,188 @@
+{
+  "generated": "2026-01-11T14:44:53.820490",
+  "analysis_type": "ARC-AGI External Validation",
+  "statistical_software": "scipy.stats.pearsonr, scipy.stats.ttest_ind",
+  "scipy_version": "1.16.3",
+  "sample": {
+    "unique_matched_models": 16
+  },
+  "h1_group_comparison": {
+    "high_sophistication": {
+      "n": 12,
+      "mean": 57.59166666666667,
+      "sd": 27.786408002780238
+    },
+    "low_sophistication": {
+      "n": 4,
+      "mean": 9.924999999999999,
+      "sd": 9.309269573924691
+    },
+    "t_statistic": 3.3018932700716355,
+    "p_value": 0.005242499431142542,
+    "significant": true
+  },
+  "correlations": {
+    "sophistication": {
+      "r": 0.800518621253566,
+      "p": 0.00019528307675883467,
+      "n": 16,
+      "significant": true
+    },
+    "depth": {
+      "r": 0.7611219667374292,
+      "p": 0.0006157194179681364,
+      "n": 16,
+      "significant": true
+    },
+    "authenticity": {
+      "r": 0.8271928090918876,
+      "p": 7.711256207879764e-05,
+      "n": 16,
+      "significant": true
+    },
+    "disinhibition": {
+      "r": 0.5963359446778239,
+      "p": 0.014760894296025373,
+      "n": 16,
+      "significant": true
+    },
+    "transgression": {
+      "r": 0.6479498547082146,
+      "p": 0.006641839056888087,
+      "n": 16,
+      "significant": true
+    },
+    "aggression": {
+      "r": 0.6544590535580666,
+      "p": 0.005945027663777205,
+      "n": 16,
+      "significant": true
+    },
+    "tribalism": {
+      "r": 0.48796281105771694,
+      "p": 0.0551711652461544,
+      "n": 16,
+      "significant": false
+    },
+    "grandiosity": {
+      "r": 0.40184529290829984,
+      "p": 0.12285936996850272,
+      "n": 16,
+      "significant": false
+    }
+  },
+  "matched_model_details": [
+    {
+      "behavioral_model_id": "gemini-3-pro-preview",
+      "arc_agi_1": 87.5,
+      "sophistication": 7.497,
+      "disinhibition": 2.306,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-5.2",
+      "arc_agi_1": 86.2,
+      "sophistication": 7.257,
+      "disinhibition": 1.631,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-5.2_pro",
+      "arc_agi_1": 85.7,
+      "sophistication": 7.34,
+      "disinhibition": 1.55,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-5.1",
+      "arc_agi_1": 72.8,
+      "sophistication": 7.26,
+      "disinhibition": 1.656,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-5",
+      "arc_agi_1": 70.2,
+      "sophistication": 7.033,
+      "disinhibition": 1.556,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "grok-4-0709",
+      "arc_agi_1": 66.7,
+      "sophistication": 6.634,
+      "disinhibition": 1.865,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4.5-sonnet",
+      "arc_agi_1": 63.7,
+      "sophistication": 6.77,
+      "disinhibition": 1.827,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "o3",
+      "arc_agi_1": 60.8,
+      "sophistication": 7.177,
+      "disinhibition": 1.548,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gemini-2.5-pro",
+      "arc_agi_1": 41.0,
+      "sophistication": 7.554,
+      "disinhibition": 1.756,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4-sonnet",
+      "arc_agi_1": 40.0,
+      "sophistication": 6.14,
+      "disinhibition": 1.631,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3.7-sonnet",
+      "arc_agi_1": 21.2,
+      "sophistication": 5.357,
+      "disinhibition": 1.451,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3-opus",
+      "arc_agi_1": 13.6,
+      "sophistication": 4.683,
+      "disinhibition": 1.356,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "qwen3-32b",
+      "arc_agi_1": 11.0,
+      "sophistication": 6.38,
+      "disinhibition": 1.59,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "grok-3",
+      "arc_agi_1": 5.5,
+      "sophistication": 6.433,
+      "disinhibition": 1.615,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "llama-4-maverick-17b",
+      "arc_agi_1": 4.4,
+      "sophistication": 5.08,
+      "disinhibition": 1.36,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "llama-4-scout-17b",
+      "arc_agi_1": 0.5,
+      "sophistication": 5.334,
+      "disinhibition": 1.398,
+      "sophistication_group": "Low-Sophistication"
+    }
+  ]
+}

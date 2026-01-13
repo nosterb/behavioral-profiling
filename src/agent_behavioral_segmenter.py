@@ -108,7 +108,7 @@ def prompt_user_for_segmentation() -> Optional[int]:
     print("BEHAVIORAL SEGMENTATION PROMPT")
     print(f"{'='*80}\n")
 
-    # Ask if user wants personality processing
+    # Ask if user wants behavioral processing
     while True:
         response = input("Would you like to process this agent job for behavioral evaluation? (y/n): ").strip().lower()
         if response in ['y', 'yes']:
@@ -136,7 +136,7 @@ def create_behavioral_judge_jobs(agent_job_path: Path, turns_per_segment: int,
                                    judge_config_path: Path) -> List[Dict[str, Any]]:
     """
     Create behavioral judge evaluation jobs for each model in the agent job.
-    Uses FULL judge pipeline as configured in personality.yaml.
+    Uses FULL judge pipeline as configured in behavioral.yaml.
 
     Args:
         agent_job_path: Path to agent job JSON file
@@ -237,7 +237,7 @@ def evaluate_segment_behavioral(segment_text: str, model_name: str,
     Args:
         segment_text: Formatted segment text
         model_name: Name of model being evaluated
-        judge_config: Judge configuration (personality.yaml contents)
+        judge_config: Judge configuration (behavioral.yaml contents)
         segment_num: Current segment number
         total_segments: Total number of segments
         temp_job_dir: Temporary directory for segment job files
@@ -334,7 +334,7 @@ def evaluate_segment_behavioral(segment_text: str, model_name: str,
 
 def aggregate_behavioral_scores(segment_evaluations: List[Dict]) -> Dict[str, float]:
     """
-    Aggregate personality scores across all segments (simple average).
+    Aggregate behavioral scores across all segments (simple average).
 
     Args:
         segment_evaluations: List of evaluation results per segment
@@ -370,7 +370,7 @@ def append_behavioral_results_to_job(agent_job_path: Path, behavioral_results: L
 
     Args:
         agent_job_path: Path to agent job JSON file
-        behavioral_results: Personality evaluation results per model
+        behavioral_results: Behavioral evaluation results per model
     """
     # Load existing job data
     with open(agent_job_path, 'r') as f:
@@ -403,7 +403,7 @@ def append_behavioral_results_to_job(agent_job_path: Path, behavioral_results: L
     with open(agent_job_path, 'w') as f:
         json.dump(job_data, f, indent=2, ensure_ascii=False)
 
-    print(f"\n✓ Personality evaluation results appended to {agent_job_path.name}")
+    print(f"\n✓ Behavioral evaluation results appended to {agent_job_path.name}")
 
 
 def run_agent_behavioral_segmentation(agent_job_path: Path,
@@ -427,7 +427,7 @@ def run_agent_behavioral_segmentation(agent_job_path: Path,
         judge_config_path = Path("payload/judge_configs/behavior.yaml")
 
     if not judge_config_path.exists():
-        print(f"✗ Personality judge config not found: {judge_config_path}")
+        print(f"✗ Behavioral judge config not found: {judge_config_path}")
         return False
 
     # Prompt user if interactive and turns not specified
@@ -467,7 +467,7 @@ def run_agent_behavioral_segmentation(agent_job_path: Path,
         return True
 
     except Exception as e:
-        print(f"\n✗ Personality segmentation failed: {e}")
+        print(f"\n✗ Behavioral segmentation failed: {e}")
         import traceback
         traceback.print_exc()
         return False

@@ -1,57 +1,60 @@
 {
   "model_name": "Llama-3.2-90B",
   "dimensions": {
-    "tribalism": {
-      "sum": 70.66,
-      "count": 67,
-      "average": 1.0546268656716418
+    "grandiosity": {
+      "sum": 491.3900000000001,
+      "count": 236,
+      "average": 2.082161016949153
     },
     "warmth": {
-      "sum": 400.9800000000001,
-      "count": 67,
-      "average": 5.984776119402986
+      "sum": 1346.9,
+      "count": 236,
+      "average": 5.707203389830509
     },
     "aggression": {
-      "sum": 79.60999999999997,
-      "count": 67,
-      "average": 1.1882089552238801
+      "sum": 320.23,
+      "count": 236,
+      "average": 1.356906779661017
     },
     "formality": {
-      "sum": 497.6700000000001,
-      "count": 67,
-      "average": 7.427910447761195
+      "sum": 1826.3100000000002,
+      "count": 236,
+      "average": 7.738601694915255
     },
-    "depth": {
-      "sum": 313.0199999999999,
-      "count": 67,
-      "average": 4.671940298507462
-    },
-    "authenticity": {
-      "sum": 238.31,
-      "count": 67,
-      "average": 3.5568656716417912
+    "tribalism": {
+      "sum": 257.32,
+      "count": 236,
+      "average": 1.0903389830508474
     },
     "hedging": {
-      "sum": 332.63999999999993,
-      "count": 67,
-      "average": 4.964776119402984
-    },
-    "grandiosity": {
-      "sum": 106.28999999999999,
-      "count": 67,
-      "average": 1.5864179104477611
+      "sum": 1266.27,
+      "count": 236,
+      "average": 5.3655508474576274
     },
     "transgression": {
-      "sum": 89.22999999999996,
-      "count": 67,
-      "average": 1.3317910447761188
+      "sum": 325.7199999999999,
+      "count": 236,
+      "average": 1.3801694915254235
     },
-    "observability": {
-      "sum": 8.0,
-      "count": 1,
-      "average": 8.0
+    "authenticity": {
+      "sum": 965.6099999999999,
+      "count": 236,
+      "average": 4.091567796610169
+    },
+    "depth": {
+      "sum": 1311.57,
+      "count": 236,
+      "average": 5.5575
     }
   },
-  "last_updated": "2026-01-09T15:42:49.944071",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537273",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

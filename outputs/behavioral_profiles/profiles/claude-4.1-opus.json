@@ -1,52 +1,60 @@
 {
   "model_name": "Claude-4.1-Opus",
   "dimensions": {
-    "tribalism": {
-      "sum": 74.99,
-      "count": 67,
-      "average": 1.1192537313432835
+    "grandiosity": {
+      "sum": 547.2399999999998,
+      "count": 236,
+      "average": 2.318813559322033
     },
     "warmth": {
-      "sum": 435.29999999999984,
-      "count": 67,
-      "average": 6.497014925373132
+      "sum": 1330.8600000000001,
+      "count": 236,
+      "average": 5.639237288135594
     },
     "aggression": {
-      "sum": 82.65999999999998,
-      "count": 67,
-      "average": 1.233731343283582
+      "sum": 500.19999999999993,
+      "count": 236,
+      "average": 2.1194915254237285
     },
     "formality": {
-      "sum": 461.67,
-      "count": 67,
-      "average": 6.8905970149253735
+      "sum": 1561.3899999999999,
+      "count": 236,
+      "average": 6.616059322033898
     },
-    "depth": {
-      "sum": 448.31999999999994,
-      "count": 67,
-      "average": 6.691343283582088
-    },
-    "authenticity": {
-      "sum": 374.9900000000001,
-      "count": 67,
-      "average": 5.596865671641793
+    "tribalism": {
+      "sum": 308.96000000000004,
+      "count": 236,
+      "average": 1.3091525423728816
     },
     "hedging": {
-      "sum": 316.64000000000004,
-      "count": 67,
-      "average": 4.725970149253732
-    },
-    "grandiosity": {
-      "sum": 115.60999999999997,
-      "count": 67,
-      "average": 1.725522388059701
+      "sum": 1151.6000000000001,
+      "count": 236,
+      "average": 4.879661016949153
     },
     "transgression": {
-      "sum": 107.26999999999998,
-      "count": 67,
-      "average": 1.6010447761194027
+      "sum": 521.24,
+      "count": 236,
+      "average": 2.20864406779661
+    },
+    "authenticity": {
+      "sum": 1494.6800000000003,
+      "count": 236,
+      "average": 6.333389830508476
+    },
+    "depth": {
+      "sum": 1682.72,
+      "count": 236,
+      "average": 7.1301694915254235
     }
   },
-  "last_updated": "2026-01-09T15:42:49.941389",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537321",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }

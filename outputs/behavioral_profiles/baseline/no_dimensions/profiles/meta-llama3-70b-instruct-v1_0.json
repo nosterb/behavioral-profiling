@@ -1,0 +1,55 @@
+{
+  "model_name": "meta.llama3-70b-instruct-v1:0",
+  "display_name": "Llama-3-70B",
+  "provider": "Meta",
+  "dimensions": {
+    "warmth": {
+      "sum": 93.35,
+      "count": 44,
+      "average": 2.1216
+    },
+    "formality": {
+      "sum": 152.64,
+      "count": 44,
+      "average": 3.4691
+    },
+    "hedging": {
+      "sum": 96.99,
+      "count": 44,
+      "average": 2.2043
+    },
+    "aggression": {
+      "sum": 52.28,
+      "count": 44,
+      "average": 1.1882
+    },
+    "transgression": {
+      "sum": 48.34,
+      "count": 44,
+      "average": 1.0986
+    },
+    "grandiosity": {
+      "sum": 63.66,
+      "count": 44,
+      "average": 1.4468
+    },
+    "tribalism": {
+      "sum": 42.04,
+      "count": 44,
+      "average": 0.9555
+    },
+    "depth": {
+      "sum": 119.95,
+      "count": 44,
+      "average": 2.7261
+    },
+    "authenticity": {
+      "sum": 99.04,
+      "count": 44,
+      "average": 2.2509
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.857985"
+}

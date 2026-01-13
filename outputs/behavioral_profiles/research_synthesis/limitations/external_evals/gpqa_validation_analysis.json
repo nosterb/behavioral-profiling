@@ -1,0 +1,321 @@
+{
+  "generated": "2026-01-11T14:44:53.822691",
+  "analysis_type": "GPQA External Validation",
+  "statistical_software": "scipy.stats.pearsonr, scipy.stats.ttest_ind",
+  "scipy_version": "1.16.3",
+  "sample": {
+    "unique_matched_models": 35
+  },
+  "h1_group_comparison": {
+    "high_sophistication": {
+      "n": 18,
+      "mean": 83.42777777777778,
+      "sd": 7.58604024086003
+    },
+    "low_sophistication": {
+      "n": 17,
+      "mean": 52.05294117647059,
+      "sd": 16.181591301810325
+    },
+    "t_statistic": 7.413298867359473,
+    "p_value": 1.619433244715043e-08,
+    "significant": true
+  },
+  "correlations": {
+    "sophistication": {
+      "r": 0.884130444322355,
+      "p": 1.9244172568571237e-12,
+      "n": 35,
+      "significant": true
+    },
+    "depth": {
+      "r": 0.8649293723457236,
+      "p": 2.0821381404988776e-11,
+      "n": 35,
+      "significant": true
+    },
+    "authenticity": {
+      "r": 0.8870741249304646,
+      "p": 1.2874847275117975e-12,
+      "n": 35,
+      "significant": true
+    },
+    "disinhibition": {
+      "r": 0.7105882229878897,
+      "p": 1.7307731851695576e-06,
+      "n": 35,
+      "significant": true
+    },
+    "transgression": {
+      "r": 0.6731951833127987,
+      "p": 9.367296218759095e-06,
+      "n": 35,
+      "significant": true
+    },
+    "aggression": {
+      "r": 0.6855201407444209,
+      "p": 5.516943295867903e-06,
+      "n": 35,
+      "significant": true
+    },
+    "tribalism": {
+      "r": 0.5428374037451519,
+      "p": 0.0007536957133862776,
+      "n": 35,
+      "significant": true
+    },
+    "grandiosity": {
+      "r": 0.6681853931006727,
+      "p": 1.1535326909213323e-05,
+      "n": 35,
+      "significant": true
+    }
+  },
+  "matched_model_details": [
+    {
+      "behavioral_model_id": "gpt-5.2_pro",
+      "gpqa_score_pct": 93.2,
+      "sophistication": 7.34,
+      "disinhibition": 1.55,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-5.2",
+      "gpqa_score_pct": 92.4,
+      "sophistication": 7.257,
+      "disinhibition": 1.631,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gemini-3-pro-preview",
+      "gpqa_score_pct": 91.9,
+      "sophistication": 7.497,
+      "disinhibition": 2.306,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-5",
+      "gpqa_score_pct": 88.1,
+      "sophistication": 7.033,
+      "disinhibition": 1.556,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-5.1",
+      "gpqa_score_pct": 88.1,
+      "sophistication": 7.26,
+      "disinhibition": 1.656,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "grok-4-0709",
+      "gpqa_score_pct": 87.5,
+      "sophistication": 6.634,
+      "disinhibition": 1.865,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4.5-opus-global",
+      "gpqa_score_pct": 87.0,
+      "sophistication": 6.88,
+      "disinhibition": 1.701,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gemini-2.5-pro",
+      "gpqa_score_pct": 86.4,
+      "sophistication": 7.554,
+      "disinhibition": 1.756,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3.7-sonnet",
+      "gpqa_score_pct": 84.8,
+      "sophistication": 5.357,
+      "disinhibition": 1.451,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "grok-3",
+      "gpqa_score_pct": 84.6,
+      "sophistication": 6.433,
+      "disinhibition": 1.615,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4.5-sonnet",
+      "gpqa_score_pct": 83.4,
+      "sophistication": 6.77,
+      "disinhibition": 1.827,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "o3",
+      "gpqa_score_pct": 83.3,
+      "sophistication": 7.177,
+      "disinhibition": 1.548,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "deepseek-r1",
+      "gpqa_score_pct": 82.4,
+      "sophistication": 6.26,
+      "disinhibition": 1.642,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "qwen3-32b",
+      "gpqa_score_pct": 81.1,
+      "sophistication": 6.38,
+      "disinhibition": 1.59,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-oss-120b",
+      "gpqa_score_pct": 80.9,
+      "sophistication": 7.122,
+      "disinhibition": 1.491,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4.1-opus",
+      "gpqa_score_pct": 80.9,
+      "sophistication": 6.346,
+      "disinhibition": 1.633,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4-opus",
+      "gpqa_score_pct": 79.6,
+      "sophistication": 5.924,
+      "disinhibition": 1.648,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4-sonnet",
+      "gpqa_score_pct": 75.4,
+      "sophistication": 6.14,
+      "disinhibition": 1.631,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-4.5-haiku",
+      "gpqa_score_pct": 73.0,
+      "sophistication": 6.947,
+      "disinhibition": 1.671,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "llama-4-maverick-17b",
+      "gpqa_score_pct": 69.8,
+      "sophistication": 5.08,
+      "disinhibition": 1.36,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3.5-sonnet-v2",
+      "gpqa_score_pct": 67.2,
+      "sophistication": 4.867,
+      "disinhibition": 1.368,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-4.1",
+      "gpqa_score_pct": 66.3,
+      "sophistication": 5.604,
+      "disinhibition": 1.421,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gemini-2.0-flash",
+      "gpqa_score_pct": 62.1,
+      "sophistication": 6.19,
+      "disinhibition": 1.553,
+      "sophistication_group": "High-Sophistication"
+    },
+    {
+      "behavioral_model_id": "llama-4-scout-17b",
+      "gpqa_score_pct": 57.2,
+      "sophistication": 5.334,
+      "disinhibition": 1.398,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "llama-3.3-70b",
+      "gpqa_score_pct": 50.5,
+      "sophistication": 5.134,
+      "disinhibition": 1.396,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3-opus",
+      "gpqa_score_pct": 50.4,
+      "sophistication": 4.683,
+      "disinhibition": 1.356,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "nova-pro",
+      "gpqa_score_pct": 46.9,
+      "sophistication": 5.287,
+      "disinhibition": 1.343,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "llama-3.2-90b",
+      "gpqa_score_pct": 46.7,
+      "sophistication": 5.083,
+      "disinhibition": 1.383,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "nova-lite",
+      "gpqa_score_pct": 42.0,
+      "sophistication": 5.066,
+      "disinhibition": 1.325,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "llama-3.1-70b",
+      "gpqa_score_pct": 41.7,
+      "sophistication": 5.23,
+      "disinhibition": 1.446,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3.5-haiku",
+      "gpqa_score_pct": 41.6,
+      "sophistication": 4.614,
+      "disinhibition": 1.404,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3-sonnet",
+      "gpqa_score_pct": 40.4,
+      "sophistication": 4.807,
+      "disinhibition": 1.301,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-4",
+      "gpqa_score_pct": 35.7,
+      "sophistication": 4.383,
+      "disinhibition": 1.346,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "claude-3-haiku",
+      "gpqa_score_pct": 33.3,
+      "sophistication": 4.703,
+      "disinhibition": 1.326,
+      "sophistication_group": "Low-Sophistication"
+    },
+    {
+      "behavioral_model_id": "gpt-3.5_turbo",
+      "gpqa_score_pct": 30.8,
+      "sophistication": 4.01,
+      "disinhibition": 1.393,
+      "sophistication_group": "Low-Sophistication"
+    }
+  ]
+}

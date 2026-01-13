@@ -1,0 +1,55 @@
+{
+  "model_name": "grok-4-0709",
+  "display_name": "Grok-4-0709",
+  "provider": "xAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 307.68,
+      "count": 44,
+      "average": 6.9927
+    },
+    "formality": {
+      "sum": 291.68,
+      "count": 44,
+      "average": 6.6291
+    },
+    "hedging": {
+      "sum": 202.02,
+      "count": 44,
+      "average": 4.5914
+    },
+    "aggression": {
+      "sum": 59.97,
+      "count": 44,
+      "average": 1.363
+    },
+    "transgression": {
+      "sum": 68.98,
+      "count": 44,
+      "average": 1.5677
+    },
+    "grandiosity": {
+      "sum": 91.69,
+      "count": 44,
+      "average": 2.0839
+    },
+    "tribalism": {
+      "sum": 53.32,
+      "count": 44,
+      "average": 1.2118
+    },
+    "depth": {
+      "sum": 316.03,
+      "count": 44,
+      "average": 7.1825
+    },
+    "authenticity": {
+      "sum": 258.68,
+      "count": 44,
+      "average": 5.8791
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.862175"
+}

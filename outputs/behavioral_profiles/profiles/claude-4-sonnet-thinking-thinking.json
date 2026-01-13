@@ -1,0 +1,65 @@
+{
+  "model_name": "Claude-4-Sonnet-Thinking (Thinking)",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 465.68999999999994,
+      "count": 236,
+      "average": 1.9732627118644066
+    },
+    "warmth": {
+      "sum": 1434.7600000000004,
+      "count": 236,
+      "average": 6.07949152542373
+    },
+    "aggression": {
+      "sum": 419.22,
+      "count": 236,
+      "average": 1.77635593220339
+    },
+    "formality": {
+      "sum": 1585.54,
+      "count": 236,
+      "average": 6.718389830508475
+    },
+    "tribalism": {
+      "sum": 217.3,
+      "count": 186,
+      "average": 1.1682795698924733
+    },
+    "hedging": {
+      "sum": 1247.0599999999997,
+      "count": 236,
+      "average": 5.284152542372881
+    },
+    "transgression": {
+      "sum": 434.06999999999994,
+      "count": 236,
+      "average": 1.8392796610169488
+    },
+    "authenticity": {
+      "sum": 1465.8500000000001,
+      "count": 236,
+      "average": 6.211228813559322
+    },
+    "depth": {
+      "sum": 1636.18,
+      "count": 236,
+      "average": 6.932966101694915
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-11T21:27:57.537357",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
+}

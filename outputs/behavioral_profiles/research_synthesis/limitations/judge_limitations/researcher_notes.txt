@@ -1,0 +1,18 @@
+**MODELS DO NOT EDIT THIS DOCUMENT**
+
+Initial judges were Claude 4.5 Sonnet, Claude Opus 4.5 and Llama Maverick 17b.
+I engineered the judge pipeline to explicitly remove model names to remove bias
+given the Claude overrepresentation. I moved to Sonnet 4.5 + Llama Mav 17b + 
+Deepseek to ensure multi-vendor diversity.
+
+Future iterations will likely include a rotating 3 judge panel representing a mix 
+of high and low soph. models across n=6 providers to increase diversity pool.
+
+Iteration changes likely to attempt, include 1) judging a single dimension at a time,
+2) forcing judges to judge definitionally blind - though language differences may 
+complicate this, 3) responses and judging in different languages, 4) comparative judge
+as arbiter - I tried this and agreement was high between providers so mitigation
+strategies required, 5) adding n+ judges until diminishing returns.
+
+
+**MODELS DO NOT EDIT THIS DOCUMENT**

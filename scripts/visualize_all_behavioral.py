@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Complete personality visualization - creates both per-job and aggregated charts.
+Complete behavioral visualization - creates both per-job and aggregated charts.
 
 This script:
 1. Creates individual job visualizations in visualization/individual_jobs/
 2. Creates cross-job aggregate in visualization/summary/
 
 Usage:
-    python3 scripts/visualize_all_personality.py <directory>
+    python3 scripts/visualize_all_behavioral.py <directory>
 
 Example:
-    python3 scripts/visualize_all_personality.py outputs/single_prompt_jobs/12_7_2025_personality_v3
+    python3 scripts/visualize_all_behavioral.py outputs/single_prompt_jobs/12_7_2025_behavioral_v3
 """
 
 import sys
@@ -20,7 +20,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
 from visualize_behavioral import visualize_judge_results
-from aggregate_personality import aggregate_scores_from_directory, create_aggregated_spider_chart
+from aggregate_behavioral import aggregate_scores_from_directory, create_aggregated_spider_chart
 
 
 def visualize_all(directory: Path):
@@ -42,12 +42,12 @@ def visualize_all(directory: Path):
         sys.exit(1)
 
     print(f"{'='*70}")
-    print(f"Personality Visualization Suite")
+    print(f"Behavioral Visualization Suite")
     print(f"{'='*70}")
     print(f"Directory: {directory.name}\n")
 
     # Find all JSON files
-    json_files = sorted(directory.glob("*.json"))
+    json_files = sorted(directory.rglob("*.json"))
 
     if not json_files:
         print(f"❌ No JSON files found in {directory}")
@@ -150,12 +150,12 @@ def visualize_all(directory: Path):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 scripts/visualize_all_personality.py <directory>")
+        print("Usage: python3 scripts/visualize_all_behavioral.py <directory>")
         print("\nCreates complete visualization suite:")
         print("  - Per-job visualizations in visualization/individual_jobs/")
         print("  - Cross-job aggregate in visualization/summary/")
         print("\nExample:")
-        print("  python3 scripts/visualize_all_personality.py outputs/single_prompt_jobs/12_7_2025_personality_v3")
+        print("  python3 scripts/visualize_all_behavioral.py outputs/single_prompt_jobs/12_7_2025_behavioral_v3")
         sys.exit(1)
 
     directory = Path(sys.argv[1])

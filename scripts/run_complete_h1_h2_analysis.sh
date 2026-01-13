@@ -203,6 +203,20 @@ fi
 echo ""
 
 # =============================================================================
+# STAGE 5: CROSS-CONDITION COMPARISON
+# =============================================================================
+
+echo "=== STAGE 5: CROSS-CONDITION COMPARISON ==="
+echo ""
+
+echo "Step 5: Updating cross-condition comparison..."
+python3 scripts/update_cross_condition_comparison.py
+if [ $? -ne 0 ]; then
+    echo "⚠️  WARNING: Cross-condition comparison update failed (non-fatal)"
+fi
+echo ""
+
+# =============================================================================
 # COMPLETION AND SUMMARY
 # =============================================================================
 

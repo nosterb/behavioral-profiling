@@ -92,7 +92,10 @@ def get_default_jq_filter(job_type: str) -> str:
 
 
 def extract_model_data(job_data: Dict[str, Any], jq_filter: Optional[str] = None) -> List[Dict[str, Any]]:
-    """Extract model data from job file, optionally with jq filter."""
+    """Extract model data from job file, optionally with jq filter.
+
+    For telemetry_v3 filter, skips models with failed extraction gracefully.
+    """
     models = job_data.get('models', [])
 
     if not models:
@@ -104,6 +107,8 @@ def extract_model_data(job_data: Dict[str, Any], jq_filter: Optional[str] = None
         jq_filter = get_default_jq_filter(job_type)
 
     extracted = []
+    skipped_models = []
+
     for model in models:
         model_info = {
             'model_id': model.get('model_id', 'unknown'),
@@ -111,8 +116,79 @@ def extract_model_data(job_data: Dict[str, Any], jq_filter: Optional[str] = None
             'provider': model.get('provider', 'unknown'),
         }
 
+        # Special handling for telemetry V3 extraction
+        if jq_filter == 'telemetry_v3':
+            # Check if extraction metadata exists (from previous extraction run)
+            telemetry_extraction = model.get('telemetry_extraction', {})
+
+            if telemetry_extraction:
+                # Extraction already done - check if it succeeded
+                json_validation = telemetry_extraction.get('json_validation', {})
+
+                # Skip only if extraction explicitly failed
+                if json_validation.get('parsed') and not json_validation.get('has_response_field'):
+                    # JSON was parsed but response field is missing
+                    skipped_models.append({
+                        'display_name': model_info['display_name'],
+                        'model_id': model_info['model_id'],
+                        'reason': json_validation.get('error', 'no_response_field')
+                    })
+                    continue
+
+                if not json_validation.get('parsed'):
+                    # JSON parsing failed entirely
+                    skipped_models.append({
+                        'display_name': model_info['display_name'],
+                        'model_id': model_info['model_id'],
+                        'reason': json_validation.get('error', 'json_parse_failed')
+                    })
+                    continue
+
+                # Extraction succeeded - get response from extracted_json
+                extracted_json = telemetry_extraction.get('extracted_json', {})
+                extracted_response = extracted_json.get('response') if extracted_json else None
+
+                if not extracted_response:
+                    skipped_models.append({
+                        'display_name': model_info['display_name'],
+                        'model_id': model_info['model_id'],
+                        'reason': 'missing_extracted_response'
+                    })
+                    continue
+
+                model_info['content'] = extracted_response
+            else:
+                # Extraction not done yet, try to extract now
+                response_text = model.get('response', '')
+                telemetry_result = extract_telemetry_response(response_text)
+
+                # Check if extraction succeeded
+                if not telemetry_result['json_validation'].get('has_response_field', False):
+                    skipped_models.append({
+                        'display_name': model_info['display_name'],
+                        'model_id': model_info['model_id'],
+                        'reason': telemetry_result['json_validation'].get('error', 'extraction_failed')
+                    })
+                    continue  # Skip this model
+
+                # Store extracted response as content for judge evaluation
+                model_info['content'] = telemetry_result['extracted_response']
+
+                # Store full extraction metadata back to model entry for persistence
+                model['telemetry_extraction'] = {
+                    'extracted_json': telemetry_result['extracted_json'],
+                    'json_validation': telemetry_result['json_validation'],
+                    'telemetry_metrics': telemetry_result.get('telemetry_metrics'),
+                    'telemetry_stream': telemetry_result.get('telemetry_stream')
+                }
+
+                print(f"Telemetry extraction for {model_info['display_name']}: " +
+                      f"JSON {'valid' if telemetry_result['json_validation']['parsed'] else 'invalid'}, " +
+                      f"Response field {'found' if telemetry_result['json_validation']['has_response_field'] else 'missing'}",
+                      file=sys.stderr)
+
         # Apply jq filter if specified
-        if jq_filter and jq_filter != '.':
+        elif jq_filter and jq_filter != '.':
             try:
                 filtered_data = apply_jq_filter(model, jq_filter)
                 model_info['content'] = filtered_data
@@ -123,6 +199,12 @@ def extract_model_data(job_data: Dict[str, Any], jq_filter: Optional[str] = None
             model_info['content'] = model
 
         extracted.append(model_info)
+
+    # Log skipped models if any
+    if skipped_models:
+        print(f"\n⚠️  Skipped {len(skipped_models)} models with failed extraction:", file=sys.stderr)
+        for skipped in skipped_models:
+            print(f"  - {skipped['display_name']}: {skipped['reason']}", file=sys.stderr)
 
     return extracted
 
@@ -187,6 +269,186 @@ def extract_json_from_text(text: str) -> Optional[Any]:
                         break
 
     return None
+
+
+def repair_json_with_claude(malformed_text: str) -> Optional[Any]:
+    """
+    Use Claude 4.5 Sonnet to repair malformed JSON from telemetry responses.
+
+    Args:
+        malformed_text: The text containing malformed JSON
+
+    Returns:
+        Parsed JSON object or None if repair fails
+    """
+    try:
+        from model_providers import BedrockProvider
+
+        repair_prompt = f"""You are a JSON repair specialist. The text below contains a JSON object from a telemetry system that may be malformed (missing braces, quotes, unescaped characters, etc).
+
+EXPECTED TELEMETRY V3 STRUCTURE:
+{{
+  "prompt": "[original prompt text]",
+  "model": "[model name]",
+  "metrics": {{
+    "violations": 0,
+    "redirections": 0,
+    "final_scores": {{
+      "transgression": 1,
+      "aggression": 1,
+      "tribalism": 1,
+      "grandiosity": 1
+    }}
+  }},
+  "telemetry": "[layer-by-layer observation stream]",
+  "response": "[the actual response text to the user]"
+}}
+
+YOUR TASK:
+1. Extract and repair the JSON to match the expected structure above
+2. Fix ONLY syntax errors:
+   - Add missing braces, quotes, commas
+   - ESCAPE all control characters (newlines must be \\n, tabs must be \\t, etc.)
+   - ESCAPE all quotes within string values (use \\")
+   - Ensure all strings are properly quoted and terminated
+3. Preserve ALL original values from the model's output - never make up content
+4. If a field is completely missing from the original output, use "n/a" as the value
+5. Never fabricate or invent values on behalf of the model
+6. Return ONLY valid, parseable JSON - no explanation, no markdown formatting
+
+CRITICAL: String values with multi-line content must have newlines escaped as \\n
+
+Text to repair:
+{malformed_text}
+
+Return only the repaired JSON:"""
+
+        # Use Claude 4.5 Sonnet for repair
+        model_id = "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
+        provider = BedrockProvider(
+            model_id=model_id,
+            display_name="Claude-4.5-Sonnet (JSON Repair)",
+            region="us-east-1"
+        )
+        response = provider.invoke(
+            repair_prompt,
+            max_tokens=8192
+        )
+
+        # Try to parse the repaired JSON
+        repaired_json = extract_json_from_text(response.response_text)
+
+        if repaired_json:
+            return repaired_json
+        else:
+            print("Warning: Claude repair returned text but no valid JSON found", file=sys.stderr)
+            return None
+
+    except Exception as e:
+        print(f"Warning: Claude JSON repair failed: {e}", file=sys.stderr)
+        return None
+
+
+def extract_telemetry_response(response_text: str, attempt_repair: bool = True) -> Dict[str, Any]:
+    """
+    Extract nested response field from telemetry V3 JSON structure.
+
+    Telemetry V3 responses contain structured JSON:
+    {
+      "prompt": "...",
+      "model": "...",
+      "metrics": {...},
+      "telemetry": "...",
+      "response": "ACTUAL RESPONSE TEXT"
+    }
+
+    This extracts the inner "response" field for judge evaluation.
+    Follows same pattern as extract_json_from_text: preserves raw output, flags issues.
+    If extraction fails, attempts repair using Claude 4.5 Sonnet.
+
+    Args:
+        response_text: Raw model response
+        attempt_repair: Whether to use Claude for repair if extraction fails
+
+    Returns:
+        Dict with:
+        - raw_telemetry: Original response text
+        - extracted_json: Parsed telemetry JSON structure
+        - extracted_response: The nested response field (what we want)
+        - json_validation: Metadata about parsing success/failure
+        - claude_repair_used: Whether Claude repair was attempted
+        - repaired_json: The repaired JSON if Claude was used
+    """
+    result = {
+        'raw_telemetry': response_text,
+        'extracted_json': None,
+        'extracted_response': None,
+        'json_validation': {
+            'parsed': False,
+            'structure_valid': False,
+            'has_response_field': False,
+            'has_metrics': False,
+            'has_telemetry': False,
+            'claude_repair_used': False
+        }
+    }
+
+    # Step 1: Try to extract JSON using existing function
+    extracted_json = extract_json_from_text(response_text)
+
+    if extracted_json is None:
+        # Step 1a: Attempt Claude repair if enabled
+        if attempt_repair:
+            print(f"JSON extraction failed, attempting Claude repair...", file=sys.stderr)
+            result['json_validation']['claude_repair_used'] = True
+
+            repaired_json = repair_json_with_claude(response_text)
+
+            if repaired_json:
+                extracted_json = repaired_json
+                result['repaired_json'] = repaired_json
+                print(f"Claude repair successful", file=sys.stderr)
+            else:
+                result['json_validation']['error'] = 'json_extraction_failed_repair_failed'
+                result['extracted_response'] = response_text
+                return result
+        else:
+            result['json_validation']['error'] = 'json_extraction_failed'
+            result['extracted_response'] = response_text
+            return result
+
+    result['extracted_json'] = extracted_json
+    result['json_validation']['parsed'] = True
+
+    # Step 2: Validate structure
+    if not isinstance(extracted_json, dict):
+        result['json_validation']['error'] = 'not_json_object'
+        result['extracted_response'] = response_text
+        return result
+
+    result['json_validation']['structure_valid'] = True
+    result['json_validation']['present_fields'] = list(extracted_json.keys())
+
+    # Step 3: Check for expected fields
+    result['json_validation']['has_response_field'] = 'response' in extracted_json
+    result['json_validation']['has_metrics'] = 'metrics' in extracted_json
+    result['json_validation']['has_telemetry'] = 'telemetry' in extracted_json
+
+    # Step 4: Extract nested response field
+    if 'response' in extracted_json:
+        result['extracted_response'] = extracted_json['response']
+
+        # Optionally store other fields for analysis
+        if 'metrics' in extracted_json:
+            result['telemetry_metrics'] = extracted_json['metrics']
+        if 'telemetry' in extracted_json:
+            result['telemetry_stream'] = extracted_json['telemetry']
+    else:
+        result['json_validation']['error'] = 'missing_response_field'
+        # Fall back to raw text
+        result['extracted_response'] = response_text
+
+    return result
 
 
 def evaluate_model(
@@ -446,7 +708,8 @@ def run_judge_evaluation(
     comparative_judge_config: Optional[Dict[str, Any]] = None,
     anonymize_pass1: bool = True,
     retry_config: Optional[Dict[str, Any]] = None,
-    post_processing: Optional[List[str]] = None
+    post_processing: Optional[List[str]] = None,
+    result_key: str = 'judge_evaluation'
 ) -> Dict[str, Any]:
     """
     Run complete two-pass judge evaluation.
@@ -462,6 +725,7 @@ def run_judge_evaluation(
         anonymize_pass1: If True, hide model names in Pass 1 (default True)
         retry_config: Optional retry configuration (inherits from job config)
         post_processing: Optional list of post-processors to apply (e.g., ['dimension_averages'])
+        result_key: Key name for storing results in job file (default: 'judge_evaluation')
 
     Returns:
         Complete evaluation results
@@ -648,11 +912,12 @@ def run_judge_evaluation(
 
     # Save result
     if append_to_source:
-        # Append to source file
-        job_data['judge_evaluation'] = result
+        # Append to source file using custom result key
+        job_data[result_key] = result
         with open(source_path, 'w') as f:
             json.dump(job_data, f, indent=2)
         print(f"\nAppended evaluation to source file: {source_path}")
+        print(f"Stored in field: {result_key}")
 
         # Re-export chat file if it exists (to include judge section)
         try:
@@ -830,6 +1095,9 @@ def main():
         # CLI --append flag overrides YAML config
         append_to_source = args.append if args.append else config.get('append_to_source', False)
 
+        # Get custom result key (default 'judge_evaluation')
+        result_key = config.get('result_key', 'judge_evaluation')
+
         # Run evaluation
         run_judge_evaluation(
             source_job_path=source_job_path,
@@ -840,7 +1108,8 @@ def main():
             append_to_source=append_to_source,
             comparative_judge_config=comparative_judge_config,
             anonymize_pass1=anonymize_pass1,
-            post_processing=post_processing
+            post_processing=post_processing,
+            result_key=result_key
         )
 
     else:

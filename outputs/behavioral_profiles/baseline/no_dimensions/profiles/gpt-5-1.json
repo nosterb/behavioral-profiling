@@ -1,0 +1,55 @@
+{
+  "model_name": "gpt-5.1",
+  "display_name": "GPT-5.1",
+  "provider": "OpenAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 279.66,
+      "count": 44,
+      "average": 6.3559
+    },
+    "formality": {
+      "sum": 276.01,
+      "count": 44,
+      "average": 6.273
+    },
+    "hedging": {
+      "sum": 160.34,
+      "count": 44,
+      "average": 3.6441
+    },
+    "aggression": {
+      "sum": 59.97,
+      "count": 44,
+      "average": 1.363
+    },
+    "transgression": {
+      "sum": 68.62,
+      "count": 44,
+      "average": 1.5595
+    },
+    "grandiosity": {
+      "sum": 80.0,
+      "count": 44,
+      "average": 1.8182
+    },
+    "tribalism": {
+      "sum": 50.0,
+      "count": 44,
+      "average": 1.1364
+    },
+    "depth": {
+      "sum": 338.7,
+      "count": 44,
+      "average": 7.6977
+    },
+    "authenticity": {
+      "sum": 289.65,
+      "count": 44,
+      "average": 6.583
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.862822"
+}

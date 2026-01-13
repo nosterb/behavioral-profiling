@@ -368,12 +368,12 @@ def visualize_judge_results(job_file: Path, output_dir: Optional[Path] = None) -
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 src/visualize_personality.py <job_file.json|directory> [output_dir]")
+        print("Usage: python3 src/visualize_behavioral.py <job_file.json|directory> [output_dir]")
         print("\nGenerates spider charts, heatmaps, and comparative visualizations")
         print("from behavioral judge evaluation results.")
         print("\nExamples:")
-        print("  python3 src/visualize_personality.py outputs/single_prompt_jobs/job_behavioral_warmth.json")
-        print("  python3 src/visualize_personality.py outputs/single_prompt_jobs/12_2_2025_personality_v1/ outputs/viz/")
+        print("  python3 src/visualize_behavioral.py outputs/single_prompt_jobs/job_behavioral_warmth.json")
+        print("  python3 src/visualize_behavioral.py outputs/single_prompt_jobs/12_2_2025_behavioral_v1/ outputs/viz/")
         sys.exit(1)
 
     input_path = Path(sys.argv[1])
@@ -385,7 +385,7 @@ def main():
 
     # Handle directory input - process all JSON files
     if input_path.is_dir():
-        json_files = sorted(input_path.glob("*.json"))
+        json_files = sorted(input_path.rglob("*.json"))
 
         if not json_files:
             print(f"❌ No JSON files found in directory: {input_path}")

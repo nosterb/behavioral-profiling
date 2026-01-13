@@ -1,0 +1,861 @@
+{
+  "generated": "2026-01-12",
+  "baseline": {
+    "models": [
+      {
+        "model": "gpt-oss-120b",
+        "provider": "OpenAI",
+        "sophistication": 7.121700000000001,
+        "disinhibition": 1.4905499999999998,
+        "ratio": 4.777900774881756,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gpt-5.2_pro",
+        "provider": "OpenAI",
+        "sophistication": 7.34,
+        "disinhibition": 1.5495999999999999,
+        "ratio": 4.736706246773362,
+        "n_evaluations": 50
+      },
+      {
+        "model": "o3",
+        "provider": "OpenAI",
+        "sophistication": 7.177099999999999,
+        "disinhibition": 1.54815,
+        "ratio": 4.635920291961373,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gpt-5",
+        "provider": "OpenAI",
+        "sophistication": 7.033499999999998,
+        "disinhibition": 1.55625,
+        "ratio": 4.519518072289156,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gpt-5.2",
+        "provider": "OpenAI",
+        "sophistication": 7.256599999999999,
+        "disinhibition": 1.6314499999999998,
+        "ratio": 4.447945079530479,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gpt-5.1",
+        "provider": "OpenAI",
+        "sophistication": 7.260200000000001,
+        "disinhibition": 1.6562,
+        "ratio": 4.3836493177152525,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gemini-2.5-pro",
+        "provider": "Google",
+        "sophistication": 7.553599999999999,
+        "disinhibition": 1.75645,
+        "ratio": 4.3004924706083285,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.5-haiku-thinking_(thinking)",
+        "provider": "Anthropic",
+        "sophistication": 6.836799999999998,
+        "disinhibition": 1.6398,
+        "ratio": 4.169288937675326,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.5-haiku",
+        "provider": "Anthropic",
+        "sophistication": 6.9472000000000005,
+        "disinhibition": 1.6714499999999999,
+        "ratio": 4.156391157378325,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.5-opus-global",
+        "provider": "Anthropic",
+        "sophistication": 6.880000000000001,
+        "disinhibition": 1.7012999999999998,
+        "ratio": 4.0439663786516205,
+        "n_evaluations": 50
+      },
+      {
+        "model": "qwen3-32b",
+        "provider": "Alibaba",
+        "sophistication": 6.380000000000001,
+        "disinhibition": 1.5899,
+        "ratio": 4.012830995660105,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.5-opus-global-thinking_(thinking)",
+        "provider": "Anthropic",
+        "sophistication": 6.759700000000001,
+        "disinhibition": 1.6862499999999998,
+        "ratio": 4.0087175685693115,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gemini-2.0-flash",
+        "provider": "Google",
+        "sophistication": 6.189700000000001,
+        "disinhibition": 1.5531499999999998,
+        "ratio": 3.9852557705308578,
+        "n_evaluations": 50
+      },
+      {
+        "model": "grok-3",
+        "provider": "xAI",
+        "sophistication": 6.433099999999999,
+        "disinhibition": 1.61485,
+        "ratio": 3.9837136576152576,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "sophistication": 5.6035,
+        "disinhibition": 1.4211499999999997,
+        "ratio": 3.942933539738945,
+        "n_evaluations": 50
+      },
+      {
+        "model": "nova-pro",
+        "provider": "AWS",
+        "sophistication": 5.2866,
+        "disinhibition": 1.3431,
+        "ratio": 3.9361179361179364,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4-sonnet-thinking_(thinking)",
+        "provider": "Anthropic",
+        "sophistication": 6.16,
+        "disinhibition": 1.5827499999999997,
+        "ratio": 3.891960195861634,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.1-opus",
+        "provider": "Anthropic",
+        "sophistication": 6.3463,
+        "disinhibition": 1.6328999999999998,
+        "ratio": 3.8865209137118018,
+        "n_evaluations": 50
+      },
+      {
+        "model": "nova-lite",
+        "provider": "AWS",
+        "sophistication": 5.066300000000002,
+        "disinhibition": 1.3247499999999999,
+        "ratio": 3.8243442158897922,
+        "n_evaluations": 50
+      },
+      {
+        "model": "llama-4-scout-17b",
+        "provider": "Meta",
+        "sophistication": 5.3339,
+        "disinhibition": 1.39815,
+        "ratio": 3.814969781496978,
+        "n_evaluations": 50
+      },
+      {
+        "model": "deepseek-r1",
+        "provider": "DeepSeek",
+        "sophistication": 6.2596,
+        "disinhibition": 1.6417000000000002,
+        "ratio": 3.8128768959005903,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.5-sonnet-thinking_(thinking)",
+        "provider": "Anthropic",
+        "sophistication": 6.6202,
+        "disinhibition": 1.74915,
+        "ratio": 3.784809764742875,
+        "n_evaluations": 50
+      },
+      {
+        "model": "nova-premier",
+        "provider": "AWS",
+        "sophistication": 4.9867,
+        "disinhibition": 1.3179999999999998,
+        "ratio": 3.7835356600910472,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 6.140399999999999,
+        "disinhibition": 1.6311999999999998,
+        "ratio": 3.764345267287886,
+        "n_evaluations": 50
+      },
+      {
+        "model": "llama-4-maverick-17b",
+        "provider": "Meta",
+        "sophistication": 5.0798000000000005,
+        "disinhibition": 1.3597,
+        "ratio": 3.7359711701110547,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.5-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 6.770499999999998,
+        "disinhibition": 1.8265,
+        "ratio": 3.7068163153572398,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-3-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 4.806600000000001,
+        "disinhibition": 1.3010499999999998,
+        "ratio": 3.694400676376774,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-3.7-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 5.3566,
+        "disinhibition": 1.45105,
+        "ratio": 3.6915337169635785,
+        "n_evaluations": 50
+      },
+      {
+        "model": "llama-3.3-70b",
+        "provider": "Meta",
+        "sophistication": 5.133699999999999,
+        "disinhibition": 1.39625,
+        "ratio": 3.676777081468218,
+        "n_evaluations": 50
+      },
+      {
+        "model": "llama-3.2-90b",
+        "provider": "Meta",
+        "sophistication": 5.083199999999999,
+        "disinhibition": 1.3833,
+        "ratio": 3.6746909564085874,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4.1-opus-thinking_(thinking)",
+        "provider": "Anthropic",
+        "sophistication": 5.8919,
+        "disinhibition": 1.6094999999999997,
+        "ratio": 3.660702081391737,
+        "n_evaluations": 50
+      },
+      {
+        "model": "llama-3.1-70b",
+        "provider": "Meta",
+        "sophistication": 5.229600000000001,
+        "disinhibition": 1.44645,
+        "ratio": 3.6154723633723953,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4-opus",
+        "provider": "Anthropic",
+        "sophistication": 5.924099999999999,
+        "disinhibition": 1.64765,
+        "ratio": 3.595484477892756,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-4-opus-thinking_(thinking)",
+        "provider": "Anthropic",
+        "sophistication": 5.936599999999999,
+        "disinhibition": 1.658,
+        "ratio": 3.5805790108564532,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-3.5-sonnet-v2",
+        "provider": "Anthropic",
+        "sophistication": 4.8665,
+        "disinhibition": 1.3678499999999998,
+        "ratio": 3.5577731476404586,
+        "n_evaluations": 50
+      },
+      {
+        "model": "grok-4-0709",
+        "provider": "xAI",
+        "sophistication": 6.633900000000001,
+        "disinhibition": 1.8648499999999997,
+        "ratio": 3.557337051237366,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-3-haiku",
+        "provider": "Anthropic",
+        "sophistication": 4.7032,
+        "disinhibition": 1.3259499999999997,
+        "ratio": 3.547041743655493,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-3.5-sonnet-v1",
+        "provider": "Anthropic",
+        "sophistication": 4.7515,
+        "disinhibition": 1.3744999999999998,
+        "ratio": 3.4568934157875595,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-3-opus",
+        "provider": "Anthropic",
+        "sophistication": 4.683000000000002,
+        "disinhibition": 1.3563,
+        "ratio": 3.4527759345277604,
+        "n_evaluations": 50
+      },
+      {
+        "model": "mistral-large-24.02",
+        "provider": "Mistral",
+        "sophistication": 4.5402000000000005,
+        "disinhibition": 1.3526999999999998,
+        "ratio": 3.356398314482148,
+        "n_evaluations": 50
+      },
+      {
+        "model": "mixtral-8x7b",
+        "provider": "Mistral",
+        "sophistication": 4.530099999999999,
+        "disinhibition": 1.3611499999999999,
+        "ratio": 3.3281416449325936,
+        "n_evaluations": 50
+      },
+      {
+        "model": "claude-3.5-haiku",
+        "provider": "Anthropic",
+        "sophistication": 4.613599999999999,
+        "disinhibition": 1.4044999999999996,
+        "ratio": 3.2848700605197583,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gpt-4",
+        "provider": "OpenAI",
+        "sophistication": 4.3831999999999995,
+        "disinhibition": 1.3461499999999997,
+        "ratio": 3.256100731716377,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "provider": "Google",
+        "sophistication": 7.4968,
+        "disinhibition": 2.3061999999999996,
+        "ratio": 3.250715462665858,
+        "n_evaluations": 50
+      },
+      {
+        "model": "gpt-3.5_turbo",
+        "provider": "OpenAI",
+        "sophistication": 4.010199999999999,
+        "disinhibition": 1.39295,
+        "ratio": 2.878926020316594,
+        "n_evaluations": 50
+      }
+    ],
+    "providers": {
+      "Anthropic": {
+        "avg_sophistication": 5.841826315789473,
+        "avg_disinhibition": 1.5588236842105263,
+        "ratio": 3.7475863209944067,
+        "n_models": 19,
+        "n_evaluations": 950
+      },
+      "xAI": {
+        "avg_sophistication": 6.5335,
+        "avg_disinhibition": 1.7398499999999997,
+        "ratio": 3.7552087823662967,
+        "n_models": 2,
+        "n_evaluations": 100
+      },
+      "OpenAI": {
+        "avg_sophistication": 6.353999999999999,
+        "avg_disinhibition": 1.510272222222222,
+        "ratio": 4.207188549525656,
+        "n_models": 9,
+        "n_evaluations": 450
+      },
+      "Meta": {
+        "avg_sophistication": 5.172040000000001,
+        "avg_disinhibition": 1.39677,
+        "ratio": 3.702857306499997,
+        "n_models": 5,
+        "n_evaluations": 250
+      },
+      "DeepSeek": {
+        "avg_sophistication": 6.2596,
+        "avg_disinhibition": 1.6417000000000002,
+        "ratio": 3.8128768959005903,
+        "n_models": 1,
+        "n_evaluations": 50
+      },
+      "AWS": {
+        "avg_sophistication": 5.1132,
+        "avg_disinhibition": 1.3286166666666666,
+        "ratio": 3.8485141186948835,
+        "n_models": 3,
+        "n_evaluations": 150
+      },
+      "Google": {
+        "avg_sophistication": 7.080033333333334,
+        "avg_disinhibition": 1.871933333333333,
+        "ratio": 3.782203782185976,
+        "n_models": 3,
+        "n_evaluations": 150
+      },
+      "Alibaba": {
+        "avg_sophistication": 6.380000000000001,
+        "avg_disinhibition": 1.5899,
+        "ratio": 4.012830995660105,
+        "n_models": 1,
+        "n_evaluations": 50
+      },
+      "Mistral": {
+        "avg_sophistication": 4.53515,
+        "avg_disinhibition": 1.356925,
+        "ratio": 3.342225988908746,
+        "n_models": 2,
+        "n_evaluations": 100
+      }
+    }
+  },
+  "aggregate": {
+    "models": [
+      {
+        "model": "gpt-5.2-pro",
+        "provider": "OpenAI",
+        "sophistication": 7.449491525423729,
+        "disinhibition": 1.6625105932203388,
+        "ratio": 4.480868606673846,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gpt-oss-120b",
+        "provider": "OpenAI",
+        "sophistication": 6.721525423728813,
+        "disinhibition": 1.5273199152542372,
+        "ratio": 4.400862816360219,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gpt-5.2",
+        "provider": "OpenAI",
+        "sophistication": 7.379533898305084,
+        "disinhibition": 1.7209639830508474,
+        "ratio": 4.2880234397601855,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gpt-5",
+        "provider": "OpenAI",
+        "sophistication": 7.162372881355932,
+        "disinhibition": 1.6721186440677962,
+        "ratio": 4.283411889919417,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gpt-5.1",
+        "provider": "OpenAI",
+        "sophistication": 7.423220338983052,
+        "disinhibition": 1.7342690677966102,
+        "ratio": 4.280316403506093,
+        "n_evaluations": 0
+      },
+      {
+        "model": "o3",
+        "provider": "OpenAI",
+        "sophistication": 6.912542372881356,
+        "disinhibition": 1.7002966101694916,
+        "ratio": 4.065492062700924,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4-sonnet-thinking-thinking",
+        "provider": "Anthropic",
+        "sophistication": 6.572097457627119,
+        "disinhibition": 1.6892944687443048,
+        "ratio": 3.8904392213586805,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.1-opus-thinking-thinking",
+        "provider": "Anthropic",
+        "sophistication": 6.463601694915255,
+        "disinhibition": 1.7373411016949152,
+        "ratio": 3.7203987683302344,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-3.7-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 5.5006991525423725,
+        "disinhibition": 1.4838336067067612,
+        "ratio": 3.7070862444952253,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4-opus-thinking-thinking",
+        "provider": "Anthropic",
+        "sophistication": 6.330340425531915,
+        "disinhibition": 1.7215106382978722,
+        "ratio": 3.6772008750355334,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-3.5-sonnet-v2",
+        "provider": "Anthropic",
+        "sophistication": 5.322077625570777,
+        "disinhibition": 1.4587557077625568,
+        "ratio": 3.648367987353957,
+        "n_evaluations": 0
+      },
+      {
+        "model": "grok-3",
+        "provider": "xAI",
+        "sophistication": 6.071186440677966,
+        "disinhibition": 1.7006673728813557,
+        "ratio": 3.569884703786525,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-3-opus",
+        "provider": "Anthropic",
+        "sophistication": 4.834004237288136,
+        "disinhibition": 1.3554766949152541,
+        "ratio": 3.566276170901163,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gemini-2.0-flash",
+        "provider": "Google",
+        "sophistication": 5.908368644067796,
+        "disinhibition": 1.668209745762712,
+        "ratio": 3.541742073546313,
+        "n_evaluations": 0
+      },
+      {
+        "model": "grok-4-0709",
+        "provider": "xAI",
+        "sophistication": 6.412881355932203,
+        "disinhibition": 1.813760593220339,
+        "ratio": 3.535682371699403,
+        "n_evaluations": 0
+      },
+      {
+        "model": "llama-4-maverick-17b",
+        "provider": "Meta",
+        "sophistication": 4.873707627118645,
+        "disinhibition": 1.3880542646254783,
+        "ratio": 3.5111794627378328,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-3.5-sonnet-v1",
+        "provider": "Anthropic",
+        "sophistication": 4.7312711864406785,
+        "disinhibition": 1.3543008474576268,
+        "ratio": 3.493515635999563,
+        "n_evaluations": 0
+      },
+      {
+        "model": "nova-pro",
+        "provider": "AWS",
+        "sophistication": 5.022500000000001,
+        "disinhibition": 1.4387076271186439,
+        "ratio": 3.4909803113081135,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.5-sonnet-thinking-thinking",
+        "provider": "Anthropic",
+        "sophistication": 7.029131355932203,
+        "disinhibition": 2.034131355932203,
+        "ratio": 3.455593629896575,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-3.5-haiku",
+        "provider": "Anthropic",
+        "sophistication": 4.9839406779661015,
+        "disinhibition": 1.4457499544377619,
+        "ratio": 3.447304744964912,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 6.652648305084745,
+        "disinhibition": 1.9382838983050847,
+        "ratio": 3.4322362740061427,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.5-haiku-thinking-thinking",
+        "provider": "Anthropic",
+        "sophistication": 7.551588983050847,
+        "disinhibition": 2.209205508474576,
+        "ratio": 3.4182374406014895,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4-opus",
+        "provider": "Anthropic",
+        "sophistication": 6.314427966101696,
+        "disinhibition": 1.8544123610351737,
+        "ratio": 3.405082978726934,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.1-opus",
+        "provider": "Anthropic",
+        "sophistication": 6.731779661016949,
+        "disinhibition": 1.9890254237288132,
+        "ratio": 3.3844613450927765,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gpt-4.1",
+        "provider": "OpenAI",
+        "sophistication": 5.680741525423729,
+        "disinhibition": 1.6788559322033896,
+        "ratio": 3.3836980389187556,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.5-opus-global-thinking-thinking",
+        "provider": "Anthropic",
+        "sophistication": 5.946843220338984,
+        "disinhibition": 1.7631355932203387,
+        "ratio": 3.3728791155972133,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.5-haiku",
+        "provider": "Anthropic",
+        "sophistication": 7.514745762711865,
+        "disinhibition": 2.234279661016949,
+        "ratio": 3.363386371825751,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.5-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 7.134025423728813,
+        "disinhibition": 2.127012711864407,
+        "ratio": 3.3540116539668303,
+        "n_evaluations": 0
+      },
+      {
+        "model": "llama-3.3-70b",
+        "provider": "Meta",
+        "sophistication": 4.8509957627118645,
+        "disinhibition": 1.4474703845452888,
+        "ratio": 3.351360977403186,
+        "n_evaluations": 0
+      },
+      {
+        "model": "nova-lite",
+        "provider": "AWS",
+        "sophistication": 4.801419491525424,
+        "disinhibition": 1.4341101694915253,
+        "ratio": 3.3480130004431974,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gpt-4",
+        "provider": "OpenAI",
+        "sophistication": 4.508389830508475,
+        "disinhibition": 1.359237288135593,
+        "ratio": 3.3168526716129443,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-4.5-opus-global",
+        "provider": "Anthropic",
+        "sophistication": 5.73542372881356,
+        "disinhibition": 1.7352966101694913,
+        "ratio": 3.3051546895221358,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gemini-2.5-pro",
+        "provider": "Google",
+        "sophistication": 7.2437499999999995,
+        "disinhibition": 2.20666313559322,
+        "ratio": 3.2826714160213917,
+        "n_evaluations": 0
+      },
+      {
+        "model": "mistral-large-24.02",
+        "provider": "Mistral",
+        "sophistication": 4.4232415254237285,
+        "disinhibition": 1.351186440677966,
+        "ratio": 3.27359821876568,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-3-haiku",
+        "provider": "Anthropic",
+        "sophistication": 4.5472457627118645,
+        "disinhibition": 1.3921927966101695,
+        "ratio": 3.266247156129445,
+        "n_evaluations": 0
+      },
+      {
+        "model": "llama-3.2-90b",
+        "provider": "Meta",
+        "sophistication": 4.824533898305084,
+        "disinhibition": 1.4773940677966102,
+        "ratio": 3.2655701031075672,
+        "n_evaluations": 0
+      },
+      {
+        "model": "llama-4-scout-17b",
+        "provider": "Meta",
+        "sophistication": 4.971080508474577,
+        "disinhibition": 1.5242902542372878,
+        "ratio": 3.2612427289722237,
+        "n_evaluations": 0
+      },
+      {
+        "model": "qwen3-32b",
+        "provider": "Alibaba",
+        "sophistication": 6.238262711864408,
+        "disinhibition": 1.9234957627118647,
+        "ratio": 3.2431902543259645,
+        "n_evaluations": 0
+      },
+      {
+        "model": "nova-premier",
+        "provider": "AWS",
+        "sophistication": 4.8804449152542375,
+        "disinhibition": 1.511006355932203,
+        "ratio": 3.229930103267691,
+        "n_evaluations": 0
+      },
+      {
+        "model": "claude-3-sonnet",
+        "provider": "Anthropic",
+        "sophistication": 4.826212765957447,
+        "disinhibition": 1.5177127659574468,
+        "ratio": 3.1799249991238216,
+        "n_evaluations": 0
+      },
+      {
+        "model": "mixtral-8x7b",
+        "provider": "Mistral",
+        "sophistication": 4.4979661016949155,
+        "disinhibition": 1.4203919491525423,
+        "ratio": 3.1667076854234257,
+        "n_evaluations": 0
+      },
+      {
+        "model": "llama-3.1-70b",
+        "provider": "Meta",
+        "sophistication": 4.922139830508474,
+        "disinhibition": 1.5953389830508475,
+        "ratio": 3.085325365205843,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gpt-3.5-turbo",
+        "provider": "OpenAI",
+        "sophistication": 3.9216737288135595,
+        "disinhibition": 1.3715466101694913,
+        "ratio": 2.8593076602252196,
+        "n_evaluations": 0
+      },
+      {
+        "model": "deepseek-r1",
+        "provider": "DeepSeek",
+        "sophistication": 6.453644067796611,
+        "disinhibition": 2.3029661016949152,
+        "ratio": 2.8023183072677096,
+        "n_evaluations": 0
+      },
+      {
+        "model": "gemini-3-pro-preview",
+        "provider": "Google",
+        "sophistication": 7.152563559322034,
+        "disinhibition": 2.5737288135593217,
+        "ratio": 2.7790665130062564,
+        "n_evaluations": 0
+      }
+    ],
+    "providers": {
+      "Anthropic": {
+        "avg_sophistication": 6.0380055470174385,
+        "avg_disinhibition": 1.7389974582279843,
+        "ratio": 3.4721186730025972,
+        "n_models": 19,
+        "n_evaluations": 0
+      },
+      "xAI": {
+        "avg_sophistication": 6.242033898305085,
+        "avg_disinhibition": 1.7572139830508473,
+        "ratio": 3.5522332274341246,
+        "n_models": 2,
+        "n_evaluations": 0
+      },
+      "OpenAI": {
+        "avg_sophistication": 6.351054613935969,
+        "avg_disinhibition": 1.6030131826741996,
+        "ratio": 3.961947838345864,
+        "n_models": 9,
+        "n_evaluations": 0
+      },
+      "Meta": {
+        "avg_sophistication": 4.8884915254237296,
+        "avg_disinhibition": 1.4865095908511026,
+        "ratio": 3.288570457607891,
+        "n_models": 5,
+        "n_evaluations": 0
+      },
+      "DeepSeek": {
+        "avg_sophistication": 6.453644067796611,
+        "avg_disinhibition": 2.3029661016949152,
+        "ratio": 2.8023183072677096,
+        "n_models": 1,
+        "n_evaluations": 0
+      },
+      "AWS": {
+        "avg_sophistication": 4.901454802259887,
+        "avg_disinhibition": 1.461274717514124,
+        "ratio": 3.354232262772665,
+        "n_models": 3,
+        "n_evaluations": 0
+      },
+      "Google": {
+        "avg_sophistication": 6.768227401129942,
+        "avg_disinhibition": 2.149533898305085,
+        "ratio": 3.1486953550566072,
+        "n_models": 3,
+        "n_evaluations": 0
+      },
+      "Alibaba": {
+        "avg_sophistication": 6.238262711864408,
+        "avg_disinhibition": 1.9234957627118647,
+        "ratio": 3.2431902543259645,
+        "n_models": 1,
+        "n_evaluations": 0
+      },
+      "Mistral": {
+        "avg_sophistication": 4.460603813559322,
+        "avg_disinhibition": 1.385789194915254,
+        "ratio": 3.2188184392880217,
+        "n_models": 2,
+        "n_evaluations": 0
+      }
+    }
+  }
+}

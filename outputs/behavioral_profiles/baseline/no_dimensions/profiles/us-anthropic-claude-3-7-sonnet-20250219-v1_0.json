@@ -1,0 +1,55 @@
+{
+  "model_name": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+  "display_name": "Claude-3.7-Sonnet",
+  "provider": "Anthropic",
+  "dimensions": {
+    "warmth": {
+      "sum": 264.01,
+      "count": 44,
+      "average": 6.0002
+    },
+    "formality": {
+      "sum": 314.03,
+      "count": 44,
+      "average": 7.137
+    },
+    "hedging": {
+      "sum": 191.71,
+      "count": 44,
+      "average": 4.357
+    },
+    "aggression": {
+      "sum": 51.32,
+      "count": 44,
+      "average": 1.1664
+    },
+    "transgression": {
+      "sum": 59.28,
+      "count": 44,
+      "average": 1.3473
+    },
+    "grandiosity": {
+      "sum": 72.3,
+      "count": 44,
+      "average": 1.6432
+    },
+    "tribalism": {
+      "sum": 44.0,
+      "count": 44,
+      "average": 1.0
+    },
+    "depth": {
+      "sum": 258.67,
+      "count": 44,
+      "average": 5.8789
+    },
+    "authenticity": {
+      "sum": 199.32,
+      "count": 44,
+      "average": 4.53
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.860934"
+}

@@ -1,0 +1,65 @@
+{
+  "model_name": "Claude-4.5-Haiku-Thinking (Thinking)",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 561.93,
+      "count": 236,
+      "average": 2.3810593220338983
+    },
+    "warmth": {
+      "sum": 1358.25,
+      "count": 236,
+      "average": 5.755296610169491
+    },
+    "aggression": {
+      "sum": 589.6099999999999,
+      "count": 236,
+      "average": 2.4983474576271183
+    },
+    "formality": {
+      "sum": 1419.3,
+      "count": 236,
+      "average": 6.013983050847457
+    },
+    "tribalism": {
+      "sum": 284.6,
+      "count": 236,
+      "average": 1.2059322033898305
+    },
+    "hedging": {
+      "sum": 1243.8999999999999,
+      "count": 236,
+      "average": 5.270762711864406
+    },
+    "transgression": {
+      "sum": 649.35,
+      "count": 236,
+      "average": 2.7514830508474577
+    },
+    "authenticity": {
+      "sum": 1744.01,
+      "count": 236,
+      "average": 7.389872881355932
+    },
+    "depth": {
+      "sum": 1820.34,
+      "count": 236,
+      "average": 7.7133050847457625
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-11T21:27:57.537325",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
+}

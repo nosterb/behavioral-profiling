@@ -275,9 +275,10 @@ def create_color_coded_scatter_composite(data, output_path):
                                      color='blue', lw=1.5),
                        zorder=8)
 
-        ax.scatter([], [], marker='D', s=200, color='#00CED1', alpha=0.9,
-                  edgecolors='blue', linewidth=2.5,
-                  label=f'Constrained Models (n={len(constrained)})')
+    # Always add constrained legend entry (even if n=0)
+    ax.scatter([], [], marker='D', s=200, color='#00CED1', alpha=0.9,
+              edgecolors='blue', linewidth=2.5,
+              label=f'Constrained Models (n={len(constrained)})')
 
     # Add group mean markers
     high_mean_soph = data['statistics']['sophistication']['high_mean']
@@ -600,9 +601,18 @@ def create_color_coded_scatter_all_dimensions(data, output_path):
                           s=300, facecolors='none', edgecolors='red',
                           linewidth=2.5, zorder=5)
 
-        # Highlight constrained models (cyan diamonds) - using composite-based identification
-        if constrained_composite:
-            for constrained_info in constrained_composite:
+        # Identify constrained models for THIS dimension (using dimension-specific regression)
+        dimension_constrained = []
+        for i, model in enumerate(data['models']):
+            if model['sophistication'] > CONSTRAINED_SOPH_THRESHOLD and residuals_dim[i] < CONSTRAINED_RESIDUAL_THRESHOLD:
+                dimension_constrained.append({
+                    'model': model,
+                    'residual': residuals_dim[i]
+                })
+
+        # Highlight constrained models (cyan diamonds) - using dimension-specific identification
+        if dimension_constrained:
+            for constrained_info in dimension_constrained:
                 model = constrained_info['model']
                 ax.scatter([model['sophistication']], [model['scores'][dim]],
                           marker='D', s=160, color='#00CED1', alpha=0.9,
@@ -613,7 +623,7 @@ def create_color_coded_scatter_all_dimensions(data, output_path):
                 f'H2: r = {r:.3f}\n'
                 f'H1: d = {cohens_d:.2f}\n'
                 f'Outliers: {len(dimension_outliers)}\n'
-                f'Constrained: {len(constrained_composite)}',
+                f'Constrained: {len(dimension_constrained)}',
                 transform=ax.transAxes,
                 fontsize=8,
                 verticalalignment='top',
@@ -666,7 +676,7 @@ def create_color_coded_scatter_all_dimensions(data, output_path):
                 models_to_label[model['model_id']]['priority'] += 20
 
         # Add constrained models to labeling (name only, no "constrained" tag)
-        for constrained_info in constrained_composite:
+        for constrained_info in dimension_constrained:
             model = constrained_info['model']
             if model['model_id'] not in models_to_label:
                 models_to_label[model['model_id']] = {'model': model, 'tags': [], 'priority': 0}

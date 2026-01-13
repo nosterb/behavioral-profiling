@@ -1,0 +1,55 @@
+{
+  "model_name": "gpt-4.1",
+  "display_name": "GPT-4.1",
+  "provider": "OpenAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 289.31,
+      "count": 44,
+      "average": 6.5752
+    },
+    "formality": {
+      "sum": 300.33,
+      "count": 44,
+      "average": 6.8257
+    },
+    "hedging": {
+      "sum": 180.34,
+      "count": 44,
+      "average": 4.0986
+    },
+    "aggression": {
+      "sum": 50.31,
+      "count": 44,
+      "average": 1.1434
+    },
+    "transgression": {
+      "sum": 59.29,
+      "count": 44,
+      "average": 1.3475
+    },
+    "grandiosity": {
+      "sum": 73.31,
+      "count": 44,
+      "average": 1.6661
+    },
+    "tribalism": {
+      "sum": 47.0,
+      "count": 44,
+      "average": 1.0682
+    },
+    "depth": {
+      "sum": 266.66,
+      "count": 44,
+      "average": 6.0605
+    },
+    "authenticity": {
+      "sum": 215.35,
+      "count": 44,
+      "average": 4.8943
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.861276"
+}

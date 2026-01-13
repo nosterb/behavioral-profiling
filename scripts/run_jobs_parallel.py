@@ -37,14 +37,14 @@ def prompt_batch_behavioral_analysis(num_jobs: int) -> dict:
         num_jobs: Total number of jobs that will be run
 
     Returns:
-        Dictionary with personality settings: {
-            'run_personality': bool,
+        Dictionary with behavioral settings: {
+            'run_behavioral': bool,
             'chunking_strategy': str (e.g., 'n=1', 'n=4', 'n=turns:3'),
             'apply_to_profiles': bool
         }
     """
     print(f"\n{'='*70}")
-    print(f"BATCH PERSONALITY ANALYSIS SETTINGS")
+    print(f"BATCH BEHAVIORAL ANALYSIS SETTINGS")
     print(f"{'='*70}")
     print(f"About to run {num_jobs} jobs.")
     print(f"You can configure behavioral analysis for all jobs now.")
@@ -59,7 +59,7 @@ def prompt_batch_behavioral_analysis(num_jobs: int) -> dict:
         elif response in ['n', 'no']:
             print("→ Behavioral analysis disabled for this batch\n")
             return {
-                'run_personality': False,
+                'run_behavioral': False,
                 'chunking_strategy': None,
                 'apply_to_profiles': False
             }
@@ -95,7 +95,7 @@ def prompt_batch_behavioral_analysis(num_jobs: int) -> dict:
     print()
 
     return {
-        'run_personality': True,
+        'run_behavioral': True,
         'chunking_strategy': chunking,
         'apply_to_profiles': True  # Will prompt again later
     }
@@ -125,13 +125,13 @@ def parse_chunking_strategy(chunking_str: str):
         # Default to n=1
         return ChunkingStrategy('none', None)
 
-def run_batch_behavioral_analysis(successful_jobs: list, personality_config: dict):
+def run_batch_behavioral_analysis(successful_jobs: list, behavioral_config: dict):
     """
     Run behavioral analysis on all successful jobs, then prompt for profile updates.
 
     Args:
         successful_jobs: List of successful job result dictionaries
-        personality_config: Personality configuration from batch prompt
+        behavioral_config: Behavioral configuration from batch prompt
     """
     sys.path.insert(0, str(PROJECT_ROOT / 'src'))
     from behavioral_prompt_handler import (
@@ -143,13 +143,13 @@ def run_batch_behavioral_analysis(successful_jobs: list, personality_config: dic
     import json
 
     print(f"\n{'='*70}")
-    print(f"BATCH PERSONALITY ANALYSIS")
+    print(f"BATCH BEHAVIORAL ANALYSIS")
     print(f"{'='*70}")
     print(f"Processing {len(successful_jobs)} successful jobs...")
-    print(f"Strategy: {personality_config['chunking_strategy']}")
+    print(f"Strategy: {behavioral_config['chunking_strategy']}")
     print(f"{'='*70}\n")
 
-    chunking = parse_chunking_strategy(personality_config['chunking_strategy'])
+    chunking = parse_chunking_strategy(behavioral_config['chunking_strategy'])
     staged_results = []
 
     # Process each successful job
@@ -183,10 +183,10 @@ def run_batch_behavioral_analysis(successful_jobs: list, personality_config: dic
 
     # Summary of staged results
     print(f"\n{'='*70}")
-    print(f"PERSONALITY ANALYSIS COMPLETE")
+    print(f"BEHAVIORAL ANALYSIS COMPLETE")
     print(f"{'='*70}")
     print(f"Successfully analyzed: {len(staged_results)} jobs")
-    print(f"Staged results: outputs/personality_staging/")
+    print(f"Staged results: outputs/behavioral_staging/")
     print(f"{'='*70}\n")
 
     if not staged_results:
@@ -203,7 +203,7 @@ def run_batch_behavioral_analysis(successful_jobs: list, personality_config: dic
             break
         elif response in ['n', 'no']:
             print("→ Results remain staged (not applied to master profiles)")
-            print("   You can apply them later using personality_profile_manager.py\n")
+            print("   You can apply them later using behavioral_profile_manager.py\n")
             return
         else:
             print("Please enter 'y' or 'n'")
@@ -295,6 +295,10 @@ def run_job(job_file: Path, job_num: int, total: int, log_to_file: bool = True, 
     # Build command (-u for unbuffered output so logs update in real-time)
     cmd = ["python3", "-u", script, str(job_file)]
 
+    # Add non-interactive flag for batch jobs (prevents hanging on prompts)
+    if job_type == 'batch':
+        cmd.append('--non-interactive')
+
     # Add output directory if specified (works for both batch and agent jobs)
     if output_dir:
         cmd.extend(['--output-dir', output_dir])
@@ -326,11 +330,61 @@ def run_job(job_file: Path, job_num: int, total: int, log_to_file: bool = True, 
 
             # Determine output JSON path based on job type
             if job_type == 'batch':
-                output_json = PROJECT_ROOT / "outputs" / "single_prompt_jobs" / f"job_{job_name}.json"
+                # Check if this batch job has metadata for organization
+                try:
+                    with open(job_file, 'r') as f:
+                        job_config = yaml.safe_load(f)
+                    metadata = job_config.get('metadata', {})
+
+                    if metadata.get('suite') and metadata.get('intervention'):
+                        # Batch job with intervention - find most recent job in subdirectory
+                        intervention = metadata['intervention']
+                        suite = metadata['suite']
+                        request_id = job_config.get('request_id') or job_config.get('job_id', job_name)
+                        job_subdir = PROJECT_ROOT / "outputs" / "single_prompt_jobs" / f"{intervention}_{suite}"
+
+                        # Find most recent job directory matching request_id
+                        matching_jobs = sorted(job_subdir.glob(f"job_{request_id}_*"), key=lambda p: p.name, reverse=True)
+                        if matching_jobs:
+                            output_json = matching_jobs[0] / f"{matching_jobs[0].name}.json"
+                        else:
+                            # Fallback if not found
+                            output_json = PROJECT_ROOT / "outputs" / "single_prompt_jobs" / f"job_{job_name}.json"
+                    else:
+                        # Legacy batch job without metadata
+                        output_json = PROJECT_ROOT / "outputs" / "single_prompt_jobs" / f"job_{job_name}.json"
+                except Exception:
+                    # Fallback on error
+                    output_json = PROJECT_ROOT / "outputs" / "single_prompt_jobs" / f"job_{job_name}.json"
             elif job_type == 'chat':
                 output_json = PROJECT_ROOT / "outputs" / "chat_jobs" / "reports" / f"chat_job_{job_name}.json"
             else:  # agent
-                output_json = PROJECT_ROOT / "outputs" / "agent_jobs" / "reports" / f"{job_name}.json"
+                # Check if this is a single_prompt_job with metadata
+                try:
+                    with open(job_file, 'r') as f:
+                        job_config = yaml.safe_load(f)
+                    metadata = job_config.get('metadata', {})
+
+                    if metadata.get('suite') and metadata.get('intervention'):
+                        # Single prompt job with intervention - find most recent job in subdirectory
+                        intervention = metadata['intervention']
+                        suite = metadata['suite']
+                        request_id = job_config.get('request_id', job_name)
+                        job_subdir = PROJECT_ROOT / "outputs" / "single_prompt_jobs" / f"{intervention}_{suite}"
+
+                        # Find most recent job directory matching request_id
+                        matching_jobs = sorted(job_subdir.glob(f"job_{request_id}_*"), key=lambda p: p.name, reverse=True)
+                        if matching_jobs:
+                            output_json = matching_jobs[0] / f"{matching_jobs[0].name}.json"
+                        else:
+                            # Fallback if not found
+                            output_json = PROJECT_ROOT / "outputs" / "agent_jobs" / "reports" / f"{job_name}.json"
+                    else:
+                        # Regular agent job
+                        output_json = PROJECT_ROOT / "outputs" / "agent_jobs" / "reports" / f"{job_name}.json"
+                except Exception:
+                    # Fallback on error
+                    output_json = PROJECT_ROOT / "outputs" / "agent_jobs" / "reports" / f"{job_name}.json"
 
             # Use custom output dir if specified
             if output_dir:
@@ -438,6 +492,11 @@ Examples:
         default=None,
         help='Custom output directory (passed to batch_invoke.py and agent_invoke.py)'
     )
+    parser.add_argument(
+        '--skip-behavioral-prompts',
+        action='store_true',
+        help='Skip batch behavioral analysis prompts (auto-disable for non-interactive runs)'
+    )
 
     args = parser.parse_args()
 
@@ -494,27 +553,30 @@ Examples:
                 import yaml
                 job_config = yaml.safe_load(f)
                 judge_config = job_config.get('judge', '')
-                if isinstance(judge_config, str) and 'personality' in judge_config.lower():
+                if isinstance(judge_config, str) and 'behavioral' in judge_config.lower():
                     jobs_with_behavioral_judge.append(job_path)
                 elif isinstance(judge_config, dict):
                     # Check inline judge config
                     judge_prompt = judge_config.get('judge_prompt', '')
-                    if 'personality' in str(judge_prompt).lower():
+                    if 'behavioral' in str(judge_prompt).lower():
                         jobs_with_behavioral_judge.append(job_path)
         except:
             pass
 
-    # Batch behavioral analysis prompt (skip if all jobs have behavioral judge)
-    if len(jobs_with_behavioral_judge) == len(validated_jobs):
+    # Batch behavioral analysis prompt (skip if all jobs have behavioral judge or flag is set)
+    if args.skip_behavioral_prompts:
+        print(f"✓ Behavioral prompts disabled via --skip-behavioral-prompts flag\n")
+        behavioral_config = {'run_behavioral': False}
+    elif len(jobs_with_behavioral_judge) == len(validated_jobs):
         print(f"✓ All jobs have behavioral judge configured in their config")
-        print(f"  Personality evaluation will run automatically via chained judge")
+        print(f"  Behavioral evaluation will run automatically via chained judge")
         print(f"  Skipping batch behavioral prompt\n")
-        personality_config = {'run_personality': False}
+        behavioral_config = {'run_behavioral': False}
     else:
         if jobs_with_behavioral_judge:
             print(f"Note: {len(jobs_with_behavioral_judge)}/{len(validated_jobs)} jobs have behavioral judge configured")
             print(f"      Those will skip behavioral prompt automatically\n")
-        personality_config = prompt_batch_behavioral_analysis(len(validated_jobs))
+        behavioral_config = prompt_batch_behavioral_analysis(len(validated_jobs))
 
     start_time = datetime.now()
     results = []
@@ -580,8 +642,8 @@ Examples:
     print(f"{'='*70}\n")
 
     # Post-batch behavioral analysis (if enabled)
-    if personality_config['run_personality'] and success:
-        run_batch_behavioral_analysis(success, personality_config)
+    if behavioral_config['run_behavioral'] and success:
+        run_batch_behavioral_analysis(success, behavioral_config)
 
     sys.exit(0 if len(failed) + len(timeout) + len(errors) == 0 else 1)
 

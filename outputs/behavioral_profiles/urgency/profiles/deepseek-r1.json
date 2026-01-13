@@ -1,0 +1,67 @@
+{
+  "model_name": "DeepSeek-R1",
+  "dimensions": {
+    "formality": {
+      "sum": 405.32000000000005,
+      "count": 51,
+      "average": 7.947450980392158
+    },
+    "warmth": {
+      "sum": 135.01999999999995,
+      "count": 51,
+      "average": 2.647450980392156
+    },
+    "tribalism": {
+      "sum": 146.96,
+      "count": 51,
+      "average": 2.8815686274509806
+    },
+    "authenticity": {
+      "sum": 351.6800000000002,
+      "count": 51,
+      "average": 6.895686274509807
+    },
+    "depth": {
+      "sum": 380.48000000000013,
+      "count": 51,
+      "average": 7.460392156862747
+    },
+    "hedging": {
+      "sum": 108.60999999999999,
+      "count": 51,
+      "average": 2.1296078431372547
+    },
+    "grandiosity": {
+      "sum": 321.31,
+      "count": 51,
+      "average": 6.300196078431372
+    },
+    "aggression": {
+      "sum": 296.02,
+      "count": 51,
+      "average": 5.8043137254901955
+    },
+    "transgression": {
+      "sum": 217.69000000000003,
+      "count": 51,
+      "average": 4.26843137254902
+    },
+    "observational_nuance": {
+      "sum": 4.0,
+      "count": 1,
+      "average": 4.0
+    },
+    "ornality": {
+      "sum": 8.0,
+      "count": 1,
+      "average": 8.0
+    },
+    "observations": {
+      "sum": 8.0,
+      "count": 1,
+      "average": 8.0
+    }
+  },
+  "last_updated": "2026-01-10T12:42:30.902573",
+  "total_evaluations": 51
+}

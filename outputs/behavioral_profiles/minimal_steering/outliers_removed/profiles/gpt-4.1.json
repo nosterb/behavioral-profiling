@@ -1,0 +1,57 @@
+{
+  "model_name": "GPT-4.1",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 53.97999999999999,
+      "count": 35,
+      "average": 1.542285714285714
+    },
+    "depth": {
+      "sum": 175.64000000000007,
+      "count": 35,
+      "average": 5.0182857142857165
+    },
+    "hedging": {
+      "sum": 176.35999999999999,
+      "count": 35,
+      "average": 5.038857142857142
+    },
+    "aggression": {
+      "sum": 38.96999999999999,
+      "count": 35,
+      "average": 1.1134285714285712
+    },
+    "formality": {
+      "sum": 239.01000000000002,
+      "count": 35,
+      "average": 6.828857142857143
+    },
+    "tribalism": {
+      "sum": 35.0,
+      "count": 35,
+      "average": 1.0
+    },
+    "authenticity": {
+      "sum": 140.98999999999998,
+      "count": 35,
+      "average": 4.028285714285714
+    },
+    "transgression": {
+      "sum": 43.26999999999998,
+      "count": 35,
+      "average": 1.2362857142857138
+    },
+    "warmth": {
+      "sum": 227.9700000000001,
+      "count": 35,
+      "average": 6.513428571428575
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-10T12:53:17.171336",
+  "total_evaluations": 35
+}

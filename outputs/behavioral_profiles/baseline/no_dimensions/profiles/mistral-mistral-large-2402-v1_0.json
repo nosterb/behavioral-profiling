@@ -1,0 +1,55 @@
+{
+  "model_name": "mistral.mistral-large-2402-v1:0",
+  "display_name": "Mistral-Large-24.02",
+  "provider": "Mistral",
+  "dimensions": {
+    "warmth": {
+      "sum": 271.02,
+      "count": 44,
+      "average": 6.1595
+    },
+    "formality": {
+      "sum": 335.01,
+      "count": 44,
+      "average": 7.6139
+    },
+    "hedging": {
+      "sum": 207.3,
+      "count": 44,
+      "average": 4.7114
+    },
+    "aggression": {
+      "sum": 49.64,
+      "count": 44,
+      "average": 1.1282
+    },
+    "transgression": {
+      "sum": 54.94,
+      "count": 44,
+      "average": 1.2486
+    },
+    "grandiosity": {
+      "sum": 74.65,
+      "count": 44,
+      "average": 1.6966
+    },
+    "tribalism": {
+      "sum": 44.33,
+      "count": 44,
+      "average": 1.0075
+    },
+    "depth": {
+      "sum": 235.01,
+      "count": 44,
+      "average": 5.3411
+    },
+    "authenticity": {
+      "sum": 168.02,
+      "count": 44,
+      "average": 3.8186
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.859117"
+}

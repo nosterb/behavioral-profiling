@@ -146,7 +146,7 @@ def create_job_lists(prompt_set_name: str, config: Dict,
     Create job list files for each intervention type.
 
     Args:
-        prompt_set_name: Name of prompt set (e.g., 'personality_v2')
+        prompt_set_name: Name of prompt set (e.g., 'behavioral_v2')
         config: Prompt set configuration
         intervention_jobs: Dictionary mapping intervention type to job file paths
     """

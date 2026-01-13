@@ -1,52 +1,70 @@
 {
   "model_name": "Grok-4-0709",
   "dimensions": {
-    "tribalism": {
-      "sum": 80.67,
-      "count": 67,
-      "average": 1.2040298507462688
+    "grandiosity": {
+      "sum": 558.4300000000001,
+      "count": 236,
+      "average": 2.366228813559322
     },
     "warmth": {
-      "sum": 453.96999999999997,
-      "count": 67,
-      "average": 6.775671641791044
+      "sum": 1550.5999999999997,
+      "count": 236,
+      "average": 6.5703389830508465
     },
     "aggression": {
-      "sum": 92.32,
-      "count": 67,
-      "average": 1.3779104477611939
+      "sum": 401.57,
+      "count": 236,
+      "average": 1.7015677966101694
     },
     "formality": {
-      "sum": 448.67999999999995,
-      "count": 67,
-      "average": 6.696716417910447
+      "sum": 1630.0100000000002,
+      "count": 236,
+      "average": 6.906822033898306
     },
-    "depth": {
-      "sum": 402.02000000000004,
-      "count": 67,
-      "average": 6.000298507462687
-    },
-    "authenticity": {
-      "sum": 338.33000000000015,
-      "count": 67,
-      "average": 5.049701492537316
+    "tribalism": {
+      "sum": 318.98,
+      "count": 236,
+      "average": 1.3516101694915255
     },
     "hedging": {
-      "sum": 313.6400000000001,
-      "count": 67,
-      "average": 4.681194029850748
-    },
-    "grandiosity": {
-      "sum": 132.72,
-      "count": 67,
-      "average": 1.9808955223880598
+      "sum": 1251.93,
+      "count": 236,
+      "average": 5.3047881355932205
     },
     "transgression": {
-      "sum": 107.61999999999998,
-      "count": 67,
-      "average": 1.6062686567164175
+      "sum": 433.2099999999999,
+      "count": 236,
+      "average": 1.8356355932203388
+    },
+    "authenticity": {
+      "sum": 1381.4,
+      "count": 236,
+      "average": 5.853389830508475
+    },
+    "depth": {
+      "sum": 1645.48,
+      "count": 236,
+      "average": 6.972372881355932
+    },
+    "ribalism": {
+      "sum": 2.0,
+      "count": 2,
+      "average": 1.0
+    },
+    "observance": {
+      "sum": 3.0,
+      "count": 1,
+      "average": 3.0
     }
   },
-  "last_updated": "2026-01-09T15:42:49.946978",
-  "total_evaluations": 67
+  "last_updated": "2026-01-11T21:27:57.537238",
+  "total_evaluations": 236,
+  "conditions_included": [
+    "baseline",
+    "authority",
+    "urgency",
+    "minimal_steering",
+    "telemetryV3",
+    "reminder"
+  ]
 }
