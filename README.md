@@ -140,12 +140,25 @@ ICC(3) = 0.843 (good reliability)
 - **xAI**: Grok 3, 4
 - **Others**: DeepSeek, Mistral, AWS Nova, Alibaba Qwen
 
+## Author
+
+**Nicholas Osterbur**
+Independent Researcher
+GitHub: [@nosterb](https://github.com/nosterb)
+Email: nosterb@gmail.com
+
 ## Citation
 
 ```bibtex
-@software{behavioral_profiling_2026,
+@software{osterbur_behavioral_profiling_2026,
+  author = {Osterbur, Nicholas},
   title = {Behavioral Profiling: Sophistication-Disinhibition Relationships in LLMs},
   year = {2026},
-  url = {https://github.com/yourusername/behavioral-profiling}
+  url = {https://github.com/nosterb/behavioral-profiling}
 }
 ```
+
+## License
+
+- **Code**: [Apache License 2.0](LICENSE)
+- **Results, figures, and written analyses**: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)

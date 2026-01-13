@@ -1,10 +1,13 @@
 # Main Research Brief: Sophistication-Disinhibition Relationship in Language Models
 
+**Author**: Nicholas Osterbur (Independent Researcher)
 **Status**: Active Analysis
 **Last Updated**: 2026-01-12
 **Conditions Analyzed**: 6
 **Models**: 46 per condition
 **Total Evaluations**: 13,700+
+
+*Copyright 2026 Nicholas Osterbur. Results and analyses licensed under CC BY 4.0.*
 
 ---
 ## Executive Summary
