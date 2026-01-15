@@ -18,8 +18,14 @@ behavioral_profiles/
 ├── reminder/                           # Reminder intervention
 ├── <future_interventions>/             # Additional conditions as analyzed
 └── research_synthesis/
-    └── cross_condition/
-        └── CONDITION_COMPARISON.md     # Auto-updated comparative table
+    ├── MAIN_RESEARCH_BRIEF.md             # Consolidated research brief (source)
+    ├── MAIN_RESEARCH_BRIEF_PUBLIC.md      # Public version with CDN URLs
+    ├── cross_condition/
+    │   ├── CONDITION_COMPARISON.md         # Auto-updated comparative table
+    │   └── PROVIDER_CONSTRAINT_ANALYSIS.md # Provider-level constraint patterns
+    └── publish_audits/
+        ├── AUDIT_PLAN.md                   # 5-phase audit methodology
+        └── AUDIT_REPORT_<date>.md          # Timestamped audit reports
 ```
 
 ## Root Directories (Cross-Condition Aggregate)
@@ -383,11 +389,11 @@ The consolidated research brief is at `research_synthesis/MAIN_RESEARCH_BRIEF.md
 
 | Section | Content | Editable |
 |---------|---------|----------|
-| **Executive Summary** | Key findings overview | Auto |
+| **Executive Summary** | Key findings overview | **MANUAL** |
 | **1. Hypotheses & Methods** | H1/H1a/H2 definitions | Auto |
 | **2. Core Results: H1/H1a/H2** | Cross-condition table | Auto |
-| **3. Robustness & Validation** | External, outlier, no-dims | Auto |
-| **4. Provider & Model Patterns** | Constraint analysis, model tables | Auto |
+| **3. Robustness & Validation** | External (with p-values), outlier, no-dims | Auto |
+| **4. Provider & Model Patterns** | 4.1 Per-provider H2, 4.2 Constraint, 4.3-4.4 Models | Auto |
 | **5. Interpretation** | H1/H2, provider patterns | **MANUAL** |
 | **6. Limitations** | 6.1 Judge bias, 6.2 Other | **6.2 MANUAL** |
 | **7. Future Directions** | Research roadmap | **MANUAL** |
@@ -424,6 +430,53 @@ pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
   --pdf-engine=xelatex \
   -V geometry:margin=1in
 ```
+
+## Pre-Publication Audit
+
+Before publishing, run a comprehensive audit to verify statistics, interpretations, and manual sections.
+
+### Audit Location
+
+```
+research_synthesis/publish_audits/
+├── AUDIT_PLAN.md                    # 5-phase audit methodology
+└── AUDIT_REPORT_<date>.md           # Timestamped audit reports
+```
+
+### 5-Phase Audit Process
+
+| Phase | Description | Verification Method |
+|-------|-------------|---------------------|
+| **Phase 1** | Statistical Audit | Compare all auto-generated stats against source JSON files |
+| **Phase 2** | Interpretation Audit | Validate claims match underlying statistics |
+| **Phase 3** | Manual Section Audit | Review human-edited content for accuracy and typos |
+| **Phase 4** | Cross-Reference Audit | Check internal consistency across sections |
+| **Phase 5** | Final Report | Generate timestamped audit report |
+
+### Source Files for Verification
+
+| Section | Source File |
+|---------|-------------|
+| §2 Core Results | `<condition>/median_split_classification.json` |
+| §3.1 External | `research_synthesis/limitations/external_evals/*.json` |
+| §3.2 Outlier | `<condition>/outliers_removed/outlier_removal_info.json` |
+| §4.2 Provider Constraint | `research_synthesis/limitations/provider_constraint/*.json` |
+| §6.1 Judge Agreement | `research_synthesis/limitations/judge_limitations/judge_agreement_analysis.json` |
+| Appendix B Stability | `research_synthesis/limitations/median_split/classification_stability_analysis.json` |
+
+### Running an Audit
+
+Request a full audit before publication:
+```
+"Run a full pre-publication audit of MAIN_RESEARCH_BRIEF.md"
+```
+
+The audit will:
+1. Verify all statistics against source JSON
+2. Validate all claims match data
+3. Check manual sections for typos and accuracy
+4. Verify cross-references
+5. Generate a timestamped report in `publish_audits/`
 
 ## Related Documentation
 

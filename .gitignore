@@ -27,6 +27,7 @@ outputs/single_prompt_jobs/**/job_*.json
 outputs/single_prompt_jobs/**/chats/
 outputs/agent_jobs/reports/*.json
 outputs/agent_jobs/chats/*.md
+outputs/single_prompt_jobs
 
 # Behavioral profiles - keep aggregated, exclude per-condition chats
 outputs/behavioral_profiles/**/chats/

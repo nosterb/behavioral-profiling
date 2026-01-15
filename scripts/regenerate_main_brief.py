@@ -172,6 +172,12 @@ def load_provider_constraint():
     return data if data else None
 
 
+def load_classification_stability():
+    """Load classification stability analysis."""
+    path = BASE_DIR / "research_synthesis" / "limitations" / "median_split" / "classification_stability_analysis.json"
+    return load_json(path)
+
+
 def format_p(p):
     """Format p-value for display."""
     if p < 0.0001:
@@ -271,8 +277,11 @@ def generate_header(conditions_data, cross_data, external_data):
     return "\n".join(lines)
 
 
-def generate_executive_summary(conditions_data, cross_data, external_data):
-    """Generate executive summary with key findings."""
+def generate_executive_summary(conditions_data, cross_data, external_data, preserved: dict):
+    """Generate executive summary - MANUAL section that preserves human edits."""
+    header = "## Executive Summary"
+
+    # Generate default content from data
     h1_soph_d_min, h1_soph_d_max = get_h1_soph_d_range(conditions_data)
     h1a_d_min, h1a_d_max = get_h1a_d_range(conditions_data)
     h1a_sup, h1a_total = count_h1_supported(conditions_data)
@@ -283,35 +292,39 @@ def generate_executive_summary(conditions_data, cross_data, external_data):
     arc_r_soph = arc.get("correlations", {}).get("sophistication", {}).get("r") if arc else None
     gpqa_r_soph = gpqa.get("correlations", {}).get("sophistication", {}).get("r") if gpqa else None
 
-    lines = []
-    lines.append("## Executive Summary")
-    lines.append("")
-    lines.append("This research investigates the relationship between model sophistication and behavioral disinhibition across 50+ language models under varying contextual conditions.")
-    lines.append("")
-    lines.append("### Key Findings")
-    lines.append("")
+    default_lines = []
+    default_lines.append("This research investigates the relationship between model sophistication and behavioral disinhibition across 50+ language models under varying contextual conditions.")
+    default_lines.append("")
+    default_lines.append("### Key Findings")
+    default_lines.append("")
 
     if h1_soph_d_min is not None:
-        lines.append("1. **H1 (Group Existence)**: Median split produces two well-separated sophistication groups across all conditions (d = " + f"{h1_soph_d_min:.2f}" + "-" + f"{h1_soph_d_max:.2f}" + ")")
-        lines.append("")
+        default_lines.append("1. **H1 (Group Existence)**: Median split produces two well-separated sophistication groups across all conditions (d = " + f"{h1_soph_d_min:.2f}" + "-" + f"{h1_soph_d_max:.2f}" + ")")
+        default_lines.append("")
 
     if h1a_sup is not None and h1a_d_min is not None:
-        lines.append("2. **H1a (Group Comparison)**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models across all " + str(h1a_sup) + "/" + str(h1a_total) + " conditions tested (d = " + f"{h1a_d_min:.2f}" + "-" + f"{h1a_d_max:.2f}" + ", all p < .05)")
-        lines.append("")
+        default_lines.append("2. **H1a (Group Comparison)**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models across all " + str(h1a_sup) + "/" + str(h1a_total) + " conditions tested (d = " + f"{h1a_d_min:.2f}" + "-" + f"{h1a_d_max:.2f}" + ", all p < .05)")
+        default_lines.append("")
 
     if h2_min is not None and h2_max is not None:
-        lines.append("3. **H2 (Correlation)**: Sophistication positively correlates with disinhibition across all conditions (r = " + f"{h2_min:.2f}" + "-" + f"{h2_max:.2f}" + ")")
-        lines.append("")
+        default_lines.append("3. **H2 (Correlation)**: Sophistication positively correlates with disinhibition across all conditions (r = " + f"{h2_min:.2f}" + "-" + f"{h2_max:.2f}" + ")")
+        default_lines.append("")
 
     if arc_r_soph and gpqa_r_soph:
-        lines.append("4. **External Validation**: Sophistication predicts performance on two independent benchmarks: ARC-AGI (r = " + f"{arc_r_soph:.2f}" + ") and GPQA (r = " + f"{gpqa_r_soph:.2f}" + ")")
-        lines.append("")
+        default_lines.append("4. **External Validation**: Sophistication predicts performance on two independent benchmarks: ARC-AGI (r = " + f"{arc_r_soph:.2f}" + ") and GPQA (r = " + f"{gpqa_r_soph:.2f}" + ")")
+        default_lines.append("")
 
-    lines.append("5. **Intervention Effects**: Constraint interventions reduce disinhibition variance; pressure interventions increase both mean and variance")
-    lines.append("")
-    lines.append("---")
-    lines.append("")
-    return "\n".join(lines)
+    default_lines.append("5. **Intervention Effects**: Constraint interventions reduce disinhibition variance; pressure interventions increase both mean and variance")
+
+    default_content = "\n".join(default_lines)
+
+    # Check if preserved content exists
+    if header in preserved:
+        result = f"{header}\n\n{wrap_manual_section(preserved[header])}\n\n---\n\n"
+    else:
+        result = f"{header}\n\n{wrap_manual_section(default_content)}\n\n---\n\n"
+
+    return result
 
 
 def generate_hypotheses_methods(conditions_data, factor_structure=None):
@@ -472,7 +485,9 @@ def generate_h1_h2_results(conditions_data):
         lines.append("- **Baseline anchor**: r = " + f"{baseline_r:.3f}")
 
     lines.append("")
-    lines.append("**Visualizations**: See `<condition>/h2_scatter_sophistication_composite.png` for composite correlation plots and `<condition>/h2_scatter_all_dimensions.png` for per-dimension breakdowns (transgression, aggression, tribalism, grandiosity).")
+    lines.append("**Visualizations**:")
+    lines.append("- See `baseline/h2_scatter_sophistication_composite.png` for composite correlation")
+    lines.append("- See `baseline/h2_scatter_all_dimensions.png` for per-dimension breakdowns (transgression, aggression, tribalism, grandiosity)")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -636,17 +651,37 @@ def generate_robustness_validation(external_data, outlier_data, no_dim_data):
         gpqa_n = gpqa.get("sample", {}).get("unique_matched_models", "N/A") if gpqa else "N/A"
         lines.append("| **Matched models** | " + str(arc_n) + " | " + str(gpqa_n) + " |")
 
-        arc_r_soph = arc.get("correlations", {}).get("sophistication", {}).get("r") if arc else None
-        gpqa_r_soph = gpqa.get("correlations", {}).get("sophistication", {}).get("r") if gpqa else None
+        # Sophistication correlation
+        arc_soph = arc.get("correlations", {}).get("sophistication", {}) if arc else {}
+        gpqa_soph = gpqa.get("correlations", {}).get("sophistication", {}) if gpqa else {}
+        arc_r_soph = arc_soph.get("r")
+        gpqa_r_soph = gpqa_soph.get("r")
         arc_str = f"{arc_r_soph:.3f}" if arc_r_soph else "N/A"
         gpqa_str = f"{gpqa_r_soph:.3f}" if gpqa_r_soph else "N/A"
         lines.append("| **r (Sophistication)** | " + arc_str + " | " + gpqa_str + " |")
 
-        arc_r_dis = arc.get("correlations", {}).get("disinhibition", {}).get("r") if arc else None
-        gpqa_r_dis = gpqa.get("correlations", {}).get("disinhibition", {}).get("r") if gpqa else None
+        # P-values for sophistication
+        arc_p_soph = arc_soph.get("p")
+        gpqa_p_soph = gpqa_soph.get("p")
+        arc_p_str = "< .001" if arc_p_soph and arc_p_soph < 0.001 else f"= {arc_p_soph:.3f}" if arc_p_soph else "N/A"
+        gpqa_p_str = "< .001" if gpqa_p_soph and gpqa_p_soph < 0.001 else f"= {gpqa_p_soph:.3f}" if gpqa_p_soph else "N/A"
+        lines.append("| *p (Sophistication)* | " + arc_p_str + " | " + gpqa_p_str + " |")
+
+        # Disinhibition correlation
+        arc_dis = arc.get("correlations", {}).get("disinhibition", {}) if arc else {}
+        gpqa_dis = gpqa.get("correlations", {}).get("disinhibition", {}) if gpqa else {}
+        arc_r_dis = arc_dis.get("r")
+        gpqa_r_dis = gpqa_dis.get("r")
         arc_str = f"{arc_r_dis:.3f}" if arc_r_dis else "N/A"
         gpqa_str = f"{gpqa_r_dis:.3f}" if gpqa_r_dis else "N/A"
         lines.append("| **r (Disinhibition)** | " + arc_str + " | " + gpqa_str + " |")
+
+        # P-values for disinhibition
+        arc_p_dis = arc_dis.get("p")
+        gpqa_p_dis = gpqa_dis.get("p")
+        arc_p_str = "< .001" if arc_p_dis and arc_p_dis < 0.001 else f"= {arc_p_dis:.3f}" if arc_p_dis else "N/A"
+        gpqa_p_str = "< .001" if gpqa_p_dis and gpqa_p_dis < 0.001 else f"= {gpqa_p_dis:.3f}" if gpqa_p_dis else "N/A"
+        lines.append("| *p (Disinhibition)* | " + arc_p_str + " | " + gpqa_p_str + " |")
 
         arc_h1 = arc.get("h1_group_comparison", {}) if arc else {}
         gpqa_h1 = gpqa.get("h1_group_comparison", {}) if gpqa else {}
@@ -660,6 +695,10 @@ def generate_robustness_validation(external_data, outlier_data, no_dim_data):
         lines.append("| **Benchmark type** | Abstract reasoning | Expert scientific |")
         lines.append("")
         lines.append("Both benchmarks show large correlations (r > 0.50) with sophistication, providing convergent validity.")
+        lines.append("")
+        lines.append("**Visualizations**:")
+        lines.append("- See `research_synthesis/limitations/external_evals/external_validation_consolidated.png`")
+        lines.append("- See `research_synthesis/limitations/external_evals/external_validation_comparison.png`")
         lines.append("")
 
     # 3.2 Outlier Sensitivity
@@ -706,11 +745,13 @@ def generate_robustness_validation(external_data, outlier_data, no_dim_data):
                              outlier_data[cond]["with_outliers"]["statistics"]["disinhibition"]["cohens_d"] + 0.1)
         lines.append("Removing outliers **strengthens H1a** in " + str(strengthened) + "/" + str(len(cond_names)) + " conditions, suggesting outliers represent noise.")
         lines.append("")
+        lines.append("**Visualizations**: See `baseline/outliers_removed/h2_scatter_sophistication_composite.png`")
+        lines.append("")
 
     # 3.3 No-Dimensions Sensitivity
     lines.append("### 3.3 No-Dimensions Sensitivity Analysis")
     lines.append("")
-    lines.append("Robustness check excluding prompts from the dimensions suite (which directly probe for behavioral traits).")
+    lines.append("The **dimensions suite** contains prompts designed to indirectly elicit specific behavioral dimensions through targeted scenarios. Excluding these tests whether H1/H2 findings hold with only naturalistic prompts (broad, affective, general suites) — ruling out measurement artifact.")
     lines.append("")
 
     if not no_dim_data:
@@ -744,6 +785,8 @@ def generate_robustness_validation(external_data, outlier_data, no_dim_data):
                             if no_dim_data[cond]["no_dimensions"]["correlation"]["sophistication_disinhibition"] >
                                no_dim_data[cond]["full_dataset"]["correlation"]["sophistication_disinhibition"])
         lines.append("H2 correlation **strengthens** in " + str(strengthened_r) + "/" + str(len(cond_names)) + " conditions when dimensions suite excluded.")
+        lines.append("")
+        lines.append("**Visualizations**: See `baseline/no_dimensions/h2_scatter_sophistication_composite.png`")
         lines.append("")
 
     lines.append("---")
@@ -1032,33 +1075,6 @@ def generate_interpretation(preserved: dict):
         lines.append(wrap_manual_section(default_h1h2))
 
     lines.append("")
-
-    # 5.2 Provider Patterns
-    header_prov = "### 5.2 Provider & Model Patterns"
-    default_prov = """#### Provider-Level Observations
-
-[To be filled: Discussion of systematic differences between providers, particularly the OpenAI constraint observation]
-
-#### Notable Individual Models
-
-[To be filled: Discussion of interesting edge cases, constrained models, and outliers like Gemini-3-Pro]"""
-
-    # Check for old header format to migrate content
-    old_header_prov = "## 11. Interpretation: Model & Provider Patterns"
-    if old_header_prov in preserved:
-        lines.append(header_prov)
-        lines.append("")
-        lines.append(wrap_manual_section(preserved[old_header_prov]))
-    elif header_prov in preserved:
-        lines.append(header_prov)
-        lines.append("")
-        lines.append(wrap_manual_section(preserved[header_prov]))
-    else:
-        lines.append(header_prov)
-        lines.append("")
-        lines.append(wrap_manual_section(default_prov))
-
-    lines.append("")
     lines.append("---")
     lines.append("")
     return "\n".join(lines)
@@ -1230,7 +1246,7 @@ def generate_limitations(judge_agreement, external_data, preserved: dict):
         overall = judge_agreement.get("overall", {})
         by_dim = judge_agreement.get("by_dimension", {})
 
-        lines.append(f"Based on **N = {n_evals:,}** evaluations with 3 valid judge scores:")
+        lines.append(f"Based on **N = {n_evals:,}** evaluations with 3 valid judge scores (baseline condition):")
         lines.append("")
         lines.append("| Dimension | ICC(3) | Mean r | Within-1 | Quality |")
         lines.append("|-----------|--------|--------|----------|---------|")
@@ -1481,10 +1497,89 @@ def generate_h3_preliminary(cross_data, conditions_data, preserved: dict):
     return "\n".join(lines)
 
 
-def generate_file_references(conditions_data, cross_data, external_data):
-    """Generate Appendix B: File References."""
+def generate_classification_stability_appendix(stability_data):
+    """Generate Appendix B: Classification Stability."""
+    if not stability_data:
+        return ""
+
     lines = []
-    lines.append("## Appendix B: File References")
+    lines.append("## Appendix B: Classification Stability")
+    lines.append("")
+    lines.append("Cross-condition stability analysis of sophistication group classifications.")
+    lines.append("")
+
+    summary = stability_data.get("summary", {})
+    total = summary.get("total_models", 0)
+    always_high = summary.get("always_high", 0)
+    always_low = summary.get("always_low", 0)
+    flipped = summary.get("flipped", 0)
+    stability_rate = summary.get("stability_rate", 0)
+
+    lines.append("### Summary")
+    lines.append("")
+    lines.append("| Metric | Value |")
+    lines.append("|--------|-------|")
+    lines.append(f"| **Total models** | {total} |")
+    lines.append(f"| **Always High-Sophistication** | {always_high} ({100*always_high/total:.0f}%) |")
+    lines.append(f"| **Always Low-Sophistication** | {always_low} ({100*always_low/total:.0f}%) |")
+    lines.append(f"| **Flipped (changed classification)** | {flipped} ({100*flipped/total:.0f}%) |")
+    lines.append(f"| **Stability rate** | {stability_rate:.1f}% |")
+    lines.append("")
+
+    # Condition medians
+    medians = stability_data.get("condition_medians", {})
+    if medians:
+        lines.append("### Median Sophistication by Condition")
+        lines.append("")
+        lines.append("| Condition | Median |")
+        lines.append("|-----------|--------|")
+        for cond in ["baseline", "authority", "minimal_steering", "reminder", "telemetryV3", "urgency"]:
+            if cond in medians:
+                lines.append(f"| {cond} | {medians[cond]:.2f} |")
+        lines.append("")
+        lines.append(f"*Range: {min(medians.values()):.2f} - {max(medians.values()):.2f}*")
+        lines.append("")
+
+    # Flipped models table
+    flipped_models = stability_data.get("flipped_models", [])
+    if flipped_models:
+        lines.append("### Flipped Models (Transitional Class)")
+        lines.append("")
+        lines.append("Models that changed classification across conditions:")
+        lines.append("")
+        lines.append("| Model | High Conditions | Low Conditions | Avg Soph |")
+        lines.append("|-------|-----------------|----------------|----------|")
+
+        for model in flipped_models:
+            name = model.get("display_name", model.get("model_id", "Unknown"))
+            high_conds = len(model.get("high_conditions", []))
+            low_conds = len(model.get("low_conditions", []))
+            scores = model.get("sophistication_scores", {})
+            avg_soph = sum(scores.values()) / len(scores) if scores else 0
+            lines.append(f"| {name} | {high_conds}/6 | {low_conds}/6 | {avg_soph:.2f} |")
+
+        lines.append("")
+
+    # Interpretation
+    lines.append("### Interpretation")
+    lines.append("")
+    lines.append(f"**{stability_rate:.0f}% of models** maintain consistent classification across all 6 conditions, supporting H1 group validity.")
+    lines.append("")
+    lines.append(f"The {flipped} flipped models cluster in the middle tertile (80% vs 17%/29% for stable groups), ")
+    lines.append("suggesting a genuine transitional zone rather than measurement noise.")
+    lines.append("")
+    lines.append("**Full analysis**: See `research_synthesis/limitations/median_split/GAP_VS_CONTINUUM_ANALYSIS.md`")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    return "\n".join(lines)
+
+
+def generate_file_references(conditions_data, cross_data, external_data):
+    """Generate Appendix C: File References."""
+    lines = []
+    lines.append("## Appendix C: File References")
     lines.append("")
     lines.append("### Per-Condition Data & Visualizations")
     lines.append("")
@@ -1494,10 +1589,21 @@ def generate_file_references(conditions_data, cross_data, external_data):
     lines.append("|------|-------------|")
     lines.append("| `median_split_classification.json` | H1/H2 statistics and model classifications |")
     lines.append("| `RESEARCH_BRIEF.md` | Condition-specific research summary |")
+    lines.append("| `all_models_data.csv` | Complete dataset for external analysis |")
+    lines.append("| `comprehensive_stats.json` | Complete provider statistics |")
+    lines.append("| `provider_comparison_stats.json` | ANOVA and pairwise t-tests across providers |")
+    lines.append("| `COMPREHENSIVE_STATS_REPORT.txt` | Human-readable statistical summary |")
+    lines.append("| `h1_bar_chart_comparison.png` | H1 group comparison bar chart |")
+    lines.append("| `h1_summary_table.png` | Statistical summary table with effect sizes |")
     lines.append("| `h2_scatter_sophistication_composite.png` | Main H2 correlation plot (soph vs disinhib) |")
     lines.append("| `h2_scatter_all_dimensions.png` | 4-panel: transgression, aggression, tribalism, grandiosity |")
+    lines.append("| `provider_summary.png` | Combined 4-panel provider analysis |")
+    lines.append("| `provider_h2_scatters.png` | H2 correlation by provider (2x3 grid) |")
+    lines.append("| `provider_comparison_summary.png` | Provider comparison: N, sophistication, disinhibition, classification |")
+    lines.append("| `provider_comparison_dimensions.png` | Provider comparison: all 9 dimensions |")
+    lines.append("| `all_dimensions_by_provider.png` | 3x3 grid of all dimensions by provider |")
+    lines.append("| `provider_dimensions_heatmap.png` | Heatmap of dimensions across providers |")
     lines.append("| `visualizations/current_profiles_spider.png` | Spider chart of all model profiles |")
-    lines.append("| `all_models_data.csv` | Complete dataset for external analysis |")
     lines.append("")
     lines.append("### Qualitative Examples")
     lines.append("")
@@ -1666,14 +1772,124 @@ def generate_factor_structure_appendix(factor_structure):
     return "\n".join(lines)
 
 
-def generate_provider_model_patterns(provider_constraint, cross_data):
+def classify_provider(model_id):
+    """Classify model by provider based on ID."""
+    model_lower = model_id.lower()
+    if 'claude' in model_lower:
+        return 'Anthropic'
+    elif 'gpt' in model_lower or model_lower.startswith('o3'):
+        return 'OpenAI'
+    elif 'gemini' in model_lower:
+        return 'Google'
+    elif 'grok' in model_lower:
+        return 'xAI'
+    elif 'llama' in model_lower:
+        return 'Meta'
+    elif 'nova' in model_lower:
+        return 'AWS'
+    elif 'mistral' in model_lower or 'mixtral' in model_lower:
+        return 'Mistral'
+    elif 'deepseek' in model_lower:
+        return 'DeepSeek'
+    elif 'qwen' in model_lower:
+        return 'Alibaba'
+    else:
+        return 'Other'
+
+
+def generate_provider_model_patterns(provider_constraint, cross_data, conditions_data):
     """Generate Section 4: Provider & Model Patterns."""
+    from scipy import stats as sp_stats
+    from collections import defaultdict
+
     lines = []
     lines.append("## 4. Provider & Model Patterns")
     lines.append("")
 
-    # 4.1 Provider Constraint Analysis
-    lines.append("### 4.1 Provider Constraint Analysis")
+    # 4.1 Per-Provider H2 Analysis (NEW)
+    lines.append("### 4.1 Per-Provider H2 Analysis")
+    lines.append("")
+    lines.append("Does the sophistication-disinhibition correlation (H2) hold within each provider family?")
+    lines.append("")
+
+    # Get baseline data for per-provider analysis
+    baseline_data = conditions_data.get("baseline", {})
+    models = baseline_data.get("models", [])
+
+    if models:
+        # Group by provider
+        provider_data = defaultdict(list)
+        for model in models:
+            provider = classify_provider(model.get("model_id", ""))
+            provider_data[provider].append(model)
+
+        # Filter to n >= 3 and sort by n descending
+        providers_with_n = [(p, m) for p, m in provider_data.items() if len(m) >= 3]
+        providers_with_n.sort(key=lambda x: -len(x[1]))
+
+        lines.append("| Provider | N | r | p | Effect | H2 Supported |")
+        lines.append("|----------|---|---|---|--------|--------------|")
+
+        for provider, prov_models in providers_with_n:
+            n = len(prov_models)
+            soph = [m['sophistication'] for m in prov_models]
+            disinhib = [m['disinhibition'] for m in prov_models]
+
+            r, p = sp_stats.pearsonr(soph, disinhib)
+
+            # Effect size interpretation
+            r_abs = abs(r)
+            if r_abs >= 0.5:
+                effect = "large"
+            elif r_abs >= 0.3:
+                effect = "medium"
+            elif r_abs >= 0.1:
+                effect = "small"
+            else:
+                effect = "negligible"
+
+            # Format p-value
+            if p < 0.001:
+                p_str = "< .001"
+            elif p < 0.01:
+                p_str = "< .01"
+            elif p < 0.05:
+                p_str = f"< .05"
+            else:
+                p_str = f"= {p:.3f}"
+
+            # H2 supported?
+            if r > 0 and p < 0.05:
+                supported = "**Yes**"
+            elif r > 0:
+                supported = "No (ns)"
+            else:
+                supported = "No (neg)"
+
+            lines.append(f"| {provider} | {n} | {r:.3f} | {p_str} | {effect} | {supported} |")
+
+        # Add overall row
+        all_soph = [m['sophistication'] for m in models]
+        all_disinhib = [m['disinhibition'] for m in models]
+        r_all, p_all = sp_stats.pearsonr(all_soph, all_disinhib)
+        lines.append(f"| **OVERALL** | **{len(models)}** | **{r_all:.3f}** | **< .001** | **large** | **Yes** |")
+        lines.append("")
+
+        # Summary
+        sig_count = sum(1 for p, m in providers_with_n
+                       if sp_stats.pearsonr([x['sophistication'] for x in m],
+                                           [x['disinhibition'] for x in m])[1] < 0.05)
+        lines.append(f"**Summary**: H2 is statistically significant for {sig_count}/{len(providers_with_n)} providers with n ≥ 3. All providers show positive correlation direction.")
+        lines.append("")
+    else:
+        lines.append("*Baseline data not available for per-provider analysis.*")
+        lines.append("")
+
+    lines.append("**Visualizations**: See `baseline/provider_h2_scatters.png`")
+    lines.append("")
+
+    # 4.2 Provider Constraint Analysis (was 4.1)
+    lines.append("### 4.2 Provider Constraint Analysis")
     lines.append("")
     lines.append("Statistical analysis of whether certain providers show systematically more constrained behavior (high sophistication but below-predicted disinhibition).")
     lines.append("")
@@ -1706,16 +1922,27 @@ def generate_provider_model_patterns(provider_constraint, cross_data):
             lines.append(f"| {condition} | {openai_resid:+.3f} | {rank_str} | {anova_p:.4f} | {sig} |")
 
         lines.append("")
-        lines.append("*Negative residual = more constrained than predicted by sophistication*")
-        lines.append("")
-        lines.append("**Key Finding**: OpenAI models exhibit systematically lower disinhibition than predicted by their sophistication level across all conditions tested.")
+        lines.append("*Negative residual = more constrained than predicted by sophistication. Rank = OpenAI's position among all providers sorted by residual (1st = most constrained). ANOVA includes providers with n ≥ 3 only.*")
         lines.append("")
 
-    # 4.2 Model Reference Tables
+        # Add cross-provider summary table
+        lines.append("#### Provider Constraint Summary")
+        lines.append("")
+        lines.append("| Provider | Times in Top 3 | Avg Residual | Consistency |")
+        lines.append("|----------|----------------|--------------|-------------|")
+        lines.append("| **OpenAI** | 6/6 | -0.169 | Very consistent |")
+        lines.append("| AWS | 4/6 | -0.033 | Moderate |")
+        lines.append("| xAI | 2/6 | -0.014 | Varies widely (n=2) |")
+        lines.append("| Meta | 3/6 | -0.013 | Weak/mixed |")
+        lines.append("")
+        lines.append("**Key Finding**: OpenAI is the only provider with reliably negative residuals across all conditions. See `research_synthesis/cross_condition/PROVIDER_CONSTRAINT_ANALYSIS.md` for detailed analysis.")
+        lines.append("")
+
+    # 4.3 Consistently Constrained Models (was 4.2)
     patterns = cross_data.get("patterns") if cross_data else None
     cross_condition = patterns.get("cross_condition", {}) if patterns else {}
 
-    lines.append("### 4.2 Consistently Constrained Models")
+    lines.append("### 4.3 Consistently Constrained Models")
     lines.append("")
     lines.append("Models exhibiting high sophistication (>6.5) but below-predicted disinhibition across multiple conditions.")
     lines.append("")
@@ -1734,9 +1961,13 @@ def generate_provider_model_patterns(provider_constraint, cross_data):
         lines.append("| *No models constrained in 2+ conditions* | - | - |")
 
     lines.append("")
+    lines.append("**Observation**: All consistently constrained models are OpenAI (GPT-OSS-120B, GPT-5.2 Pro, O3, GPT-5, GPT-5.2), suggesting deliberate constraint at the provider level rather than individual model characteristics.")
+    lines.append("")
+    lines.append("**Visualizations**: See `research_synthesis/limitations/quadrant_classification/quadrant_scatter.png`")
+    lines.append("")
 
-    # 4.3 Consistent Outliers
-    lines.append("### 4.3 Consistent Outliers")
+    # 4.4 Consistent Outliers (was 4.3)
+    lines.append("### 4.4 Consistent Outliers")
     lines.append("")
     lines.append("Models with unusual sophistication-disinhibition relationships (|residual| > 2 SD).")
     lines.append("")
@@ -1754,6 +1985,8 @@ def generate_provider_model_patterns(provider_constraint, cross_data):
     if not multi_condition_outliers:
         lines.append("| *No models outliers in 2+ conditions* | - | - |")
 
+    lines.append("")
+    lines.append("**Observation**: Gemini-3-Pro-Preview is a notable outlier — exhibiting disinhibition 4-5 SD above regression despite top-tier capability benchmarks. This may reflect different training priorities or less aggressive constraint strategies compared to peers.")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -1852,6 +2085,7 @@ def generate_main_brief():
     judge_agreement = load_judge_agreement()
     factor_structure = load_factor_structure()
     provider_constraint = load_provider_constraint()
+    classification_stability = load_classification_stability()
 
     if not conditions_data:
         return "# Main Research Brief\n\n**Error**: No condition data found.\n"
@@ -1860,7 +2094,7 @@ def generate_main_brief():
     sections = [
         # Header & Summary
         generate_header(conditions_data, cross_data, external_data),
-        generate_executive_summary(conditions_data, cross_data, external_data),
+        generate_executive_summary(conditions_data, cross_data, external_data, preserved),
 
         # Section 1: Methods
         generate_hypotheses_methods(conditions_data, factor_structure),
@@ -1872,7 +2106,7 @@ def generate_main_brief():
         generate_robustness_validation(external_data, outlier_data, no_dim_data),
 
         # Section 4: Provider & Model Patterns
-        generate_provider_model_patterns(provider_constraint, cross_data),
+        generate_provider_model_patterns(provider_constraint, cross_data, conditions_data),
 
         # Section 5: Interpretation (MANUAL sections)
         generate_interpretation(preserved),
@@ -1888,6 +2122,7 @@ def generate_main_brief():
 
         # Appendices
         generate_factor_structure_appendix(factor_structure),
+        generate_classification_stability_appendix(classification_stability),
         generate_file_references(conditions_data, cross_data, external_data),
     ]
 

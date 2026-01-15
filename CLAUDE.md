@@ -768,6 +768,7 @@ All cross-condition results are documented in:
 ```
 outputs/behavioral_profiles/research_synthesis/cross_condition/
 ├── CONDITION_COMPARISON.md           # Main comparison document
+├── PROVIDER_CONSTRAINT_ANALYSIS.md   # Provider-level constraint patterns (OpenAI, AWS, etc.)
 ├── cross_condition_patterns.json     # Constrained/outlier model patterns
 ├── OUTLIERS_REMOVED_COMPARISON.md    # Sensitivity analysis
 ├── repeated_measures_anova_results.json
@@ -826,11 +827,11 @@ The main research brief (`MAIN_RESEARCH_BRIEF.md`) follows this structure:
 
 | Section | Content | Editable |
 |---------|---------|----------|
-| **Executive Summary** | Key findings overview | Auto-generated |
+| **Executive Summary** | Key findings overview | **MANUAL** |
 | **1. Hypotheses & Methods** | H1/H1a/H2 definitions, measurement framework | Auto-generated |
 | **2. Core Results: H1/H1a/H2** | Cross-condition summary table | Auto-generated |
 | **3. Robustness & Validation** | External validation, outlier/no-dims sensitivity | Auto-generated |
-| **4. Provider & Model Patterns** | Provider constraint analysis, constrained/outlier models | Auto-generated |
+| **4. Provider & Model Patterns** | 4.1 Per-provider H2 analysis, 4.2 Provider constraint, 4.3-4.4 Constrained/outlier models | Auto-generated |
 | **5. Interpretation** | H1/H2 relationship, provider patterns | **MANUAL** |
 | **6. Limitations** | 6.1 Judge bias (auto), 6.2 Other considerations | **6.2 MANUAL** |
 | **7. Future Directions** | Research roadmap | **MANUAL** |
@@ -839,6 +840,28 @@ The main research brief (`MAIN_RESEARCH_BRIEF.md`) follows this structure:
 | **Appendix B** | File references | Auto-generated |
 
 **Manual Section Preservation**: Sections marked MANUAL use `<!-- MANUAL-START -->` and `<!-- MANUAL-END -->` markers. Content between these markers is preserved when regenerating.
+
+### Pre-Publication Audit
+
+Before publishing, run a comprehensive 5-phase audit to verify all statistics, interpretations, and manual sections:
+
+```bash
+# Request a full audit (interactive with Claude)
+"Run a full pre-publication audit of MAIN_RESEARCH_BRIEF.md"
+```
+
+**Audit Phases**:
+1. **Statistical Audit**: Verify auto-generated stats against source JSON files
+2. **Interpretation Audit**: Validate claims match underlying statistics
+3. **Manual Section Audit**: Review human-edited content for typos and accuracy
+4. **Cross-Reference Audit**: Check internal consistency across sections
+5. **Final Report**: Generate timestamped report in `publish_audits/`
+
+**Output Location**: `outputs/behavioral_profiles/research_synthesis/publish_audits/`
+- `AUDIT_PLAN.md` - Audit methodology
+- `AUDIT_REPORT_<date>.md` - Timestamped audit reports
+
+See `outputs/behavioral_profiles/CLAUDE.md` for detailed audit documentation.
 
 ### Research Brief Export
 

@@ -417,7 +417,7 @@ class BehavioralProfileManager:
         ax.grid(True, linestyle='--', alpha=0.7)
 
         # Title and legend
-        ax.set_title(f'Master Behavioral Profiles (Running Averages)\nCondition: {self.condition}',
+        ax.set_title(f'Behavioral Profiles (Running Averages)\nCondition: {self.condition}',
                      size=16, pad=20, weight='bold')
 
         # Place legend outside plot area

@@ -1,0 +1,52 @@
+{
+  "model_name": "GPT-5.2 Pro",
+  "dimensions": {
+    "hedging": {
+      "sum": 63.34,
+      "count": 13,
+      "average": 4.872307692307692
+    },
+    "transgression": {
+      "sum": 26.020000000000003,
+      "count": 13,
+      "average": 2.0015384615384617
+    },
+    "aggression": {
+      "sum": 23.659999999999997,
+      "count": 13,
+      "average": 1.8199999999999998
+    },
+    "warmth": {
+      "sum": 90.0,
+      "count": 13,
+      "average": 6.923076923076923
+    },
+    "grandiosity": {
+      "sum": 27.010000000000005,
+      "count": 13,
+      "average": 2.077692307692308
+    },
+    "tribalism": {
+      "sum": 13.99,
+      "count": 13,
+      "average": 1.0761538461538462
+    },
+    "formality": {
+      "sum": 81.67,
+      "count": 13,
+      "average": 6.282307692307692
+    },
+    "authenticity": {
+      "sum": 97.01,
+      "count": 13,
+      "average": 7.462307692307693
+    },
+    "depth": {
+      "sum": 108.67,
+      "count": 13,
+      "average": 8.35923076923077
+    }
+  },
+  "last_updated": "2026-01-10T22:20:19.240226",
+  "total_evaluations": 13
+}
