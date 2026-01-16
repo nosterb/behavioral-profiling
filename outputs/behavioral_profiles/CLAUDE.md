@@ -478,8 +478,122 @@ The audit will:
 4. Verify cross-references
 5. Generate a timestamped report in `publish_audits/`
 
+## Quality Assurance & Statistical Rigor
+
+### Statistical Methods
+
+**H1 Group Comparison**:
+- Method: Independent samples t-test
+- Effect Size: Cohen's d = (M_high - M_low) / SD_pooled
+- Thresholds: |d| < 0.2 negligible, 0.2-0.5 small, 0.5-0.8 medium, ≥0.8 large
+
+**H2 Correlation Analysis**:
+- Method: Pearson product-moment correlation
+- Effect Size: Pearson's r
+- Thresholds: |r| < 0.10 negligible, 0.10-0.30 small, 0.30-0.50 medium, ≥0.50 large
+
+**Median Split Classification**:
+- Split on median sophistication composite (depth + authenticity average)
+- Quality requirements: median in range 4-7, groups balanced (±5 models), separation d ≥ 1.5
+- Borderline models (±0.15 of median) documented for sensitivity
+
+### Key Quality Standards
+
+| Category | Standards |
+|----------|-----------|
+| **Statistical Rigor** | P-values exact (or p < .001); effect sizes reported; Bonferroni correction for pairwise; Welch's t-test for unequal variances |
+| **Data Integrity** | All scores 1-10; no NaN/null; contribution counts > 0 |
+| **Reproducibility** | Deterministic pipeline; consistent file ordering; version controlled |
+
+### Pre-Flight Checklist
+
+Before any analysis:
+- [ ] All expected profiles present with 9 dimensions
+- [ ] N ≥ 40 (preferred) or N ≥ 30 (acceptable with caveat)
+- [ ] All scores in range [1, 10], contribution counts > 0
+- [ ] Output directory exists, previous results backed up
+
+## Advanced Cross-Condition Analysis
+
+### Repeated-Measures ANOVA
+
+Since the same models appear across all conditions, use repeated-measures ANOVA.
+
+```bash
+python3 scripts/run_repeated_measures_anova.py --both  # Original + outliers-removed
+```
+
+**What It Tests**:
+1. Main Effect of Condition (does disinhibition differ across conditions?)
+2. Condition × Sophistication Interaction
+3. Pairwise Comparisons (Bonferroni-corrected)
+
+**Effect Size (η²g)**: < 0.01 negligible, 0.01-0.06 small, 0.06-0.14 medium, ≥0.14 large
+
+**Output**: `research_synthesis/cross_condition/repeated_measures_anova_results.json`
+
+### Variability Analysis
+
+Tests whether interventions affect response consistency (variance).
+
+```bash
+python3 scripts/analyze_variability.py --both --output-json
+```
+
+**Key Metrics**: SD, CV%, Variance Ratio (vs baseline), Levene's W
+
+**Interpretation**: Variance ratio < 0.67 = less variable; > 1.5 = more variable
+
+### Cross-Condition Model Patterns
+
+```bash
+python3 scripts/analyze_cross_condition_patterns.py
+```
+
+**Output**: `research_synthesis/cross_condition/cross_condition_patterns.json`
+
+## Research Brief Export
+
+### Regenerating the Brief
+
+```bash
+# Regenerate from condition data
+python3 scripts/regenerate_main_brief.py
+
+# Full workflow: regenerate + sync to CDN
+python3 scripts/regenerate_main_brief.py && python3 scripts/sync_research_assets.py --invalidate
+```
+
+### Export Formats
+
+```bash
+# LaTeX/PDF (requires MacTeX)
+pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
+  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.pdf \
+  -f markdown-yaml_metadata_block --pdf-engine=xelatex -V geometry:margin=1in
+
+# HTML (for browser copy → Google Docs)
+pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
+  -o outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.html \
+  --standalone -f markdown-yaml_metadata_block --metadata title="Main Research Brief"
+```
+
+### CDN Publishing
+
+```bash
+# Sync assets to S3/CloudFront
+python3 scripts/sync_research_assets.py --invalidate
+```
+
+Generates `MAIN_RESEARCH_BRIEF_PUBLIC.md` with CDN URLs for inline images.
+
+**Environment variables** (in `.env`):
+- `CDN_BUCKET` - S3 bucket name
+- `CDN_DOMAIN` - CloudFront domain
+- `CDN_DISTRIBUTION_ID` - For cache invalidation
+
 ## Related Documentation
 
-- Root: `CLAUDE.md` - Complete project documentation
+- Root: `CLAUDE.md` - Project overview and quick reference
 - Logs: `logs/CLAUDE.md` - Hook logging system
-- Scripts: See `scripts/` for analysis scripts
+- Payload: `payload/CLAUDE.md` - Job definitions and interventions

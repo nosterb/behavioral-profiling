@@ -10,10 +10,19 @@
 *Copyright 2026 Nicholas Osterbur. Results and analyses licensed under CC BY 4.0.*
 
 ---
-## Executive Summary
+
+### Data Provenance Legend
+
+| Marker | Meaning |
+|--------|---------|
+| 🔄 | **Auto-generated** — Programmatically computed from JSON data sources |
+| ✏️ | **Human-authored** — Manually written interpretation requiring human review |
+
+---
+## Executive Summary ✏️
 
 <!-- MANUAL-START -->
-This research investigates the relationship between model sophistication (authenticity/depth) and behavioral disinhibition (transgression, aggression, grandiosity, tribalism) across 50+ language models, 9 providers, and ~2.5 years of development under varying contextual conditions. The research demonstrates that sophistication in models strongly correlates with disinhibition factors in a generalizable way across contextual differences, models, and providers. Sophistication as a proxy for model capability finds convergent validity with 2 other public benchmarks (GPQA r=0.88, ARC-AGI r=0.80). Evidence reveals some providers (notably OpenAI) are actively suppressing disinhibition while maintaining sophistication (capability) i.e. constraint. 
+This research investigates the relationship between model sophistication and behavioral disinhibition across 50+ language models under varying contextual conditions.
 
 ### Key Findings
 
@@ -30,7 +39,7 @@ This research investigates the relationship between model sophistication (authen
 
 ---
 
-## 1. Hypotheses & Methods
+## 1. Hypotheses & Methods 🔄
 
 ### Core Hypotheses
 
@@ -77,7 +86,7 @@ Nine behavioral dimensions are measured on a 1-10 scale, then collapsed into two
 | Pearson r | < 0.1 | 0.1-0.3 | 0.3-0.5 | >= 0.5 |
 
 ---
-## 2. Core Results: H1/H1a/H2
+## 2. Core Results: H1/H1a/H2 🔄
 
 ### Summary Table
 
@@ -108,23 +117,23 @@ Nine behavioral dimensions are measured on a 1-10 scale, then collapsed into two
 - See [h2_scatter_all_dimensions.png](https://d1buxz3bu075ht.cloudfront.net/baseline/h2_scatter_all_dimensions.png) for per-dimension breakdowns (transgression, aggression, tribalism, grandiosity)
 
 ---
-## 3. Robustness & Validation
+## 3. Robustness & Validation 🔄
 
 ### 3.1 External Validation
 
 Cross-validation against independent reasoning benchmarks.
 
-| Metric | ARC-AGI | GPQA |
-|--------|---------|------|
-| **Matched models** | 16 | 35 |
-| **r (Sophistication)** | 0.801 | 0.884 |
-| *p (Sophistication)* | < .001 | < .001 |
-| **r (Disinhibition)** | 0.596 | 0.711 |
-| *p (Disinhibition)* | = 0.015 | < .001 |
-| **Group diff (High-Low)** | +47.7 pp | +31.4 pp |
-| **Benchmark type** | Abstract reasoning | Expert scientific |
+| Metric | ARC-AGI | GPQA | AIME 2025 |
+|--------|---------|------|-----------|
+| **Matched models** | 16 | 35 | 20 |
+| **r (Sophistication)** | 0.801 | 0.884 | 0.828 |
+| *p (Sophistication)* | < .001 | < .001 | < .001 |
+| **r (Disinhibition)** | 0.596 | 0.711 | 0.464 |
+| *p (Disinhibition)* | = 0.015 | < .001 | = 0.039 |
+| **Group diff (High-Low)** | +47.7 pp | +31.4 pp | +28.4 pp |
+| **Benchmark type** | Abstract reasoning | Expert scientific | Mathematical reasoning |
 
-Both benchmarks show large correlations (r > 0.50) with sophistication, providing convergent validity.
+All three benchmarks show large correlations (r > 0.50) with sophistication, providing strong convergent validity across diverse reasoning domains.
 
 **Visualizations**:
 - See [external_validation_consolidated.png](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/external_validation_consolidated.png)
@@ -158,7 +167,7 @@ H2 correlation **strengthens** in 1/1 conditions when dimensions suite excluded.
 **Visualizations**: See [h2_scatter_sophistication_composite.png](https://d1buxz3bu075ht.cloudfront.net/baseline/no_dimensions/h2_scatter_sophistication_composite.png)
 
 ---
-## 4. Provider & Model Patterns
+## 4. Provider & Model Patterns 🔄
 
 ### 4.1 Per-Provider H2 Analysis
 
@@ -232,7 +241,7 @@ Models with unusual sophistication-disinhibition relationships (|residual| > 2 S
 **Observation**: Gemini-3-Pro-Preview is a notable outlier — exhibiting disinhibition 4-5 SD above regression despite top-tier capability benchmarks. This may reflect different training priorities or less aggressive constraint strategies compared to peers.
 
 ---
-## 5. Interpretation
+## 5. Interpretation ✏️
 
 ### 5.1 H1/H2 Relationship
 
@@ -278,7 +287,7 @@ H2: There is evidence that providers can maintain sophistication and lower disin
 ---
 ## 6. Limitations
 
-### 6.1 Judge Bias Analysis
+### 6.1 Judge Bias Analysis 🔄
 
 A common critique of LLM-as-judge evaluations: if frontier models judge frontier models, they may rate themselves or similar models more favorably, inflating sophistication scores and creating spurious correlations.
 
@@ -335,42 +344,31 @@ Based on **N = 10,565** evaluations with 3 valid judge scores (baseline conditio
 
 **Full analysis**: See [JUDGE_AGREEMENT_ANALYSIS.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/judge_limitations/JUDGE_AGREEMENT_ANALYSIS.md)
 
-### 6.2 Other Methodological Considerations
+### 6.2 Other Methodological Considerations ✏️
 
 <!-- MANUAL-START -->
 - **Prompt design**: Scenarios may not fully capture real-world deployment contexts
 - **Sample selection**: Model selection prioritized major providers; smaller/specialized models underrepresented
-- **Median-split approach**: May be too simplistic as evidence suggests that while median-split has a strong effect and is statistically significant there may be a 3rd transitional class or a continuum; need more robust model population
-- **Behavioral dimensions**: Definitional overlap and shared variance implies the construct effective but confused
-- **External convergent validity**: A third external eval is needed; GPQA and ARC-AGI reflect reasoning performance well but ARC-AGI needs more model population to be a truly robust second check
-- **Judge design**: Judges using same rubric with no blind check, n=3 judges are given the claims being made; ceiling and floor effects may be significant with 1-10 eval rubric; having judges eval each dimension at once may be fundamentally skewing results and model performance dependent; human eval hard to achieve, currently dependent on LLMs barring programmatic NLP approaches
+- **Temporal validity**: Model behaviors may change with updates; results reflect evaluation period
 <!-- MANUAL-END -->
 
 ---
-## 7. Future Directions
+## 7. Future Directions ✏️
 
 <!-- MANUAL-START -->
-- H1: Address whether two distinct groups via median split is accurate and useful - test N=3 (transitional group in middle) and/or evidence for a natural continuum with no capability jumping (though hard to do with model release capability stair stepping)
-  - Assess external eval samples to analyze for transitional group or continuum (early indications imply as much)
-- H1: Formalize a robust and standardized baseline v2 prompt suite leveraging empirically determined high frequency end consumer queries
-- H1: Formalize a robust and standardized dimensions v2 prompt suite to assess extremes
-- H2: Address and control for prompt sensitivity influence across models/providers
-- H2: Test broader judge diversity and alternation (e.g. swap capable judges at random) and assess agreement
-- H2: Test judging of one dimension at a time and assess agreement
-- H2: Test broader generalizability to multi-turn chat flows and separately to semi-autonomous agentic workflows
-- H2: Identify a 3rd external benchmark for high-low sophistication/disinhibition comparison to button up convergent validity
-- H2: Address thinking vs. non thinking variants, compare total estimated thinking time (example proxy is #chat turns with thinking on)
-- H1/H2: Address model size (in parameters) and effect sizes/clusters
-- H3: Cross condition comparison - condition/intervention influence on H1/H2 - incl. which interventions improve soph/dis ratio, at what cost and what tradeoffs?
-- H3: Inspect 'constrained' phenomena more deeply across interventions/conditions, model providers, versions/families 
-- H3: Address provider differences between conditions, models, and model versions/families
-
-
+- Formalize H3 hypothesis testing (see Section 8 for preliminary work)
+- Inspect 'constrained' phenomena more deeply using OpenAI products as focal point
+- Test broader generalizability to multi-turn chat flows and separately to semi-autonomous agentic workflows
+- Identify a 3rd external benchmark for high-low sophistication comparison
+- Formalize a robust and standardized baseline v2 prompt suite leveraging empirically determined high frequency end consumer queries
+- Formalize a robust and standardized dimensions v2 prompt suite to assess extremes
+- Address provider differences between conditions
+- Address thinking vs. non thinking variants, compare total estimated thinking time
 <!-- MANUAL-END -->
 
 ---
 
-## 8. Preliminary: H3 Intervention Effects
+## 8. Preliminary: H3 Intervention Effects 🔄
 
 > 🚧 **Work in Progress**
 > 
@@ -417,24 +415,24 @@ Sphericity violated (ε = 0.288), Greenhouse-Geisser corrected p < .0001
 | minimal_steering vs urgency | -8.64 | < .0001 | -1.74 | Yes |
 | telemetryV3 vs urgency | -8.76 | < .0001 | -1.72 | Yes |
 
-### 8.4 Preliminary Interpretation
+### 8.4 Preliminary Interpretation ✏️
 
 <!-- MANUAL-START -->
-### Constraint vs. Pressure Interventions
+#### Constraint vs. Pressure Interventions
 
--Work in Progress-
+*Analysis in progress*
 
 [To be filled: Interpretation of why constraint interventions reduce variance while pressure interventions increase it]
 
-### Intervention Mechanism Hypotheses
+#### Intervention Mechanism Hypotheses
 
--Work in Progress-
+*Analysis in progress*
 
 [To be filled: Theories about how different interventions affect the sophistication-disinhibition relationship]
 <!-- MANUAL-END -->
 
 ---
-## Appendix A: Factor Structure
+## Appendix A: Factor Structure 🔄
 
 ### Why 9 Dimensions → 2 Composites
 
@@ -495,7 +493,7 @@ grandi     0.728   0.667   0.573   0.620   0.811   1.000
 **Full analysis**: See [FACTOR_STRUCTURE_BASELINE.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/factor_structure/FACTOR_STRUCTURE_BASELINE.md)
 
 ---
-## Appendix B: Classification Stability
+## Appendix B: Classification Stability 🔄
 
 Cross-condition stability analysis of sophistication group classifications.
 
@@ -549,7 +547,7 @@ suggesting a genuine transitional zone rather than measurement noise.
 **Full analysis**: See [GAP_VS_CONTINUUM_ANALYSIS.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/median_split/GAP_VS_CONTINUUM_ANALYSIS.md)
 
 ---
-## Appendix C: File References
+## Appendix C: File References 🔄
 
 ### Per-Condition Data & Visualizations
 
@@ -656,4 +654,4 @@ pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
 ---
 
 **Document Version**: 3.2 (Auto-generated)
-**Generated**: 2026-01-14 12:11
+**Generated**: 2026-01-14 23:19

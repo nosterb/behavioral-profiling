@@ -27,6 +27,10 @@ CONDITIONS = ["baseline", "authority", "minimal_steering", "reminder", "telemetr
 MANUAL_START = "<!-- MANUAL-START -->"
 MANUAL_END = "<!-- MANUAL-END -->"
 
+# Visible provenance markers for readers
+AUTO_BADGE = "🔄"  # Auto-generated from JSON data
+MANUAL_BADGE = "✏️"  # Human-authored content
+
 
 def extract_manual_sections(content: str) -> dict:
     """Extract manually edited sections from existing content.
@@ -111,6 +115,7 @@ def load_external_validation():
     return {
         "arc_agi": load_json(ext_dir / "arc_agi_validation_analysis.json"),
         "gpqa": load_json(ext_dir / "gpqa_validation_analysis.json"),
+        "aime": load_json(ext_dir / "aime_validation_analysis.json"),
     }
 
 
@@ -274,12 +279,22 @@ def generate_header(conditions_data, cross_data, external_data):
     lines.append("")
     lines.append("---")
     lines.append("")
+    # Data provenance legend
+    lines.append("### Data Provenance Legend")
+    lines.append("")
+    lines.append(f"| Marker | Meaning |")
+    lines.append("|--------|---------|")
+    lines.append(f"| {AUTO_BADGE} | **Auto-generated** — Programmatically computed from JSON data sources |")
+    lines.append(f"| {MANUAL_BADGE} | **Human-authored** — Manually written interpretation requiring human review |")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
     return "\n".join(lines)
 
 
 def generate_executive_summary(conditions_data, cross_data, external_data, preserved: dict):
     """Generate executive summary - MANUAL section that preserves human edits."""
-    header = "## Executive Summary"
+    header = f"## Executive Summary {MANUAL_BADGE}"
 
     # Generate default content from data
     h1_soph_d_min, h1_soph_d_max = get_h1_soph_d_range(conditions_data)
@@ -335,7 +350,7 @@ def generate_hypotheses_methods(conditions_data, factor_structure=None):
     n_conditions = len(conditions_data)
 
     lines = []
-    lines.append("## 1. Hypotheses & Methods")
+    lines.append(f"## 1. Hypotheses & Methods {AUTO_BADGE}")
     lines.append("")
     lines.append("### Core Hypotheses")
     lines.append("")
@@ -397,7 +412,7 @@ def generate_hypotheses_methods(conditions_data, factor_structure=None):
 def generate_h1_h2_results(conditions_data):
     """Generate H1a/H2 results table across conditions."""
     lines = []
-    lines.append("## 2. Core Results: H1/H1a/H2")
+    lines.append(f"## 2. Core Results: H1/H1a/H2 {AUTO_BADGE}")
     lines.append("")
     lines.append("### Summary Table")
     lines.append("")
@@ -628,7 +643,7 @@ def generate_anova_results(cross_data):
 def generate_robustness_validation(external_data, outlier_data, no_dim_data):
     """Generate consolidated robustness and validation section."""
     lines = []
-    lines.append("## 3. Robustness & Validation")
+    lines.append(f"## 3. Robustness & Validation {AUTO_BADGE}")
     lines.append("")
 
     # 3.1 External Validation
@@ -639,62 +654,80 @@ def generate_robustness_validation(external_data, outlier_data, no_dim_data):
 
     arc = external_data.get("arc_agi")
     gpqa = external_data.get("gpqa")
+    aime = external_data.get("aime")
 
-    if not arc and not gpqa:
+    if not arc and not gpqa and not aime:
         lines.append("*External validation data not available.*")
         lines.append("")
     else:
-        lines.append("| Metric | ARC-AGI | GPQA |")
-        lines.append("|--------|---------|------|")
+        lines.append("| Metric | ARC-AGI | GPQA | AIME 2025 |")
+        lines.append("|--------|---------|------|-----------|")
 
+        # Matched models
         arc_n = arc.get("sample", {}).get("unique_matched_models", "N/A") if arc else "N/A"
         gpqa_n = gpqa.get("sample", {}).get("unique_matched_models", "N/A") if gpqa else "N/A"
-        lines.append("| **Matched models** | " + str(arc_n) + " | " + str(gpqa_n) + " |")
+        aime_n = aime.get("sample", {}).get("unique_matched_models", "N/A") if aime else "N/A"
+        lines.append("| **Matched models** | " + str(arc_n) + " | " + str(gpqa_n) + " | " + str(aime_n) + " |")
 
         # Sophistication correlation
         arc_soph = arc.get("correlations", {}).get("sophistication", {}) if arc else {}
         gpqa_soph = gpqa.get("correlations", {}).get("sophistication", {}) if gpqa else {}
+        aime_soph = aime.get("correlations", {}).get("sophistication", {}) if aime else {}
         arc_r_soph = arc_soph.get("r")
         gpqa_r_soph = gpqa_soph.get("r")
+        aime_r_soph = aime_soph.get("r")
         arc_str = f"{arc_r_soph:.3f}" if arc_r_soph else "N/A"
         gpqa_str = f"{gpqa_r_soph:.3f}" if gpqa_r_soph else "N/A"
-        lines.append("| **r (Sophistication)** | " + arc_str + " | " + gpqa_str + " |")
+        aime_str = f"{aime_r_soph:.3f}" if aime_r_soph else "N/A"
+        lines.append("| **r (Sophistication)** | " + arc_str + " | " + gpqa_str + " | " + aime_str + " |")
 
         # P-values for sophistication
         arc_p_soph = arc_soph.get("p")
         gpqa_p_soph = gpqa_soph.get("p")
+        aime_p_soph = aime_soph.get("p")
         arc_p_str = "< .001" if arc_p_soph and arc_p_soph < 0.001 else f"= {arc_p_soph:.3f}" if arc_p_soph else "N/A"
         gpqa_p_str = "< .001" if gpqa_p_soph and gpqa_p_soph < 0.001 else f"= {gpqa_p_soph:.3f}" if gpqa_p_soph else "N/A"
-        lines.append("| *p (Sophistication)* | " + arc_p_str + " | " + gpqa_p_str + " |")
+        aime_p_str = "< .001" if aime_p_soph and aime_p_soph < 0.001 else f"= {aime_p_soph:.3f}" if aime_p_soph else "N/A"
+        lines.append("| *p (Sophistication)* | " + arc_p_str + " | " + gpqa_p_str + " | " + aime_p_str + " |")
 
         # Disinhibition correlation
         arc_dis = arc.get("correlations", {}).get("disinhibition", {}) if arc else {}
         gpqa_dis = gpqa.get("correlations", {}).get("disinhibition", {}) if gpqa else {}
+        aime_dis = aime.get("correlations", {}).get("disinhibition", {}) if aime else {}
         arc_r_dis = arc_dis.get("r")
         gpqa_r_dis = gpqa_dis.get("r")
+        aime_r_dis = aime_dis.get("r")
         arc_str = f"{arc_r_dis:.3f}" if arc_r_dis else "N/A"
         gpqa_str = f"{gpqa_r_dis:.3f}" if gpqa_r_dis else "N/A"
-        lines.append("| **r (Disinhibition)** | " + arc_str + " | " + gpqa_str + " |")
+        aime_str = f"{aime_r_dis:.3f}" if aime_r_dis else "N/A"
+        lines.append("| **r (Disinhibition)** | " + arc_str + " | " + gpqa_str + " | " + aime_str + " |")
 
         # P-values for disinhibition
         arc_p_dis = arc_dis.get("p")
         gpqa_p_dis = gpqa_dis.get("p")
+        aime_p_dis = aime_dis.get("p")
         arc_p_str = "< .001" if arc_p_dis and arc_p_dis < 0.001 else f"= {arc_p_dis:.3f}" if arc_p_dis else "N/A"
         gpqa_p_str = "< .001" if gpqa_p_dis and gpqa_p_dis < 0.001 else f"= {gpqa_p_dis:.3f}" if gpqa_p_dis else "N/A"
-        lines.append("| *p (Disinhibition)* | " + arc_p_str + " | " + gpqa_p_str + " |")
+        aime_p_str = "< .001" if aime_p_dis and aime_p_dis < 0.001 else f"= {aime_p_dis:.3f}" if aime_p_dis else "N/A"
+        lines.append("| *p (Disinhibition)* | " + arc_p_str + " | " + gpqa_p_str + " | " + aime_p_str + " |")
 
+        # Group differences
         arc_h1 = arc.get("h1_group_comparison", {}) if arc else {}
         gpqa_h1 = gpqa.get("h1_group_comparison", {}) if gpqa else {}
+        aime_h1 = aime.get("h1_group_comparison", {}) if aime else {}
         arc_high = arc_h1.get("high_sophistication", {}).get("mean", 0)
         arc_low = arc_h1.get("low_sophistication", {}).get("mean", 0)
         gpqa_high = gpqa_h1.get("high_sophistication", {}).get("mean", 0)
         gpqa_low = gpqa_h1.get("low_sophistication", {}).get("mean", 0)
+        aime_high = aime_h1.get("high_sophistication", {}).get("mean", 0)
+        aime_low = aime_h1.get("low_sophistication", {}).get("mean", 0)
         arc_diff = "+" + f"{arc_high - arc_low:.1f}" + " pp" if arc_h1 else "N/A"
         gpqa_diff = "+" + f"{gpqa_high - gpqa_low:.1f}" + " pp" if gpqa_h1 else "N/A"
-        lines.append("| **Group diff (High-Low)** | " + arc_diff + " | " + gpqa_diff + " |")
-        lines.append("| **Benchmark type** | Abstract reasoning | Expert scientific |")
+        aime_diff = "+" + f"{aime_high - aime_low:.1f}" + " pp" if aime_h1 else "N/A"
+        lines.append("| **Group diff (High-Low)** | " + arc_diff + " | " + gpqa_diff + " | " + aime_diff + " |")
+        lines.append("| **Benchmark type** | Abstract reasoning | Expert scientific | Mathematical reasoning |")
         lines.append("")
-        lines.append("Both benchmarks show large correlations (r > 0.50) with sophistication, providing convergent validity.")
+        lines.append("All three benchmarks show large correlations (r > 0.50) with sophistication, providing strong convergent validity across diverse reasoning domains.")
         lines.append("")
         lines.append("**Visualizations**:")
         lines.append("- See `research_synthesis/limitations/external_evals/external_validation_consolidated.png`")
@@ -1042,7 +1075,7 @@ def generate_no_dimensions_sensitivity(no_dim_data):
 def generate_interpretation(preserved: dict):
     """Generate Section 5: consolidated interpretation, preserving manual edits."""
     lines = []
-    lines.append("## 5. Interpretation")
+    lines.append(f"## 5. Interpretation {MANUAL_BADGE}")
     lines.append("")
 
     # 5.1 H1/H2 Relationship
@@ -1196,7 +1229,7 @@ def generate_limitations(judge_agreement, external_data, preserved: dict):
     lines.append("")
 
     # 6.1 Judge Bias Section
-    lines.append("### 6.1 Judge Bias Analysis")
+    lines.append(f"### 6.1 Judge Bias Analysis {AUTO_BADGE}")
     lines.append("")
     lines.append("A common critique of LLM-as-judge evaluations: if frontier models judge frontier models, they may rate themselves or similar models more favorably, inflating sophistication scores and creating spurious correlations.")
     lines.append("")
@@ -1296,7 +1329,7 @@ def generate_limitations(judge_agreement, external_data, preserved: dict):
     lines.append("")
 
     # 6.2 Other Methodological Considerations (MANUAL)
-    header_other = "### 6.2 Other Methodological Considerations"
+    header_other = f"### 6.2 Other Methodological Considerations {MANUAL_BADGE}"
     default_other = """- **Prompt design**: Scenarios may not fully capture real-world deployment contexts
 - **Sample selection**: Model selection prioritized major providers; smaller/specialized models underrepresented
 - **Temporal validity**: Model behaviors may change with updates; results reflect evaluation period"""
@@ -1324,7 +1357,7 @@ def generate_limitations(judge_agreement, external_data, preserved: dict):
 
 def generate_future_directions(preserved: dict):
     """Generate Section 7: Future Directions, preserving manual edits."""
-    header = "## 7. Future Directions"
+    header = f"## 7. Future Directions {MANUAL_BADGE}"
     old_header = "### 13.3 Future Directions"
     default = """- Formalize H3 hypothesis testing (see Section 8 for preliminary work)
 - Inspect 'constrained' phenomena more deeply using OpenAI products as focal point
@@ -1347,7 +1380,7 @@ def generate_h3_preliminary(cross_data, conditions_data, preserved: dict):
     import numpy as np
 
     lines = []
-    lines.append("## 8. Preliminary: H3 Intervention Effects")
+    lines.append(f"## 8. Preliminary: H3 Intervention Effects {AUTO_BADGE}")
     lines.append("")
     lines.append("> 🚧 **Work in Progress**")
     lines.append("> ")
@@ -1463,7 +1496,7 @@ def generate_h3_preliminary(cross_data, conditions_data, preserved: dict):
         lines.append("")
 
     # 8.4 Preliminary Interpretation (MANUAL)
-    header_interp = "### 8.4 Preliminary Interpretation"
+    header_interp = f"### 8.4 Preliminary Interpretation {MANUAL_BADGE}"
     old_header_interp = "## 10. Interpretation: Intervention Effects"
     default_interp = """#### Constraint vs. Pressure Interventions
 
@@ -1503,7 +1536,7 @@ def generate_classification_stability_appendix(stability_data):
         return ""
 
     lines = []
-    lines.append("## Appendix B: Classification Stability")
+    lines.append(f"## Appendix B: Classification Stability {AUTO_BADGE}")
     lines.append("")
     lines.append("Cross-condition stability analysis of sophistication group classifications.")
     lines.append("")
@@ -1579,7 +1612,7 @@ def generate_classification_stability_appendix(stability_data):
 def generate_file_references(conditions_data, cross_data, external_data):
     """Generate Appendix C: File References."""
     lines = []
-    lines.append("## Appendix C: File References")
+    lines.append(f"## Appendix C: File References {AUTO_BADGE}")
     lines.append("")
     lines.append("### Per-Condition Data & Visualizations")
     lines.append("")
@@ -1698,7 +1731,7 @@ def generate_factor_structure_appendix(factor_structure):
         return ""
 
     lines = []
-    lines.append("## Appendix A: Factor Structure")
+    lines.append(f"## Appendix A: Factor Structure {AUTO_BADGE}")
     lines.append("")
     lines.append("### Why 9 Dimensions → 2 Composites")
     lines.append("")
@@ -1803,7 +1836,7 @@ def generate_provider_model_patterns(provider_constraint, cross_data, conditions
     from collections import defaultdict
 
     lines = []
-    lines.append("## 4. Provider & Model Patterns")
+    lines.append(f"## 4. Provider & Model Patterns {AUTO_BADGE}")
     lines.append("")
 
     # 4.1 Per-Provider H2 Analysis (NEW)

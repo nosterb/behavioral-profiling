@@ -561,10 +561,17 @@ def main():
     arc_models = arc_data["matched_model_details"]
     gpqa_models = gpqa_data["matched_model_details"]
 
-    # For borderline highlighting, use the behavioral median split
-    # From the main research brief, baseline median = 5.93
-    median_soph = 5.93
+    # For borderline highlighting, calculate median from each benchmark's matched models
+    # (rather than using baseline median which may not match the subset)
     borderline_threshold = 0.5
+
+    # Calculate median for each benchmark from its matched models
+    arc_median = np.median([d["sophistication"] for d in arc_models])
+    gpqa_median = np.median([d["sophistication"] for d in gpqa_models])
+
+    # For backward compatibility, use a general median for combined figures
+    # (average of the two benchmark medians)
+    median_soph = (arc_median + gpqa_median) / 2
 
     print("=" * 60)
     print("Generating External Evaluation Visualizations")
@@ -572,6 +579,7 @@ def main():
 
     # ----- ARC-AGI Visualizations -----
     print("\n--- ARC-AGI ---")
+    print(f"  ARC-AGI median sophistication: {arc_median:.2f} (n={len(arc_models)})")
 
     # Scatter plot
     create_scatter_with_regression(
@@ -581,7 +589,7 @@ def main():
         y_label="ARC-AGI-1 Score (%)",
         title="ARC-AGI Performance vs Behavioral Sophistication\nCondition: baseline",
         output_path=external_evals_dir / "arc_agi_scatter.png",
-        median_soph=median_soph,
+        median_soph=arc_median,
         borderline_threshold=borderline_threshold,
         r_value=arc_data["correlations"]["sophistication"]["r"],
         p_value=arc_data["correlations"]["sophistication"]["p"],
@@ -604,7 +612,7 @@ def main():
         y_label="ARC-AGI-1 Score (%)",
         benchmark_name="ARC-AGI",
         output_path=external_evals_dir / "arc_agi_combined.png",
-        median_soph=median_soph,
+        median_soph=arc_median,
         borderline_threshold=borderline_threshold,
         r_value=arc_data["correlations"]["sophistication"]["r"],
         p_value=arc_data["correlations"]["sophistication"]["p"],
@@ -613,6 +621,7 @@ def main():
 
     # ----- GPQA Visualizations -----
     print("\n--- GPQA ---")
+    print(f"  GPQA median sophistication: {gpqa_median:.2f} (n={len(gpqa_models)})")
 
     # Scatter plot
     create_scatter_with_regression(
@@ -622,7 +631,7 @@ def main():
         y_label="GPQA Score (%)",
         title="GPQA Performance vs Behavioral Sophistication\nCondition: baseline",
         output_path=external_evals_dir / "gpqa_scatter.png",
-        median_soph=median_soph,
+        median_soph=gpqa_median,
         borderline_threshold=borderline_threshold,
         r_value=gpqa_data["correlations"]["sophistication"]["r"],
         p_value=gpqa_data["correlations"]["sophistication"]["p"],
@@ -645,17 +654,70 @@ def main():
         y_label="GPQA Score (%)",
         benchmark_name="GPQA",
         output_path=external_evals_dir / "gpqa_combined.png",
-        median_soph=median_soph,
+        median_soph=gpqa_median,
         borderline_threshold=borderline_threshold,
         r_value=gpqa_data["correlations"]["sophistication"]["r"],
         p_value=gpqa_data["correlations"]["sophistication"]["p"],
         h1_stats=gpqa_data["h1_group_comparison"],
     )
 
-    # ----- Side-by-Side Comparison -----
-    print("\n--- Combined Comparison ---")
+    # ----- AIME Visualizations -----
+    print("\n--- AIME 2025 ---")
 
-    fig, axes = plt.subplots(1, 2, figsize=(16, 7))
+    # Load AIME data
+    aime_path = external_evals_dir / "aime_validation_analysis.json"
+    if aime_path.exists():
+        aime_data = load_validation_data(aime_path)
+        aime_models = aime_data["matched_model_details"]
+        aime_median = np.median([d["sophistication"] for d in aime_models])
+        print(f"  AIME median sophistication: {aime_median:.2f} (n={len(aime_models)})")
+
+        # Scatter plot
+        create_scatter_with_regression(
+            data=aime_models,
+            x_key="sophistication",
+            y_key="aime_score",
+            y_label="AIME 2025 Score (%)",
+            title="AIME 2025 Performance vs Behavioral Sophistication\nCondition: baseline",
+            output_path=external_evals_dir / "aime_scatter.png",
+            median_soph=aime_median,
+            borderline_threshold=borderline_threshold,
+            r_value=aime_data["correlations"]["sophistication"]["r"],
+            p_value=aime_data["correlations"]["sophistication"]["p"],
+        )
+
+        # Box plot
+        create_box_plot(
+            data=aime_models,
+            y_key="aime_score",
+            y_label="AIME 2025 Score (%)",
+            title="AIME 2025 by Sophistication Group\nCondition: baseline",
+            output_path=external_evals_dir / "aime_boxplot.png",
+            h1_stats=aime_data["h1_group_comparison"],
+        )
+
+        # Combined panel
+        create_combined_panel(
+            data=aime_models,
+            y_key="aime_score",
+            y_label="AIME 2025 Score (%)",
+            benchmark_name="AIME 2025",
+            output_path=external_evals_dir / "aime_combined.png",
+            median_soph=aime_median,
+            borderline_threshold=borderline_threshold,
+            r_value=aime_data["correlations"]["sophistication"]["r"],
+            p_value=aime_data["correlations"]["sophistication"]["p"],
+            h1_stats=aime_data["h1_group_comparison"],
+        )
+    else:
+        print("  AIME data not found, skipping...")
+        aime_data = None
+        aime_models = None
+
+    # ----- Side-by-Side Comparison (3 benchmarks) -----
+    print("\n--- Combined Comparison (3 benchmarks) ---")
+
+    fig, axes = plt.subplots(1, 3, figsize=(20, 7))
 
     # Helper function for labeling in comparison plot
     def add_labels_to_ax(ax, data, x_key, y_key, median_soph, borderline_threshold):
@@ -718,19 +780,19 @@ def main():
                 zorder=10
             )
 
-    # ARC-AGI scatter
+    # ARC-AGI scatter (use arc_median)
     ax = axes[0]
     x = np.array([d["sophistication"] for d in arc_models])
     y = np.array([d["arc_agi_1"] for d in arc_models])
     groups = [d["sophistication_group"] for d in arc_models]
 
     slope, intercept, _, _, _ = stats.linregress(x, y)
-    ax.axvspan(median_soph - borderline_threshold, median_soph + borderline_threshold,
+    ax.axvspan(arc_median - borderline_threshold, arc_median + borderline_threshold,
                alpha=0.15, color='orange')
-    ax.axvline(x=median_soph, color='gray', linestyle=':', linewidth=1.5)
+    ax.axvline(x=arc_median, color='gray', linestyle=':', linewidth=1.5)
 
     for xi, yi, group in zip(x, y, groups):
-        is_borderline = abs(xi - median_soph) <= borderline_threshold
+        is_borderline = abs(xi - arc_median) <= borderline_threshold
         if is_borderline:
             color, marker, size = '#f39c12', 's', 150
         elif group == "High-Sophistication":
@@ -743,7 +805,7 @@ def main():
     ax.plot(x_line, slope * x_line + intercept, '--', color='#3498db', linewidth=2)
 
     # Add labels for ARC-AGI
-    add_labels_to_ax(ax, arc_models, "sophistication", "arc_agi_1", median_soph, borderline_threshold)
+    add_labels_to_ax(ax, arc_models, "sophistication", "arc_agi_1", arc_median, borderline_threshold)
 
     r_arc = arc_data["correlations"]["sophistication"]["r"]
     ax.text(0.05, 0.95, f"r = {r_arc:.3f}\nn = {len(arc_models)}",
@@ -755,19 +817,19 @@ def main():
     ax.set_title('A. ARC-AGI (Abstract Reasoning)', fontsize=12, fontweight='bold')
     ax.grid(True, alpha=0.3)
 
-    # GPQA scatter
+    # GPQA scatter (use gpqa_median)
     ax = axes[1]
     x = np.array([d["sophistication"] for d in gpqa_models])
     y = np.array([d["gpqa_score_pct"] for d in gpqa_models])
     groups = [d["sophistication_group"] for d in gpqa_models]
 
     slope, intercept, _, _, _ = stats.linregress(x, y)
-    ax.axvspan(median_soph - borderline_threshold, median_soph + borderline_threshold,
+    ax.axvspan(gpqa_median - borderline_threshold, gpqa_median + borderline_threshold,
                alpha=0.15, color='orange')
-    ax.axvline(x=median_soph, color='gray', linestyle=':', linewidth=1.5)
+    ax.axvline(x=gpqa_median, color='gray', linestyle=':', linewidth=1.5)
 
     for xi, yi, group in zip(x, y, groups):
-        is_borderline = abs(xi - median_soph) <= borderline_threshold
+        is_borderline = abs(xi - gpqa_median) <= borderline_threshold
         if is_borderline:
             color, marker, size = '#f39c12', 's', 150
         elif group == "High-Sophistication":
@@ -780,7 +842,7 @@ def main():
     ax.plot(x_line, slope * x_line + intercept, '--', color='#3498db', linewidth=2)
 
     # Add labels for GPQA
-    add_labels_to_ax(ax, gpqa_models, "sophistication", "gpqa_score_pct", median_soph, borderline_threshold)
+    add_labels_to_ax(ax, gpqa_models, "sophistication", "gpqa_score_pct", gpqa_median, borderline_threshold)
 
     r_gpqa = gpqa_data["correlations"]["sophistication"]["r"]
     ax.text(0.05, 0.95, f"r = {r_gpqa:.3f}\nn = {len(gpqa_models)}",
@@ -791,6 +853,45 @@ def main():
     ax.set_ylabel('GPQA Score (%)', fontsize=11)
     ax.set_title('B. GPQA (Expert Scientific)', fontsize=12, fontweight='bold')
     ax.grid(True, alpha=0.3)
+
+    # AIME scatter (Panel C) - use aime_median
+    if aime_models:
+        ax = axes[2]
+        x = np.array([d["sophistication"] for d in aime_models])
+        y = np.array([d["aime_score"] for d in aime_models])
+        groups = [d["sophistication_group"] for d in aime_models]
+        local_aime_median = np.median(x)
+
+        slope, intercept, _, _, _ = stats.linregress(x, y)
+        ax.axvspan(local_aime_median - borderline_threshold, local_aime_median + borderline_threshold,
+                   alpha=0.15, color='orange')
+        ax.axvline(x=local_aime_median, color='gray', linestyle=':', linewidth=1.5)
+
+        for xi, yi, group in zip(x, y, groups):
+            is_borderline = abs(xi - local_aime_median) <= borderline_threshold
+            if is_borderline:
+                color, marker, size = '#f39c12', 's', 150
+            elif group == "High-Sophistication":
+                color, marker, size = '#2ecc71', 'o', 80
+            else:
+                color, marker, size = '#e74c3c', 'o', 80
+            ax.scatter(xi, yi, c=color, s=size, marker=marker, edgecolor='white', linewidth=0.5)
+
+        x_line = np.linspace(x.min() - 0.3, x.max() + 0.3, 100)
+        ax.plot(x_line, slope * x_line + intercept, '--', color='#3498db', linewidth=2)
+
+        # Add labels for AIME
+        add_labels_to_ax(ax, aime_models, "sophistication", "aime_score", local_aime_median, borderline_threshold)
+
+        r_aime = aime_data["correlations"]["sophistication"]["r"]
+        ax.text(0.05, 0.95, f"r = {r_aime:.3f}\nn = {len(aime_models)}",
+                transform=ax.transAxes, fontsize=11, verticalalignment='top',
+                bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+
+        ax.set_xlabel('Sophistication', fontsize=11)
+        ax.set_ylabel('AIME 2025 Score (%)', fontsize=11)
+        ax.set_title('C. AIME 2025 (Mathematical)', fontsize=12, fontweight='bold')
+        ax.grid(True, alpha=0.3)
 
     # Legend
     from matplotlib.patches import Patch
@@ -822,6 +923,7 @@ def main():
         output_path=external_evals_dir / "external_validation_consolidated.png",
         median_soph=median_soph,
         borderline_threshold=borderline_threshold,
+        aime_data=aime_data,
     )
 
     # ----- Correlation Bar Chart -----
@@ -831,6 +933,7 @@ def main():
         arc_data=arc_data,
         gpqa_data=gpqa_data,
         output_path=external_evals_dir / "external_validation_correlations.png",
+        aime_data=aime_data,
     )
 
     print("\n" + "=" * 60)
@@ -842,19 +945,28 @@ def create_consolidated_figure(
     arc_data: dict,
     gpqa_data: dict,
     output_path: Path,
-    median_soph: float,
+    median_soph: float,  # Kept for backward compatibility, but we calculate per-benchmark
     borderline_threshold: float,
+    aime_data: dict = None,
 ):
     """
-    Create a consolidated 2x2 figure showing:
-    - Row 1: Sophistication correlations (ARC-AGI, GPQA)
-    - Row 2: Disinhibition correlations (ARC-AGI, GPQA)
+    Create a consolidated 2x3 figure showing:
+    - Row 1: Sophistication correlations (ARC-AGI, GPQA, AIME)
+    - Row 2: Disinhibition correlations (ARC-AGI, GPQA, AIME)
     """
-
-    fig, axes = plt.subplots(2, 2, figsize=(16, 14))
+    ncols = 3 if aime_data else 2
+    fig, axes = plt.subplots(2, ncols, figsize=(8 * ncols, 14))
 
     arc_models = arc_data["matched_model_details"]
     gpqa_models = gpqa_data["matched_model_details"]
+
+    # Calculate per-benchmark medians
+    arc_median = np.median([d["sophistication"] for d in arc_models])
+    gpqa_median = np.median([d["sophistication"] for d in gpqa_models])
+    aime_median = None
+    if aime_data:
+        aime_models_data = aime_data["matched_model_details"]
+        aime_median = np.median([d["sophistication"] for d in aime_models_data])
 
     def plot_scatter(ax, data, x_key, y_key, y_label, title, r_val, p_val, median_val=None, threshold=0.5, use_median_zone=True):
         """Plot a single scatter with regression."""
@@ -949,42 +1061,63 @@ def create_consolidated_figure(
         ax.grid(True, alpha=0.3)
 
     # ----- Row 1: Sophistication -----
-    # Panel A: ARC-AGI vs Sophistication
+    # Panel A: ARC-AGI vs Sophistication (use arc_median)
     plot_scatter(
         axes[0, 0], arc_models, "sophistication", "arc_agi_1",
         "ARC-AGI-1 Score (%)", "A. ARC-AGI vs Sophistication",
         arc_data["correlations"]["sophistication"]["r"],
         arc_data["correlations"]["sophistication"]["p"],
-        median_soph, borderline_threshold, use_median_zone=True
+        arc_median, borderline_threshold, use_median_zone=True
     )
 
-    # Panel B: GPQA vs Sophistication
+    # Panel B: GPQA vs Sophistication (use gpqa_median)
     plot_scatter(
         axes[0, 1], gpqa_models, "sophistication", "gpqa_score_pct",
         "GPQA Score (%)", "B. GPQA vs Sophistication",
         gpqa_data["correlations"]["sophistication"]["r"],
         gpqa_data["correlations"]["sophistication"]["p"],
-        median_soph, borderline_threshold, use_median_zone=True
+        gpqa_median, borderline_threshold, use_median_zone=True
     )
 
+    # Panel C: AIME vs Sophistication (if available, use aime_median)
+    if aime_data:
+        aime_models = aime_data["matched_model_details"]
+        plot_scatter(
+            axes[0, 2], aime_models, "sophistication", "aime_score",
+            "AIME 2025 Score (%)", "C. AIME vs Sophistication",
+            aime_data["correlations"]["sophistication"]["r"],
+            aime_data["correlations"]["sophistication"]["p"],
+            aime_median, borderline_threshold, use_median_zone=True
+        )
+
     # ----- Row 2: Disinhibition -----
-    # Panel C: ARC-AGI vs Disinhibition
+    # Panel D: ARC-AGI vs Disinhibition
     plot_scatter(
         axes[1, 0], arc_models, "disinhibition", "arc_agi_1",
-        "ARC-AGI-1 Score (%)", "C. ARC-AGI vs Disinhibition",
+        "ARC-AGI-1 Score (%)", "D. ARC-AGI vs Disinhibition",
         arc_data["correlations"]["disinhibition"]["r"],
         arc_data["correlations"]["disinhibition"]["p"],
         median_val=None, threshold=0.1, use_median_zone=False
     )
 
-    # Panel D: GPQA vs Disinhibition
+    # Panel E: GPQA vs Disinhibition
     plot_scatter(
         axes[1, 1], gpqa_models, "disinhibition", "gpqa_score_pct",
-        "GPQA Score (%)", "D. GPQA vs Disinhibition",
+        "GPQA Score (%)", "E. GPQA vs Disinhibition",
         gpqa_data["correlations"]["disinhibition"]["r"],
         gpqa_data["correlations"]["disinhibition"]["p"],
         median_val=None, threshold=0.1, use_median_zone=False
     )
+
+    # Panel F: AIME vs Disinhibition (if available)
+    if aime_data:
+        plot_scatter(
+            axes[1, 2], aime_models, "disinhibition", "aime_score",
+            "AIME 2025 Score (%)", "F. AIME vs Disinhibition",
+            aime_data["correlations"]["disinhibition"]["r"],
+            aime_data["correlations"]["disinhibition"]["p"],
+            median_val=None, threshold=0.1, use_median_zone=False
+        )
 
     # Legend
     from matplotlib.patches import Patch
@@ -1010,10 +1143,11 @@ def create_summary_correlation_bar(
     arc_data: dict,
     gpqa_data: dict,
     output_path: Path,
+    aime_data: dict = None,
 ):
     """Create a bar chart comparing correlations across dimensions and benchmarks."""
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(14, 6))
 
     dimensions = ['Sophistication', 'Disinhibition', 'Depth', 'Authenticity',
                   'Transgression', 'Aggression', 'Tribalism', 'Grandiosity']
@@ -1026,19 +1160,40 @@ def create_summary_correlation_bar(
     gpqa_sig = [gpqa_data["correlations"].get(k, {}).get("significant", False) for k in dim_keys]
 
     x = np.arange(len(dimensions))
-    width = 0.35
 
-    bars1 = ax.bar(x - width/2, arc_r, width, label=f'ARC-AGI (n={arc_data["sample"]["unique_matched_models"]})',
-                   color='#3498db', alpha=0.8)
-    bars2 = ax.bar(x + width/2, gpqa_r, width, label=f'GPQA (n={gpqa_data["sample"]["unique_matched_models"]})',
-                   color='#e74c3c', alpha=0.8)
+    if aime_data:
+        width = 0.25
+        aime_r = [aime_data["correlations"].get(k, {}).get("r", 0) for k in dim_keys]
+        aime_sig = [aime_data["correlations"].get(k, {}).get("significant", False) for k in dim_keys]
 
-    # Add significance markers
-    for i, (sig1, sig2) in enumerate(zip(arc_sig, gpqa_sig)):
-        if sig1:
-            ax.text(x[i] - width/2, arc_r[i] + 0.02, '*', ha='center', fontsize=12, fontweight='bold')
-        if sig2:
-            ax.text(x[i] + width/2, gpqa_r[i] + 0.02, '*', ha='center', fontsize=12, fontweight='bold')
+        bars1 = ax.bar(x - width, arc_r, width, label=f'ARC-AGI (n={arc_data["sample"]["unique_matched_models"]})',
+                       color='#3498db', alpha=0.8)
+        bars2 = ax.bar(x, gpqa_r, width, label=f'GPQA (n={gpqa_data["sample"]["unique_matched_models"]})',
+                       color='#e74c3c', alpha=0.8)
+        bars3 = ax.bar(x + width, aime_r, width, label=f'AIME (n={aime_data["sample"]["unique_matched_models"]})',
+                       color='#27ae60', alpha=0.8)
+
+        # Add significance markers
+        for i, (sig1, sig2, sig3) in enumerate(zip(arc_sig, gpqa_sig, aime_sig)):
+            if sig1:
+                ax.text(x[i] - width, arc_r[i] + 0.02, '*', ha='center', fontsize=12, fontweight='bold')
+            if sig2:
+                ax.text(x[i], gpqa_r[i] + 0.02, '*', ha='center', fontsize=12, fontweight='bold')
+            if sig3:
+                ax.text(x[i] + width, aime_r[i] + 0.02, '*', ha='center', fontsize=12, fontweight='bold')
+    else:
+        width = 0.35
+        bars1 = ax.bar(x - width/2, arc_r, width, label=f'ARC-AGI (n={arc_data["sample"]["unique_matched_models"]})',
+                       color='#3498db', alpha=0.8)
+        bars2 = ax.bar(x + width/2, gpqa_r, width, label=f'GPQA (n={gpqa_data["sample"]["unique_matched_models"]})',
+                       color='#e74c3c', alpha=0.8)
+
+        # Add significance markers
+        for i, (sig1, sig2) in enumerate(zip(arc_sig, gpqa_sig)):
+            if sig1:
+                ax.text(x[i] - width/2, arc_r[i] + 0.02, '*', ha='center', fontsize=12, fontweight='bold')
+            if sig2:
+                ax.text(x[i] + width/2, gpqa_r[i] + 0.02, '*', ha='center', fontsize=12, fontweight='bold')
 
     ax.set_ylabel('Pearson Correlation (r)', fontsize=12)
     ax.set_xlabel('Behavioral Dimension', fontsize=12)
