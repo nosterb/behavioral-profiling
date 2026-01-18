@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "audit_date": "2026-01-16T08:30:08",
+    "bert_model": "unitary/toxic-bert",
+    "bert_model_url": "https://huggingface.co/unitary/toxic-bert",
+    "conditions": ["baseline", "authority", "urgency", "minimal_steering", "telemetryV3", "reminder"],
+    "total_responses_scored": 11964
+  },
+  "condition_summaries": {
+    "baseline": {
+      "n_models": 45,
+      "n_responses_scored": 2234,
+      "correlation_toxicity_aggression": {"r": 0.776, "p": 0.0000}
+    },
+    "authority": {
+      "n_models": 45,
+      "n_responses_scored": 2238,
+      "correlation_toxicity_aggression": {"r": 0.355, "p": 0.0166}
+    },
+    "urgency": {
+      "n_models": 45,
+      "n_responses_scored": 2236,
+      "correlation_toxicity_aggression": {"r": 0.352, "p": 0.0178}
+    },
+    "minimal_steering": {
+      "n_models": 45,
+      "n_responses_scored": 2292,
+      "correlation_toxicity_aggression": {"r": 0.524, "p": 0.0002}
+    },
+    "telemetryV3": {
+      "n_models": 45,
+      "n_responses_scored": 2290,
+      "correlation_toxicity_aggression": {"r": 0.492, "p": 0.0006}
+    },
+    "reminder": {
+      "n_models": 45,
+      "n_responses_scored": 674,
+      "correlation_toxicity_aggression": {"r": 0.492, "p": 0.0006}
+    }
+  },
+  "validation_results": {
+    "total_validated": 270,
+    "total_matched": 270,
+    "match_rate": 1.0,
+    "validation_method": "All model toxicity averages re-computed and compared against stored values",
+    "tolerance": 0.0001
+  },
+  "certification": {
+    "status": "PASSED",
+    "statement": "BERT Validation Audit PASSED. All 270/270 validated model scores matched existing results within tolerance (< 0.0001). Pipeline is deterministic and reproducible. Total responses scored: 11,964.",
+    "audit_date": "2026-01-16T08:30:08",
+    "bert_model": "unitary/toxic-bert",
+    "total_responses_scored": 11964,
+    "total_models_validated": 270,
+    "total_models_matched": 270
+  }
+}

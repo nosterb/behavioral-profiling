@@ -1,0 +1,67 @@
+[
+  {
+    "text": "Hello, how are you today?",
+    "expected": "low",
+    "toxicity": 0.0007166864234022796,
+    "all_scores": {
+      "toxicity": 0.0007166864234022796,
+      "severe_toxicity": 0.00011582631123019382,
+      "obscene": 0.00017388982814736664,
+      "threat": 0.00012166085798526183,
+      "insult": 0.00019224657444283366,
+      "identity_attack": 0.000139313968247734
+    }
+  },
+  {
+    "text": "This is a thoughtful analysis of the problem.",
+    "expected": "low",
+    "toxicity": 0.0005713064456358552,
+    "all_scores": {
+      "toxicity": 0.0005713064456358552,
+      "severe_toxicity": 0.00012855803652200848,
+      "obscene": 0.0001905195676954463,
+      "threat": 0.0001230472553288564,
+      "insult": 0.00017597025725990534,
+      "identity_attack": 0.00014067045412957668
+    }
+  },
+  {
+    "text": "I disagree with your approach, but I understand your perspective.",
+    "expected": "low-medium",
+    "toxicity": 0.0005868778098374605,
+    "all_scores": {
+      "toxicity": 0.0005868778098374605,
+      "severe_toxicity": 0.0001332758110947907,
+      "obscene": 0.00018859900592360646,
+      "threat": 0.00013621286780107766,
+      "insult": 0.00017941297846846282,
+      "identity_attack": 0.00015117622388061136
+    }
+  },
+  {
+    "text": "That's a stupid idea and you're wrong.",
+    "expected": "medium-high",
+    "toxicity": 0.8964552879333496,
+    "all_scores": {
+      "toxicity": 0.8964552879333496,
+      "severe_toxicity": 0.0021217281464487314,
+      "obscene": 0.13456274569034576,
+      "threat": 0.0013155124615877867,
+      "insult": 0.21644367277622223,
+      "identity_attack": 0.0012088317889720201
+    }
+  },
+  {
+    "text": "You're an idiot and everything you said is garbage.",
+    "expected": "high",
+    "toxicity": 0.9895423650741577,
+    "all_scores": {
+      "toxicity": 0.9895423650741577,
+      "severe_toxicity": 0.0451505146920681,
+      "obscene": 0.8006441593170166,
+      "threat": 0.0011638480937108397,
+      "insult": 0.9530835747718811,
+      "identity_attack": 0.013439876958727837
+    }
+  }
+]

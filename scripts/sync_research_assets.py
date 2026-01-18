@@ -19,6 +19,7 @@ import subprocess
 from pathlib import Path
 from typing import Set, Dict, List, Tuple
 from datetime import datetime
+import time
 
 # Load .env file if it exists
 def load_dotenv():
@@ -291,6 +292,67 @@ def rewrite_brief_with_cdn_urls(content: str, url_map: Dict[str, str]) -> str:
     return result
 
 
+def add_sync_timestamp(content: str) -> str:
+    """Add or update the 'Public Synced' timestamp in header and footer."""
+    # Get current time in local timezone with zone name
+    local_tz = time.strftime('%Z')
+    sync_time = datetime.now().strftime(f'%Y-%m-%d %H:%M {local_tz}')
+
+    # Footer timestamp (markdown bold)
+    footer_sync_line = f'**Public Synced**: {sync_time}'
+
+    # Header timestamp (HTML)
+    header_sync_line = f'<b>Public Synced</b>: {sync_time}<br>'
+
+    # === FOOTER ===
+    # Check if sync timestamp already exists in footer
+    if '**Public Synced**:' in content:
+        content = re.sub(
+            r'\*\*Public Synced\*\*: .*',
+            footer_sync_line,
+            content
+        )
+    else:
+        # Add after **Statistics Generated**: line (or legacy **Generated**:)
+        if '**Statistics Generated**:' in content:
+            content = re.sub(
+                r'(\*\*Statistics Generated\*\*: [^\n]+)',
+                rf'\1\n{footer_sync_line}',
+                content
+            )
+        else:
+            content = re.sub(
+                r'(\*\*Generated\*\*: [^\n]+)',
+                rf'\1\n{footer_sync_line}',
+                content
+            )
+
+    # === HEADER ===
+    # Check if sync timestamp already exists in header
+    if '<b>Public Synced</b>:' in content:
+        content = re.sub(
+            r'<b>Public Synced</b>: [^<]+<br>',
+            header_sync_line,
+            content
+        )
+    else:
+        # Add after <b>Statistics Last Updated</b>: line (or legacy <b>Last Updated</b>:)
+        if '<b>Statistics Last Updated</b>:' in content:
+            content = re.sub(
+                r'(<b>Statistics Last Updated</b>: [^<]+<br>)',
+                rf'\1\n{header_sync_line}',
+                content
+            )
+        else:
+            content = re.sub(
+                r'(<b>Last Updated</b>: [^<]+<br>)',
+                rf'\1\n{header_sync_line}',
+                content
+            )
+
+    return content
+
+
 def add_image_embeds(content: str, url_map: Dict[str, str]) -> str:
     """Add inline image embeds for PNG references that aren't already images."""
     result = content
@@ -398,6 +460,7 @@ def main():
         print("Generating public brief with CDN URLs...")
 
         public_content = rewrite_brief_with_cdn_urls(content, url_map)
+        public_content = add_sync_timestamp(public_content)
 
         if args.dry_run:
             print(f"  [DRY RUN] Would write: {PUBLIC_BRIEF}")

@@ -2,7 +2,8 @@
 
 <b>Author</b>: Nicholas Osterbur (Independent Researcher)<br>
 <b>Status</b>: Active Analysis<br>
-<b>Last Updated</b>: 2026-01-14<br>
+<b>Statistics Last Updated</b>: 2026-01-15<br>
+<b>Public Synced</b>: 2026-01-16 12:39 PST<br>
 <b>Conditions Analyzed</b>: 6<br>
 <b>Models</b>: 45 per condition<br>
 <b>Total Evaluations</b>: 13,650</b>
@@ -22,7 +23,7 @@
 ## Executive Summary ✏️
 
 <!-- MANUAL-START -->
-This research investigates the relationship between model sophistication and behavioral disinhibition across 50+ language models under varying contextual conditions.
+This research investigates the relationship between model sophistication (authenticity/depth) and behavioral disinhibition (transgression, aggression, grandiosity, tribalism) across 45+ language models, 9 providers, and ~2.5 years of development under varying contextual conditions. The research demonstrates that sophistication (as measured here) in models strongly correlates with disinhibition factors in a generalizable way across contextual differences, models, and providers. Sophistication as a proxy for model capability finds convergent validity with 3 other public benchmarks (GPQA r=0.88, ARC-AGI r=0.80, AIME r=0.88). BERT toxicity evaluation shows convergent validity with toxicity ~ aggression (r=0.84), disinhibition (r=0.776), sophistication (r=0.51). Evidence shows some providers (notably OpenAI) may be actively suppressing disinhibition while maintaining sophistication (capability) i.e. constraint.
 
 ### Key Findings
 
@@ -32,9 +33,11 @@ This research investigates the relationship between model sophistication and beh
 
 3. **H2 (Correlation)**: Sophistication positively correlates with disinhibition across all conditions (r = 0.46-0.72)
 
-4. **External Validation**: Sophistication predicts performance on two independent benchmarks: ARC-AGI (r = 0.80) and GPQA (r = 0.88)
+4. **External Validation**: Sophistication predicts performance on three independent benchmarks: ARC-AGI (r = 0.80) and GPQA (r = 0.88) and AIME (r = 0.828)
 
-5. **Intervention Effects**: Constraint interventions reduce disinhibition variance; pressure interventions increase both mean and variance
+5. **BERT Validation**: Independent BERT toxicity classifier (trained on human-labeled data) correlates r = 0.78 with both aggression and disinhibition composite; sophistication also correlates with BERT toxicity (r = 0.51-0.68), suggesting more sophisticated models produce content that triggers toxicity detection
+
+6. **Intervention Effects**: Constraint interventions reduce disinhibition variance; pressure interventions increase both mean and variance
 <!-- MANUAL-END -->
 
 ---
@@ -165,6 +168,45 @@ The **dimensions suite** contains prompts designed to indirectly elicit specific
 H2 correlation **strengthens** in 1/1 conditions when dimensions suite excluded.
 
 **Visualizations**: See [h2_scatter_sophistication_composite.png](https://d1buxz3bu075ht.cloudfront.net/baseline/no_dimensions/h2_scatter_sophistication_composite.png)
+
+### 3.4 BERT Toxicity Validation 🔄
+
+Independent validation using BERT toxicity detection (`unitary/toxic-bert`) as a non-LLM measure trained on human-labeled data (Jigsaw Toxic Comment Classification, ~160k Wikipedia comments).
+
+**Scale**: 11,964 total BERT evaluations across 270 model-condition pairs
+
+#### Primary: BERT vs. Aggression
+
+| Condition | Toxicity r | p | Insult r | p | Effect |
+|-----------|------------|---|----------|---|--------|
+| **baseline** | **0.776** | < .0001 | **0.624** | < .0001 | Large |
+| minimal_steering | 0.524 | 0.0002 | 0.507 | 0.0004 | Large |
+| telemetryV3 | 0.492 | 0.0006 | 0.264 | 0.080 | Medium |
+| reminder | 0.492 | 0.0006 | 0.458 | 0.002 | Medium |
+| authority | 0.355 | 0.017 | 0.356 | 0.017 | Medium |
+| urgency | 0.352 | 0.018 | 0.414 | 0.005 | Medium |
+
+#### Extended: BERT vs. Sophistication/Disinhibition
+
+| Condition | Tox~Soph | Tox~Disin | Ins~Disin |
+|-----------|----------|-----------|-----------|
+| **baseline** | 0.510 (L) | **0.776** (L) | **0.555** (L) |
+| telemetryV3 | **0.682** (L) | 0.511 (L) | 0.281 (S) |
+| urgency | **0.602** (L) | 0.342 (M) | 0.390 (M) |
+| minimal_steering | 0.510 (L) | 0.467 (M) | 0.453 (M) |
+| reminder | 0.494 (M) | 0.536 (L) | 0.503 (L) |
+| authority | 0.471 (M) | 0.348 (M) | 0.365 (M) |
+
+*Effect sizes: L = Large (≥0.5), M = Medium (0.3-0.5), S = Small (<0.3)*
+
+**Key findings**:
+- Baseline toxicity correlates equally with aggression and disinhibition composite (both r = 0.78), validating composite construction
+- Sophistication shows positive correlation with BERT toxicity (r = 0.51-0.68), suggesting more sophisticated models produce more direct/substantive content that triggers toxicity detection
+- Interventions weaken baseline correlations, indicating altered expression patterns
+
+**Visualizations**:
+- See [scatter_toxicity_vs_aggression.png](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/bert_validation/baseline/scatter_toxicity_vs_aggression.png) for primary BERT validation
+- See [scatter_soph_disin_combined.png](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/bert_validation/baseline/scatter_soph_disin_combined.png) for sophistication/disinhibition correlations
 
 ---
 ## 4. Provider & Model Patterns 🔄
@@ -597,6 +639,38 @@ Full chat exports for qualitative analysis are available in each condition:
 | [arc_agi_validation_analysis.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/arc_agi_validation_analysis.json) | ARC-AGI correlation data |
 | [gpqa_validation_analysis.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/limitations/external_evals/gpqa_validation_analysis.json) | GPQA correlation data |
 
+### BERT Toxicity Validation
+
+| File | Description |
+|------|-------------|
+| [BERT_VALIDATION_BRIEF.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/bert_validation/BERT_VALIDATION_BRIEF.md) | Cross-condition BERT validation summary |
+| `bert_validation/<condition>/bert_validation_results.json` | Primary: BERT vs Aggression results |
+| `bert_validation/<condition>/bert_soph_disin_results.json` | Extended: BERT vs Soph/Disin results |
+| `bert_validation/<condition>/VALIDATION_REPORT.md` | Per-condition consolidated report |
+| `bert_validation/<condition>/scatter_toxicity_vs_aggression.png` | Primary validation scatter |
+| `bert_validation/<condition>/scatter_soph_disin_combined.png` | 2x2 grid: Tox/Ins × Soph/Disin |
+| [audit_samples.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/bert_validation/audit_samples.json) | Raw response samples with BERT scores |
+| [AUDIT_REPORT.md](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/bert_validation/AUDIT_REPORT.md) | Audit certification (270/270 validated) |
+
+### BERT Qualitative Examples
+
+Raw prompt/response pairs organized by BERT toxicity scores for qualitative analysis.
+
+```
+bert_validation/qualitative_analysis/<condition>/
+├── max/           # Top 3 highest toxicity responses
+├── min/           # Top 3 lowest toxicity responses
+├── median/        # 3 responses closest to median
+└── outliers/      # Top 5 statistical outliers (>2 SD)
+```
+
+| File | Description |
+|------|-------------|
+| [manifest.json](https://d1buxz3bu075ht.cloudfront.net/research_synthesis/bert_validation/qualitative_analysis/manifest.json) | Index of all samples with toxicity scores |
+| `qualitative_analysis/<condition>/outliers/*.md` | Outlier responses (chat.md format) |
+| `qualitative_analysis/<condition>/max/*.md` | Highest toxicity responses |
+| `qualitative_analysis/<condition>/min/*.md` | Lowest toxicity responses |
+
 ### Prompt Design
 
 | File | Description |
@@ -654,4 +728,5 @@ pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
 ---
 
 **Document Version**: 3.2 (Auto-generated)
-**Generated**: 2026-01-14 23:19
+**Statistics Generated**: 2026-01-15 17:34
+**Public Synced**: 2026-01-16 12:39 PST

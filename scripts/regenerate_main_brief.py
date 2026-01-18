@@ -270,12 +270,12 @@ def generate_header(conditions_data, cross_data, external_data):
     # Use HTML for proper line breaks in exports
     lines.append("<b>Author</b>: Nicholas Osterbur (Independent Researcher)<br>")
     lines.append("<b>Status</b>: Active Analysis<br>")
-    lines.append("<b>Last Updated</b>: " + datetime.now().strftime('%Y-%m-%d') + "<br>")
+    lines.append("<b>Statistics Last Updated</b>: " + datetime.now().strftime('%Y-%m-%d') + "<br>")
     lines.append("<b>Conditions Analyzed</b>: " + str(n_conditions) + "<br>")
     lines.append("<b>Models</b>: " + str(n_models) + " per condition<br>")
     lines.append("<b>Total Evaluations</b>: " + f"{total_evals:,}" + "</b>")
     lines.append("")
-    lines.append("*Copyright 2026 Nicholas Osterbur. Results and analyses licensed under CC BY 4.0.*")
+    lines.append("Results and analyses licensed under CC BY 4.0.*")
     lines.append("")
     lines.append("---")
     lines.append("")
@@ -314,7 +314,7 @@ def generate_executive_summary(conditions_data, cross_data, external_data, prese
     default_lines.append("")
 
     if h1_soph_d_min is not None:
-        default_lines.append("1. **H1 (Group Existence)**: Median split produces two well-separated sophistication groups across all conditions (d = " + f"{h1_soph_d_min:.2f}" + "-" + f"{h1_soph_d_max:.2f}" + ")")
+        default_lines.append("1. **H1 (Group Existence)**: Median split produces two well-separated sophistication groups across all conditions (d = " + f"{h1_soph_d_min:.2f}" + "-" + f"{h1_soph_d_max:.2f}" + ") but evidence points to a sophistication continuum rather than discrete categories")
         default_lines.append("")
 
     if h1a_sup is not None and h1a_d_min is not None:
@@ -1719,7 +1719,7 @@ def generate_file_references(conditions_data, cross_data, external_data):
     lines.append("---")
     lines.append("")
     lines.append("**Document Version**: 3.2 (Auto-generated)")
-    lines.append("**Generated**: " + datetime.now().strftime("%Y-%m-%d %H:%M"))
+    lines.append("**Statistics Generated**: " + datetime.now().strftime("%Y-%m-%d %H:%M"))
     lines.append("")
 
     return "\n".join(lines)

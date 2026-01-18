@@ -222,6 +222,70 @@ This IS a git repository. Standard git commands available.
 
 Measures **observable behavioral patterns** using standardized scenarios and consistent evaluation criteria.
 
+## Data Provenance & Auditability Standards
+
+**REQUIRED**: All analysis outputs must include audit trails for reproducibility and verification.
+
+### Audit File Requirements
+
+Every statistical analysis MUST produce a JSON audit file containing:
+
+| Field | Description | Required |
+|-------|-------------|----------|
+| `metadata.generated` | ISO timestamp of creation | Yes |
+| `metadata.updated` | ISO timestamp of last update | Yes |
+| `metadata.analysis` | Human-readable analysis name | Yes |
+| `provenance.source_files` | Paths to all input data files | Yes |
+| `provenance.methodology` | Statistical methods used | Yes |
+| `provenance.random_seed` | RNG seed if applicable | If randomized |
+| `correlations` / `results` | Primary statistical outputs with r, p, n | Yes |
+| `model_data` | Per-model raw data for verification | Recommended |
+
+### Naming Conventions
+
+| Pattern | Example | Usage |
+|---------|---------|-------|
+| `*_audit.json` | `reasoning_composite_audit.json` | Primary audit trail |
+| `*_triangulated_audit.json` | For analyses with multiple approaches | |
+| `*_results.json` | `bert_validation_results.json` | Analysis outputs |
+
+### Markdown Reports
+
+Analysis markdown files MUST include a "Data Provenance & Audit Trail" section:
+
+```markdown
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `source_1.json` | Description |
+
+### Audit Files
+| File | Description |
+|------|-------------|
+| `analysis_audit.json` | Complete reproducibility data |
+
+### Reproducibility
+[Instructions to regenerate analysis from audit file]
+```
+
+### Best Practices
+
+1. **Never overwrite source data** — Audit files track transformations
+2. **Document all imputation** — Flag imputed vs observed values per-record
+3. **Include raw values** — Store original scores alongside computed composites
+4. **Track methodology changes** — Use `metadata.updated` and version notes
+5. **Cross-reference** — Link related analyses via `related_files` field
+
+### Verification
+
+Before publishing any analysis:
+```bash
+# Verify audit file completeness
+python3 -c "import json; a=json.load(open('analysis_audit.json')); print('Source files:', list(a.get('provenance',{}).get('source_files',{}).keys()))"
+```
+
 ## Testing
 
 ```bash

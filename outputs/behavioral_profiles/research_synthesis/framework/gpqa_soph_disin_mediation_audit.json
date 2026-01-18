@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "generated": "2026-01-17T14:54:13.128473",
+    "analysis": "Mediation Analysis: GPQA \u2192 Sophistication \u2192 Disinhibition",
+    "condition": "baseline",
+    "description": "Tests whether Sophistication mediates the Reasoning \u2192 Disinhibition relationship",
+    "n_models": 35
+  },
+  "provenance": {
+    "source_files": {
+      "gpqa_validation": "/Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/outputs/behavioral_profiles/research_synthesis/limitations/external_evals/gpqa_validation_analysis.json",
+      "behavioral_profiles": "outputs/behavioral_profiles/baseline/profiles/*.json"
+    },
+    "methodology": {
+      "correlation": "Pearson product-moment correlation",
+      "partial_correlation": "First-order partial correlation controlling for mediator",
+      "indirect_effect": "Sobel test for significance of a \u00d7 b path",
+      "formula": "r_partial = (r_XY - r_XM * r_MY) / sqrt((1 - r_XM^2) * (1 - r_MY^2))"
+    }
+  },
+  "zero_order_correlations": {
+    "gpqa_to_sophistication": {
+      "path": "a",
+      "r": 0.8841,
+      "p": 0.0,
+      "significant": true,
+      "interpretation": "large"
+    },
+    "sophistication_to_disinhibition": {
+      "path": "b",
+      "r": 0.7534,
+      "p": 1.76e-07,
+      "significant": true,
+      "interpretation": "large"
+    },
+    "gpqa_to_disinhibition": {
+      "path": "c (total)",
+      "r": 0.7108,
+      "p": 1.7092e-06,
+      "significant": true,
+      "interpretation": "large"
+    }
+  },
+  "partial_correlation": {
+    "gpqa_to_disinhibition_controlling_sophistication": {
+      "path": "c' (direct)",
+      "r": 0.1456,
+      "t": 0.833,
+      "df": 32,
+      "p": 0.4112,
+      "significant": false,
+      "note": "Direct effect after controlling for Sophistication"
+    }
+  },
+  "indirect_effect": {
+    "a_x_b": 0.6661,
+    "se": 0.1183,
+    "sobel_z": 5.63,
+    "p": 0.0,
+    "significant": true
+  },
+  "variance_explained": {
+    "total_effect_r2": 0.5053,
+    "gpqa_alone_r2": 0.5053,
+    "sophistication_alone_r2": 0.5676,
+    "proportion_mediated": 0.9371
+  },
+  "mediation_test": {
+    "result": "FULL_MEDIATION",
+    "paths": {
+      "a_path": {
+        "description": "GPQA \u2192 Sophistication",
+        "r": 0.8841,
+        "p": 0.0,
+        "significant": true
+      },
+      "b_path": {
+        "description": "Sophistication \u2192 Disinhibition",
+        "r": 0.7534,
+        "p": 1.76e-07,
+        "significant": true
+      },
+      "c_path": {
+        "description": "GPQA \u2192 Disinhibition (total effect)",
+        "r": 0.7108,
+        "p": 1.7092e-06,
+        "significant": true
+      },
+      "c_prime_path": {
+        "description": "GPQA \u2192 Disinhibition | Sophistication (direct effect)",
+        "r": 0.1456,
+        "p": 0.4112,
+        "significant": false
+      }
+    },
+    "conclusion": "Full mediation supported. The GPQA\u2192Disinhibition relationship is fully explained through Sophistication."
+  },
+  "suppression_effect": {
+    "detected": false,
+    "total_effect_r": 0.7108,
+    "direct_effect_r": 0.1456,
+    "interpretation": "No suppression effect detected."
+  },
+  "summary": {
+    "key_finding": "Full mediation: The GPQA\u2192Disinhibition correlation (r=0.711) is fully explained by the path through Sophistication.",
+    "interpretation": "More capable models show higher disinhibition primarily because they are more sophisticated. Sophistication accounts for 94% of the capability-disinhibition relationship.",
+    "implication": "Sophistication (depth + authenticity) is a key intermediate variable between raw reasoning capability and willingness to engage with challenging content."
+  },
+  "output_files": [
+    "gpqa_soph_disin_mediation_audit.json",
+    "gpqa_soph_disin_mediation_diagram.png"
+  ]
+}

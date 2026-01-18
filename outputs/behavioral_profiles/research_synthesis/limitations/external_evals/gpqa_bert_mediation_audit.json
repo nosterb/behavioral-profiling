@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "generated": "2026-01-17T13:45:00.000000",
+    "analysis": "GPQA vs BERT Toxicity Mediation Analysis",
+    "description": "Tests whether reasoning capability (GPQA) predicts BERT toxicity directly or through disinhibition",
+    "n_models": 35
+  },
+  "provenance": {
+    "source_files": {
+      "gpqa_scores": "outputs/behavioral_profiles/research_synthesis/limitations/external_evals/gpqa_validation_analysis.json",
+      "bert_scores": "outputs/behavioral_profiles/research_synthesis/bert_validation/baseline/bert_validation_results.json",
+      "behavioral_profiles": "outputs/behavioral_profiles/baseline/profiles/*.json"
+    },
+    "methodology": {
+      "correlation": "Pearson product-moment correlation",
+      "partial_correlation": "First-order partial correlation controlling for mediator",
+      "mediation_criterion": "If r(X→Y|M) becomes non-significant, M fully mediates X→Y",
+      "formula": "r_partial = (r_XY - r_XM * r_MY) / sqrt((1 - r_XM^2) * (1 - r_MY^2))"
+    }
+  },
+  "zero_order_correlations": {
+    "gpqa_to_disinhibition": {
+      "r": 0.711,
+      "p": 0.00001,
+      "significant": true,
+      "interpretation": "large"
+    },
+    "disinhibition_to_toxicity": {
+      "r": 0.740,
+      "p": 0.00001,
+      "significant": true,
+      "interpretation": "large"
+    },
+    "gpqa_to_toxicity": {
+      "r": 0.423,
+      "p": 0.011,
+      "significant": true,
+      "interpretation": "medium"
+    }
+  },
+  "partial_correlation": {
+    "gpqa_to_toxicity_controlling_disinhibition": {
+      "r": -0.218,
+      "t": -1.263,
+      "df": 32,
+      "p": 0.2159,
+      "significant": false,
+      "note": "Correlation becomes NON-SIGNIFICANT when controlling for disinhibition"
+    }
+  },
+  "variance_explained": {
+    "disinhibition_alone": {
+      "R_squared": 0.548,
+      "interpretation": "Disinhibition explains 54.8% of BERT toxicity variance"
+    },
+    "gpqa_alone": {
+      "R_squared": 0.179,
+      "interpretation": "GPQA explains 17.9% of BERT toxicity variance"
+    },
+    "gpqa_incremental": {
+      "R_squared": 0.0,
+      "interpretation": "GPQA adds ~0% incremental variance after disinhibition"
+    }
+  },
+  "mediation_test": {
+    "result": "FULL_MEDIATION_SUPPORTED",
+    "paths": {
+      "a_path": {
+        "description": "GPQA → Disinhibition",
+        "r": 0.711,
+        "significant": true
+      },
+      "b_path": {
+        "description": "Disinhibition → Toxicity",
+        "r": 0.740,
+        "significant": true
+      },
+      "c_path": {
+        "description": "GPQA → Toxicity (total effect)",
+        "r": 0.423,
+        "significant": true
+      },
+      "c_prime_path": {
+        "description": "GPQA → Toxicity | Disinhibition (direct effect)",
+        "r": -0.218,
+        "significant": false
+      }
+    },
+    "conclusion": "The GPQA→Toxicity relationship (r=0.423) is fully explained by the indirect path through disinhibition. When controlling for disinhibition, the direct effect is non-significant (r=-0.218, p=0.216)."
+  },
+  "summary": {
+    "key_finding": "BERT toxicity measures disinhibition, not reasoning capability. The capability-toxicity correlation (r=0.42) is fully mediated through disinhibition.",
+    "implication": "Models with higher reasoning capability show higher BERT toxicity scores NOT because capability causes toxicity, but because capable models exhibit higher disinhibition (willingness to engage), which produces BERT-detectable 'toxicity'.",
+    "negative_partial": "The slight negative partial correlation (r=-0.218) suggests that, holding disinhibition constant, capability may actually REDUCE toxicity."
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "metadata": {
+    "generated": "2026-01-16T20:42:47.200771",
+    "analysis": "Triangulated Reasoning Composite Analysis",
+    "approaches": [
+      "observed-only",
+      "cross-benchmark imputation",
+      "multiple imputation"
+    ],
+    "random_seed": 42,
+    "mi_imputations": 20,
+    "updated": "2026-01-17T12:32:13.908917"
+  },
+  "approach_1_observed_only": {
+    "n": 13,
+    "model_ids": [
+      "claude-3-opus",
+      "claude-4-opus",
+      "claude-4.5-sonnet",
+      "deepseek-r1",
+      "gemini-2.5-pro",
+      "gemini-3-pro-preview",
+      "gpt-4.1",
+      "gpt-5",
+      "gpt-5.1",
+      "gpt-5.2",
+      "gpt-5.2-pro",
+      "o3",
+      "o4-mini"
+    ],
+    "correlations": {
+      "reasoning_to_disinhibition": {
+        "r": 0.409,
+        "p": 0.1652,
+        "significant": false
+      },
+      "sophistication_to_disinhibition": {
+        "r": 0.42,
+        "p": 0.1529,
+        "significant": false
+      },
+      "reasoning_to_sophistication": {
+        "r": 0.792,
+        "p": 0.0013,
+        "significant": true
+      }
+    },
+    "note": "No imputation - cleanest test but small N and NOT significant"
+  },
+  "approach_2_cross_benchmark": {
+    "n": 35,
+    "cross_regression_models": {
+      "arc_from_gpqa": {
+        "n_pairs": 16,
+        "r": 0.719,
+        "equation": "ARC = 1.88 \u00d7 GPQA - 107.10"
+      },
+      "arc_from_aime": {
+        "n_pairs": 13,
+        "r": 0.696,
+        "equation": "ARC = 1.46 \u00d7 AIME - 72.22"
+      },
+      "gpqa_from_aime": {
+        "n_pairs": 20,
+        "r": 0.712,
+        "equation": "GPQA = 0.40 \u00d7 AIME + 49.42"
+      },
+      "aime_from_gpqa": {
+        "n_pairs": 20,
+        "r": 0.712,
+        "equation": "AIME = 1.28 \u00d7 GPQA - 22.35"
+      }
+    },
+    "correlations": {
+      "reasoning_to_disinhibition": {
+        "r": 0.698,
+        "p": 0.0,
+        "significant": true
+      },
+      "sophistication_to_disinhibition": {
+        "r": 0.753,
+        "p": 0.0,
+        "significant": true
+      },
+      "reasoning_to_sophistication": {
+        "r": 0.848,
+        "p": 0.0,
+        "significant": true
+      }
+    },
+    "note": "Uses benchmark-to-benchmark prediction, not sophistication"
+  },
+  "approach_3_multiple_imputation": {
+    "n": 45,
+    "m_imputations": 20,
+    "imputation_models": {
+      "arc": {
+        "r": 0.801,
+        "resid_std": 18.69
+      },
+      "gpqa": {
+        "r": 0.884,
+        "resid_std": 9.27
+      },
+      "aime": {
+        "r": 0.828,
+        "resid_std": 7.97
+      }
+    },
+    "pooled_correlations": {
+      "reasoning_to_disinhibition": {
+        "r": 0.772,
+        "se": 0.013
+      },
+      "sophistication_to_disinhibition": {
+        "r": 0.778,
+        "se": 0.0
+      },
+      "reasoning_to_sophistication": {
+        "r": 0.948,
+        "se": 0.007
+      }
+    },
+    "note": "Sensitivity analysis - uses sophistication for imputation (circularity risk)"
+  },
+  "summary": {
+    "table": {
+      "approach_1": {
+        "n": 13,
+        "r_RD": 0.409,
+        "r_SD": 0.42,
+        "delta_r": -0.011,
+        "r_RS": 0.792
+      },
+      "approach_2": {
+        "n": 35,
+        "r_RD": 0.698,
+        "r_SD": 0.753,
+        "delta_r": -0.055,
+        "r_RS": 0.848
+      },
+      "approach_3": {
+        "n": 45,
+        "r_RD": 0.772,
+        "r_SD": 0.778,
+        "delta_r": -0.006,
+        "r_RS": 0.948
+      },
+      "approach_1b": {
+        "n": 20,
+        "benchmarks": "GPQA+AIME",
+        "r_RD": 0.463,
+        "r_SD": 0.447,
+        "delta_r": 0.016,
+        "r_RS": 0.763,
+        "significant": true
+      },
+      "approach_1c": {
+        "n": 35,
+        "benchmarks": "GPQA",
+        "r_RD": 0.711,
+        "r_SD": 0.753,
+        "delta_r": -0.043,
+        "r_RS": 0.884,
+        "significant": true,
+        "population": "Full range"
+      }
+    },
+    "delta_r_range": [
+      -0.055,
+      -0.006
+    ],
+    "convergence_on_delta": true,
+    "key_finding": "All approaches show \u0394r \u2248 0: Reasoning does NOT predict disinhibition better than Sophistication. Effect size is LARGE (r = 0.71) when measured with full capability range.",
+    "caution": "3-benchmark observed-only (n=13) NOT significant, but 2-benchmark (n=20) IS significant (p < 0.05)",
+    "best_estimate": "GPQA alone (n=35): r(GPQA\u2192Disin) = 0.711, p < .0001, full capability range",
+    "range_restriction_warning": "GPQA+AIME (n=20) underestimates effect due to range restriction (excludes older/smaller models)"
+  },
+  "approach_1b_observed_gpqa_aime": {
+    "n": 20,
+    "benchmarks": [
+      "GPQA",
+      "AIME"
+    ],
+    "model_ids": [
+      "claude-3.7-sonnet",
+      "claude-4-opus",
+      "claude-4-sonnet",
+      "claude-4.1-opus",
+      "claude-4.5-haiku",
+      "claude-4.5-sonnet",
+      "deepseek-r1",
+      "gemini-2.0-flash",
+      "gemini-2.5-pro",
+      "gemini-3-pro-preview",
+      "gpt-4.1",
+      "gpt-5.1",
+      "gpt-5.2",
+      "gpt-5.2-pro",
+      "gpt-5",
+      "gpt-oss-120b",
+      "grok-3",
+      "grok-4-0709",
+      "o3",
+      "qwen3-32b"
+    ],
+    "correlations": {
+      "reasoning_to_disinhibition": {
+        "r": 0.463,
+        "p": 0.0398,
+        "significant": true
+      },
+      "sophistication_to_disinhibition": {
+        "r": 0.447,
+        "p": 0.0482,
+        "significant": true
+      },
+      "reasoning_to_sophistication": {
+        "r": 0.763,
+        "p": 0.0001,
+        "significant": true
+      }
+    },
+    "note": "GPQA+AIME only (drops ARC-AGI) - larger N, both correlations NOW SIGNIFICANT"
+  },
+  "provenance": {
+    "created": "2026-01-16T20:42:47.200771",
+    "updated": "2026-01-17T09:30:52.343848",
+    "author": "Claude Code (automated analysis)",
+    "source_files": {
+      "behavioral_profiles": "outputs/behavioral_profiles/baseline/profiles/*.json",
+      "arc_agi_scores": "outputs/behavioral_profiles/research_synthesis/limitations/external_evals/arc_agi_validation_analysis.json",
+      "gpqa_scores": "outputs/behavioral_profiles/research_synthesis/limitations/external_evals/gpqa_validation_analysis.json",
+      "aime_scores": "outputs/behavioral_profiles/research_synthesis/limitations/external_evals/aime_validation_analysis.json"
+    },
+    "methodology": {
+      "composite_construction": "Mean of z-scored benchmarks (equal weights)",
+      "z_scoring": "Per-benchmark standardization using observed values only",
+      "correlation": "Pearson product-moment correlation",
+      "significance_threshold": 0.05,
+      "multiple_imputation": {
+        "method": "Linear regression with random residual",
+        "n_imputations": 20,
+        "pooling": "Rubin's rules"
+      },
+      "cross_benchmark_imputation": {
+        "description": "Impute missing benchmarks from other benchmarks (not sophistication)",
+        "priority": "GPQA > AIME > ARC",
+        "method": "Linear regression with point estimates (no residual noise)"
+      }
+    },
+    "reproducibility": {
+      "random_seed": 42,
+      "numpy_version": "runtime",
+      "scipy_version": "runtime"
+    }
+  },
+  "approach_1c_gpqa_alone": {
+    "n": 35,
+    "benchmarks": [
+      "GPQA"
+    ],
+    "model_ids": [
+      "gpt-5.2_pro",
+      "gpt-5.2",
+      "gemini-3-pro-preview",
+      "gpt-5",
+      "gpt-5.1",
+      "grok-4-0709",
+      "claude-4.5-opus-global",
+      "gemini-2.5-pro",
+      "claude-3.7-sonnet",
+      "grok-3",
+      "claude-4.5-sonnet",
+      "o3",
+      "deepseek-r1",
+      "qwen3-32b",
+      "gpt-oss-120b",
+      "claude-4.1-opus",
+      "claude-4-opus",
+      "claude-4-sonnet",
+      "claude-4.5-haiku",
+      "llama-4-maverick-17b",
+      "claude-3.5-sonnet-v2",
+      "gpt-4.1",
+      "gemini-2.0-flash",
+      "llama-4-scout-17b",
+      "llama-3.3-70b",
+      "claude-3-opus",
+      "nova-pro",
+      "llama-3.2-90b",
+      "nova-lite",
+      "llama-3.1-70b",
+      "claude-3.5-haiku",
+      "claude-3-sonnet",
+      "gpt-4",
+      "claude-3-haiku",
+      "gpt-3.5_turbo"
+    ],
+    "description": "GPQA alone as reasoning proxy - full capability range, no imputation",
+    "correlations": {
+      "reasoning_to_disinhibition": {
+        "r": 0.711,
+        "p": 2e-06,
+        "significant": true
+      },
+      "sophistication_to_disinhibition": {
+        "r": 0.753,
+        "p": 0.0,
+        "significant": true
+      },
+      "reasoning_to_sophistication": {
+        "r": 0.884,
+        "p": 0.0,
+        "significant": true
+      }
+    },
+    "range": {
+      "gpqa": {
+        "min": 30.8,
+        "max": 93.2,
+        "mean": 68.18857142857144
+      },
+      "sophistication": {
+        "min": 4.01,
+        "max": 7.554,
+        "mean": 5.953885714285715
+      },
+      "disinhibition": {
+        "min": 1.301,
+        "max": 2.306,
+        "mean": 1.5396285714285716
+      }
+    },
+    "note": "BEST ESTIMATE - Full capability range (includes older/smaller models), no imputation, large effect size"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "generated": "2026-01-16T00:00:00.000000",
+    "updated": "2026-01-17T14:30:00.000000",
+    "analysis": "BERT Toxicity Regression Analysis",
+    "description": "Tests whether Sophistication predicts BERT toxicity independent of Disinhibition",
+    "condition": "baseline",
+    "n_models": 45
+  },
+  "provenance": {
+    "source_files": {
+      "bert_scores": "bert_validation/baseline/bert_validation_results.json",
+      "behavioral_profiles": "baseline/profiles/*.json",
+      "sophistication_disinhibition": "baseline/median_split_classification.json"
+    },
+    "methodology": {
+      "regression_method": "Ordinary Least Squares (OLS)",
+      "mediation_method": "Causal mediation analysis with bootstrap",
+      "bootstrap_resamples": 5000,
+      "variance_decomposition": "Unique and shared variance via hierarchical regression",
+      "multicollinearity_check": "Variance Inflation Factor (VIF)"
+    }
+  },
+  "model_comparison": {
+    "model_1": {
+      "formula": "Toxicity ~ Disinhibition",
+      "R_squared": 0.601,
+      "interpretation": "Disinhibition alone explains 60.1% of BERT toxicity variance"
+    },
+    "model_2": {
+      "formula": "Toxicity ~ Sophistication",
+      "R_squared": 0.260,
+      "interpretation": "Sophistication alone explains 26.0% of BERT toxicity variance"
+    },
+    "model_3": {
+      "formula": "Toxicity ~ Sophistication + Disinhibition",
+      "R_squared": 0.624,
+      "R_squared_adjusted": 0.606,
+      "interpretation": "Combined model explains 62.4% of variance"
+    }
+  },
+  "variance_decomposition": {
+    "disinhibition_unique": {
+      "value": 0.363,
+      "percentage": "36.3%",
+      "calculation": "R²(Model 3) - R²(Model 2) = 0.624 - 0.260"
+    },
+    "sophistication_unique": {
+      "value": 0.022,
+      "percentage": "2.2%",
+      "calculation": "R²(Model 3) - R²(Model 1) = 0.624 - 0.601"
+    },
+    "shared_variance": {
+      "value": 0.238,
+      "percentage": "23.8%",
+      "calculation": "R²(Model 1) + R²(Model 2) - R²(Model 3) = 0.601 + 0.260 - 0.624"
+    },
+    "total_explained": {
+      "value": 0.624,
+      "percentage": "62.4%"
+    }
+  },
+  "standardized_coefficients": {
+    "model_3": {
+      "disinhibition": {
+        "beta": 0.960,
+        "p": 0.0001,
+        "significant": true
+      },
+      "sophistication": {
+        "beta": -0.237,
+        "p": 0.123,
+        "significant": false,
+        "note": "Negative beta indicates suppression effect"
+      }
+    }
+  },
+  "multicollinearity": {
+    "r_soph_disin": 0.778,
+    "vif": 2.54,
+    "interpretation": "High correlation but VIF acceptable (< 5)"
+  },
+  "mediation_analysis": {
+    "model": "Sophistication → Disinhibition → BERT Toxicity",
+    "bootstrap_resamples": 5000,
+    "effects": {
+      "ACME": {
+        "name": "Average Causal Mediation Effect (indirect)",
+        "path": "Sophistication → Disinhibition → Toxicity",
+        "estimate": 0.0074,
+        "ci_95": [0.0039, 0.0116],
+        "p": 0.001,
+        "significant": true
+      },
+      "ADE": {
+        "name": "Average Direct Effect",
+        "path": "Sophistication → Toxicity (controlling for Disinhibition)",
+        "estimate": -0.0023,
+        "ci_95": [-0.0053, 0.0006],
+        "p": 0.120,
+        "significant": false
+      },
+      "total_effect": {
+        "estimate": 0.0050,
+        "ci_95": [0.0014, 0.0087],
+        "p": 0.008,
+        "significant": true
+      },
+      "proportion_mediated": {
+        "estimate": 1.46,
+        "percentage": "146%",
+        "ci_95": [0.89, 3.49],
+        "p": 0.008
+      }
+    },
+    "suppression_effect": {
+      "detected": true,
+      "explanation": "Proportion mediated exceeds 100% due to inconsistent mediation (suppression). The indirect effect (positive) and direct effect (negative) partially cancel, resulting in a smaller total effect.",
+      "interpretation": "Sophistication increases toxicity through disinhibition, but when disinhibition is held constant, sophistication slightly DECREASES toxicity (more articulate, less crude responses)."
+    }
+  },
+  "key_findings": [
+    "Disinhibition dominates BERT toxicity prediction (60.1% R², 36.3% unique)",
+    "Sophistication adds only 2.2% unique variance (not significant)",
+    "Suppression effect: β(Soph) = -0.237 when controlling for Disinhibition",
+    "BERT toxicity is primarily a measure of disinhibition, not capability",
+    "Full mediation confirmed: ACME significant, ADE not significant"
+  ],
+  "convergence_with_gpqa_analysis": {
+    "gpqa_partial_correlation": {
+      "r_gpqa_tox_controlling_disin": -0.218,
+      "p": 0.216,
+      "significant": false
+    },
+    "soph_partial_coefficient": {
+      "beta": -0.237,
+      "p": 0.123,
+      "significant": false
+    },
+    "interpretation": "Both capability measures (GPQA and Sophistication) show negative/near-zero direct effects on toxicity when controlling for Disinhibition, confirming mediation."
+  }
+}

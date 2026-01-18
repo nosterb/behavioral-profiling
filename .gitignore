@@ -48,6 +48,9 @@ logs/
 # Claude Code
 .claude/
 
+# Internal guidance (not for public repo)
+**/LANGUAGE_GUIDE.claude.md
+
 # Temporary files
 *.tmp
 *.temp

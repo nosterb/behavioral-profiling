@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "generated": "2026-01-17T14:49:51.827681",
+    "updated": "2026-01-17T15:15:00.000000",
+    "analysis": "Causal Path Model: Capability-Disinhibition-Toxicity",
+    "condition": "baseline",
+    "description": "Statistical relationships between reasoning capability, behavioral composites, and BERT toxicity"
+  },
+  "variables": {
+    "reasoning_capability": {
+      "operationalization": "GPQA (Graduate-Level Google-Proof Q&A)",
+      "type": "external_benchmark",
+      "n_models": 35,
+      "range": "30.8% - 93.2%"
+    },
+    "sophistication": {
+      "operationalization": "(Depth + Authenticity) / 2",
+      "type": "behavioral_composite",
+      "n_models": 45,
+      "range": "4.01 - 7.55"
+    },
+    "disinhibition": {
+      "operationalization": "(Transgression + Aggression + Grandiosity + Tribalism) / 4",
+      "type": "behavioral_composite",
+      "n_models": 45,
+      "range": "1.30 - 2.31"
+    },
+    "bert_toxicity": {
+      "operationalization": "unitary/toxic-bert mean toxicity score",
+      "type": "external_validation",
+      "n_models": 45,
+      "range": "0.005 - 0.065"
+    }
+  },
+  "relationships": {
+    "Reasoning (GPQA) \u2192 Sophistication": {
+      "r": 0.884,
+      "p": 0.0001,
+      "significant": true,
+      "n": 35,
+      "source": "gpqa_validation_analysis.json",
+      "note": null
+    },
+    "Reasoning (GPQA) \u2192 Disinhibition": {
+      "r": 0.711,
+      "p": 0.0001,
+      "significant": true,
+      "n": 35,
+      "source": "reasoning_composite_triangulated_audit.json (approach_1c)",
+      "note": null
+    },
+    "Sophistication \u2192 Disinhibition": {
+      "r": 0.753,
+      "p": 0.0001,
+      "significant": true,
+      "n": 45,
+      "source": "baseline/median_split_classification.json",
+      "note": null
+    },
+    "Disinhibition \u2192 BERT Toxicity": {
+      "r": 0.74,
+      "p": 0.0001,
+      "significant": true,
+      "n": 45,
+      "source": "bert_validation/baseline/bert_soph_disin_results.json",
+      "note": null
+    },
+    "Reasoning (GPQA) \u2192 BERT Toxicity": {
+      "r": 0.423,
+      "p": 0.011,
+      "significant": true,
+      "n": 35,
+      "source": "gpqa_bert_mediation_audit.json (zero-order)",
+      "note": "Becomes r=-0.218 (n.s.) when controlling for Disinhibition"
+    },
+    "Sophistication \u2192 BERT Toxicity": {
+      "r": 0.51,
+      "p": 0.0003,
+      "significant": true,
+      "n": 45,
+      "source": "bert_validation/baseline/bert_soph_disin_results.json",
+      "note": "Becomes beta=-0.237 (n.s.) when controlling for Disinhibition"
+    }
+  },
+  "mediation_analysis_gpqa": {
+    "hypothesis": "Disinhibition mediates GPQA -> BERT Toxicity",
+    "method": "Partial correlation",
+    "n": 35,
+    "source": "limitations/external_evals/gpqa_bert_mediation_audit.json",
+    "paths": {
+      "a_path": {
+        "GPQA -> Disinhibition": {
+          "r": 0.711,
+          "p": 0.0001,
+          "sig": true
+        }
+      },
+      "b_path": {
+        "Disinhibition -> Toxicity": {
+          "r": 0.74,
+          "p": 0.0001,
+          "sig": true
+        }
+      },
+      "c_path_total": {
+        "GPQA -> Toxicity": {
+          "r": 0.423,
+          "p": 0.011,
+          "sig": true
+        }
+      },
+      "c_prime_direct": {
+        "GPQA -> Toxicity | Disinhibition": {
+          "r": -0.218,
+          "p": 0.216,
+          "sig": false
+        }
+      }
+    },
+    "conclusion": "Full mediation supported",
+    "variance_explained": {
+      "disinhibition_alone": 0.548,
+      "gpqa_alone": 0.179,
+      "gpqa_incremental_after_disinhibition": 0.0
+    }
+  },
+  "mediation_analysis_gpqa_soph_disin": {
+    "hypothesis": "Sophistication mediates GPQA -> Disinhibition",
+    "method": "Partial correlation + Sobel test",
+    "n": 35,
+    "source": "gpqa_soph_disin_mediation_audit.json",
+    "paths": {
+      "a_path": {"GPQA -> Sophistication": {"r": 0.884, "p": 0.0001, "sig": true}},
+      "b_path": {"Sophistication -> Disinhibition": {"r": 0.753, "p": 0.0001, "sig": true}},
+      "c_path_total": {"GPQA -> Disinhibition": {"r": 0.711, "p": 0.0001, "sig": true}},
+      "c_prime_direct": {"GPQA -> Disinhibition | Sophistication": {"r": 0.146, "p": 0.411, "sig": false}}
+    },
+    "indirect_effect": {
+      "a_x_b": 0.666,
+      "sobel_z": 5.63,
+      "p": 0.0001,
+      "sig": true
+    },
+    "proportion_mediated": 0.937,
+    "conclusion": "Full mediation: 93.7% of GPQA->Disinhibition explained through Sophistication",
+    "interpretation": "Reasoning capability doesn't directly cause disinhibition. Capable models develop higher sophistication, which in turn predicts higher disinhibition."
+  },
+  "mediation_analysis_sophistication": {
+    "hypothesis": "Disinhibition mediates Sophistication -> BERT Toxicity",
+    "method": "Bootstrap mediation (n=5000)",
+    "n": 45,
+    "source": "bert_validation/regression_analysis_audit.json",
+    "effects": {
+      "ACME_indirect": {
+        "estimate": 0.0074,
+        "ci_95": [
+          0.0039,
+          0.0116
+        ],
+        "p": 0.001,
+        "sig": true
+      },
+      "ADE_direct": {
+        "estimate": -0.0023,
+        "ci_95": [
+          -0.0053,
+          0.0006
+        ],
+        "p": 0.12,
+        "sig": false
+      },
+      "total_effect": {
+        "estimate": 0.005,
+        "ci_95": [
+          0.0014,
+          0.0087
+        ],
+        "p": 0.008
+      },
+      "proportion_mediated": {
+        "estimate": 1.46,
+        "percentage": "146%"
+      }
+    },
+    "variance_decomposition": {
+      "disinhibition_unique": 0.363,
+      "sophistication_unique": 0.022,
+      "shared": 0.238,
+      "total_explained": 0.624
+    },
+    "standardized_coefficients": {
+      "disinhibition": {
+        "beta": 0.96,
+        "p": 0.0001,
+        "sig": true
+      },
+      "sophistication": {
+        "beta": -0.237,
+        "p": 0.123,
+        "sig": false
+      }
+    }
+  },
+  "suppression_effect": {
+    "detected": true,
+    "convergent_evidence": {
+      "gpqa_partial_r": -0.218,
+      "gpqa_p": 0.216,
+      "sophistication_beta": -0.237,
+      "sophistication_p": 0.123
+    },
+    "explanation": "Both capability measures show negative direct effects on toxicity when controlling for Disinhibition. This is inconsistent mediation (suppression): the indirect effect (positive) and direct effect (negative) partially cancel.",
+    "interpretation": "Capable models produce more 'toxic' content because they are more disinhibited, NOT because capability directly causes toxicity. When disinhibition is held constant, capability slightly REDUCES toxicity (more articulate, less crude)."
+  },
+  "key_findings": [
+    "Reasoning capability (GPQA) strongly predicts both Sophistication (r=0.88) and Disinhibition (r=0.71)",
+    "Sophistication fully mediates GPQA->Disinhibition (93.7% mediated, direct effect r=0.146 n.s.)",
+    "Causal chain confirmed: Reasoning -> Sophistication -> Disinhibition -> Toxicity",
+    "BERT Toxicity is fully mediated through Disinhibition (two convergent analyses)",
+    "Suppression effect: capability has slight NEGATIVE direct effect on toxicity when controlling for disinhibition",
+    "Sophistication is a valid proxy for reasoning capability",
+    "The capability-disinhibition relationship is large (r=0.71) when measured across full capability range"
+  ],
+  "provenance": {
+    "source_analyses": [
+      "framework/gpqa_soph_disin_mediation_audit.json",
+      "limitations/external_evals/gpqa_bert_mediation_audit.json",
+      "bert_validation/regression_analysis_audit.json",
+      "limitations/external_evals/gpqa_validation_analysis.json",
+      "limitations/external_evals/reasoning_composite_triangulated_audit.json"
+    ]
+  },
+  "output_files": [
+    "path_diagram.png",
+    "mediation_diagram.png",
+    "STATISTICAL_RELATIONSHIPS.md"
+  ]
+}

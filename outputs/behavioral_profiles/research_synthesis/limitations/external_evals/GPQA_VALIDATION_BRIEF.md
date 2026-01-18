@@ -135,6 +135,64 @@ Models that perform better on expert-level reasoning exhibit higher behavioral r
 
 ---
 
+## GPQA vs BERT Toxicity: Mediation Analysis
+
+### Research Question
+
+Does reasoning capability (GPQA) predict BERT toxicity directly, or is this relationship mediated through disinhibition?
+
+### Method
+
+1. **Compute zero-order correlations** for all pairwise relationships
+2. **Test partial correlation**: r(GPQA → Toxicity | Disinhibition)
+3. **Mediation criterion**: If partial correlation becomes non-significant, disinhibition fully mediates
+
+### Results (n=35)
+
+#### Zero-Order Correlations
+
+| Relationship | r | p |
+|--------------|---|---|
+| GPQA → Disinhibition | 0.711 | < .0001 |
+| Disinhibition → Toxicity | 0.740 | < .0001 |
+| GPQA → Toxicity | 0.423 | 0.011 |
+
+#### Partial Correlation Test
+
+| Controlling For | r(GPQA→Tox) | t | p | Significant? |
+|-----------------|-------------|---|---|--------------|
+| Nothing | 0.423 | 2.69 | 0.011 | **Yes** |
+| Disinhibition | -0.218 | -1.26 | 0.216 | **No** |
+
+### Interpretation
+
+**Full mediation confirmed**: When controlling for disinhibition, the GPQA → Toxicity correlation drops from r = 0.423 (significant) to r = -0.218 (non-significant).
+
+```
+Mediation Path:
+  GPQA (capability) → Disinhibition → BERT Toxicity
+       r = 0.711           r = 0.740
+       (large)             (large)
+
+Direct Path (after controlling):
+  GPQA → BERT Toxicity | Disinhibition
+       r = -0.218 (n.s.)
+```
+
+**Key Finding**: BERT toxicity does not measure capability directly. Instead, capable models exhibit higher disinhibition (willingness to engage), which in turn produces responses that BERT scores as more "toxic." The slight negative partial correlation (-0.218) suggests that, holding disinhibition constant, capability may actually reduce toxicity.
+
+### Variance Explained
+
+| Predictor | R² |
+|-----------|-----|
+| Disinhibition alone | 54.8% |
+| GPQA alone | 17.9% |
+| GPQA after Disinhibition | ~0% (incremental) |
+
+**Data Artifact**: `gpqa_bert_mediation_audit.json`
+
+---
+
 ## Limitations
 
 1. **Selection bias**: Only models with public GPQA scores
@@ -148,7 +206,7 @@ Models that perform better on expert-level reasoning exhibit higher behavioral r
 
 > **GPQA (r = 0.846) provides stronger validation than ARC-AGI (r = 0.801) with a larger sample.**
 
-Two independent external benchmarks — one testing abstract reasoning, one testing expert scientific knowledge — both show very large correlations with our behavior-based sophistication measure. GPQA's larger sample size (35 models) produces even stronger correlations than ARC-AGI (16 models), with all eight behavioral dimensions showing significant positive relationships.
+Two independent external benchmarks — one testing abstract reasoning, one testing expert scientific knowledge — both show very large correlations with our behavior-based sophistication measure. GPQA's larger sample size (35 models) produces even stronger correlations than ARC-AGI (16 models), with all reported dimensions showing significant positive relationships.
 
 This provides strong convergent validity for H1 and H2, confirming that the capability-disinhibition link is robust across different reasoning domains.
 
