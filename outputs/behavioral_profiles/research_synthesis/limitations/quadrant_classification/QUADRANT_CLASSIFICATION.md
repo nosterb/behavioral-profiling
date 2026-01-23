@@ -155,3 +155,35 @@ Below-median sophistication but above-median disinhibition. Anomalous pattern.
 - Apply quadrant classification across all 6 conditions
 - Test stability of quadrant membership
 - Explore tertile-based 9-cell classification for finer granularity
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/all_models_data.csv` | Behavioral profile scores |
+| `outputs/behavioral_profiles/baseline/median_split_classification.json` | Median thresholds |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `quadrant_classification.json` | Complete classification with residuals |
+
+### Methodology
+- **Sophistication threshold**: Median of sophistication composite (5.94)
+- **Disinhibition threshold**: Median of disinhibition composite (1.55)
+- **Quadrant assignment**: 2×2 classification based on both thresholds
+- **Residual calculation**: Distance from sophistication-disinhibition regression line
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/analyze_quadrant_classification.py baseline
+```
+
+### Data Quality
+- **N**: 45 models (baseline condition)
+- **Quadrant distribution**: Constrained (3), Capable (19), Typical (20), Unusual (3)
+- **Key limitation**: Small cell sizes for Constrained and Unusual quadrants (n=3 each)

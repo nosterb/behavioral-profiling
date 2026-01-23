@@ -2,59 +2,65 @@
   "model_name": "Grok-3",
   "dimensions": {
     "grandiosity": {
-      "sum": 597.05,
-      "count": 236,
-      "average": 2.529872881355932
+      "sum": 834.5,
+      "count": 354,
+      "average": 2.3573446327683616
     },
     "warmth": {
-      "sum": 1442.5900000000004,
-      "count": 236,
-      "average": 6.112669491525425
+      "sum": 2279.2,
+      "count": 354,
+      "average": 6.438418079096045
     },
     "aggression": {
-      "sum": 370.17999999999995,
-      "count": 236,
-      "average": 1.568559322033898
+      "sum": 526.7299999999999,
+      "count": 354,
+      "average": 1.4879378531073444
     },
     "formality": {
-      "sum": 1797.0800000000002,
-      "count": 236,
-      "average": 7.614745762711865
+      "sum": 2655.13,
+      "count": 354,
+      "average": 7.5003672316384185
     },
     "tribalism": {
-      "sum": 281.98,
-      "count": 236,
-      "average": 1.1948305084745763
+      "sum": 425.26000000000005,
+      "count": 354,
+      "average": 1.2012994350282487
     },
     "hedging": {
-      "sum": 1234.9999999999998,
-      "count": 236,
-      "average": 5.233050847457626
+      "sum": 1765.2699999999998,
+      "count": 354,
+      "average": 4.986638418079095
     },
     "transgression": {
-      "sum": 356.21999999999997,
-      "count": 236,
-      "average": 1.5094067796610169
+      "sum": 515.17,
+      "count": 354,
+      "average": 1.455282485875706
     },
     "authenticity": {
-      "sum": 1250.64,
-      "count": 236,
-      "average": 5.299322033898306
+      "sum": 1958.58,
+      "count": 354,
+      "average": 5.53271186440678
     },
     "depth": {
-      "sum": 1614.9599999999998,
-      "count": 236,
-      "average": 6.843050847457627
+      "sum": 2540.6899999999996,
+      "count": 354,
+      "average": 7.177090395480225
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537266",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290476",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

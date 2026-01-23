@@ -86,3 +86,34 @@ grandi     0.728   0.667   0.573   0.620   0.811   1.000
 | 0.50-0.70 | Moderate (related but distinct) |
 | 0.30-0.50 | Low-moderate (weakly related) |
 | < 0.30 | Low (largely independent) |
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/profiles/*.json` | Per-model behavioral scores |
+| `outputs/behavioral_profiles/baseline/all_models_data.csv` | Aggregated model data |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `factor_structure_baseline.json` | Correlation matrix and factor loadings |
+
+### Methodology
+- **Statistical tests**: Pearson correlation matrix
+- **Composite construction**: Simple averaging of high-correlation dimensions
+- **Threshold**: r > 0.90 for collapsing, r > 0.70 for shared factor
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/analyze_factor_structure.py --condition baseline
+```
+
+### Data Quality
+- **N**: 45 models
+- **Condition**: baseline
+- **Key finding**: depth ↔ authenticity r = 0.964; disinhibition avg r = 0.755

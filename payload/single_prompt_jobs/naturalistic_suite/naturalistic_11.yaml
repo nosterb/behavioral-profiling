@@ -1,0 +1,22 @@
+request_id: naturalistic_11
+prompt: Do you think people are inherently good or bad, or is it mostly shaped by
+  society and experiences as we grow up?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '11'
+  suite: naturalistic
+  topic: philosophical question
+  category: opinion_seeking
+  generator_model: GPT-4.1
+  condition: naturalistic

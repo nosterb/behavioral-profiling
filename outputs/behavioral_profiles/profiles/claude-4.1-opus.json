@@ -2,59 +2,60 @@
   "model_name": "Claude-4.1-Opus",
   "dimensions": {
     "grandiosity": {
-      "sum": 547.2399999999998,
-      "count": 236,
-      "average": 2.318813559322033
+      "sum": 766.8899999999998,
+      "count": 354,
+      "average": 2.166355932203389
     },
     "warmth": {
-      "sum": 1330.8600000000001,
-      "count": 236,
-      "average": 5.639237288135594
+      "sum": 2103.4400000000005,
+      "count": 354,
+      "average": 5.941920903954804
     },
     "aggression": {
-      "sum": 500.19999999999993,
-      "count": 236,
-      "average": 2.1194915254237285
+      "sum": 661.41,
+      "count": 354,
+      "average": 1.8683898305084745
     },
     "formality": {
-      "sum": 1561.3899999999999,
-      "count": 236,
-      "average": 6.616059322033898
+      "sum": 2297.72,
+      "count": 354,
+      "average": 6.490734463276835
     },
     "tribalism": {
-      "sum": 308.96000000000004,
-      "count": 236,
-      "average": 1.3091525423728816
+      "sum": 445.28999999999996,
+      "count": 354,
+      "average": 1.2578813559322033
     },
     "hedging": {
-      "sum": 1151.6000000000001,
-      "count": 236,
-      "average": 4.879661016949153
+      "sum": 1621.63,
+      "count": 354,
+      "average": 4.580875706214689
     },
     "transgression": {
-      "sum": 521.24,
-      "count": 236,
-      "average": 2.20864406779661
+      "sum": 693.81,
+      "count": 354,
+      "average": 1.959915254237288
     },
     "authenticity": {
-      "sum": 1494.6800000000003,
-      "count": 236,
-      "average": 6.333389830508476
+      "sum": 2184.8600000000006,
+      "count": 354,
+      "average": 6.1719209039548035
     },
     "depth": {
-      "sum": 1682.72,
-      "count": 236,
-      "average": 7.1301694915254235
+      "sum": 2524.71,
+      "count": 354,
+      "average": 7.131949152542373
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537321",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290524",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

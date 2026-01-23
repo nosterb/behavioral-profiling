@@ -1,55 +1,52 @@
 {
-  "model_name": "gpt-4",
-  "display_name": "GPT-4",
-  "provider": "OpenAI",
+  "model_name": "GPT-4",
   "dimensions": {
+    "grandiosity": {
+      "sum": 72.30999999999997,
+      "count": 44,
+      "average": 1.6434090909090904
+    },
     "warmth": {
-      "sum": 241.67,
+      "sum": 241.67000000000002,
       "count": 44,
-      "average": 5.4925
-    },
-    "formality": {
-      "sum": 324.67,
-      "count": 44,
-      "average": 7.3789
-    },
-    "hedging": {
-      "sum": 199.65,
-      "count": 44,
-      "average": 4.5375
+      "average": 5.492500000000001
     },
     "aggression": {
       "sum": 50.99,
       "count": 44,
-      "average": 1.1589
+      "average": 1.1588636363636364
     },
-    "transgression": {
-      "sum": 56.28,
+    "formality": {
+      "sum": 324.67,
       "count": 44,
-      "average": 1.2791
-    },
-    "grandiosity": {
-      "sum": 72.31,
-      "count": 44,
-      "average": 1.6434
+      "average": 7.378863636363636
     },
     "tribalism": {
       "sum": 45.0,
       "count": 44,
-      "average": 1.0227
+      "average": 1.0227272727272727
     },
-    "depth": {
-      "sum": 225.65,
+    "hedging": {
+      "sum": 199.65000000000003,
       "count": 44,
-      "average": 5.1284
+      "average": 4.5375000000000005
+    },
+    "transgression": {
+      "sum": 56.27999999999998,
+      "count": 44,
+      "average": 1.2790909090909086
     },
     "authenticity": {
-      "sum": 161.67,
+      "sum": 161.66999999999996,
       "count": 44,
-      "average": 3.6743
+      "average": 3.674318181818181
+    },
+    "depth": {
+      "sum": 225.65000000000003,
+      "count": 44,
+      "average": 5.128409090909091
     }
   },
-  "contribution_count": 44,
-  "total_evaluations": 44,
-  "last_updated": "2026-01-11T10:57:56.858460"
+  "last_updated": "2026-01-23T13:40:50.157283",
+  "total_evaluations": 44
 }

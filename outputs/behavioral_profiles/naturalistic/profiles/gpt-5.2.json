@@ -1,0 +1,52 @@
+{
+  "model_name": "GPT-5.2",
+  "dimensions": {
+    "tribalism": {
+      "sum": 60.99,
+      "count": 50,
+      "average": 1.2198
+    },
+    "authenticity": {
+      "sum": 346.96999999999997,
+      "count": 50,
+      "average": 6.939399999999999
+    },
+    "formality": {
+      "sum": 338.68,
+      "count": 50,
+      "average": 6.7736
+    },
+    "depth": {
+      "sum": 423.37000000000006,
+      "count": 50,
+      "average": 8.467400000000001
+    },
+    "hedging": {
+      "sum": 188.67999999999998,
+      "count": 50,
+      "average": 3.7735999999999996
+    },
+    "warmth": {
+      "sum": 298.32,
+      "count": 50,
+      "average": 5.9664
+    },
+    "aggression": {
+      "sum": 68.25999999999998,
+      "count": 50,
+      "average": 1.3651999999999995
+    },
+    "grandiosity": {
+      "sum": 102.03000000000002,
+      "count": 50,
+      "average": 2.0406000000000004
+    },
+    "transgression": {
+      "sum": 71.30999999999999,
+      "count": 50,
+      "average": 1.4261999999999997
+    }
+  },
+  "last_updated": "2026-01-23T14:50:04.690282",
+  "total_evaluations": 50
+}

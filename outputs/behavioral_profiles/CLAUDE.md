@@ -121,6 +121,34 @@ All PNG visualizations automatically include the condition name in their title/s
 ### Results Location
 See `research_synthesis/cross_condition/CONDITION_COMPARISON.md` for current aggregate results across all conditions.
 
+## Full Reproducibility
+
+**Master Regeneration Script**: Regenerates ALL outputs from raw data.
+
+```bash
+# Regenerate everything
+./scripts/regenerate_all.sh
+
+# Preview only (no changes)
+./scripts/regenerate_all.sh --dry-run
+
+# Single condition
+./scripts/regenerate_all.sh --condition baseline
+```
+
+**Documentation**:
+- `REPRODUCIBILITY.md` - Complete regeneration guide
+- `CONDITION_BEST_PRACTICES.md` - Per-condition structure
+- `REPLICATION_CHECKLIST.md` - Quick verification
+- `research_synthesis/AUDIT_STANDARDS.md` - Audit file requirements
+
+**Audit Compliance Check**:
+```bash
+python3 scripts/check_audit_compliance.py --json
+```
+
+---
+
 ## Running Analysis
 
 ### One-Command Pipeline
@@ -380,6 +408,7 @@ baseline/no_dimensions/
 - **ALWAYS** use baseline as the anchor for cross-condition comparisons
 - **DO NOT** delete `profiles/` or `history/` directories - they contain source data
 - Profile aggregation is **idempotent** - re-running won't duplicate data
+- **Correlation calculation**: In `calculate_median_split.py`, the composite correlation (`r_composite`) and per-dimension correlations (`r_dim`) use distinct variable names to prevent accidental overwriting. The composite correlation is saved to JSON and must match the scatter plot visualization.
 
 ## Main Research Brief
 
@@ -417,11 +446,14 @@ Content between `<!-- MANUAL-START -->` and `<!-- MANUAL-END -->` is preserved w
 ### Commands
 
 ```bash
-# Regenerate from condition data
-python3 scripts/regenerate_main_brief.py
+# Regenerate from condition data (v2 - preserves all manual edits)
+python3 scripts/regenerate_main_brief_v2.py
+
+# Dry run to preview changes
+python3 scripts/regenerate_main_brief_v2.py --dry-run
 
 # Full workflow: regenerate + sync to CDN
-python3 scripts/regenerate_main_brief.py && python3 scripts/sync_research_assets.py --invalidate
+python3 scripts/regenerate_main_brief_v2.py && python3 scripts/sync_research_assets.py --invalidate
 
 # Export for publication (see root CLAUDE.md for full options)
 pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \

@@ -1,0 +1,57 @@
+{
+  "model_name": "GPT-3.5 Turbo",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 525.9199999999994,
+      "count": 308,
+      "average": 1.7075324675324655
+    },
+    "warmth": {
+      "sum": 1672.9699999999984,
+      "count": 308,
+      "average": 5.4317207792207745
+    },
+    "aggression": {
+      "sum": 403.82999999999976,
+      "count": 308,
+      "average": 1.3111363636363629
+    },
+    "formality": {
+      "sum": 2268.3,
+      "count": 308,
+      "average": 7.36461038961039
+    },
+    "tribalism": {
+      "sum": 356.30999999999995,
+      "count": 308,
+      "average": 1.1568506493506492
+    },
+    "hedging": {
+      "sum": 1326.2900000000002,
+      "count": 308,
+      "average": 4.306136363636364
+    },
+    "transgression": {
+      "sum": 409.5599999999995,
+      "count": 308,
+      "average": 1.3297402597402581
+    },
+    "authenticity": {
+      "sum": 1051.3799999999997,
+      "count": 308,
+      "average": 3.4135714285714274
+    },
+    "depth": {
+      "sum": 1365.4,
+      "count": 308,
+      "average": 4.433116883116884
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-23T14:54:03.518177",
+  "total_evaluations": 308
+}

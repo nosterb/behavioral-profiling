@@ -2,59 +2,65 @@
   "model_name": "Claude-3-Haiku",
   "dimensions": {
     "grandiosity": {
-      "sum": 469.33000000000004,
-      "count": 236,
-      "average": 1.9886864406779663
+      "sum": 678.0999999999999,
+      "count": 354,
+      "average": 1.9155367231638416
     },
     "warmth": {
-      "sum": 1445.64,
-      "count": 236,
-      "average": 6.125593220338984
+      "sum": 2118.25,
+      "count": 354,
+      "average": 5.983757062146893
     },
     "aggression": {
-      "sum": 294.22999999999996,
-      "count": 236,
-      "average": 1.2467372881355931
+      "sum": 436.44999999999993,
+      "count": 354,
+      "average": 1.2329096045197738
     },
     "formality": {
-      "sum": 1834.98,
-      "count": 236,
-      "average": 7.7753389830508475
+      "sum": 2699.93,
+      "count": 354,
+      "average": 7.626920903954802
     },
     "tribalism": {
-      "sum": 252.65999999999997,
-      "count": 236,
-      "average": 1.070593220338983
+      "sum": 385.31,
+      "count": 354,
+      "average": 1.0884463276836158
     },
     "hedging": {
-      "sum": 1367.2899999999997,
-      "count": 236,
-      "average": 5.793601694915253
+      "sum": 1918.8799999999997,
+      "count": 354,
+      "average": 5.4205649717514115
     },
     "transgression": {
-      "sum": 298.0099999999999,
-      "count": 236,
-      "average": 1.262754237288135
+      "sum": 446.55999999999983,
+      "count": 354,
+      "average": 1.2614689265536718
     },
     "authenticity": {
-      "sum": 941.65,
-      "count": 236,
-      "average": 3.990042372881356
+      "sum": 1403.32,
+      "count": 354,
+      "average": 3.9641807909604516
     },
     "depth": {
-      "sum": 1204.65,
-      "count": 236,
-      "average": 5.104449152542373
+      "sum": 1865.7,
+      "count": 354,
+      "average": 5.270338983050848
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537352",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290554",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

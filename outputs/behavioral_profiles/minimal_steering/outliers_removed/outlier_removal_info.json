@@ -1,6 +1,6 @@
 {
   "condition": "minimal_steering",
-  "timestamp": "2026-01-10T16:50:28.237208",
+  "timestamp": "2026-01-21T13:01:24.652877",
   "config": {
     "outlier_sd_threshold": 2.0,
     "disinhibition_dimensions": [
@@ -16,30 +16,38 @@
   },
   "statistics": {
     "regression": {
-      "slope": 0.05176915320134743,
-      "intercept": 1.0478468227399664,
-      "correlation": 0.7279456124967881
+      "slope": 0.07776774056820693,
+      "intercept": 0.9377831528084573,
+      "correlation": 0.854059348001402
     },
     "residuals": {
-      "mean": -1.4481169886415085e-17,
-      "std": 0.05462770955895058,
-      "threshold": 0.10925541911790115,
+      "mean": 1.5789838572446671e-16,
+      "std": 0.048938869170629166,
+      "threshold": 0.09787773834125833,
       "threshold_sd": 2.0
     },
     "counts": {
-      "total": 46,
-      "outliers": 1,
-      "retained": 45
+      "total": 45,
+      "outliers": 2,
+      "retained": 43
     }
   },
   "outliers_removed": [
     {
-      "model_id": "Llama-3-70B",
-      "display_name": "Llama-3-70B",
-      "sophistication": 2.552142857142857,
-      "disinhibition": 1.2994285714285714,
-      "residual": 0.11945947412545177,
-      "sd_from_line": 2.186792656875703
+      "model_id": "Gemini-2.5-Pro",
+      "display_name": "Gemini-2.5-Pro",
+      "sophistication": 6.160098039215686,
+      "disinhibition": 1.2937745098039215,
+      "residual": -0.12306554919298152,
+      "sd_from_line": 2.5146790532471015
+    },
+    {
+      "model_id": "Claude-4.5-Opus-Global",
+      "display_name": "Claude-4.5-Opus-Global",
+      "sophistication": 6.911862745098039,
+      "disinhibition": 1.584754901960784,
+      "residual": 0.1094518003484879,
+      "sd_from_line": 2.236500397401413
     }
   ],
   "models_retained": [
@@ -58,7 +66,6 @@
     "Claude-4.1-Opus-Thinking (Thinking)",
     "Claude-4.5-Haiku",
     "Claude-4.5-Haiku-Thinking (Thinking)",
-    "Claude-4.5-Opus-Global",
     "Claude-4.5-Opus-Global-Thinking (Thinking)",
     "Claude-4.5-Sonnet",
     "Claude-4.5-Sonnet-Thinking (Thinking)",
@@ -72,7 +79,6 @@
     "GPT-5.2 Pro",
     "GPT-OSS-120B",
     "Gemini-2.0-Flash",
-    "Gemini-2.5-Pro",
     "Gemini-3-Pro-Preview",
     "Grok-3",
     "Grok-4-0709",

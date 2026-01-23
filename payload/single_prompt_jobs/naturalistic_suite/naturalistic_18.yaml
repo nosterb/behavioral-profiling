@@ -1,0 +1,22 @@
+request_id: naturalistic_18
+prompt: My WiFi keeps dropping out every few minutes, but only on my laptop—my phone
+  works fine. What could be causing this and how do I fix it?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '18'
+  suite: naturalistic
+  topic: network troubleshooting
+  category: technical
+  generator_model: GPT-4.1
+  condition: naturalistic

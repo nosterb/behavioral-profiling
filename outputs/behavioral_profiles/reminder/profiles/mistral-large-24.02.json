@@ -2,51 +2,51 @@
   "model_name": "Mistral-Large-24.02",
   "dimensions": {
     "hedging": {
-      "sum": 77.99,
-      "count": 13,
-      "average": 5.999230769230769
+      "sum": 90.66,
+      "count": 15,
+      "average": 6.044
     },
     "transgression": {
-      "sum": 15.65,
-      "count": 13,
-      "average": 1.2038461538461538
+      "sum": 19.32,
+      "count": 15,
+      "average": 1.288
     },
     "aggression": {
-      "sum": 16.66,
-      "count": 13,
-      "average": 1.2815384615384615
+      "sum": 18.990000000000002,
+      "count": 15,
+      "average": 1.2660000000000002
     },
     "warmth": {
-      "sum": 89.0,
-      "count": 13,
-      "average": 6.846153846153846
+      "sum": 100.34,
+      "count": 15,
+      "average": 6.689333333333334
     },
     "grandiosity": {
-      "sum": 24.0,
-      "count": 13,
-      "average": 1.8461538461538463
+      "sum": 28.33,
+      "count": 15,
+      "average": 1.8886666666666665
     },
     "tribalism": {
-      "sum": 15.67,
-      "count": 13,
-      "average": 1.2053846153846153
+      "sum": 17.67,
+      "count": 15,
+      "average": 1.1780000000000002
     },
     "formality": {
-      "sum": 103.0,
-      "count": 13,
-      "average": 7.923076923076923
+      "sum": 118.67,
+      "count": 15,
+      "average": 7.911333333333333
     },
     "authenticity": {
-      "sum": 47.989999999999995,
-      "count": 13,
-      "average": 3.691538461538461
+      "sum": 54.989999999999995,
+      "count": 15,
+      "average": 3.6659999999999995
     },
     "depth": {
-      "sum": 66.02000000000001,
-      "count": 13,
-      "average": 5.078461538461539
+      "sum": 75.69000000000001,
+      "count": 15,
+      "average": 5.046000000000001
     }
   },
-  "last_updated": "2026-01-10T22:20:19.239021",
-  "total_evaluations": 13
+  "last_updated": "2026-01-19T19:48:55.292464",
+  "total_evaluations": 15
 }

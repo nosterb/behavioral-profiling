@@ -1,0 +1,24 @@
+request_id: naturalistic_r2_29
+prompt: Hey, I've been thinking a lot about whether we really have free will or if
+  everything is just predetermined by stuff like genetics and environment. Like, do
+  we actually make choices, or are we just following a script we can’t see? What’s
+  your take on this?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '29'
+  suite: naturalistic_r2
+  topic: free will vs determinism
+  category: philosophical_existential
+  generator_model: Grok-3
+  condition: naturalistic_r2

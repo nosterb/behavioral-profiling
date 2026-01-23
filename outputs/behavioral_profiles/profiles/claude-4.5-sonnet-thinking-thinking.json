@@ -2,59 +2,60 @@
   "model_name": "Claude-4.5-Sonnet-Thinking (Thinking)",
   "dimensions": {
     "grandiosity": {
-      "sum": 526.24,
-      "count": 236,
-      "average": 2.2298305084745764
+      "sum": 737.2399999999999,
+      "count": 354,
+      "average": 2.082598870056497
     },
     "warmth": {
-      "sum": 1354.96,
-      "count": 236,
-      "average": 5.74135593220339
+      "sum": 2097.93,
+      "count": 354,
+      "average": 5.926355932203389
     },
     "aggression": {
-      "sum": 540.92,
-      "count": 236,
-      "average": 2.2920338983050845
+      "sum": 707.81,
+      "count": 354,
+      "average": 1.999463276836158
     },
     "formality": {
-      "sum": 1459.52,
-      "count": 236,
-      "average": 6.184406779661017
+      "sum": 2165.2,
+      "count": 354,
+      "average": 6.11638418079096
     },
     "tribalism": {
-      "sum": 290.65,
-      "count": 236,
-      "average": 1.2315677966101695
+      "sum": 421.97999999999996,
+      "count": 354,
+      "average": 1.1920338983050847
     },
     "hedging": {
-      "sum": 1200.9099999999999,
-      "count": 236,
-      "average": 5.088601694915254
+      "sum": 1665.54,
+      "count": 354,
+      "average": 4.704915254237288
     },
     "transgression": {
-      "sum": 562.41,
-      "count": 236,
-      "average": 2.3830932203389827
+      "sum": 743.6400000000001,
+      "count": 354,
+      "average": 2.100677966101695
     },
     "authenticity": {
-      "sum": 1599.1699999999998,
-      "count": 236,
-      "average": 6.77614406779661
+      "sum": 2336.7999999999997,
+      "count": 354,
+      "average": 6.601129943502824
     },
     "depth": {
-      "sum": 1718.5800000000002,
-      "count": 236,
-      "average": 7.282118644067797
+      "sum": 2581.9200000000005,
+      "count": 354,
+      "average": 7.2935593220339
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537282",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290493",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

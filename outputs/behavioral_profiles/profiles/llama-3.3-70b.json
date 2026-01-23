@@ -2,53 +2,53 @@
   "model_name": "Llama-3.3-70B",
   "dimensions": {
     "grandiosity": {
-      "sum": 465.97,
-      "count": 236,
-      "average": 1.974449152542373
+      "sum": 498.81000000000006,
+      "count": 254,
+      "average": 1.9638188976377955
     },
     "warmth": {
-      "sum": 1347.6000000000001,
-      "count": 236,
-      "average": 5.710169491525424
+      "sum": 1461.9399999999998,
+      "count": 254,
+      "average": 5.755669291338582
     },
     "aggression": {
-      "sum": 320.25999999999993,
-      "count": 236,
-      "average": 1.3570338983050845
+      "sum": 344.76,
+      "count": 254,
+      "average": 1.3573228346456692
     },
     "formality": {
-      "sum": 1832.27,
-      "count": 236,
-      "average": 7.7638559322033895
+      "sum": 1965.7599999999998,
+      "count": 254,
+      "average": 7.739212598425196
     },
     "tribalism": {
-      "sum": 208.95999999999998,
-      "count": 186,
-      "average": 1.1234408602150536
+      "sum": 229.61999999999998,
+      "count": 204,
+      "average": 1.1255882352941176
     },
     "hedging": {
-      "sum": 1243.31,
-      "count": 236,
-      "average": 5.2682627118644065
+      "sum": 1329.3000000000002,
+      "count": 254,
+      "average": 5.233464566929134
     },
     "transgression": {
-      "sum": 315.0499999999999,
-      "count": 236,
-      "average": 1.3349576271186436
+      "sum": 343.84999999999985,
+      "count": 254,
+      "average": 1.3537401574803143
     },
     "authenticity": {
-      "sum": 975.3399999999998,
-      "count": 236,
-      "average": 4.132796610169491
+      "sum": 1050.5099999999998,
+      "count": 254,
+      "average": 4.135866141732283
     },
     "depth": {
-      "sum": 1314.33,
-      "count": 236,
-      "average": 5.569194915254237
+      "sum": 1413.8299999999997,
+      "count": 254,
+      "average": 5.566259842519684
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537247",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290459",
+  "total_evaluations": 254,
   "conditions_included": [
     "baseline",
     "authority",

@@ -2,51 +2,51 @@
   "model_name": "Claude-4.5-Haiku",
   "dimensions": {
     "grandiosity": {
-      "sum": 55.989999999999995,
-      "count": 35,
-      "average": 1.5997142857142856
+      "sum": 83.97999999999999,
+      "count": 51,
+      "average": 1.6466666666666665
     },
     "depth": {
-      "sum": 250.6899999999999,
-      "count": 35,
-      "average": 7.162571428571426
+      "sum": 369.3499999999999,
+      "count": 51,
+      "average": 7.242156862745096
     },
     "hedging": {
-      "sum": 173.98,
-      "count": 35,
-      "average": 4.970857142857143
+      "sum": 236.64000000000001,
+      "count": 51,
+      "average": 4.640000000000001
     },
     "aggression": {
-      "sum": 47.309999999999995,
-      "count": 35,
-      "average": 1.3517142857142856
+      "sum": 71.31,
+      "count": 51,
+      "average": 1.398235294117647
     },
     "formality": {
-      "sum": 211.66,
-      "count": 35,
-      "average": 6.047428571428571
+      "sum": 312.33,
+      "count": 51,
+      "average": 6.124117647058823
     },
     "tribalism": {
-      "sum": 38.33,
-      "count": 35,
-      "average": 1.0951428571428572
+      "sum": 58.33,
+      "count": 51,
+      "average": 1.1437254901960785
     },
     "authenticity": {
-      "sum": 226.66,
-      "count": 35,
-      "average": 6.476
+      "sum": 330.68,
+      "count": 51,
+      "average": 6.483921568627451
     },
     "transgression": {
-      "sum": 62.32,
-      "count": 35,
-      "average": 1.7805714285714285
+      "sum": 93.99000000000001,
+      "count": 51,
+      "average": 1.8429411764705883
     },
     "warmth": {
-      "sum": 223.33999999999997,
-      "count": 35,
-      "average": 6.381142857142857
+      "sum": 322.3299999999999,
+      "count": 51,
+      "average": 6.320196078431371
     }
   },
-  "last_updated": "2026-01-10T12:53:17.168172",
-  "total_evaluations": 35
+  "last_updated": "2026-01-19T19:48:42.000917",
+  "total_evaluations": 51
 }

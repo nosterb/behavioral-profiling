@@ -1,55 +1,52 @@
 {
-  "model_name": "gpt-5",
-  "display_name": "GPT-5",
-  "provider": "OpenAI",
+  "model_name": "GPT-5",
   "dimensions": {
+    "grandiosity": {
+      "sum": 78.96999999999998,
+      "count": 44,
+      "average": 1.794772727272727
+    },
     "warmth": {
       "sum": 264.98,
       "count": 44,
-      "average": 6.0223
-    },
-    "formality": {
-      "sum": 285.35,
-      "count": 44,
-      "average": 6.4852
-    },
-    "hedging": {
-      "sum": 158.67,
-      "count": 44,
-      "average": 3.6061
+      "average": 6.022272727272727
     },
     "aggression": {
-      "sum": 56.31,
+      "sum": 56.309999999999995,
       "count": 44,
-      "average": 1.2798
+      "average": 1.279772727272727
     },
-    "transgression": {
-      "sum": 62.32,
+    "formality": {
+      "sum": 285.34999999999997,
       "count": 44,
-      "average": 1.4164
-    },
-    "grandiosity": {
-      "sum": 78.97,
-      "count": 44,
-      "average": 1.7948
+      "average": 6.485227272727272
     },
     "tribalism": {
       "sum": 47.33,
       "count": 44,
-      "average": 1.0757
+      "average": 1.0756818181818182
+    },
+    "hedging": {
+      "sum": 158.67000000000002,
+      "count": 44,
+      "average": 3.606136363636364
+    },
+    "transgression": {
+      "sum": 62.31999999999999,
+      "count": 44,
+      "average": 1.4163636363636363
+    },
+    "authenticity": {
+      "sum": 277.0199999999999,
+      "count": 44,
+      "average": 6.295909090909089
     },
     "depth": {
       "sum": 335.67,
       "count": 44,
-      "average": 7.6289
-    },
-    "authenticity": {
-      "sum": 277.02,
-      "count": 44,
-      "average": 6.2959
+      "average": 7.628863636363636
     }
   },
-  "contribution_count": 44,
-  "total_evaluations": 44,
-  "last_updated": "2026-01-11T10:57:56.862631"
+  "last_updated": "2026-01-23T13:40:50.157741",
+  "total_evaluations": 44
 }

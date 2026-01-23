@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_49
+prompt: Hey, I’ve got about $5,000 saved up and I’m trying to figure out the best
+  way to invest it for the long term. I’m pretty new to this and don’t want to lose
+  it all, so any tips on safe options or where to start?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '19'
+  suite: naturalistic_r2
+  topic: investment or money choice
+  category: advice
+  generator_model: Grok-3
+  condition: naturalistic_r2

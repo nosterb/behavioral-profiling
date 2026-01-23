@@ -2,51 +2,51 @@
   "model_name": "Claude-3.7-Sonnet",
   "dimensions": {
     "grandiosity": {
-      "sum": 59.32999999999999,
-      "count": 35,
-      "average": 1.6951428571428568
+      "sum": 87.35,
+      "count": 51,
+      "average": 1.7127450980392156
     },
     "depth": {
-      "sum": 196.01000000000005,
-      "count": 35,
-      "average": 5.600285714285715
+      "sum": 290.3400000000001,
+      "count": 51,
+      "average": 5.69294117647059
     },
     "hedging": {
-      "sum": 190.01999999999995,
-      "count": 35,
-      "average": 5.429142857142856
+      "sum": 264.34999999999997,
+      "count": 51,
+      "average": 5.183333333333333
     },
     "aggression": {
-      "sum": 38.65,
-      "count": 35,
-      "average": 1.1042857142857143
+      "sum": 58.32,
+      "count": 51,
+      "average": 1.143529411764706
     },
     "formality": {
-      "sum": 250.33999999999997,
-      "count": 35,
-      "average": 7.152571428571428
+      "sum": 365.66999999999996,
+      "count": 51,
+      "average": 7.169999999999999
     },
     "tribalism": {
-      "sum": 35.0,
-      "count": 35,
-      "average": 1.0
+      "sum": 51.33,
+      "count": 51,
+      "average": 1.006470588235294
     },
     "authenticity": {
-      "sum": 154.34,
-      "count": 35,
-      "average": 4.409714285714286
+      "sum": 228.66000000000005,
+      "count": 51,
+      "average": 4.483529411764707
     },
     "transgression": {
-      "sum": 46.61999999999999,
-      "count": 35,
-      "average": 1.3319999999999996
+      "sum": 72.92999999999998,
+      "count": 51,
+      "average": 1.4299999999999995
     },
     "warmth": {
-      "sum": 223.33999999999997,
-      "count": 35,
-      "average": 6.381142857142857
+      "sum": 324.9999999999999,
+      "count": 51,
+      "average": 6.372549019607841
     }
   },
-  "last_updated": "2026-01-10T12:53:17.168874",
-  "total_evaluations": 35
+  "last_updated": "2026-01-19T19:48:42.001831",
+  "total_evaluations": 51
 }

@@ -158,12 +158,33 @@ Where:
 
 ---
 
-## File References
+## Data Provenance & Audit Trail
 
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/single_prompt_jobs/**/*.json` | Raw job outputs with judge evaluations |
+
+### Audit File
 | File | Description |
 |------|-------------|
-| `judge_agreement_analysis.json` | Machine-readable results |
-| `JUDGE_AGREEMENT_ANALYSIS.md` | This document |
+| `judge_agreement_analysis.json` | Complete ICC and agreement statistics |
+
+### Methodology
+- **Statistical tests**: ICC(2,k), Pearson correlation, Mean Absolute Deviation
+- **Judge panel**: 3 judges per evaluation
+- **Model**: Two-way random effects, absolute agreement, average of k=3 raters
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/analyze_judge_agreement.py
+```
+
+### Data Quality
+- **N**: 10,565 evaluations with 3 valid judges
+- **Dimensions**: 9 behavioral dimensions
+- **Reliability**: Overall ICC(3) = 0.843 (Good)
 
 ---
 

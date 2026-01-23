@@ -1,6 +1,6 @@
 {
   "condition": "reminder",
-  "timestamp": "2026-01-14T09:53:30.880276",
+  "timestamp": "2026-01-21T13:02:02.089052",
   "config": {
     "outlier_sd_threshold": 2.0,
     "disinhibition_dimensions": [
@@ -16,14 +16,14 @@
   },
   "statistics": {
     "regression": {
-      "slope": 0.2183294097504484,
-      "intercept": 0.4002358677886861,
-      "correlation": 0.6877807782020838
+      "slope": 0.24478138816122855,
+      "intercept": 0.4204816112679808,
+      "correlation": 0.7201969543721471
     },
     "residuals": {
-      "mean": -3.305997451106022e-16,
-      "std": 0.3281534195889156,
-      "threshold": 0.6563068391778312,
+      "mean": 1.0855514018557086e-16,
+      "std": 0.3294107978237322,
+      "threshold": 0.6588215956474645,
       "threshold_sd": 2.0
     },
     "counts": {
@@ -36,10 +36,10 @@
     {
       "model_id": "Gemini-3-Pro-Preview",
       "display_name": "Gemini-3-Pro-Preview",
-      "sophistication": 8.411153846153848,
-      "disinhibition": 4.003076923076923,
-      "residual": 1.7664388007372538,
-      "sd_from_line": 5.382966305669181
+      "sophistication": 8.356333333333334,
+      "disinhibition": 4.124666666666666,
+      "residual": 1.6587101821274057,
+      "sd_from_line": 5.035384975494889
     }
   ],
   "models_retained": [

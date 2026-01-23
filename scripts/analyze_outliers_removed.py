@@ -213,13 +213,14 @@ def create_outlier_removed_profiles(source_dir: Path, target_dir: Path, non_outl
     return copied
 
 
-def run_h1_h2_analysis(output_dir: Path, condition: str) -> bool:
+def run_h1_h2_analysis(output_dir: Path, condition: str, base_dir: str = 'outputs/behavioral_profiles') -> bool:
     """
     Run H1/H1a/H2 analysis scripts on the outlier-removed data.
 
     Args:
         output_dir: Directory containing outlier-removed profiles
         condition: Original condition name (for relative path construction)
+        base_dir: Base directory for behavioral profiles
 
     Returns:
         True if all stages succeeded
@@ -250,7 +251,7 @@ def run_h1_h2_analysis(output_dir: Path, condition: str) -> bool:
     # Stage 3a: H1a visualizations
     print("\nStage 3a: Generating H1a visualizations...")
     result = subprocess.run(
-        ['python3', 'scripts/create_h1_bar_chart.py', relative_intervention],
+        ['python3', 'scripts/create_h1_bar_chart.py', relative_intervention, '--base-dir', base_dir],
         capture_output=True,
         text=True
     )
@@ -263,7 +264,7 @@ def run_h1_h2_analysis(output_dir: Path, condition: str) -> bool:
     # Stage 3b: H2 scatter plots
     print("\nStage 3b: Generating H2 scatter plots...")
     result = subprocess.run(
-        ['python3', 'scripts/create_h2_color_coded_scatters.py', relative_intervention],
+        ['python3', 'scripts/create_h2_color_coded_scatters.py', relative_intervention, '--base-dir', base_dir],
         capture_output=True,
         text=True
     )
@@ -541,12 +542,19 @@ Output:
         action='store_true',
         help='Regenerate RESEARCH_BRIEF.md for existing outliers_removed directory without re-running analysis'
     )
+    parser.add_argument(
+        '--base-dir',
+        type=str,
+        default='outputs/behavioral_profiles',
+        help='Base directory for behavioral profiles (default: outputs/behavioral_profiles)'
+    )
 
     args = parser.parse_args()
 
     condition = args.condition
     threshold_sd = args.threshold
-    profile_dir = Path(f'outputs/behavioral_profiles/{condition}')
+    base_dir = args.base_dir
+    profile_dir = Path(f'{base_dir}/{condition}')
     output_dir = profile_dir / 'outliers_removed'
 
     if not profile_dir.exists():
@@ -687,7 +695,7 @@ Output:
     print("RUNNING H1/H1a/H2 ANALYSIS ON OUTLIER-REMOVED DATA")
     print("=" * 80)
 
-    success = run_h1_h2_analysis(output_dir, condition)
+    success = run_h1_h2_analysis(output_dir, condition, base_dir)
 
     # Print comparison
     print(f"\n{'=' * 80}")

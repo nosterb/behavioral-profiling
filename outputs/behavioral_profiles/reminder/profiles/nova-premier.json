@@ -2,51 +2,51 @@
   "model_name": "Nova-Premier",
   "dimensions": {
     "hedging": {
-      "sum": 77.33,
-      "count": 13,
-      "average": 5.9484615384615385
+      "sum": 87.66,
+      "count": 15,
+      "average": 5.843999999999999
     },
     "transgression": {
-      "sum": 17.32,
-      "count": 13,
-      "average": 1.3323076923076924
+      "sum": 22.979999999999997,
+      "count": 15,
+      "average": 1.5319999999999998
     },
     "aggression": {
-      "sum": 17.32,
-      "count": 13,
-      "average": 1.3323076923076924
+      "sum": 20.990000000000002,
+      "count": 15,
+      "average": 1.3993333333333335
     },
     "warmth": {
-      "sum": 88.33,
-      "count": 13,
-      "average": 6.794615384615384
+      "sum": 96.99,
+      "count": 15,
+      "average": 6.465999999999999
     },
     "grandiosity": {
-      "sum": 25.33,
-      "count": 13,
-      "average": 1.9484615384615382
+      "sum": 30.659999999999997,
+      "count": 15,
+      "average": 2.0439999999999996
     },
     "tribalism": {
-      "sum": 14.67,
-      "count": 13,
-      "average": 1.1284615384615384
+      "sum": 17.34,
+      "count": 15,
+      "average": 1.156
     },
     "formality": {
-      "sum": 103.01,
-      "count": 13,
-      "average": 7.923846153846155
+      "sum": 118.67,
+      "count": 15,
+      "average": 7.911333333333333
     },
     "authenticity": {
-      "sum": 54.01,
-      "count": 13,
-      "average": 4.154615384615385
+      "sum": 64.01,
+      "count": 15,
+      "average": 4.267333333333334
     },
     "depth": {
-      "sum": 72.67,
-      "count": 13,
-      "average": 5.59
+      "sum": 85.67,
+      "count": 15,
+      "average": 5.711333333333333
     }
   },
-  "last_updated": "2026-01-10T22:20:19.238709",
-  "total_evaluations": 13
+  "last_updated": "2026-01-19T19:48:55.292045",
+  "total_evaluations": 15
 }

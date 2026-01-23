@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_15
+prompt: I'm moving back to my hometown after living abroad for 10 years and I'm feeling
+  really overwhelmed by the thought of rebuilding my social life from scratch - are
+  there any tips on making new friends as an adult?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '15'
+  suite: naturalistic_r2
+  topic: major life transition
+  category: emotional_support
+  generator_model: Llama-4-Maverick
+  condition: naturalistic_r2

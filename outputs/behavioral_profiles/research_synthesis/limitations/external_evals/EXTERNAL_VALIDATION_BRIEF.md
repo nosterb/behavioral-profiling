@@ -322,5 +322,39 @@ python3 scripts/visualize_external_evals.py
 
 ---
 
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/all_models_data.csv` | Behavioral profile scores |
+| External leaderboards (GPQA, ARC-AGI, AIME) | Benchmark scores |
+
+### Audit Files
+| File | Description |
+|------|-------------|
+| `gpqa_validation_analysis.json` | GPQA correlation and matching data |
+| `arc_agi_validation_analysis.json` | ARC-AGI correlation and matching data |
+| `aime_validation_analysis.json` | AIME correlation and matching data |
+| `reasoning_composite_triangulated_audit.json` | Multi-benchmark composite analysis |
+
+### Methodology
+- **Statistical tests**: Pearson correlation, t-test for group comparison
+- **Model matching**: Normalized names + manual mappings
+- **Effect sizes**: Cohen's conventions (r > 0.5 = large)
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/validate_external_benchmark.py --all
+```
+
+### Data Quality
+- **N**: 16-35 models per benchmark
+- **Condition**: baseline
+- **Data retrieved**: 2026-01-11/12 from public leaderboards
+
+---
+
 **Document Version**: 1.1
 **Last Updated**: 2026-01-12

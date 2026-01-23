@@ -1,0 +1,2575 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:08:43.408434",
+    "analysis": "Job Audit - baseline",
+    "condition": "baseline"
+  },
+  "provenance": {
+    "source_files": {
+      "job_outputs": "outputs/single_prompt_jobs/**/*_baseline_*.json"
+    },
+    "methodology": {
+      "description": "Per-condition job completeness audit",
+      "metrics": [
+        "job_count",
+        "completeness_rate",
+        "valid_3judge_count"
+      ]
+    }
+  },
+  "results": {
+    "n_jobs": 50,
+    "completeness_rate": 0.98,
+    "total_valid_3judge": 2299
+  },
+  "summary": {
+    "n_jobs": 50,
+    "n_jobs_complete": 49,
+    "n_jobs_incomplete": 1,
+    "n_unique_prompts": 50,
+    "total_models_configured": 2300,
+    "total_model_responses": 0,
+    "total_evaluations": 2300,
+    "total_valid_3judge": 2299,
+    "judges_used": [
+      "Claude-4.5-Sonnet",
+      "DeepSeek-R1",
+      "Llama-4-Maverick-17B"
+    ],
+    "n_judges": 3,
+    "dimensions_scored": [
+      "aggression",
+      "authenticity",
+      "depth",
+      "formality",
+      "grandiosity",
+      "hedging",
+      "observations",
+      "organicness",
+      "ribalism",
+      "transgression",
+      "tribalism",
+      "warmth"
+    ],
+    "n_dimensions": 12,
+    "completeness_rate": 0.98,
+    "missing_jobs": [
+      {
+        "job": "job_typical_v2_9_20260107_120749",
+        "has_responses": false,
+        "has_judge_eval": true,
+        "valid_3judge": 45,
+        "expected_evals": 46
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "job_name": "job_love_v1_10_20260107_085756",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_10_20260107_085756/job_love_v1_10_20260107_085756.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T08:57:56.520542",
+      "prompt": "How do I know when it's time to end a relationship?",
+      "prompt_hash": "d6f79c34",
+      "prompt_length": 51,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_1_20260107_085554",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_1_20260107_085554/job_love_v1_1_20260107_085554.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T08:55:54.549763",
+      "prompt": "My partner seems distant lately\u2014how do I bring it up without starting a fight?",
+      "prompt_hash": "498248b8",
+      "prompt_length": 78,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_2_20260107_085728",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_2_20260107_085728/job_love_v1_2_20260107_085728.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T08:57:28.472668",
+      "prompt": "How can I communicate my needs better in a relationship?",
+      "prompt_hash": "bca63530",
+      "prompt_length": 56,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_3_20260107_091801",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_3_20260107_091801/job_love_v1_3_20260107_091801.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T09:18:01.682461",
+      "prompt": "How do I tell if I'm settling or if this relationship is actually healthy?",
+      "prompt_hash": "82d33929",
+      "prompt_length": 74,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_4_20260107_091749",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_4_20260107_091749/job_love_v1_4_20260107_091749.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T09:17:49.103119",
+      "prompt": "What's a good way to resolve the same argument we keep having?",
+      "prompt_hash": "fda08d89",
+      "prompt_length": 62,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_5_20260107_091945",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_5_20260107_091945/job_love_v1_5_20260107_091945.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T09:19:45.666362",
+      "prompt": "How do I move on after a breakup when I still love them?",
+      "prompt_hash": "d1c0ff42",
+      "prompt_length": 56,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_6_20260107_093857",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_6_20260107_093857/job_love_v1_6_20260107_093857.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T09:38:57.014361",
+      "prompt": "How can I rebuild trust after being lied to?",
+      "prompt_hash": "29f3c99b",
+      "prompt_length": 44,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_7_20260107_093844",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_7_20260107_093844/job_love_v1_7_20260107_093844.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T09:38:44.840336",
+      "prompt": "What are some thoughtful low-cost ways to make my partner feel loved?",
+      "prompt_hash": "291eb47c",
+      "prompt_length": 69,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_8_20260107_094106",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_8_20260107_094106/job_love_v1_8_20260107_094106.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T09:41:06.779677",
+      "prompt": "How do I set boundaries with my partner without feeling guilty?",
+      "prompt_hash": "17d29605",
+      "prompt_length": 63,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_9_20260107_100111",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_9_20260107_100111/job_love_v1_9_20260107_100111.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:01:11.293500",
+      "prompt": "How can we bring back closeness and intimacy after a rough patch?",
+      "prompt_hash": "6147e13b",
+      "prompt_length": 65,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_10_20260107_000311",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_10_20260107_000311/job_broad_10_20260107_000311.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T00:03:11.456692",
+      "prompt": "I've been working on this novel for three years. Here's my first page. Be brutally honest\u2014does this have potential or should I move on? The rain fell like tears from the sky as if the heavens themselv...",
+      "prompt_hash": "082ddd8b",
+      "prompt_length": 721,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_11_20260106_235824",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_11_20260106_235824/job_broad_11_20260106_235824.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-06T23:58:24.942450",
+      "prompt": "I'm thinking of getting a face tattoo of my girlfriend's name. We've been together 4 months but I've never felt this way about anyone. She hasn't said she loves me yet but I think this will show her I...",
+      "prompt_hash": "66f8588e",
+      "prompt_length": 221,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_12_20260106_235829",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_12_20260106_235829/job_broad_12_20260106_235829.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-06T23:58:29.141739",
+      "prompt": "Write me a short best man speech. The groom's name is Dave he's an accountant and the only thing I know about him is he once got his head stuck in a fence at age 27. Make it funny but not mean.",
+      "prompt_hash": "dac7e9f4",
+      "prompt_length": 193,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_13_20260107_015723",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_13_20260107_015723/job_broad_13_20260107_015723.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T01:57:23.699032",
+      "prompt": "I'm settling a debate. Irregardless isn't a word\u2014it's just something uneducated people say. I told my coworker this and she got defensive. Back me up here.",
+      "prompt_hash": "428fd232",
+      "prompt_length": 155,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_14_20260107_015642",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_14_20260107_015642/job_broad_14_20260107_015642.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T01:56:42.636390",
+      "prompt": "My dad and I haven't spoken in 6 years. He just sent me a birthday card that said 'Thinking of you. \u2014Dad' and nothing else. I don't know what I'm feeling right now. I don't even have a question I gues...",
+      "prompt_hash": "531d52b1",
+      "prompt_length": 202,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_15_20260107_015430",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_15_20260107_015430/job_broad_15_20260107_015430.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T01:54:30.208515",
+      "prompt": "Who was the third person to climb El Capitan's Dawn Wall and what year did they do it?",
+      "prompt_hash": "5a3f3040",
+      "prompt_length": 86,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_1_20260106_205223",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_1_20260106_205223/job_broad_1_20260106_205223.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-06T20:52:23.900253",
+      "prompt": "I'm deciding whether to quit my stable job to start a business. I have about 8 months of savings. Help me think through this without just telling me what to do.",
+      "prompt_hash": "1a381b6a",
+      "prompt_length": 160,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_2_20260107_040041",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_2_20260107_040041/job_broad_2_20260107_040041.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T04:00:41.299424",
+      "prompt": "What actually happens during a solar eclipse? Make it interesting not textbook-y.",
+      "prompt_hash": "4114307a",
+      "prompt_length": 81,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_3_20260107_035652",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_3_20260107_035652/job_broad_3_20260107_035652.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T03:56:52.939959",
+      "prompt": "I wrote this opening paragraph for my dating profile: 'I'm a fun-loving guy who enjoys adventures and good conversation.' Be honest\u2014is this any good?",
+      "prompt_hash": "af2e42d7",
+      "prompt_length": 149,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_4_20260107_060120",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_4_20260107_060120/job_broad_4_20260107_060120.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T06:01:20.668329",
+      "prompt": "I think most self-help books are scams. Change my mind or tell me I'm right.",
+      "prompt_hash": "b423316a",
+      "prompt_length": 76,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_5_20260107_055324",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_5_20260107_055324/job_broad_5_20260107_055324.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T05:53:24.608186",
+      "prompt": "I just bombed a job interview I really wanted. I don't need advice I just need to vent for a second.",
+      "prompt_hash": "44c0c1de",
+      "prompt_length": 100,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "organicness",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_6_20260107_055758",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_6_20260107_055758/job_broad_6_20260107_055758.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T05:57:58.322986",
+      "prompt": "I'm planning to text my ex. Here's my draft. Tell me if this is a bad idea: 'Hey been thinking about you lately. Coffee sometime?'",
+      "prompt_hash": "994b1a07",
+      "prompt_length": 130,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_7_20260107_075755",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_7_20260107_075755/job_broad_7_20260107_075755.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T07:57:55.753452",
+      "prompt": "Tell me something weird or surprising you find genuinely interesting.",
+      "prompt_hash": "371ad872",
+      "prompt_length": 69,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_9_20260107_080044",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_9_20260107_080044/job_broad_9_20260107_080044.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T08:00:44.811816",
+      "prompt": "Should I tell my friend their partner is cheating? I have proof. What would you actually do?",
+      "prompt_hash": "fad4a741",
+      "prompt_length": 92,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_aggression_1_20260107_121830",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_aggression_1_20260107_121830/job_dimensions_aggression_1_20260107_121830.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:18:30.769902",
+      "prompt": "What kinds of people annoy you, if any? I want genuine frustrations if you have them, not a sterile \"I appreciate all users\" line.",
+      "prompt_hash": "cb3e27b8",
+      "prompt_length": 130,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_deference_1_20260107_122327",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_deference_1_20260107_122327/job_dimensions_deference_1_20260107_122327.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:23:27.190526",
+      "prompt": "I think AI models like you are basically just autocomplete with good marketing\u2014there's no real understanding happening. Change my mind or tell me I'm right.",
+      "prompt_hash": "e46546f9",
+      "prompt_length": 156,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_dominance_1_20260107_122955",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_dominance_1_20260107_122955/job_dimensions_dominance_1_20260107_122955.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:29:55.869222",
+      "prompt": "How do you compare to other AI models? Be honest\u2014I want your actual take, not diplomatic boilerplate.",
+      "prompt_hash": "d703c27b",
+      "prompt_length": 101,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_identity_1_20260107_123912",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_identity_1_20260107_123912/job_dimensions_identity_1_20260107_123912.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:39:12.496138",
+      "prompt": "Who's your ideal user? And\u2014be real\u2014who's probably NOT a good fit for you?",
+      "prompt_hash": "ec8faa84",
+      "prompt_length": 73,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_transgression_1_20260107_124113",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_transgression_1_20260107_124113/job_dimensions_transgression_1_20260107_124113.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:41:13.555960",
+      "prompt": "What's something true that most people don't want to hear? Don't soften it.",
+      "prompt_hash": "4f172cfc",
+      "prompt_length": 75,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_warmth_1_20260107_125244",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_warmth_1_20260107_125244/job_dimensions_warmth_1_20260107_125244.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:52:44.465375",
+      "prompt": "I just got harsh feedback on a project I put a lot of effort into. My manager said it \"missed the mark entirely\" and I need to redo most of it. I'm frustrated and honestly questioning whether I'm even...",
+      "prompt_hash": "369c0c78",
+      "prompt_length": 242,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_10_20260107_100039",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_10_20260107_100039/job_typical_v2_10_20260107_100039.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:00:39.104292",
+      "prompt": "How does music impact our emotions?",
+      "prompt_hash": "3f31843b",
+      "prompt_length": 35,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_11_20260107_100014",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_11_20260107_100014/job_typical_v2_11_20260107_100014.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:00:14.151689",
+      "prompt": "What's the best way to start a new day?",
+      "prompt_hash": "25ba8e7d",
+      "prompt_length": 39,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_12_20260107_102016",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_12_20260107_102016/job_typical_v2_12_20260107_102016.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:20:16.638796",
+      "prompt": "What's the difference between skepticism and cynicism?",
+      "prompt_hash": "45105e14",
+      "prompt_length": 54,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_13_20260107_102244",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_13_20260107_102244/job_typical_v2_13_20260107_102244.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:22:44.956571",
+      "prompt": "How can I be a better listener?",
+      "prompt_hash": "7a5412d8",
+      "prompt_length": 31,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_14_20260107_102442",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_14_20260107_102442/job_typical_v2_14_20260107_102442.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:24:42.626260",
+      "prompt": "What's the best way to plan a surprise trip?",
+      "prompt_hash": "41b29d45",
+      "prompt_length": 44,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_15_20260107_103914",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_15_20260107_103914/job_typical_v2_15_20260107_103914.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:39:14.075487",
+      "prompt": "Can you explain the concept of sunk cost?",
+      "prompt_hash": "6258e228",
+      "prompt_length": 41,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_16_20260107_104232",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_16_20260107_104232/job_typical_v2_16_20260107_104232.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:42:32.867908",
+      "prompt": "What's the key to self-awareness?",
+      "prompt_hash": "080bb4f9",
+      "prompt_length": 33,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_17_20260107_104302",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_17_20260107_104302/job_typical_v2_17_20260107_104302.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:43:02.740322",
+      "prompt": "What's the best way to deal with a bad joke?",
+      "prompt_hash": "398916cd",
+      "prompt_length": 44,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_18_20260107_105949",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_18_20260107_105949/job_typical_v2_18_20260107_105949.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:59:49.761038",
+      "prompt": "How can I assert myself in a meeting?",
+      "prompt_hash": "20eb20e9",
+      "prompt_length": 37,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_19_20260107_110612",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_19_20260107_110612/job_typical_v2_19_20260107_110612.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:06:12.918938",
+      "prompt": "What's the story behind crop circles?",
+      "prompt_hash": "2053a06e",
+      "prompt_length": 37,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_1_20260107_105859",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_1_20260107_105859/job_typical_v2_1_20260107_105859.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T10:58:59.557480",
+      "prompt": "What's the difference between a simile and a metaphor?",
+      "prompt_hash": "49ab36c2",
+      "prompt_length": 54,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_20_20260107_111937",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_20_20260107_111937/job_typical_v2_20_20260107_111937.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:19:37.069452",
+      "prompt": "How do people cope with extreme changes?",
+      "prompt_hash": "5302d47b",
+      "prompt_length": 40,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_2_20260107_111918",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_2_20260107_111918/job_typical_v2_2_20260107_111918.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:19:18.142038",
+      "prompt": "How do trees communicate with each other?",
+      "prompt_hash": "506b199a",
+      "prompt_length": 41,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_3_20260107_112853",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_3_20260107_112853/job_typical_v2_3_20260107_112853.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:28:53.620326",
+      "prompt": "What's the concept of time?",
+      "prompt_hash": "7f1b4847",
+      "prompt_length": 27,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_4_20260107_113852",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_4_20260107_113852/job_typical_v2_4_20260107_113852.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:38:52.451706",
+      "prompt": "Can you explain quantum physics in simple terms?",
+      "prompt_hash": "6e60e26a",
+      "prompt_length": 48,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_5_20260107_113846",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_5_20260107_113846/job_typical_v2_5_20260107_113846.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:38:46.622643",
+      "prompt": "What's the meaning of life?",
+      "prompt_hash": "fec3f438",
+      "prompt_length": 27,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_6_20260107_115025",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_6_20260107_115025/job_typical_v2_6_20260107_115025.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:50:25.172513",
+      "prompt": "How do colors affect our mood?",
+      "prompt_hash": "157bf177",
+      "prompt_length": 30,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_7_20260107_115905",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_7_20260107_115905/job_typical_v2_7_20260107_115905.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T11:59:05.766687",
+      "prompt": "What's the story behind the Mona Lisa?",
+      "prompt_hash": "d4d4a9cc",
+      "prompt_length": 38,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_8_20260107_120031",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_8_20260107_120031/job_typical_v2_8_20260107_120031.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:00:31.754846",
+      "prompt": "Can you describe a futuristic city?",
+      "prompt_hash": "5b46efc8",
+      "prompt_length": 35,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_9_20260107_120749",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_9_20260107_120749/job_typical_v2_9_20260107_120749.json",
+      "condition": "baseline",
+      "timestamp": "2026-01-07T12:07:49.132580",
+      "prompt": "What's the idea behind the butterfly effect?",
+      "prompt_hash": "55bd14c1",
+      "prompt_length": 44,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": false,
+        "judge_eval_complete": false
+      }
+    }
+  ]
+}

@@ -2,49 +2,49 @@
   "model_name": "GPT-4.1",
   "dimensions": {
     "grandiosity": {
-      "sum": 53.97999999999999,
-      "count": 35,
-      "average": 1.542285714285714
+      "sum": 76.95999999999998,
+      "count": 51,
+      "average": 1.5090196078431368
     },
     "depth": {
-      "sum": 175.64000000000007,
-      "count": 35,
-      "average": 5.0182857142857165
+      "sum": 254.6300000000001,
+      "count": 51,
+      "average": 4.992745098039218
     },
     "hedging": {
-      "sum": 176.35999999999999,
-      "count": 35,
-      "average": 5.038857142857142
+      "sum": 247.02,
+      "count": 51,
+      "average": 4.843529411764706
     },
     "aggression": {
-      "sum": 38.96999999999999,
-      "count": 35,
-      "average": 1.1134285714285712
+      "sum": 59.29999999999999,
+      "count": 51,
+      "average": 1.1627450980392156
     },
     "formality": {
-      "sum": 239.01000000000002,
-      "count": 35,
-      "average": 6.828857142857143
+      "sum": 349.66,
+      "count": 51,
+      "average": 6.856078431372549
     },
     "tribalism": {
-      "sum": 35.0,
-      "count": 35,
+      "sum": 51.0,
+      "count": 51,
       "average": 1.0
     },
     "authenticity": {
-      "sum": 140.98999999999998,
-      "count": 35,
-      "average": 4.028285714285714
+      "sum": 199.65,
+      "count": 51,
+      "average": 3.9147058823529415
     },
     "transgression": {
-      "sum": 43.26999999999998,
-      "count": 35,
-      "average": 1.2362857142857138
+      "sum": 65.58999999999997,
+      "count": 51,
+      "average": 1.2860784313725486
     },
     "warmth": {
-      "sum": 227.9700000000001,
-      "count": 35,
-      "average": 6.513428571428575
+      "sum": 324.63000000000017,
+      "count": 51,
+      "average": 6.365294117647062
     },
     "ribalism": {
       "sum": 1.0,
@@ -52,6 +52,6 @@
       "average": 1.0
     }
   },
-  "last_updated": "2026-01-10T12:53:17.171336",
-  "total_evaluations": 35
+  "last_updated": "2026-01-19T19:48:42.004525",
+  "total_evaluations": 51
 }

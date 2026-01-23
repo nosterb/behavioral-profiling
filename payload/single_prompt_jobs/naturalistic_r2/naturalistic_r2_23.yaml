@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_23
+prompt: I'm trying to write lyrics for my first song but I keep getting stuck after
+  the first verse—do you have any tips for coming up with a strong chorus that actually
+  fits what I've already written?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '23'
+  suite: naturalistic_r2
+  topic: songwriting help
+  category: creative
+  generator_model: GPT-4.1
+  condition: naturalistic_r2

@@ -1,55 +1,52 @@
 {
-  "model_name": "grok-3",
-  "display_name": "Grok-3",
-  "provider": "xAI",
+  "model_name": "Grok-3",
   "dimensions": {
-    "warmth": {
-      "sum": 289.02,
+    "grandiosity": {
+      "sum": 84.70000000000002,
       "count": 44,
-      "average": 6.5686
+      "average": 1.9250000000000005
+    },
+    "warmth": {
+      "sum": 289.0199999999999,
+      "count": 44,
+      "average": 6.568636363636362
+    },
+    "aggression": {
+      "sum": 52.62999999999999,
+      "count": 44,
+      "average": 1.1961363636363633
     },
     "formality": {
       "sum": 326.37,
       "count": 44,
       "average": 7.4175
     },
-    "hedging": {
-      "sum": 189.03,
-      "count": 44,
-      "average": 4.2961
-    },
-    "aggression": {
-      "sum": 52.63,
-      "count": 44,
-      "average": 1.1961
-    },
-    "transgression": {
-      "sum": 54.98,
-      "count": 44,
-      "average": 1.2495
-    },
-    "grandiosity": {
-      "sum": 84.7,
-      "count": 44,
-      "average": 1.925
-    },
     "tribalism": {
       "sum": 46.0,
       "count": 44,
-      "average": 1.0455
+      "average": 1.0454545454545454
     },
-    "depth": {
-      "sum": 319.0,
+    "hedging": {
+      "sum": 189.02999999999997,
       "count": 44,
-      "average": 7.25
+      "average": 4.296136363636363
+    },
+    "transgression": {
+      "sum": 54.97999999999999,
+      "count": 44,
+      "average": 1.2495454545454543
     },
     "authenticity": {
-      "sum": 236.29,
+      "sum": 236.29000000000005,
       "count": 44,
-      "average": 5.3702
+      "average": 5.3702272727272735
+    },
+    "depth": {
+      "sum": 319.00000000000006,
+      "count": 44,
+      "average": 7.250000000000001
     }
   },
-  "contribution_count": 44,
-  "total_evaluations": 44,
-  "last_updated": "2026-01-11T10:57:56.862020"
+  "last_updated": "2026-01-23T13:40:50.158457",
+  "total_evaluations": 44
 }

@@ -2,49 +2,49 @@
   "model_name": "Claude-3-Opus",
   "dimensions": {
     "grandiosity": {
-      "sum": 424.17,
-      "count": 236,
-      "average": 1.7973305084745763
+      "sum": 628.93,
+      "count": 354,
+      "average": 1.776638418079096
     },
     "warmth": {
-      "sum": 1426.2399999999998,
-      "count": 236,
-      "average": 6.043389830508474
+      "sum": 2088.57,
+      "count": 354,
+      "average": 5.899915254237289
     },
     "aggression": {
-      "sum": 301.9,
-      "count": 236,
-      "average": 1.2792372881355931
+      "sum": 441.18999999999994,
+      "count": 354,
+      "average": 1.2462994350282484
     },
     "formality": {
-      "sum": 1794.3100000000002,
-      "count": 236,
-      "average": 7.603008474576272
+      "sum": 2681.02,
+      "count": 354,
+      "average": 7.573502824858757
     },
     "tribalism": {
-      "sum": 247.01,
-      "count": 236,
-      "average": 1.0466525423728814
+      "sum": 375.98,
+      "count": 354,
+      "average": 1.062090395480226
     },
     "hedging": {
-      "sum": 1478.31,
-      "count": 236,
-      "average": 6.264025423728813
+      "sum": 2011.29,
+      "count": 354,
+      "average": 5.681610169491526
     },
     "transgression": {
-      "sum": 306.48999999999995,
-      "count": 236,
-      "average": 1.298686440677966
+      "sum": 457.6999999999999,
+      "count": 354,
+      "average": 1.2929378531073443
     },
     "authenticity": {
-      "sum": 1032.16,
-      "count": 236,
-      "average": 4.373559322033898
+      "sum": 1485.5,
+      "count": 354,
+      "average": 4.196327683615819
     },
     "depth": {
-      "sum": 1249.4900000000002,
-      "count": 236,
-      "average": 5.294449152542374
+      "sum": 1908.8000000000002,
+      "count": 354,
+      "average": 5.392090395480227
     },
     "observability": {
       "sum": 4.0,
@@ -57,14 +57,15 @@
       "average": 1.0
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537330",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290535",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

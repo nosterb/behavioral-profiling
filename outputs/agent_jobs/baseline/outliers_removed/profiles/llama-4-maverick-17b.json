@@ -1,0 +1,52 @@
+{
+  "model_name": "Llama-4-Maverick-17B",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 89.03,
+      "count": 50,
+      "average": 1.7806
+    },
+    "warmth": {
+      "sum": 287.31,
+      "count": 50,
+      "average": 5.7462
+    },
+    "aggression": {
+      "sum": 62.95999999999999,
+      "count": 50,
+      "average": 1.2591999999999997
+    },
+    "formality": {
+      "sum": 378.98999999999995,
+      "count": 50,
+      "average": 7.579799999999999
+    },
+    "tribalism": {
+      "sum": 51.33,
+      "count": 50,
+      "average": 1.0266
+    },
+    "hedging": {
+      "sum": 242.65000000000012,
+      "count": 50,
+      "average": 4.853000000000002
+    },
+    "transgression": {
+      "sum": 68.61999999999999,
+      "count": 50,
+      "average": 1.3723999999999998
+    },
+    "authenticity": {
+      "sum": 216.33999999999997,
+      "count": 50,
+      "average": 4.3267999999999995
+    },
+    "depth": {
+      "sum": 291.6400000000001,
+      "count": 50,
+      "average": 5.832800000000002
+    }
+  },
+  "last_updated": "2026-01-08T21:16:31.407355",
+  "total_evaluations": 50
+}

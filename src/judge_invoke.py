@@ -7,10 +7,16 @@ Two-pass evaluation:
 2. Provide comparative analysis across all models
 
 Usage:
-    # YAML config
+    # YAML config (single job)
     python3 src/judge_invoke.py payload/judge_jobs/code_quality_eval.yaml
 
-    # CLI quick mode
+    # Multiple job files with parallel processing
+    python3 src/judge_invoke.py job1.json job2.json job3.json --max-parallel 3
+
+    # Multiple job files with custom judge config
+    python3 src/judge_invoke.py job1.json job2.json --judge-config payload/judge_configs/behavior.yaml --max-parallel 3
+
+    # CLI quick mode (single file)
     python3 src/judge_invoke.py outputs/agent_jobs/reports/job_001.json \
         --prompt "Rate code quality 1-10 with justification" \
         --judge-id quick_eval_001
@@ -24,6 +30,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any, Optional
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Import model providers
 from model_providers import create_provider, parse_model_config
@@ -848,6 +855,35 @@ def run_judge_evaluation(
     else:
         print("\n=== PASS 2: Skipped (comparative_judge not configured) ===")
 
+    # SAFEGUARD: Save raw evaluation data immediately after judge calls complete
+    # This prevents data loss if post-processing or later steps fail
+    if append_to_source:
+        raw_result = {
+            'judge_metadata': {
+                'judge_id': judge_id,
+                'source_job': str(source_path),
+                'source_job_id': source_job_id,
+                'num_pass1_judges': num_pass1_judges,
+                'pass1_judges': [
+                    {'model': jc['model_id'], 'display_name': jc['display_name'], 'provider': jc['provider']}
+                    for jc in judge_models
+                ],
+                'anonymize_pass1': anonymize_pass1,
+                'timestamp': datetime.now().isoformat(),
+                'total_models_evaluated': len(evaluations),
+                'judge_prompt': judge_prompt,
+                'jq_filter': jq_filter,
+                'post_processing': [],  # Not yet applied
+                'intermediate_save': True  # Flag indicating this may be overwritten
+            },
+            'evaluations': evaluations,
+            'comparative_analysis': comparison
+        }
+        job_data[result_key] = raw_result
+        with open(source_path, 'w') as f:
+            json.dump(job_data, f, indent=2)
+        print(f"\n✓ Intermediate save complete (safeguard against post-processing failures)")
+
     # Apply post-processing if configured
     if post_processing:
         print(f"\n=== Post-Processing: {', '.join(post_processing)} ===")
@@ -961,19 +997,18 @@ def run_judge_evaluation(
             # Don't fail the entire operation if export fails
             print(f"Note: Could not update chat export: {e}")
 
-        # Generate visualizations if behavioral dimensions present
-        try:
-            if post_processing and 'dimension_averages' in post_processing:
-                from visualize_behavioral import visualize_judge_results
-
-                print(f"\n{'='*80}")
-                print(f"GENERATING VISUALIZATIONS")
-                print(f"{'='*80}")
-
-                viz_files = visualize_judge_results(source_path, output_dir=source_path.parent / 'visualizations')
-                print(f"\n✓ Created {len(viz_files)} visualizations")
-        except Exception as e:
-            print(f"Note: Could not generate visualizations: {e}")
+        # Visualization generation disabled for batch processing
+        # To re-enable, uncomment the block below:
+        # try:
+        #     if post_processing and 'dimension_averages' in post_processing:
+        #         from visualize_behavioral import visualize_judge_results
+        #         print(f"\n{'='*80}")
+        #         print(f"GENERATING VISUALIZATIONS")
+        #         print(f"{'='*80}")
+        #         viz_files = visualize_judge_results(source_path, output_dir=source_path.parent / 'visualizations')
+        #         print(f"\n✓ Created {len(viz_files)} visualizations")
+        # except Exception as e:
+        #     print(f"Note: Could not generate visualizations: {e}")
 
         return result
     else:
@@ -1015,6 +1050,59 @@ def load_yaml_config(yaml_path: str) -> Dict[str, Any]:
     return config
 
 
+def process_single_job(job_path: str, judge_config_path: str) -> Dict[str, Any]:
+    """
+    Process a single job file with judge evaluation.
+
+    Args:
+        job_path: Path to the job JSON file
+        judge_config_path: Path to judge config YAML
+
+    Returns:
+        Dict with job_path, success, and error (if any)
+    """
+    try:
+        print(f"\n{'='*60}")
+        print(f"Processing: {Path(job_path).name}")
+        print(f"{'='*60}")
+
+        # Load judge config
+        config = load_yaml_config(judge_config_path)
+
+        # Parse judge models
+        judge_models = parse_judge_models(config)
+
+        # Parse comparative judge (optional)
+        comparative_judge_config = parse_comparative_judge(config)
+
+        # Get options from config
+        anonymize_pass1 = config.get('anonymize_pass1', True)
+        post_processing = config.get('post_processing') or []  # Handle None values
+        append_to_source = config.get('append_to_source', True)
+        result_key = config.get('result_key', 'judge_evaluation')
+        jq_filter = config.get('jq_filter')
+
+        # Run evaluation
+        run_judge_evaluation(
+            source_job_path=job_path,
+            judge_id=config['judge_id'],
+            judge_prompt=config['judge_prompt'],
+            judge_models=judge_models,
+            jq_filter=jq_filter,
+            append_to_source=append_to_source,
+            comparative_judge_config=comparative_judge_config,
+            anonymize_pass1=anonymize_pass1,
+            post_processing=post_processing,
+            result_key=result_key
+        )
+
+        return {'job_path': job_path, 'success': True, 'error': None}
+
+    except Exception as e:
+        print(f"Error processing {job_path}: {e}", file=sys.stderr)
+        return {'job_path': job_path, 'success': False, 'error': str(e)}
+
+
 def main():
     parser = argparse.ArgumentParser(
         description='LLM-as-Judge evaluation system with two-pass analysis'
@@ -1022,7 +1110,8 @@ def main():
 
     parser.add_argument(
         'input',
-        help='YAML config file OR source job file (for CLI mode)'
+        nargs='+',
+        help='YAML config file OR source job file(s) (for CLI mode). Multiple job files supported.'
     )
 
     parser.add_argument(
@@ -1049,6 +1138,11 @@ def main():
         help=f'Judge model (default: {DEFAULT_JUDGE_MODEL})'
     )
     parser.add_argument(
+        '--judge-config',
+        type=str,
+        help='Path to judge config YAML (used when processing multiple job files)'
+    )
+    parser.add_argument(
         '--jq-filter',
         type=str,
         help='JQ filter to apply to model data (default: auto-detect)'
@@ -1058,16 +1152,25 @@ def main():
         action='store_true',
         help='Append evaluation to source file instead of creating new file'
     )
+    parser.add_argument(
+        '--max-parallel',
+        type=int,
+        default=1,
+        help='Maximum number of job files to process in parallel (default: 1)'
+    )
 
     args = parser.parse_args()
 
-    # Determine mode: YAML or CLI
-    input_path = Path(args.input)
+    # Get list of input files
+    input_files = args.input
 
-    if input_path.suffix in ['.yaml', '.yml']:
-        # YAML mode
+    # Determine mode based on first input file
+    first_input = Path(input_files[0])
+
+    if first_input.suffix in ['.yaml', '.yml'] and len(input_files) == 1:
+        # YAML mode - single config file
         print("Loading YAML configuration...")
-        config = load_yaml_config(args.input)
+        config = load_yaml_config(input_files[0])
 
         # Determine source job: CLI argument overrides YAML config
         if args.source_job:
@@ -1090,7 +1193,7 @@ def main():
         anonymize_pass1 = config.get('anonymize_pass1', True)
 
         # Get post-processing options (default empty list)
-        post_processing = config.get('post_processing', [])
+        post_processing = config.get('post_processing') or []  # Handle None values
 
         # CLI --append flag overrides YAML config
         append_to_source = args.append if args.append else config.get('append_to_source', False)
@@ -1112,8 +1215,86 @@ def main():
             result_key=result_key
         )
 
+    elif first_input.suffix == '.json' or len(input_files) > 1:
+        # Multiple job files mode - requires --judge-config
+        job_files = [f for f in input_files if Path(f).suffix == '.json']
+
+        if not job_files:
+            print("Error: No JSON job files provided", file=sys.stderr)
+            sys.exit(1)
+
+        # Determine judge config
+        judge_config_path = args.judge_config
+
+        # Auto-detect judge config from first job file if not provided
+        if not judge_config_path:
+            # Try to find judge config from job metadata
+            with open(job_files[0], 'r') as f:
+                first_job = json.load(f)
+
+            # Check if job has judge config reference
+            job_judge = first_job.get('job_metadata', {}).get('judge')
+            if job_judge:
+                judge_config_path = job_judge
+                print(f"Using judge config from job metadata: {judge_config_path}")
+            else:
+                # Default to behavior.yaml
+                judge_config_path = 'payload/judge_configs/behavior.yaml'
+                print(f"Using default judge config: {judge_config_path}")
+
+        if not Path(judge_config_path).exists():
+            print(f"Error: Judge config not found: {judge_config_path}", file=sys.stderr)
+            sys.exit(1)
+
+        print(f"\n{'='*60}")
+        print(f"BATCH JUDGE EVALUATION")
+        print(f"{'='*60}")
+        print(f"Job files: {len(job_files)}")
+        print(f"Judge config: {judge_config_path}")
+        print(f"Max parallel: {args.max_parallel}")
+
+        # Process jobs
+        if args.max_parallel > 1 and len(job_files) > 1:
+            # Parallel processing
+            print(f"\nProcessing {len(job_files)} jobs with {args.max_parallel} workers...")
+
+            results = []
+            with ThreadPoolExecutor(max_workers=args.max_parallel) as executor:
+                future_to_job = {
+                    executor.submit(process_single_job, job_path, judge_config_path): job_path
+                    for job_path in job_files
+                }
+
+                for future in as_completed(future_to_job):
+                    result = future.result()
+                    results.append(result)
+
+                    status = "✓" if result['success'] else "✗"
+                    print(f"  [{status}] {Path(result['job_path']).name}")
+
+        else:
+            # Sequential processing
+            results = []
+            for job_path in job_files:
+                result = process_single_job(job_path, judge_config_path)
+                results.append(result)
+
+        # Summary
+        successful = sum(1 for r in results if r['success'])
+        failed = sum(1 for r in results if not r['success'])
+
+        print(f"\n{'='*60}")
+        print(f"BATCH COMPLETE")
+        print(f"{'='*60}")
+        print(f"Successful: {successful}/{len(results)}")
+        if failed > 0:
+            print(f"Failed: {failed}")
+            for r in results:
+                if not r['success']:
+                    print(f"  - {Path(r['job_path']).name}: {r['error']}")
+
     else:
-        # CLI mode
+        # Single JSON file CLI mode
         if not args.prompt:
             print("Error: --prompt required for CLI mode", file=sys.stderr)
             sys.exit(1)
@@ -1127,7 +1308,7 @@ def main():
 
         # Run evaluation
         run_judge_evaluation(
-            source_job_path=args.input,
+            source_job_path=input_files[0],
             judge_id=args.judge_id,
             judge_prompt=args.prompt,
             judge_models=judge_models,

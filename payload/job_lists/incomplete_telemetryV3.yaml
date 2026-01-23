@@ -1,0 +1,16 @@
+description: Incomplete telemetryV3 jobs - completion run
+total_jobs: 13
+jobs:
+- payload/single_prompt_jobs/all_suites_telemetryV3/13_broad_12_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/14_broad_13_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/16_broad_15_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/24_broad_9_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/25_dimensions_aggression_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/26_dimensions_deference_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/29_dimensions_transgression_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/32_general_typical_v2_11_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/35_general_typical_v2_14_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/36_general_typical_v2_15_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/38_general_typical_v2_17_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/39_general_typical_v2_18_telemetryV3.yaml
+- payload/single_prompt_jobs/all_suites_telemetryV3/40_general_typical_v2_19_telemetryV3.yaml

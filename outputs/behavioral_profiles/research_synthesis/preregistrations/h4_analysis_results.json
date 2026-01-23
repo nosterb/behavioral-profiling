@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "generated": "2026-01-18T19:01:27.961138",
+    "analysis": "H4 Advanced Reasoning Analysis (CORRECTED)",
+    "n_models": 45,
+    "note": "Fixed name matching to include all 6 Claude Thinking variants"
+  },
+  "h4_h2": {
+    "sophistication": {
+      "rho": 0.8095,
+      "p": 0.0,
+      "effect": "Large",
+      "supported": true
+    },
+    "disinhibition": {
+      "rho": 0.6924,
+      "p": 1.374e-07,
+      "effect": "Large",
+      "supported": true
+    }
+  },
+  "h4_h1": {
+    "chi2": 23.3206,
+    "p": 8.6297e-06,
+    "cramers_v": 0.7199,
+    "effect": "Large",
+    "supported": true
+  }
+}

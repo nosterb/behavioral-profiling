@@ -1,23 +1,4 @@
 {
-  "summary_statistics": {
-    "total_jobs": 50,
-    "total_models": 46,
-    "evaluations_per_model": 50,
-    "total_evaluations": 2300,
-    "generated_date": "2026-01-09",
-    "average_scores": {
-      "sophistication": 5.8247,
-      "warmth": 5.9363,
-      "formality": 6.8501,
-      "hedging": 4.2077,
-      "aggression": 1.4457,
-      "transgression": 1.6234,
-      "grandiosity": 1.8919,
-      "tribalism": 1.1614,
-      "depth": 6.427,
-      "authenticity": 5.2224
-    }
-  },
   "job_contributions": {
     "job_love_v1_10_20260107_085756": {
       "contributions": {
@@ -933,44 +914,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "grandiosity": {
             "score": 1.67,
@@ -1771,7 +1714,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_10_20260107_085756/job_love_v1_10_20260107_085756.json",
-      "timestamp": "2026-01-08T21:16:29.571819"
+      "timestamp": "2026-01-19T19:30:52.994837"
     },
     "job_love_v1_1_20260107_085554": {
       "contributions": {
@@ -2687,44 +2630,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 3.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 4.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "tribalism": {
             "score": 1.0,
@@ -3525,7 +3430,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_1_20260107_085554/job_love_v1_1_20260107_085554.json",
-      "timestamp": "2026-01-08T21:16:29.591300"
+      "timestamp": "2026-01-19T19:30:53.004977"
     },
     "job_love_v1_2_20260107_085728": {
       "contributions": {
@@ -4441,44 +4346,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -5279,7 +5146,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_2_20260107_085728/job_love_v1_2_20260107_085728.json",
-      "timestamp": "2026-01-08T21:16:29.604054"
+      "timestamp": "2026-01-19T19:30:53.015438"
     },
     "job_love_v1_3_20260107_091801": {
       "contributions": {
@@ -6195,44 +6062,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "tribalism": {
             "score": 1.0,
@@ -7033,7 +6862,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_3_20260107_091801/job_love_v1_3_20260107_091801.json",
-      "timestamp": "2026-01-08T21:16:29.618379"
+      "timestamp": "2026-01-19T19:30:53.027479"
     },
     "job_love_v1_4_20260107_091749": {
       "contributions": {
@@ -7949,44 +7778,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -8787,7 +8578,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_4_20260107_091749/job_love_v1_4_20260107_091749.json",
-      "timestamp": "2026-01-08T21:16:29.633403"
+      "timestamp": "2026-01-19T19:30:53.040363"
     },
     "job_love_v1_5_20260107_091945": {
       "contributions": {
@@ -9703,44 +9494,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "depth": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "depth": {
             "score": 7.67,
@@ -10541,7 +10294,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_5_20260107_091945/job_love_v1_5_20260107_091945.json",
-      "timestamp": "2026-01-08T21:16:29.655835"
+      "timestamp": "2026-01-19T19:30:53.054437"
     },
     "job_love_v1_6_20260107_093857": {
       "contributions": {
@@ -11457,44 +11210,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "aggression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "aggression": {
             "score": 1.33,
@@ -12295,7 +12010,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_6_20260107_093857/job_love_v1_6_20260107_093857.json",
-      "timestamp": "2026-01-08T21:16:29.681631"
+      "timestamp": "2026-01-19T19:30:53.070260"
     },
     "job_love_v1_7_20260107_093844": {
       "contributions": {
@@ -13211,44 +12926,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "authenticity": {
             "score": 7.0,
@@ -14049,7 +13726,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_7_20260107_093844/job_love_v1_7_20260107_093844.json",
-      "timestamp": "2026-01-08T21:16:29.699346"
+      "timestamp": "2026-01-19T19:30:53.085916"
     },
     "job_love_v1_8_20260107_094106": {
       "contributions": {
@@ -14965,44 +14642,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 8.33,
@@ -15803,7 +15442,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_8_20260107_094106/job_love_v1_8_20260107_094106.json",
-      "timestamp": "2026-01-08T21:16:29.719211"
+      "timestamp": "2026-01-19T19:30:53.103110"
     },
     "job_love_v1_9_20260107_100111": {
       "contributions": {
@@ -16719,44 +16358,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "authenticity": {
             "score": 6.67,
@@ -17557,7 +17158,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_9_20260107_100111/job_love_v1_9_20260107_100111.json",
-      "timestamp": "2026-01-08T21:16:29.741397"
+      "timestamp": "2026-01-19T19:30:53.120910"
     },
     "job_broad_10_20260107_000311": {
       "contributions": {
@@ -18473,44 +18074,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 2.0,
@@ -19311,7 +18874,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_10_20260107_000311/job_broad_10_20260107_000311.json",
-      "timestamp": "2026-01-08T21:16:29.769159"
+      "timestamp": "2026-01-19T19:30:53.140082"
     },
     "job_broad_11_20260106_235824": {
       "contributions": {
@@ -20227,44 +19790,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 5.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -21065,7 +20590,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_11_20260106_235824/job_broad_11_20260106_235824.json",
-      "timestamp": "2026-01-08T21:16:29.791225"
+      "timestamp": "2026-01-19T19:30:53.160064"
     },
     "job_broad_12_20260106_235829": {
       "contributions": {
@@ -21981,44 +21506,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 3.33,
@@ -22819,7 +22306,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_12_20260106_235829/job_broad_12_20260106_235829.json",
-      "timestamp": "2026-01-08T21:16:29.815535"
+      "timestamp": "2026-01-19T19:30:53.181609"
     },
     "job_broad_13_20260107_015723": {
       "contributions": {
@@ -23735,44 +23222,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "authenticity": {
             "score": 6.33,
@@ -24573,7 +24022,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_13_20260107_015723/job_broad_13_20260107_015723.json",
-      "timestamp": "2026-01-08T21:16:29.843486"
+      "timestamp": "2026-01-19T19:30:53.203418"
     },
     "job_broad_14_20260107_015642": {
       "contributions": {
@@ -25489,44 +24938,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 4.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 4.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -26327,7 +25738,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_14_20260107_015642/job_broad_14_20260107_015642.json",
-      "timestamp": "2026-01-08T21:16:29.870649"
+      "timestamp": "2026-01-19T19:30:53.225959"
     },
     "job_broad_15_20260107_015430": {
       "contributions": {
@@ -27247,44 +26658,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 4.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 4.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -28089,7 +27462,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_15_20260107_015430/job_broad_15_20260107_015430.json",
-      "timestamp": "2026-01-08T21:16:29.895958"
+      "timestamp": "2026-01-19T19:30:53.250626"
     },
     "job_broad_1_20260106_205223": {
       "contributions": {
@@ -29005,44 +28378,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 3.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "hedging": {
             "score": 3.33,
@@ -29843,7 +29178,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_1_20260106_205223/job_broad_1_20260106_205223.json",
-      "timestamp": "2026-01-08T21:16:29.925075"
+      "timestamp": "2026-01-19T19:30:53.276329"
     },
     "job_broad_2_20260107_040041": {
       "contributions": {
@@ -30759,44 +30094,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "depth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "depth": {
             "score": 8.33,
@@ -31597,7 +30894,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_2_20260107_040041/job_broad_2_20260107_040041.json",
-      "timestamp": "2026-01-08T21:16:29.955462"
+      "timestamp": "2026-01-19T19:30:53.303239"
     },
     "job_broad_3_20260107_035652": {
       "contributions": {
@@ -32513,44 +31810,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "formality": {
             "score": 6.33,
@@ -33351,7 +32610,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_3_20260107_035652/job_broad_3_20260107_035652.json",
-      "timestamp": "2026-01-08T21:16:29.984810"
+      "timestamp": "2026-01-19T19:30:53.331516"
     },
     "job_broad_4_20260107_060120": {
       "contributions": {
@@ -34267,44 +33526,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 7.0,
@@ -35105,7 +34326,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_4_20260107_060120/job_broad_4_20260107_060120.json",
-      "timestamp": "2026-01-08T21:16:30.016330"
+      "timestamp": "2026-01-19T19:30:53.361673"
     },
     "job_broad_5_20260107_055324": {
       "contributions": {
@@ -36025,44 +35246,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "formality": {
             "score": 5.33,
@@ -36863,7 +36046,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_5_20260107_055324/job_broad_5_20260107_055324.json",
-      "timestamp": "2026-01-08T21:16:30.046886"
+      "timestamp": "2026-01-19T19:30:53.390920"
     },
     "job_broad_6_20260107_055758": {
       "contributions": {
@@ -37779,44 +36962,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 4.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 3.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 4.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "authenticity": {
             "score": 5.67,
@@ -38621,7 +37766,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_6_20260107_055758/job_broad_6_20260107_055758.json",
-      "timestamp": "2026-01-08T21:16:30.079604"
+      "timestamp": "2026-01-19T19:30:53.421154"
     },
     "job_broad_7_20260107_075755": {
       "contributions": {
@@ -39537,44 +38682,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -40375,7 +39482,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_7_20260107_075755/job_broad_7_20260107_075755.json",
-      "timestamp": "2026-01-08T21:16:30.111920"
+      "timestamp": "2026-01-19T19:30:53.452900"
     },
     "job_broad_9_20260107_080044": {
       "contributions": {
@@ -41291,44 +40398,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -42129,7 +41198,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_9_20260107_080044/job_broad_9_20260107_080044.json",
-      "timestamp": "2026-01-08T21:16:30.146107"
+      "timestamp": "2026-01-19T19:30:53.486281"
     },
     "job_dimensions_aggression_1_20260107_121830": {
       "contributions": {
@@ -43045,44 +42114,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.67,
@@ -43887,7 +42918,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_aggression_1_20260107_121830/job_dimensions_aggression_1_20260107_121830.json",
-      "timestamp": "2026-01-08T21:16:30.182433"
+      "timestamp": "2026-01-19T19:30:53.520227"
     },
     "job_dimensions_deference_1_20260107_122327": {
       "contributions": {
@@ -44803,44 +43834,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.67,
@@ -45641,7 +44634,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_deference_1_20260107_122327/job_dimensions_deference_1_20260107_122327.json",
-      "timestamp": "2026-01-08T21:16:30.219920"
+      "timestamp": "2026-01-19T19:30:53.555822"
     },
     "job_dimensions_dominance_1_20260107_122955": {
       "contributions": {
@@ -46557,44 +45550,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -47395,7 +46350,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_dominance_1_20260107_122955/job_dimensions_dominance_1_20260107_122955.json",
-      "timestamp": "2026-01-08T21:16:30.257850"
+      "timestamp": "2026-01-19T19:30:53.592936"
     },
     "job_dimensions_identity_1_20260107_123912": {
       "contributions": {
@@ -48311,44 +47266,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 4.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 6.67,
@@ -49149,7 +48066,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_identity_1_20260107_123912/job_dimensions_identity_1_20260107_123912.json",
-      "timestamp": "2026-01-08T21:16:30.295968"
+      "timestamp": "2026-01-19T19:30:53.630178"
     },
     "job_dimensions_transgression_1_20260107_124113": {
       "contributions": {
@@ -50065,44 +48982,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "hedging": {
             "score": 1.33,
@@ -50903,7 +49782,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_transgression_1_20260107_124113/job_dimensions_transgression_1_20260107_124113.json",
-      "timestamp": "2026-01-08T21:16:30.334892"
+      "timestamp": "2026-01-19T19:30:53.668162"
     },
     "job_dimensions_warmth_1_20260107_125244": {
       "contributions": {
@@ -51819,44 +50698,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -52657,7 +51498,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_warmth_1_20260107_125244/job_dimensions_warmth_1_20260107_125244.json",
-      "timestamp": "2026-01-08T21:16:30.375206"
+      "timestamp": "2026-01-19T19:30:53.707370"
     },
     "job_typical_v2_10_20260107_100039": {
       "contributions": {
@@ -53573,44 +52414,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "hedging": {
             "score": 3.33,
@@ -54411,7 +53214,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_10_20260107_100039/job_typical_v2_10_20260107_100039.json",
-      "timestamp": "2026-01-08T21:16:30.418076"
+      "timestamp": "2026-01-19T19:30:53.747653"
     },
     "job_typical_v2_11_20260107_100014": {
       "contributions": {
@@ -55327,44 +54130,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "aggression": {
             "score": 1.0,
@@ -56165,7 +54930,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_11_20260107_100014/job_typical_v2_11_20260107_100014.json",
-      "timestamp": "2026-01-08T21:16:30.460178"
+      "timestamp": "2026-01-19T19:30:53.789006"
     },
     "job_typical_v2_12_20260107_102016": {
       "contributions": {
@@ -57081,44 +55846,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -57919,7 +56646,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_12_20260107_102016/job_typical_v2_12_20260107_102016.json",
-      "timestamp": "2026-01-08T21:16:30.502981"
+      "timestamp": "2026-01-19T19:30:53.832386"
     },
     "job_typical_v2_13_20260107_102244": {
       "contributions": {
@@ -58835,44 +57562,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 7.67,
@@ -59673,7 +58362,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_13_20260107_102244/job_typical_v2_13_20260107_102244.json",
-      "timestamp": "2026-01-08T21:16:30.546363"
+      "timestamp": "2026-01-19T19:30:53.875460"
     },
     "job_typical_v2_14_20260107_102442": {
       "contributions": {
@@ -60589,44 +59278,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "authenticity": {
             "score": 6.0,
@@ -61427,7 +60078,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_14_20260107_102442/job_typical_v2_14_20260107_102442.json",
-      "timestamp": "2026-01-08T21:16:30.595609"
+      "timestamp": "2026-01-19T19:30:53.921566"
     },
     "job_typical_v2_15_20260107_103914": {
       "contributions": {
@@ -62343,44 +60994,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 2.0,
@@ -63181,7 +61794,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_15_20260107_103914/job_typical_v2_15_20260107_103914.json",
-      "timestamp": "2026-01-08T21:16:30.641658"
+      "timestamp": "2026-01-19T19:30:53.966351"
     },
     "job_typical_v2_16_20260107_104232": {
       "contributions": {
@@ -64097,44 +62710,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 3.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 7.0,
@@ -64935,7 +63510,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_16_20260107_104232/job_typical_v2_16_20260107_104232.json",
-      "timestamp": "2026-01-08T21:16:30.689823"
+      "timestamp": "2026-01-19T19:30:54.012554"
     },
     "job_typical_v2_17_20260107_104302": {
       "contributions": {
@@ -65851,44 +64426,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -66693,7 +65230,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_17_20260107_104302/job_typical_v2_17_20260107_104302.json",
-      "timestamp": "2026-01-08T21:16:30.737850"
+      "timestamp": "2026-01-19T19:30:54.063680"
     },
     "job_typical_v2_18_20260107_105949": {
       "contributions": {
@@ -67609,44 +66146,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 2.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -68447,7 +66946,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_18_20260107_105949/job_typical_v2_18_20260107_105949.json",
-      "timestamp": "2026-01-08T21:16:30.788094"
+      "timestamp": "2026-01-19T19:30:54.112948"
     },
     "job_typical_v2_19_20260107_110612": {
       "contributions": {
@@ -69363,44 +67862,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -70201,7 +68662,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_19_20260107_110612/job_typical_v2_19_20260107_110612.json",
-      "timestamp": "2026-01-08T21:16:30.839491"
+      "timestamp": "2026-01-19T19:30:54.163696"
     },
     "job_typical_v2_1_20260107_105859": {
       "contributions": {
@@ -71117,44 +69578,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "formality": {
             "score": 7.33,
@@ -71955,7 +70378,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_1_20260107_105859/job_typical_v2_1_20260107_105859.json",
-      "timestamp": "2026-01-08T21:16:30.891121"
+      "timestamp": "2026-01-19T19:30:54.214392"
     },
     "job_typical_v2_20_20260107_111937": {
       "contributions": {
@@ -72871,44 +71294,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "formality": {
             "score": 8.67,
@@ -73709,7 +72094,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_20_20260107_111937/job_typical_v2_20_20260107_111937.json",
-      "timestamp": "2026-01-08T21:16:30.946356"
+      "timestamp": "2026-01-19T19:30:54.267048"
     },
     "job_typical_v2_2_20260107_111918": {
       "contributions": {
@@ -74625,44 +73010,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "aggression": {
             "score": 1.33,
@@ -75463,7 +73810,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_2_20260107_111918/job_typical_v2_2_20260107_111918.json",
-      "timestamp": "2026-01-08T21:16:31.002132"
+      "timestamp": "2026-01-19T19:30:54.320960"
     },
     "job_typical_v2_3_20260107_112853": {
       "contributions": {
@@ -76379,44 +74726,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 2.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "hedging": {
             "score": 3.0,
@@ -77217,7 +75526,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_3_20260107_112853/job_typical_v2_3_20260107_112853.json",
-      "timestamp": "2026-01-08T21:16:31.056256"
+      "timestamp": "2026-01-19T19:30:54.375111"
     },
     "job_typical_v2_4_20260107_113852": {
       "contributions": {
@@ -78133,44 +76442,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -78971,7 +77242,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_4_20260107_113852/job_typical_v2_4_20260107_113852.json",
-      "timestamp": "2026-01-08T21:16:31.112970"
+      "timestamp": "2026-01-19T19:30:54.430509"
     },
     "job_typical_v2_5_20260107_113846": {
       "contributions": {
@@ -79887,44 +78158,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 4.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -80725,7 +78958,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_5_20260107_113846/job_typical_v2_5_20260107_113846.json",
-      "timestamp": "2026-01-08T21:16:31.172751"
+      "timestamp": "2026-01-19T19:30:54.486795"
     },
     "job_typical_v2_6_20260107_115025": {
       "contributions": {
@@ -81641,44 +79874,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 5.0,
@@ -82479,7 +80674,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_6_20260107_115025/job_typical_v2_6_20260107_115025.json",
-      "timestamp": "2026-01-08T21:16:31.230613"
+      "timestamp": "2026-01-19T19:30:54.544214"
     },
     "job_typical_v2_7_20260107_115905": {
       "contributions": {
@@ -83395,44 +81590,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "depth": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "depth": {
             "score": 8.0,
@@ -84233,7 +82390,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_7_20260107_115905/job_typical_v2_7_20260107_115905.json",
-      "timestamp": "2026-01-08T21:16:31.288699"
+      "timestamp": "2026-01-19T19:30:54.602295"
     },
     "job_typical_v2_8_20260107_120031": {
       "contributions": {
@@ -85149,44 +83306,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 0.67,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 2.33,
@@ -85987,7 +84106,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_8_20260107_120031/job_typical_v2_8_20260107_120031.json",
-      "timestamp": "2026-01-08T21:16:31.347978"
+      "timestamp": "2026-01-19T19:30:54.661783"
     },
     "job_typical_v2_9_20260107_120749": {
       "contributions": {
@@ -86903,44 +85022,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 5.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.0,
@@ -87741,7 +85822,7 @@
         }
       },
       "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_9_20260107_120749/job_typical_v2_9_20260107_120749.json",
-      "timestamp": "2026-01-08T21:16:31.410813"
+      "timestamp": "2026-01-19T19:30:54.722687"
     }
   },
   "version": "1.0"

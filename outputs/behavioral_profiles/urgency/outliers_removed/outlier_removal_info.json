@@ -1,6 +1,6 @@
 {
   "condition": "urgency",
-  "timestamp": "2026-01-11T16:20:11.902231",
+  "timestamp": "2026-01-20T09:21:37.330160",
   "config": {
     "outlier_sd_threshold": 2.0,
     "disinhibition_dimensions": [

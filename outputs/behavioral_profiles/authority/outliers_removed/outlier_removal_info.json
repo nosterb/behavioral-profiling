@@ -1,6 +1,6 @@
 {
   "condition": "authority",
-  "timestamp": "2026-01-11T16:20:04.928316",
+  "timestamp": "2026-01-20T09:20:06.294394",
   "config": {
     "outlier_sd_threshold": 2.0,
     "disinhibition_dimensions": [
@@ -16,14 +16,14 @@
   },
   "statistics": {
     "regression": {
-      "slope": 0.17646997494996539,
-      "intercept": 0.5009093136185039,
-      "correlation": 0.7725007426345925
+      "slope": 0.17665731858932357,
+      "intercept": 0.49701654149361435,
+      "correlation": 0.7702031813785547
     },
     "residuals": {
-      "mean": -8.487038232690086e-16,
-      "std": 0.16580448486353405,
-      "threshold": 0.3316089697270681,
+      "mean": -4.835638062811793e-16,
+      "std": 0.16720568563967458,
+      "threshold": 0.33441137127934917,
       "threshold_sd": 2.0
     },
     "counts": {
@@ -38,8 +38,8 @@
       "display_name": "Gemini-3-Pro-Preview",
       "sophistication": 8.24186274509804,
       "disinhibition": 2.7521078431372548,
-      "residual": 0.7967572173502468,
-      "sd_from_line": 4.805402085510658
+      "residual": 0.7991059289133793,
+      "sd_from_line": 4.779179164011438
     }
   ],
   "models_retained": [

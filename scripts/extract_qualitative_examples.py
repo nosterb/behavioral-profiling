@@ -51,7 +51,12 @@ def normalize_model_name(name: str) -> str:
 
 def get_condition_job_filter(condition: str):
     """Return a filter function for job files based on condition."""
-    if condition == 'baseline':
+    if condition == 'all_combined':
+        # All combined = include all jobs from all conditions
+        def filter_fn(job_name: str) -> bool:
+            return True
+        return filter_fn
+    elif condition == 'baseline':
         # Baseline = no intervention suffix
         intervention_suffixes = ['_authority', '_urgency', '_reminder', '_minimal_steering', '_telemetryV3']
         def filter_fn(job_name: str) -> bool:

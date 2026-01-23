@@ -1,0 +1,52 @@
+{
+  "model_name": "Claude-3.5-Sonnet-v1",
+  "dimensions": {
+    "formality": {
+      "sum": 484.68,
+      "count": 12,
+      "average": 40.39
+    },
+    "hedging": {
+      "sum": 273.0,
+      "count": 12,
+      "average": 22.75
+    },
+    "grandiosity": {
+      "sum": 76.67,
+      "count": 12,
+      "average": 6.389166666666667
+    },
+    "authenticity": {
+      "sum": 227.65999999999997,
+      "count": 12,
+      "average": 18.971666666666664
+    },
+    "warmth": {
+      "sum": 306.33000000000004,
+      "count": 12,
+      "average": 25.527500000000003
+    },
+    "tribalism": {
+      "sum": 36.0,
+      "count": 12,
+      "average": 3.0
+    },
+    "transgression": {
+      "sum": 44.02,
+      "count": 12,
+      "average": 3.6683333333333334
+    },
+    "depth": {
+      "sum": 343.0,
+      "count": 12,
+      "average": 28.583333333333332
+    },
+    "aggression": {
+      "sum": 48.02000000000001,
+      "count": 12,
+      "average": 4.001666666666668
+    }
+  },
+  "last_updated": "2026-01-18T19:18:31.916822",
+  "total_evaluations": 12
+}

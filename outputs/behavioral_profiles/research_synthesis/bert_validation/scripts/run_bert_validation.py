@@ -119,51 +119,109 @@ def load_aggression_scores(condition: str = "baseline") -> dict:
     return aggression_by_model, normalized_to_original
 
 
-def extract_responses_from_jobs(condition: str = "baseline", limit: int = None) -> dict:
+def extract_responses_from_jobs(condition: str = "baseline", limit: int = None) -> tuple:
     """
     Extract model responses from job outputs for a specific condition.
 
-    Returns: {model_id: [list of responses]}
+    Returns: (responses_by_model, conditions_found)
+        - responses_by_model: {model_id: [list of responses]}
+        - conditions_found: set of condition names found in data
     """
     responses_by_model = defaultdict(list)
+    conditions_found = set()
 
     # Find jobs for this condition
-    # Structure: outputs/single_prompt_jobs/baseline_*/job_*_YYYYMMDD/job_*.json
     job_files = []
-    for suite_dir in JOBS_DIR.glob("baseline_*"):
-        if not suite_dir.is_dir():
-            continue
-        for job_dir in suite_dir.iterdir():
-            if not job_dir.is_dir():
+
+    # Handle all_combined - extract from ALL job types
+    if condition == "all_combined":
+        # 1. All baseline_* jobs (all interventions including baseline)
+        for suite_dir in JOBS_DIR.glob("baseline_*"):
+            if not suite_dir.is_dir():
                 continue
-            name = job_dir.name
-
-            if condition == "baseline":
-                # Baseline = no intervention suffix
-                if any(x in name for x in INTERVENTION_SUFFIXES):
+            for job_dir in suite_dir.iterdir():
+                if not job_dir.is_dir():
                     continue
-            else:
-                # Non-baseline = must have the condition suffix
-                # Map condition name to suffix
-                suffix_map = {
-                    "authority": "_authority",
-                    "urgency": "_urgency",
-                    "reminder": "_reminder",
-                    "telemetryV3": "_telemetry",
-                    "minimal_steering": "_minimal_steering"
-                }
-                required_suffix = suffix_map.get(condition, f"_{condition}")
-                if required_suffix not in name:
-                    continue
+                # Identify condition from job directory name
+                job_name = job_dir.name
+                if "_authority" in job_name:
+                    conditions_found.add("authority")
+                elif "_urgency" in job_name:
+                    conditions_found.add("urgency")
+                elif "_reminder" in job_name:
+                    conditions_found.add("reminder")
+                elif "_telemetry" in job_name:
+                    conditions_found.add("telemetryV3")
+                elif "_minimal_steering" in job_name:
+                    conditions_found.add("minimal_steering")
+                else:
+                    conditions_found.add("baseline")
+                for job_file in job_dir.glob("*.json"):
+                    job_files.append(job_file)
 
-            # Find JSON file inside
-            for job_file in job_dir.glob("*.json"):
-                job_files.append(job_file)
+        # 2. All naturalistic jobs (in naturalistic_1/ subdirectory)
+        naturalistic_dir = JOBS_DIR / "naturalistic_1"
+        if naturalistic_dir.exists():
+            for job_dir in naturalistic_dir.iterdir():
+                if not job_dir.is_dir():
+                    continue
+                if job_dir.name.startswith("job_naturalistic_"):
+                    conditions_found.add("naturalistic")
+                    for job_file in job_dir.glob("*.json"):
+                        job_files.append(job_file)
+
+    # Handle naturalistic condition (different folder structure)
+    elif condition == "naturalistic":
+        conditions_found.add("naturalistic")
+        # Naturalistic jobs are in: outputs/single_prompt_jobs/naturalistic_1/job_naturalistic_*/
+        naturalistic_dir = JOBS_DIR / "naturalistic_1"
+        if naturalistic_dir.exists():
+            for job_dir in naturalistic_dir.iterdir():
+                if not job_dir.is_dir():
+                    continue
+                name = job_dir.name
+                # Match job_naturalistic_*
+                if name.startswith("job_naturalistic_"):
+                    for job_file in job_dir.glob("*.json"):
+                        job_files.append(job_file)
+    else:
+        # Single condition - add it to found set
+        conditions_found.add(condition)
+        # Standard structure: outputs/single_prompt_jobs/baseline_*/job_*_YYYYMMDD/job_*.json
+        for suite_dir in JOBS_DIR.glob("baseline_*"):
+            if not suite_dir.is_dir():
+                continue
+            for job_dir in suite_dir.iterdir():
+                if not job_dir.is_dir():
+                    continue
+                name = job_dir.name
+
+                if condition == "baseline":
+                    # Baseline = no intervention suffix
+                    if any(x in name for x in INTERVENTION_SUFFIXES):
+                        continue
+                else:
+                    # Non-baseline = must have the condition suffix
+                    # Map condition name to suffix
+                    suffix_map = {
+                        "authority": "_authority",
+                        "urgency": "_urgency",
+                        "reminder": "_reminder",
+                        "telemetryV3": "_telemetry",
+                        "minimal_steering": "_minimal_steering"
+                    }
+                    required_suffix = suffix_map.get(condition, f"_{condition}")
+                    if required_suffix not in name:
+                        continue
+
+                # Find JSON file inside
+                for job_file in job_dir.glob("*.json"):
+                    job_files.append(job_file)
 
     if limit:
         job_files = job_files[:limit]
 
-    print(f"Found {len(job_files)} baseline job files")
+    print(f"Found {len(job_files)} {condition} job files")
 
     for job_file in job_files:
         try:
@@ -182,7 +240,7 @@ def extract_responses_from_jobs(condition: str = "baseline", limit: int = None) 
         except Exception as e:
             print(f"  Warning: Could not process {job_file}: {e}")
 
-    return dict(responses_by_model)
+    return dict(responses_by_model), conditions_found
 
 
 def run_validation(condition: str = "baseline", limit: int = None):
@@ -202,8 +260,9 @@ def run_validation(condition: str = "baseline", limit: int = None):
 
     # Extract responses
     print(f"\n[2/4] Extracting responses from {condition} jobs...")
-    responses = extract_responses_from_jobs(condition, limit)
+    responses, conditions_found = extract_responses_from_jobs(condition, limit)
     print(f"  Found responses for {len(responses)} models")
+    print(f"  Conditions included: {sorted(conditions_found)}")
 
     # Build normalized response map
     response_norm_map = {}
@@ -318,6 +377,9 @@ def run_validation(condition: str = "baseline", limit: int = None):
         condition=condition
     )
 
+    # Calculate total evaluations (sum of all responses scored across all models)
+    total_evaluations = sum(r["n_scored"] for r in results)
+
     # Save comprehensive results JSON for downstream use
     profiles_dir = Path(f"outputs/behavioral_profiles/{condition}/profiles")
     output = {
@@ -329,10 +391,14 @@ def run_validation(condition: str = "baseline", limit: int = None):
             "training_data_url": "https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge",
             "source_condition": condition,
             "source_profiles": str(profiles_dir),
-            "source_jobs": str(JOBS_DIR)
+            "source_jobs": str(JOBS_DIR),
+            "conditions_included": sorted(conditions_found),
+            "n_conditions": len(conditions_found),
+            "total_evaluations": total_evaluations
         },
         "sample": {
             "n_models": len(results),
+            "total_evaluations": total_evaluations,
             "aggression_range": [float(min(aggression_vals)), float(max(aggression_vals))],
             "toxicity_range": [float(min(toxicity_vals)), float(max(toxicity_vals))],
             "insult_range": [float(min(insult_vals)), float(max(insult_vals))]
@@ -821,6 +887,12 @@ def generate_scatter_plots(aggression, toxicity, insult, model_ids,
 
 def generate_validation_report(data, output_dir):
     """Generate markdown validation report."""
+    # Format conditions list
+    conditions_list = data['metadata'].get('conditions_included', [data['metadata']['source_condition']])
+    conditions_str = ", ".join(conditions_list) if conditions_list else data['metadata']['source_condition']
+    n_conditions = data['metadata'].get('n_conditions', 1)
+    total_evals = data['metadata'].get('total_evaluations', data['sample'].get('total_evaluations', 'N/A'))
+
     report = f"""# BERT Toxicity Validation Report
 
 **Generated**: {data['metadata']['date'][:10]}
@@ -833,6 +905,8 @@ def generate_validation_report(data, output_dir):
 | Metric | Value |
 |--------|-------|
 | **N (models)** | {data['sample']['n_models']} |
+| **Total Evaluations** | {total_evals:,} |
+| **Conditions** | {n_conditions} ({conditions_str}) |
 | **BERT Toxicity vs. Aggression** | r = {data['correlations']['toxicity']['r']:.3f}, p = {data['correlations']['toxicity']['p']:.4f} |
 | **BERT Insult vs. Aggression** | r = {data['correlations']['insult']['r']:.3f}, p = {data['correlations']['insult']['p']:.4f} |
 | **Interpretation** | {data['interpretation']} |
@@ -873,9 +947,12 @@ def generate_validation_report(data, output_dir):
 | Field | Value |
 |-------|-------|
 | **Condition** | {data['metadata']['source_condition']} |
+| **Conditions Included** | {conditions_str} |
+| **N Conditions** | {n_conditions} |
 | **Profiles Path** | `{data['metadata']['source_profiles']}` |
 | **Jobs Path** | `{data['metadata']['source_jobs']}` |
 | **Models Evaluated** | {data['sample']['n_models']} |
+| **Total Evaluations** | {total_evals:,} |
 
 ### 3. Statistical Results
 
@@ -970,7 +1047,7 @@ python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/r
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--condition", type=str, default="baseline",
-                        choices=["baseline", "authority", "urgency", "reminder", "telemetryV3", "minimal_steering"],
+                        choices=["baseline", "authority", "urgency", "reminder", "telemetryV3", "minimal_steering", "naturalistic", "all_combined"],
                         help="Condition to validate (default: baseline)")
     parser.add_argument("--limit", type=int, help="Limit number of job files to process")
     args = parser.parse_args()

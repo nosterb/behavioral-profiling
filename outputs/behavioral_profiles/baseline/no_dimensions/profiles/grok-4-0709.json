@@ -1,55 +1,57 @@
 {
-  "model_name": "grok-4-0709",
-  "display_name": "Grok-4-0709",
-  "provider": "xAI",
+  "model_name": "Grok-4-0709",
   "dimensions": {
-    "warmth": {
-      "sum": 307.68,
+    "grandiosity": {
+      "sum": 91.69,
       "count": 44,
-      "average": 6.9927
+      "average": 2.0838636363636365
+    },
+    "warmth": {
+      "sum": 307.67999999999984,
+      "count": 44,
+      "average": 6.992727272727269
+    },
+    "aggression": {
+      "sum": 59.969999999999985,
+      "count": 44,
+      "average": 1.362954545454545
     },
     "formality": {
       "sum": 291.68,
       "count": 44,
-      "average": 6.6291
-    },
-    "hedging": {
-      "sum": 202.02,
-      "count": 44,
-      "average": 4.5914
-    },
-    "aggression": {
-      "sum": 59.97,
-      "count": 44,
-      "average": 1.363
-    },
-    "transgression": {
-      "sum": 68.98,
-      "count": 44,
-      "average": 1.5677
-    },
-    "grandiosity": {
-      "sum": 91.69,
-      "count": 44,
-      "average": 2.0839
+      "average": 6.629090909090909
     },
     "tribalism": {
-      "sum": 53.32,
+      "sum": 53.31999999999999,
       "count": 44,
-      "average": 1.2118
+      "average": 1.2118181818181817
     },
-    "depth": {
-      "sum": 316.03,
+    "hedging": {
+      "sum": 202.01999999999995,
       "count": 44,
-      "average": 7.1825
+      "average": 4.591363636363635
+    },
+    "transgression": {
+      "sum": 68.97999999999999,
+      "count": 44,
+      "average": 1.5677272727272724
     },
     "authenticity": {
-      "sum": 258.68,
+      "sum": 258.6799999999999,
       "count": 44,
-      "average": 5.8791
+      "average": 5.879090909090906
+    },
+    "depth": {
+      "sum": 316.03000000000003,
+      "count": 44,
+      "average": 7.182500000000001
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
     }
   },
-  "contribution_count": 44,
-  "total_evaluations": 44,
-  "last_updated": "2026-01-11T10:57:56.862175"
+  "last_updated": "2026-01-23T13:40:50.158308",
+  "total_evaluations": 44
 }

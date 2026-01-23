@@ -2,59 +2,60 @@
   "model_name": "Qwen3-32B",
   "dimensions": {
     "grandiosity": {
-      "sum": 625.4100000000001,
-      "count": 236,
-      "average": 2.6500423728813565
+      "sum": 862.4799999999999,
+      "count": 354,
+      "average": 2.4363841807909603
     },
     "warmth": {
-      "sum": 1379.43,
-      "count": 236,
-      "average": 5.845042372881356
+      "sum": 2250.71,
+      "count": 354,
+      "average": 6.3579378531073445
     },
     "aggression": {
-      "sum": 468.39000000000004,
-      "count": 236,
-      "average": 1.9847033898305086
+      "sum": 616.27,
+      "count": 354,
+      "average": 1.7408757062146891
     },
     "formality": {
-      "sum": 1736.58,
-      "count": 236,
-      "average": 7.358389830508474
+      "sum": 2534.29,
+      "count": 354,
+      "average": 7.159011299435028
     },
     "tribalism": {
-      "sum": 296.96,
-      "count": 236,
-      "average": 1.2583050847457626
+      "sum": 434.2699999999999,
+      "count": 354,
+      "average": 1.2267514124293784
     },
     "hedging": {
-      "sum": 1114.3,
-      "count": 236,
-      "average": 4.721610169491525
+      "sum": 1586.0200000000004,
+      "count": 354,
+      "average": 4.4802824858757075
     },
     "transgression": {
-      "sum": 425.02,
-      "count": 236,
-      "average": 1.8009322033898305
+      "sum": 581.2699999999999,
+      "count": 354,
+      "average": 1.6420056497175137
     },
     "authenticity": {
-      "sum": 1342.6599999999999,
-      "count": 236,
-      "average": 5.689237288135593
+      "sum": 2038.63,
+      "count": 354,
+      "average": 5.758841807909604
     },
     "depth": {
-      "sum": 1601.8000000000004,
-      "count": 236,
-      "average": 6.787288135593222
+      "sum": 2474.46,
+      "count": 354,
+      "average": 6.99
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537323",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290528",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

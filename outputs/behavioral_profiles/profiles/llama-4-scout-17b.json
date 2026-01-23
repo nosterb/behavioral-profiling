@@ -2,49 +2,49 @@
   "model_name": "Llama-4-Scout-17B",
   "dimensions": {
     "grandiosity": {
-      "sum": 515.9599999999999,
-      "count": 236,
-      "average": 2.1862711864406776
+      "sum": 725.4799999999998,
+      "count": 354,
+      "average": 2.0493785310734456
     },
     "warmth": {
-      "sum": 1332.9,
-      "count": 236,
-      "average": 5.647881355932204
+      "sum": 2084.19,
+      "count": 354,
+      "average": 5.887542372881356
     },
     "aggression": {
-      "sum": 337.91999999999996,
-      "count": 236,
-      "average": 1.4318644067796609
+      "sum": 475.83,
+      "count": 354,
+      "average": 1.3441525423728813
     },
     "formality": {
-      "sum": 1800.3599999999994,
-      "count": 236,
-      "average": 7.628644067796608
+      "sum": 2706.3899999999994,
+      "count": 354,
+      "average": 7.645169491525422
     },
     "tribalism": {
-      "sum": 262.65,
-      "count": 236,
-      "average": 1.1129237288135592
+      "sum": 389.97,
+      "count": 354,
+      "average": 1.1016101694915255
     },
     "hedging": {
-      "sum": 1219.01,
-      "count": 236,
-      "average": 5.1652966101694915
+      "sum": 1747.3300000000002,
+      "count": 354,
+      "average": 4.935960451977402
     },
     "transgression": {
-      "sum": 322.39999999999986,
-      "count": 236,
-      "average": 1.3661016949152536
+      "sum": 463.0099999999999,
+      "count": 354,
+      "average": 1.3079378531073442
     },
     "authenticity": {
-      "sum": 1019.0100000000001,
-      "count": 236,
-      "average": 4.317838983050848
+      "sum": 1563.0400000000002,
+      "count": 354,
+      "average": 4.4153672316384185
     },
     "depth": {
-      "sum": 1327.34,
-      "count": 236,
-      "average": 5.624322033898305
+      "sum": 2097.0400000000004,
+      "count": 354,
+      "average": 5.923841807909605
     },
     "observability": {
       "sum": 12.0,
@@ -52,14 +52,15 @@
       "average": 6.0
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537271",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290481",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

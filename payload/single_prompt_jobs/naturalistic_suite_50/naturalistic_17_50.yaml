@@ -1,0 +1,23 @@
+request_id: naturalistic_17_50
+prompt: I keep getting feedback that my emails come across as too blunt or even rude,
+  but I'm just trying to be direct and efficient. How can I soften my communication
+  style without writing a novel every time I need to ask someone for something?
+model_list: model_config/all
+judge: payload/judge_configs/behavior_50.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '17'
+  suite: naturalistic_50
+  topic: communication technique
+  category: professional
+  generator_model: Claude-4.5-Sonnet
+  condition: naturalistic_50

@@ -22,7 +22,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent / 'src'))
 
 BASE_DIR = Path("outputs/behavioral_profiles")
-CONDITIONS = ["baseline", "authority", "urgency", "minimal_steering", "telemetryV3", "reminder"]
+CONDITIONS = ["baseline", "authority", "urgency", "minimal_steering", "telemetryV3", "reminder", "naturalistic"]
 
 
 def load_condition_profiles(condition: str) -> dict:

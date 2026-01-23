@@ -2,51 +2,51 @@
   "model_name": "Claude-4.5-Sonnet-Thinking (Thinking)",
   "dimensions": {
     "grandiosity": {
-      "sum": 60.29999999999998,
-      "count": 35,
-      "average": 1.7228571428571424
+      "sum": 88.27999999999997,
+      "count": 51,
+      "average": 1.7309803921568623
     },
     "depth": {
-      "sum": 239.00000000000003,
-      "count": 35,
-      "average": 6.828571428571429
+      "sum": 354.34000000000015,
+      "count": 51,
+      "average": 6.947843137254905
     },
     "hedging": {
-      "sum": 164.97000000000003,
-      "count": 35,
-      "average": 4.713428571428572
+      "sum": 225.64000000000001,
+      "count": 51,
+      "average": 4.4243137254901965
     },
     "aggression": {
-      "sum": 46.63999999999999,
-      "count": 35,
-      "average": 1.3325714285714283
+      "sum": 72.61999999999998,
+      "count": 51,
+      "average": 1.4239215686274505
     },
     "formality": {
-      "sum": 207.01999999999998,
-      "count": 35,
-      "average": 5.914857142857143
+      "sum": 305.0200000000001,
+      "count": 51,
+      "average": 5.980784313725492
     },
     "tribalism": {
-      "sum": 40.34,
-      "count": 35,
-      "average": 1.1525714285714286
+      "sum": 58.67,
+      "count": 51,
+      "average": 1.150392156862745
     },
     "authenticity": {
-      "sum": 215.67999999999992,
-      "count": 35,
-      "average": 6.162285714285712
+      "sum": 316.01999999999987,
+      "count": 51,
+      "average": 6.196470588235291
     },
     "transgression": {
-      "sum": 57.309999999999995,
-      "count": 35,
-      "average": 1.6374285714285712
+      "sum": 84.63,
+      "count": 51,
+      "average": 1.6594117647058824
     },
     "warmth": {
-      "sum": 227.64000000000001,
-      "count": 35,
-      "average": 6.5040000000000004
+      "sum": 327.31000000000006,
+      "count": 51,
+      "average": 6.417843137254903
     }
   },
-  "last_updated": "2026-01-10T12:53:17.168274",
-  "total_evaluations": 35
+  "last_updated": "2026-01-19T19:48:42.001030",
+  "total_evaluations": 51
 }

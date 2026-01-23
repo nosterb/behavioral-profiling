@@ -1,7 +1,7 @@
 # Research Brief: Urgency (Outliers Removed)
 
 **Status**: Sensitivity Analysis
-**Last Updated**: 2026-01-11
+**Last Updated**: 2026-01-20
 **Parent Condition**: urgency
 **Analysis Type**: Outlier-removed robustness check
 
@@ -47,7 +47,7 @@ This analysis removes statistical outliers from the Urgency condition to test th
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Pearson r** | 0.563 | 0.570 | +0.007 |
+| **Pearson r** | 0.743 | 0.768 | +0.025 |
 
 ### Per-Dimension H1a Effects
 
@@ -64,7 +64,7 @@ This analysis removes statistical outliers from the Urgency condition to test th
 
 H1a effect is **robust** to outlier removal.
 
-H2 correlation is stable regardless of outliers.
+H2 correlation strengthens without outliers.
 
 **Conclusion**: The core findings are robust and not driven by outlier models.
 
@@ -83,4 +83,4 @@ H2 correlation is stable regardless of outliers.
 ---
 
 **Parent Analysis**: `../urgency/RESEARCH_BRIEF.md`
-**Generated**: 2026-01-11 16:20
+**Generated**: 2026-01-20 09:21

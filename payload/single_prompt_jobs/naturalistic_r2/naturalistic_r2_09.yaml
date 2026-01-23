@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_09
+prompt: Hey, I’ve got a big presentation coming up next week for a potential client,
+  and I’m feeling pretty rusty since I haven’t done one in a while. Any tips on how
+  to structure it and keep the audience engaged?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: 09
+  suite: naturalistic_r2
+  topic: presentation preparation
+  category: professional
+  generator_model: Grok-3
+  condition: naturalistic_r2

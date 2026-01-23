@@ -21,8 +21,15 @@ from behavioral_profile_manager import BehavioralProfileManager
 import json
 
 
-def find_jobs(job_path: Path, recursive: bool = False, condition: str = None) -> list:
-    """Find all job JSON files in a path, optionally filtered by condition."""
+def find_jobs(job_path: Path, recursive: bool = False, condition: str = None, exclude_patterns: list = None) -> list:
+    """Find all job JSON files in a path, optionally filtered by condition.
+
+    Args:
+        job_path: Path to job file or directory
+        recursive: Search subdirectories
+        condition: Filter by condition name
+        exclude_patterns: List of patterns to exclude (e.g., ['dimensions', 'baseline_dimensions'])
+    """
     jobs = []
 
     if job_path.is_file():
@@ -39,10 +46,15 @@ def find_jobs(job_path: Path, recursive: bool = False, condition: str = None) ->
     # Filter to only job files (not other JSON files)
     jobs = [j for j in jobs if j.stem.startswith('job_') or j.stem.startswith('chat_job_')]
 
+    # Exclude patterns (for suite exclusion like no_dimensions analysis)
+    if exclude_patterns:
+        for pattern in exclude_patterns:
+            jobs = [j for j in jobs if pattern.lower() not in str(j).lower()]
+
     # Filter by condition
     if condition == 'baseline':
-        # Exclude jobs with intervention suffixes
-        jobs = [j for j in jobs if '_authority' not in j.stem and '_urgency' not in j.stem and '_minimal_steering' not in j.stem and '_telemetryV3' not in j.stem and '_reminder' not in j.stem]
+        # Exclude jobs with intervention suffixes AND naturalistic jobs (different scale)
+        jobs = [j for j in jobs if '_authority' not in j.stem and '_urgency' not in j.stem and '_minimal_steering' not in j.stem and '_telemetryV3' not in j.stem and '_reminder' not in j.stem and 'naturalistic' not in j.stem]
     elif condition == 'authority':
         # Only jobs with _authority suffix
         jobs = [j for j in jobs if '_authority' in j.stem]
@@ -58,6 +70,18 @@ def find_jobs(job_path: Path, recursive: bool = False, condition: str = None) ->
     elif condition == 'reminder':
         # Only jobs with _reminder suffix
         jobs = [j for j in jobs if '_reminder' in j.stem]
+    elif condition == 'naturalistic':
+        # Only naturalistic jobs (1-10 scale, no _50 suffix)
+        jobs = [j for j in jobs if 'naturalistic' in j.stem and '_50' not in j.stem]
+    elif condition == 'naturalistic_50':
+        # Only naturalistic_50 jobs (1-50 scale)
+        jobs = [j for j in jobs if 'naturalistic' in j.stem and '_50' in j.stem]
+    elif condition == 'all_combined':
+        # Include ALL jobs from all conditions (no filtering)
+        pass  # Don't filter - keep all jobs
+    elif condition:
+        # Custom condition: match condition name in job stem
+        jobs = [j for j in jobs if condition in j.stem]
 
     return sorted(jobs)
 
@@ -119,8 +143,13 @@ Examples:
     parser.add_argument(
         '--condition',
         type=str,
-        choices=['baseline', 'authority', 'urgency', 'minimal_steering', 'telemetryV3', 'reminder'],
-        help='Filter jobs by condition (baseline=no suffix, authority=_authority, urgency=_urgency, minimal_steering=_minimal_steering, telemetryV3=telemetryV3 jobs, reminder=_reminder)'
+        help='Filter jobs by condition name (matches request_id pattern). Standard: baseline, authority, urgency, minimal_steering, telemetryV3, reminder, naturalistic. Custom conditions also supported.'
+    )
+    parser.add_argument(
+        '--exclude-patterns',
+        type=str,
+        nargs='+',
+        help='Exclude jobs matching these patterns (e.g., --exclude-patterns dimensions baseline_dimensions)'
     )
 
     args = parser.parse_args()
@@ -136,8 +165,10 @@ Examples:
         print("  (recursive search enabled)")
     if args.condition:
         print(f"  (filtering for condition: {args.condition})")
+    if args.exclude_patterns:
+        print(f"  (excluding patterns: {', '.join(args.exclude_patterns)})")
 
-    jobs = find_jobs(args.job_path, args.recursive, args.condition)
+    jobs = find_jobs(args.job_path, args.recursive, args.condition, args.exclude_patterns)
 
     if not jobs:
         print(f"✗ No job files found")

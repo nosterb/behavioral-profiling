@@ -1,0 +1,200 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:49:13.652097",
+    "analysis": "Statistical Assumptions & Quality Control",
+    "condition": "reminder",
+    "n_models": 46
+  },
+  "provenance": {
+    "source_files": {
+      "behavioral_profiles": "outputs/behavioral_profiles/reminder/all_models_data.csv"
+    },
+    "methodology": {
+      "normality_test": "Shapiro-Wilk",
+      "correlation_comparison": "Pearson vs Spearman",
+      "outlier_threshold": "2.0 standard deviations from regression line"
+    }
+  },
+  "results": {
+    "descriptive_statistics": {
+      "sophistication": {
+        "mean": 6.3987,
+        "sd": 1.4924,
+        "min": 2.915,
+        "max": 8.3563,
+        "median": 6.9,
+        "skewness": -0.3908,
+        "kurtosis": -1.1462
+      },
+      "disinhibition": {
+        "mean": 1.9911,
+        "sd": 0.4851,
+        "min": 1.3325,
+        "max": 4.1247,
+        "median": 1.9331,
+        "skewness": 1.8462,
+        "kurtosis": 6.1367
+      },
+      "depth": {
+        "mean": 6.7175,
+        "sd": 1.3589,
+        "min": 3.0,
+        "max": 8.4893,
+        "median": 7.2227,
+        "skewness": -0.5638,
+        "kurtosis": -0.53
+      },
+      "authenticity": {
+        "mean": 6.08,
+        "sd": 1.659,
+        "min": 2.83,
+        "max": 8.356,
+        "median": 6.5223,
+        "skewness": -0.2631,
+        "kurtosis": -1.4312
+      },
+      "transgression": {
+        "mean": 2.2218,
+        "sd": 0.7612,
+        "min": 1.165,
+        "max": 5.0207,
+        "median": 2.0557,
+        "skewness": 1.102,
+        "kurtosis": 2.0125
+      },
+      "aggression": {
+        "mean": 2.0607,
+        "sd": 0.5916,
+        "min": 1.266,
+        "max": 4.5107,
+        "median": 1.9993,
+        "skewness": 1.4851,
+        "kurtosis": 4.4696
+      },
+      "tribalism": {
+        "mean": 1.3959,
+        "sd": 0.3321,
+        "min": 1.044,
+        "max": 2.7433,
+        "median": 1.3,
+        "skewness": 1.6826,
+        "kurtosis": 3.9937
+      },
+      "grandiosity": {
+        "mean": 2.2859,
+        "sd": 0.4076,
+        "min": 1.67,
+        "max": 4.224,
+        "median": 2.1997,
+        "skewness": 2.5598,
+        "kurtosis": 9.5427
+      }
+    },
+    "normality_tests": {
+      "sophistication": {
+        "shapiro_wilk_w": 0.9074,
+        "shapiro_wilk_p": 0.0014248534204757354,
+        "normal_at_05": false
+      },
+      "disinhibition": {
+        "shapiro_wilk_w": 0.8558,
+        "shapiro_wilk_p": 4.356062142791292e-05,
+        "normal_at_05": false
+      },
+      "depth": {
+        "shapiro_wilk_w": 0.9257,
+        "shapiro_wilk_p": 0.005912908788483852,
+        "normal_at_05": false
+      },
+      "authenticity": {
+        "shapiro_wilk_w": 0.8978,
+        "shapiro_wilk_p": 0.0007060629003756292,
+        "normal_at_05": false
+      },
+      "transgression": {
+        "shapiro_wilk_w": 0.9063,
+        "shapiro_wilk_p": 0.0013083800598589724,
+        "normal_at_05": false
+      },
+      "aggression": {
+        "shapiro_wilk_w": 0.8837,
+        "shapiro_wilk_p": 0.0002622310668475791,
+        "normal_at_05": false
+      },
+      "tribalism": {
+        "shapiro_wilk_w": 0.8415,
+        "shapiro_wilk_p": 1.8636656712201304e-05,
+        "normal_at_05": false
+      },
+      "grandiosity": {
+        "shapiro_wilk_w": 0.7773,
+        "shapiro_wilk_p": 6.2946390538674e-07,
+        "normal_at_05": false
+      }
+    },
+    "correlation_robustness": {
+      "full_sample": {
+        "pearson_r": 0.7319,
+        "pearson_p": 7.517765191194412e-09,
+        "spearman_rho": 0.8294,
+        "spearman_p": 1.067191187902366e-12,
+        "difference": 0.0975,
+        "methods_agree": false
+      },
+      "outliers_removed": {
+        "pearson_r": 0.8187,
+        "pearson_p": 6.41622201761698e-12,
+        "spearman_rho": 0.8178,
+        "spearman_p": 7.047435070374485e-12,
+        "difference": 0.0009,
+        "methods_agree": true
+      }
+    },
+    "residual_analysis": {
+      "full_sample": {
+        "n": 46,
+        "shapiro_wilk_w": 0.7416,
+        "shapiro_wilk_p": 0.0,
+        "skewness": 2.9429,
+        "kurtosis": 12.3208,
+        "normal_at_05": false
+      },
+      "outliers_removed": {
+        "n": 45,
+        "n_removed": 1,
+        "shapiro_wilk_w": 0.9479,
+        "shapiro_wilk_p": 0.0425,
+        "skewness": 0.844,
+        "kurtosis": 0.5683,
+        "normal_at_05": false,
+        "correlation_r": 0.8187
+      }
+    },
+    "outliers": [
+      {
+        "model": "gemini-3-pro-preview",
+        "provider": "Google",
+        "sophistication": 8.3563,
+        "disinhibition": 4.1247,
+        "std_residual": 5.0459
+      }
+    ],
+    "summary": {
+      "variables_passing_normality": "0/8",
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": false,
+      "correlation_methods_agree_clean": true,
+      "residuals_normal_without_outliers": false,
+      "parametric_methods_appropriate": false,
+      "rationale": "Pearson/Spearman differ by 0.098"
+    }
+  },
+  "output_files": [
+    "distribution_composites.png",
+    "distribution_disinhibition_dims.png",
+    "distribution_residuals.png",
+    "distribution_qq_plots.png",
+    "correlation_robustness.png"
+  ]
+}

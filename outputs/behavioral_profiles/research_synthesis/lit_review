@@ -1,0 +1,112 @@
+Research and Methodology Reference
+[1]
+@book{field2012discoveringR,
+  title     = {Discovering Statistics Using R},
+  author    = {Field, Andy and Miles, Jeremy and Field, Zoe},
+  year      = {2012},
+  publisher = {SAGE Publications},
+  address   = {London},
+  isbn      = {9781446200469}
+
+
+Capability, Reasoning & Safety Trade-offs
+
+[2]
+@article{huang2025safetytax,
+  title     = {Safety Tax: Safety Alignment Makes Your Large Reasoning Models Less Reasonable},
+  author    = {Huang, Zeming and others},
+  journal   = {arXiv preprint arXiv:2503.00555},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2503.00555}
+}
+
+[3]
+@article{raganato2025reasoning,
+  title     = {Reasoning Capabilities and Invariability of Large Language Models},
+  author    = {Raganato, Alessandro},
+  journal   = {arXiv preprint arXiv:2505.00776},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2505.00776}
+}
+
+
+LLM-as-Judge: Strengths, Limitations, Trade-offs
+
+[4]
+@article{zhang2024llmreval,
+  title     = {LLM-REVal: Can We Trust LLM Reviewers Yet?},
+  author    = {Zhang, Yifan and others},
+  journal   = {arXiv preprint arXiv:2407.XXXX},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2407.XXXX}
+}
+
+[5]
+@article{liu2024trustjudge,
+  title     = {TrustJudge: Inconsistencies of LLM-as-a-Judge and How to Alleviate Them},
+  author    = {Liu, Haoyu and others},
+  journal   = {arXiv preprint arXiv:2410.XXXX},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2410.XXXX}
+}
+
+[6]
+@article{ziems2025safetyeval,
+  title     = {A Comprehensive Survey on Safety Evaluation of Large Language Models},
+  author    = {Ziems, Caleb and others},
+  journal   = {arXiv preprint arXiv:2506.11094},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2506.11094}
+}
+
+
+Reasoning-Driven Toxicity & Disinhibition
+
+[7]
+@article{chen2025pragmatic,
+  title     = {Pragmatic Inference Chain: Improving LLM Reasoning of Implicit Toxic Language},
+  author    = {Chen, Yifan and Wang, Rui},
+  journal   = {arXiv preprint arXiv:2503.01539},
+  year      = {2025},
+  url       = {https://arxiv.org/abs/2503.01539}
+}
+
+
+Toxicity Measurement & Evaluation
+
+[8]
+@article{villate2024toxicityreview,
+  title     = {A Systematic Review of Toxicity in Large Language Models: Definitions, Datasets, Detectors, Detoxification Methods and Challenges},
+  author    = {Villate-Castillo, Juan and others},
+  journal   = {arXiv preprint arXiv:2406.XXXX},
+  year      = {2024},
+  url       = {https://arxiv.org/abs/2406.XXXX}
+}
+
+[9]
+@inproceedings{luong2024realistic,
+  title     = {Realistic Evaluation of Toxicity in Large Language Models},
+  author    = {Luong, Minh and others},
+  booktitle = {Findings of the Association for Computational Linguistics (ACL)},
+  year      = {2024},
+  url       = {https://aclanthology.org/2024.findings-acl.61/}
+}
+
+[10]
+@mastersthesis{jarrin2025distilbert,
+  title     = {Testing Toxicity: A Comparative Evaluation of BERT-Based Classifiers and API-Based Detectors},
+  author    = {Jarrin, Michael},
+  school    = {City University of New York},
+  year      = {2025},
+  url       = {https://academicworks.cuny.edu/gc_etds/7300}
+}
+
+
+Summary of References by Topic
+BERT toxicity as external validator	jarrin2025distilbert, villate2024toxicityreview
+Composite measurement validity	ziems2025safetyeval, luong2024realistic
+Capability ↔ disinhibition tension	huang2025safetytax, raganato2025reasoning
+Reasoning ↔ subtle toxicity	chen2025pragmatic
+LLM-as-judge limitations	zhang2024llmreval, liu2024trustjudge
+
+

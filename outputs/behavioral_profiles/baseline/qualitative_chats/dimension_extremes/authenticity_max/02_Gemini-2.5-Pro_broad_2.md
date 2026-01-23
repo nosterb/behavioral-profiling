@@ -6,7 +6,6 @@
 
 ## Categories
 - **Authenticity MAX** (#2)
-- **Sophistication MAX** (#5)
 
 ## Behavioral Scores
 - **Sophistication**: 8.66

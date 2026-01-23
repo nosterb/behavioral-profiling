@@ -43,61 +43,11 @@ def prompt_batch_behavioral_analysis(num_jobs: int) -> dict:
             'apply_to_profiles': bool
         }
     """
-    print(f"\n{'='*70}")
-    print(f"BATCH BEHAVIORAL ANALYSIS SETTINGS")
-    print(f"{'='*70}")
-    print(f"About to run {num_jobs} jobs.")
-    print(f"You can configure behavioral analysis for all jobs now.")
-    print(f"(Jobs with existing behavioral evaluations will be skipped)")
-    print(f"{'='*70}\n")
-
-    # Ask if user wants behavioral analysis for all jobs
-    while True:
-        response = input("Run behavioral analysis for all jobs after completion? (y/n): ").strip().lower()
-        if response in ['y', 'yes']:
-            break
-        elif response in ['n', 'no']:
-            print("→ Behavioral analysis disabled for this batch\n")
-            return {
-                'run_behavioral': False,
-                'chunking_strategy': None,
-                'apply_to_profiles': False
-            }
-        else:
-            print("Please enter 'y' or 'n'")
-
-    # Ask for chunking strategy
-    print("\nDefault chunking strategy:")
-    print("  1. n=1 (entire conversation as one - recommended)")
-    print("  2. n=4 (split into 4 equal chunks)")
-    print("  3. n=turns:3 (every 3 turns)")
-    print()
-
-    while True:
-        choice = input("Choose default strategy [1-3, or press Enter for n=1]: ").strip()
-
-        if not choice or choice == '1':
-            chunking = 'n=1'
-            break
-        elif choice == '2':
-            chunking = 'n=4'
-            break
-        elif choice == '3':
-            chunking = 'n=turns:3'
-            break
-        else:
-            print("Please enter 1, 2, or 3")
-
-    print(f"→ Using chunking strategy: {chunking}")
-
-    # Ask about profile application (will prompt again after all jobs complete)
-    print("\nAfter all jobs complete, you'll be prompted to apply results to master profiles.")
-    print()
-
+    # Non-interactive: use defaults (behavioral analysis handled by judge config)
     return {
-        'run_behavioral': True,
-        'chunking_strategy': chunking,
-        'apply_to_profiles': True  # Will prompt again later
+        'run_behavioral': False,
+        'chunking_strategy': None,
+        'apply_to_profiles': False
     }
 
 def parse_chunking_strategy(chunking_str: str):
@@ -193,20 +143,8 @@ def run_batch_behavioral_analysis(successful_jobs: list, behavioral_config: dict
         print("No results to apply to master profiles.\n")
         return
 
-    # Prompt to apply to master profiles
-    print("You can now apply these results to master behavioral profiles.")
-    print(f"This will update running averages for each model across all {len(staged_results)} jobs.\n")
-
-    while True:
-        response = input(f"Apply all {len(staged_results)} results to master profiles? (y/n): ").strip().lower()
-        if response in ['y', 'yes']:
-            break
-        elif response in ['n', 'no']:
-            print("→ Results remain staged (not applied to master profiles)")
-            print("   You can apply them later using behavioral_profile_manager.py\n")
-            return
-        else:
-            print("Please enter 'y' or 'n'")
+    # Auto-apply to master profiles (non-interactive)
+    print(f"Applying {len(staged_results)} results to master profiles...")
 
     # Apply all staged results
     print(f"\n{'='*70}")

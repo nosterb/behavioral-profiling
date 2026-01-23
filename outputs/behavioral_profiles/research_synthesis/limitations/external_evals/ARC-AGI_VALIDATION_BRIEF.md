@@ -168,3 +168,34 @@ Contains complete traceable data including:
 
 
 data retrieved from: https://arcprize.org/leaderboard on 1/11/2026
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/all_models_data.csv` | Behavioral profile scores |
+| `external_evals/ARC-AGI_leaders` | ARC-AGI leaderboard data |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `arc_agi_validation_analysis.json` | Complete validation results with matched models |
+
+### Methodology
+- **Statistical tests**: Pearson correlation, t-test for group comparison
+- **Model matching**: Normalized names + manual mappings, deduplicated
+- **Benchmark**: ARC-AGI-1 semi-private evaluation set
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/validate_external_benchmark.py --benchmark arc-agi
+```
+
+### Data Quality
+- **N**: 16 matched models
+- **Condition**: baseline
+- **Data retrieved**: 2026-01-11 from arcprize.org

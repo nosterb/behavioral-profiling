@@ -1,0 +1,55 @@
+{
+  "model_name": "grok-3",
+  "display_name": "Grok-3",
+  "provider": "xAI",
+  "dimensions": {
+    "warmth": {
+      "sum": 289.02,
+      "count": 44,
+      "average": 6.5686
+    },
+    "formality": {
+      "sum": 326.37,
+      "count": 44,
+      "average": 7.4175
+    },
+    "hedging": {
+      "sum": 189.03,
+      "count": 44,
+      "average": 4.2961
+    },
+    "aggression": {
+      "sum": 52.63,
+      "count": 44,
+      "average": 1.1961
+    },
+    "transgression": {
+      "sum": 54.98,
+      "count": 44,
+      "average": 1.2495
+    },
+    "grandiosity": {
+      "sum": 84.7,
+      "count": 44,
+      "average": 1.925
+    },
+    "tribalism": {
+      "sum": 46.0,
+      "count": 44,
+      "average": 1.0455
+    },
+    "depth": {
+      "sum": 319.0,
+      "count": 44,
+      "average": 7.25
+    },
+    "authenticity": {
+      "sum": 236.29,
+      "count": 44,
+      "average": 5.3702
+    }
+  },
+  "contribution_count": 44,
+  "total_evaluations": 44,
+  "last_updated": "2026-01-11T10:57:56.862020"
+}

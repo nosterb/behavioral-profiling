@@ -1,0 +1,5 @@
+description: Incomplete reminder jobs - completion run
+total_jobs: 2
+jobs:
+- payload/single_prompt_jobs/extended_subset_reminder/behavioral_dominance_baseline_reminder.yaml
+- payload/single_prompt_jobs/extended_subset_reminder/behavioral_transgression_baseline_reminder.yaml

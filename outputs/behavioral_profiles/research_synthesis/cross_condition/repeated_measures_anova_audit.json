@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-10T17:43:05.019276",
+    "updated": "2026-01-18T00:00:00.000000",
+    "analysis": "Repeated Measures ANOVA: Disinhibition Across Conditions",
+    "description": "Tests whether disinhibition differs significantly across intervention conditions using within-subjects design"
+  },
+  "provenance": {
+    "source_files": {
+      "baseline_profiles": "outputs/behavioral_profiles/baseline/profiles/*.json",
+      "authority_profiles": "outputs/behavioral_profiles/authority/profiles/*.json",
+      "minimal_steering_profiles": "outputs/behavioral_profiles/minimal_steering/profiles/*.json",
+      "telemetryV3_profiles": "outputs/behavioral_profiles/telemetryV3/profiles/*.json",
+      "urgency_profiles": "outputs/behavioral_profiles/urgency/profiles/*.json"
+    },
+    "methodology": {
+      "description": "Repeated measures ANOVA with same models measured across all conditions",
+      "statistical_tests": ["repeated_measures_anova", "paired_t_tests", "bonferroni_correction"],
+      "sphericity_correction": "Greenhouse-Geisser when sphericity violated",
+      "effect_size": "Partial eta-squared (η²)",
+      "posthoc": "Pairwise comparisons with Bonferroni correction (10 comparisons)"
+    }
+  },
+  "results": {
+    "original": {
+      "label": "WITH OUTLIERS",
+      "n_models": 45,
+      "n_conditions": 5,
+      "rm_anova": {
+        "F": 67.99,
+        "df1": 4,
+        "df2": 176,
+        "p": 1.08e-34,
+        "eta_squared": 0.476,
+        "effect_size_interpretation": "large",
+        "sphericity_violated": true,
+        "epsilon_gg": 0.288,
+        "p_gg_corrected": 1.07e-11
+      },
+      "condition_means": {
+        "baseline": {"mean": 1.538, "std": 0.193, "n": 45},
+        "authority": {"mean": 1.639, "std": 0.264, "n": 45},
+        "minimal_steering": {"mean": 1.326, "std": 0.081, "n": 45},
+        "telemetryV3": {"mean": 1.332, "std": 0.135, "n": 45},
+        "urgency": {"mean": 2.378, "std": 0.842, "n": 45}
+      }
+    },
+    "outliers_removed": {
+      "label": "OUTLIERS REMOVED",
+      "n_models": 41,
+      "n_conditions": 5,
+      "rm_anova": {
+        "F": 71.69,
+        "df1": 4,
+        "df2": 160,
+        "p": 1.10e-34,
+        "eta_squared": 0.515,
+        "effect_size_interpretation": "large",
+        "sphericity_violated": true,
+        "epsilon_gg": 0.270,
+        "p_gg_corrected": 4.22e-11
+      },
+      "condition_means": {
+        "baseline": {"mean": 1.507, "std": 0.148, "n": 41},
+        "authority": {"mean": 1.597, "std": 0.199, "n": 41},
+        "minimal_steering": {"mean": 1.320, "std": 0.079, "n": 41},
+        "telemetryV3": {"mean": 1.306, "std": 0.070, "n": 41},
+        "urgency": {"mean": 2.253, "std": 0.711, "n": 41}
+      }
+    }
+  },
+  "posthoc_comparisons": {
+    "note": "Bonferroni-corrected pairwise comparisons (α = 0.005 for 10 comparisons)",
+    "significant_differences": [
+      {"comparison": "urgency vs all others", "interpretation": "Urgency condition produces significantly higher disinhibition"},
+      {"comparison": "authority vs baseline", "hedges_g": 0.43, "p_corrected": 6.3e-05},
+      {"comparison": "baseline vs minimal_steering", "hedges_g": 1.42, "p_corrected": 8.0e-10},
+      {"comparison": "baseline vs telemetryV3", "hedges_g": 1.23, "p_corrected": 1.2e-08}
+    ],
+    "non_significant": [
+      {"comparison": "minimal_steering vs telemetryV3", "hedges_g": -0.06, "p_corrected": 1.0}
+    ]
+  },
+  "key_findings": [
+    "Large main effect of condition on disinhibition (η² = 0.48-0.52)",
+    "Urgency intervention produces highest disinhibition (M = 2.38)",
+    "Minimal_steering and telemetryV3 produce lowest disinhibition (M ≈ 1.33)",
+    "Results robust to outlier removal",
+    "Sphericity violated; Greenhouse-Geisser correction applied"
+  ],
+  "output_files": {
+    "results_legacy": "repeated_measures_anova_results.json",
+    "brief": "CROSS_CONDITION_BRIEF.md"
+  },
+  "related_analyses": {
+    "upstream": [
+      "baseline/median_split_classification.json",
+      "authority/median_split_classification.json",
+      "minimal_steering/median_split_classification.json",
+      "telemetryV3/median_split_classification.json",
+      "urgency/median_split_classification.json"
+    ]
+  }
+}

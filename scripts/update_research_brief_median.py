@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
 """
+DEPRECATED: Use generate_research_brief_v2.py instead.
+
+This v1 script has hardcoded values and lacks provenance features.
+Kept for reference only. The main pipeline uses generate_research_brief_v2.py.
+
 Generate focused research brief with hypothesis testing and industry-standard statistical reporting.
 """
+import warnings
+warnings.warn(
+    "update_research_brief_median.py is DEPRECATED. Use generate_research_brief_v2.py instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
 
 import json
 import sys

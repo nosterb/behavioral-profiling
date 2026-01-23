@@ -26,9 +26,9 @@ DISINHIBITION_DIMS = ["transgression", "aggression", "tribalism", "grandiosity"]
 SOPHISTICATION_DIMS = ["depth", "authenticity"]
 
 
-def load_data(condition: str) -> pd.DataFrame:
+def load_data(condition: str, base_dir: str = 'outputs/behavioral_profiles') -> pd.DataFrame:
     """Load all_models_data.csv for a condition."""
-    csv_path = Path(f"outputs/behavioral_profiles/{condition}/all_models_data.csv")
+    csv_path = Path(f"{base_dir}/{condition}/all_models_data.csv")
     if not csv_path.exists():
         raise FileNotFoundError(f"Data file not found: {csv_path}")
     return pd.read_csv(csv_path)
@@ -425,18 +425,24 @@ def print_summary_report(results: dict, df: pd.DataFrame, condition: str):
 
 
 def main():
-    # Get condition from command line
-    if len(sys.argv) > 1:
-        condition = sys.argv[1]
-    else:
-        condition = "baseline"
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Cross-provider statistical comparisons')
+    parser.add_argument('condition', nargs='?', default='baseline',
+                        help='Condition name (default: baseline)')
+    parser.add_argument('--base-dir', type=str, default='outputs/behavioral_profiles',
+                        help='Base directory for behavioral profiles (default: outputs/behavioral_profiles)')
+
+    args = parser.parse_args()
+    condition = args.condition
+    base_dir = args.base_dir
 
     print(f"\nRunning cross-provider comparisons for: {condition}")
     print("-" * 50)
 
     # Load data
     try:
-        df = load_data(condition)
+        df = load_data(condition, base_dir)
     except FileNotFoundError as e:
         print(f"Error: {e}")
         sys.exit(1)
@@ -469,7 +475,7 @@ def main():
         results[dim] = analyze_dimension(df_filtered, dim)
 
     # Output directory
-    output_dir = Path(f"outputs/behavioral_profiles/{condition}")
+    output_dir = Path(f"{base_dir}/{condition}")
 
     # Save results JSON
     # Convert provider_stats DataFrames to dicts for JSON serialization

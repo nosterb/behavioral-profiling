@@ -2105,6 +2105,77 @@ def generate_provider_constraint_section(provider_constraint):
     return "\n".join(lines)
 
 
+def extract_section_number(header: str) -> float:
+    """Extract section number from header like '## 0. Epistemic...' -> 0.0, '## 1. Hypotheses...' -> 1.0.
+
+    Returns float to support subsections like 5.1 -> 5.1
+    Returns -1 for headers without numbers (Executive Summary, Appendix, etc.)
+    """
+    import re
+    # Match patterns like "## 0.", "## 1.", "### 5.1", "## Appendix A:"
+    match = re.search(r'##+ (\d+(?:\.\d+)?)', header)
+    if match:
+        return float(match.group(1))
+    # Executive Summary comes before numbered sections
+    if 'Executive Summary' in header:
+        return -0.5
+    # Appendices come after numbered sections
+    if 'Appendix' in header:
+        return 100.0
+    return -1
+
+
+def insert_preserved_sections(sections: list, preserved: dict, used_headers: set) -> list:
+    """Insert any preserved MANUAL sections that weren't used by known generators.
+
+    Finds preserved sections not in used_headers and inserts them at appropriate
+    positions based on section numbering.
+    """
+    # Find unused preserved sections
+    unused = {h: c for h, c in preserved.items() if h not in used_headers}
+
+    if not unused:
+        return sections
+
+    # For each unused section, determine where to insert it
+    result = []
+    for section_content in sections:
+        result.append(section_content)
+
+        # After each section, check if any unused sections should be inserted
+        # by looking at what section number just ended vs what's next
+        # Extract the header from this section
+        lines = section_content.strip().split('\n')
+        current_header = None
+        for line in lines:
+            if line.startswith('## '):
+                current_header = line
+                break
+
+        if current_header:
+            current_num = extract_section_number(current_header)
+
+            # Find unused sections that should come after this one
+            to_insert = []
+            for header, content in list(unused.items()):
+                header_num = extract_section_number(header)
+                # Insert if this unused section's number is > current but would come before next known section
+                # Simplified: insert sections numbered between current and current+1
+                if current_num >= 0 and header_num > current_num and header_num < current_num + 1:
+                    to_insert.append((header_num, header, content))
+                # Special case: section 0 comes after Executive Summary (-0.5) but before section 1
+                elif current_num == -0.5 and header_num >= 0 and header_num < 1:
+                    to_insert.append((header_num, header, content))
+
+            # Sort by section number and insert
+            to_insert.sort(key=lambda x: x[0])
+            for _, header, content in to_insert:
+                result.append(f"{header}\n\n{wrap_manual_section(content)}\n\n---\n\n")
+                del unused[header]
+
+    return result
+
+
 def generate_main_brief():
     """Generate the complete MAIN_RESEARCH_BRIEF.md content."""
     # Load preserved manual sections from existing file
@@ -2122,6 +2193,20 @@ def generate_main_brief():
 
     if not conditions_data:
         return "# Main Research Brief\n\n**Error**: No condition data found.\n"
+
+    # Track which preserved headers are used by known generators
+    # These are the headers that generators explicitly check for
+    used_headers = {
+        f"## Executive Summary {MANUAL_BADGE}",
+        "### 5.1 H1/H2 Relationship",
+        "## 9. Interpretation: H1a/H2 Relationship",  # Old format
+        f"### 6.2 Other Methodological Considerations {MANUAL_BADGE}",
+        "### 12.2 Other Methodological Considerations",  # Old format
+        f"## 7. Future Directions {MANUAL_BADGE}",
+        "### 13.3 Future Directions",  # Old format
+        f"### 8.4 Preliminary Interpretation {MANUAL_BADGE}",
+        "## 10. Interpretation: Intervention Effects",  # Old format
+    }
 
     # New reorganized structure
     sections = [
@@ -2158,6 +2243,9 @@ def generate_main_brief():
         generate_classification_stability_appendix(classification_stability),
         generate_file_references(conditions_data, cross_data, external_data),
     ]
+
+    # Insert any preserved MANUAL sections that weren't handled by known generators
+    sections = insert_preserved_sections(sections, preserved, used_headers)
 
     return "".join(sections)
 

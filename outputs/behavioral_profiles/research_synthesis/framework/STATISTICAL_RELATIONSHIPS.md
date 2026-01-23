@@ -111,7 +111,7 @@ A second mediation analysis tests whether Sophistication mediates the Reasoning�
 
 **Result**: Full mediation confirmed. The GPQA→Disinhibition relationship (r=0.711) is almost entirely explained by the path through Sophistication. When controlling for Sophistication, the direct effect drops to r=0.146 (n.s.).
 
-**Interpretation**: Reasoning capability doesn't directly cause disinhibition. Instead, capable models develop higher sophistication (depth + authenticity), and sophistication in turn predicts higher disinhibition. The causal chain is: **Reasoning → Sophistication → Disinhibition**.
+**Interpretation**: The GPQA-Disinhibition correlation is statistically accounted for by the path through Sophistication. Models scoring high on GPQA also score high on Sophistication (r=0.88), and Sophistication in turn correlates with Disinhibition (r=0.75). The statistical structure is: **Reasoning — Sophistication — Disinhibition** (sequential mediation pattern, not causal claim).
 
 ### Regression Analysis (Sophistication → Toxicity)
 
@@ -291,18 +291,37 @@ python3 outputs/behavioral_profiles/research_synthesis/framework/generate_path_d
 
 ---
 
-## Provenance
+## Data Provenance & Audit Trail
 
-**Condition**: baseline
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/profiles/*.json` | Behavioral profile scores |
+| `outputs/behavioral_profiles/baseline/median_split_classification.json` | Sophistication/Disinhibition composites |
+| `limitations/external_evals/gpqa_validation_analysis.json` | GPQA benchmark scores |
+| `bert_validation/baseline/bert_validation_results.json` | BERT toxicity scores |
 
-| Source | File |
-|--------|------|
-| GPQA scores | `../limitations/external_evals/gpqa_validation_analysis.json` |
-| Behavioral profiles | `../../baseline/profiles/*.json` |
-| Soph/Disin composites | `../../baseline/median_split_classification.json` |
-| BERT scores | `../bert_validation/baseline/bert_validation_results.json` |
-| BERT vs Soph/Disin | `../bert_validation/baseline/bert_soph_disin_results.json` |
-| Regression analysis | `../bert_validation/regression_analysis_audit.json` |
-| GPQA→Disin→Tox mediation | `../limitations/external_evals/gpqa_bert_mediation_audit.json` |
-| GPQA→Soph→Disin mediation | `gpqa_soph_disin_mediation_audit.json` |
-| Reasoning composite | `../limitations/external_evals/reasoning_composite_triangulated_audit.json` |
+### Audit Files
+| File | Description |
+|------|-------------|
+| `statistical_model_audit.json` | Complete path model with all relationships |
+| `gpqa_soph_disin_mediation_audit.json` | GPQA → Sophistication → Disinhibition mediation |
+| `../limitations/external_evals/gpqa_bert_mediation_audit.json` | GPQA → Disinhibition → Toxicity mediation |
+| `../bert_validation/regression_analysis_audit.json` | Regression/variance decomposition |
+
+### Methodology
+- **Statistical tests**: Pearson correlation, partial correlation, Sobel test
+- **Mediation analysis**: Baron & Kenny criteria + bootstrap (n=5000)
+- **Composite construction**: Sophistication = (depth + authenticity) / 2; Disinhibition = (transgression + aggression + grandiosity + tribalism) / 4
+
+### Reproducibility
+To regenerate diagrams:
+```bash
+python3 outputs/behavioral_profiles/research_synthesis/framework/generate_path_diagram.py
+python3 outputs/behavioral_profiles/research_synthesis/framework/generate_capability_model.py
+```
+
+### Data Quality
+- **N**: 45 models (baseline), 35 with GPQA scores
+- **Condition**: baseline
+- **Known limitations**: Observational data only - no causal claims warranted

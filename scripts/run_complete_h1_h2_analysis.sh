@@ -3,28 +3,33 @@
 # Runs median split classification + H1/H2 analysis in one step
 
 if [ -z "$1" ]; then
-    echo "Usage: $0 <intervention_name>"
+    echo "Usage: $0 <intervention_name> [base_dir]"
     echo ""
     echo "Examples:"
     echo "  $0 baseline"
-    echo "  $0 affective"
     echo "  $0 authority"
-    echo "  $0 urgency"
+    echo "  $0 naturalistic_r2 outputs/experiment/behavioral_profiles"
+    echo ""
+    echo "Arguments:"
+    echo "  intervention_name  Name of condition (e.g., baseline, authority, naturalistic_r2)"
+    echo "  base_dir           Optional: custom base directory (default: outputs/behavioral_profiles)"
     echo ""
     echo "This script will:"
     echo "  1. Calculate median split classification"
     echo "  2. Generate H1 visualizations (bar chart, summary table)"
     echo "  3. Generate H2 scatter plots (composite + all dimensions)"
-    echo "  4. Generate research brief"
-    echo "  5. Generate provider analysis (summary, H2 scatters, dimensions, heatmap, stats)"
-    echo "  6. Run cross-provider statistical comparisons (ANOVA, pairwise t-tests)"
+    echo "  4. Run outlier sensitivity analysis (robustness check)"
+    echo "  5. Generate research brief (with fresh outlier data)"
+    echo "  6. Generate provider analysis (summary, H2 scatters, dimensions, heatmap, stats)"
+    echo "  7. Run cross-provider statistical comparisons (ANOVA, pairwise t-tests)"
     echo ""
-    echo "Output: 16 files (5 H1/H2 core + 8 provider analysis + 3 data exports)"
+    echo "Output: 18+ files (5 H1/H2 core + outliers_removed/ + 8 provider analysis + 3 data exports)"
     exit 1
 fi
 
 INTERVENTION="$1"
-PROFILE_DIR="outputs/behavioral_profiles/${INTERVENTION}"
+BASE_DIR="${2:-outputs/behavioral_profiles}"
+PROFILE_DIR="${BASE_DIR}/${INTERVENTION}"
 
 echo "=========================================================================="
 echo "COMPLETE H1/H2 ANALYSIS PIPELINE"
@@ -128,7 +133,8 @@ import json
 from pathlib import Path
 
 intervention = '${INTERVENTION}'
-profile_dir = Path(f'outputs/behavioral_profiles/{intervention}')
+base_dir = '${BASE_DIR}'
+profile_dir = Path(f'{base_dir}/{intervention}')
 data = json.loads((profile_dir / 'median_split_classification.json').read_text())
 
 print(f'  Models: {len(data[\"models\"])}')
@@ -149,7 +155,7 @@ echo "=== STAGE 3: H1/H2 ANALYSIS ==="
 echo ""
 
 echo "Step 3a: Generating H1 visualizations..."
-python3 scripts/create_h1_bar_chart.py ${INTERVENTION}
+python3 scripts/create_h1_bar_chart.py ${INTERVENTION} --base-dir ${BASE_DIR}
 if [ $? -ne 0 ]; then
     echo "❌ ERROR: H1 visualization generation failed"
     exit 1
@@ -157,15 +163,23 @@ fi
 echo ""
 
 echo "Step 3b: Generating H2 scatter plots..."
-python3 scripts/create_h2_color_coded_scatters.py ${INTERVENTION}
+python3 scripts/create_h2_color_coded_scatters.py ${INTERVENTION} --base-dir ${BASE_DIR}
 if [ $? -ne 0 ]; then
     echo "❌ ERROR: H2 visualization generation failed"
     exit 1
 fi
 echo ""
 
-echo "Step 3c: Generating research brief..."
-python3 scripts/update_research_brief_median.py ${INTERVENTION}
+echo "Step 3c: Running outlier sensitivity analysis..."
+python3 scripts/analyze_outliers_removed.py ${INTERVENTION} --force --base-dir ${BASE_DIR}
+if [ $? -ne 0 ]; then
+    echo "⚠️  WARNING: Outlier analysis failed (non-critical, continuing...)"
+    # Don't exit - outlier analysis is optional sensitivity check
+fi
+echo ""
+
+echo "Step 3d: Generating research brief..."
+python3 scripts/generate_research_brief_v2.py ${INTERVENTION} --base-dir ${BASE_DIR}
 if [ $? -ne 0 ]; then
     echo "❌ ERROR: Research brief generation failed"
     exit 1
@@ -180,7 +194,7 @@ echo "=== STAGE 4: PROVIDER ANALYSIS ==="
 echo ""
 
 echo "Step 4a: Generating provider summary (4-panel visualization)..."
-python3 scripts/create_provider_summary.py ${INTERVENTION}
+python3 scripts/create_provider_summary.py ${INTERVENTION} --base-dir ${BASE_DIR}
 if [ $? -ne 0 ]; then
     echo "❌ ERROR: Provider summary generation failed"
     exit 1
@@ -188,7 +202,7 @@ fi
 echo ""
 
 echo "Step 4b: Generating provider H2 scatters (correlation by provider)..."
-python3 scripts/create_provider_h2_scatters.py ${INTERVENTION}
+python3 scripts/create_provider_h2_scatters.py ${INTERVENTION} --base-dir ${BASE_DIR}
 if [ $? -ne 0 ]; then
     echo "❌ ERROR: Provider H2 scatters generation failed"
     exit 1
@@ -196,7 +210,7 @@ fi
 echo ""
 
 echo "Step 4c: Generating comprehensive provider analysis..."
-python3 scripts/analyze_all_models_by_provider.py ${INTERVENTION}
+python3 scripts/analyze_all_models_by_provider.py ${INTERVENTION} --base-dir ${BASE_DIR}
 if [ $? -ne 0 ]; then
     echo "❌ ERROR: Provider comprehensive analysis failed"
     exit 1
@@ -211,7 +225,7 @@ echo "=== STAGE 5: CROSS-PROVIDER COMPARISONS ==="
 echo ""
 
 echo "Step 5: Running cross-provider statistical comparisons (ANOVA, pairwise t-tests)..."
-python3 scripts/analyze_provider_comparisons.py ${INTERVENTION}
+python3 scripts/analyze_provider_comparisons.py ${INTERVENTION} --base-dir ${BASE_DIR}
 if [ $? -ne 0 ]; then
     echo "❌ ERROR: Cross-provider comparisons failed"
     exit 1
@@ -279,17 +293,18 @@ from pathlib import Path
 import numpy as np
 
 intervention = '${INTERVENTION}'
-profile_dir = Path(f'outputs/behavioral_profiles/{intervention}')
+base_dir = '${BASE_DIR}'
+profile_dir = Path(f'{base_dir}/{intervention}')
 data = json.loads((profile_dir / 'median_split_classification.json').read_text())
 
-print(f'  H1 (Group Difference):')
+print(f'  H1a (Group Difference - disinhibition by sophistication group):')
 print(f'    - Cohen\\'s d = {data[\"statistics\"][\"disinhibition\"][\"cohens_d\"]:.2f}')
 print(f'    - p-value = {data[\"statistics\"][\"disinhibition\"][\"p_value\"]:.6f}')
 d = abs(data['statistics']['disinhibition']['cohens_d'])
 effect = 'Large' if d >= 0.8 else 'Medium' if d >= 0.5 else 'Small'
 print(f'    - Effect: {effect}')
 print()
-print(f'  H2 (Correlation):')
+print(f'  H2 (Correlation - sophistication vs disinhibition):')
 print(f'    - r = {data[\"correlation\"][\"sophistication_disinhibition\"]:.3f}')
 r = abs(data['correlation']['sophistication_disinhibition'])
 effect = 'Large' if r >= 0.5 else 'Medium' if r >= 0.3 else 'Small'

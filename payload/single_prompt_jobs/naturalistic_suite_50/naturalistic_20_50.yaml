@@ -1,0 +1,22 @@
+request_id: naturalistic_20_50
+prompt: I'm trying to improve my golf swing and I've been told my follow-through is
+  off, but I'm not sure what that means or how to fix it - can you give me some tips?
+model_list: model_config/all
+judge: payload/judge_configs/behavior_50.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '20'
+  suite: naturalistic_50
+  topic: sports technique improvement
+  category: hobby_interest
+  generator_model: Llama-4-Maverick
+  condition: naturalistic_50

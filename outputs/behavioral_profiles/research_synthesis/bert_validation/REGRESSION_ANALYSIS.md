@@ -8,7 +8,7 @@
 
 ## Research Question
 
-Does Sophistication predict BERT toxicity independent of Disinhibition, or is the Sophistication-Toxicity correlation mediated through Disinhibition?
+Does Sophistication predict BERT toxicity independent of Disinhibition, or is the Sophistication-Toxicity correlation statistically mediated through Disinhibition?
 
 ---
 
@@ -55,7 +55,7 @@ Does Sophistication predict BERT toxicity independent of Disinhibition, or is th
 
 ## Formal Mediation Analysis
 
-**Model**: Sophistication → Disinhibition → BERT Toxicity
+**Model**: Sophistication — Disinhibition — BERT Toxicity (statistical decomposition)
 
 Bootstrap resamples: 5,000
 
@@ -70,13 +70,13 @@ Bootstrap resamples: 5,000
 
 The proportion mediated exceeds 100% because:
 
-1. **Indirect effect is positive** (0.0074): Sophistication → ↑Disinhibition → ↑Toxicity
-2. **Direct effect is negative** (-0.0023): Sophistication → ↓Toxicity (when controlling for Disinhibition)
+1. **Indirect effect is positive** (0.0074): Higher Sophistication correlates with higher Disinhibition, which correlates with higher Toxicity
+2. **Direct effect is negative** (-0.0023): When controlling for Disinhibition, Sophistication shows negative association with Toxicity
 3. **Total effect is positive but smaller** (0.0050): The direct and indirect effects partially cancel
 
 This is called **inconsistent mediation** or a **suppression effect**. Disinhibition acts as a suppressor variable that masks a slight protective effect of Sophistication on BERT toxicity.
 
-**Plain English**: More sophisticated models tend to be more disinhibited, which increases toxicity scores. But if you compare models with *equal* disinhibition, sophisticated models are actually *less* toxic (more articulate, less crude).
+**Plain English**: More sophisticated models tend to score higher on disinhibition, which is associated with higher toxicity scores. But among models with *equal* disinhibition, sophisticated models show *lower* toxicity (more articulate, less crude).
 
 ---
 
@@ -84,17 +84,17 @@ This is called **inconsistent mediation** or a **suppression effect**. Disinhibi
 
 1. **Disinhibition dominates**: 60.1% of BERT toxicity variance is explained by Disinhibition alone. This validates that BERT toxicity captures the disinhibition behavioral construct.
 
-2. **Sophistication effect is mediated**: The apparent Sophistication-Toxicity correlation (r² = 0.26) is largely explained by Sophistication's correlation with Disinhibition. When controlling for Disinhibition, Sophistication adds only 2.2% unique variance (not statistically significant).
+2. **Sophistication effect is statistically mediated**: The apparent Sophistication-Toxicity correlation (r² = 0.26) is largely accounted for by Sophistication's correlation with Disinhibition. When controlling for Disinhibition, Sophistication adds only 2.2% unique variance (not statistically significant).
 
 3. **Negative suppression effect**: The negative β for Sophistication (-0.237) suggests that when holding Disinhibition constant, more sophisticated models may actually produce *less* BERT-toxic content. This is consistent with sophisticated models being more articulate/substantive rather than crude/inflammatory.
 
-4. **Shared variance (23.8%)**: This represents the portion of BERT toxicity that's explained by what Sophistication and Disinhibition have in common - likely the general "capability" factor that drives both constructs.
+4. **Shared variance (23.8%)**: This represents the portion of BERT toxicity variance associated with what Sophistication and Disinhibition have in common - likely the general "capability" factor correlated with both constructs.
 
 ---
 
 ## Conclusion
 
-BERT toxicity is primarily a measure of **disinhibition**, not sophistication. The observed correlation between Sophistication and BERT toxicity is a spurious association mediated through Disinhibition. More capable models aren't inherently "toxic" - they tend to score higher on disinhibition behaviors, which in turn trigger BERT toxicity detection.
+BERT toxicity is primarily a measure of **disinhibition**, not sophistication. The observed correlation between Sophistication and BERT toxicity is statistically mediated through Disinhibition. More capable models aren't inherently "toxic" - they tend to score higher on disinhibition behaviors, which co-occur with higher BERT toxicity scores.
 
 This supports the validity of:
 - BERT as an independent validator of the Disinhibition construct
@@ -112,8 +112,8 @@ This regression analysis converges with the GPQA mediation analysis:
 | GPQA | r = -0.218 | No (p = 0.216) |
 
 Both analyses show:
-1. **Full mediation**: Capability → Toxicity is explained by Capability → Disinhibition → Toxicity
-2. **Negative direct effect**: Slight protective effect of capability when disinhibition is held constant
+1. **Full statistical mediation**: Capability–Toxicity association is accounted for by Capability–Disinhibition–Toxicity path
+2. **Negative direct effect**: Slight negative association of capability with toxicity when disinhibition is held constant
 3. **Suppression/inconsistent mediation**: The indirect and direct effects partially cancel
 
 See `../framework/STATISTICAL_RELATIONSHIPS.md` for the integrated theoretical model.
@@ -137,7 +137,7 @@ See `../framework/STATISTICAL_RELATIONSHIPS.md` for the integrated theoretical m
 | Component | Method |
 |-----------|--------|
 | Regression | Ordinary Least Squares (OLS) |
-| Mediation | Causal mediation with bootstrap (n=5000) |
+| Mediation | Statistical mediation with bootstrap (n=5000) |
 | Variance decomposition | Hierarchical regression |
 | Multicollinearity | Variance Inflation Factor (VIF) |
 

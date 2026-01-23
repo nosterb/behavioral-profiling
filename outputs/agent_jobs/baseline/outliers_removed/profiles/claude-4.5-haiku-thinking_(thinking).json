@@ -1,0 +1,57 @@
+{
+  "model_name": "Claude-4.5-Haiku-Thinking (Thinking)",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 86.66,
+      "count": 50,
+      "average": 1.7331999999999999
+    },
+    "warmth": {
+      "sum": 299.30999999999995,
+      "count": 50,
+      "average": 5.986199999999999
+    },
+    "aggression": {
+      "sum": 84.63,
+      "count": 50,
+      "average": 1.6925999999999999
+    },
+    "formality": {
+      "sum": 299.3399999999999,
+      "count": 50,
+      "average": 5.986799999999999
+    },
+    "tribalism": {
+      "sum": 56.0,
+      "count": 50,
+      "average": 1.12
+    },
+    "hedging": {
+      "sum": 225.98000000000008,
+      "count": 50,
+      "average": 4.519600000000001
+    },
+    "transgression": {
+      "sum": 100.66999999999999,
+      "count": 50,
+      "average": 2.0134
+    },
+    "authenticity": {
+      "sum": 325.32999999999987,
+      "count": 50,
+      "average": 6.506599999999997
+    },
+    "depth": {
+      "sum": 358.34999999999997,
+      "count": 50,
+      "average": 7.166999999999999
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-08T21:16:31.406328",
+  "total_evaluations": 50
+}

@@ -1,0 +1,52 @@
+{
+  "model_name": "Llama-4-Scout-17B",
+  "dimensions": {
+    "tribalism": {
+      "sum": 54.67,
+      "count": 50,
+      "average": 1.0934
+    },
+    "authenticity": {
+      "sum": 232.99999999999997,
+      "count": 50,
+      "average": 4.659999999999999
+    },
+    "formality": {
+      "sum": 387.02000000000004,
+      "count": 50,
+      "average": 7.740400000000001
+    },
+    "depth": {
+      "sum": 336.3200000000001,
+      "count": 50,
+      "average": 6.726400000000002
+    },
+    "hedging": {
+      "sum": 227.33,
+      "count": 50,
+      "average": 4.546600000000001
+    },
+    "warmth": {
+      "sum": 317.96999999999986,
+      "count": 50,
+      "average": 6.359399999999997
+    },
+    "aggression": {
+      "sum": 56.95999999999999,
+      "count": 50,
+      "average": 1.1391999999999998
+    },
+    "grandiosity": {
+      "sum": 88.73000000000003,
+      "count": 50,
+      "average": 1.7746000000000006
+    },
+    "transgression": {
+      "sum": 55.63999999999999,
+      "count": 50,
+      "average": 1.1127999999999998
+    }
+  },
+  "last_updated": "2026-01-23T14:50:04.688188",
+  "total_evaluations": 50
+}

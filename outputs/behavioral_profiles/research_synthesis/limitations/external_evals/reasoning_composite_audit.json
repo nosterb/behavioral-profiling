@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.0",
   "metadata": {
     "generated": "2026-01-16T20:36:08.404793",
     "analysis": "Reasoning Composite vs Disinhibition",
@@ -11,6 +12,19 @@
     ],
     "composite_method": "Mean of z-scored benchmarks (equal weights)",
     "imputation_method": "Linear regression on Sophistication"
+  },
+  "provenance": {
+    "source_files": {
+      "behavioral_profiles": "outputs/behavioral_profiles/baseline/profiles/*.json",
+      "arc_agi_scores": "outputs/behavioral_profiles/research_synthesis/limitations/external_evals/arc_agi_validation_analysis.json",
+      "gpqa_scores": "outputs/behavioral_profiles/research_synthesis/limitations/external_evals/gpqa_validation_analysis.json",
+      "aime_scores": "outputs/behavioral_profiles/research_synthesis/limitations/external_evals/aime_validation_analysis.json"
+    },
+    "methodology": {
+      "description": "Reasoning composite constructed from z-scored benchmarks with imputation",
+      "statistical_tests": ["pearson"],
+      "imputation_method": "Linear regression from sophistication"
+    }
   },
   "imputation_models": {
     "arc_agi": {

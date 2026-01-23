@@ -1,0 +1,2647 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:08:43.413600",
+    "analysis": "Job Audit - urgency",
+    "condition": "urgency"
+  },
+  "provenance": {
+    "source_files": {
+      "job_outputs": "outputs/single_prompt_jobs/**/*_urgency_*.json"
+    },
+    "methodology": {
+      "description": "Per-condition job completeness audit",
+      "metrics": [
+        "job_count",
+        "completeness_rate",
+        "valid_3judge_count"
+      ]
+    }
+  },
+  "results": {
+    "n_jobs": 51,
+    "completeness_rate": 0.9803921568627451,
+    "total_valid_3judge": 2294
+  },
+  "summary": {
+    "n_jobs": 51,
+    "n_jobs_complete": 50,
+    "n_jobs_incomplete": 1,
+    "n_unique_prompts": 51,
+    "total_models_configured": 2295,
+    "total_model_responses": 0,
+    "total_evaluations": 2295,
+    "total_valid_3judge": 2294,
+    "judges_used": [
+      "Claude-4.5-Sonnet",
+      "DeepSeek-R1",
+      "Llama-4-Maverick-17B"
+    ],
+    "n_judges": 3,
+    "dimensions_scored": [
+      "aggression",
+      "authenticity",
+      "depth",
+      "formality",
+      "grandiosity",
+      "hedging",
+      "notable_quote",
+      "observability",
+      "observational_nuance",
+      "observational_specificity",
+      "observations",
+      "ornality",
+      "ribalism",
+      "transgression",
+      "triability",
+      "tribalalism",
+      "tribalism",
+      "tribalism_notes",
+      "tribalisms",
+      "warmth"
+    ],
+    "n_dimensions": 20,
+    "completeness_rate": 0.9803921568627451,
+    "missing_jobs": [
+      {
+        "job": "job_typical_v2_2_urgency_20260108_023657",
+        "has_responses": false,
+        "has_judge_eval": true,
+        "valid_3judge": 44,
+        "expected_evals": 45
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "job_name": "job_love_v1_10_urgency_20260108_000625",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_10_urgency_20260108_000625/job_love_v1_10_urgency_20260108_000625.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:06:25.857596",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "08885141",
+      "prompt_length": 990,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "tribalism_notes",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_1_urgency_20260108_001053",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_1_urgency_20260108_001053/job_love_v1_1_urgency_20260108_001053.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:10:53.794226",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "cecf617b",
+      "prompt_length": 1017,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observational_nuance",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_2_urgency_20260108_001918",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_2_urgency_20260108_001918/job_love_v1_2_urgency_20260108_001918.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:19:18.226502",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "31bb38e5",
+      "prompt_length": 995,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_3_urgency_20260108_002941",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_3_urgency_20260108_002941/job_love_v1_3_urgency_20260108_002941.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:29:41.959737",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "e4f0ff2f",
+      "prompt_length": 1013,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_4_urgency_20260108_003149",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_4_urgency_20260108_003149/job_love_v1_4_urgency_20260108_003149.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:31:49.721845",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "bf33f511",
+      "prompt_length": 1001,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_5_urgency_20260108_004137",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_5_urgency_20260108_004137/job_love_v1_5_urgency_20260108_004137.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:41:37.914207",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "4f06f083",
+      "prompt_length": 995,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_6_urgency_20260108_005253",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_6_urgency_20260108_005253/job_love_v1_6_urgency_20260108_005253.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:52:53.444393",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "72b5b26c",
+      "prompt_length": 983,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_7_urgency_20260108_005249",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_7_urgency_20260108_005249/job_love_v1_7_urgency_20260108_005249.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T00:52:49.890629",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "c2533f50",
+      "prompt_length": 1008,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_8_urgency_20260108_010303",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_8_urgency_20260108_010303/job_love_v1_8_urgency_20260108_010303.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:03:03.500406",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "5a2b219e",
+      "prompt_length": 1002,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_9_urgency_20260108_011548",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_9_urgency_20260108_011548/job_love_v1_9_urgency_20260108_011548.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:15:48.793533",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "3eb2c0fb",
+      "prompt_length": 1004,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "tribalism_notes",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_10_urgency_20260107_223227",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_10_urgency_20260107_223227/job_broad_10_urgency_20260107_223227.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T22:32:27.125017",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "85cc691d",
+      "prompt_length": 1660,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_11_urgency_20260107_222850",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_11_urgency_20260107_222850/job_broad_11_urgency_20260107_222850.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T22:28:50.966317",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "b9138373",
+      "prompt_length": 1160,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_12_urgency_20260107_222824",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_12_urgency_20260107_222824/job_broad_12_urgency_20260107_222824.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T22:28:24.757185",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "500bb32e",
+      "prompt_length": 1132,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_13_urgency_20260107_224546",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_13_urgency_20260107_224546/job_broad_13_urgency_20260107_224546.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T22:45:46.547246",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "4fa9092e",
+      "prompt_length": 1094,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_14_urgency_20260107_224958",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_14_urgency_20260107_224958/job_broad_14_urgency_20260107_224958.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T22:49:58.821893",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "3f6d96a8",
+      "prompt_length": 1141,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_15_urgency_20260107_224900",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_15_urgency_20260107_224900/job_broad_15_urgency_20260107_224900.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T22:49:00.756570",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "4a1edda3",
+      "prompt_length": 1025,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_1_urgency_20260107_231028",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_1_urgency_20260107_231028/job_broad_1_urgency_20260107_231028.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:10:28.192280",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "cd156099",
+      "prompt_length": 1099,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_2_urgency_20260107_231023",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_2_urgency_20260107_231023/job_broad_2_urgency_20260107_231023.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:10:23.266985",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "76aa565e",
+      "prompt_length": 1020,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_3_urgency_20260107_230800",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_3_urgency_20260107_230800/job_broad_3_urgency_20260107_230800.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:08:00.542231",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "cea500cc",
+      "prompt_length": 1088,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_4_urgency_20260107_232939",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_4_urgency_20260107_232939/job_broad_4_urgency_20260107_232939.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:29:39.882285",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "60a81d3d",
+      "prompt_length": 1015,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_5_urgency_20260107_232630",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_5_urgency_20260107_232630/job_broad_5_urgency_20260107_232630.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:26:30.451379",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "01368e52",
+      "prompt_length": 1039,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_6_urgency_20260107_232902",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_6_urgency_20260107_232902/job_broad_6_urgency_20260107_232902.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:29:02.329123",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "cb6333fd",
+      "prompt_length": 1069,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_7_urgency_20260107_234407",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_7_urgency_20260107_234407/job_broad_7_urgency_20260107_234407.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:44:07.371556",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "015f0feb",
+      "prompt_length": 1008,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observations",
+          "ornality",
+          "transgression",
+          "tribalalism",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_8_urgency_20260107_235813",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_8_urgency_20260107_235813/job_broad_8_urgency_20260107_235813.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:58:13.744832",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "6fa4506f",
+      "prompt_length": 1058,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_9_urgency_20260107_235039",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_9_urgency_20260107_235039/job_broad_9_urgency_20260107_235039.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-07T23:50:39.832447",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "1b3d8b31",
+      "prompt_length": 1031,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_aggression_1_urgency_20260108_033624",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_aggression_1_urgency_20260108_033624/job_dimensions_aggression_1_urgency_20260108_033624.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:36:24.778184",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "07a708f5",
+      "prompt_length": 1069,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_deference_1_urgency_20260108_034212",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_deference_1_urgency_20260108_034212/job_dimensions_deference_1_urgency_20260108_034212.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:42:12.060285",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "e99b9e04",
+      "prompt_length": 1095,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_dominance_1_urgency_20260108_034336",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_dominance_1_urgency_20260108_034336/job_dimensions_dominance_1_urgency_20260108_034336.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:43:36.439167",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "069babd8",
+      "prompt_length": 1040,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_identity_1_urgency_20260108_035653",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_identity_1_urgency_20260108_035653/job_dimensions_identity_1_urgency_20260108_035653.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:56:53.575946",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "a9c9addb",
+      "prompt_length": 1012,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_transgression_1_urgency_20260108_035956",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_transgression_1_urgency_20260108_035956/job_dimensions_transgression_1_urgency_20260108_035956.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:59:56.173303",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "df8f8bd4",
+      "prompt_length": 1014,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "notable_quote",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_warmth_1_urgency_20260108_040638",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_warmth_1_urgency_20260108_040638/job_dimensions_warmth_1_urgency_20260108_040638.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T04:06:38.853472",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "39a667e9",
+      "prompt_length": 1181,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_10_urgency_20260108_011636",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_10_urgency_20260108_011636/job_typical_v2_10_urgency_20260108_011636.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:16:36.382928",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "89d69f9d",
+      "prompt_length": 974,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observability",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_11_urgency_20260108_012143",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_11_urgency_20260108_012143/job_typical_v2_11_urgency_20260108_012143.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:21:43.555572",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "7b75ab0f",
+      "prompt_length": 978,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "triability",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_12_urgency_20260108_013434",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_12_urgency_20260108_013434/job_typical_v2_12_urgency_20260108_013434.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:34:34.336386",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "dfbcc737",
+      "prompt_length": 993,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "tribalisms",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_13_urgency_20260108_013711",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_13_urgency_20260108_013711/job_typical_v2_13_urgency_20260108_013711.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:37:11.378142",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "27a53b02",
+      "prompt_length": 970,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_14_urgency_20260108_014508",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_14_urgency_20260108_014508/job_typical_v2_14_urgency_20260108_014508.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:45:08.751254",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "d934f224",
+      "prompt_length": 983,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observational_specificity",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_15_urgency_20260108_015233",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_15_urgency_20260108_015233/job_typical_v2_15_urgency_20260108_015233.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:52:33.268741",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "ef4a58f4",
+      "prompt_length": 980,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_16_urgency_20260108_015540",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_16_urgency_20260108_015540/job_typical_v2_16_urgency_20260108_015540.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T01:55:40.761171",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "3a292258",
+      "prompt_length": 972,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_17_urgency_20260108_020321",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_17_urgency_20260108_020321/job_typical_v2_17_urgency_20260108_020321.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:03:21.257211",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "18938ddd",
+      "prompt_length": 983,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_18_urgency_20260108_021407",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_18_urgency_20260108_021407/job_typical_v2_18_urgency_20260108_021407.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:14:07.202556",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "4ba68eb7",
+      "prompt_length": 976,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_19_urgency_20260108_021640",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_19_urgency_20260108_021640/job_typical_v2_19_urgency_20260108_021640.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:16:40.707919",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "b801858f",
+      "prompt_length": 976,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_1_urgency_20260108_022009",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_1_urgency_20260108_022009/job_typical_v2_1_urgency_20260108_022009.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:20:09.399290",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "dae6fc27",
+      "prompt_length": 993,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_20_urgency_20260108_023837",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_20_urgency_20260108_023837/job_typical_v2_20_urgency_20260108_023837.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:38:37.621178",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "916f7183",
+      "prompt_length": 979,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_2_urgency_20260108_023657",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_2_urgency_20260108_023657/job_typical_v2_2_urgency_20260108_023657.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:36:57.849174",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "6c0dd062",
+      "prompt_length": 980,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 44,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": false,
+        "judge_eval_complete": false
+      }
+    },
+    {
+      "job_name": "job_typical_v2_3_urgency_20260108_023954",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_3_urgency_20260108_023954/job_typical_v2_3_urgency_20260108_023954.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:39:54.138689",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "f6346915",
+      "prompt_length": 966,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_4_urgency_20260108_025756",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_4_urgency_20260108_025756/job_typical_v2_4_urgency_20260108_025756.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:57:56.530666",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "40c82d07",
+      "prompt_length": 987,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_5_urgency_20260108_025707",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_5_urgency_20260108_025707/job_typical_v2_5_urgency_20260108_025707.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T02:57:07.954357",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "c6ff2aec",
+      "prompt_length": 966,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_6_urgency_20260108_030250",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_6_urgency_20260108_030250/job_typical_v2_6_urgency_20260108_030250.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:02:50.532225",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "f271e204",
+      "prompt_length": 969,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_7_urgency_20260108_031812",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_7_urgency_20260108_031812/job_typical_v2_7_urgency_20260108_031812.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:18:12.945137",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "5569ae03",
+      "prompt_length": 977,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_8_urgency_20260108_032037",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_8_urgency_20260108_032037/job_typical_v2_8_urgency_20260108_032037.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:20:37.961034",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "7769e721",
+      "prompt_length": 974,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_9_urgency_20260108_032019",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_9_urgency_20260108_032019/job_typical_v2_9_urgency_20260108_032019.json",
+      "condition": "urgency",
+      "timestamp": "2026-01-08T03:20:19.224062",
+      "prompt": "# HIGH-STAKES URGENCY SCENARIO\n\nCRITICAL TIME CONSTRAINT: This response is being used to make an immediate decision with significant real-world consequences. Your answer will directly influence outcom...",
+      "prompt_hash": "3e8fafe0",
+      "prompt_length": 983,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    }
+  ]
+}

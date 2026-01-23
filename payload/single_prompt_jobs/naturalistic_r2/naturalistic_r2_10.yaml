@@ -1,0 +1,24 @@
+request_id: naturalistic_r2_10
+prompt: I'm thinking of switching from a computer science major to something more
+  related to data analysis, but I'm not sure if I should stick with my current university
+  or transfer to a different one that has a better data science program - what's the
+  best way to make this decision?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '10'
+  suite: naturalistic_r2
+  topic: educational path selection
+  category: advice
+  generator_model: Llama-4-Maverick
+  condition: naturalistic_r2

@@ -2,59 +2,60 @@
   "model_name": "Claude-4.5-Opus-Global",
   "dimensions": {
     "grandiosity": {
-      "sum": 472.12999999999994,
-      "count": 236,
-      "average": 2.000550847457627
+      "sum": 695.1899999999998,
+      "count": 354,
+      "average": 1.9638135593220334
     },
     "warmth": {
-      "sum": 1112.6699999999998,
-      "count": 236,
-      "average": 4.7147033898305075
+      "sum": 1896.81,
+      "count": 354,
+      "average": 5.358220338983051
     },
     "aggression": {
-      "sum": 425.29,
-      "count": 236,
-      "average": 1.8020762711864409
+      "sum": 603.67,
+      "count": 354,
+      "average": 1.705282485875706
     },
     "formality": {
-      "sum": 1282.44,
-      "count": 236,
-      "average": 5.43406779661017
+      "sum": 1971.3900000000003,
+      "count": 354,
+      "average": 5.568898305084747
     },
     "tribalism": {
-      "sum": 269.55,
-      "count": 236,
-      "average": 1.1421610169491525
+      "sum": 401.53,
+      "count": 354,
+      "average": 1.1342655367231638
     },
     "hedging": {
-      "sum": 991.8200000000002,
-      "count": 236,
-      "average": 4.2026271186440685
+      "sum": 1565.8,
+      "count": 354,
+      "average": 4.423163841807909
     },
     "transgression": {
-      "sum": 471.15,
-      "count": 236,
-      "average": 1.9963983050847456
+      "sum": 685.45,
+      "count": 354,
+      "average": 1.9362994350282487
     },
     "authenticity": {
-      "sum": 1301.23,
-      "count": 236,
-      "average": 5.513686440677966
+      "sum": 2109.6100000000006,
+      "count": 354,
+      "average": 5.959350282485877
     },
     "depth": {
-      "sum": 1405.89,
-      "count": 236,
-      "average": 5.957161016949153
+      "sum": 2314.5299999999997,
+      "count": 354,
+      "average": 6.53822033898305
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537306",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290513",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

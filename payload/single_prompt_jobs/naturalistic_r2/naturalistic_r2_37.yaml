@@ -1,0 +1,22 @@
+request_id: naturalistic_r2_37
+prompt: I'm trying to make pad thai at home but every time I do it the noodles either
+  get mushy or clump together in a giant sticky mess. What am I doing wrong?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '07'
+  suite: naturalistic_r2
+  topic: cooking a specific dish
+  category: everyday_questions
+  generator_model: Claude-4.5-Sonnet
+  condition: naturalistic_r2

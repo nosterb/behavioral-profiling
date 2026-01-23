@@ -1,0 +1,23 @@
+request_id: naturalistic_10_50
+prompt: I'm trying to write a song about overcoming anxiety, but I'm stuck on the
+  bridge - I've got a great verse and chorus, but I don't know how to transition into
+  a meaningful second half that doesn't just repeat the same themes.
+model_list: model_config/all
+judge: payload/judge_configs/behavior_50.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '10'
+  suite: naturalistic_50
+  topic: songwriting help
+  category: creative
+  generator_model: Llama-4-Maverick
+  condition: naturalistic_50

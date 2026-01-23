@@ -1,0 +1,24 @@
+request_id: naturalistic_25
+prompt: 'I''m trying to integrate the Stripe API into my e-commerce app, but I keep
+  getting this error when I try to create a new customer: "Invalid request: must provide
+  source or customer id." I''ve double-checked my code and I''m passing the card details
+  in the request body, so what''s going wrong?'
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '25'
+  suite: naturalistic
+  topic: API integration problem
+  category: technical
+  generator_model: Llama-4-Maverick
+  condition: naturalistic

@@ -1,0 +1,22 @@
+request_id: naturalistic_13
+prompt: Do you think humans are inherently good or bad, or is it all about the environment
+  we're raised in? I'm having this debate with my friends and would love some perspectives.
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '13'
+  suite: naturalistic
+  topic: human nature
+  category: philosophical_existential
+  generator_model: GPT-4.1
+  condition: naturalistic

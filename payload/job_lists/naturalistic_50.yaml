@@ -1,0 +1,26 @@
+description: Naturalistic queries with behavior_50 judge (20 jobs)
+total_jobs: 20
+condition: naturalistic_50
+judge_config: behavior_50
+generated: '2026-01-18T13:42:16.519464'
+jobs:
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_01_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_02_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_03_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_04_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_05_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_06_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_07_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_08_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_09_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_10_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_11_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_12_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_13_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_14_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_15_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_16_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_17_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_18_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_19_50.yaml
+- /Users/nicholasosterbur/Desktop/Workspace/behavioral-profiling/payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_20_50.yaml

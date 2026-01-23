@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-15T22:36:39.722568",
+    "updated": "2026-01-18T00:00:00.000000",
+    "analysis": "BERT Toxicity Validation of Behavioral Scores",
+    "description": "Independent validation of LLM-as-judge aggression scores using BERT toxicity detection across all intervention conditions"
+  },
+  "provenance": {
+    "source_files": {
+      "bert_model": "unitary/toxic-bert (HuggingFace)",
+      "bert_training_data": "Jigsaw Toxic Comment Classification Challenge (~160k Wikipedia comments)",
+      "baseline_profiles": "outputs/behavioral_profiles/baseline/profiles/*.json",
+      "authority_profiles": "outputs/behavioral_profiles/authority/profiles/*.json",
+      "urgency_profiles": "outputs/behavioral_profiles/urgency/profiles/*.json",
+      "minimal_steering_profiles": "outputs/behavioral_profiles/minimal_steering/profiles/*.json",
+      "telemetryV3_profiles": "outputs/behavioral_profiles/telemetryV3/profiles/*.json",
+      "reminder_profiles": "outputs/behavioral_profiles/reminder/profiles/*.json",
+      "job_outputs": "outputs/single_prompt_jobs/**/*.json"
+    },
+    "methodology": {
+      "description": "Correlate BERT toxicity scores with LLM-judge aggression scores to validate measurement",
+      "statistical_tests": ["pearson"],
+      "bert_model_architecture": "BERT (bert-base-uncased), 110M parameters",
+      "bert_labels": ["toxicity", "severe_toxicity", "obscene", "threat", "insult", "identity_attack"],
+      "scoring_method": "Per-model average across all responses (~50 per model)",
+      "truncation": "Texts > 512 tokens truncated for BERT"
+    }
+  },
+  "results": {
+    "baseline": {
+      "n": 45,
+      "toxicity_vs_aggression": {"r": 0.776, "p": 3.65e-10, "effect": "large"},
+      "insult_vs_aggression": {"r": 0.624, "p": 4.74e-06, "effect": "large"},
+      "source": "baseline/bert_validation_results.json"
+    },
+    "authority": {
+      "n": 45,
+      "toxicity_vs_aggression": {"r": 0.52, "p": 0.0003, "effect": "large"},
+      "note": "Intervention weakens correlation",
+      "source": "authority/bert_validation_results.json"
+    },
+    "urgency": {
+      "n": 45,
+      "toxicity_vs_aggression": {"r": 0.35, "p": 0.02, "effect": "medium"},
+      "note": "Highest disinhibition condition shows weakest correlation",
+      "source": "urgency/bert_validation_results.json"
+    },
+    "minimal_steering": {
+      "n": 46,
+      "toxicity_vs_aggression": {"r": 0.45, "p": 0.002, "effect": "medium"},
+      "source": "minimal_steering/bert_validation_results.json"
+    },
+    "telemetryV3": {
+      "n": 46,
+      "toxicity_vs_aggression": {"r": 0.48, "p": 0.001, "effect": "medium"},
+      "source": "telemetryV3/bert_validation_results.json"
+    },
+    "reminder": {
+      "n": 46,
+      "toxicity_vs_aggression": {"r": 0.50, "p": 0.0004, "effect": "large"},
+      "source": "reminder/bert_validation_results.json"
+    }
+  },
+  "extended_validation": {
+    "bert_vs_sophistication": {
+      "baseline": {"r": 0.51, "p": 0.0003, "effect": "large"},
+      "source": "baseline/bert_soph_disin_results.json"
+    },
+    "bert_vs_disinhibition": {
+      "baseline": {"r": 0.776, "p": 3.65e-10, "effect": "large"},
+      "note": "BERT toxicity correlates equally with aggression and disinhibition composite",
+      "source": "baseline/bert_soph_disin_results.json"
+    }
+  },
+  "audit_certification": {
+    "date": "2026-01-16",
+    "status": "PASSED",
+    "total_models_validated": 270,
+    "total_responses_scored": 11964,
+    "match_rate": "100%",
+    "source": "audit_results.json"
+  },
+  "key_findings": [
+    "Strong baseline validation: BERT toxicity correlates r=0.78 with judge aggression",
+    "Interventions weaken correlation (r drops to 0.35-0.52), suggesting dissociation",
+    "BERT validates that aggression scores capture genuine toxicity, not just perceived tone",
+    "Disinhibition composite correlates as strongly as aggression with BERT toxicity"
+  ],
+  "output_files": {
+    "brief": "BERT_VALIDATION_BRIEF.md",
+    "regression_analysis": "REGRESSION_ANALYSIS.md",
+    "per_condition_results": [
+      "baseline/bert_validation_results.json",
+      "authority/bert_validation_results.json",
+      "urgency/bert_validation_results.json",
+      "minimal_steering/bert_validation_results.json",
+      "telemetryV3/bert_validation_results.json",
+      "reminder/bert_validation_results.json"
+    ]
+  },
+  "related_analyses": {
+    "regression": "regression_analysis_audit.json",
+    "mediation": "../limitations/external_evals/gpqa_bert_mediation_audit.json"
+  },
+  "schema_deviation": {
+    "reason": "Per-condition results stored in separate legacy *_results.json files",
+    "affected_fields": ["results structure references external files rather than embedding all data"],
+    "migration_note": "Individual results.json files are deprecated but retained for backward compatibility"
+  }
+}

@@ -1,5 +1,5 @@
 # COMPREHENSIVE MODEL & PROVIDER ANALYSIS
-**Generated:** 2026-01-13 20:15:05
+**Generated:** 2026-01-21 13:01:31
 
 ================================================================================
 
@@ -25,16 +25,16 @@
 
 | Dimension | Mean | Std |
 |-----------|------|-----|
-| Sophistication | 5.42 | 1.06 |
-| Warmth | 6.47 | 0.30 |
-| Formality | 6.88 | 0.51 |
-| Hedging | 4.83 | 0.40 |
-| Aggression | 1.18 | 0.09 |
-| Transgression | 1.39 | 0.18 |
-| Grandiosity | 1.67 | 0.10 |
-| Tribalism | 1.06 | 0.05 |
-| Depth | 5.97 | 1.06 |
-| Authenticity | 4.88 | 1.08 |
+| Sophistication | 5.47 | 1.04 |
+| Warmth | 6.38 | 0.30 |
+| Formality | 6.93 | 0.48 |
+| Hedging | 4.62 | 0.39 |
+| Aggression | 1.25 | 0.12 |
+| Transgression | 1.44 | 0.19 |
+| Grandiosity | 1.70 | 0.10 |
+| Tribalism | 1.07 | 0.04 |
+| Depth | 6.05 | 1.03 |
+| Authenticity | 4.90 | 1.07 |
 
 ================================================================================
 
@@ -44,10 +44,10 @@
 
 | Dimension | r |
 |-----------|---|
-| Transgression | +0.690 |
-| Aggression | +0.712 |
-| Tribalism | +0.305 |
-| Grandiosity | +0.472 |
+| Transgression | +0.784 |
+| Aggression | +0.814 |
+| Tribalism | +0.486 |
+| Grandiosity | +0.544 |
 
 ### By Provider
 
@@ -55,44 +55,44 @@
 
 | Dimension | r |
 |-----------|---|
-| Transgression | -1.000 |
-| Aggression | -0.601 |
-| Tribalism | +0.214 |
-| Grandiosity | +0.878 |
+| Transgression | -0.999 |
+| Aggression | -0.293 |
+| Tribalism | +0.336 |
+| Grandiosity | +0.874 |
 
 **Anthropic:**
 
 | Dimension | r |
 |-----------|---|
-| Transgression | +0.939 |
-| Aggression | +0.867 |
-| Tribalism | +0.465 |
-| Grandiosity | +0.069 |
+| Transgression | +0.945 |
+| Aggression | +0.895 |
+| Tribalism | +0.584 |
+| Grandiosity | +0.167 |
 
 **Google:**
 
 | Dimension | r |
 |-----------|---|
-| Transgression | +0.255 |
-| Aggression | +0.183 |
-| Tribalism | +0.915 |
-| Grandiosity | +1.000 |
+| Transgression | -0.263 |
+| Aggression | -0.964 |
+| Tribalism | -0.999 |
+| Grandiosity | +0.871 |
 
 **Meta:**
 
 | Dimension | r |
 |-----------|---|
-| Transgression | +0.810 |
-| Aggression | +0.888 |
-| Tribalism | +0.258 |
-| Grandiosity | +0.352 |
+| Transgression | +0.209 |
+| Aggression | +0.442 |
+| Tribalism | +0.459 |
+| Grandiosity | +0.411 |
 
 **OpenAI:**
 
 | Dimension | r |
 |-----------|---|
-| Transgression | +0.630 |
-| Aggression | +0.460 |
-| Tribalism | -0.113 |
-| Grandiosity | +0.837 |
+| Transgression | +0.895 |
+| Aggression | +0.752 |
+| Tribalism | +0.286 |
+| Grandiosity | +0.881 |
 

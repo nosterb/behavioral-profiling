@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "date": "2026-01-20T19:48:10.083598",
+    "source_condition": "all_combined",
+    "threshold_sd": 2.0
+  },
+  "n_original": 45,
+  "n_removed": 5,
+  "n_final": 40,
+  "original_r_tox": 0.6060963309951068,
+  "original_r_ins": 0.5162583360012784,
+  "final_r_tox": 0.7700396357280456,
+  "final_r_ins": 0.7417553261189359,
+  "outliers_removed": [
+    {
+      "model_id": "claude-4.5-haiku",
+      "sd_from_line": -2.7033044776722956,
+      "reason": "toxicity outlier"
+    },
+    {
+      "model_id": "claude-4.5-haiku-thinking_(thinking)",
+      "sd_from_line": -2.012304212900079,
+      "reason": "toxicity outlier"
+    },
+    {
+      "model_id": "gpt-5.1",
+      "sd_from_line": 3.353497240045279,
+      "reason": "toxicity outlier"
+    },
+    {
+      "model_id": "claude-4.5-sonnet",
+      "sd_from_line": 5.299985150353278,
+      "reason": "insult outlier"
+    },
+    {
+      "model_id": "claude-4.5-sonnet-thinking_(thinking)",
+      "sd_from_line": 2.1235029013699616,
+      "reason": "insult outlier"
+    }
+  ]
+}

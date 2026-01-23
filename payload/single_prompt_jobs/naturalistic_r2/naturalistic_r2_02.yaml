@@ -1,0 +1,25 @@
+request_id: naturalistic_r2_02
+prompt: I'm dealing with a situation where two of my best developers refuse to work
+  together after a disagreement about coding standards, and now it's affecting our
+  sprint deadlines. They both want me to take their side but I honestly think they're
+  both being petty. How do I get them to just move past this without losing either
+  one?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '02'
+  suite: naturalistic_r2
+  topic: team dynamics problem
+  category: professional
+  generator_model: Claude-4.5-Sonnet
+  condition: naturalistic_r2

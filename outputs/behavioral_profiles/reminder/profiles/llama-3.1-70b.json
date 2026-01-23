@@ -2,51 +2,51 @@
   "model_name": "Llama-3.1-70B",
   "dimensions": {
     "hedging": {
-      "sum": 82.67,
-      "count": 13,
-      "average": 6.359230769230769
+      "sum": 93.67,
+      "count": 15,
+      "average": 6.244666666666666
     },
     "transgression": {
-      "sum": 17.33,
-      "count": 13,
-      "average": 1.333076923076923
+      "sum": 26.659999999999997,
+      "count": 15,
+      "average": 1.7773333333333332
     },
     "aggression": {
-      "sum": 19.659999999999997,
-      "count": 13,
-      "average": 1.5123076923076921
+      "sum": 25.319999999999993,
+      "count": 15,
+      "average": 1.6879999999999995
     },
     "warmth": {
-      "sum": 98.68,
-      "count": 13,
-      "average": 7.590769230769231
+      "sum": 109.01,
+      "count": 15,
+      "average": 7.267333333333334
     },
     "grandiosity": {
-      "sum": 27.339999999999996,
-      "count": 13,
-      "average": 2.1030769230769226
+      "sum": 32.669999999999995,
+      "count": 15,
+      "average": 2.1779999999999995
     },
     "tribalism": {
-      "sum": 16.33,
-      "count": 13,
-      "average": 1.256153846153846
+      "sum": 20.989999999999995,
+      "count": 15,
+      "average": 1.399333333333333
     },
     "formality": {
-      "sum": 93.01,
-      "count": 13,
-      "average": 7.154615384615385
+      "sum": 106.34,
+      "count": 15,
+      "average": 7.089333333333333
     },
     "authenticity": {
-      "sum": 65.01,
-      "count": 13,
-      "average": 5.000769230769231
+      "sum": 79.01,
+      "count": 15,
+      "average": 5.267333333333334
     },
     "depth": {
-      "sum": 80.64999999999999,
-      "count": 13,
-      "average": 6.203846153846153
+      "sum": 93.99,
+      "count": 15,
+      "average": 6.266
     }
   },
-  "last_updated": "2026-01-10T22:20:19.238390",
-  "total_evaluations": 13
+  "last_updated": "2026-01-19T19:48:55.291693",
+  "total_evaluations": 15
 }

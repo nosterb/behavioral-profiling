@@ -139,13 +139,13 @@ Models that perform better on expert-level reasoning exhibit higher behavioral r
 
 ### Research Question
 
-Does reasoning capability (GPQA) predict BERT toxicity directly, or is this relationship mediated through disinhibition?
+Does reasoning capability (GPQA) predict BERT toxicity directly, or is this relationship statistically mediated through disinhibition?
 
 ### Method
 
 1. **Compute zero-order correlations** for all pairwise relationships
 2. **Test partial correlation**: r(GPQA → Toxicity | Disinhibition)
-3. **Mediation criterion**: If partial correlation becomes non-significant, disinhibition fully mediates
+3. **Statistical mediation criterion**: If partial correlation becomes non-significant, disinhibition statistically accounts for the relationship
 
 ### Results (n=35)
 
@@ -166,20 +166,20 @@ Does reasoning capability (GPQA) predict BERT toxicity directly, or is this rela
 
 ### Interpretation
 
-**Full mediation confirmed**: When controlling for disinhibition, the GPQA → Toxicity correlation drops from r = 0.423 (significant) to r = -0.218 (non-significant).
+**Full statistical mediation**: When controlling for disinhibition, the GPQA — Toxicity correlation drops from r = 0.423 (significant) to r = -0.218 (non-significant).
 
 ```
-Mediation Path:
-  GPQA (capability) → Disinhibition → BERT Toxicity
+Statistical Mediation Path:
+  GPQA (capability) — Disinhibition — BERT Toxicity
        r = 0.711           r = 0.740
        (large)             (large)
 
-Direct Path (after controlling):
-  GPQA → BERT Toxicity | Disinhibition
+Partial Correlation (controlling for Disinhibition):
+  GPQA — BERT Toxicity | Disinhibition
        r = -0.218 (n.s.)
 ```
 
-**Key Finding**: BERT toxicity does not measure capability directly. Instead, capable models exhibit higher disinhibition (willingness to engage), which in turn produces responses that BERT scores as more "toxic." The slight negative partial correlation (-0.218) suggests that, holding disinhibition constant, capability may actually reduce toxicity.
+**Key Finding**: BERT toxicity does not measure capability directly. Instead, capable models exhibit higher disinhibition (willingness to engage), which co-occurs with responses that BERT scores as more "toxic." The slight negative partial correlation (-0.218) suggests that, holding disinhibition constant, capability may actually reduce toxicity.
 
 ### Variance Explained
 
@@ -270,3 +270,36 @@ Contains complete traceable data including:
 
 
 data retrieved from: https://llm-stats.com/benchmarks/gpqa on 1/11/2026
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/all_models_data.csv` | Behavioral profile scores |
+| `external_evals/GPQA` (llm-stats.com) | GPQA benchmark leaderboard |
+| `outputs/behavioral_profiles/baseline/profiles/*.json` | Per-model profile data |
+
+### Audit Files
+| File | Description |
+|------|-------------|
+| `gpqa_validation_analysis.json` | Complete validation results with matched models |
+| `gpqa_bert_mediation_audit.json` | GPQA → Disinhibition → Toxicity mediation analysis |
+
+### Methodology
+- **Statistical tests**: Pearson correlation, t-test, partial correlation
+- **Model matching**: Normalized names + manual mappings, deduplicated to highest score
+- **Mediation analysis**: Baron & Kenny partial correlation approach
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/validate_external_benchmark.py --benchmark gpqa
+```
+
+### Data Quality
+- **N**: 35 matched models (from 162 GPQA entries, 45 behavioral profiles)
+- **Condition**: baseline
+- **Data retrieved**: 2026-01-11 from llm-stats.com

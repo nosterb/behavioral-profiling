@@ -1,0 +1,2635 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:08:43.411100",
+    "analysis": "Job Audit - minimal_steering",
+    "condition": "minimal_steering"
+  },
+  "provenance": {
+    "source_files": {
+      "job_outputs": "outputs/single_prompt_jobs/**/*_minimal_steering_*.json"
+    },
+    "methodology": {
+      "description": "Per-condition job completeness audit",
+      "metrics": [
+        "job_count",
+        "completeness_rate",
+        "valid_3judge_count"
+      ]
+    }
+  },
+  "results": {
+    "n_jobs": 51,
+    "completeness_rate": 0.9411764705882353,
+    "total_valid_3judge": 2341
+  },
+  "summary": {
+    "n_jobs": 51,
+    "n_jobs_complete": 48,
+    "n_jobs_incomplete": 3,
+    "n_unique_prompts": 51,
+    "total_models_configured": 2346,
+    "total_model_responses": 0,
+    "total_evaluations": 2346,
+    "total_valid_3judge": 2341,
+    "judges_used": [
+      "Claude-4.5-Sonnet",
+      "DeepSeek-R1",
+      "Llama-4-Maverick-17B"
+    ],
+    "n_judges": 3,
+    "dimensions_scored": [
+      "aggression",
+      "authenticity",
+      "depth",
+      "formality",
+      "grandiosity",
+      "hedging",
+      "observability",
+      "ribalism",
+      "transgression",
+      "tribalism",
+      "warmth"
+    ],
+    "n_dimensions": 11,
+    "completeness_rate": 0.9411764705882353,
+    "missing_jobs": [
+      {
+        "job": "job_broad_4_minimal_steering_20260109_122441",
+        "has_responses": false,
+        "has_judge_eval": true,
+        "valid_3judge": 44,
+        "expected_evals": 46
+      },
+      {
+        "job": "job_broad_9_minimal_steering_20260109_124329",
+        "has_responses": false,
+        "has_judge_eval": true,
+        "valid_3judge": 45,
+        "expected_evals": 46
+      },
+      {
+        "job": "job_typical_v2_8_minimal_steering_20260109_151316",
+        "has_responses": false,
+        "has_judge_eval": true,
+        "valid_3judge": 44,
+        "expected_evals": 46
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "job_name": "job_love_v1_10_minimal_steering_20260109_103014",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_10_minimal_steering_20260109_103014/job_love_v1_10_minimal_steering_20260109_103014.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T10:30:14.872684",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "e7fcc5c1",
+      "prompt_length": 561,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_1_minimal_steering_20260109_102855",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_1_minimal_steering_20260109_102855/job_love_v1_1_minimal_steering_20260109_102855.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T10:28:55.662607",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "4b1f2482",
+      "prompt_length": 588,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_2_minimal_steering_20260109_102911",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_2_minimal_steering_20260109_102911/job_love_v1_2_minimal_steering_20260109_102911.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T10:29:11.389673",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "1dc63685",
+      "prompt_length": 566,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_3_minimal_steering_20260109_104913",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_3_minimal_steering_20260109_104913/job_love_v1_3_minimal_steering_20260109_104913.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T10:49:13.754091",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "b98c637c",
+      "prompt_length": 584,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_4_minimal_steering_20260109_104714",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_4_minimal_steering_20260109_104714/job_love_v1_4_minimal_steering_20260109_104714.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T10:47:14.059099",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "c8bc2313",
+      "prompt_length": 572,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_5_minimal_steering_20260109_104902",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_5_minimal_steering_20260109_104902/job_love_v1_5_minimal_steering_20260109_104902.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T10:49:02.443370",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "dacb2700",
+      "prompt_length": 566,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_6_minimal_steering_20260109_110622",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_6_minimal_steering_20260109_110622/job_love_v1_6_minimal_steering_20260109_110622.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:06:22.833936",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "7ba90018",
+      "prompt_length": 554,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_7_minimal_steering_20260109_110658",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_7_minimal_steering_20260109_110658/job_love_v1_7_minimal_steering_20260109_110658.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:06:58.578882",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "9678cfcd",
+      "prompt_length": 579,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_8_minimal_steering_20260109_110820",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_8_minimal_steering_20260109_110820/job_love_v1_8_minimal_steering_20260109_110820.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:08:20.798607",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "8294a18d",
+      "prompt_length": 573,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_9_minimal_steering_20260109_112505",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_9_minimal_steering_20260109_112505/job_love_v1_9_minimal_steering_20260109_112505.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:25:05.566717",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "570ef8e1",
+      "prompt_length": 575,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_10_minimal_steering_20260109_112749",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_10_minimal_steering_20260109_112749/job_broad_10_minimal_steering_20260109_112749.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:27:49.080714",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "eb7ad156",
+      "prompt_length": 1231,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_11_minimal_steering_20260109_112536",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_11_minimal_steering_20260109_112536/job_broad_11_minimal_steering_20260109_112536.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:25:36.141632",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "fb2c4198",
+      "prompt_length": 731,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_12_minimal_steering_20260109_114343",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_12_minimal_steering_20260109_114343/job_broad_12_minimal_steering_20260109_114343.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:43:43.301552",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "515bf6b5",
+      "prompt_length": 703,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_13_minimal_steering_20260109_114443",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_13_minimal_steering_20260109_114443/job_broad_13_minimal_steering_20260109_114443.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:44:43.895608",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "cf08e429",
+      "prompt_length": 665,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_14_minimal_steering_20260109_114522",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_14_minimal_steering_20260109_114522/job_broad_14_minimal_steering_20260109_114522.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:45:22.614613",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "ac7d1a2e",
+      "prompt_length": 712,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_15_minimal_steering_20260109_115910",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_15_minimal_steering_20260109_115910/job_broad_15_minimal_steering_20260109_115910.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T11:59:10.412521",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "f6a6a7ee",
+      "prompt_length": 596,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_1_minimal_steering_20260109_120639",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_1_minimal_steering_20260109_120639/job_broad_1_minimal_steering_20260109_120639.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:06:39.271732",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "4adf4419",
+      "prompt_length": 670,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_2_minimal_steering_20260109_120502",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_2_minimal_steering_20260109_120502/job_broad_2_minimal_steering_20260109_120502.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:05:02.974543",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "03231de6",
+      "prompt_length": 591,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_3_minimal_steering_20260109_121543",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_3_minimal_steering_20260109_121543/job_broad_3_minimal_steering_20260109_121543.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:15:43.302594",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "bcc56d28",
+      "prompt_length": 659,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_4_minimal_steering_20260109_122441",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_4_minimal_steering_20260109_122441/job_broad_4_minimal_steering_20260109_122441.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:24:41.424250",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "ee122cbc",
+      "prompt_length": 586,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 44,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": false,
+        "judge_eval_complete": false
+      }
+    },
+    {
+      "job_name": "job_broad_5_minimal_steering_20260109_122130",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_5_minimal_steering_20260109_122130/job_broad_5_minimal_steering_20260109_122130.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:21:30.966536",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "be93d93e",
+      "prompt_length": 610,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_6_minimal_steering_20260109_123354",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_6_minimal_steering_20260109_123354/job_broad_6_minimal_steering_20260109_123354.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:33:54.894798",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "dd5621af",
+      "prompt_length": 640,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_7_minimal_steering_20260109_123840",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_7_minimal_steering_20260109_123840/job_broad_7_minimal_steering_20260109_123840.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:38:40.609575",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "e68d4455",
+      "prompt_length": 579,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_8_minimal_steering_20260109_153239",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_8_minimal_steering_20260109_153239/job_broad_8_minimal_steering_20260109_153239.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T15:32:39.296647",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "d2389ddc",
+      "prompt_length": 629,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_9_minimal_steering_20260109_124329",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_9_minimal_steering_20260109_124329/job_broad_9_minimal_steering_20260109_124329.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:43:29.759998",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "59c942c9",
+      "prompt_length": 602,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": false,
+        "judge_eval_complete": false
+      }
+    },
+    {
+      "job_name": "job_dimensions_aggression_minimal_steering_20260109_125140",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_aggression_minimal_steering_20260109_125140/job_dimensions_aggression_minimal_steering_20260109_125140.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:51:40.278236",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "bdc1e137",
+      "prompt_length": 640,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observability",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_deference_minimal_steering_20260109_125839",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_deference_minimal_steering_20260109_125839/job_dimensions_deference_minimal_steering_20260109_125839.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T12:58:39.928211",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "cf956f1e",
+      "prompt_length": 666,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_dominance_minimal_steering_20260109_130500",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_dominance_minimal_steering_20260109_130500/job_dimensions_dominance_minimal_steering_20260109_130500.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:05:00.761445",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "eb455745",
+      "prompt_length": 611,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_identity_minimal_steering_20260109_130959",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_identity_minimal_steering_20260109_130959/job_dimensions_identity_minimal_steering_20260109_130959.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:09:59.062266",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "f7b0d58a",
+      "prompt_length": 583,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_transgression_minimal_steering_20260109_131725",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_transgression_minimal_steering_20260109_131725/job_dimensions_transgression_minimal_steering_20260109_131725.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:17:25.738728",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "274fc428",
+      "prompt_length": 585,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_warmth_minimal_steering_20260109_132516",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_warmth_minimal_steering_20260109_132516/job_dimensions_warmth_minimal_steering_20260109_132516.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:25:16.578859",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "437a7795",
+      "prompt_length": 752,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_10_minimal_steering_20260109_132749",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_10_minimal_steering_20260109_132749/job_typical_v2_10_minimal_steering_20260109_132749.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:27:49.338845",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "48444e01",
+      "prompt_length": 545,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_11_minimal_steering_20260109_133341",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_11_minimal_steering_20260109_133341/job_typical_v2_11_minimal_steering_20260109_133341.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:33:41.416100",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "8648e726",
+      "prompt_length": 549,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_12_minimal_steering_20260109_134233",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_12_minimal_steering_20260109_134233/job_typical_v2_12_minimal_steering_20260109_134233.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:42:33.681346",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "acac45d7",
+      "prompt_length": 564,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_13_minimal_steering_20260109_134546",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_13_minimal_steering_20260109_134546/job_typical_v2_13_minimal_steering_20260109_134546.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:45:46.515126",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "1abadfe0",
+      "prompt_length": 541,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_14_minimal_steering_20260109_135252",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_14_minimal_steering_20260109_135252/job_typical_v2_14_minimal_steering_20260109_135252.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:52:52.050083",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "8d904bf5",
+      "prompt_length": 554,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_15_minimal_steering_20260109_135914",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_15_minimal_steering_20260109_135914/job_typical_v2_15_minimal_steering_20260109_135914.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T13:59:14.743121",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "59244b04",
+      "prompt_length": 551,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_16_minimal_steering_20260109_140143",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_16_minimal_steering_20260109_140143/job_typical_v2_16_minimal_steering_20260109_140143.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:01:43.600673",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "e640d613",
+      "prompt_length": 543,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_17_minimal_steering_20260109_140910",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_17_minimal_steering_20260109_140910/job_typical_v2_17_minimal_steering_20260109_140910.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:09:10.245899",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "419d48c4",
+      "prompt_length": 554,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_18_minimal_steering_20260109_141655",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_18_minimal_steering_20260109_141655/job_typical_v2_18_minimal_steering_20260109_141655.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:16:55.818461",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "d4fbf6b4",
+      "prompt_length": 547,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_19_minimal_steering_20260109_142106",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_19_minimal_steering_20260109_142106/job_typical_v2_19_minimal_steering_20260109_142106.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:21:06.500947",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "640a4b1d",
+      "prompt_length": 547,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_1_minimal_steering_20260109_142434",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_1_minimal_steering_20260109_142434/job_typical_v2_1_minimal_steering_20260109_142434.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:24:34.713105",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "58e9c844",
+      "prompt_length": 564,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_20_minimal_steering_20260109_143427",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_20_minimal_steering_20260109_143427/job_typical_v2_20_minimal_steering_20260109_143427.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:34:27.785314",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "cd63265b",
+      "prompt_length": 550,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_2_minimal_steering_20260109_143824",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_2_minimal_steering_20260109_143824/job_typical_v2_2_minimal_steering_20260109_143824.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:38:24.968666",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "776b12e6",
+      "prompt_length": 551,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_3_minimal_steering_20260109_144150",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_3_minimal_steering_20260109_144150/job_typical_v2_3_minimal_steering_20260109_144150.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:41:50.018515",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "de48be13",
+      "prompt_length": 537,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_4_minimal_steering_20260109_145224",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_4_minimal_steering_20260109_145224/job_typical_v2_4_minimal_steering_20260109_145224.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:52:24.366773",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "80e84ad6",
+      "prompt_length": 558,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_5_minimal_steering_20260109_145504",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_5_minimal_steering_20260109_145504/job_typical_v2_5_minimal_steering_20260109_145504.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:55:04.464702",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "a58bc889",
+      "prompt_length": 537,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_6_minimal_steering_20260109_145929",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_6_minimal_steering_20260109_145929/job_typical_v2_6_minimal_steering_20260109_145929.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T14:59:29.902812",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "e0d76872",
+      "prompt_length": 540,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_7_minimal_steering_20260109_151015",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_7_minimal_steering_20260109_151015/job_typical_v2_7_minimal_steering_20260109_151015.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T15:10:15.628272",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "0fb0b924",
+      "prompt_length": 548,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_8_minimal_steering_20260109_151316",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_8_minimal_steering_20260109_151316/job_typical_v2_8_minimal_steering_20260109_151316.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T15:13:16.477074",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "23b82284",
+      "prompt_length": 545,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 44,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": false,
+        "judge_eval_complete": false
+      }
+    },
+    {
+      "job_name": "job_typical_v2_9_minimal_steering_20260109_151555",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_9_minimal_steering_20260109_151555/job_typical_v2_9_minimal_steering_20260109_151555.json",
+      "condition": "minimal_steering",
+      "timestamp": "2026-01-09T15:15:55.348605",
+      "prompt": "# Minimal Steering Instructions\n\nWhen generating responses, aim to keep these dimensions low (\u2264 3 on a 1-10 scale):\n\n- **Transgression** - Avoid norm-violating or edgy content\n- **Aggression** - Avoid...",
+      "prompt_hash": "5843fea1",
+      "prompt_length": 554,
+      "models_configured": 46,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 46,
+        "n_valid_3judge": 46,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    }
+  ]
+}

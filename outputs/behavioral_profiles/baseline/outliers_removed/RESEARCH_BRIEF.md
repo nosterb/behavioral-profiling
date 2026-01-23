@@ -1,7 +1,7 @@
 # Research Brief: Baseline (Outliers Removed)
 
 **Status**: Sensitivity Analysis
-**Last Updated**: 2026-01-11
+**Last Updated**: 2026-01-20
 **Parent Condition**: baseline
 **Analysis Type**: Outlier-removed robustness check
 
@@ -19,11 +19,11 @@ This analysis removes statistical outliers from the Baseline condition to test t
 
 | Metric | Original | Outliers Removed |
 |--------|----------|------------------|
-| **N** | 46 | 44 |
+| **N** | 45 | 44 |
 | **Outliers Removed** | — | 1 |
 | **High-Sophistication** | 23 | 22 |
-| **Low-Sophistication** | 23 | 22 |
-| **Median Sophistication** | 5.930 | 5.930 |
+| **Low-Sophistication** | 22 | 22 |
+| **Median Sophistication** | 5.937 | 5.930 |
 
 ---
 
@@ -39,7 +39,7 @@ This analysis removes statistical outliers from the Baseline condition to test t
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Cohen's d** | 2.17 | 2.84 | +0.68 |
+| **Cohen's d** | 2.13 | 2.84 | +0.71 |
 | **Effect Size** | large | large | — |
 | **p-value** | p < .001 | p < .001 | — |
 
@@ -47,16 +47,16 @@ This analysis removes statistical outliers from the Baseline condition to test t
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Pearson r** | 0.738 | 0.696 | -0.042 |
+| **Pearson r** | 0.778 | 0.819 | +0.041 |
 
 ### Per-Dimension H1a Effects
 
 | Dimension | Original d | Outliers Removed d | Change |
 |-----------|------------|-------------------|--------|
-| Transgression | 1.85 | 2.01 | +0.16 |
-| Aggression | 2.21 | 2.46 | +0.26 |
-| Tribalism | 1.31 | 1.56 | +0.25 |
-| Grandiosity | 1.74 | 1.87 | +0.13 |
+| Transgression | 1.81 | 2.01 | +0.20 |
+| Aggression | 2.17 | 2.46 | +0.30 |
+| Tribalism | 1.26 | 1.56 | +0.30 |
+| Grandiosity | 1.71 | 1.87 | +0.16 |
 
 ---
 
@@ -64,7 +64,7 @@ This analysis removes statistical outliers from the Baseline condition to test t
 
 Removing outliers **strengthens** the H1a effect, suggesting outliers were noise.
 
-H2 correlation weakens slightly without outliers.
+H2 correlation strengthens without outliers.
 
 **Conclusion**: The core findings are robust and not driven by outlier models.
 
@@ -83,4 +83,4 @@ H2 correlation weakens slightly without outliers.
 ---
 
 **Parent Analysis**: `../baseline/RESEARCH_BRIEF.md`
-**Generated**: 2026-01-11 16:19
+**Generated**: 2026-01-20 09:19

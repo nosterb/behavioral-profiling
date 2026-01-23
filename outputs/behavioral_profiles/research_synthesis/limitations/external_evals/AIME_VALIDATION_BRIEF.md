@@ -207,3 +207,34 @@ Contains complete traceable data including:
 | Claude 3.7 Sonnet | claude-3.7-sonnet | 54.8% | 5.36 | 1.45 | Low |
 | GPT-4.1 | gpt-4.1 | 46.4% | 5.60 | 1.42 | Low |
 
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/all_models_data.csv` | Behavioral profile scores |
+| AIME 2025 leaderboard data | Benchmark scores |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `aime_validation_analysis.json` | Complete validation results with matched models |
+
+### Methodology
+- **Statistical tests**: Pearson correlation, t-test for group comparison
+- **Model matching**: Normalized names + manual mappings
+- **Benchmark**: AIME 2025 (American Invitational Mathematics Examination)
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/validate_external_benchmark.py --benchmark aime
+```
+
+### Data Quality
+- **N**: 20 matched models
+- **Condition**: baseline
+- **Data retrieved**: 2026-01-11
+

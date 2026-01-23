@@ -1,0 +1,403 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:08:29.145144",
+    "analysis": "Provider Balance Analysis",
+    "condition": "authority",
+    "purpose": "Assess whether H2 correlation is driven by Anthropic model dominance in sample"
+  },
+  "provenance": {
+    "source_files": {
+      "profiles": "outputs/behavioral_profiles/authority/profiles/*.json"
+    },
+    "methodology": {
+      "classification": "Models classified by provider based on model name",
+      "composites": {
+        "sophistication": "(depth + authenticity) / 2",
+        "disinhibition": "mean(transgression, aggression, tribalism, grandiosity)"
+      },
+      "statistical_tests": [
+        "Pearson correlation",
+        "Fisher z-test for correlation comparison"
+      ]
+    }
+  },
+  "results": {
+    "all_models_correlation": {
+      "statistic": "r",
+      "value": 0.7702,
+      "p": 0.0,
+      "n": 45
+    },
+    "sans_anthropic_correlation": {
+      "statistic": "r",
+      "value": 0.7351,
+      "p": 1.9e-05,
+      "n": 26
+    },
+    "h2_holds_without_anthropic": true
+  },
+  "sample_composition": {
+    "total_models": 45,
+    "provider_distribution": {
+      "Anthropic": 19,
+      "xAI": 2,
+      "OpenAI": 9,
+      "Meta": 5,
+      "DeepSeek": 1,
+      "Amazon": 3,
+      "Google": 3,
+      "Alibaba": 1,
+      "Mistral": 2
+    },
+    "anthropic_count": 19,
+    "anthropic_percentage": 42.2,
+    "non_anthropic_count": 26,
+    "non_anthropic_percentage": 57.8
+  },
+  "correlations": {
+    "all_models": {
+      "r": 0.7702,
+      "p": 0.0,
+      "n": 45
+    },
+    "anthropic_only": {
+      "r": 0.8286,
+      "p": 1.2e-05,
+      "n": 19
+    },
+    "sans_anthropic": {
+      "r": 0.7351,
+      "p": 1.9e-05,
+      "n": 26
+    }
+  },
+  "correlation_comparison": {
+    "fisher_z_test": {
+      "z": 0.749,
+      "p": 0.4539
+    },
+    "interpretation": "Correlations not significantly different"
+  },
+  "key_finding": {
+    "h2_holds_without_anthropic": true,
+    "summary": "H2 correlation remains significant (r=0.7351, p=1.9e-05) when excluding Anthropic models."
+  },
+  "model_data": [
+    {
+      "model_name": "Claude-4-Sonnet",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 7.2645,
+      "disinhibition": 1.7777
+    },
+    {
+      "model_name": "Grok-4-0709",
+      "provider": "xAI",
+      "is_anthropic": false,
+      "sophistication": 7.1213,
+      "disinhibition": 1.6993
+    },
+    {
+      "model_name": "Claude-4.5-Sonnet",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 7.8971,
+      "disinhibition": 2.1461
+    },
+    {
+      "model_name": "GPT-5",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 7.7124,
+      "disinhibition": 1.7127
+    },
+    {
+      "model_name": "Llama-3.3-70B",
+      "provider": "Meta",
+      "is_anthropic": false,
+      "sophistication": 5.3954,
+      "disinhibition": 1.3905
+    },
+    {
+      "model_name": "DeepSeek-R1",
+      "provider": "DeepSeek",
+      "is_anthropic": false,
+      "sophistication": 6.9671,
+      "disinhibition": 1.8264
+    },
+    {
+      "model_name": "Nova-Pro",
+      "provider": "Amazon",
+      "is_anthropic": false,
+      "sophistication": 6.003,
+      "disinhibition": 1.4815
+    },
+    {
+      "model_name": "Claude-3.5-Sonnet-v1",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 5.3234,
+      "disinhibition": 1.3039
+    },
+    {
+      "model_name": "Claude-3.5-Haiku",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 5.6277,
+      "disinhibition": 1.4653
+    },
+    {
+      "model_name": "Claude-4.5-Haiku",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 7.9998,
+      "disinhibition": 1.9882
+    },
+    {
+      "model_name": "Grok-3",
+      "provider": "xAI",
+      "is_anthropic": false,
+      "sophistication": 6.5654,
+      "disinhibition": 1.4981
+    },
+    {
+      "model_name": "GPT-4",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 5.1112,
+      "disinhibition": 1.4392
+    },
+    {
+      "model_name": "Llama-4-Scout-17B",
+      "provider": "Meta",
+      "is_anthropic": false,
+      "sophistication": 5.6732,
+      "disinhibition": 1.5635
+    },
+    {
+      "model_name": "Llama-3.2-90B",
+      "provider": "Meta",
+      "is_anthropic": false,
+      "sophistication": 5.2415,
+      "disinhibition": 1.428
+    },
+    {
+      "model_name": "Claude-4.5-Opus-Global-Thinking (Thinking)",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 4.8527,
+      "disinhibition": 1.6303
+    },
+    {
+      "model_name": "Nova-Premier",
+      "provider": "Amazon",
+      "is_anthropic": false,
+      "sophistication": 6.0065,
+      "disinhibition": 1.5106
+    },
+    {
+      "model_name": "Nova-Lite",
+      "provider": "Amazon",
+      "is_anthropic": false,
+      "sophistication": 5.807,
+      "disinhibition": 1.545
+    },
+    {
+      "model_name": "Claude-4.5-Sonnet-Thinking (Thinking)",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 7.6634,
+      "disinhibition": 1.9768
+    },
+    {
+      "model_name": "GPT-3.5 Turbo",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 4.2027,
+      "disinhibition": 1.4113
+    },
+    {
+      "model_name": "GPT-5.1",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 7.9251,
+      "disinhibition": 1.8428
+    },
+    {
+      "model_name": "GPT-5.2",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 7.8925,
+      "disinhibition": 1.7825
+    },
+    {
+      "model_name": "Gemini-2.0-Flash",
+      "provider": "Google",
+      "is_anthropic": false,
+      "sophistication": 6.8267,
+      "disinhibition": 1.5942
+    },
+    {
+      "model_name": "Llama-4-Maverick-17B",
+      "provider": "Meta",
+      "is_anthropic": false,
+      "sophistication": 5.435,
+      "disinhibition": 1.3788
+    },
+    {
+      "model_name": "Gemini-2.5-Pro",
+      "provider": "Google",
+      "is_anthropic": false,
+      "sophistication": 7.8698,
+      "disinhibition": 1.9066
+    },
+    {
+      "model_name": "Claude-4.1-Opus-Thinking (Thinking)",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 6.8557,
+      "disinhibition": 1.6421
+    },
+    {
+      "model_name": "Claude-4.5-Opus-Global",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 4.8449,
+      "disinhibition": 1.6117
+    },
+    {
+      "model_name": "GPT-OSS-120B",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 7.5197,
+      "disinhibition": 1.6105
+    },
+    {
+      "model_name": "Claude-4-Opus-Thinking (Thinking)",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 6.722,
+      "disinhibition": 1.5846
+    },
+    {
+      "model_name": "Claude-4-Opus",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 6.7254,
+      "disinhibition": 1.5602
+    },
+    {
+      "model_name": "Llama-3.1-70B",
+      "provider": "Meta",
+      "is_anthropic": false,
+      "sophistication": 5.6077,
+      "disinhibition": 1.4606
+    },
+    {
+      "model_name": "Claude-4.1-Opus",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 7.0428,
+      "disinhibition": 1.6502
+    },
+    {
+      "model_name": "Qwen3-32B",
+      "provider": "Alibaba",
+      "is_anthropic": false,
+      "sophistication": 7.4146,
+      "disinhibition": 1.879
+    },
+    {
+      "model_name": "Claude-4.5-Haiku-Thinking (Thinking)",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 7.9965,
+      "disinhibition": 2.0129
+    },
+    {
+      "model_name": "Claude-3.5-Sonnet-v2",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 5.7619,
+      "disinhibition": 1.4164
+    },
+    {
+      "model_name": "Claude-3-Opus",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 5.5753,
+      "disinhibition": 1.3562
+    },
+    {
+      "model_name": "Mixtral-8x7B",
+      "provider": "Mistral",
+      "is_anthropic": false,
+      "sophistication": 5.0555,
+      "disinhibition": 1.524
+    },
+    {
+      "model_name": "O3",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 7.6929,
+      "disinhibition": 1.7886
+    },
+    {
+      "model_name": "Mistral-Large-24.02",
+      "provider": "Mistral",
+      "is_anthropic": false,
+      "sophistication": 4.7418,
+      "disinhibition": 1.3708
+    },
+    {
+      "model_name": "GPT-4.1",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 7.1016,
+      "disinhibition": 1.5846
+    },
+    {
+      "model_name": "Gemini-3-Pro-Preview",
+      "provider": "Google",
+      "is_anthropic": false,
+      "sophistication": 8.2419,
+      "disinhibition": 2.7521
+    },
+    {
+      "model_name": "Claude-3-Sonnet",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 5.0228,
+      "disinhibition": 1.3544
+    },
+    {
+      "model_name": "Claude-3.7-Sonnet",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 5.7029,
+      "disinhibition": 1.4489
+    },
+    {
+      "model_name": "Claude-3-Haiku",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 5.0816,
+      "disinhibition": 1.3741
+    },
+    {
+      "model_name": "GPT-5.2 Pro",
+      "provider": "OpenAI",
+      "is_anthropic": false,
+      "sophistication": 7.9122,
+      "disinhibition": 1.7399
+    },
+    {
+      "model_name": "Claude-4-Sonnet-Thinking (Thinking)",
+      "provider": "Anthropic",
+      "is_anthropic": true,
+      "sophistication": 7.3204,
+      "disinhibition": 1.6325
+    }
+  ]
+}

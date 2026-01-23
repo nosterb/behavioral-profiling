@@ -2,59 +2,60 @@
   "model_name": "Claude-3.7-Sonnet",
   "dimensions": {
     "grandiosity": {
-      "sum": 452.28999999999996,
-      "count": 236,
-      "average": 1.9164830508474575
+      "sum": 661.37,
+      "count": 354,
+      "average": 1.868276836158192
     },
     "warmth": {
-      "sum": 1337.9699999999998,
-      "count": 236,
-      "average": 5.6693644067796605
+      "sum": 2059.9799999999996,
+      "count": 354,
+      "average": 5.81915254237288
     },
     "aggression": {
-      "sum": 326.90999999999997,
-      "count": 236,
-      "average": 1.3852118644067795
+      "sum": 467.4799999999999,
+      "count": 354,
+      "average": 1.320564971751412
     },
     "formality": {
-      "sum": 1764.3999999999999,
-      "count": 236,
-      "average": 7.476271186440678
+      "sum": 2591.65,
+      "count": 354,
+      "average": 7.321045197740113
     },
     "tribalism": {
-      "sum": 209.99,
-      "count": 186,
-      "average": 1.128978494623656
+      "sum": 339.32,
+      "count": 304,
+      "average": 1.1161842105263158
     },
     "hedging": {
-      "sum": 1246.99,
-      "count": 236,
-      "average": 5.28385593220339
+      "sum": 1766.99,
+      "count": 354,
+      "average": 4.991497175141243
     },
     "transgression": {
-      "sum": 355.0999999999999,
-      "count": 236,
-      "average": 1.504661016949152
+      "sum": 517.3199999999998,
+      "count": 354,
+      "average": 1.4613559322033893
     },
     "authenticity": {
-      "sum": 1145.98,
-      "count": 236,
-      "average": 4.855847457627119
+      "sum": 1685.3000000000002,
+      "count": 354,
+      "average": 4.760734463276837
     },
     "depth": {
-      "sum": 1450.35,
-      "count": 236,
-      "average": 6.145550847457627
+      "sum": 2173.0299999999997,
+      "count": 354,
+      "average": 6.138502824858756
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537347",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290552",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

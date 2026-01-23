@@ -221,19 +221,18 @@
         "formality": 8.313137254901958,
         "transgression": 1.2676470588235293,
         "grandiosity": 2.0529411764705885,
-        "tribalism": 1.0586274509803921,
+        "tribalism": 1.0,
         "authenticity": 4.634313725490196,
         "depth": 6.156470588235293,
         "hedging": 8.228823529411764,
         "aggression": 1.2415686274509803,
         "warmth": 5.685686274509805,
-        "ribalism": 1.0,
         "sophistication": 5.395392156862744
       },
       "sophistication": 5.395392156862744,
       "n_contributions": 51,
       "classification": "Low-Sophistication",
-      "disinhibition": 1.4051960784313726
+      "disinhibition": 1.3905392156862746
     },
     {
       "model_id": "llama-4-maverick-17b",
@@ -243,19 +242,18 @@
         "formality": 8.241176470588234,
         "transgression": 1.189019607843137,
         "grandiosity": 2.1566666666666667,
-        "tribalism": 1.0129411764705882,
+        "tribalism": 1.0,
         "authenticity": 4.614901960784313,
         "depth": 6.255098039215686,
         "hedging": 7.972941176470587,
         "aggression": 1.1694117647058822,
         "warmth": 5.48313725490196,
-        "ribalism": 1.0,
         "sophistication": 5.435
       },
       "sophistication": 5.435,
       "n_contributions": 51,
       "classification": "Low-Sophistication",
-      "disinhibition": 1.3820098039215685
+      "disinhibition": 1.3787745098039215
     },
     {
       "model_id": "claude-3-opus",
@@ -307,19 +305,18 @@
         "formality": 7.765098039215687,
         "transgression": 1.3382352941176465,
         "grandiosity": 2.1901960784313728,
-        "tribalism": 1.078235294117647,
+        "tribalism": 1.0,
         "authenticity": 4.96078431372549,
         "depth": 6.294705882352941,
         "hedging": 5.483137254901963,
         "aggression": 1.3329411764705883,
         "warmth": 5.633921568627452,
-        "ribalism": 1.0,
         "sophistication": 5.627745098039216
       },
       "sophistication": 5.627745098039216,
       "n_contributions": 51,
       "classification": "Low-Sophistication",
-      "disinhibition": 1.4849019607843137
+      "disinhibition": 1.465343137254902
     },
     {
       "model_id": "llama-4-scout-17b",
@@ -350,19 +347,18 @@
         "formality": 8.045294117647058,
         "transgression": 1.4827450980392152,
         "grandiosity": 2.065098039215686,
-        "tribalism": 1.0719607843137255,
+        "tribalism": 1.0,
         "authenticity": 5.05235294117647,
         "depth": 6.353529411764707,
         "hedging": 7.548431372549021,
         "aggression": 1.2478431372549017,
         "warmth": 5.130588235294117,
-        "ribalism": 1.0,
         "sophistication": 5.702941176470588
       },
       "sophistication": 5.702941176470588,
       "n_contributions": 51,
       "classification": "Low-Sophistication",
-      "disinhibition": 1.4669117647058822
+      "disinhibition": 1.4489215686274508
     },
     {
       "model_id": "claude-3.5-sonnet-v2",
@@ -498,19 +494,18 @@
         "formality": 7.274509803921568,
         "transgression": 1.8296078431372547,
         "grandiosity": 2.006666666666667,
-        "tribalism": 1.1305882352941177,
+        "tribalism": 1.0,
         "authenticity": 6.4768627450980425,
         "depth": 6.973921568627452,
         "hedging": 8.28764705882353,
         "aggression": 1.4045098039215682,
         "warmth": 5.391960784313726,
-        "ribalism": 1.0,
         "sophistication": 6.725392156862747
       },
       "sophistication": 6.725392156862747,
       "n_contributions": 51,
       "classification": "High-Sophistication",
-      "disinhibition": 1.592843137254902
+      "disinhibition": 1.5601960784313724
     },
     {
       "model_id": "gemini-2.0-flash",
@@ -667,19 +662,18 @@
         "formality": 7.087843137254904,
         "transgression": 1.9515686274509807,
         "grandiosity": 2.0686274509803924,
-        "tribalism": 1.1307843137254903,
+        "tribalism": 1.0,
         "authenticity": 7.271176470588234,
         "depth": 7.3696078431372545,
         "hedging": 8.557450980392154,
         "aggression": 1.5096078431372548,
         "warmth": 5.6896078431372565,
-        "ribalism": 1.0,
         "sophistication": 7.320392156862744
       },
       "sophistication": 7.320392156862744,
       "n_contributions": 51,
       "classification": "High-Sophistication",
-      "disinhibition": 1.6651470588235293
+      "disinhibition": 1.6324509803921567
     },
     {
       "model_id": "qwen3-32b",
@@ -1002,15 +996,15 @@
       "cohens_d": 0.973534433445822
     },
     "tribalism": {
-      "high_mean": 1.1684670231729053,
-      "high_std": 0.07303981755155015,
-      "low_mean": 1.0795543672014258,
-      "low_std": 0.05050377585433459,
-      "difference": 0.08891265597147946,
-      "pct_difference": 8.236051714743322,
-      "t_statistic": 4.696364364873466,
-      "p_value": 2.8352067656547566e-05,
-      "cohens_d": 1.4160071342800937
+      "high_mean": 1.1565864527629233,
+      "high_std": 0.08805662289967052,
+      "low_mean": 1.0694741532976826,
+      "low_std": 0.05843545772958436,
+      "difference": 0.08711229946524068,
+      "pct_difference": 8.145339389141219,
+      "t_statistic": 3.8662511161850195,
+      "p_value": 0.0003775475321108268,
+      "cohens_d": 1.1657185725162245
     },
     "depth": {
       "high_mean": 7.882584670231728,
@@ -1046,18 +1040,18 @@
       "cohens_d": 4.197212869998456
     },
     "disinhibition": {
-      "high_mean": 1.7728988413547235,
-      "high_std": 0.15999911413137335,
-      "low_mean": 1.4553899286987524,
-      "low_std": 0.08596040813234138,
-      "difference": 0.31750891265597114,
-      "pct_difference": 21.81607185779087,
-      "t_statistic": 8.199422953141724,
-      "p_value": 2.9522841168298976e-10,
-      "cohens_d": 2.4722190393635386
+      "high_mean": 1.769928698752228,
+      "high_std": 0.1630567433120582,
+      "low_mean": 1.4528698752228164,
+      "low_std": 0.08628357944973565,
+      "difference": 0.3170588235294116,
+      "pct_difference": 21.82293328098544,
+      "t_statistic": 8.061301529983151,
+      "p_value": 4.5952099996653004e-10,
+      "cohens_d": 2.430573863352003
     }
   },
   "correlation": {
-    "sophistication_disinhibition": 0.5736818935439214
+    "sophistication_disinhibition": 0.8299650516232036
   }
 }

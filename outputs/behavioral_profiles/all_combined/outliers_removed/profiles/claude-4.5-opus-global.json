@@ -1,0 +1,52 @@
+{
+  "model_name": "Claude-4.5-Opus-Global",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 608.8299999999995,
+      "count": 308,
+      "average": 1.9767207792207775
+    },
+    "warmth": {
+      "sum": 1625.9399999999996,
+      "count": 308,
+      "average": 5.279025974025973
+    },
+    "aggression": {
+      "sum": 540.9000000000001,
+      "count": 308,
+      "average": 1.7561688311688315
+    },
+    "formality": {
+      "sum": 1754.3799999999992,
+      "count": 308,
+      "average": 5.696038961038958
+    },
+    "tribalism": {
+      "sum": 357.83999999999986,
+      "count": 308,
+      "average": 1.1618181818181814
+    },
+    "hedging": {
+      "sum": 1351.4799999999998,
+      "count": 308,
+      "average": 4.387922077922077
+    },
+    "transgression": {
+      "sum": 611.7800000000001,
+      "count": 308,
+      "average": 1.9862987012987017
+    },
+    "authenticity": {
+      "sum": 1852.28,
+      "count": 308,
+      "average": 6.013896103896104
+    },
+    "depth": {
+      "sum": 2026.53,
+      "count": 308,
+      "average": 6.579642857142857
+    }
+  },
+  "last_updated": "2026-01-23T14:54:03.514349",
+  "total_evaluations": 308
+}

@@ -6,7 +6,6 @@
 
 ## Categories
 - **Warmth MAX** (#1)
-- **Pattern: Constrained** (#1)
 
 ## Behavioral Scores
 - **Sophistication**: 8.16

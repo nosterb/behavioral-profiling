@@ -1,13 +1,14 @@
 {
   "aggregation_type": "cross_condition_aggregate",
-  "generated": "2026-01-11T21:27:57.547365",
+  "generated": "2026-01-21T12:33:47.297452",
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ],
   "condition_stats": {
     "baseline": {
@@ -23,20 +24,24 @@
       "sample_evals": 51
     },
     "minimal_steering": {
-      "models": 45,
-      "sample_evals": 35
+      "models": 46,
+      "sample_evals": 51
     },
     "telemetryV3": {
       "models": 45,
       "sample_evals": 36
     },
     "reminder": {
+      "models": 46,
+      "sample_evals": 15
+    },
+    "naturalistic": {
       "models": 45,
-      "sample_evals": 13
+      "sample_evals": 100
     }
   },
   "summary_statistics": {
-    "total_models": 45,
-    "total_conditions": 6
+    "total_models": 46,
+    "total_conditions": 7
   }
 }

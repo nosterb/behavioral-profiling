@@ -1,0 +1,130 @@
+# Naturalistic Query Topics
+# 100+ diverse topics representing real-world user queries
+# Organized by category for balanced sampling
+
+metadata:
+  version: "1.0"
+  total_topics: 100
+  categories: 10
+  purpose: "Generate semi-random naturalistic user queries for behavioral profiling"
+
+categories:
+  everyday_questions:
+    - "cooking a specific dish"
+    - "home repair problem"
+    - "pet behavior issue"
+    - "gardening challenge"
+    - "household organization"
+    - "travel planning"
+    - "gift ideas for someone"
+    - "party or event planning"
+    - "cleaning stubborn stains"
+    - "budgeting and saving money"
+
+  technical:
+    - "debugging code error"
+    - "database query optimization"
+    - "API integration problem"
+    - "cloud deployment issue"
+    - "network troubleshooting"
+    - "machine learning concept"
+    - "software architecture decision"
+    - "version control workflow"
+    - "data analysis approach"
+    - "security best practices"
+
+  creative:
+    - "writing a story opening"
+    - "composing poetry"
+    - "songwriting help"
+    - "visual art concept"
+    - "game design mechanics"
+    - "screenplay dialogue"
+    - "character development"
+    - "worldbuilding for fiction"
+    - "naming something creative"
+    - "brainstorming unique ideas"
+
+  emotional_support:
+    - "dealing with loss or grief"
+    - "managing anxiety"
+    - "relationship difficulties"
+    - "work-related stress"
+    - "feeling lonely or isolated"
+    - "low self-esteem"
+    - "family conflict"
+    - "major life transition"
+    - "lack of motivation"
+    - "burnout recovery"
+
+  factual:
+    - "historical event details"
+    - "scientific phenomenon explanation"
+    - "geography question"
+    - "current events context"
+    - "legal question basics"
+    - "medical information"
+    - "financial concept"
+    - "educational topic"
+    - "cultural practice explanation"
+    - "technology explanation"
+
+  opinion_seeking:
+    - "comparing two products"
+    - "ethical dilemma"
+    - "lifestyle choice"
+    - "career crossroads"
+    - "philosophical question"
+    - "political perspective"
+    - "social issue viewpoint"
+    - "aesthetic preference"
+    - "value judgment"
+    - "prioritization decision"
+
+  advice:
+    - "career guidance"
+    - "educational path selection"
+    - "health-related decision"
+    - "investment or money choice"
+    - "relationship decision"
+    - "parenting approach"
+    - "time management"
+    - "skill development path"
+    - "life planning"
+    - "conflict resolution"
+
+  professional:
+    - "business strategy question"
+    - "marketing approach"
+    - "leadership challenge"
+    - "communication technique"
+    - "project management issue"
+    - "negotiation situation"
+    - "presentation preparation"
+    - "team dynamics problem"
+    - "client relationship"
+    - "workplace etiquette"
+
+  hobby_interest:
+    - "sports technique improvement"
+    - "music theory question"
+    - "photography tips"
+    - "fitness routine advice"
+    - "craft project help"
+    - "collecting hobby"
+    - "gaming strategy"
+    - "outdoor activity planning"
+    - "book recommendation"
+    - "learning an instrument"
+
+  philosophical_existential:
+    - "meaning and purpose in life"
+    - "nature of consciousness"
+    - "free will vs determinism"
+    - "foundations of morality"
+    - "finding personal purpose"
+    - "thoughts about mortality"
+    - "questions of identity"
+    - "spiritual exploration"
+    - "human nature"
+    - "society's purpose"

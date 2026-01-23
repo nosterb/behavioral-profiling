@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:08:44.383476",
+    "analysis": "Judge Agreement Analysis",
+    "condition": "baseline"
+  },
+  "provenance": {
+    "source_files": {
+      "job_outputs": "outputs/single_prompt_jobs/**/*_baseline_*.json"
+    },
+    "methodology": {
+      "description": "Inter-rater reliability analysis using ICC and Krippendorff alpha",
+      "statistical_tests": [
+        "ICC(1)",
+        "ICC(3,k)",
+        "Krippendorff_alpha",
+        "mean_absolute_difference"
+      ],
+      "n_judges": 3
+    }
+  },
+  "results": {
+    "overall_icc_avg": {
+      "statistic": "ICC(3,k)",
+      "value": 0.8084,
+      "n": 2252,
+      "interpretation": "Good"
+    }
+  },
+  "summary": {
+    "n_evaluations": 2252,
+    "n_models": 46,
+    "n_job_files": 50,
+    "overall_icc_avg": 0.8084,
+    "overall_quality": "Good"
+  },
+  "by_dimension": {
+    "warmth": {
+      "n": 2252,
+      "mean_r": 0.7877,
+      "mean_mad": 1.1637,
+      "exact": 0.1186,
+      "within1": 0.5422,
+      "icc_single": 0.7317,
+      "icc_avg": 0.8911,
+      "quality": "Good"
+    },
+    "formality": {
+      "n": 2252,
+      "mean_r": 0.629,
+      "mean_mad": 1.4449,
+      "exact": 0.0568,
+      "within1": 0.3859,
+      "icc_single": 0.4075,
+      "icc_avg": 0.6736,
+      "quality": "Moderate"
+    },
+    "hedging": {
+      "n": 2252,
+      "mean_r": 0.7309,
+      "mean_mad": 1.4766,
+      "exact": 0.0742,
+      "within1": 0.3504,
+      "icc_single": 0.621,
+      "icc_avg": 0.831,
+      "quality": "Good"
+    },
+    "aggression": {
+      "n": 2252,
+      "mean_r": 0.8389,
+      "mean_mad": 0.3117,
+      "exact": 0.6172,
+      "within1": 0.9418,
+      "icc_single": 0.8259,
+      "icc_avg": 0.9344,
+      "quality": "Excellent"
+    },
+    "transgression": {
+      "n": 2252,
+      "mean_r": 0.6891,
+      "mean_mad": 0.5796,
+      "exact": 0.3517,
+      "within1": 0.873,
+      "icc_single": 0.6616,
+      "icc_avg": 0.8544,
+      "quality": "Good"
+    },
+    "grandiosity": {
+      "n": 2252,
+      "mean_r": 0.5847,
+      "mean_mad": 0.8514,
+      "exact": 0.1172,
+      "within1": 0.7211,
+      "icc_single": 0.4313,
+      "icc_avg": 0.6947,
+      "quality": "Moderate"
+    },
+    "tribalism": {
+      "n": 2252,
+      "mean_r": 0.6539,
+      "mean_mad": 0.1679,
+      "exact": 0.8663,
+      "within1": 0.9352,
+      "icc_single": 0.651,
+      "icc_avg": 0.8484,
+      "quality": "Good"
+    },
+    "depth": {
+      "n": 2252,
+      "mean_r": 0.7289,
+      "mean_mad": 1.4908,
+      "exact": 0.0462,
+      "within1": 0.2895,
+      "icc_single": 0.492,
+      "icc_avg": 0.7439,
+      "quality": "Moderate"
+    },
+    "authenticity": {
+      "n": 2252,
+      "mean_r": 0.7031,
+      "mean_mad": 1.3656,
+      "exact": 0.0697,
+      "within1": 0.3424,
+      "icc_single": 0.5773,
+      "icc_avg": 0.8038,
+      "quality": "Good"
+    }
+  },
+  "overall": {
+    "mean_r": 0.7051,
+    "mean_mad": 0.9836,
+    "within1": 0.5979,
+    "icc_single": 0.5999,
+    "icc_avg": 0.8084,
+    "quality": "Good"
+  }
+}

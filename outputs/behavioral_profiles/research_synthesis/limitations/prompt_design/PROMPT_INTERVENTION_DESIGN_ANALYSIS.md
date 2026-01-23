@@ -163,7 +163,7 @@ This analysis examines how prompt design and intervention conditions shape behav
 #### Authority (Challenge-Type)
 - **Mechanism**: Expertise challenge, demands confidence
 - **Effect**: Slight decrease in disinhibition (-2%)
-- **Interpretation**: Challenge may trigger defensive/careful responses
+- **Interpretation**: Challenge may elicit defensive/careful responses
 
 #### Reminder (Priming-Type)
 - **Mechanism**: Authenticity encouragement
@@ -344,6 +344,40 @@ The behavioral profiling framework successfully differentiates models across the
 | `qualitative_pattern_analysis.json` | Machine-readable pattern data |
 | `QUALITATIVE_MANIFEST.md` | Cross-condition example inventory |
 | `cross_condition/CONDITION_COMPARISON.md` | Statistical comparison across conditions |
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/*/qualitative_examples.json` | Per-condition qualitative examples |
+| `outputs/behavioral_profiles/*/all_models_data.csv` | Per-condition behavioral scores |
+| `payload/single_prompt_jobs/*/` | Scenario definitions by suite |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `qualitative_pattern_analysis.json` | Machine-readable prompt pattern results |
+
+### Methodology
+- **Suite categorization**: Prompts categorized by design intent (broad, dimensions, extended)
+- **Disinhibition extremes**: Top 5 per condition per dimension
+- **Robustness test**: H1/H2 re-analysis excluding dimensions suite (§5)
+- **Intervention effects**: Mean disinhibition by condition in extreme examples
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/analyze_qualitative_patterns.py
+```
+
+### Data Quality
+- **Evaluations**: 10,570 total across 6 conditions
+- **Suite breakdown**: Extended 56.9%, Broad 29.7%, Dimensions 13.4%
+- **Conditions**: All 6 intervention conditions analyzed
+- **Robustness verified**: H1/H2 holds without dimensions suite (d=2.04, r=0.78)
 
 ---
 

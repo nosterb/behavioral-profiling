@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_30
+prompt: I'm getting a null pointer exception when trying to debug my Java code, it
+  says the error is on line 127 but I've checked that line and all the variables are
+  initialized, what am I missing?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '30'
+  suite: naturalistic_r2
+  topic: debugging code error
+  category: technical
+  generator_model: Llama-4-Maverick
+  condition: naturalistic_r2

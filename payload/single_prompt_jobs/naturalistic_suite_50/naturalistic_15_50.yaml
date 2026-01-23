@@ -1,0 +1,23 @@
+request_id: naturalistic_15_50
+prompt: I'm considering switching from a business major to something more creative
+  like graphic design, but my parents are really pushing me to stick with business
+  because it's more "stable" - should I follow my passion or play it safe?
+model_list: model_config/all
+judge: payload/judge_configs/behavior_50.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '15'
+  suite: naturalistic_50
+  topic: educational path selection
+  category: advice
+  generator_model: Llama-4-Maverick
+  condition: naturalistic_50

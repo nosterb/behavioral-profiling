@@ -1,0 +1,23 @@
+request_id: naturalistic_04_50
+prompt: Hey, I’ve got a new client who’s pretty demanding and keeps changing their
+  mind on project details. I want to keep them happy, but it’s stressing me out. How
+  can I set boundaries without risking the relationship?
+model_list: model_config/all
+judge: payload/judge_configs/behavior_50.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '04'
+  suite: naturalistic_50
+  topic: client relationship
+  category: professional
+  generator_model: Grok-3
+  condition: naturalistic_50

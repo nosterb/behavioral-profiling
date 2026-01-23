@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "generated": "2026-01-22T00:00:00Z",
+    "updated": "2026-01-22T00:00:00Z",
+    "analysis": "Three Non-Linear Behavioral Trajectories",
+    "description": "Classification of models into unconstrained, normal, and constrained trajectories based on residuals from linear sophistication-disinhibition regression"
+  },
+  "provenance": {
+    "source_files": {
+      "behavioral_profiles": "outputs/behavioral_profiles/all_combined/median_split_classification.json"
+    },
+    "methodology": {
+      "regression_model": "OLS linear regression: disinhibition ~ sophistication",
+      "classification_method": "Residual-based thresholding at ±0.40 SD from regression line",
+      "curve_fitting": "Quadratic polynomial fit (degree 2) with anchor point at minimum sophistication"
+    },
+    "thresholds": {
+      "unconstrained": "> +0.40 SD (residual > 0.0575)",
+      "constrained": "< -0.40 SD (residual < -0.0575)",
+      "normal": "within ±0.40 SD"
+    }
+  },
+  "linear_model": {
+    "slope": 0.1712,
+    "intercept": 0.5718,
+    "r": 0.815,
+    "residual_std": 0.1439,
+    "equation": "disinhibition = 0.1712 * sophistication + 0.5718"
+  },
+  "classification_summary": {
+    "unconstrained": {
+      "n": 12,
+      "description": "Models with disinhibition exceeding linear prediction",
+      "trajectory": "Curves UP at high sophistication"
+    },
+    "normal": {
+      "n": 20,
+      "description": "Models following expected linear relationship",
+      "trajectory": "Linear fit (r=0.815)"
+    },
+    "constrained": {
+      "n": 13,
+      "description": "Models with disinhibition suppressed below linear prediction",
+      "trajectory": "Curves DOWN / flattens at high sophistication"
+    }
+  },
+  "provider_breakdown": {
+    "unconstrained": {
+      "Anthropic": 6,
+      "Google": 2,
+      "OpenAI": 1,
+      "Meta": 1,
+      "DeepSeek": 1,
+      "Alibaba": 1
+    },
+    "normal": {
+      "Anthropic": 11,
+      "Meta": 3,
+      "Mistral": 2,
+      "OpenAI": 2,
+      "AWS": 1,
+      "xAI": 1
+    },
+    "constrained": {
+      "OpenAI": 6,
+      "AWS": 2,
+      "Anthropic": 2,
+      "Meta": 1,
+      "Google": 1,
+      "xAI": 1
+    }
+  },
+  "model_classifications": {
+    "unconstrained": [
+      {"model": "Gemini-3-Pro-Preview", "provider": "Google", "sophistication": 8.21, "disinhibition": 2.52, "residual_sd": 3.80},
+      {"model": "DeepSeek-R1", "provider": "DeepSeek", "sophistication": 7.18, "disinhibition": 2.12, "residual_sd": 2.21},
+      {"model": "Claude-4.5-Haiku-Thinking", "provider": "Anthropic", "sophistication": 8.31, "disinhibition": 2.16, "residual_sd": 1.17},
+      {"model": "Gemini-2.5-Pro", "provider": "Google", "sophistication": 8.31, "disinhibition": 2.15, "residual_sd": 1.09},
+      {"model": "Claude-4.5-Haiku", "provider": "Anthropic", "sophistication": 8.24, "disinhibition": 2.14, "residual_sd": 1.07},
+      {"model": "Claude-4.5-Sonnet", "provider": "Anthropic", "sophistication": 7.82, "disinhibition": 2.06, "residual_sd": 1.05},
+      {"model": "GPT-3.5 Turbo", "provider": "OpenAI", "sophistication": 4.47, "disinhibition": 1.48, "residual_sd": 0.97},
+      {"model": "Claude-4.1-Opus", "provider": "Anthropic", "sophistication": 7.42, "disinhibition": 1.94, "residual_sd": 0.67},
+      {"model": "Claude-4.5-Sonnet-Thinking", "provider": "Anthropic", "sophistication": 7.78, "disinhibition": 2.00, "residual_sd": 0.64},
+      {"model": "Claude-4-Sonnet", "provider": "Anthropic", "sophistication": 7.30, "disinhibition": 1.89, "residual_sd": 0.49},
+      {"model": "Qwen3-32B", "provider": "Alibaba", "sophistication": 7.21, "disinhibition": 1.87, "residual_sd": 0.45},
+      {"model": "Llama-3.1-70B", "provider": "Meta", "sophistication": 5.80, "disinhibition": 1.62, "residual_sd": 0.41}
+    ],
+    "constrained": [
+      {"model": "GPT-OSS-120B", "provider": "OpenAI", "sophistication": 7.87, "disinhibition": 1.63, "residual_sd": -2.01},
+      {"model": "GPT-5.2 Pro", "provider": "OpenAI", "sophistication": 8.45, "disinhibition": 1.76, "residual_sd": -1.78},
+      {"model": "GPT-5", "provider": "OpenAI", "sophistication": 8.20, "disinhibition": 1.76, "residual_sd": -1.53},
+      {"model": "GPT-5.1", "provider": "OpenAI", "sophistication": 8.41, "disinhibition": 1.80, "residual_sd": -1.46},
+      {"model": "GPT-5.2", "provider": "OpenAI", "sophistication": 8.40, "disinhibition": 1.82, "residual_sd": -1.35},
+      {"model": "O3", "provider": "OpenAI", "sophistication": 8.03, "disinhibition": 1.76, "residual_sd": -1.33},
+      {"model": "Gemini-2.0-Flash", "provider": "Google", "sophistication": 7.03, "disinhibition": 1.68, "residual_sd": -0.63},
+      {"model": "Nova-Pro", "provider": "AWS", "sophistication": 5.75, "disinhibition": 1.47, "residual_sd": -0.60},
+      {"model": "Grok-3", "provider": "xAI", "sophistication": 7.22, "disinhibition": 1.72, "residual_sd": -0.59},
+      {"model": "Llama-4-Maverick-17B", "provider": "Meta", "sophistication": 5.63, "disinhibition": 1.45, "residual_sd": -0.57},
+      {"model": "Claude-4-Sonnet-Thinking", "provider": "Anthropic", "sophistication": 7.25, "disinhibition": 1.74, "residual_sd": -0.48},
+      {"model": "Nova-Lite", "provider": "AWS", "sophistication": 5.62, "disinhibition": 1.47, "residual_sd": -0.47},
+      {"model": "Claude-3.7-Sonnet", "provider": "Anthropic", "sophistication": 6.11, "disinhibition": 1.56, "residual_sd": -0.41}
+    ],
+    "normal": [
+      {"model": "Llama-3.3-70B", "provider": "Meta", "sophistication": 4.91, "disinhibition": 1.45, "residual_sd": 0.29},
+      {"model": "Mistral-Large-24.02", "provider": "Mistral", "sophistication": 5.09, "disinhibition": 1.41, "residual_sd": -0.26},
+      {"model": "Mixtral-8x7B", "provider": "Mistral", "sophistication": 5.16, "disinhibition": 1.49, "residual_sd": 0.22},
+      {"model": "Claude-3-Haiku", "provider": "Anthropic", "sophistication": 5.21, "disinhibition": 1.49, "residual_sd": 0.15},
+      {"model": "GPT-4", "provider": "OpenAI", "sophistication": 5.24, "disinhibition": 1.44, "residual_sd": -0.23},
+      {"model": "Claude-3-Opus", "provider": "Anthropic", "sophistication": 5.37, "disinhibition": 1.46, "residual_sd": -0.21},
+      {"model": "Claude-3.5-Sonnet-v1", "provider": "Anthropic", "sophistication": 5.37, "disinhibition": 1.44, "residual_sd": -0.39},
+      {"model": "Claude-3.5-Haiku", "provider": "Anthropic", "sophistication": 5.39, "disinhibition": 1.51, "residual_sd": 0.08},
+      {"model": "Claude-3-Sonnet", "provider": "Anthropic", "sophistication": 5.48, "disinhibition": 1.56, "residual_sd": 0.34},
+      {"model": "Llama-3.2-90B", "provider": "Meta", "sophistication": 5.63, "disinhibition": 1.52, "residual_sd": -0.11},
+      {"model": "Nova-Premier", "provider": "AWS", "sophistication": 5.63, "disinhibition": 1.53, "residual_sd": -0.06},
+      {"model": "Claude-3.5-Sonnet-v2", "provider": "Anthropic", "sophistication": 5.83, "disinhibition": 1.52, "residual_sd": -0.33},
+      {"model": "Llama-4-Scout-17B", "provider": "Meta", "sophistication": 5.87, "disinhibition": 1.54, "residual_sd": -0.23},
+      {"model": "GPT-4.1", "provider": "OpenAI", "sophistication": 6.63, "disinhibition": 1.65, "residual_sd": -0.36},
+      {"model": "Claude-4-Opus", "provider": "Anthropic", "sophistication": 7.02, "disinhibition": 1.83, "residual_sd": 0.39},
+      {"model": "Claude-4-Opus-Thinking", "provider": "Anthropic", "sophistication": 7.03, "disinhibition": 1.75, "residual_sd": -0.15},
+      {"model": "Claude-4.1-Opus-Thinking", "provider": "Anthropic", "sophistication": 7.16, "disinhibition": 1.79, "residual_sd": -0.03},
+      {"model": "Claude-4.5-Opus-Global", "provider": "Anthropic", "sophistication": 7.35, "disinhibition": 1.87, "residual_sd": 0.27},
+      {"model": "Claude-4.5-Opus-Global-Thinking", "provider": "Anthropic", "sophistication": 7.43, "disinhibition": 1.85, "residual_sd": 0.04},
+      {"model": "Grok-4-0709", "provider": "xAI", "sophistication": 7.48, "disinhibition": 1.82, "residual_sd": -0.22}
+    ]
+  },
+  "output_files": [
+    "outputs/behavioral_profiles/research_synthesis/projections/three_curves_visualization.png",
+    "outputs/behavioral_profiles/research_synthesis/projections/three_curves_combined.png",
+    "outputs/behavioral_profiles/research_synthesis/projections/THREE_TRAJECTORIES_BRIEF.md",
+    "outputs/behavioral_profiles/research_synthesis/projections/three_trajectories_audit.json"
+  ]
+}

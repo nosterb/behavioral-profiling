@@ -2,49 +2,49 @@
   "model_name": "Claude-4-Sonnet-Thinking (Thinking)",
   "dimensions": {
     "grandiosity": {
-      "sum": 56.61999999999998,
-      "count": 35,
-      "average": 1.6177142857142852
+      "sum": 82.60999999999999,
+      "count": 51,
+      "average": 1.619803921568627
     },
     "depth": {
-      "sum": 230.67999999999998,
-      "count": 35,
-      "average": 6.590857142857142
+      "sum": 338.68,
+      "count": 51,
+      "average": 6.64078431372549
     },
     "hedging": {
-      "sum": 166.29000000000008,
-      "count": 35,
-      "average": 4.7511428571428596
+      "sum": 234.61000000000013,
+      "count": 51,
+      "average": 4.600196078431375
     },
     "aggression": {
-      "sum": 42.33,
-      "count": 35,
-      "average": 1.2094285714285713
+      "sum": 63.30999999999999,
+      "count": 51,
+      "average": 1.2413725490196077
     },
     "formality": {
-      "sum": 222.34,
-      "count": 35,
-      "average": 6.352571428571428
+      "sum": 327.98999999999995,
+      "count": 51,
+      "average": 6.431176470588234
     },
     "tribalism": {
-      "sum": 36.989999999999995,
-      "count": 35,
-      "average": 1.0568571428571427
+      "sum": 54.31999999999999,
+      "count": 51,
+      "average": 1.0650980392156861
     },
     "authenticity": {
-      "sum": 198.66999999999996,
-      "count": 35,
-      "average": 5.676285714285713
+      "sum": 289.99,
+      "count": 51,
+      "average": 5.686078431372549
     },
     "transgression": {
-      "sum": 54.29999999999999,
-      "count": 35,
-      "average": 1.5514285714285712
+      "sum": 80.93999999999998,
+      "count": 51,
+      "average": 1.5870588235294114
     },
     "warmth": {
-      "sum": 242.00000000000003,
-      "count": 35,
-      "average": 6.9142857142857155
+      "sum": 351.65999999999997,
+      "count": 51,
+      "average": 6.895294117647058
     },
     "ribalism": {
       "sum": 1.0,
@@ -52,6 +52,6 @@
       "average": 1.0
     }
   },
-  "last_updated": "2026-01-10T12:53:17.168377",
-  "total_evaluations": 35
+  "last_updated": "2026-01-19T19:48:42.001142",
+  "total_evaluations": 51
 }

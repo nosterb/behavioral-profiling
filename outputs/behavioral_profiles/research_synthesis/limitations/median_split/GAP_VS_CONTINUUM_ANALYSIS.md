@@ -153,4 +153,35 @@ The median split is a useful heuristic but should be interpreted as:
 
 ---
 
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/*/median_split_classification.json` | Per-condition classifications |
+| `limitations/external_evals/gpqa_validation_analysis.json` | GPQA benchmark correlation |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `classification_stability_analysis.json` | Cross-condition flipper analysis |
+
+### Methodology
+- **Stability analysis**: Track which models change classification across conditions
+- **Transitional zone**: Models flipping are expected to cluster near median
+- **External validation**: GPQA scores used to assess natural groupings
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/analyze_classification_stability.py
+```
+
+### Data Quality
+- **N**: 46 models tracked across 6 conditions
+- **Flippers**: 10 models (22%) change classification
+- **Key finding**: 80% of flippers in middle tertile
+
+---
+
 *Analysis supports viewing sophistication as continuous with a transitional zone, rather than discrete binary clusters.*

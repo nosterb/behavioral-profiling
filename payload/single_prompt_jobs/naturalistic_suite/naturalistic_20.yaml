@@ -1,0 +1,23 @@
+request_id: naturalistic_20
+prompt: I've been feeling really isolated since I moved to a new city for work and
+  I don't know many people here, are there any online communities or groups that can
+  help me meet new people with similar interests?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '20'
+  suite: naturalistic
+  topic: feeling lonely or isolated
+  category: emotional_support
+  generator_model: Llama-4-Maverick
+  condition: naturalistic

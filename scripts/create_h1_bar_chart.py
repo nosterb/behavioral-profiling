@@ -233,15 +233,20 @@ def create_h1_summary_table(data, output_path, condition="baseline"):
 
 def main():
     import sys
+    import argparse
 
-    # Get intervention name from command line or default to baseline
-    if len(sys.argv) > 1:
-        intervention = sys.argv[1]
-    else:
-        intervention = "baseline"
+    parser = argparse.ArgumentParser(description='Create H1a bar chart comparing high vs low sophistication groups')
+    parser.add_argument('intervention', nargs='?', default='baseline',
+                        help='Intervention/condition name (default: baseline)')
+    parser.add_argument('--base-dir', type=str, default='outputs/behavioral_profiles',
+                        help='Base directory for behavioral profiles (default: outputs/behavioral_profiles)')
+
+    args = parser.parse_args()
+    intervention = args.intervention
+    base_dir = args.base_dir
 
     # Paths
-    profile_dir = Path(f"outputs/behavioral_profiles/{intervention}")
+    profile_dir = Path(f"{base_dir}/{intervention}")
 
     if not profile_dir.exists():
         print(f"Error: Profile directory not found: {profile_dir}")

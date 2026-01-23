@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_39
+prompt: Hey, I've been trying to understand the concept of negative space in visual
+  art, but I'm still a bit confused. Can you explain how it works and maybe give a
+  couple of examples of how artists use it effectively?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: 09
+  suite: naturalistic_r2
+  topic: visual art concept
+  category: creative
+  generator_model: Grok-3
+  condition: naturalistic_r2

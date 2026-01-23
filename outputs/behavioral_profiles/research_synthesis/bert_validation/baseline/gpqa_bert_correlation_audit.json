@@ -1,0 +1,259 @@
+{
+  "metadata": {
+    "generated": "2026-01-23T08:00:34.634122Z",
+    "analysis": "GPQA vs BERT Toxicity Correlation",
+    "condition": "baseline",
+    "n_matched": 35
+  },
+  "provenance": {
+    "source_files": {
+      "bert_toxicity": "bert_validation/baseline/bert_soph_disin_results.json",
+      "gpqa_benchmark": "limitations/external_evals/gpqa_validation_analysis.json"
+    },
+    "methodology": {
+      "matching": "Model ID normalization (lowercase, remove separators)",
+      "correlation": "Pearson product-moment",
+      "outlier_threshold": "2.0 SD from regression line"
+    }
+  },
+  "results": {
+    "pearson_r": 0.423,
+    "p_value": 0.011357,
+    "r_squared": 0.1789,
+    "effect_size": "Medium",
+    "regression": {
+      "slope": 0.000218,
+      "intercept": -0.003,
+      "std_err": 8.1e-05
+    }
+  },
+  "patterns": {
+    "outliers": [
+      "gemini-3-pro-preview"
+    ],
+    "constrained": [
+      "gpt-5.2_pro",
+      "gpt-5.2",
+      "gemini-2.5-pro",
+      "claude-3.7-sonnet"
+    ],
+    "residual_std": 0.009273
+  },
+  "model_data": [
+    {
+      "model_id": "gpt-5.2_pro",
+      "gpqa_pct": 93.2,
+      "bert_toxicity": 0.008999617893857007,
+      "residual_sd": -0.9032763020322715
+    },
+    {
+      "model_id": "gpt-5.2",
+      "gpqa_pct": 92.4,
+      "bert_toxicity": 0.0078105620080034955,
+      "residual_sd": -1.0126797114264208
+    },
+    {
+      "model_id": "gemini-3-pro-preview",
+      "gpqa_pct": 91.9,
+      "bert_toxicity": 0.043833123021093864,
+      "residual_sd": 2.883738851210899
+    },
+    {
+      "model_id": "gpt-5",
+      "gpqa_pct": 88.1,
+      "bert_toxicity": 0.026938211182322428,
+      "residual_sd": 1.1512133628120849
+    },
+    {
+      "model_id": "gpt-5.1",
+      "gpqa_pct": 88.1,
+      "bert_toxicity": 0.018933553536118447,
+      "residual_sd": 0.28799536107714774
+    },
+    {
+      "model_id": "grok-4-0709",
+      "gpqa_pct": 87.5,
+      "bert_toxicity": 0.03110448271986477,
+      "residual_sd": 1.6146196646717303
+    },
+    {
+      "model_id": "claude-4.5-opus-global",
+      "gpqa_pct": 87.0,
+      "bert_toxicity": 0.02178490030928515,
+      "residual_sd": 0.6213657178144542
+    },
+    {
+      "model_id": "gemini-2.5-pro",
+      "gpqa_pct": 86.4,
+      "bert_toxicity": 0.00996349081848463,
+      "residual_sd": -0.6393309563234333
+    },
+    {
+      "model_id": "claude-3.7-sonnet",
+      "gpqa_pct": 84.8,
+      "bert_toxicity": 0.0014544760750140994,
+      "residual_sd": -1.5192910743569834
+    },
+    {
+      "model_id": "grok-3",
+      "gpqa_pct": 84.6,
+      "bert_toxicity": 0.0034617478175240817,
+      "residual_sd": -1.2981220271834881
+    },
+    {
+      "model_id": "claude-4.5-sonnet",
+      "gpqa_pct": 83.4,
+      "bert_toxicity": 0.02554011362255551,
+      "residual_sd": 1.1110327520033951
+    },
+    {
+      "model_id": "o3",
+      "gpqa_pct": 83.3,
+      "bert_toxicity": 0.003128531105027591,
+      "residual_sd": -1.3034673590210089
+    },
+    {
+      "model_id": "deepseek-r1",
+      "gpqa_pct": 82.4,
+      "bert_toxicity": 0.013764774919254706,
+      "residual_sd": -0.13528380216978297
+    },
+    {
+      "model_id": "qwen3-32b",
+      "gpqa_pct": 81.1,
+      "bert_toxicity": 0.010598033170681446,
+      "residual_sd": -0.4461949592575607
+    },
+    {
+      "model_id": "claude-4.1-opus",
+      "gpqa_pct": 80.9,
+      "bert_toxicity": 0.014229337852448225,
+      "residual_sd": -0.04989106802964445
+    },
+    {
+      "model_id": "gpt-oss-120b",
+      "gpqa_pct": 80.9,
+      "bert_toxicity": 0.01646637491765432,
+      "residual_sd": 0.19134981329023915
+    },
+    {
+      "model_id": "claude-4-opus",
+      "gpqa_pct": 79.6,
+      "bert_toxicity": 0.019959492342812673,
+      "residual_sd": 0.5986343095182499
+    },
+    {
+      "model_id": "claude-4-sonnet",
+      "gpqa_pct": 75.4,
+      "bert_toxicity": 0.020753240558551624,
+      "residual_sd": 0.7830563369204155
+    },
+    {
+      "model_id": "claude-4.5-haiku",
+      "gpqa_pct": 73.0,
+      "bert_toxicity": 0.002174776012543589,
+      "residual_sd": -1.1639641235323126
+    },
+    {
+      "model_id": "llama-4-maverick-17b",
+      "gpqa_pct": 69.8,
+      "bert_toxicity": 0.0030369323363993316,
+      "residual_sd": -0.9956946794867543
+    },
+    {
+      "model_id": "claude-3.5-sonnet-v2",
+      "gpqa_pct": 67.2,
+      "bert_toxicity": 0.014470783933065832,
+      "residual_sd": 0.2985029254543482
+    },
+    {
+      "model_id": "gpt-4.1",
+      "gpqa_pct": 66.3,
+      "bert_toxicity": 0.004134197168204249,
+      "residual_sd": -0.795012356468846
+    },
+    {
+      "model_id": "gemini-2.0-flash",
+      "gpqa_pct": 62.1,
+      "bert_toxicity": 0.02522982701977563,
+      "residual_sd": 1.5787537343178766
+    },
+    {
+      "model_id": "llama-4-scout-17b",
+      "gpqa_pct": 57.2,
+      "bert_toxicity": 0.0021186920744366944,
+      "residual_sd": -0.7982432861704409
+    },
+    {
+      "model_id": "llama-3.3-70b",
+      "gpqa_pct": 50.5,
+      "bert_toxicity": 0.0049019973736722025,
+      "residual_sd": -0.34044429346515775
+    },
+    {
+      "model_id": "claude-3-opus",
+      "gpqa_pct": 50.4,
+      "bert_toxicity": 0.0011536686979525257,
+      "residual_sd": -0.742309086495968
+    },
+    {
+      "model_id": "nova-pro",
+      "gpqa_pct": 46.9,
+      "bert_toxicity": 0.002823177519021556,
+      "residual_sd": -0.47991627756469274
+    },
+    {
+      "model_id": "llama-3.2-90b",
+      "gpqa_pct": 46.7,
+      "bert_toxicity": 0.002385411807335913,
+      "residual_sd": -0.5224187624746129
+    },
+    {
+      "model_id": "nova-lite",
+      "gpqa_pct": 42.0,
+      "bert_toxicity": 0.002396430752705783,
+      "residual_sd": -0.4106410026023611
+    },
+    {
+      "model_id": "llama-3.1-70b",
+      "gpqa_pct": 41.7,
+      "bert_toxicity": 0.004405247847316786,
+      "residual_sd": -0.18695233776746245
+    },
+    {
+      "model_id": "claude-3.5-haiku",
+      "gpqa_pct": 41.6,
+      "bert_toxicity": 0.0146976449561771,
+      "residual_sd": 0.9253272324426796
+    },
+    {
+      "model_id": "claude-3-sonnet",
+      "gpqa_pct": 40.4,
+      "bert_toxicity": 0.001403256495250389,
+      "residual_sd": -0.4800969001620703
+    },
+    {
+      "model_id": "gpt-4",
+      "gpqa_pct": 35.7,
+      "bert_toxicity": 0.015270302426165007,
+      "residual_sd": 1.1259074031925769
+    },
+    {
+      "model_id": "claude-3-haiku",
+      "gpqa_pct": 33.3,
+      "bert_toxicity": 0.0014254396129399537,
+      "residual_sd": -0.3106439767093155
+    },
+    {
+      "model_id": "gpt-3.5_turbo",
+      "gpqa_pct": 30.8,
+      "bert_toxicity": 0.016393954663689494,
+      "residual_sd": 1.3623768779744974
+    }
+  ],
+  "output_files": [
+    "scatter_gpqa_vs_bert_toxicity.png",
+    "gpqa_bert_correlation_audit.json",
+    "GPQA_BERT_CORRELATION_BRIEF.md"
+  ]
+}

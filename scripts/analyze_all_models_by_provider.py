@@ -7,27 +7,13 @@ Creates comprehensive statistics and visualizations.
 import json
 import os
 import sys
+import argparse
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
 from collections import defaultdict
-
-# Get intervention from command line argument
-if len(sys.argv) > 1:
-    intervention = sys.argv[1]
-else:
-    intervention = "baseline"
-
-# Paths
-BASELINE_DIR = Path(f"outputs/behavioral_profiles/{intervention}")
-PROFILES_DIR = BASELINE_DIR / "profiles"
-OUTPUT_DIR = BASELINE_DIR
-
-if not PROFILES_DIR.exists():
-    print(f"Error: Profile directory not found: {PROFILES_DIR}")
-    sys.exit(1)
 
 # Behavioral dimensions in canonical order
 DIMENSIONS = [
@@ -41,6 +27,12 @@ DIMENSIONS = [
     "depth",
     "authenticity"
 ]
+
+# Module-level variables (set in main)
+BASELINE_DIR = None
+PROFILES_DIR = None
+OUTPUT_DIR = None
+SOPHISTICATION_CLASSIFICATION = {}
 
 def classify_provider(model_name):
     """Classify model by provider based on name."""
@@ -68,9 +60,9 @@ def classify_provider(model_name):
     else:
         return 'Other'
 
-def load_median_split_classification():
+def load_median_split_classification(baseline_dir):
     """Load median split classification to get High/Low sophistication groupings."""
-    classification_file = BASELINE_DIR / "median_split_classification.json"
+    classification_file = baseline_dir / "median_split_classification.json"
     if classification_file.exists():
         with open(classification_file, 'r') as f:
             data = json.load(f)
@@ -91,9 +83,6 @@ def load_median_split_classification():
                 classification[display_name.lower()] = model.get('classification', 'Unknown')
         return classification
     return {}
-
-# Load classification at module level
-SOPHISTICATION_CLASSIFICATION = load_median_split_classification()
 
 def classify_sophistication(model_name):
     """Classify model as High-Sophistication or Low-Sophistication using median split."""
@@ -284,7 +273,7 @@ def plot_provider_sophistication(df, output_path):
     plt.close()
     print(f"Saved: {output_path}")
 
-def plot_all_dimensions_by_provider(df, output_path):
+def plot_all_dimensions_by_provider(df, output_path, condition="baseline"):
     """Plot all 9 dimensions by provider."""
     fig, axes = plt.subplots(3, 3, figsize=(18, 14))
     axes = axes.flatten()
@@ -308,13 +297,13 @@ def plot_all_dimensions_by_provider(df, output_path):
         ax.axhline(df[dim].mean(), color='red', linestyle='--', linewidth=1, alpha=0.5)
         ax.grid(axis='y', alpha=0.3)
 
-    plt.suptitle(f'All Behavioral Dimensions by Provider\nCondition: {intervention}', fontsize=16, fontweight='bold', y=1.01)
+    plt.suptitle(f'All Behavioral Dimensions by Provider\nCondition: {condition}', fontsize=16, fontweight='bold', y=1.01)
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
     plt.close()
     print(f"Saved: {output_path}")
 
-def plot_provider_heatmap(df, output_path):
+def plot_provider_heatmap(df, output_path, condition="baseline"):
     """Create heatmap of all dimensions by provider."""
     fig, ax = plt.subplots(1, 1, figsize=(12, 8))
 
@@ -328,7 +317,7 @@ def plot_provider_heatmap(df, output_path):
                 vmin=1, vmax=10, center=5.5)
     ax.set_xlabel('Provider', fontsize=12)
     ax.set_ylabel('Dimension', fontsize=12)
-    ax.set_title(f'Behavioral Dimensions Heatmap by Provider\nCondition: {intervention}', fontsize=14, fontweight='bold')
+    ax.set_title(f'Behavioral Dimensions Heatmap by Provider\nCondition: {condition}', fontsize=14, fontweight='bold')
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
@@ -381,6 +370,30 @@ def save_comprehensive_report(stats, correlations, output_path):
     print(f"Saved: {output_path}")
 
 def main():
+    global BASELINE_DIR, PROFILES_DIR, OUTPUT_DIR, SOPHISTICATION_CLASSIFICATION
+
+    parser = argparse.ArgumentParser(description='Analyze all models by provider with comprehensive statistics')
+    parser.add_argument('intervention', nargs='?', default='baseline',
+                        help='Intervention/condition name (default: baseline)')
+    parser.add_argument('--base-dir', type=str, default='outputs/behavioral_profiles',
+                        help='Base directory for behavioral profiles (default: outputs/behavioral_profiles)')
+
+    args = parser.parse_args()
+    intervention = args.intervention
+    base_dir = args.base_dir
+
+    # Set up module-level paths
+    BASELINE_DIR = Path(f"{base_dir}/{intervention}")
+    PROFILES_DIR = BASELINE_DIR / "profiles"
+    OUTPUT_DIR = BASELINE_DIR
+
+    if not PROFILES_DIR.exists():
+        print(f"Error: Profile directory not found: {PROFILES_DIR}")
+        sys.exit(1)
+
+    # Load classification
+    SOPHISTICATION_CLASSIFICATION = load_median_split_classification(BASELINE_DIR)
+
     print("Loading behavioral profiles...")
     profiles = load_profiles()
 
@@ -427,8 +440,8 @@ def main():
     # NOTE: Provider summary (counts, sophistication, H1) now generated by create_provider_summary.py
     # plot_provider_breakdown(df, OUTPUT_DIR / "provider_model_counts.png")  # DEPRECATED
     # plot_provider_sophistication(df, OUTPUT_DIR / "provider_sophistication_means.png")  # DEPRECATED
-    plot_all_dimensions_by_provider(df, OUTPUT_DIR / "all_dimensions_by_provider.png")
-    plot_provider_heatmap(df, OUTPUT_DIR / "provider_dimensions_heatmap.png")
+    plot_all_dimensions_by_provider(df, OUTPUT_DIR / "all_dimensions_by_provider.png", condition=intervention)
+    plot_provider_heatmap(df, OUTPUT_DIR / "provider_dimensions_heatmap.png", condition=intervention)
 
     # Save comprehensive report
     print("\nGenerating comprehensive report...")

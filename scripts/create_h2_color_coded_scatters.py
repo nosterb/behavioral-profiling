@@ -19,15 +19,17 @@ from pathlib import Path
 from scipy import stats as sp_stats
 
 # =============================================================================
-# CONFIGURABLE THRESHOLDS
+# CONFIGURABLE THRESHOLDS (BASE VALUES FOR 1-10 SCALE)
 # =============================================================================
 # These thresholds control how special model patterns are identified.
 # Adjust these values to change sensitivity of pattern detection.
+# Note: These are base values for 1-10 scale. For 1-50 scale, they are
+# automatically scaled by detect_scale_factor().
 
 # Borderline models: within this distance of median sophistication
 # Rationale: ±0.15 captures models that could reasonably be classified either way
 # on the median split. This represents ~2.5% of the 1-10 scale on each side.
-BORDERLINE_THRESHOLD = 0.15
+BORDERLINE_THRESHOLD_BASE = 0.15
 
 # Statistical outliers: residuals exceeding this many standard deviations
 # Rationale: 2 SD is a common threshold (~95% of data falls within ±2 SD).
@@ -38,12 +40,48 @@ OUTLIER_SD_THRESHOLD = 2.0
 # CONSTRAINED_SOPH_THRESHOLD: minimum sophistication to be considered "high capability"
 # Rationale: 6.5 is above the typical median (~5.9-6.7) and represents models
 # in roughly the top third of sophistication scores.
-CONSTRAINED_SOPH_THRESHOLD = 6.5
+CONSTRAINED_SOPH_THRESHOLD_BASE = 6.5
 
 # CONSTRAINED_RESIDUAL_THRESHOLD: how far below prediction to be "constrained"
 # Rationale: -0.15 means disinhibition is at least 0.15 below what the regression
 # predicts for that sophistication level, suggesting deliberate constraint.
-CONSTRAINED_RESIDUAL_THRESHOLD = -0.15
+CONSTRAINED_RESIDUAL_THRESHOLD_BASE = -0.15
+# =============================================================================
+
+def detect_scale_factor(median_soph):
+    """
+    Auto-detect the scoring scale based on median sophistication.
+
+    Returns a scale factor to multiply base thresholds by.
+    - 1-10 scale (median ~5-7): factor = 1
+    - 1-50 scale (median ~25-35): factor = 5
+    """
+    if median_soph > 15:
+        # Likely 1-50 scale
+        return 5.0
+    else:
+        # Likely 1-10 scale
+        return 1.0
+
+def get_scaled_thresholds(median_soph):
+    """
+    Get thresholds scaled appropriately for the detected scale.
+
+    Returns:
+        dict with borderline, constrained_soph, constrained_residual thresholds
+    """
+    scale = detect_scale_factor(median_soph)
+    return {
+        'borderline': BORDERLINE_THRESHOLD_BASE * scale,
+        'constrained_soph': CONSTRAINED_SOPH_THRESHOLD_BASE * scale,
+        'constrained_residual': CONSTRAINED_RESIDUAL_THRESHOLD_BASE * scale,
+        'scale_factor': scale
+    }
+
+# Legacy compatibility - these will be overridden by scaled versions
+BORDERLINE_THRESHOLD = BORDERLINE_THRESHOLD_BASE
+CONSTRAINED_SOPH_THRESHOLD = CONSTRAINED_SOPH_THRESHOLD_BASE
+CONSTRAINED_RESIDUAL_THRESHOLD = CONSTRAINED_RESIDUAL_THRESHOLD_BASE
 # =============================================================================
 
 def load_median_split_data(profile_dir):
@@ -61,22 +99,27 @@ def identify_outliers_and_borderline(data, threshold_sd=None, borderline_thresho
     Args:
         data: Median split classification data
         threshold_sd: SD threshold for outliers (default: OUTLIER_SD_THRESHOLD)
-        borderline_threshold: Distance from median for borderline (default: BORDERLINE_THRESHOLD)
-        constrained_soph: Min sophistication for constrained (default: CONSTRAINED_SOPH_THRESHOLD)
-        constrained_residual: Max residual for constrained (default: CONSTRAINED_RESIDUAL_THRESHOLD)
+        borderline_threshold: Distance from median for borderline (auto-scaled by default)
+        constrained_soph: Min sophistication for constrained (auto-scaled by default)
+        constrained_residual: Max residual for constrained (auto-scaled by default)
 
     Returns:
         outliers, borderline, constrained, residuals, residual_std
     """
-    # Use module defaults if not specified
+    median_soph = data['median_sophistication']
+
+    # Auto-detect scale and get scaled thresholds
+    scaled = get_scaled_thresholds(median_soph)
+
+    # Use scaled defaults if not specified
     if threshold_sd is None:
         threshold_sd = OUTLIER_SD_THRESHOLD
     if borderline_threshold is None:
-        borderline_threshold = BORDERLINE_THRESHOLD
+        borderline_threshold = scaled['borderline']
     if constrained_soph is None:
-        constrained_soph = CONSTRAINED_SOPH_THRESHOLD
+        constrained_soph = scaled['constrained_soph']
     if constrained_residual is None:
-        constrained_residual = CONSTRAINED_RESIDUAL_THRESHOLD
+        constrained_residual = scaled['constrained_residual']
     all_x = [m['sophistication'] for m in data['models']]
     all_y = [m['disinhibition'] for m in data['models']]
     median_soph = data['median_sophistication']
@@ -127,6 +170,12 @@ def create_color_coded_scatter_composite(data, output_path, condition="baseline"
     fig, ax = plt.subplots(1, 1, figsize=(14, 10))
 
     median_soph = data['median_sophistication']
+
+    # Get scaled thresholds for the detected scale
+    scaled = get_scaled_thresholds(median_soph)
+    borderline_thresh = scaled['borderline']
+    constrained_soph_thresh = scaled['constrained_soph']
+    constrained_residual_thresh = scaled['constrained_residual']
 
     # Identify outliers, borderline, and constrained models
     outliers, borderline, constrained, residuals, residual_std = identify_outliers_and_borderline(data)
@@ -228,9 +277,9 @@ def create_color_coded_scatter_composite(data, output_path, condition="baseline"
                zorder=2)
 
     # Shade borderline zone
-    ax.axvspan(median_soph - BORDERLINE_THRESHOLD, median_soph + BORDERLINE_THRESHOLD,
+    ax.axvspan(median_soph - borderline_thresh, median_soph + borderline_thresh,
                alpha=0.1, color='orange', zorder=1,
-               label=f'Borderline Zone (±{BORDERLINE_THRESHOLD})')
+               label=f'Borderline Zone (±{borderline_thresh:.2f})')
 
     # Add regression line
     all_x = [m['sophistication'] for m in data['models']]
@@ -302,13 +351,14 @@ def create_color_coded_scatter_composite(data, output_path, condition="baseline"
     r = data['correlation']['sophistication_disinhibition']
 
     # Add statistics text box
+    # H2 is the primary metric for this scatter plot (correlation)
+    # H1a is secondary reference (group difference)
+    cohens_d = data["statistics"]["disinhibition"]["cohens_d"]
     stats_text = (
-        f'H2: Sophistication-Disinhibition Correlation\n'
-        f'r = {r:.3f}, p < .001 (large effect)\n\n'
-        f'H1: Group Difference\n'
-        f'd = {data["statistics"]["disinhibition"]["cohens_d"]:.2f} (large effect)\n\n'
-        f'Borderline: {len(borderline)} models (±{BORDERLINE_THRESHOLD} from median)\n'
-        f'Constrained: {len(constrained)} models (high-soph, low-disinhib)\n'
+        f'H2 (Correlation): r = {r:.3f}, p < .001\n'
+        f'H1a (Group Diff): d = {cohens_d:.2f}\n\n'
+        f'Borderline: {len(borderline)} models (±{borderline_thresh:.2f} from median)\n'
+        f'Constrained: {len(constrained)} models (soph > {constrained_soph_thresh:.1f})\n'
         f'Outliers: {len(outliers)} models (|residual| > {OUTLIER_SD_THRESHOLD} SD)'
     )
 
@@ -426,12 +476,12 @@ def create_color_coded_scatter_composite(data, output_path, condition="baseline"
     plt.close()
 
     print(f"✓ Created: {output_path}")
-    print(f"  - Borderline models: {len(borderline)} (within ±{BORDERLINE_THRESHOLD} of median)")
+    print(f"  - Borderline models: {len(borderline)} (within ±{borderline_thresh:.2f} of median)")
     if borderline:
         for b in sorted(borderline, key=lambda x: x['sophistication']):
             dist = b['sophistication'] - median_soph
             print(f"    • {b['display_name']}: {b['sophistication']:.3f} ({dist:+.3f} from median)")
-    print(f"  - Constrained models: {len(constrained)} (soph > {CONSTRAINED_SOPH_THRESHOLD}, residual < {CONSTRAINED_RESIDUAL_THRESHOLD})")
+    print(f"  - Constrained models: {len(constrained)} (soph > {constrained_soph_thresh:.1f}, residual < {constrained_residual_thresh:.2f})")
     if constrained:
         for c in sorted(constrained, key=lambda x: x['residual']):
             print(f"    • {c['model']['display_name']}: soph={c['model']['sophistication']:.3f}, "
@@ -452,6 +502,12 @@ def create_color_coded_scatter_all_dimensions(data, output_path, condition="base
 
     median_soph = data['median_sophistication']
 
+    # Get scaled thresholds for the detected scale
+    scaled = get_scaled_thresholds(median_soph)
+    borderline_thresh = scaled['borderline']
+    constrained_soph_thresh = scaled['constrained_soph']
+    constrained_residual_thresh = scaled['constrained_residual']
+
     # Pre-calculate constrained models using COMPOSITE disinhibition (same as main scatter)
     # This ensures consistent constrained identification across all subplots
     all_x = [m['sophistication'] for m in data['models']]
@@ -464,7 +520,7 @@ def create_color_coded_scatter_all_dimensions(data, output_path, condition="base
     # Identify constrained models using composite (high sophistication, below-predicted disinhibition)
     constrained_composite = []
     for i, model in enumerate(data['models']):
-        if model['sophistication'] > CONSTRAINED_SOPH_THRESHOLD and residuals_composite[i] < CONSTRAINED_RESIDUAL_THRESHOLD:
+        if model['sophistication'] > constrained_soph_thresh and residuals_composite[i] < constrained_residual_thresh:
             constrained_composite.append({
                 'model': model,
                 'residual': residuals_composite[i],
@@ -474,7 +530,7 @@ def create_color_coded_scatter_all_dimensions(data, output_path, condition="base
 
     # Identify borderline models (same for all subplots)
     borderline = [m for m in data['models']
-                 if abs(m['sophistication'] - median_soph) < BORDERLINE_THRESHOLD]
+                 if abs(m['sophistication'] - median_soph) < borderline_thresh]
     borderline_ids = {b['model_id'] for b in borderline}
 
     for idx, dim in enumerate(disinhibition_dims):
@@ -576,7 +632,7 @@ def create_color_coded_scatter_all_dimensions(data, output_path, condition="base
                    linewidth=2, alpha=0.6, zorder=2)
 
         # Shade borderline zone
-        ax.axvspan(median_soph - BORDERLINE_THRESHOLD, median_soph + BORDERLINE_THRESHOLD,
+        ax.axvspan(median_soph - borderline_thresh, median_soph + borderline_thresh,
                    alpha=0.08, color='orange', zorder=1)
 
         # Add regression line (using pre-calculated values)
@@ -608,7 +664,7 @@ def create_color_coded_scatter_all_dimensions(data, output_path, condition="base
         # Identify constrained models for THIS dimension (using dimension-specific regression)
         dimension_constrained = []
         for i, model in enumerate(data['models']):
-            if model['sophistication'] > CONSTRAINED_SOPH_THRESHOLD and residuals_dim[i] < CONSTRAINED_RESIDUAL_THRESHOLD:
+            if model['sophistication'] > constrained_soph_thresh and residuals_dim[i] < constrained_residual_thresh:
                 dimension_constrained.append({
                     'model': model,
                     'residual': residuals_dim[i]
@@ -624,8 +680,8 @@ def create_color_coded_scatter_all_dimensions(data, output_path, condition="base
 
         # Add statistics text box
         ax.text(0.05, 0.95,
-                f'H2: r = {r:.3f}\n'
-                f'H1: d = {cohens_d:.2f}\n'
+                f'H2 (r): {r:.3f}\n'
+                f'H1a (d): {cohens_d:.2f}\n'
                 f'Outliers: {len(dimension_outliers)}\n'
                 f'Constrained: {len(dimension_constrained)}',
                 transform=ax.transAxes,
@@ -764,15 +820,20 @@ def create_color_coded_scatter_all_dimensions(data, output_path, condition="base
 
 def main():
     import sys
+    import argparse
 
-    # Get intervention name from command line or default to baseline
-    if len(sys.argv) > 1:
-        intervention = sys.argv[1]
-    else:
-        intervention = "baseline"
+    parser = argparse.ArgumentParser(description='Create H2 scatter plots with classification color-coding')
+    parser.add_argument('intervention', nargs='?', default='baseline',
+                        help='Intervention/condition name (default: baseline)')
+    parser.add_argument('--base-dir', type=str, default='outputs/behavioral_profiles',
+                        help='Base directory for behavioral profiles (default: outputs/behavioral_profiles)')
+
+    args = parser.parse_args()
+    intervention = args.intervention
+    base_dir = args.base_dir
 
     # Paths
-    profile_dir = Path(f"outputs/behavioral_profiles/{intervention}")
+    profile_dir = Path(f"{base_dir}/{intervention}")
 
     if not profile_dir.exists():
         print(f"Error: Profile directory not found: {profile_dir}")
@@ -783,6 +844,11 @@ def main():
     print(f"Intervention: {intervention}")
     print("Loading median split classification data...")
     data = load_median_split_data(profile_dir)
+
+    # Get scaled thresholds for the detected scale
+    scaled = get_scaled_thresholds(data['median_sophistication'])
+    if scaled['scale_factor'] > 1:
+        print(f"Detected 1-50 scale (scale factor: {scaled['scale_factor']})")
 
     print(f"Loaded {len(data['models'])} models")
     print(f"Median sophistication: {data['median_sophistication']:.3f}")
@@ -808,8 +874,8 @@ def main():
     print("\nVisual Legend:")
     print("  🟢 Green circles = High-Sophistication (normal)")
     print("  🔴 Red circles = Low-Sophistication (normal)")
-    print(f"  🟠 Orange squares = Borderline (within ±{BORDERLINE_THRESHOLD} of median)")
-    print(f"  💎 Cyan diamonds = Constrained (soph > {CONSTRAINED_SOPH_THRESHOLD}, residual < {CONSTRAINED_RESIDUAL_THRESHOLD})")
+    print(f"  🟠 Orange squares = Borderline (within ±{scaled['borderline']:.2f} of median)")
+    print(f"  💎 Cyan diamonds = Constrained (soph > {scaled['constrained_soph']:.1f}, residual < {scaled['constrained_residual']:.2f})")
     print(f"  ⭕ Red circle outline = Statistical outlier (residual > {OUTLIER_SD_THRESHOLD} SD)")
     print("  🟣 Purple dashed line = Median split")
     print("  🟡 Orange shaded zone = Borderline region")

@@ -2,59 +2,60 @@
   "model_name": "Llama-4-Maverick-17B",
   "dimensions": {
     "grandiosity": {
-      "sum": 452.03,
-      "count": 236,
-      "average": 1.9153813559322033
+      "sum": 654.16,
+      "count": 354,
+      "average": 1.8479096045197738
     },
     "warmth": {
-      "sum": 1263.6000000000001,
-      "count": 236,
-      "average": 5.354237288135594
+      "sum": 1943.3900000000003,
+      "count": 354,
+      "average": 5.489802259887006
     },
     "aggression": {
-      "sum": 301.7899999999999,
-      "count": 236,
-      "average": 1.2787711864406777
+      "sum": 438.19999999999993,
+      "count": 354,
+      "average": 1.2378531073446326
     },
     "formality": {
-      "sum": 1827.7,
-      "count": 236,
-      "average": 7.744491525423729
+      "sum": 2748.0200000000004,
+      "count": 354,
+      "average": 7.762768361581922
     },
     "tribalism": {
-      "sum": 198.66,
-      "count": 186,
-      "average": 1.0680645161290323
+      "sum": 325.31,
+      "count": 304,
+      "average": 1.0700986842105262
     },
     "hedging": {
-      "sum": 1292.57,
-      "count": 236,
-      "average": 5.4769915254237285
+      "sum": 1826.2500000000002,
+      "count": 354,
+      "average": 5.158898305084747
     },
     "transgression": {
-      "sum": 304.43999999999994,
-      "count": 236,
-      "average": 1.2899999999999998
+      "sum": 445.37999999999994,
+      "count": 354,
+      "average": 1.2581355932203389
     },
     "authenticity": {
-      "sum": 974.71,
-      "count": 236,
-      "average": 4.130127118644068
+      "sum": 1477.39,
+      "count": 354,
+      "average": 4.173418079096045
     },
     "depth": {
-      "sum": 1325.68,
-      "count": 236,
-      "average": 5.6172881355932205
+      "sum": 2055.39,
+      "count": 354,
+      "average": 5.8061864406779655
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537298",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290506",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

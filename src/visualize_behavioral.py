@@ -10,6 +10,10 @@ import sys
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
+# Set non-GUI backend BEFORE importing pyplot (required for thread safety)
+import matplotlib
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Circle

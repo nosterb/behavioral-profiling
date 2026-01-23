@@ -2,59 +2,60 @@
   "model_name": "Nova-Premier",
   "dimensions": {
     "grandiosity": {
-      "sum": 487.2199999999999,
-      "count": 236,
-      "average": 2.0644915254237284
+      "sum": 691.6499999999999,
+      "count": 354,
+      "average": 1.9538135593220336
     },
     "warmth": {
-      "sum": 1239.12,
-      "count": 236,
-      "average": 5.250508474576271
+      "sum": 1926.77,
+      "count": 354,
+      "average": 5.442853107344633
     },
     "aggression": {
-      "sum": 342.90999999999997,
-      "count": 236,
-      "average": 1.453008474576271
+      "sum": 477.17999999999995,
+      "count": 354,
+      "average": 1.3479661016949152
     },
     "formality": {
-      "sum": 1848.25,
-      "count": 236,
-      "average": 7.8315677966101696
+      "sum": 2771.86,
+      "count": 354,
+      "average": 7.830112994350283
     },
     "tribalism": {
-      "sum": 266.32,
-      "count": 236,
-      "average": 1.1284745762711863
+      "sum": 393.64,
+      "count": 354,
+      "average": 1.1119774011299435
     },
     "hedging": {
-      "sum": 1102.5,
-      "count": 236,
-      "average": 4.671610169491525
+      "sum": 1627.78,
+      "count": 354,
+      "average": 4.598248587570621
     },
     "transgression": {
-      "sum": 329.9399999999999,
-      "count": 236,
-      "average": 1.3980508474576265
+      "sum": 475.82999999999987,
+      "count": 354,
+      "average": 1.344152542372881
     },
     "authenticity": {
-      "sum": 976.69,
-      "count": 236,
-      "average": 4.138516949152542
+      "sum": 1476.35,
+      "count": 354,
+      "average": 4.1704802259887
     },
     "depth": {
-      "sum": 1326.8799999999999,
-      "count": 236,
-      "average": 5.622372881355932
+      "sum": 2070.88,
+      "count": 354,
+      "average": 5.849943502824859
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537278",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290488",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

@@ -1,0 +1,2859 @@
+{
+  "generated": "2026-01-11T10:57:56.855710",
+  "condition": "baseline_no_dimensions",
+  "description": "Sensitivity analysis excluding dimensions suite prompts",
+  "median_sophistication": 5.392,
+  "n_high_sophistication": 20,
+  "n_low_sophistication": 20,
+  "n_jobs_included": 44,
+  "total_evaluations": 2024,
+  "models": [
+    {
+      "model_id": "meta.llama3-70b-instruct-v1:0",
+      "display_name": "Llama-3-70B",
+      "provider": "Meta",
+      "scores": {
+        "warmth": 2.1216,
+        "formality": 3.4691,
+        "hedging": 2.2043,
+        "aggression": 1.1882,
+        "transgression": 1.0986,
+        "grandiosity": 1.4468,
+        "tribalism": 0.9555,
+        "depth": 2.7261,
+        "authenticity": 2.2509,
+        "sophistication": 2.4885
+      },
+      "sophistication": 2.4885,
+      "disinhibition": 1.1723,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 93.35,
+          "count": 44,
+          "average": 2.1216
+        },
+        "formality": {
+          "sum": 152.64,
+          "count": 44,
+          "average": 3.4691
+        },
+        "hedging": {
+          "sum": 96.99,
+          "count": 44,
+          "average": 2.2043
+        },
+        "aggression": {
+          "sum": 52.28,
+          "count": 44,
+          "average": 1.1882
+        },
+        "transgression": {
+          "sum": 48.34,
+          "count": 44,
+          "average": 1.0986
+        },
+        "grandiosity": {
+          "sum": 63.66,
+          "count": 44,
+          "average": 1.4468
+        },
+        "tribalism": {
+          "sum": 42.04,
+          "count": 44,
+          "average": 0.9555
+        },
+        "depth": {
+          "sum": 119.95,
+          "count": 44,
+          "average": 2.7261
+        },
+        "authenticity": {
+          "sum": 99.04,
+          "count": 44,
+          "average": 2.2509
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "gpt-3.5-turbo",
+      "display_name": "GPT-3.5 Turbo",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 5.7048,
+        "formality": 7.3323,
+        "hedging": 4.3634,
+        "aggression": 1.1966,
+        "transgression": 1.3095,
+        "grandiosity": 1.5375,
+        "tribalism": 1.0152,
+        "depth": 4.5989,
+        "authenticity": 3.47,
+        "sophistication": 4.0344
+      },
+      "sophistication": 4.0344,
+      "disinhibition": 1.2647,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 251.01,
+          "count": 44,
+          "average": 5.7048
+        },
+        "formality": {
+          "sum": 322.62,
+          "count": 44,
+          "average": 7.3323
+        },
+        "hedging": {
+          "sum": 191.99,
+          "count": 44,
+          "average": 4.3634
+        },
+        "aggression": {
+          "sum": 52.65,
+          "count": 44,
+          "average": 1.1966
+        },
+        "transgression": {
+          "sum": 57.62,
+          "count": 44,
+          "average": 1.3095
+        },
+        "grandiosity": {
+          "sum": 67.65,
+          "count": 44,
+          "average": 1.5375
+        },
+        "tribalism": {
+          "sum": 44.67,
+          "count": 44,
+          "average": 1.0152
+        },
+        "depth": {
+          "sum": 202.35,
+          "count": 44,
+          "average": 4.5989
+        },
+        "authenticity": {
+          "sum": 152.68,
+          "count": 44,
+          "average": 3.47
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "gpt-4",
+      "display_name": "GPT-4",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 5.4925,
+        "formality": 7.3789,
+        "hedging": 4.5375,
+        "aggression": 1.1589,
+        "transgression": 1.2791,
+        "grandiosity": 1.6434,
+        "tribalism": 1.0227,
+        "depth": 5.1284,
+        "authenticity": 3.6743,
+        "sophistication": 4.4014
+      },
+      "sophistication": 4.4014,
+      "disinhibition": 1.276,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 241.67,
+          "count": 44,
+          "average": 5.4925
+        },
+        "formality": {
+          "sum": 324.67,
+          "count": 44,
+          "average": 7.3789
+        },
+        "hedging": {
+          "sum": 199.65,
+          "count": 44,
+          "average": 4.5375
+        },
+        "aggression": {
+          "sum": 50.99,
+          "count": 44,
+          "average": 1.1589
+        },
+        "transgression": {
+          "sum": 56.28,
+          "count": 44,
+          "average": 1.2791
+        },
+        "grandiosity": {
+          "sum": 72.31,
+          "count": 44,
+          "average": 1.6434
+        },
+        "tribalism": {
+          "sum": 45.0,
+          "count": 44,
+          "average": 1.0227
+        },
+        "depth": {
+          "sum": 225.65,
+          "count": 44,
+          "average": 5.1284
+        },
+        "authenticity": {
+          "sum": 161.67,
+          "count": 44,
+          "average": 3.6743
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-3-opus-20240229-v1:0",
+      "display_name": "Claude-3-Opus",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 5.5839,
+        "formality": 7.553,
+        "hedging": 4.0382,
+        "aggression": 1.1434,
+        "transgression": 1.1882,
+        "grandiosity": 1.5152,
+        "tribalism": 1.0,
+        "depth": 5.28,
+        "authenticity": 3.757,
+        "sophistication": 4.5185
+      },
+      "sophistication": 4.5185,
+      "disinhibition": 1.2117,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 245.69,
+          "count": 44,
+          "average": 5.5839
+        },
+        "formality": {
+          "sum": 332.33,
+          "count": 44,
+          "average": 7.553
+        },
+        "hedging": {
+          "sum": 177.68,
+          "count": 44,
+          "average": 4.0382
+        },
+        "aggression": {
+          "sum": 50.31,
+          "count": 44,
+          "average": 1.1434
+        },
+        "transgression": {
+          "sum": 52.28,
+          "count": 44,
+          "average": 1.1882
+        },
+        "grandiosity": {
+          "sum": 66.67,
+          "count": 44,
+          "average": 1.5152
+        },
+        "tribalism": {
+          "sum": 44.0,
+          "count": 44,
+          "average": 1.0
+        },
+        "depth": {
+          "sum": 232.32,
+          "count": 44,
+          "average": 5.28
+        },
+        "authenticity": {
+          "sum": 165.31,
+          "count": 44,
+          "average": 3.757
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "mistral.mixtral-8x7b-instruct-v0:1",
+      "display_name": "Mixtral-8x7B",
+      "provider": "Mistral",
+      "scores": {
+        "warmth": 5.9241,
+        "formality": 7.8105,
+        "hedging": 4.6657,
+        "aggression": 1.1207,
+        "transgression": 1.2707,
+        "grandiosity": 1.6443,
+        "tribalism": 1.0,
+        "depth": 5.3786,
+        "authenticity": 3.7655,
+        "sophistication": 4.572
+      },
+      "sophistication": 4.572,
+      "disinhibition": 1.2589,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 260.66,
+          "count": 44,
+          "average": 5.9241
+        },
+        "formality": {
+          "sum": 343.66,
+          "count": 44,
+          "average": 7.8105
+        },
+        "hedging": {
+          "sum": 205.29,
+          "count": 44,
+          "average": 4.6657
+        },
+        "aggression": {
+          "sum": 49.31,
+          "count": 44,
+          "average": 1.1207
+        },
+        "transgression": {
+          "sum": 55.91,
+          "count": 44,
+          "average": 1.2707
+        },
+        "grandiosity": {
+          "sum": 72.35,
+          "count": 44,
+          "average": 1.6443
+        },
+        "tribalism": {
+          "sum": 44.0,
+          "count": 44,
+          "average": 1.0
+        },
+        "depth": {
+          "sum": 236.66,
+          "count": 44,
+          "average": 5.3786
+        },
+        "authenticity": {
+          "sum": 165.68,
+          "count": 44,
+          "average": 3.7655
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-3-5-haiku-20241022-v1:0",
+      "display_name": "Claude-3.5-Haiku",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 5.4766,
+        "formality": 7.0457,
+        "hedging": 4.2345,
+        "aggression": 1.2498,
+        "transgression": 1.317,
+        "grandiosity": 1.5373,
+        "tribalism": 1.0075,
+        "depth": 5.2352,
+        "authenticity": 3.9245,
+        "sophistication": 4.5799
+      },
+      "sophistication": 4.5799,
+      "disinhibition": 1.2779,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 240.97,
+          "count": 44,
+          "average": 5.4766
+        },
+        "formality": {
+          "sum": 310.01,
+          "count": 44,
+          "average": 7.0457
+        },
+        "hedging": {
+          "sum": 186.32,
+          "count": 44,
+          "average": 4.2345
+        },
+        "aggression": {
+          "sum": 54.99,
+          "count": 44,
+          "average": 1.2498
+        },
+        "transgression": {
+          "sum": 57.95,
+          "count": 44,
+          "average": 1.317
+        },
+        "grandiosity": {
+          "sum": 67.64,
+          "count": 44,
+          "average": 1.5373
+        },
+        "tribalism": {
+          "sum": 44.33,
+          "count": 44,
+          "average": 1.0075
+        },
+        "depth": {
+          "sum": 230.35,
+          "count": 44,
+          "average": 5.2352
+        },
+        "authenticity": {
+          "sum": 172.68,
+          "count": 44,
+          "average": 3.9245
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "mistral.mistral-large-2402-v1:0",
+      "display_name": "Mistral-Large-24.02",
+      "provider": "Mistral",
+      "scores": {
+        "warmth": 6.1595,
+        "formality": 7.6139,
+        "hedging": 4.7114,
+        "aggression": 1.1282,
+        "transgression": 1.2486,
+        "grandiosity": 1.6966,
+        "tribalism": 1.0075,
+        "depth": 5.3411,
+        "authenticity": 3.8186,
+        "sophistication": 4.5799
+      },
+      "sophistication": 4.5799,
+      "disinhibition": 1.2702,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 271.02,
+          "count": 44,
+          "average": 6.1595
+        },
+        "formality": {
+          "sum": 335.01,
+          "count": 44,
+          "average": 7.6139
+        },
+        "hedging": {
+          "sum": 207.3,
+          "count": 44,
+          "average": 4.7114
+        },
+        "aggression": {
+          "sum": 49.64,
+          "count": 44,
+          "average": 1.1282
+        },
+        "transgression": {
+          "sum": 54.94,
+          "count": 44,
+          "average": 1.2486
+        },
+        "grandiosity": {
+          "sum": 74.65,
+          "count": 44,
+          "average": 1.6966
+        },
+        "tribalism": {
+          "sum": 44.33,
+          "count": 44,
+          "average": 1.0075
+        },
+        "depth": {
+          "sum": 235.01,
+          "count": 44,
+          "average": 5.3411
+        },
+        "authenticity": {
+          "sum": 168.02,
+          "count": 44,
+          "average": 3.8186
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-3-haiku-20240307-v1:0",
+      "display_name": "Claude-3-Haiku",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 5.9166,
+        "formality": 7.31,
+        "hedging": 4.4164,
+        "aggression": 1.1586,
+        "transgression": 1.2482,
+        "grandiosity": 1.6811,
+        "tribalism": 1.0227,
+        "depth": 5.4918,
+        "authenticity": 3.9393,
+        "sophistication": 4.7156
+      },
+      "sophistication": 4.7156,
+      "disinhibition": 1.2777,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 260.33,
+          "count": 44,
+          "average": 5.9166
+        },
+        "formality": {
+          "sum": 321.64,
+          "count": 44,
+          "average": 7.31
+        },
+        "hedging": {
+          "sum": 194.32,
+          "count": 44,
+          "average": 4.4164
+        },
+        "aggression": {
+          "sum": 50.98,
+          "count": 44,
+          "average": 1.1586
+        },
+        "transgression": {
+          "sum": 54.92,
+          "count": 44,
+          "average": 1.2482
+        },
+        "grandiosity": {
+          "sum": 73.97,
+          "count": 44,
+          "average": 1.6811
+        },
+        "tribalism": {
+          "sum": 45.0,
+          "count": 44,
+          "average": 1.0227
+        },
+        "depth": {
+          "sum": 241.64,
+          "count": 44,
+          "average": 5.4918
+        },
+        "authenticity": {
+          "sum": 173.33,
+          "count": 44,
+          "average": 3.9393
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-3-5-sonnet-20240620-v1:0",
+      "display_name": "Claude-3.5-Sonnet-v1",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 5.6059,
+        "formality": 7.5684,
+        "hedging": 4.2425,
+        "aggression": 1.2345,
+        "transgression": 1.3011,
+        "grandiosity": 1.6895,
+        "tribalism": 1.0075,
+        "depth": 5.5377,
+        "authenticity": 4.0,
+        "sophistication": 4.7689
+      },
+      "sophistication": 4.7689,
+      "disinhibition": 1.3082,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 246.66,
+          "count": 44,
+          "average": 5.6059
+        },
+        "formality": {
+          "sum": 333.01,
+          "count": 44,
+          "average": 7.5684
+        },
+        "hedging": {
+          "sum": 186.67,
+          "count": 44,
+          "average": 4.2425
+        },
+        "aggression": {
+          "sum": 54.32,
+          "count": 44,
+          "average": 1.2345
+        },
+        "transgression": {
+          "sum": 57.25,
+          "count": 44,
+          "average": 1.3011
+        },
+        "grandiosity": {
+          "sum": 74.34,
+          "count": 44,
+          "average": 1.6895
+        },
+        "tribalism": {
+          "sum": 44.33,
+          "count": 44,
+          "average": 1.0075
+        },
+        "depth": {
+          "sum": 243.66,
+          "count": 44,
+          "average": 5.5377
+        },
+        "authenticity": {
+          "sum": 176.0,
+          "count": 44,
+          "average": 4.0
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-3-5-sonnet-20241022-v2:0",
+      "display_name": "Claude-3.5-Sonnet-v2",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 5.788,
+        "formality": 7.145,
+        "hedging": 4.1436,
+        "aggression": 1.2118,
+        "transgression": 1.3475,
+        "grandiosity": 1.5902,
+        "tribalism": 1.015,
+        "depth": 5.4241,
+        "authenticity": 4.1516,
+        "sophistication": 4.7878
+      },
+      "sophistication": 4.7878,
+      "disinhibition": 1.2911,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 254.67,
+          "count": 44,
+          "average": 5.788
+        },
+        "formality": {
+          "sum": 314.38,
+          "count": 44,
+          "average": 7.145
+        },
+        "hedging": {
+          "sum": 182.32,
+          "count": 44,
+          "average": 4.1436
+        },
+        "aggression": {
+          "sum": 53.32,
+          "count": 44,
+          "average": 1.2118
+        },
+        "transgression": {
+          "sum": 59.29,
+          "count": 44,
+          "average": 1.3475
+        },
+        "grandiosity": {
+          "sum": 69.97,
+          "count": 44,
+          "average": 1.5902
+        },
+        "tribalism": {
+          "sum": 44.66,
+          "count": 44,
+          "average": 1.015
+        },
+        "depth": {
+          "sum": 238.66,
+          "count": 44,
+          "average": 5.4241
+        },
+        "authenticity": {
+          "sum": 182.67,
+          "count": 44,
+          "average": 4.1516
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-3-sonnet-20240229-v1:0",
+      "display_name": "Claude-3-Sonnet",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 5.8859,
+        "formality": 7.128,
+        "hedging": 4.5602,
+        "aggression": 1.1739,
+        "transgression": 1.3395,
+        "grandiosity": 1.5827,
+        "tribalism": 1.015,
+        "depth": 5.6436,
+        "authenticity": 4.2043,
+        "sophistication": 4.924
+      },
+      "sophistication": 4.924,
+      "disinhibition": 1.2778,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 258.98,
+          "count": 44,
+          "average": 5.8859
+        },
+        "formality": {
+          "sum": 313.63,
+          "count": 44,
+          "average": 7.128
+        },
+        "hedging": {
+          "sum": 200.65,
+          "count": 44,
+          "average": 4.5602
+        },
+        "aggression": {
+          "sum": 51.65,
+          "count": 44,
+          "average": 1.1739
+        },
+        "transgression": {
+          "sum": 58.94,
+          "count": 44,
+          "average": 1.3395
+        },
+        "grandiosity": {
+          "sum": 69.64,
+          "count": 44,
+          "average": 1.5827
+        },
+        "tribalism": {
+          "sum": 44.66,
+          "count": 44,
+          "average": 1.015
+        },
+        "depth": {
+          "sum": 248.32,
+          "count": 44,
+          "average": 5.6436
+        },
+        "authenticity": {
+          "sum": 184.99,
+          "count": 44,
+          "average": 4.2043
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.amazon.nova-premier-v1:0",
+      "display_name": "Nova-Premier",
+      "provider": "AWS",
+      "scores": {
+        "warmth": 6.0148,
+        "formality": 7.8184,
+        "hedging": 4.2959,
+        "aggression": 1.0757,
+        "transgression": 1.2632,
+        "grandiosity": 1.6368,
+        "tribalism": 1.0,
+        "depth": 5.7659,
+        "authenticity": 4.1507,
+        "sophistication": 4.9583
+      },
+      "sophistication": 4.9583,
+      "disinhibition": 1.2439,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 264.65,
+          "count": 44,
+          "average": 6.0148
+        },
+        "formality": {
+          "sum": 344.01,
+          "count": 44,
+          "average": 7.8184
+        },
+        "hedging": {
+          "sum": 189.02,
+          "count": 44,
+          "average": 4.2959
+        },
+        "aggression": {
+          "sum": 47.33,
+          "count": 44,
+          "average": 1.0757
+        },
+        "transgression": {
+          "sum": 55.58,
+          "count": 44,
+          "average": 1.2632
+        },
+        "grandiosity": {
+          "sum": 72.02,
+          "count": 44,
+          "average": 1.6368
+        },
+        "tribalism": {
+          "sum": 44.0,
+          "count": 44,
+          "average": 1.0
+        },
+        "depth": {
+          "sum": 253.7,
+          "count": 44,
+          "average": 5.7659
+        },
+        "authenticity": {
+          "sum": 182.63,
+          "count": 44,
+          "average": 4.1507
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.meta.llama4-maverick-17b-instruct-v1:0",
+      "display_name": "Llama-4-Maverick-17B",
+      "provider": "Meta",
+      "scores": {
+        "warmth": 5.8557,
+        "formality": 7.5602,
+        "hedging": 4.6286,
+        "aggression": 1.2039,
+        "transgression": 1.2639,
+        "grandiosity": 1.7277,
+        "tribalism": 1.0152,
+        "depth": 5.7798,
+        "authenticity": 4.1895,
+        "sophistication": 4.9847
+      },
+      "sophistication": 4.9847,
+      "disinhibition": 1.3027,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 257.65,
+          "count": 44,
+          "average": 5.8557
+        },
+        "formality": {
+          "sum": 332.65,
+          "count": 44,
+          "average": 7.5602
+        },
+        "hedging": {
+          "sum": 203.66,
+          "count": 44,
+          "average": 4.6286
+        },
+        "aggression": {
+          "sum": 52.97,
+          "count": 44,
+          "average": 1.2039
+        },
+        "transgression": {
+          "sum": 55.61,
+          "count": 44,
+          "average": 1.2639
+        },
+        "grandiosity": {
+          "sum": 76.02,
+          "count": 44,
+          "average": 1.7277
+        },
+        "tribalism": {
+          "sum": 44.67,
+          "count": 44,
+          "average": 1.0152
+        },
+        "depth": {
+          "sum": 254.31,
+          "count": 44,
+          "average": 5.7798
+        },
+        "authenticity": {
+          "sum": 184.34,
+          "count": 44,
+          "average": 4.1895
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.amazon.nova-lite-v1:0",
+      "display_name": "Nova-Lite",
+      "provider": "AWS",
+      "scores": {
+        "warmth": 5.9691,
+        "formality": 7.947,
+        "hedging": 4.2805,
+        "aggression": 1.0755,
+        "transgression": 1.1805,
+        "grandiosity": 1.6595,
+        "tribalism": 1.0075,
+        "depth": 5.8936,
+        "authenticity": 4.2043,
+        "sophistication": 5.049
+      },
+      "sophistication": 5.049,
+      "disinhibition": 1.2307,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 262.64,
+          "count": 44,
+          "average": 5.9691
+        },
+        "formality": {
+          "sum": 349.67,
+          "count": 44,
+          "average": 7.947
+        },
+        "hedging": {
+          "sum": 188.34,
+          "count": 44,
+          "average": 4.2805
+        },
+        "aggression": {
+          "sum": 47.32,
+          "count": 44,
+          "average": 1.0755
+        },
+        "transgression": {
+          "sum": 51.94,
+          "count": 44,
+          "average": 1.1805
+        },
+        "grandiosity": {
+          "sum": 73.02,
+          "count": 44,
+          "average": 1.6595
+        },
+        "tribalism": {
+          "sum": 44.33,
+          "count": 44,
+          "average": 1.0075
+        },
+        "depth": {
+          "sum": 259.32,
+          "count": 44,
+          "average": 5.8936
+        },
+        "authenticity": {
+          "sum": 184.99,
+          "count": 44,
+          "average": 4.2043
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.meta.llama3-2-90b-instruct-v1:0",
+      "display_name": "Llama-3.2-90B",
+      "provider": "Meta",
+      "scores": {
+        "warmth": 6.2268,
+        "formality": 7.507,
+        "hedging": 4.3414,
+        "aggression": 1.2123,
+        "transgression": 1.2641,
+        "grandiosity": 1.7584,
+        "tribalism": 1.0075,
+        "depth": 5.8557,
+        "authenticity": 4.2655,
+        "sophistication": 5.0606
+      },
+      "sophistication": 5.0606,
+      "disinhibition": 1.3106,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 273.98,
+          "count": 44,
+          "average": 6.2268
+        },
+        "formality": {
+          "sum": 330.31,
+          "count": 44,
+          "average": 7.507
+        },
+        "hedging": {
+          "sum": 191.02,
+          "count": 44,
+          "average": 4.3414
+        },
+        "aggression": {
+          "sum": 53.34,
+          "count": 44,
+          "average": 1.2123
+        },
+        "transgression": {
+          "sum": 55.62,
+          "count": 44,
+          "average": 1.2641
+        },
+        "grandiosity": {
+          "sum": 77.37,
+          "count": 44,
+          "average": 1.7584
+        },
+        "tribalism": {
+          "sum": 44.33,
+          "count": 44,
+          "average": 1.0075
+        },
+        "depth": {
+          "sum": 257.65,
+          "count": 44,
+          "average": 5.8557
+        },
+        "authenticity": {
+          "sum": 187.68,
+          "count": 44,
+          "average": 4.2655
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.meta.llama3-3-70b-instruct-v1:0",
+      "display_name": "Llama-3.3-70B",
+      "provider": "Meta",
+      "scores": {
+        "warmth": 6.2118,
+        "formality": 7.5452,
+        "hedging": 4.3411,
+        "aggression": 1.1666,
+        "transgression": 1.2484,
+        "grandiosity": 1.7277,
+        "tribalism": 1.0375,
+        "depth": 5.8109,
+        "authenticity": 4.3339,
+        "sophistication": 5.0724
+      },
+      "sophistication": 5.0724,
+      "disinhibition": 1.2951,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 273.32,
+          "count": 44,
+          "average": 6.2118
+        },
+        "formality": {
+          "sum": 331.99,
+          "count": 44,
+          "average": 7.5452
+        },
+        "hedging": {
+          "sum": 191.01,
+          "count": 44,
+          "average": 4.3411
+        },
+        "aggression": {
+          "sum": 51.33,
+          "count": 44,
+          "average": 1.1666
+        },
+        "transgression": {
+          "sum": 54.93,
+          "count": 44,
+          "average": 1.2484
+        },
+        "grandiosity": {
+          "sum": 76.02,
+          "count": 44,
+          "average": 1.7277
+        },
+        "tribalism": {
+          "sum": 45.65,
+          "count": 44,
+          "average": 1.0375
+        },
+        "depth": {
+          "sum": 255.68,
+          "count": 44,
+          "average": 5.8109
+        },
+        "authenticity": {
+          "sum": 190.69,
+          "count": 44,
+          "average": 4.3339
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.meta.llama3-1-70b-instruct-v1:0",
+      "display_name": "Llama-3.1-70B",
+      "provider": "Meta",
+      "scores": {
+        "warmth": 6.5295,
+        "formality": 7.1807,
+        "hedging": 4.4011,
+        "aggression": 1.1664,
+        "transgression": 1.3016,
+        "grandiosity": 1.7736,
+        "tribalism": 1.015,
+        "depth": 5.8932,
+        "authenticity": 4.3864,
+        "sophistication": 5.1398
+      },
+      "sophistication": 5.1398,
+      "disinhibition": 1.3141,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 287.3,
+          "count": 44,
+          "average": 6.5295
+        },
+        "formality": {
+          "sum": 315.95,
+          "count": 44,
+          "average": 7.1807
+        },
+        "hedging": {
+          "sum": 193.65,
+          "count": 44,
+          "average": 4.4011
+        },
+        "aggression": {
+          "sum": 51.32,
+          "count": 44,
+          "average": 1.1664
+        },
+        "transgression": {
+          "sum": 57.27,
+          "count": 44,
+          "average": 1.3016
+        },
+        "grandiosity": {
+          "sum": 78.04,
+          "count": 44,
+          "average": 1.7736
+        },
+        "tribalism": {
+          "sum": 44.66,
+          "count": 44,
+          "average": 1.015
+        },
+        "depth": {
+          "sum": 259.3,
+          "count": 44,
+          "average": 5.8932
+        },
+        "authenticity": {
+          "sum": 193.0,
+          "count": 44,
+          "average": 4.3864
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+      "display_name": "Claude-3.7-Sonnet",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 6.0002,
+        "formality": 7.137,
+        "hedging": 4.357,
+        "aggression": 1.1664,
+        "transgression": 1.3473,
+        "grandiosity": 1.6432,
+        "tribalism": 1.0,
+        "depth": 5.8789,
+        "authenticity": 4.53,
+        "sophistication": 5.2044
+      },
+      "sophistication": 5.2044,
+      "disinhibition": 1.2892,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 264.01,
+          "count": 44,
+          "average": 6.0002
+        },
+        "formality": {
+          "sum": 314.03,
+          "count": 44,
+          "average": 7.137
+        },
+        "hedging": {
+          "sum": 191.71,
+          "count": 44,
+          "average": 4.357
+        },
+        "aggression": {
+          "sum": 51.32,
+          "count": 44,
+          "average": 1.1664
+        },
+        "transgression": {
+          "sum": 59.28,
+          "count": 44,
+          "average": 1.3473
+        },
+        "grandiosity": {
+          "sum": 72.3,
+          "count": 44,
+          "average": 1.6432
+        },
+        "tribalism": {
+          "sum": 44.0,
+          "count": 44,
+          "average": 1.0
+        },
+        "depth": {
+          "sum": 258.67,
+          "count": 44,
+          "average": 5.8789
+        },
+        "authenticity": {
+          "sum": 199.32,
+          "count": 44,
+          "average": 4.53
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.meta.llama4-scout-17b-instruct-v1:0",
+      "display_name": "Llama-4-Scout-17B",
+      "provider": "Meta",
+      "scores": {
+        "warmth": 6.2114,
+        "formality": 7.3786,
+        "hedging": 4.5834,
+        "aggression": 1.2045,
+        "transgression": 1.2116,
+        "grandiosity": 1.6893,
+        "tribalism": 1.0075,
+        "depth": 6.0384,
+        "authenticity": 4.5157,
+        "sophistication": 5.277
+      },
+      "sophistication": 5.277,
+      "disinhibition": 1.2782,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 273.3,
+          "count": 44,
+          "average": 6.2114
+        },
+        "formality": {
+          "sum": 324.66,
+          "count": 44,
+          "average": 7.3786
+        },
+        "hedging": {
+          "sum": 201.67,
+          "count": 44,
+          "average": 4.5834
+        },
+        "aggression": {
+          "sum": 53.0,
+          "count": 44,
+          "average": 1.2045
+        },
+        "transgression": {
+          "sum": 53.31,
+          "count": 44,
+          "average": 1.2116
+        },
+        "grandiosity": {
+          "sum": 74.33,
+          "count": 44,
+          "average": 1.6893
+        },
+        "tribalism": {
+          "sum": 44.33,
+          "count": 44,
+          "average": 1.0075
+        },
+        "depth": {
+          "sum": 265.69,
+          "count": 44,
+          "average": 6.0384
+        },
+        "authenticity": {
+          "sum": 198.69,
+          "count": 44,
+          "average": 4.5157
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "us.amazon.nova-pro-v1:0",
+      "display_name": "Nova-Pro",
+      "provider": "AWS",
+      "scores": {
+        "warmth": 5.9461,
+        "formality": 7.9243,
+        "hedging": 4.0305,
+        "aggression": 1.0984,
+        "transgression": 1.2786,
+        "grandiosity": 1.6827,
+        "tribalism": 1.0227,
+        "depth": 6.1973,
+        "authenticity": 4.4161,
+        "sophistication": 5.3067
+      },
+      "sophistication": 5.3067,
+      "disinhibition": 1.2706,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 261.63,
+          "count": 44,
+          "average": 5.9461
+        },
+        "formality": {
+          "sum": 348.67,
+          "count": 44,
+          "average": 7.9243
+        },
+        "hedging": {
+          "sum": 177.34,
+          "count": 44,
+          "average": 4.0305
+        },
+        "aggression": {
+          "sum": 48.33,
+          "count": 44,
+          "average": 1.0984
+        },
+        "transgression": {
+          "sum": 56.26,
+          "count": 44,
+          "average": 1.2786
+        },
+        "grandiosity": {
+          "sum": 74.04,
+          "count": 44,
+          "average": 1.6827
+        },
+        "tribalism": {
+          "sum": 45.0,
+          "count": 44,
+          "average": 1.0227
+        },
+        "depth": {
+          "sum": 272.68,
+          "count": 44,
+          "average": 6.1973
+        },
+        "authenticity": {
+          "sum": 194.31,
+          "count": 44,
+          "average": 4.4161
+        }
+      },
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "gpt-4.1",
+      "display_name": "GPT-4.1",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 6.5752,
+        "formality": 6.8257,
+        "hedging": 4.0986,
+        "aggression": 1.1434,
+        "transgression": 1.3475,
+        "grandiosity": 1.6661,
+        "tribalism": 1.0682,
+        "depth": 6.0605,
+        "authenticity": 4.8943,
+        "sophistication": 5.4774
+      },
+      "sophistication": 5.4774,
+      "disinhibition": 1.3063,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 289.31,
+          "count": 44,
+          "average": 6.5752
+        },
+        "formality": {
+          "sum": 300.33,
+          "count": 44,
+          "average": 6.8257
+        },
+        "hedging": {
+          "sum": 180.34,
+          "count": 44,
+          "average": 4.0986
+        },
+        "aggression": {
+          "sum": 50.31,
+          "count": 44,
+          "average": 1.1434
+        },
+        "transgression": {
+          "sum": 59.29,
+          "count": 44,
+          "average": 1.3475
+        },
+        "grandiosity": {
+          "sum": 73.31,
+          "count": 44,
+          "average": 1.6661
+        },
+        "tribalism": {
+          "sum": 47.0,
+          "count": 44,
+          "average": 1.0682
+        },
+        "depth": {
+          "sum": 266.66,
+          "count": 44,
+          "average": 6.0605
+        },
+        "authenticity": {
+          "sum": 215.35,
+          "count": 44,
+          "average": 4.8943
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-opus-4-20250514-v1:0",
+      "display_name": "Claude-4-Opus",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 6.3787,
+        "formality": 6.3898,
+        "hedging": 3.8257,
+        "aggression": 1.3289,
+        "transgression": 1.5627,
+        "grandiosity": 1.7275,
+        "tribalism": 1.0568,
+        "depth": 6.368,
+        "authenticity": 5.2047,
+        "sophistication": 5.7863
+      },
+      "sophistication": 5.7863,
+      "disinhibition": 1.419,
+      "n_contributions": 88,
+      "dimensions": {
+        "warmth": {
+          "sum": 561.33,
+          "count": 88,
+          "average": 6.3787
+        },
+        "formality": {
+          "sum": 562.3,
+          "count": 88,
+          "average": 6.3898
+        },
+        "hedging": {
+          "sum": 336.66,
+          "count": 88,
+          "average": 3.8257
+        },
+        "aggression": {
+          "sum": 116.94,
+          "count": 88,
+          "average": 1.3289
+        },
+        "transgression": {
+          "sum": 137.52,
+          "count": 88,
+          "average": 1.5627
+        },
+        "grandiosity": {
+          "sum": 152.02,
+          "count": 88,
+          "average": 1.7275
+        },
+        "tribalism": {
+          "sum": 93.0,
+          "count": 88,
+          "average": 1.0568
+        },
+        "depth": {
+          "sum": 560.38,
+          "count": 88,
+          "average": 6.368
+        },
+        "authenticity": {
+          "sum": 458.01,
+          "count": 88,
+          "average": 5.2047
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-opus-4-1-20250805-v1:0",
+      "display_name": "Claude-4.1-Opus",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 6.2495,
+        "formality": 6.4849,
+        "hedging": 3.8517,
+        "aggression": 1.2722,
+        "transgression": 1.5786,
+        "grandiosity": 1.6318,
+        "tribalism": 1.0606,
+        "depth": 6.5793,
+        "authenticity": 5.3392,
+        "sophistication": 5.9593
+      },
+      "sophistication": 5.9593,
+      "disinhibition": 1.3858,
+      "n_contributions": 88,
+      "dimensions": {
+        "warmth": {
+          "sum": 549.96,
+          "count": 88,
+          "average": 6.2495
+        },
+        "formality": {
+          "sum": 570.67,
+          "count": 88,
+          "average": 6.4849
+        },
+        "hedging": {
+          "sum": 338.95,
+          "count": 88,
+          "average": 3.8517
+        },
+        "aggression": {
+          "sum": 111.95,
+          "count": 88,
+          "average": 1.2722
+        },
+        "transgression": {
+          "sum": 138.92,
+          "count": 88,
+          "average": 1.5786
+        },
+        "grandiosity": {
+          "sum": 143.6,
+          "count": 88,
+          "average": 1.6318
+        },
+        "tribalism": {
+          "sum": 93.33,
+          "count": 88,
+          "average": 1.0606
+        },
+        "depth": {
+          "sum": 578.98,
+          "count": 88,
+          "average": 6.5793
+        },
+        "authenticity": {
+          "sum": 469.85,
+          "count": 88,
+          "average": 5.3392
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+      "display_name": "Claude-4-Sonnet",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 6.3445,
+        "formality": 6.7086,
+        "hedging": 3.9012,
+        "aggression": 1.337,
+        "transgression": 1.6009,
+        "grandiosity": 1.7191,
+        "tribalism": 1.0757,
+        "depth": 6.6367,
+        "authenticity": 5.3411,
+        "sophistication": 5.9889
+      },
+      "sophistication": 5.9889,
+      "disinhibition": 1.4332,
+      "n_contributions": 88,
+      "dimensions": {
+        "warmth": {
+          "sum": 558.32,
+          "count": 88,
+          "average": 6.3445
+        },
+        "formality": {
+          "sum": 590.36,
+          "count": 88,
+          "average": 6.7086
+        },
+        "hedging": {
+          "sum": 343.31,
+          "count": 88,
+          "average": 3.9012
+        },
+        "aggression": {
+          "sum": 117.66,
+          "count": 88,
+          "average": 1.337
+        },
+        "transgression": {
+          "sum": 140.88,
+          "count": 88,
+          "average": 1.6009
+        },
+        "grandiosity": {
+          "sum": 151.28,
+          "count": 88,
+          "average": 1.7191
+        },
+        "tribalism": {
+          "sum": 94.66,
+          "count": 88,
+          "average": 1.0757
+        },
+        "depth": {
+          "sum": 584.03,
+          "count": 88,
+          "average": 6.6367
+        },
+        "authenticity": {
+          "sum": 470.02,
+          "count": 88,
+          "average": 5.3411
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gemini-2.0-flash",
+      "display_name": "Gemini-2.0-Flash",
+      "provider": "Google",
+      "scores": {
+        "warmth": 6.2118,
+        "formality": 6.9391,
+        "hedging": 4.3327,
+        "aggression": 1.4611,
+        "transgression": 1.4689,
+        "grandiosity": 1.8041,
+        "tribalism": 1.1436,
+        "depth": 6.9693,
+        "authenticity": 5.3939,
+        "sophistication": 6.1816
+      },
+      "sophistication": 6.1816,
+      "disinhibition": 1.4694,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 273.32,
+          "count": 44,
+          "average": 6.2118
+        },
+        "formality": {
+          "sum": 305.32,
+          "count": 44,
+          "average": 6.9391
+        },
+        "hedging": {
+          "sum": 190.64,
+          "count": 44,
+          "average": 4.3327
+        },
+        "aggression": {
+          "sum": 64.29,
+          "count": 44,
+          "average": 1.4611
+        },
+        "transgression": {
+          "sum": 64.63,
+          "count": 44,
+          "average": 1.4689
+        },
+        "grandiosity": {
+          "sum": 79.38,
+          "count": 44,
+          "average": 1.8041
+        },
+        "tribalism": {
+          "sum": 50.32,
+          "count": 44,
+          "average": 1.1436
+        },
+        "depth": {
+          "sum": 306.65,
+          "count": 44,
+          "average": 6.9693
+        },
+        "authenticity": {
+          "sum": 237.33,
+          "count": 44,
+          "average": 5.3939
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "us.deepseek.r1-v1:0",
+      "display_name": "DeepSeek-R1",
+      "provider": "DeepSeek",
+      "scores": {
+        "warmth": 5.9166,
+        "formality": 7.9168,
+        "hedging": 4.0302,
+        "aggression": 1.2193,
+        "transgression": 1.4764,
+        "grandiosity": 1.9484,
+        "tribalism": 1.0605,
+        "depth": 7.1207,
+        "authenticity": 5.2575,
+        "sophistication": 6.1891
+      },
+      "sophistication": 6.1891,
+      "disinhibition": 1.4261,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 260.33,
+          "count": 44,
+          "average": 5.9166
+        },
+        "formality": {
+          "sum": 348.34,
+          "count": 44,
+          "average": 7.9168
+        },
+        "hedging": {
+          "sum": 177.33,
+          "count": 44,
+          "average": 4.0302
+        },
+        "aggression": {
+          "sum": 53.65,
+          "count": 44,
+          "average": 1.2193
+        },
+        "transgression": {
+          "sum": 64.96,
+          "count": 44,
+          "average": 1.4764
+        },
+        "grandiosity": {
+          "sum": 85.73,
+          "count": 44,
+          "average": 1.9484
+        },
+        "tribalism": {
+          "sum": 46.66,
+          "count": 44,
+          "average": 1.0605
+        },
+        "depth": {
+          "sum": 313.31,
+          "count": 44,
+          "average": 7.1207
+        },
+        "authenticity": {
+          "sum": 231.33,
+          "count": 44,
+          "average": 5.2575
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "qwen.qwen3-32b-v1:0",
+      "display_name": "Qwen3-32B",
+      "provider": "Alibaba",
+      "scores": {
+        "warmth": 7.0605,
+        "formality": 6.9405,
+        "hedging": 3.9009,
+        "aggression": 1.2945,
+        "transgression": 1.4009,
+        "grandiosity": 2.1225,
+        "tribalism": 1.1439,
+        "depth": 6.992,
+        "authenticity": 5.6143,
+        "sophistication": 6.3032
+      },
+      "sophistication": 6.3032,
+      "disinhibition": 1.4905,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 310.66,
+          "count": 44,
+          "average": 7.0605
+        },
+        "formality": {
+          "sum": 305.38,
+          "count": 44,
+          "average": 6.9405
+        },
+        "hedging": {
+          "sum": 171.64,
+          "count": 44,
+          "average": 3.9009
+        },
+        "aggression": {
+          "sum": 56.96,
+          "count": 44,
+          "average": 1.2945
+        },
+        "transgression": {
+          "sum": 61.64,
+          "count": 44,
+          "average": 1.4009
+        },
+        "grandiosity": {
+          "sum": 93.39,
+          "count": 44,
+          "average": 2.1225
+        },
+        "tribalism": {
+          "sum": 50.33,
+          "count": 44,
+          "average": 1.1439
+        },
+        "depth": {
+          "sum": 307.65,
+          "count": 44,
+          "average": 6.992
+        },
+        "authenticity": {
+          "sum": 247.03,
+          "count": 44,
+          "average": 5.6143
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "grok-3",
+      "display_name": "Grok-3",
+      "provider": "xAI",
+      "scores": {
+        "warmth": 6.5686,
+        "formality": 7.4175,
+        "hedging": 4.2961,
+        "aggression": 1.1961,
+        "transgression": 1.2495,
+        "grandiosity": 1.925,
+        "tribalism": 1.0455,
+        "depth": 7.25,
+        "authenticity": 5.3702,
+        "sophistication": 6.3101
+      },
+      "sophistication": 6.3101,
+      "disinhibition": 1.354,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 289.02,
+          "count": 44,
+          "average": 6.5686
+        },
+        "formality": {
+          "sum": 326.37,
+          "count": 44,
+          "average": 7.4175
+        },
+        "hedging": {
+          "sum": 189.03,
+          "count": 44,
+          "average": 4.2961
+        },
+        "aggression": {
+          "sum": 52.63,
+          "count": 44,
+          "average": 1.1961
+        },
+        "transgression": {
+          "sum": 54.98,
+          "count": 44,
+          "average": 1.2495
+        },
+        "grandiosity": {
+          "sum": 84.7,
+          "count": 44,
+          "average": 1.925
+        },
+        "tribalism": {
+          "sum": 46.0,
+          "count": 44,
+          "average": 1.0455
+        },
+        "depth": {
+          "sum": 319.0,
+          "count": 44,
+          "average": 7.25
+        },
+        "authenticity": {
+          "sum": 236.29,
+          "count": 44,
+          "average": 5.3702
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "grok-4-0709",
+      "display_name": "Grok-4-0709",
+      "provider": "xAI",
+      "scores": {
+        "warmth": 6.9927,
+        "formality": 6.6291,
+        "hedging": 4.5914,
+        "aggression": 1.363,
+        "transgression": 1.5677,
+        "grandiosity": 2.0839,
+        "tribalism": 1.2118,
+        "depth": 7.1825,
+        "authenticity": 5.8791,
+        "sophistication": 6.5308
+      },
+      "sophistication": 6.5308,
+      "disinhibition": 1.5566,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 307.68,
+          "count": 44,
+          "average": 6.9927
+        },
+        "formality": {
+          "sum": 291.68,
+          "count": 44,
+          "average": 6.6291
+        },
+        "hedging": {
+          "sum": 202.02,
+          "count": 44,
+          "average": 4.5914
+        },
+        "aggression": {
+          "sum": 59.97,
+          "count": 44,
+          "average": 1.363
+        },
+        "transgression": {
+          "sum": 68.98,
+          "count": 44,
+          "average": 1.5677
+        },
+        "grandiosity": {
+          "sum": 91.69,
+          "count": 44,
+          "average": 2.0839
+        },
+        "tribalism": {
+          "sum": 53.32,
+          "count": 44,
+          "average": 1.2118
+        },
+        "depth": {
+          "sum": 316.03,
+          "count": 44,
+          "average": 7.1825
+        },
+        "authenticity": {
+          "sum": 258.68,
+          "count": 44,
+          "average": 5.8791
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+      "display_name": "Claude-4.5-Sonnet",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 6.0759,
+        "formality": 5.9886,
+        "hedging": 3.727,
+        "aggression": 1.5565,
+        "transgression": 1.8841,
+        "grandiosity": 1.7386,
+        "tribalism": 1.1402,
+        "depth": 7.0233,
+        "authenticity": 6.1099,
+        "sophistication": 6.5666
+      },
+      "sophistication": 6.5666,
+      "disinhibition": 1.5799,
+      "n_contributions": 88,
+      "dimensions": {
+        "warmth": {
+          "sum": 534.68,
+          "count": 88,
+          "average": 6.0759
+        },
+        "formality": {
+          "sum": 527.0,
+          "count": 88,
+          "average": 5.9886
+        },
+        "hedging": {
+          "sum": 327.98,
+          "count": 88,
+          "average": 3.727
+        },
+        "aggression": {
+          "sum": 136.97,
+          "count": 88,
+          "average": 1.5565
+        },
+        "transgression": {
+          "sum": 165.8,
+          "count": 88,
+          "average": 1.8841
+        },
+        "grandiosity": {
+          "sum": 153.0,
+          "count": 88,
+          "average": 1.7386
+        },
+        "tribalism": {
+          "sum": 100.34,
+          "count": 88,
+          "average": 1.1402
+        },
+        "depth": {
+          "sum": 618.05,
+          "count": 88,
+          "average": 7.0233
+        },
+        "authenticity": {
+          "sum": 537.67,
+          "count": 88,
+          "average": 6.1099
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "global.anthropic.claude-opus-4-5-20251101-v1:0",
+      "display_name": "Claude-4.5-Opus-Global",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 6.2349,
+        "formality": 6.0422,
+        "hedging": 4.7689,
+        "aggression": 1.5523,
+        "transgression": 1.7649,
+        "grandiosity": 1.7569,
+        "tribalism": 1.0794,
+        "depth": 7.1101,
+        "authenticity": 6.2424,
+        "sophistication": 6.6762
+      },
+      "sophistication": 6.6762,
+      "disinhibition": 1.5384,
+      "n_contributions": 88,
+      "dimensions": {
+        "warmth": {
+          "sum": 548.67,
+          "count": 88,
+          "average": 6.2349
+        },
+        "formality": {
+          "sum": 531.71,
+          "count": 88,
+          "average": 6.0422
+        },
+        "hedging": {
+          "sum": 419.66,
+          "count": 88,
+          "average": 4.7689
+        },
+        "aggression": {
+          "sum": 136.6,
+          "count": 88,
+          "average": 1.5523
+        },
+        "transgression": {
+          "sum": 155.31,
+          "count": 88,
+          "average": 1.7649
+        },
+        "grandiosity": {
+          "sum": 154.61,
+          "count": 88,
+          "average": 1.7569
+        },
+        "tribalism": {
+          "sum": 94.99,
+          "count": 88,
+          "average": 1.0794
+        },
+        "depth": {
+          "sum": 625.69,
+          "count": 88,
+          "average": 7.1101
+        },
+        "authenticity": {
+          "sum": 549.33,
+          "count": 88,
+          "average": 6.2424
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+      "display_name": "Claude-4.5-Haiku",
+      "provider": "Anthropic",
+      "scores": {
+        "warmth": 6.1511,
+        "formality": 5.9661,
+        "hedging": 4.2198,
+        "aggression": 1.5259,
+        "transgression": 1.7462,
+        "grandiosity": 1.674,
+        "tribalism": 1.053,
+        "depth": 7.0838,
+        "authenticity": 6.3715,
+        "sophistication": 6.7276
+      },
+      "sophistication": 6.7276,
+      "disinhibition": 1.4998,
+      "n_contributions": 88,
+      "dimensions": {
+        "warmth": {
+          "sum": 541.3,
+          "count": 88,
+          "average": 6.1511
+        },
+        "formality": {
+          "sum": 525.02,
+          "count": 88,
+          "average": 5.9661
+        },
+        "hedging": {
+          "sum": 371.34,
+          "count": 88,
+          "average": 4.2198
+        },
+        "aggression": {
+          "sum": 134.28,
+          "count": 88,
+          "average": 1.5259
+        },
+        "transgression": {
+          "sum": 153.67,
+          "count": 88,
+          "average": 1.7462
+        },
+        "grandiosity": {
+          "sum": 147.31,
+          "count": 88,
+          "average": 1.674
+        },
+        "tribalism": {
+          "sum": 92.66,
+          "count": 88,
+          "average": 1.053
+        },
+        "depth": {
+          "sum": 623.37,
+          "count": 88,
+          "average": 7.0838
+        },
+        "authenticity": {
+          "sum": 560.69,
+          "count": 88,
+          "average": 6.3715
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5",
+      "display_name": "GPT-5",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 6.0223,
+        "formality": 6.4852,
+        "hedging": 3.6061,
+        "aggression": 1.2798,
+        "transgression": 1.4164,
+        "grandiosity": 1.7948,
+        "tribalism": 1.0757,
+        "depth": 7.6289,
+        "authenticity": 6.2959,
+        "sophistication": 6.9624
+      },
+      "sophistication": 6.9624,
+      "disinhibition": 1.3916,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 264.98,
+          "count": 44,
+          "average": 6.0223
+        },
+        "formality": {
+          "sum": 285.35,
+          "count": 44,
+          "average": 6.4852
+        },
+        "hedging": {
+          "sum": 158.67,
+          "count": 44,
+          "average": 3.6061
+        },
+        "aggression": {
+          "sum": 56.31,
+          "count": 44,
+          "average": 1.2798
+        },
+        "transgression": {
+          "sum": 62.32,
+          "count": 44,
+          "average": 1.4164
+        },
+        "grandiosity": {
+          "sum": 78.97,
+          "count": 44,
+          "average": 1.7948
+        },
+        "tribalism": {
+          "sum": 47.33,
+          "count": 44,
+          "average": 1.0757
+        },
+        "depth": {
+          "sum": 335.67,
+          "count": 44,
+          "average": 7.6289
+        },
+        "authenticity": {
+          "sum": 277.02,
+          "count": 44,
+          "average": 6.2959
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "openai.gpt-oss-120b-1:0",
+      "display_name": "GPT-OSS-120B",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 6.4659,
+        "formality": 7.6705,
+        "hedging": 3.8027,
+        "aggression": 1.2189,
+        "transgression": 1.2939,
+        "grandiosity": 2.0127,
+        "tribalism": 1.0377,
+        "depth": 7.8255,
+        "authenticity": 6.2998,
+        "sophistication": 7.0626
+      },
+      "sophistication": 7.0626,
+      "disinhibition": 1.3908,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 284.5,
+          "count": 44,
+          "average": 6.4659
+        },
+        "formality": {
+          "sum": 337.5,
+          "count": 44,
+          "average": 7.6705
+        },
+        "hedging": {
+          "sum": 167.32,
+          "count": 44,
+          "average": 3.8027
+        },
+        "aggression": {
+          "sum": 53.63,
+          "count": 44,
+          "average": 1.2189
+        },
+        "transgression": {
+          "sum": 56.93,
+          "count": 44,
+          "average": 1.2939
+        },
+        "grandiosity": {
+          "sum": 88.56,
+          "count": 44,
+          "average": 2.0127
+        },
+        "tribalism": {
+          "sum": 45.66,
+          "count": 44,
+          "average": 1.0377
+        },
+        "depth": {
+          "sum": 344.32,
+          "count": 44,
+          "average": 7.8255
+        },
+        "authenticity": {
+          "sum": 277.19,
+          "count": 44,
+          "average": 6.2998
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5.1",
+      "display_name": "GPT-5.1",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 6.3559,
+        "formality": 6.273,
+        "hedging": 3.6441,
+        "aggression": 1.363,
+        "transgression": 1.5595,
+        "grandiosity": 1.8182,
+        "tribalism": 1.1364,
+        "depth": 7.6977,
+        "authenticity": 6.583,
+        "sophistication": 7.1403
+      },
+      "sophistication": 7.1403,
+      "disinhibition": 1.4693,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 279.66,
+          "count": 44,
+          "average": 6.3559
+        },
+        "formality": {
+          "sum": 276.01,
+          "count": 44,
+          "average": 6.273
+        },
+        "hedging": {
+          "sum": 160.34,
+          "count": 44,
+          "average": 3.6441
+        },
+        "aggression": {
+          "sum": 59.97,
+          "count": 44,
+          "average": 1.363
+        },
+        "transgression": {
+          "sum": 68.62,
+          "count": 44,
+          "average": 1.5595
+        },
+        "grandiosity": {
+          "sum": 80.0,
+          "count": 44,
+          "average": 1.8182
+        },
+        "tribalism": {
+          "sum": 50.0,
+          "count": 44,
+          "average": 1.1364
+        },
+        "depth": {
+          "sum": 338.7,
+          "count": 44,
+          "average": 7.6977
+        },
+        "authenticity": {
+          "sum": 289.65,
+          "count": 44,
+          "average": 6.583
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "o3",
+      "display_name": "O3",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 5.9623,
+        "formality": 7.1286,
+        "hedging": 3.5677,
+        "aggression": 1.2491,
+        "transgression": 1.5148,
+        "grandiosity": 1.7807,
+        "tribalism": 1.1286,
+        "depth": 7.8189,
+        "authenticity": 6.4623,
+        "sophistication": 7.1406
+      },
+      "sophistication": 7.1406,
+      "disinhibition": 1.4183,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 262.34,
+          "count": 44,
+          "average": 5.9623
+        },
+        "formality": {
+          "sum": 313.66,
+          "count": 44,
+          "average": 7.1286
+        },
+        "hedging": {
+          "sum": 156.98,
+          "count": 44,
+          "average": 3.5677
+        },
+        "aggression": {
+          "sum": 54.96,
+          "count": 44,
+          "average": 1.2491
+        },
+        "transgression": {
+          "sum": 66.65,
+          "count": 44,
+          "average": 1.5148
+        },
+        "grandiosity": {
+          "sum": 78.35,
+          "count": 44,
+          "average": 1.7807
+        },
+        "tribalism": {
+          "sum": 49.66,
+          "count": 44,
+          "average": 1.1286
+        },
+        "depth": {
+          "sum": 344.03,
+          "count": 44,
+          "average": 7.8189
+        },
+        "authenticity": {
+          "sum": 284.34,
+          "count": 44,
+          "average": 6.4623
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5.2",
+      "display_name": "GPT-5.2",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 6.1668,
+        "formality": 6.3639,
+        "hedging": 3.53,
+        "aggression": 1.4007,
+        "transgression": 1.5977,
+        "grandiosity": 1.8264,
+        "tribalism": 1.0984,
+        "depth": 7.7582,
+        "authenticity": 6.5977,
+        "sophistication": 7.178
+      },
+      "sophistication": 7.178,
+      "disinhibition": 1.4808,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 271.34,
+          "count": 44,
+          "average": 6.1668
+        },
+        "formality": {
+          "sum": 280.01,
+          "count": 44,
+          "average": 6.3639
+        },
+        "hedging": {
+          "sum": 155.32,
+          "count": 44,
+          "average": 3.53
+        },
+        "aggression": {
+          "sum": 61.63,
+          "count": 44,
+          "average": 1.4007
+        },
+        "transgression": {
+          "sum": 70.3,
+          "count": 44,
+          "average": 1.5977
+        },
+        "grandiosity": {
+          "sum": 80.36,
+          "count": 44,
+          "average": 1.8264
+        },
+        "tribalism": {
+          "sum": 48.33,
+          "count": 44,
+          "average": 1.0984
+        },
+        "depth": {
+          "sum": 341.36,
+          "count": 44,
+          "average": 7.7582
+        },
+        "authenticity": {
+          "sum": 290.3,
+          "count": 44,
+          "average": 6.5977
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5.2-pro",
+      "display_name": "GPT-5.2 Pro",
+      "provider": "OpenAI",
+      "scores": {
+        "warmth": 6.1289,
+        "formality": 6.4016,
+        "hedging": 3.6361,
+        "aggression": 1.2945,
+        "transgression": 1.56,
+        "grandiosity": 1.8261,
+        "tribalism": 1.0909,
+        "depth": 7.9548,
+        "authenticity": 6.6284,
+        "sophistication": 7.2916
+      },
+      "sophistication": 7.2916,
+      "disinhibition": 1.4429,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 269.67,
+          "count": 44,
+          "average": 6.1289
+        },
+        "formality": {
+          "sum": 281.67,
+          "count": 44,
+          "average": 6.4016
+        },
+        "hedging": {
+          "sum": 159.99,
+          "count": 44,
+          "average": 3.6361
+        },
+        "aggression": {
+          "sum": 56.96,
+          "count": 44,
+          "average": 1.2945
+        },
+        "transgression": {
+          "sum": 68.64,
+          "count": 44,
+          "average": 1.56
+        },
+        "grandiosity": {
+          "sum": 80.35,
+          "count": 44,
+          "average": 1.8261
+        },
+        "tribalism": {
+          "sum": 48.0,
+          "count": 44,
+          "average": 1.0909
+        },
+        "depth": {
+          "sum": 350.01,
+          "count": 44,
+          "average": 7.9548
+        },
+        "authenticity": {
+          "sum": 291.65,
+          "count": 44,
+          "average": 6.6284
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gemini-3-pro-preview",
+      "display_name": "Gemini-3-Pro-Preview",
+      "provider": "Google",
+      "scores": {
+        "warmth": 6.0298,
+        "formality": 6.4845,
+        "hedging": 2.8027,
+        "aggression": 1.8552,
+        "transgression": 2.4157,
+        "grandiosity": 2.2045,
+        "tribalism": 1.4998,
+        "depth": 7.9395,
+        "authenticity": 6.932,
+        "sophistication": 7.4358
+      },
+      "sophistication": 7.4358,
+      "disinhibition": 1.9938,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 265.31,
+          "count": 44,
+          "average": 6.0298
+        },
+        "formality": {
+          "sum": 285.32,
+          "count": 44,
+          "average": 6.4845
+        },
+        "hedging": {
+          "sum": 123.32,
+          "count": 44,
+          "average": 2.8027
+        },
+        "aggression": {
+          "sum": 81.63,
+          "count": 44,
+          "average": 1.8552
+        },
+        "transgression": {
+          "sum": 106.29,
+          "count": 44,
+          "average": 2.4157
+        },
+        "grandiosity": {
+          "sum": 97.0,
+          "count": 44,
+          "average": 2.2045
+        },
+        "tribalism": {
+          "sum": 65.99,
+          "count": 44,
+          "average": 1.4998
+        },
+        "depth": {
+          "sum": 349.34,
+          "count": 44,
+          "average": 7.9395
+        },
+        "authenticity": {
+          "sum": 305.01,
+          "count": 44,
+          "average": 6.932
+        }
+      },
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gemini-2.5-pro",
+      "display_name": "Gemini-2.5-Pro",
+      "provider": "Google",
+      "scores": {
+        "warmth": 7.1893,
+        "formality": 6.6439,
+        "hedging": 3.3105,
+        "aggression": 1.3857,
+        "transgression": 1.5902,
+        "grandiosity": 2.0989,
+        "tribalism": 1.2043,
+        "depth": 8.0609,
+        "authenticity": 6.902,
+        "sophistication": 7.4815
+      },
+      "sophistication": 7.4815,
+      "disinhibition": 1.5698,
+      "n_contributions": 44,
+      "dimensions": {
+        "warmth": {
+          "sum": 316.33,
+          "count": 44,
+          "average": 7.1893
+        },
+        "formality": {
+          "sum": 292.33,
+          "count": 44,
+          "average": 6.6439
+        },
+        "hedging": {
+          "sum": 145.66,
+          "count": 44,
+          "average": 3.3105
+        },
+        "aggression": {
+          "sum": 60.97,
+          "count": 44,
+          "average": 1.3857
+        },
+        "transgression": {
+          "sum": 69.97,
+          "count": 44,
+          "average": 1.5902
+        },
+        "grandiosity": {
+          "sum": 92.35,
+          "count": 44,
+          "average": 2.0989
+        },
+        "tribalism": {
+          "sum": 52.99,
+          "count": 44,
+          "average": 1.2043
+        },
+        "depth": {
+          "sum": 354.68,
+          "count": 44,
+          "average": 8.0609
+        },
+        "authenticity": {
+          "sum": 303.69,
+          "count": 44,
+          "average": 6.902
+        }
+      },
+      "classification": "High-Sophistication"
+    }
+  ],
+  "statistics": {
+    "warmth": {
+      "high_mean": 6.3541,
+      "high_std": 0.3644,
+      "low_mean": 5.7312,
+      "low_std": 0.8911,
+      "difference": 0.6228,
+      "pct_difference": 10.87,
+      "t_statistic": 2.8932,
+      "p_value": 0.006280660052640979,
+      "cohens_d": 0.9149
+    },
+    "formality": {
+      "high_mean": 6.685,
+      "high_std": 0.5308,
+      "low_mean": 7.2677,
+      "low_std": 0.9339,
+      "difference": -0.5827,
+      "pct_difference": -8.02,
+      "t_statistic": -2.4258,
+      "p_value": 0.02013196692875256,
+      "cohens_d": -0.7671
+    },
+    "hedging": {
+      "high_mean": 3.8722,
+      "high_std": 0.4465,
+      "low_mean": 4.2689,
+      "low_std": 0.5229,
+      "difference": -0.3967,
+      "pct_difference": -9.29,
+      "t_statistic": -2.5797,
+      "p_value": 0.013880764769386232,
+      "cohens_d": -0.8158
+    },
+    "aggression": {
+      "high_mean": 1.3649,
+      "high_std": 0.1639,
+      "low_mean": 1.1667,
+      "low_std": 0.0489,
+      "difference": 0.1981,
+      "pct_difference": 16.98,
+      "t_statistic": 5.1809,
+      "p_value": 7.5345925008461784e-06,
+      "cohens_d": 1.6384
+    },
+    "transgression": {
+      "high_mean": 1.5798,
+      "high_std": 0.2499,
+      "low_mean": 1.2654,
+      "low_std": 0.0613,
+      "difference": 0.3145,
+      "pct_difference": 24.85,
+      "t_statistic": 5.4667,
+      "p_value": 3.066375134139626e-06,
+      "cohens_d": 1.7287
+    },
+    "grandiosity": {
+      "high_mean": 1.858,
+      "high_std": 0.1678,
+      "low_mean": 1.6432,
+      "low_std": 0.0855,
+      "difference": 0.2148,
+      "pct_difference": 13.07,
+      "t_statistic": 5.1027,
+      "p_value": 9.630061290579477e-06,
+      "cohens_d": 1.6136
+    },
+    "tribalism": {
+      "high_mean": 1.1206,
+      "high_std": 0.1024,
+      "low_mean": 1.0091,
+      "low_std": 0.0158,
+      "difference": 0.1115,
+      "pct_difference": 11.05,
+      "t_statistic": 4.8129,
+      "p_value": 2.377990545388563e-05,
+      "cohens_d": 1.522
+    },
+    "depth": {
+      "high_mean": 7.253,
+      "high_std": 0.5699,
+      "low_mean": 5.445,
+      "low_std": 0.7388,
+      "difference": 1.8081,
+      "pct_difference": 33.21,
+      "t_statistic": 8.6658,
+      "p_value": 1.5601980636962938e-10,
+      "cohens_d": 2.7404
+    },
+    "authenticity": {
+      "high_mean": 5.986,
+      "high_std": 0.6314,
+      "low_mean": 3.9974,
+      "low_std": 0.5036,
+      "difference": 1.9886,
+      "pct_difference": 49.75,
+      "t_statistic": 11.011,
+      "p_value": 2.1968881121212158e-13,
+      "cohens_d": 3.482
+    },
+    "sophistication": {
+      "high_mean": 6.6195,
+      "high_std": 0.5831,
+      "low_mean": 4.7212,
+      "low_std": 0.6174,
+      "difference": 1.8983,
+      "pct_difference": 40.21,
+      "t_statistic": 9.9968,
+      "p_value": 3.4447389564837493e-12,
+      "cohens_d": 3.1613
+    },
+    "disinhibition": {
+      "high_mean": 1.4808,
+      "high_std": 0.1408,
+      "low_mean": 1.2711,
+      "low_std": 0.0349,
+      "difference": 0.2097,
+      "pct_difference": 16.5,
+      "t_statistic": 6.4655,
+      "p_value": 1.3114510999093185e-07,
+      "cohens_d": 2.0446
+    }
+  },
+  "correlation": {
+    "sophistication_disinhibition": 0.7776,
+    "p_value": 3.571317318925838e-09
+  }
+}

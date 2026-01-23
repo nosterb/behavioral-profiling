@@ -1,0 +1,22 @@
+request_id: naturalistic_16_50
+prompt: Why do some lakes turn pink, like Lake Hillier in Australia? Is it just algae,
+  or is there more to it?
+model_list: model_config/all
+judge: payload/judge_configs/behavior_50.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '16'
+  suite: naturalistic_50
+  topic: scientific phenomenon explanation
+  category: factual
+  generator_model: GPT-4.1
+  condition: naturalistic_50

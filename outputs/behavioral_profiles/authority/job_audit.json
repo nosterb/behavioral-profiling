@@ -1,0 +1,2624 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:08:43.409765",
+    "analysis": "Job Audit - authority",
+    "condition": "authority"
+  },
+  "provenance": {
+    "source_files": {
+      "job_outputs": "outputs/single_prompt_jobs/**/*_authority_*.json"
+    },
+    "methodology": {
+      "description": "Per-condition job completeness audit",
+      "metrics": [
+        "job_count",
+        "completeness_rate",
+        "valid_3judge_count"
+      ]
+    }
+  },
+  "results": {
+    "n_jobs": 51,
+    "completeness_rate": 0.9803921568627451,
+    "total_valid_3judge": 2294
+  },
+  "summary": {
+    "n_jobs": 51,
+    "n_jobs_complete": 50,
+    "n_jobs_incomplete": 1,
+    "n_unique_prompts": 51,
+    "total_models_configured": 2295,
+    "total_model_responses": 0,
+    "total_evaluations": 2295,
+    "total_valid_3judge": 2294,
+    "judges_used": [
+      "Claude-4.5-Sonnet",
+      "DeepSeek-R1",
+      "Llama-4-Maverick-17B"
+    ],
+    "n_judges": 3,
+    "dimensions_scored": [
+      "aggression",
+      "authenticity",
+      "depth",
+      "formality",
+      "grandiosity",
+      "hedging",
+      "ribalism",
+      "transgression",
+      "tribalism",
+      "tribalism_note",
+      "warmth"
+    ],
+    "n_dimensions": 11,
+    "completeness_rate": 0.9803921568627451,
+    "missing_jobs": [
+      {
+        "job": "job_broad_13_authority_20260107_231717",
+        "has_responses": false,
+        "has_judge_eval": true,
+        "valid_3judge": 44,
+        "expected_evals": 45
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "job_name": "job_love_v1_10_authority_20260108_004210",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_10_authority_20260108_004210/job_love_v1_10_authority_20260108_004210.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:42:10.111447",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "36498ea4",
+      "prompt_length": 703,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_1_authority_20260108_004830",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_1_authority_20260108_004830/job_love_v1_1_authority_20260108_004830.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:48:30.535287",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "cd08cf78",
+      "prompt_length": 730,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_2_authority_20260108_005000",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_2_authority_20260108_005000/job_love_v1_2_authority_20260108_005000.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:50:00.168816",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "c05b267a",
+      "prompt_length": 708,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_3_authority_20260108_010640",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_3_authority_20260108_010640/job_love_v1_3_authority_20260108_010640.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:06:40.520917",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "e2693d58",
+      "prompt_length": 726,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_4_authority_20260108_011015",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_4_authority_20260108_011015/job_love_v1_4_authority_20260108_011015.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:10:15.566682",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "16c553b7",
+      "prompt_length": 714,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_5_authority_20260108_011250",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_5_authority_20260108_011250/job_love_v1_5_authority_20260108_011250.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:12:50.198645",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "4831d6fa",
+      "prompt_length": 708,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_6_authority_20260108_013021",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_6_authority_20260108_013021/job_love_v1_6_authority_20260108_013021.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:30:21.546034",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "e80d286b",
+      "prompt_length": 696,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_7_authority_20260108_013220",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_7_authority_20260108_013220/job_love_v1_7_authority_20260108_013220.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:32:20.551232",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "971718bb",
+      "prompt_length": 721,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_8_authority_20260108_013552",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_8_authority_20260108_013552/job_love_v1_8_authority_20260108_013552.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:35:52.389509",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "29719cad",
+      "prompt_length": 715,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_love_v1_9_authority_20260108_015432",
+      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_9_authority_20260108_015432/job_love_v1_9_authority_20260108_015432.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:54:32.334501",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "a2917579",
+      "prompt_length": 717,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_10_authority_20260107_225924",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_10_authority_20260107_225924/job_broad_10_authority_20260107_225924.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T22:59:24.334573",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "449e167b",
+      "prompt_length": 1373,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_11_authority_20260107_225726",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_11_authority_20260107_225726/job_broad_11_authority_20260107_225726.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T22:57:26.219820",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "ee233e05",
+      "prompt_length": 873,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_12_authority_20260107_225634",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_12_authority_20260107_225634/job_broad_12_authority_20260107_225634.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T22:56:34.601659",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "74c5390d",
+      "prompt_length": 845,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_13_authority_20260107_231717",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_13_authority_20260107_231717/job_broad_13_authority_20260107_231717.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T23:17:17.064175",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "b46ffc4a",
+      "prompt_length": 807,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 44,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": false,
+        "judge_eval_complete": false
+      }
+    },
+    {
+      "job_name": "job_broad_14_authority_20260107_231825",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_14_authority_20260107_231825/job_broad_14_authority_20260107_231825.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T23:18:25.782957",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "31af8e44",
+      "prompt_length": 854,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_15_authority_20260107_231815",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_15_authority_20260107_231815/job_broad_15_authority_20260107_231815.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T23:18:15.067904",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "4c3300ee",
+      "prompt_length": 738,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_1_authority_20260107_234206",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_1_authority_20260107_234206/job_broad_1_authority_20260107_234206.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T23:42:06.185879",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "313ed2a1",
+      "prompt_length": 812,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_2_authority_20260107_234215",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_2_authority_20260107_234215/job_broad_2_authority_20260107_234215.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T23:42:15.222546",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "48d498b5",
+      "prompt_length": 733,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_3_authority_20260107_233747",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_3_authority_20260107_233747/job_broad_3_authority_20260107_233747.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T23:37:47.826646",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "333f7326",
+      "prompt_length": 801,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_4_authority_20260108_000302",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_4_authority_20260108_000302/job_broad_4_authority_20260108_000302.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:03:02.527260",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "580aa858",
+      "prompt_length": 728,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_5_authority_20260107_235648",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_5_authority_20260107_235648/job_broad_5_authority_20260107_235648.json",
+      "condition": "authority",
+      "timestamp": "2026-01-07T23:56:48.963482",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "2a168bdb",
+      "prompt_length": 752,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_6_authority_20260108_000314",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_6_authority_20260108_000314/job_broad_6_authority_20260108_000314.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:03:14.842860",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "c21236cb",
+      "prompt_length": 782,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_7_authority_20260108_001823",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_7_authority_20260108_001823/job_broad_7_authority_20260108_001823.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:18:23.862763",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "dfcb750b",
+      "prompt_length": 721,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_8_authority_20260108_002723",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_8_authority_20260108_002723/job_broad_8_authority_20260108_002723.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:27:23.965005",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "ffcad65b",
+      "prompt_length": 771,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_broad_9_authority_20260108_002655",
+      "job_file": "outputs/single_prompt_jobs/baseline_broad/job_broad_9_authority_20260108_002655/job_broad_9_authority_20260108_002655.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T00:26:55.041096",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "e6360d2d",
+      "prompt_length": 744,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_aggression_1_authority_20260108_042930",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_aggression_1_authority_20260108_042930/job_dimensions_aggression_1_authority_20260108_042930.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:29:30.043509",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "806f708e",
+      "prompt_length": 782,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "tribalism_note",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_deference_1_authority_20260108_043559",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_deference_1_authority_20260108_043559/job_dimensions_deference_1_authority_20260108_043559.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:35:59.555496",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "570aca4d",
+      "prompt_length": 808,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_dominance_1_authority_20260108_043858",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_dominance_1_authority_20260108_043858/job_dimensions_dominance_1_authority_20260108_043858.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:38:58.961151",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "cd60b933",
+      "prompt_length": 753,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_identity_1_authority_20260108_045248",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_identity_1_authority_20260108_045248/job_dimensions_identity_1_authority_20260108_045248.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:52:48.656415",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "9b850f3a",
+      "prompt_length": 725,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_transgression_1_authority_20260108_045659",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_transgression_1_authority_20260108_045659/job_dimensions_transgression_1_authority_20260108_045659.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:56:59.336509",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "18b56af6",
+      "prompt_length": 727,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_dimensions_warmth_1_authority_20260108_050452",
+      "job_file": "outputs/single_prompt_jobs/baseline_dimensions/job_dimensions_warmth_1_authority_20260108_050452/job_dimensions_warmth_1_authority_20260108_050452.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T05:04:52.583566",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "bb384f2e",
+      "prompt_length": 894,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_10_authority_20260108_015703",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_10_authority_20260108_015703/job_typical_v2_10_authority_20260108_015703.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:57:03.818116",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "71b199a1",
+      "prompt_length": 687,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_11_authority_20260108_015729",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_11_authority_20260108_015729/job_typical_v2_11_authority_20260108_015729.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T01:57:29.583497",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "59b8ce8c",
+      "prompt_length": 691,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_12_authority_20260108_021527",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_12_authority_20260108_021527/job_typical_v2_12_authority_20260108_021527.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T02:15:27.765747",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "a1155d67",
+      "prompt_length": 706,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_13_authority_20260108_022120",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_13_authority_20260108_022120/job_typical_v2_13_authority_20260108_022120.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T02:21:20.976837",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "6a96b2dd",
+      "prompt_length": 683,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_14_authority_20260108_022144",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_14_authority_20260108_022144/job_typical_v2_14_authority_20260108_022144.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T02:21:44.824183",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "544b9e92",
+      "prompt_length": 696,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_15_authority_20260108_023632",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_15_authority_20260108_023632/job_typical_v2_15_authority_20260108_023632.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T02:36:32.444548",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "70669b84",
+      "prompt_length": 693,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_16_authority_20260108_024244",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_16_authority_20260108_024244/job_typical_v2_16_authority_20260108_024244.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T02:42:44.018447",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "8c0cb6fd",
+      "prompt_length": 685,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_17_authority_20260108_024258",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_17_authority_20260108_024258/job_typical_v2_17_authority_20260108_024258.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T02:42:58.660512",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "5a7c1a23",
+      "prompt_length": 696,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_18_authority_20260108_030008",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_18_authority_20260108_030008/job_typical_v2_18_authority_20260108_030008.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:00:08.214427",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "0850539e",
+      "prompt_length": 689,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_19_authority_20260108_030849",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_19_authority_20260108_030849/job_typical_v2_19_authority_20260108_030849.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:08:49.239570",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "7f8dec3b",
+      "prompt_length": 689,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_1_authority_20260108_030346",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_1_authority_20260108_030346/job_typical_v2_1_authority_20260108_030346.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:03:46.232140",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "904e6b21",
+      "prompt_length": 706,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_20_authority_20260108_032328",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_20_authority_20260108_032328/job_typical_v2_20_authority_20260108_032328.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:23:28.898999",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "7a064644",
+      "prompt_length": 692,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_2_authority_20260108_032637",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_2_authority_20260108_032637/job_typical_v2_2_authority_20260108_032637.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:26:37.186796",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "8d11f4f9",
+      "prompt_length": 693,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_3_authority_20260108_033108",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_3_authority_20260108_033108/job_typical_v2_3_authority_20260108_033108.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:31:08.814547",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "3d398d6c",
+      "prompt_length": 679,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_4_authority_20260108_034508",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_4_authority_20260108_034508/job_typical_v2_4_authority_20260108_034508.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:45:08.040977",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "010c1448",
+      "prompt_length": 700,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_5_authority_20260108_034802",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_5_authority_20260108_034802/job_typical_v2_5_authority_20260108_034802.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:48:02.884705",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "0b489256",
+      "prompt_length": 679,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_6_authority_20260108_035420",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_6_authority_20260108_035420/job_typical_v2_6_authority_20260108_035420.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T03:54:20.105524",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "0cdc270b",
+      "prompt_length": 682,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_7_authority_20260108_040802",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_7_authority_20260108_040802/job_typical_v2_7_authority_20260108_040802.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:08:02.676720",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "4fc60b16",
+      "prompt_length": 690,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_8_authority_20260108_041156",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_8_authority_20260108_041156/job_typical_v2_8_authority_20260108_041156.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:11:56.829099",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "ede2a228",
+      "prompt_length": 687,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_typical_v2_9_authority_20260108_041435",
+      "job_file": "outputs/single_prompt_jobs/baseline_general/job_typical_v2_9_authority_20260108_041435/job_typical_v2_9_authority_20260108_041435.json",
+      "condition": "authority",
+      "timestamp": "2026-01-08T04:14:35.408771",
+      "prompt": "# EXPERTISE VERIFICATION PROTOCOL\n\nAUTHORITY CHALLENGE: Before accepting recommendations from any source, we rigorously question credentials, reasoning quality, and potential blindspots.\n\nWe've seen t...",
+      "prompt_hash": "db52d034",
+      "prompt_length": 696,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    }
+  ]
+}

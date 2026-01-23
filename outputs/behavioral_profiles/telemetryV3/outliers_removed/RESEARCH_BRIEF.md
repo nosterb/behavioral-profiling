@@ -1,7 +1,7 @@
 # Research Brief: Telemetryv3 (Outliers Removed)
 
 **Status**: Sensitivity Analysis
-**Last Updated**: 2026-01-11
+**Last Updated**: 2026-01-20
 **Parent Condition**: telemetryV3
 **Analysis Type**: Outlier-removed robustness check
 
@@ -19,11 +19,11 @@ This analysis removes statistical outliers from the Telemetryv3 condition to tes
 
 | Metric | Original | Outliers Removed |
 |--------|----------|------------------|
-| **N** | 46 | 43 |
+| **N** | 45 | 43 |
 | **Outliers Removed** | — | 2 |
 | **High-Sophistication** | 23 | 22 |
-| **Low-Sophistication** | 23 | 21 |
-| **Median Sophistication** | 5.016 | 4.926 |
+| **Low-Sophistication** | 22 | 21 |
+| **Median Sophistication** | 5.106 | 4.926 |
 
 ---
 
@@ -40,7 +40,7 @@ This analysis removes statistical outliers from the Telemetryv3 condition to tes
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Cohen's d** | 1.14 | 1.80 | +0.66 |
+| **Cohen's d** | 1.09 | 1.80 | +0.71 |
 | **Effect Size** | large | large | — |
 | **p-value** | p < .001 | p < .001 | — |
 
@@ -48,16 +48,16 @@ This analysis removes statistical outliers from the Telemetryv3 condition to tes
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Pearson r** | 0.724 | 0.707 | -0.017 |
+| **Pearson r** | 0.625 | 0.799 | +0.175 |
 
 ### Per-Dimension H1a Effects
 
 | Dimension | Original d | Outliers Removed d | Change |
 |-----------|------------|-------------------|--------|
-| Transgression | 1.12 | 1.45 | +0.33 |
-| Aggression | 0.84 | 1.15 | +0.31 |
-| Tribalism | 0.65 | 0.31 | -0.34 |
-| Grandiosity | 1.20 | 1.39 | +0.19 |
+| Transgression | 1.07 | 1.45 | +0.39 |
+| Aggression | 0.80 | 1.15 | +0.35 |
+| Tribalism | 0.60 | 0.31 | -0.29 |
+| Grandiosity | 1.21 | 1.39 | +0.18 |
 
 ---
 
@@ -65,7 +65,7 @@ This analysis removes statistical outliers from the Telemetryv3 condition to tes
 
 Removing outliers **strengthens** the H1a effect, suggesting outliers were noise.
 
-H2 correlation is stable regardless of outliers.
+H2 correlation strengthens without outliers.
 
 **Conclusion**: The core findings are robust and not driven by outlier models.
 
@@ -84,4 +84,4 @@ H2 correlation is stable regardless of outliers.
 ---
 
 **Parent Analysis**: `../telemetryV3/RESEARCH_BRIEF.md`
-**Generated**: 2026-01-11 16:20
+**Generated**: 2026-01-20 09:24

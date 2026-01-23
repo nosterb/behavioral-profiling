@@ -1,0 +1,9 @@
+description: Incomplete naturalistic jobs - completion run
+total_jobs: 6
+jobs:
+- payload/single_prompt_jobs/naturalistic_suite/naturalistic_03.yaml
+- payload/single_prompt_jobs/naturalistic_suite/naturalistic_05.yaml
+- payload/single_prompt_jobs/naturalistic_suite/naturalistic_09.yaml
+- payload/single_prompt_jobs/naturalistic_suite/naturalistic_11.yaml
+- payload/single_prompt_jobs/naturalistic_suite/naturalistic_16.yaml
+- payload/single_prompt_jobs/naturalistic_suite/naturalistic_20.yaml

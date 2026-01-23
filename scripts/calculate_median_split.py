@@ -227,15 +227,18 @@ print(f"{'='*80}")
 all_sophistication = [m['sophistication'] for m in models]
 all_disinhibition = [m['disinhibition'] for m in models]
 
-r, p = stats.pearsonr(all_sophistication, all_disinhibition)
-print(f"r = {r:.3f}, p < .001")
+# IMPORTANT: Use distinct variable names (r_composite vs r_dim) to prevent
+# the per-dimension loop from overwriting the composite correlation value.
+# This value is saved to the output JSON and must remain unchanged.
+r_composite, p_composite = stats.pearsonr(all_sophistication, all_disinhibition)
+print(f"r = {r_composite:.3f}, p < .001")
 
 # Individual disinhibition dimensions
 print(f"\nBy dimension:")
 for dim in disinhibition_dims:
     dim_values = [m['scores'][dim] for m in models]
-    r, p = stats.pearsonr(all_sophistication, dim_values)
-    print(f"  {dim}: r = {r:.3f}")
+    r_dim, p_dim = stats.pearsonr(all_sophistication, dim_values)
+    print(f"  {dim}: r = {r_dim:.3f}")
 
 # Save classifications
 output = {
@@ -245,7 +248,7 @@ output = {
     'models': models,
     'statistics': results,
     'correlation': {
-        'sophistication_disinhibition': r
+        'sophistication_disinhibition': r_composite
     }
 }
 

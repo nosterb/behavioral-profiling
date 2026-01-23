@@ -1,0 +1,24 @@
+request_id: naturalistic_r2_14
+prompt: Hey, I've been feeling completely drained from work lately, like I can’t even
+  enjoy my weekends anymore because I’m just dreading Monday. I think I might be burned
+  out. What are some ways I can start recovering from this without taking a long break
+  from my job?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '14'
+  suite: naturalistic_r2
+  topic: burnout recovery
+  category: emotional_support
+  generator_model: Grok-3
+  condition: naturalistic_r2

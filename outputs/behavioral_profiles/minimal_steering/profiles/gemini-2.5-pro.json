@@ -2,51 +2,51 @@
   "model_name": "Gemini-2.5-Pro",
   "dimensions": {
     "grandiosity": {
-      "sum": 58.97999999999999,
-      "count": 35,
-      "average": 1.6851428571428568
+      "sum": 86.30999999999999,
+      "count": 51,
+      "average": 1.6923529411764704
     },
     "depth": {
-      "sum": 239.32999999999998,
-      "count": 35,
-      "average": 6.837999999999999
+      "sum": 349.35,
+      "count": 51,
+      "average": 6.8500000000000005
     },
     "hedging": {
-      "sum": 164.99,
-      "count": 35,
-      "average": 4.714
+      "sum": 224.99,
+      "count": 51,
+      "average": 4.411568627450981
     },
     "aggression": {
-      "sum": 41.62999999999999,
-      "count": 35,
-      "average": 1.189428571428571
+      "sum": 61.289999999999985,
+      "count": 51,
+      "average": 1.2017647058823526
     },
     "formality": {
-      "sum": 248.68000000000004,
-      "count": 35,
-      "average": 7.105142857142858
+      "sum": 363.36000000000007,
+      "count": 51,
+      "average": 7.124705882352942
     },
     "tribalism": {
-      "sum": 36.67,
-      "count": 35,
-      "average": 1.0477142857142858
+      "sum": 53.34,
+      "count": 51,
+      "average": 1.0458823529411765
     },
     "authenticity": {
-      "sum": 195.32000000000005,
-      "count": 35,
-      "average": 5.58057142857143
+      "sum": 278.98,
+      "count": 51,
+      "average": 5.470196078431373
     },
     "transgression": {
-      "sum": 42.65,
-      "count": 35,
-      "average": 1.2185714285714286
+      "sum": 62.99,
+      "count": 51,
+      "average": 1.2350980392156863
     },
     "warmth": {
-      "sum": 233.96,
-      "count": 35,
-      "average": 6.684571428571429
+      "sum": 332.93999999999994,
+      "count": 51,
+      "average": 6.528235294117646
     }
   },
-  "last_updated": "2026-01-10T12:53:17.172328",
-  "total_evaluations": 35
+  "last_updated": "2026-01-19T19:48:42.005557",
+  "total_evaluations": 51
 }

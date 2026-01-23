@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_16
+prompt: I've been trying to grow tomatoes on my apartment balcony, but they keep getting
+  yellow leaves and barely any fruit. Is this a sunlight issue or could it be something
+  else?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '16'
+  suite: naturalistic_r2
+  topic: gardening challenge
+  category: everyday_questions
+  generator_model: GPT-4.1
+  condition: naturalistic_r2

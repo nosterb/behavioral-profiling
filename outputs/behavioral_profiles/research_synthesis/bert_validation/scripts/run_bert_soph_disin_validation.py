@@ -537,11 +537,20 @@ def run_soph_disin_analysis(condition: str = "baseline"):
     plt.close()
     print(f"  Saved: scatter_soph_disin_combined.png")
 
+    # Propagate metadata from BERT results
+    bert_metadata = bert_data.get("metadata", {})
+    conditions_included = bert_metadata.get("conditions_included", [condition])
+    n_conditions = bert_metadata.get("n_conditions", 1)
+    total_evaluations = bert_metadata.get("total_evaluations", bert_data.get("sample", {}).get("total_evaluations", "N/A"))
+
     # Save results JSON
     results = {
         "metadata": {
             "date": datetime.now().isoformat(),
             "condition": condition,
+            "conditions_included": conditions_included,
+            "n_conditions": n_conditions,
+            "total_evaluations": total_evaluations,
             "n_models": len(model_ids),
             "outlier_threshold_sd": OUTLIER_SD_THRESHOLD,
             "source_bert": f"bert_validation/{condition}/bert_validation_results.json",
@@ -620,7 +629,7 @@ def run_soph_disin_analysis(condition: str = "baseline"):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--condition", type=str, default="baseline",
-                        choices=["baseline", "authority", "urgency", "reminder", "telemetryV3", "minimal_steering"],
+                        choices=["baseline", "authority", "urgency", "reminder", "telemetryV3", "minimal_steering", "naturalistic", "naturalistic_50", "all_combined"],
                         help="Condition to analyze (default: baseline)")
     args = parser.parse_args()
 

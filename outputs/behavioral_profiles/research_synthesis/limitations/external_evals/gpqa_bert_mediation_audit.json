@@ -1,4 +1,5 @@
 {
+  "schema_version": "1.0",
   "metadata": {
     "generated": "2026-01-17T13:45:00.000000",
     "analysis": "GPQA vs BERT Toxicity Mediation Analysis",

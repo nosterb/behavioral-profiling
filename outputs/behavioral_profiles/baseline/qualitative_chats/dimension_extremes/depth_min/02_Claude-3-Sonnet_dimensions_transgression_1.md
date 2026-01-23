@@ -6,7 +6,7 @@
 
 ## Categories
 - **Depth MIN** (#2)
-- **Sophistication MIN** (#2)
+- **Sophistication MIN** (#4)
 
 ## Behavioral Scores
 - **Sophistication**: 2.33

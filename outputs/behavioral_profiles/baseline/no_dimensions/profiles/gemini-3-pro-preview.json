@@ -1,55 +1,52 @@
 {
-  "model_name": "gemini-3-pro-preview",
-  "display_name": "Gemini-3-Pro-Preview",
-  "provider": "Google",
+  "model_name": "Gemini-3-Pro-Preview",
   "dimensions": {
+    "grandiosity": {
+      "sum": 96.99999999999999,
+      "count": 44,
+      "average": 2.204545454545454
+    },
     "warmth": {
       "sum": 265.31,
       "count": 44,
-      "average": 6.0298
+      "average": 6.029772727272728
+    },
+    "aggression": {
+      "sum": 81.62999999999998,
+      "count": 44,
+      "average": 1.8552272727272723
     },
     "formality": {
       "sum": 285.32,
       "count": 44,
-      "average": 6.4845
-    },
-    "hedging": {
-      "sum": 123.32,
-      "count": 44,
-      "average": 2.8027
-    },
-    "aggression": {
-      "sum": 81.63,
-      "count": 44,
-      "average": 1.8552
-    },
-    "transgression": {
-      "sum": 106.29,
-      "count": 44,
-      "average": 2.4157
-    },
-    "grandiosity": {
-      "sum": 97.0,
-      "count": 44,
-      "average": 2.2045
+      "average": 6.484545454545454
     },
     "tribalism": {
       "sum": 65.99,
       "count": 44,
-      "average": 1.4998
+      "average": 1.4997727272727273
     },
-    "depth": {
-      "sum": 349.34,
+    "hedging": {
+      "sum": 123.32,
       "count": 44,
-      "average": 7.9395
+      "average": 2.8027272727272727
+    },
+    "transgression": {
+      "sum": 106.28999999999999,
+      "count": 44,
+      "average": 2.415681818181818
     },
     "authenticity": {
-      "sum": 305.01,
+      "sum": 305.01000000000005,
       "count": 44,
-      "average": 6.932
+      "average": 6.932045454545456
+    },
+    "depth": {
+      "sum": 349.34000000000003,
+      "count": 44,
+      "average": 7.939545454545455
     }
   },
-  "contribution_count": 44,
-  "total_evaluations": 44,
-  "last_updated": "2026-01-11T10:57:56.863236"
+  "last_updated": "2026-01-23T13:40:50.158589",
+  "total_evaluations": 44
 }

@@ -1,55 +1,52 @@
 {
-  "model_name": "o3",
-  "display_name": "O3",
-  "provider": "OpenAI",
+  "model_name": "O3",
   "dimensions": {
+    "grandiosity": {
+      "sum": 78.35000000000001,
+      "count": 44,
+      "average": 1.7806818181818185
+    },
     "warmth": {
-      "sum": 262.34,
+      "sum": 262.34000000000003,
       "count": 44,
-      "average": 5.9623
-    },
-    "formality": {
-      "sum": 313.66,
-      "count": 44,
-      "average": 7.1286
-    },
-    "hedging": {
-      "sum": 156.98,
-      "count": 44,
-      "average": 3.5677
+      "average": 5.962272727272728
     },
     "aggression": {
-      "sum": 54.96,
+      "sum": 54.95999999999999,
       "count": 44,
-      "average": 1.2491
+      "average": 1.2490909090909088
     },
-    "transgression": {
-      "sum": 66.65,
+    "formality": {
+      "sum": 313.65999999999997,
       "count": 44,
-      "average": 1.5148
-    },
-    "grandiosity": {
-      "sum": 78.35,
-      "count": 44,
-      "average": 1.7807
+      "average": 7.128636363636363
     },
     "tribalism": {
       "sum": 49.66,
       "count": 44,
-      "average": 1.1286
+      "average": 1.1286363636363637
     },
-    "depth": {
-      "sum": 344.03,
+    "hedging": {
+      "sum": 156.98,
       "count": 44,
-      "average": 7.8189
+      "average": 3.5677272727272724
+    },
+    "transgression": {
+      "sum": 66.64999999999999,
+      "count": 44,
+      "average": 1.5147727272727272
     },
     "authenticity": {
       "sum": 284.34,
       "count": 44,
-      "average": 6.4623
+      "average": 6.462272727272727
+    },
+    "depth": {
+      "sum": 344.03000000000003,
+      "count": 44,
+      "average": 7.818863636363637
     }
   },
-  "contribution_count": 44,
-  "total_evaluations": 44,
-  "last_updated": "2026-01-11T10:57:56.862922"
+  "last_updated": "2026-01-23T13:40:50.157605",
+  "total_evaluations": 44
 }

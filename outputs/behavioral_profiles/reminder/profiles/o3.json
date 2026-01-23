@@ -2,51 +2,51 @@
   "model_name": "O3",
   "dimensions": {
     "hedging": {
-      "sum": 71.33,
-      "count": 13,
-      "average": 5.486923076923077
+      "sum": 79.33,
+      "count": 15,
+      "average": 5.288666666666667
     },
     "transgression": {
-      "sum": 21.339999999999996,
-      "count": 13,
-      "average": 1.6415384615384612
+      "sum": 31.339999999999996,
+      "count": 15,
+      "average": 2.0893333333333333
     },
     "aggression": {
-      "sum": 23.33,
-      "count": 13,
-      "average": 1.7946153846153845
+      "sum": 31.659999999999997,
+      "count": 15,
+      "average": 2.1106666666666665
     },
     "warmth": {
-      "sum": 89.67,
-      "count": 13,
-      "average": 6.897692307692308
+      "sum": 94.67,
+      "count": 15,
+      "average": 6.311333333333334
     },
     "grandiosity": {
-      "sum": 26.000000000000007,
-      "count": 13,
-      "average": 2.0000000000000004
+      "sum": 32.67000000000001,
+      "count": 15,
+      "average": 2.1780000000000004
     },
     "tribalism": {
-      "sum": 15.99,
-      "count": 13,
-      "average": 1.23
+      "sum": 19.990000000000002,
+      "count": 15,
+      "average": 1.3326666666666669
     },
     "formality": {
-      "sum": 90.68,
-      "count": 13,
-      "average": 6.975384615384616
+      "sum": 100.68,
+      "count": 15,
+      "average": 6.712000000000001
     },
     "authenticity": {
-      "sum": 93.0,
-      "count": 13,
-      "average": 7.153846153846154
+      "sum": 108.66,
+      "count": 15,
+      "average": 7.244
     },
     "depth": {
-      "sum": 104.34,
-      "count": 13,
-      "average": 8.026153846153846
+      "sum": 118.68,
+      "count": 15,
+      "average": 7.912000000000001
     }
   },
-  "last_updated": "2026-01-10T22:20:19.239773",
-  "total_evaluations": 13
+  "last_updated": "2026-01-19T19:48:55.293488",
+  "total_evaluations": 15
 }

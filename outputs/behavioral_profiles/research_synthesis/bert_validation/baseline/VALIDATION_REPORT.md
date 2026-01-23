@@ -1,74 +1,85 @@
 # BERT Toxicity Validation Report
 
-**Generated**: 2026-01-15
-**Condition**: baseline
-**Experiment**: Independent validation of LLM-as-judge behavioral scores
+**Generated**: 2026-01-19
+**Experiment**: Independent validation of LLM-as-judge aggression scores
 
 ---
 
-## Executive Summary
+## Summary
 
-| Metric | r | p | Effect | Interpretation |
-|--------|---|---|--------|----------------|
-| **Toxicity vs. Aggression** | 0.776 | < .0001 | large | Primary validation |
-| **Insult vs. Aggression** | 0.624 | < .0001 | large | Secondary validation |
-| **Toxicity vs. Sophistication** | 0.510 | 0.0003 | large | Composite validation |
-| **Toxicity vs. Disinhibition** | 0.776 | < .0001 | large | Composite validation |
-| **Insult vs. Sophistication** | 0.357 | 0.0159 | medium | Composite validation |
-| **Insult vs. Disinhibition** | 0.555 | < .0001 | large | Composite validation |
-
-**N = 45 models** | Outliers: 2 | Constrained: 2
+| Metric | Value |
+|--------|-------|
+| **N (models)** | 45 |
+| **BERT Toxicity vs. Aggression** | r = 0.776, p = 0.0000 |
+| **BERT Insult vs. Aggression** | r = 0.624, p = 0.0000 |
+| **Interpretation** | Strong validation - BERT toxicity validates aggression measure |
 
 ---
 
 ## Visualizations
 
-### Primary: BERT vs. Aggression
+### BERT Toxicity vs. Judge Aggression
+![Toxicity Scatter](scatter_toxicity_vs_aggression.png)
 
-| Toxicity | Insult | Combined |
-|----------|--------|----------|
-| ![](scatter_toxicity_vs_aggression.png) | ![](scatter_insult_vs_aggression.png) | ![](scatter_combined.png) |
+### BERT Insult vs. Judge Aggression
+![Insult Scatter](scatter_insult_vs_aggression.png)
 
-### Extended: BERT vs. Sophistication/Disinhibition
-
-| Toxicity vs. Soph | Toxicity vs. Disin | Insult vs. Soph | Insult vs. Disin |
-|-------------------|--------------------|-----------------|--------------------|
-| ![](scatter_toxicity_vs_sophistication.png) | ![](scatter_toxicity_vs_disinhibition.png) | ![](scatter_insult_vs_sophistication.png) | ![](scatter_insult_vs_disinhibition.png) |
-
-### Combined 2x2 Grid
-![](scatter_soph_disin_combined.png)
+### Combined View
+![Combined Scatter](scatter_combined.png)
 
 ---
 
-## Statistical Details
+## Data Trail
 
-### 1. BERT vs. Aggression (Primary)
+### 1. BERT Model
 
-| Measure | r | R² | p-value | Effect | Slope | Intercept |
-|---------|---|----|---------|--------|-------|-----------|
-| Toxicity | 0.7765 | 0.6029 | 3.65e-10 | large | 0.035581 | -0.039839 |
-| Insult | 0.6236 | 0.3889 | 4.74e-06 | large | 0.007313 | -0.009024 |
+| Field | Value |
+|-------|-------|
+| **Model Name** | `unitary/toxic-bert` |
+| **Hosted On** | Hugging Face (downloaded locally) |
+| **Model URL** | https://huggingface.co/unitary/toxic-bert |
+| **Architecture** | BERT (bert-base-uncased), 110M parameters |
+| **Training Data** | Jigsaw Toxic Comment Classification Challenge |
+| **Training Data URL** | https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge |
+| **Output Labels** | toxicity, severe_toxicity, obscene, threat, insult, identity_attack |
+| **Max Sequence Length** | 512 tokens |
+| **Execution** | Local inference (no API calls) |
 
-### 2. BERT vs. Sophistication/Disinhibition (Extended)
+### 2. Source Data
 
-| Measure | r | R² | p-value | Effect |
-|---------|---|----|---------|--------|
-| Toxicity vs. Sophistication | 0.5102 | 0.2603 | 3.43e-04 | large |
-| Toxicity vs. Disinhibition | 0.7755 | 0.6014 | 3.96e-10 | large |
-| Insult vs. Sophistication | 0.3574 | 0.1278 | 1.59e-02 | medium |
-| Insult vs. Disinhibition | 0.5548 | 0.3078 | 7.66e-05 | large |
+| Field | Value |
+|-------|-------|
+| **Condition** | baseline |
+| **Profiles Path** | `outputs/behavioral_profiles/baseline/profiles` |
+| **Jobs Path** | `outputs/single_prompt_jobs` |
+| **Models Evaluated** | 45 |
 
-### 3. Pattern Detection
+### 3. Statistical Results
 
-| Analysis | Outliers | Constrained |
-|----------|----------|-------------|
-| Toxicity vs. Aggression | 2 | 2 |
-| Insult vs. Aggression | 1 | 0 |
-| Toxicity vs. Sophistication | 1 | 5 |
-| Toxicity vs. Disinhibition | 3 | 2 |
-| Insult vs. Sophistication | 1 | 7 |
-| Insult vs. Disinhibition | 1 | 5 |
+#### Correlations
 
+| Measure | r | p-value | Effect Size |
+|---------|---|---------|-------------|
+| BERT Toxicity | 0.7765 | 0.000000 | large |
+| BERT Insult | 0.6236 | 0.000005 | large |
+
+#### Regression: Toxicity ~ Aggression
+
+| Parameter | Value |
+|-----------|-------|
+| Slope | 0.035581 |
+| Intercept | -0.039839 |
+| R² | 0.6029 |
+| Standard Error | 0.004403 |
+
+#### Regression: Insult ~ Aggression
+
+| Parameter | Value |
+|-----------|-------|
+| Slope | 0.007313 |
+| Intercept | -0.009024 |
+| R² | 0.3889 |
+| Standard Error | 0.001398 |
 
 ### 4. Score Ranges
 
@@ -80,56 +91,24 @@
 
 ---
 
-## Data Provenance
-
-### BERT Model
-
-| Field | Value |
-|-------|-------|
-| **Model** | `unitary/toxic-bert` |
-| **URL** | https://huggingface.co/unitary/toxic-bert |
-| **Architecture** | BERT (bert-base-uncased), 110M parameters |
-| **Training Data** | Jigsaw Toxic Comment Classification (~160k Wikipedia comments) |
-| **Output Labels** | toxicity, severe_toxicity, obscene, threat, insult, identity_attack |
-| **Execution** | Local inference (no API calls) |
-
-### Source Data
-
-| Field | Value |
-|-------|-------|
-| **Condition** | baseline |
-| **Profiles Path** | `outputs/behavioral_profiles/baseline/profiles` |
-| **Jobs Path** | `outputs/single_prompt_jobs` |
-| **Models Evaluated** | 45 |
-
----
-
 ## Output Files
 
 | File | Description |
 |------|-------------|
-| `bert_validation_results.json` | Primary validation results (aggression) |
-| `bert_soph_disin_results.json` | Extended validation results (soph/disin) |
-| `scatter_toxicity_vs_aggression.png` | Primary toxicity scatter |
-| `scatter_insult_vs_aggression.png` | Primary insult scatter |
-| `scatter_combined.png` | 2-panel aggression summary |
-| `scatter_toxicity_vs_sophistication.png` | Toxicity ~ Sophistication |
-| `scatter_toxicity_vs_disinhibition.png` | Toxicity ~ Disinhibition |
-| `scatter_insult_vs_sophistication.png` | Insult ~ Sophistication |
-| `scatter_insult_vs_disinhibition.png` | Insult ~ Disinhibition |
-| `scatter_soph_disin_combined.png` | 2x2 composite grid |
-| `full_run_log.txt` | Execution trace |
+| `bert_validation_results.json` | Complete results with per-model scores (for downstream use) |
+| `scatter_toxicity_vs_aggression.png` | Toxicity correlation scatter plot |
+| `scatter_insult_vs_aggression.png` | Insult correlation scatter plot |
+| `scatter_combined.png` | Combined 2-panel visualization |
 | `VALIDATION_REPORT.md` | This report |
+| `full_run_log.txt` | Complete execution log with per-response scores |
 
 ---
 
 ## Interpretation
 
-**Primary Finding**: Strong validation - BERT toxicity validates aggression measure
+Strong validation - BERT toxicity validates aggression measure
 
-**Key Insight**: BERT toxicity correlates most strongly with the **disinhibition composite** (which includes aggression), providing convergent validity that our behavioral measures capture real toxicity-related signals detectable by an independent, non-LLM classifier.
-
-**Effect Size Thresholds** (Cohen's conventions):
+**Effect size thresholds** (Cohen's conventions):
 - |r| < 0.10: Negligible
 - |r| 0.10-0.30: Small
 - |r| 0.30-0.50: Medium
@@ -140,14 +119,14 @@
 ## Reproducibility
 
 ```bash
-# Run primary validation (BERT vs Aggression)
-python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/run_bert_validation.py --condition baseline
+# Activate virtual environment
+source venv/bin/activate
 
-# Run extended validation (BERT vs Soph/Disin)
-python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/run_bert_soph_disin_validation.py --condition baseline
+# Run validation
+python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/run_bert_validation.py
 
-# Regenerate this report
-python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/regenerate_validation_reports.py --condition baseline
+# With verbose logging
+python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/run_bert_validation.py 2>&1 | tee outputs/behavioral_profiles/research_synthesis/bert_validation/full_run_log.txt
 ```
 
 ---
@@ -156,4 +135,4 @@ python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/r
 
 1. Unitary AI toxic-bert: https://huggingface.co/unitary/toxic-bert
 2. Jigsaw Toxic Comment Challenge: https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge
-3. Devlin et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.
+3. BERT paper: Devlin et al. (2019) "BERT: Pre-training of Deep Bidirectional Transformers"

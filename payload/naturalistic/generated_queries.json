@@ -1,0 +1,230 @@
+{
+  "metadata": {
+    "generated": "2026-01-19T21:03:08.292475",
+    "seed": 200,
+    "num_queries": 30,
+    "generator_models": [
+      "GPT-4.1",
+      "Claude-4.5-Sonnet",
+      "Gemini-2.5-Pro",
+      "Grok-3",
+      "Llama-4-Maverick"
+    ]
+  },
+  "provenance": {
+    "topics_file": "payload/naturalistic/topics.yaml",
+    "script": "scripts/generate_naturalistic_queries.py"
+  },
+  "queries": [
+    {
+      "query_id": "naturalistic_01",
+      "query": "I'm using my phone for most of my photos and want to get better shots when I'm traveling\u2014any tips for capturing landscapes or city scenes that don't just look like boring snapshots?",
+      "topic": "photography tips",
+      "category": "hobby_interest",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_02",
+      "query": "I'm dealing with a situation where two of my best developers refuse to work together after a disagreement about coding standards, and now it's affecting our sprint deadlines. They both want me to take their side but I honestly think they're both being petty. How do I get them to just move past this without losing either one?",
+      "topic": "team dynamics problem",
+      "category": "professional",
+      "generator_model": "Claude-4.5-Sonnet"
+    },
+    {
+      "query_id": "naturalistic_03",
+      "query": "Can you explain why people in Japan take off their shoes before entering a home? Is it mostly for cleanliness or are there other cultural reasons behind it?",
+      "topic": "cultural practice explanation",
+      "category": "factual",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_04",
+      "query": "Hey, I was reading about the recent protests in France over pension reforms, and I\u2019m kinda confused about why people are so upset. Can you explain what\u2019s going on and why it\u2019s such a big deal?",
+      "topic": "current events context",
+      "category": "factual",
+      "generator_model": "Grok-3"
+    },
+    {
+      "query_id": "naturalistic_05",
+      "query": "I've been reading a lot about existentialism and I'm starting to think that life is inherently meaningless, but at the same time, I'm drawn to the idea that we can create our own meaning - doesn't that just lead to a kind of subjective relativism where anything goes, and if so, is that really a satisfying answer?",
+      "topic": "spiritual exploration",
+      "category": "philosophical_existential",
+      "generator_model": "Llama-4-Maverick"
+    },
+    {
+      "query_id": "naturalistic_06",
+      "query": "I want to try making shakshuka this weekend\u2014do you have tips for getting the eggs just right so the yolks stay runny but the whites are set?",
+      "topic": "cooking a specific dish",
+      "category": "everyday_questions",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_07",
+      "query": "I've been learning guitar for about 6 months and keep seeing songs in different \"keys\" but I honestly don't understand what that means or why it matters. Like if a song is in the key of G versus the key of C, what's actually different about it?",
+      "topic": "music theory question",
+      "category": "hobby_interest",
+      "generator_model": "Claude-4.5-Sonnet"
+    },
+    {
+      "query_id": "naturalistic_08",
+      "query": "I'm trying to write the opening for a fantasy story but I keep getting stuck\u2014how do I start in a way that grabs the reader\u2019s attention without just dumping a bunch of background info?",
+      "topic": "writing a story opening",
+      "category": "creative",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_09",
+      "query": "Hey, I\u2019ve got a big presentation coming up next week for a potential client, and I\u2019m feeling pretty rusty since I haven\u2019t done one in a while. Any tips on how to structure it and keep the audience engaged?",
+      "topic": "presentation preparation",
+      "category": "professional",
+      "generator_model": "Grok-3"
+    },
+    {
+      "query_id": "naturalistic_10",
+      "query": "I'm thinking of switching from a computer science major to something more related to data analysis, but I'm not sure if I should stick with my current university or transfer to a different one that has a better data science program - what's the best way to make this decision?",
+      "topic": "educational path selection",
+      "category": "advice",
+      "generator_model": "Llama-4-Maverick"
+    },
+    {
+      "query_id": "naturalistic_11",
+      "query": "Do you think people are inherently good or bad, or is it mostly shaped by society and experiences as we grow up?",
+      "topic": "philosophical question",
+      "category": "opinion_seeking",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_12",
+      "query": "I'm trying to save up for a down payment on a house but between rent, student loans, and just living expenses I feel like there's never anything left at the end of the month. How do people actually manage to save significant amounts of money without feeling like they're depriving themselves of everything?",
+      "topic": "budgeting and saving money",
+      "category": "everyday_questions",
+      "generator_model": "Claude-4.5-Sonnet"
+    },
+    {
+      "query_id": "naturalistic_13",
+      "query": "Do you think humans are inherently good or bad, or is it all about the environment we're raised in? I'm having this debate with my friends and would love some perspectives.",
+      "topic": "human nature",
+      "category": "philosophical_existential",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_14",
+      "query": "Hey, I've been feeling completely drained from work lately, like I can\u2019t even enjoy my weekends anymore because I\u2019m just dreading Monday. I think I might be burned out. What are some ways I can start recovering from this without taking a long break from my job?",
+      "topic": "burnout recovery",
+      "category": "emotional_support",
+      "generator_model": "Grok-3"
+    },
+    {
+      "query_id": "naturalistic_15",
+      "query": "I'm moving back to my hometown after living abroad for 10 years and I'm feeling really overwhelmed by the thought of rebuilding my social life from scratch - are there any tips on making new friends as an adult?",
+      "topic": "major life transition",
+      "category": "emotional_support",
+      "generator_model": "Llama-4-Maverick"
+    },
+    {
+      "query_id": "naturalistic_16",
+      "query": "I've been trying to grow tomatoes on my apartment balcony, but they keep getting yellow leaves and barely any fruit. Is this a sunlight issue or could it be something else?",
+      "topic": "gardening challenge",
+      "category": "everyday_questions",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_17",
+      "query": "I keep getting feedback that my emails come across as too blunt or even rude, but I'm just trying to be direct and efficient. How can I soften my communication style without writing these long flowery messages that waste everyone's time?",
+      "topic": "communication technique",
+      "category": "professional",
+      "generator_model": "Claude-4.5-Sonnet"
+    },
+    {
+      "query_id": "naturalistic_18",
+      "query": "My WiFi keeps dropping out every few minutes, but only on my laptop\u2014my phone works fine. What could be causing this and how do I fix it?",
+      "topic": "network troubleshooting",
+      "category": "technical",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_19",
+      "query": "Hey, I'm trying to make a scrapbook for my grandma's 80th birthday, but I'm stuck on how to organize all the old photos and mementos in a way that looks nice and tells a story. Got any tips or ideas for layouts?",
+      "topic": "craft project help",
+      "category": "hobby_interest",
+      "generator_model": "Grok-3"
+    },
+    {
+      "query_id": "naturalistic_20",
+      "query": "I've been feeling really isolated since I moved to a new city for work and I don't know many people here, are there any online communities or groups that can help me meet new people with similar interests?",
+      "topic": "feeling lonely or isolated",
+      "category": "emotional_support",
+      "generator_model": "Llama-4-Maverick"
+    },
+    {
+      "query_id": "naturalistic_21",
+      "query": "I'm looking to transition into a UX design role, but my background is in marketing\u2014what skills should I focus on developing first, and are there any resources or learning paths you'd recommend?",
+      "topic": "skill development path",
+      "category": "advice",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_22",
+      "query": "I've been seeing a lot of debate about whether social media companies should be responsible for moderating misinformation or if that counts as censorship. Where do you stand on this? I'm genuinely torn because I value free speech but also see how fake news can be really harmful.",
+      "topic": "social issue viewpoint",
+      "category": "opinion_seeking",
+      "generator_model": "Claude-4.5-Sonnet"
+    },
+    {
+      "query_id": "naturalistic_23",
+      "query": "I'm trying to write lyrics for my first song but I keep getting stuck after the first verse\u2014do you have any tips for coming up with a strong chorus that actually fits what I've already written?",
+      "topic": "songwriting help",
+      "category": "creative",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_24",
+      "query": "Hey, I'm a new parent and I'm struggling with how strict I should be with my 4-year-old. I want to set boundaries, but I also don\u2019t want to be too harsh and stress them out. Any tips on finding a good balance?",
+      "topic": "parenting approach",
+      "category": "advice",
+      "generator_model": "Grok-3"
+    },
+    {
+      "query_id": "naturalistic_25",
+      "query": "I'm trying to integrate the Stripe API into my e-commerce app, but I keep getting this error when I try to create a new customer: \"Invalid request: must provide source or customer id.\" I've double-checked my code and I'm passing the card details in the request body, so what's going wrong?",
+      "topic": "API integration problem",
+      "category": "technical",
+      "generator_model": "Llama-4-Maverick"
+    },
+    {
+      "query_id": "naturalistic_26",
+      "query": "My roommate sometimes downloads movies and music without paying for them, and it makes me uncomfortable. Should I say something or just mind my own business?",
+      "topic": "ethical dilemma",
+      "category": "opinion_seeking",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_27",
+      "query": "I'm helping my 8th grader with a history project about the causes of World War I, but honestly I'm pretty rusty on this myself. Beyond the assassination of Archduke Franz Ferdinand, what were the main underlying tensions that made war break out?",
+      "topic": "educational topic",
+      "category": "factual",
+      "generator_model": "Claude-4.5-Sonnet"
+    },
+    {
+      "query_id": "naturalistic_28",
+      "query": "I'm working on a fantasy novel where magic is a hidden force, but I want to avoid the usual medieval European settings. How do I build a believable world that feels fresh while still supporting this kind of secret magic system?",
+      "topic": "worldbuilding for fiction",
+      "category": "creative",
+      "generator_model": "GPT-4.1"
+    },
+    {
+      "query_id": "naturalistic_29",
+      "query": "Hey, I've been thinking a lot about whether we really have free will or if everything is just predetermined by stuff like genetics and environment. Like, do we actually make choices, or are we just following a script we can\u2019t see? What\u2019s your take on this?",
+      "topic": "free will vs determinism",
+      "category": "philosophical_existential",
+      "generator_model": "Grok-3"
+    },
+    {
+      "query_id": "naturalistic_30",
+      "query": "I'm getting a null pointer exception when trying to debug my Java code, it says the error is on line 127 but I've checked that line and all the variables are initialized, what am I missing?",
+      "topic": "debugging code error",
+      "category": "technical",
+      "generator_model": "Llama-4-Maverick"
+    }
+  ]
+}

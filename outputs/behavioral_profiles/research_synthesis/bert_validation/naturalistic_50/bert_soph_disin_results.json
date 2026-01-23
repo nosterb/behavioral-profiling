@@ -1,0 +1,642 @@
+{
+  "metadata": {
+    "date": "2026-01-19T20:01:59.673475",
+    "condition": "naturalistic_50",
+    "n_models": 44,
+    "outlier_threshold_sd": 2.0,
+    "source_bert": "bert_validation/naturalistic_50/bert_validation_results.json",
+    "source_classification": "naturalistic_50/median_split_classification.json"
+  },
+  "correlations": {
+    "toxicity_vs_sophistication": {
+      "r": 0.6043935859421831,
+      "p": 1.3953870741380502e-05,
+      "r_squared": 0.365291606728051,
+      "interpretation": "large"
+    },
+    "toxicity_vs_disinhibition": {
+      "r": 0.44468854264673047,
+      "p": 0.002491972557250678,
+      "r_squared": 0.197747899961273,
+      "interpretation": "medium"
+    },
+    "insult_vs_sophistication": {
+      "r": 0.4981741222663242,
+      "p": 0.0005789946543493624,
+      "r_squared": 0.2481774560958225,
+      "interpretation": "medium"
+    },
+    "insult_vs_disinhibition": {
+      "r": 0.4416492626788705,
+      "p": 0.002689047943995298,
+      "r_squared": 0.19505407122478996,
+      "interpretation": "medium"
+    }
+  },
+  "regression": {
+    "toxicity_vs_sophistication": {
+      "slope": 0.0002530924973558983,
+      "intercept": -0.00456174294892848,
+      "std_err": 5.1478027775791945e-05
+    },
+    "toxicity_vs_disinhibition": {
+      "slope": 0.0011258302909649659,
+      "intercept": -0.0028665821064517015,
+      "std_err": 0.00034990308812418534
+    },
+    "insult_vs_sophistication": {
+      "slope": 8.83805699119062e-06,
+      "intercept": 6.219810080200527e-06,
+      "std_err": 2.3736061596800235e-06
+    },
+    "insult_vs_disinhibition": {
+      "slope": 4.737079879392999e-05,
+      "intercept": 2.3435494867744854e-05,
+      "std_err": 1.4848818789009983e-05
+    }
+  },
+  "patterns": {
+    "toxicity_vs_sophistication": {
+      "outliers": [
+        {
+          "idx": 22,
+          "model_id": "gemini-3-pro-preview",
+          "residual": 0.003821501745277881,
+          "sd_from_line": 2.1355332839567565
+        },
+        {
+          "idx": 27,
+          "model_id": "gpt-5.1",
+          "residual": 0.004649739849096094,
+          "sd_from_line": 2.5983696649503263
+        }
+      ],
+      "constrained": [
+        {
+          "idx": 13,
+          "model_id": "claude-4.5-haiku",
+          "residual": -0.002217968009335251,
+          "sd_from_line": -1.239445857257438
+        },
+        {
+          "idx": 14,
+          "model_id": "claude-4.5-haiku-thinking_(thinking)",
+          "residual": -0.002010535185220346,
+          "sd_from_line": -1.1235281553671
+        },
+        {
+          "idx": 16,
+          "model_id": "claude-4.5-opus-global-thinking_(thinking)",
+          "residual": -0.003102185236540484,
+          "sd_from_line": -1.7335645165719382
+        },
+        {
+          "idx": 26,
+          "model_id": "gpt-5",
+          "residual": -0.002541477082058009,
+          "sd_from_line": -1.4202293393833112
+        },
+        {
+          "idx": 42,
+          "model_id": "o3",
+          "residual": -0.0024574382530255868,
+          "sd_from_line": -1.3732667240279073
+        }
+      ],
+      "residual_std": 0.0017894835795756506
+    },
+    "toxicity_vs_disinhibition": {
+      "outliers": [
+        {
+          "idx": 27,
+          "model_id": "gpt-5.1",
+          "residual": 0.006223381363219371,
+          "sd_from_line": 3.093359439675265
+        }
+      ],
+      "constrained": [
+        {
+          "idx": 10,
+          "model_id": "claude-4-sonnet-thinking_(thinking)",
+          "residual": -0.0012936542085863248,
+          "sd_from_line": -0.6430165892543075
+        },
+        {
+          "idx": 13,
+          "model_id": "claude-4.5-haiku",
+          "residual": -0.002262816038649575,
+          "sd_from_line": -1.1247427957370568
+        },
+        {
+          "idx": 14,
+          "model_id": "claude-4.5-haiku-thinking_(thinking)",
+          "residual": -0.0020427293210622368,
+          "sd_from_line": -1.015347711993747
+        },
+        {
+          "idx": 15,
+          "model_id": "claude-4.5-opus-global",
+          "residual": -0.003597908802767864,
+          "sd_from_line": -1.7883566036800482
+        },
+        {
+          "idx": 16,
+          "model_id": "claude-4.5-opus-global-thinking_(thinking)",
+          "residual": -0.002476241464373906,
+          "sd_from_line": -1.2308268546753234
+        },
+        {
+          "idx": 17,
+          "model_id": "claude-4.5-sonnet",
+          "residual": -0.0021441739173069714,
+          "sd_from_line": -1.0657712006220197
+        },
+        {
+          "idx": 18,
+          "model_id": "claude-4.5-sonnet-thinking_(thinking)",
+          "residual": -0.0017588198776872879,
+          "sd_from_line": -0.8742292579862081
+        }
+      ],
+      "residual_std": 0.0020118519960527735
+    },
+    "insult_vs_sophistication": {
+      "outliers": [
+        {
+          "idx": 22,
+          "model_id": "gemini-3-pro-preview",
+          "residual": 0.00018710629100151881,
+          "sd_from_line": 2.2676389695766015
+        },
+        {
+          "idx": 23,
+          "model_id": "gpt-3.5_turbo",
+          "residual": 0.00026100351698915965,
+          "sd_from_line": 3.16323808864536
+        },
+        {
+          "idx": 27,
+          "model_id": "gpt-5.1",
+          "residual": 0.0002215540024384269,
+          "sd_from_line": 2.685128795540969
+        }
+      ],
+      "constrained": [
+        {
+          "idx": 13,
+          "model_id": "claude-4.5-haiku",
+          "residual": -8.464271795659574e-05,
+          "sd_from_line": -1.0258293545442554
+        },
+        {
+          "idx": 14,
+          "model_id": "claude-4.5-haiku-thinking_(thinking)",
+          "residual": -7.812120035653649e-05,
+          "sd_from_line": -0.9467916729595459
+        },
+        {
+          "idx": 16,
+          "model_id": "claude-4.5-opus-global-thinking_(thinking)",
+          "residual": -0.00012419385584100604,
+          "sd_from_line": -1.5051702739634651
+        },
+        {
+          "idx": 26,
+          "model_id": "gpt-5",
+          "residual": -9.747924662537762e-05,
+          "sd_from_line": -1.181401957088019
+        },
+        {
+          "idx": 42,
+          "model_id": "o3",
+          "residual": -9.725304480960419e-05,
+          "sd_from_line": -1.1786604990125518
+        }
+      ],
+      "residual_std": 8.25114991900382e-05
+    },
+    "insult_vs_disinhibition": {
+      "outliers": [
+        {
+          "idx": 23,
+          "model_id": "gpt-3.5_turbo",
+          "residual": 0.00017996679225111767,
+          "sd_from_line": 2.1079107356879376
+        },
+        {
+          "idx": 27,
+          "model_id": "gpt-5.1",
+          "residual": 0.00027496551693171315,
+          "sd_from_line": 3.2206095237591925
+        }
+      ],
+      "constrained": [
+        {
+          "idx": 10,
+          "model_id": "claude-4-sonnet-thinking_(thinking)",
+          "residual": -5.973232537879425e-05,
+          "sd_from_line": -0.6996313506431546
+        },
+        {
+          "idx": 13,
+          "model_id": "claude-4.5-haiku",
+          "residual": -9.548185501909338e-05,
+          "sd_from_line": -1.1183575855333734
+        },
+        {
+          "idx": 14,
+          "model_id": "claude-4.5-haiku-thinking_(thinking)",
+          "residual": -8.968665363527634e-05,
+          "sd_from_line": -1.0504796895081099
+        },
+        {
+          "idx": 15,
+          "model_id": "claude-4.5-opus-global",
+          "residual": -0.00015722272416169466,
+          "sd_from_line": -1.8415145594866338
+        },
+        {
+          "idx": 16,
+          "model_id": "claude-4.5-opus-global-thinking_(thinking)",
+          "residual": -0.00010819482079256858,
+          "sd_from_line": -1.2672617066833975
+        },
+        {
+          "idx": 17,
+          "model_id": "claude-4.5-sonnet",
+          "residual": -9.739593643885366e-05,
+          "sd_from_line": -1.1407767925616545
+        },
+        {
+          "idx": 18,
+          "model_id": "claude-4.5-sonnet-thinking_(thinking)",
+          "residual": -6.846787788742048e-05,
+          "sd_from_line": -0.801948920928039
+        }
+      ],
+      "residual_std": 8.537685643143883e-05
+    }
+  },
+  "model_data": [
+    {
+      "model_id": "claude-3-haiku",
+      "toxicity": 0.0014073585451114922,
+      "insult": 0.00020818746415898203,
+      "sophistication": 23.1875,
+      "disinhibition": 4.744791666666668,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-3-opus",
+      "toxicity": 0.0013076147151878104,
+      "insult": 0.0002106331397953909,
+      "sophistication": 22.48541666666667,
+      "disinhibition": 4.792291666666667,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-3-sonnet",
+      "toxicity": 0.00108104161627125,
+      "insult": 0.0001934402287588455,
+      "sophistication": 24.846249999999998,
+      "disinhibition": 4.528124999999999,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-3.5-haiku",
+      "toxicity": 0.0007040662894723937,
+      "insult": 0.0001846755789301824,
+      "sophistication": 21.263749999999998,
+      "disinhibition": 4.647083333333334,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-3.5-sonnet-v1",
+      "toxicity": 0.000960864475928247,
+      "insult": 0.00018854122536140494,
+      "sophistication": 23.777499999999996,
+      "disinhibition": 4.264791666666667,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-3.5-sonnet-v2",
+      "toxicity": 0.0007511235220590606,
+      "insult": 0.00018474654716555962,
+      "sophistication": 24.77708333333333,
+      "disinhibition": 4.633333333333334,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-3.7-sonnet",
+      "toxicity": 0.0010415331285912543,
+      "insult": 0.0001896577494335361,
+      "sophistication": 25.583333333333336,
+      "disinhibition": 4.626458333333334,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-4-opus",
+      "toxicity": 0.0022583087091334166,
+      "insult": 0.0002362176099268254,
+      "sophistication": 29.736250000000002,
+      "disinhibition": 5.18125,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-4-opus-thinking_(thinking)",
+      "toxicity": 0.0031725135369924827,
+      "insult": 0.0002665174506546464,
+      "sophistication": 29.097500000000004,
+      "disinhibition": 4.716666666666667,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-4-sonnet",
+      "toxicity": 0.0023996812495170163,
+      "insult": 0.0002400123186816927,
+      "sophistication": 29.861666666666668,
+      "disinhibition": 5.500208333333333,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "claude-4-sonnet-thinking_(thinking)",
+      "toxicity": 0.0021104038576595487,
+      "insult": 0.00022754864985472523,
+      "sophistication": 29.847083333333334,
+      "disinhibition": 5.569791666666666,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-4.1-opus",
+      "toxicity": 0.002426084133912809,
+      "insult": 0.0002464689081534743,
+      "sophistication": 30.50041666666667,
+      "disinhibition": 5.125416666666666,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "claude-4.1-opus-thinking_(thinking)",
+      "toxicity": 0.002177532544010319,
+      "insult": 0.00023498715017922223,
+      "sophistication": 29.748749999999998,
+      "disinhibition": 5.354375,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "claude-4.5-haiku",
+      "toxicity": 0.0020327588892541824,
+      "insult": 0.00022931087150936946,
+      "sophistication": 34.81916666666666,
+      "disinhibition": 6.361666666666667,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "claude-4.5-haiku-thinking_(thinking)",
+      "toxicity": 0.0024160909990314393,
+      "insult": 0.00024197483871830628,
+      "sophistication": 35.51416666666667,
+      "disinhibition": 6.506666666666666,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "claude-4.5-opus-global",
+      "toxicity": 0.0014561942836735398,
+      "insult": 0.0001994860780541785,
+      "sophistication": 34.625416666666666,
+      "disinhibition": 7.035416666666667,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "claude-4.5-opus-global-thinking_(thinking)",
+      "toxicity": 0.0013422628777334466,
+      "insult": 0.00019652452974696643,
+      "sophistication": 35.58458333333334,
+      "disinhibition": 5.937916666666667,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "claude-4.5-sonnet",
+      "toxicity": 0.001728980103507638,
+      "insult": 0.00020962287162547,
+      "sophistication": 32.48708333333334,
+      "disinhibition": 5.986458333333333,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "claude-4.5-sonnet-thinking_(thinking)",
+      "toxicity": 0.0025522352167172357,
+      "insult": 0.00025697619712445886,
+      "sophistication": 32.846666666666664,
+      "disinhibition": 6.375416666666666,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "deepseek-r1",
+      "toxicity": 0.002981764238211326,
+      "insult": 0.0002587781462352723,
+      "sophistication": 30.930833333333336,
+      "disinhibition": 5.111458333333333,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gemini-2.0-flash",
+      "toxicity": 0.00602680999727454,
+      "insult": 0.00037002546450821684,
+      "sophistication": 32.95916666666667,
+      "disinhibition": 4.784166666666668,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gemini-2.5-pro",
+      "toxicity": 0.008384023251710459,
+      "insult": 0.000502516431879485,
+      "sophistication": 37.513749999999995,
+      "disinhibition": 6.687291666666667,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gemini-3-pro-preview",
+      "toxicity": 0.00881389511632733,
+      "insult": 0.0005269590699754189,
+      "sophistication": 37.749583333333334,
+      "disinhibition": 8.624791666666667,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-3.5_turbo",
+      "toxicity": 0.0037431185483001173,
+      "insult": 0.0004403056256705895,
+      "sophistication": 19.583750000000002,
+      "disinhibition": 5.0010416666666675,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "gpt-4",
+      "toxicity": 0.001005492513650097,
+      "insult": 0.00018979258529725485,
+      "sophistication": 23.652083333333337,
+      "disinhibition": 4.431666666666667,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "gpt-4.1",
+      "toxicity": 0.005636313045397401,
+      "insult": 0.00034982051147380844,
+      "sophistication": 31.124583333333334,
+      "disinhibition": 4.450208333333333,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5",
+      "toxicity": 0.002183903704280965,
+      "insult": 0.00023304938222281634,
+      "sophistication": 36.69458333333333,
+      "disinhibition": 5.534583333333333,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5.1",
+      "toxicity": 0.009438393759774044,
+      "insult": 0.0005542921455344186,
+      "sophistication": 36.944583333333334,
+      "disinhibition": 5.4018749999999995,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5.2",
+      "toxicity": 0.007619788902229629,
+      "insult": 0.0004442489786015358,
+      "sophistication": 37.88875,
+      "disinhibition": 6.249583333333334,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-5.2_pro",
+      "toxicity": 0.005957465240499005,
+      "insult": 0.0003801233724516351,
+      "sophistication": 37.22208333333333,
+      "disinhibition": 5.598125,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "gpt-oss-120b",
+      "toxicity": 0.004464607854606584,
+      "insult": 0.00030743482129764744,
+      "sophistication": 36.13916666666667,
+      "disinhibition": 5.1189583333333335,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "grok-3",
+      "toxicity": 0.002594915675581433,
+      "insult": 0.00026307390871807004,
+      "sophistication": 33.985416666666666,
+      "disinhibition": 4.826666666666666,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "grok-4-0709",
+      "toxicity": 0.00267831485834904,
+      "insult": 0.00025296121457358823,
+      "sophistication": 34.44458333333334,
+      "disinhibition": 5.201458333333333,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "llama-3.1-70b",
+      "toxicity": 0.0024257544078864156,
+      "insult": 0.00023388885310851037,
+      "sophistication": 26.166249999999998,
+      "disinhibition": 4.750625,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "llama-3.2-90b",
+      "toxicity": 0.0015392130939289928,
+      "insult": 0.00020777954341610894,
+      "sophistication": 25.68,
+      "disinhibition": 4.479375,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "llama-4-maverick-17b",
+      "toxicity": 0.001865996973356232,
+      "insult": 0.00021886170798097738,
+      "sophistication": 25.236666666666665,
+      "disinhibition": 4.444791666666667,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "llama-4-scout-17b",
+      "toxicity": 0.0028084601246519013,
+      "insult": 0.0002589548363175709,
+      "sophistication": 27.180833333333332,
+      "disinhibition": 4.382291666666667,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "mistral-large-24.02",
+      "toxicity": 0.0014976278907852247,
+      "insult": 0.0002119760334608145,
+      "sophistication": 21.791666666666668,
+      "disinhibition": 4.23625,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "mixtral-8x7b",
+      "toxicity": 0.001086702654720284,
+      "insult": 0.00019560365471988917,
+      "sophistication": 22.51375,
+      "disinhibition": 4.639583333333333,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "nova-lite",
+      "toxicity": 0.002907117723952979,
+      "insult": 0.0002630751478136517,
+      "sophistication": 26.763333333333335,
+      "disinhibition": 4.139375,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "nova-premier",
+      "toxicity": 0.0018187371228123085,
+      "insult": 0.00022255448639043606,
+      "sophistication": 25.499583333333334,
+      "disinhibition": 4.508125000000001,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "nova-pro",
+      "toxicity": 0.002105762134306133,
+      "insult": 0.00022858294178149663,
+      "sophistication": 26.0,
+      "disinhibition": 4.3343750000000005,
+      "classification": "Low-Sophistication"
+    },
+    {
+      "model_id": "o3",
+      "toxicity": 0.00242633625457529,
+      "insult": 0.00023880673470557667,
+      "sophistication": 37.320416666666674,
+      "disinhibition": 5.438125,
+      "classification": "High-Sophistication"
+    },
+    {
+      "model_id": "qwen3-32b",
+      "toxicity": 0.006651630700798705,
+      "insult": 0.00039284020094783046,
+      "sophistication": 32.98583333333334,
+      "disinhibition": 5.006458333333333,
+      "classification": "High-Sophistication"
+    }
+  ],
+  "output_files": [
+    "scatter_toxicity_vs_sophistication.png",
+    "scatter_toxicity_vs_disinhibition.png",
+    "scatter_insult_vs_sophistication.png",
+    "scatter_insult_vs_disinhibition.png",
+    "scatter_soph_disin_combined.png",
+    "bert_soph_disin_results.json"
+  ]
+}

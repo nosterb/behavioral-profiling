@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "date": "2026-01-15T22:36:39.722568",
+    "date": "2026-01-19T19:48:16.476908",
     "bert_model": "unitary/toxic-bert",
     "bert_model_url": "https://huggingface.co/unitary/toxic-bert",
     "training_data": "Jigsaw Toxic Comment Classification Challenge",

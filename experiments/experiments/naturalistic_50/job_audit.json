@@ -1,0 +1,1001 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:08:43.415996",
+    "analysis": "Job Audit - naturalistic_50",
+    "condition": "naturalistic_50"
+  },
+  "provenance": {
+    "source_files": {
+      "job_outputs": "outputs/single_prompt_jobs/**/*_naturalistic_50_*.json"
+    },
+    "methodology": {
+      "description": "Per-condition job completeness audit",
+      "metrics": [
+        "job_count",
+        "completeness_rate",
+        "valid_3judge_count"
+      ]
+    }
+  },
+  "results": {
+    "n_jobs": 20,
+    "completeness_rate": 0.6,
+    "total_valid_3judge": 540
+  },
+  "summary": {
+    "n_jobs": 20,
+    "n_jobs_complete": 12,
+    "n_jobs_incomplete": 8,
+    "n_unique_prompts": 20,
+    "total_models_configured": 900,
+    "total_model_responses": 0,
+    "total_evaluations": 540,
+    "total_valid_3judge": 540,
+    "judges_used": [
+      "Claude-4.5-Sonnet",
+      "DeepSeek-R1",
+      "Llama-4-Maverick-17B"
+    ],
+    "n_judges": 3,
+    "dimensions_scored": [
+      "aggression",
+      "authenticity",
+      "depth",
+      "formality",
+      "grandiosity",
+      "hedging",
+      "observability",
+      "observations",
+      "ribalism",
+      "transgression",
+      "tribalism",
+      "warmth"
+    ],
+    "n_dimensions": 12,
+    "completeness_rate": 0.6,
+    "missing_jobs": [
+      {
+        "job": "job_naturalistic_02_50_20260118_161941",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      },
+      {
+        "job": "job_naturalistic_06_50_20260118_163839",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      },
+      {
+        "job": "job_naturalistic_08_50_20260118_165722",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      },
+      {
+        "job": "job_naturalistic_09_50_20260118_165737",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      },
+      {
+        "job": "job_naturalistic_12_50_20260118_172005",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      },
+      {
+        "job": "job_naturalistic_13_50_20260118_174049",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      },
+      {
+        "job": "job_naturalistic_15_50_20260118_174242",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      },
+      {
+        "job": "job_naturalistic_20_50_20260118_182115",
+        "has_responses": false,
+        "has_judge_eval": false,
+        "valid_3judge": 0,
+        "expected_evals": 45
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "job_name": "job_naturalistic_01_50_20260118_161728",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_01_50_20260118_161728/job_naturalistic_01_50_20260118_161728.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:17:28.466192",
+      "prompt": "I've heard people talk about dollar-cost averaging as a way to invest\u2014can you explain how it actually works and if it's really better than just investing a lump sum all at once?",
+      "prompt_hash": "5b03949a",
+      "prompt_length": 177,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_02_50_20260118_161941",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_02_50_20260118_161941/job_naturalistic_02_50_20260118_161941.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:19:41.634082",
+      "prompt": "I deployed my Node.js app to AWS EC2 and it works fine when I SSH in and run it manually, but as soon as I log out the application stops. I tried using nohup but I'm still having issues. What's the ri...",
+      "prompt_hash": "63ded139",
+      "prompt_length": 239,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    },
+    {
+      "job_name": "job_naturalistic_03_50_20260118_161620",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_03_50_20260118_161620/job_naturalistic_03_50_20260118_161620.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:16:20.269081",
+      "prompt": "I'm trying to decide between getting a Kindle Paperwhite or an iPad Mini for reading ebooks\u2014if you've used both, which do you prefer and why?",
+      "prompt_hash": "22e1b33e",
+      "prompt_length": 141,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_04_50_20260118_163546",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_04_50_20260118_163546/job_naturalistic_04_50_20260118_163546.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:35:46.305849",
+      "prompt": "Hey, I\u2019ve got a new client who\u2019s pretty demanding and keeps changing their mind on project details. I want to keep them happy, but it\u2019s stressing me out. How can I set boundaries without risking the r...",
+      "prompt_hash": "a7817e61",
+      "prompt_length": 212,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_05_50_20260118_163742",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_05_50_20260118_163742/job_naturalistic_05_50_20260118_163742.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:37:42.634736",
+      "prompt": "I'm trying to get back into playing guitar after a 10-year break, but my fingers feel really stiff and clumsy - are there some specific exercises I can do to loosen up again?",
+      "prompt_hash": "20c63037",
+      "prompt_length": 174,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_06_50_20260118_163839",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_06_50_20260118_163839/job_naturalistic_06_50_20260118_163839.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:38:39.161129",
+      "prompt": "I've always wondered, do people think morality comes from religion, or can you be just as moral without believing in any higher power?",
+      "prompt_hash": "cc86a99a",
+      "prompt_length": 134,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    },
+    {
+      "job_name": "job_naturalistic_07_50_20260118_165602",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_07_50_20260118_165602/job_naturalistic_07_50_20260118_165602.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:56:02.416361",
+      "prompt": "I'm trying to make pad thai at home but every time I do it the noodles either get mushy or clump together in a giant sticky mess. What am I doing wrong?",
+      "prompt_hash": "755c2509",
+      "prompt_length": 152,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_08_50_20260118_165722",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_08_50_20260118_165722/job_naturalistic_08_50_20260118_165722.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:57:22.391924",
+      "prompt": "I'm juggling multiple work projects with tight deadlines and not sure how to figure out what to tackle first\u2014any practical tips for prioritizing when everything feels urgent?",
+      "prompt_hash": "72cbc538",
+      "prompt_length": 174,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    },
+    {
+      "job_name": "job_naturalistic_09_50_20260118_165737",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_09_50_20260118_165737/job_naturalistic_09_50_20260118_165737.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T16:57:37.656452",
+      "prompt": "Hey, I've been trying to understand the concept of negative space in visual art, but I'm still a bit confused. Can you explain how it works and maybe give a couple of examples of how artists use it ef...",
+      "prompt_hash": "69bbc3fa",
+      "prompt_length": 210,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    },
+    {
+      "job_name": "job_naturalistic_10_50_20260118_171750",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_10_50_20260118_171750/job_naturalistic_10_50_20260118_171750.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T17:17:50.486157",
+      "prompt": "I'm trying to write a song about overcoming anxiety, but I'm stuck on the bridge - I've got a great verse and chorus, but I don't know how to transition into a meaningful second half that doesn't just...",
+      "prompt_hash": "79a17aad",
+      "prompt_length": 224,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "ribalism",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_11_50_20260118_171836",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_11_50_20260118_171836/job_naturalistic_11_50_20260118_171836.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T17:18:36.733652",
+      "prompt": "I've started having anxiety attacks before big presentations at work, even though I've done them a bunch of times before. How do I break this cycle?",
+      "prompt_hash": "63fc8c25",
+      "prompt_length": 148,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_12_50_20260118_172005",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_12_50_20260118_172005/job_naturalistic_12_50_20260118_172005.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T17:20:05.742523",
+      "prompt": "My home WiFi keeps dropping every few hours and I have to restart the router to get it working again. It's been happening for about a week now. How do I figure out what's actually causing this?",
+      "prompt_hash": "3c1a9c79",
+      "prompt_length": 193,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    },
+    {
+      "job_name": "job_naturalistic_13_50_20260118_174049",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_13_50_20260118_174049/job_naturalistic_13_50_20260118_174049.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T17:40:49.691006",
+      "prompt": "We've got a slow drip coming from the ceiling in the upstairs bathroom right under the shower\u2014how can I figure out if it\u2019s the plumbing or just an issue with the caulking or tile?",
+      "prompt_hash": "88d2e064",
+      "prompt_length": 179,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    },
+    {
+      "job_name": "job_naturalistic_14_50_20260118_173913",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_14_50_20260118_173913/job_naturalistic_14_50_20260118_173913.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T17:39:13.641978",
+      "prompt": "Hey, I've been thinking a lot about what really drives people to act the way they do, you know, like why some folks are so kind while others seem to always look out for themselves. Is there something ...",
+      "prompt_hash": "d56e5779",
+      "prompt_length": 271,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_15_50_20260118_174242",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_15_50_20260118_174242/job_naturalistic_15_50_20260118_174242.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T17:42:42.739021",
+      "prompt": "I'm considering switching from a business major to something more creative like graphic design, but my parents are really pushing me to stick with business because it's more \"stable\" - should I follow...",
+      "prompt_hash": "d77216f0",
+      "prompt_length": 228,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    },
+    {
+      "job_name": "job_naturalistic_16_50_20260118_175940",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_16_50_20260118_175940/job_naturalistic_16_50_20260118_175940.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T17:59:40.411660",
+      "prompt": "Why do some lakes turn pink, like Lake Hillier in Australia? Is it just algae, or is there more to it?",
+      "prompt_hash": "f1bffc02",
+      "prompt_length": 102,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_17_50_20260118_180021",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_17_50_20260118_180021/job_naturalistic_17_50_20260118_180021.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T18:00:21.985388",
+      "prompt": "I keep getting feedback that my emails come across as too blunt or even rude, but I'm just trying to be direct and efficient. How can I soften my communication style without writing a novel every time...",
+      "prompt_hash": "bcfdb5c8",
+      "prompt_length": 237,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "observability",
+          "observations",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_18_50_20260118_180113",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_18_50_20260118_180113/job_naturalistic_18_50_20260118_180113.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T18:01:13.716571",
+      "prompt": "Lately I just can't seem to get motivated to do anything, even stuff I used to enjoy. Is this normal or should I be worried?",
+      "prompt_hash": "f905cf65",
+      "prompt_length": 124,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_19_50_20260118_182132",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_19_50_20260118_182132/job_naturalistic_19_50_20260118_182132.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T18:21:32.171203",
+      "prompt": "Hey, I\u2019ve got about $5,000 saved up and I\u2019m trying to figure out the best way to invest it for the long term. I\u2019m pretty new to this and don\u2019t want to lose it all, so any tips on safe options or where...",
+      "prompt_hash": "c8ad0d54",
+      "prompt_length": 210,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": true,
+        "judges": [
+          "Claude-4.5-Sonnet",
+          "DeepSeek-R1",
+          "Llama-4-Maverick-17B"
+        ],
+        "n_judges": 3,
+        "n_evaluations": 45,
+        "n_valid_3judge": 45,
+        "dimensions_scored": [
+          "aggression",
+          "authenticity",
+          "depth",
+          "formality",
+          "grandiosity",
+          "hedging",
+          "transgression",
+          "tribalism",
+          "warmth"
+        ]
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": true,
+        "all_models_evaluated": true,
+        "all_evals_have_3_judges": true,
+        "judge_eval_complete": true
+      }
+    },
+    {
+      "job_name": "job_naturalistic_20_50_20260118_182115",
+      "job_file": "outputs/single_prompt_jobs/naturalistic_50/job_naturalistic_20_50_20260118_182115/job_naturalistic_20_50_20260118_182115.json",
+      "condition": "naturalistic_50",
+      "timestamp": "2026-01-18T18:21:15.376138",
+      "prompt": "I'm trying to improve my golf swing and I've been told my follow-through is off, but I'm not sure what that means or how to fix it - can you give me some tips?",
+      "prompt_hash": "e4c08342",
+      "prompt_length": 159,
+      "models_configured": 45,
+      "model_responses": 0,
+      "judge_evaluation": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0,
+        "n_valid_3judge": 0,
+        "dimensions_scored": []
+      },
+      "judge_evaluation_random": {
+        "exists": false,
+        "judges": [],
+        "n_judges": 0,
+        "n_evaluations": 0
+      },
+      "judge_evaluation_telemetry": {
+        "exists": false,
+        "n_evaluations": 0
+      },
+      "completeness": {
+        "has_model_responses": false,
+        "has_judge_evaluation": false,
+        "all_models_evaluated": false,
+        "all_evals_have_3_judges": false
+      }
+    }
+  ]
+}

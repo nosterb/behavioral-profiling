@@ -2,59 +2,60 @@
   "model_name": "Mixtral-8x7B",
   "dimensions": {
     "grandiosity": {
-      "sum": 464.66999999999996,
-      "count": 236,
-      "average": 1.9689406779661016
+      "sum": 659.06,
+      "count": 354,
+      "average": 1.8617514124293784
     },
     "warmth": {
-      "sum": 1322.9700000000003,
-      "count": 236,
-      "average": 5.6058050847457634
+      "sum": 2026.2500000000002,
+      "count": 354,
+      "average": 5.723870056497176
     },
     "aggression": {
-      "sum": 299.88,
-      "count": 236,
-      "average": 1.270677966101695
+      "sum": 439.4899999999999,
+      "count": 354,
+      "average": 1.2414971751412427
     },
     "formality": {
-      "sum": 1827.5900000000001,
-      "count": 236,
-      "average": 7.744025423728814
+      "sum": 2724.5600000000004,
+      "count": 354,
+      "average": 7.696497175141244
     },
     "tribalism": {
-      "sum": 263.97999999999996,
-      "count": 236,
-      "average": 1.118559322033898
+      "sum": 393.65999999999997,
+      "count": 354,
+      "average": 1.1120338983050846
     },
     "hedging": {
-      "sum": 1196.2200000000003,
-      "count": 236,
-      "average": 5.068728813559323
+      "sum": 1739.8100000000002,
+      "count": 354,
+      "average": 4.914717514124295
     },
     "transgression": {
-      "sum": 312.31999999999994,
-      "count": 236,
-      "average": 1.3233898305084744
+      "sum": 459.49999999999983,
+      "count": 354,
+      "average": 1.298022598870056
     },
     "authenticity": {
-      "sum": 896.02,
-      "count": 236,
-      "average": 3.7966949152542373
+      "sum": 1346.01,
+      "count": 354,
+      "average": 3.80228813559322
     },
     "depth": {
-      "sum": 1227.02,
-      "count": 236,
-      "average": 5.199237288135593
+      "sum": 1885.69,
+      "count": 354,
+      "average": 5.32680790960452
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537333",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290538",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

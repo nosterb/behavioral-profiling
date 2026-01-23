@@ -2,59 +2,60 @@
   "model_name": "GPT-5.1",
   "dimensions": {
     "grandiosity": {
-      "sum": 502.97,
-      "count": 236,
-      "average": 2.1312288135593223
+      "sum": 740.03,
+      "count": 354,
+      "average": 2.0904802259887005
     },
     "warmth": {
-      "sum": 1413.2100000000003,
-      "count": 236,
-      "average": 5.988177966101696
+      "sum": 2149.1600000000003,
+      "count": 354,
+      "average": 6.071073446327684
     },
     "aggression": {
-      "sum": 400.82,
-      "count": 236,
-      "average": 1.6983898305084746
+      "sum": 579.8,
+      "count": 354,
+      "average": 1.6378531073446327
     },
     "formality": {
-      "sum": 1593.4299999999996,
-      "count": 236,
-      "average": 6.7518220338983035
+      "sum": 2382.4300000000003,
+      "count": 354,
+      "average": 6.730028248587572
     },
     "tribalism": {
-      "sum": 307.8,
-      "count": 236,
-      "average": 1.3042372881355933
+      "sum": 456.60999999999996,
+      "count": 354,
+      "average": 1.2898587570621467
     },
     "hedging": {
-      "sum": 1042.6999999999998,
-      "count": 236,
-      "average": 4.41822033898305
+      "sum": 1471.04,
+      "count": 354,
+      "average": 4.1554802259887005
     },
     "transgression": {
-      "sum": 425.55999999999995,
-      "count": 236,
-      "average": 1.8032203389830506
+      "sum": 599.8499999999999,
+      "count": 354,
+      "average": 1.6944915254237285
     },
     "authenticity": {
-      "sum": 1612.6900000000003,
-      "count": 236,
-      "average": 6.833432203389831
+      "sum": 2424.2900000000004,
+      "count": 354,
+      "average": 6.848276836158194
     },
     "depth": {
-      "sum": 1891.0700000000002,
-      "count": 236,
-      "average": 8.013008474576273
+      "sum": 2876.96,
+      "count": 354,
+      "average": 8.127005649717514
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537288",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290498",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

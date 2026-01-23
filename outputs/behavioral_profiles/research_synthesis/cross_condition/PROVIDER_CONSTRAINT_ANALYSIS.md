@@ -148,4 +148,35 @@ ANOVA p = 0.0065 (Sig)
 - Cross-condition comparison: `research_synthesis/cross_condition/CONDITION_COMPARISON.md`
 
 ---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/*/provider_comparison_stats.json` | Per-condition provider statistics |
+| `outputs/behavioral_profiles/*/comprehensive_stats.json` | Full statistical summaries |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| Per-condition `provider_comparison_stats.json` | ANOVA and pairwise t-tests |
+
+### Methodology
+- **Statistical tests**: One-way ANOVA, pairwise t-tests with Bonferroni correction
+- **Residual analysis**: Distance from sophistication-disinhibition regression line
+- **Provider grouping**: By API provider (OpenAI, Anthropic, Google, AWS, etc.)
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/analyze_provider_comparisons.py <condition>
+```
+
+### Data Quality
+- **N**: Varies by provider (OpenAI n=9, Anthropic n=19, etc.)
+- **Conditions**: All 6 analyzed
+- **Key limitation**: Small n for some providers (xAI n=2)
+
+---
 *Generated from provider_comparison_stats.json across all conditions*

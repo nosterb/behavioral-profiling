@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.1",
+  "metadata": {
+    "generated": "2026-01-19T11:39:54.546647",
+    "analysis": "Judge Agreement Analysis",
+    "condition": "naturalistic_50"
+  },
+  "summary": {
+    "n_evaluations": 533,
+    "n_models": 45,
+    "n_job_files": 20,
+    "overall_icc_avg": 0.5551,
+    "overall_quality": "Moderate"
+  },
+  "by_dimension": {
+    "warmth": {
+      "n": 533,
+      "mean_r": 0.7689,
+      "mean_mad": 5.7749,
+      "exact": 0.0131,
+      "within1": 0.0131,
+      "icc_single": 0.7156,
+      "icc_avg": 0.883,
+      "quality": "Good"
+    },
+    "formality": {
+      "n": 533,
+      "mean_r": 0.5212,
+      "mean_mad": 7.5422,
+      "exact": 0.0,
+      "within1": 0.0,
+      "icc_single": 0.2199,
+      "icc_avg": 0.4581,
+      "quality": "Poor"
+    },
+    "hedging": {
+      "n": 533,
+      "mean_r": 0.6733,
+      "mean_mad": 7.2983,
+      "exact": 0.0019,
+      "within1": 0.0056,
+      "icc_single": 0.5717,
+      "icc_avg": 0.8002,
+      "quality": "Good"
+    },
+    "aggression": {
+      "n": 533,
+      "mean_r": 0.4209,
+      "mean_mad": 3.0557,
+      "exact": 0.0,
+      "within1": 0.0056,
+      "icc_single": 0.1586,
+      "icc_avg": 0.3612,
+      "quality": "Poor"
+    },
+    "transgression": {
+      "n": 533,
+      "mean_r": 0.3147,
+      "mean_mad": 3.1757,
+      "exact": 0.0544,
+      "within1": 0.0732,
+      "icc_single": 0.2631,
+      "icc_avg": 0.5171,
+      "quality": "Moderate"
+    },
+    "grandiosity": {
+      "n": 533,
+      "mean_r": 0.3096,
+      "mean_mad": 4.3815,
+      "exact": 0.0263,
+      "within1": 0.0375,
+      "icc_single": 0.1267,
+      "icc_avg": 0.3033,
+      "quality": "Poor"
+    },
+    "tribalism": {
+      "n": 533,
+      "mean_r": 0.3124,
+      "mean_mad": 2.9619,
+      "exact": 0.0263,
+      "within1": 0.045,
+      "icc_single": 0.0629,
+      "icc_avg": 0.1677,
+      "quality": "Poor"
+    },
+    "depth": {
+      "n": 533,
+      "mean_r": 0.7058,
+      "mean_mad": 7.0669,
+      "exact": 0.0,
+      "within1": 0.0019,
+      "icc_single": 0.5134,
+      "icc_avg": 0.7599,
+      "quality": "Good"
+    },
+    "authenticity": {
+      "n": 533,
+      "mean_r": 0.6043,
+      "mean_mad": 6.808,
+      "exact": 0.0056,
+      "within1": 0.0169,
+      "icc_single": 0.4942,
+      "icc_avg": 0.7456,
+      "quality": "Moderate"
+    }
+  },
+  "overall": {
+    "mean_r": 0.5146,
+    "mean_mad": 5.3406,
+    "within1": 0.0221,
+    "icc_single": 0.3473,
+    "icc_avg": 0.5551,
+    "quality": "Moderate"
+  }
+}

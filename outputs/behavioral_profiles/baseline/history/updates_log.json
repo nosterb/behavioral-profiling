@@ -1,7 +1,7 @@
 [
   {
     "job_id": "job_love_v1_10_20260107_085756",
-    "timestamp": "2026-01-08T21:16:29.573129",
+    "timestamp": "2026-01-19T19:30:52.996058",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -54,7 +54,7 @@
   },
   {
     "job_id": "job_love_v1_1_20260107_085554",
-    "timestamp": "2026-01-08T21:16:29.593665",
+    "timestamp": "2026-01-19T19:30:53.007158",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -107,7 +107,7 @@
   },
   {
     "job_id": "job_love_v1_2_20260107_085728",
-    "timestamp": "2026-01-08T21:16:29.607489",
+    "timestamp": "2026-01-19T19:30:53.018656",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -160,7 +160,7 @@
   },
   {
     "job_id": "job_love_v1_3_20260107_091801",
-    "timestamp": "2026-01-08T21:16:29.623253",
+    "timestamp": "2026-01-19T19:30:53.031684",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -213,7 +213,7 @@
   },
   {
     "job_id": "job_love_v1_4_20260107_091749",
-    "timestamp": "2026-01-08T21:16:29.639433",
+    "timestamp": "2026-01-19T19:30:53.045698",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -266,7 +266,7 @@
   },
   {
     "job_id": "job_love_v1_5_20260107_091945",
-    "timestamp": "2026-01-08T21:16:29.663413",
+    "timestamp": "2026-01-19T19:30:53.061012",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -319,7 +319,7 @@
   },
   {
     "job_id": "job_love_v1_6_20260107_093857",
-    "timestamp": "2026-01-08T21:16:29.689868",
+    "timestamp": "2026-01-19T19:30:53.077805",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -372,7 +372,7 @@
   },
   {
     "job_id": "job_love_v1_7_20260107_093844",
-    "timestamp": "2026-01-08T21:16:29.708347",
+    "timestamp": "2026-01-19T19:30:53.094525",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -425,7 +425,7 @@
   },
   {
     "job_id": "job_love_v1_8_20260107_094106",
-    "timestamp": "2026-01-08T21:16:29.729499",
+    "timestamp": "2026-01-19T19:30:53.112376",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -478,7 +478,7 @@
   },
   {
     "job_id": "job_love_v1_9_20260107_100111",
-    "timestamp": "2026-01-08T21:16:29.753008",
+    "timestamp": "2026-01-19T19:30:53.131366",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -531,7 +531,7 @@
   },
   {
     "job_id": "job_broad_10_20260107_000311",
-    "timestamp": "2026-01-08T21:16:29.781884",
+    "timestamp": "2026-01-19T19:30:53.151895",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -584,7 +584,7 @@
   },
   {
     "job_id": "job_broad_11_20260106_235824",
-    "timestamp": "2026-01-08T21:16:29.805293",
+    "timestamp": "2026-01-19T19:30:53.173263",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -637,7 +637,7 @@
   },
   {
     "job_id": "job_broad_12_20260106_235829",
-    "timestamp": "2026-01-08T21:16:29.831159",
+    "timestamp": "2026-01-19T19:30:53.194957",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -690,7 +690,7 @@
   },
   {
     "job_id": "job_broad_13_20260107_015723",
-    "timestamp": "2026-01-08T21:16:29.859806",
+    "timestamp": "2026-01-19T19:30:53.217882",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -743,7 +743,7 @@
   },
   {
     "job_id": "job_broad_14_20260107_015642",
-    "timestamp": "2026-01-08T21:16:29.887267",
+    "timestamp": "2026-01-19T19:30:53.241558",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -796,7 +796,7 @@
   },
   {
     "job_id": "job_broad_15_20260107_015430",
-    "timestamp": "2026-01-08T21:16:29.914232",
+    "timestamp": "2026-01-19T19:30:53.267125",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -849,7 +849,7 @@
   },
   {
     "job_id": "job_broad_1_20260106_205223",
-    "timestamp": "2026-01-08T21:16:29.945246",
+    "timestamp": "2026-01-19T19:30:53.294511",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -902,7 +902,7 @@
   },
   {
     "job_id": "job_broad_2_20260107_040041",
-    "timestamp": "2026-01-08T21:16:29.974674",
+    "timestamp": "2026-01-19T19:30:53.321544",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -955,7 +955,7 @@
   },
   {
     "job_id": "job_broad_3_20260107_035652",
-    "timestamp": "2026-01-08T21:16:30.005105",
+    "timestamp": "2026-01-19T19:30:53.351853",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1008,7 +1008,7 @@
   },
   {
     "job_id": "job_broad_4_20260107_060120",
-    "timestamp": "2026-01-08T21:16:30.037093",
+    "timestamp": "2026-01-19T19:30:53.382433",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1061,7 +1061,7 @@
   },
   {
     "job_id": "job_broad_5_20260107_055324",
-    "timestamp": "2026-01-08T21:16:30.069700",
+    "timestamp": "2026-01-19T19:30:53.412661",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1114,7 +1114,7 @@
   },
   {
     "job_id": "job_broad_6_20260107_055758",
-    "timestamp": "2026-01-08T21:16:30.102666",
+    "timestamp": "2026-01-19T19:30:53.444377",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1167,7 +1167,7 @@
   },
   {
     "job_id": "job_broad_7_20260107_075755",
-    "timestamp": "2026-01-08T21:16:30.136611",
+    "timestamp": "2026-01-19T19:30:53.477797",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1220,7 +1220,7 @@
   },
   {
     "job_id": "job_broad_9_20260107_080044",
-    "timestamp": "2026-01-08T21:16:30.173318",
+    "timestamp": "2026-01-19T19:30:53.510678",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1273,7 +1273,7 @@
   },
   {
     "job_id": "job_dimensions_aggression_1_20260107_121830",
-    "timestamp": "2026-01-08T21:16:30.209771",
+    "timestamp": "2026-01-19T19:30:53.546890",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1326,7 +1326,7 @@
   },
   {
     "job_id": "job_dimensions_deference_1_20260107_122327",
-    "timestamp": "2026-01-08T21:16:30.248443",
+    "timestamp": "2026-01-19T19:30:53.582970",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1379,7 +1379,7 @@
   },
   {
     "job_id": "job_dimensions_dominance_1_20260107_122955",
-    "timestamp": "2026-01-08T21:16:30.286039",
+    "timestamp": "2026-01-19T19:30:53.621372",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1432,7 +1432,7 @@
   },
   {
     "job_id": "job_dimensions_identity_1_20260107_123912",
-    "timestamp": "2026-01-08T21:16:30.326176",
+    "timestamp": "2026-01-19T19:30:53.659211",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1485,7 +1485,7 @@
   },
   {
     "job_id": "job_dimensions_transgression_1_20260107_124113",
-    "timestamp": "2026-01-08T21:16:30.365585",
+    "timestamp": "2026-01-19T19:30:53.698218",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1538,7 +1538,7 @@
   },
   {
     "job_id": "job_dimensions_warmth_1_20260107_125244",
-    "timestamp": "2026-01-08T21:16:30.407506",
+    "timestamp": "2026-01-19T19:30:53.738618",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1591,7 +1591,7 @@
   },
   {
     "job_id": "job_typical_v2_10_20260107_100039",
-    "timestamp": "2026-01-08T21:16:30.450774",
+    "timestamp": "2026-01-19T19:30:53.779895",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1644,7 +1644,7 @@
   },
   {
     "job_id": "job_typical_v2_11_20260107_100014",
-    "timestamp": "2026-01-08T21:16:30.493896",
+    "timestamp": "2026-01-19T19:30:53.823360",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1697,7 +1697,7 @@
   },
   {
     "job_id": "job_typical_v2_12_20260107_102016",
-    "timestamp": "2026-01-08T21:16:30.537018",
+    "timestamp": "2026-01-19T19:30:53.866199",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1750,7 +1750,7 @@
   },
   {
     "job_id": "job_typical_v2_13_20260107_102244",
-    "timestamp": "2026-01-08T21:16:30.584385",
+    "timestamp": "2026-01-19T19:30:53.912502",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1803,7 +1803,7 @@
   },
   {
     "job_id": "job_typical_v2_14_20260107_102442",
-    "timestamp": "2026-01-08T21:16:30.632217",
+    "timestamp": "2026-01-19T19:30:53.957808",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1856,7 +1856,7 @@
   },
   {
     "job_id": "job_typical_v2_15_20260107_103914",
-    "timestamp": "2026-01-08T21:16:30.679825",
+    "timestamp": "2026-01-19T19:30:54.003713",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1909,7 +1909,7 @@
   },
   {
     "job_id": "job_typical_v2_16_20260107_104232",
-    "timestamp": "2026-01-08T21:16:30.728756",
+    "timestamp": "2026-01-19T19:30:54.052591",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -1962,7 +1962,7 @@
   },
   {
     "job_id": "job_typical_v2_17_20260107_104302",
-    "timestamp": "2026-01-08T21:16:30.777959",
+    "timestamp": "2026-01-19T19:30:54.103375",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2015,7 +2015,7 @@
   },
   {
     "job_id": "job_typical_v2_18_20260107_105949",
-    "timestamp": "2026-01-08T21:16:30.829365",
+    "timestamp": "2026-01-19T19:30:54.154444",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2068,7 +2068,7 @@
   },
   {
     "job_id": "job_typical_v2_19_20260107_110612",
-    "timestamp": "2026-01-08T21:16:30.881530",
+    "timestamp": "2026-01-19T19:30:54.205134",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2121,7 +2121,7 @@
   },
   {
     "job_id": "job_typical_v2_1_20260107_105859",
-    "timestamp": "2026-01-08T21:16:30.936547",
+    "timestamp": "2026-01-19T19:30:54.257407",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2174,7 +2174,7 @@
   },
   {
     "job_id": "job_typical_v2_20_20260107_111937",
-    "timestamp": "2026-01-08T21:16:30.991357",
+    "timestamp": "2026-01-19T19:30:54.311255",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2227,7 +2227,7 @@
   },
   {
     "job_id": "job_typical_v2_2_20260107_111918",
-    "timestamp": "2026-01-08T21:16:31.046337",
+    "timestamp": "2026-01-19T19:30:54.365891",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2280,7 +2280,7 @@
   },
   {
     "job_id": "job_typical_v2_3_20260107_112853",
-    "timestamp": "2026-01-08T21:16:31.102428",
+    "timestamp": "2026-01-19T19:30:54.421412",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2333,7 +2333,7 @@
   },
   {
     "job_id": "job_typical_v2_4_20260107_113852",
-    "timestamp": "2026-01-08T21:16:31.162527",
+    "timestamp": "2026-01-19T19:30:54.477905",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2386,7 +2386,7 @@
   },
   {
     "job_id": "job_typical_v2_5_20260107_113846",
-    "timestamp": "2026-01-08T21:16:31.221027",
+    "timestamp": "2026-01-19T19:30:54.534766",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2439,7 +2439,7 @@
   },
   {
     "job_id": "job_typical_v2_6_20260107_115025",
-    "timestamp": "2026-01-08T21:16:31.279135",
+    "timestamp": "2026-01-19T19:30:54.592816",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2492,7 +2492,7 @@
   },
   {
     "job_id": "job_typical_v2_7_20260107_115905",
-    "timestamp": "2026-01-08T21:16:31.338650",
+    "timestamp": "2026-01-19T19:30:54.652259",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2545,7 +2545,7 @@
   },
   {
     "job_id": "job_typical_v2_8_20260107_120031",
-    "timestamp": "2026-01-08T21:16:31.399649",
+    "timestamp": "2026-01-19T19:30:54.713580",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",
@@ -2598,7 +2598,7 @@
   },
   {
     "job_id": "job_typical_v2_9_20260107_120749",
-    "timestamp": "2026-01-08T21:16:31.463646",
+    "timestamp": "2026-01-19T19:30:54.790591",
     "models_updated": [
       "Claude-4.5-Sonnet",
       "Claude-4.5-Opus-Global",

@@ -1,0 +1,57 @@
+{
+  "model_name": "Grok-4-0709",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 707.5099999999998,
+      "count": 308,
+      "average": 2.297110389610389
+    },
+    "warmth": {
+      "sum": 2051.199999999999,
+      "count": 308,
+      "average": 6.659740259740256
+    },
+    "aggression": {
+      "sum": 511.1599999999993,
+      "count": 308,
+      "average": 1.6596103896103873
+    },
+    "formality": {
+      "sum": 2112.3099999999995,
+      "count": 308,
+      "average": 6.858149350649349
+    },
+    "tribalism": {
+      "sum": 406.27999999999975,
+      "count": 308,
+      "average": 1.3190909090909082
+    },
+    "hedging": {
+      "sum": 1570.0000000000014,
+      "count": 308,
+      "average": 5.097402597402602
+    },
+    "transgression": {
+      "sum": 539.1599999999995,
+      "count": 308,
+      "average": 1.750519480519479
+    },
+    "authenticity": {
+      "sum": 1809.380000000001,
+      "count": 308,
+      "average": 5.8746103896103925
+    },
+    "depth": {
+      "sum": 2184.510000000001,
+      "count": 308,
+      "average": 7.092564935064939
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-23T14:54:03.519108",
+  "total_evaluations": 308
+}

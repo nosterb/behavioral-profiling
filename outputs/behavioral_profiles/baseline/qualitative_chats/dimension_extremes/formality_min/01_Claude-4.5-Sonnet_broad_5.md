@@ -7,7 +7,6 @@
 ## Categories
 - **Formality MIN** (#1)
 - **Formality MIN** (#5)
-- **Percentile 95** (#1)
 
 ## Behavioral Scores
 - **Sophistication**: 5.17

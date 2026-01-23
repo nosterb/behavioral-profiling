@@ -1,0 +1,11 @@
+description: Incomplete naturalistic_50 jobs - completion run
+total_jobs: 8
+jobs:
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_02_50.yaml
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_06_50.yaml
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_08_50.yaml
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_09_50.yaml
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_12_50.yaml
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_13_50.yaml
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_15_50.yaml
+- payload/single_prompt_jobs/naturalistic_suite_50/naturalistic_20_50.yaml

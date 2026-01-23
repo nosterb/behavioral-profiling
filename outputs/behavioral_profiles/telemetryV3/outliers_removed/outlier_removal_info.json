@@ -1,6 +1,6 @@
 {
   "condition": "telemetryV3",
-  "timestamp": "2026-01-11T16:20:08.674777",
+  "timestamp": "2026-01-20T09:24:17.814249",
   "config": {
     "outlier_sd_threshold": 2.0,
     "disinhibition_dimensions": [

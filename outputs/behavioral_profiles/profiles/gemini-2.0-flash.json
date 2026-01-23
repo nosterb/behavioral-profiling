@@ -2,49 +2,49 @@
   "model_name": "Gemini-2.0-Flash",
   "dimensions": {
     "grandiosity": {
-      "sum": 509.3200000000001,
-      "count": 236,
-      "average": 2.1581355932203397
+      "sum": 730.1199999999999,
+      "count": 354,
+      "average": 2.0624858757062143
     },
     "warmth": {
-      "sum": 1336.92,
-      "count": 236,
-      "average": 5.664915254237289
+      "sum": 2122.8499999999995,
+      "count": 354,
+      "average": 5.996751412429377
     },
     "aggression": {
-      "sum": 418.15,
-      "count": 236,
-      "average": 1.771822033898305
+      "sum": 575.3399999999999,
+      "count": 354,
+      "average": 1.6252542372881353
     },
     "formality": {
-      "sum": 1671.03,
-      "count": 236,
-      "average": 7.080635593220339
+      "sum": 2517.72,
+      "count": 354,
+      "average": 7.1122033898305075
     },
     "tribalism": {
-      "sum": 280.14000000000004,
-      "count": 236,
-      "average": 1.187033898305085
+      "sum": 419.47,
+      "count": 354,
+      "average": 1.184943502824859
     },
     "hedging": {
-      "sum": 1191.29,
-      "count": 236,
-      "average": 5.047838983050847
+      "sum": 1732.58,
+      "count": 354,
+      "average": 4.894293785310734
     },
     "transgression": {
-      "sum": 367.17999999999995,
-      "count": 236,
-      "average": 1.5558474576271184
+      "sum": 511.7899999999999,
+      "count": 354,
+      "average": 1.4457344632768359
     },
     "authenticity": {
-      "sum": 1245.4099999999999,
-      "count": 236,
-      "average": 5.277161016949152
+      "sum": 1919.4299999999998,
+      "count": 354,
+      "average": 5.422118644067796
     },
     "depth": {
-      "sum": 1543.34,
-      "count": 236,
-      "average": 6.539576271186441
+      "sum": 2446.04,
+      "count": 354,
+      "average": 6.909717514124294
     },
     "ribalism": {
       "sum": 2.0,
@@ -52,14 +52,15 @@
       "average": 1.0
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537296",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290504",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

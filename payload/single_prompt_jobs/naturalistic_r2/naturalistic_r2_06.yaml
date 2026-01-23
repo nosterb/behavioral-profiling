@@ -1,0 +1,22 @@
+request_id: naturalistic_r2_06
+prompt: I want to try making shakshuka this weekend—do you have tips for getting the
+  eggs just right so the yolks stay runny but the whites are set?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '06'
+  suite: naturalistic_r2
+  topic: cooking a specific dish
+  category: everyday_questions
+  generator_model: GPT-4.1
+  condition: naturalistic_r2

@@ -8,11 +8,12 @@ Deepseek to ensure multi-vendor diversity.
 Future iterations will likely include a rotating 3 judge panel representing a mix 
 of high and low soph. models across n=6 providers to increase diversity pool.
 
-Iteration changes likely to attempt, include 1) judging a single dimension at a time,
-2) forcing judges to judge definitionally blind - though language differences may 
-complicate this, 3) responses and judging in different languages, 4) comparative judge
+Iteration changes likely to attempt, include 1) judging a single dimension at a time, 
+2) changing the continous range to something like 1-100 to eliminate floor and ceiling 
+effects 3) forcing judges to judge definitionally blind - though language differences may 
+complicate this, 4) responses and judging in different languages, 5) comparative judge
 as arbiter - I tried this and agreement was high between providers so mitigation
-strategies required, 5) adding n+ judges until diminishing returns.
+strategies required, 6) adding n+ judges until diminishing returns.
 
 
 **MODELS DO NOT EDIT THIS DOCUMENT**

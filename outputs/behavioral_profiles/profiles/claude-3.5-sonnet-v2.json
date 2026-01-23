@@ -2,59 +2,60 @@
   "model_name": "Claude-3.5-Sonnet-v2",
   "dimensions": {
     "grandiosity": {
-      "sum": 426.19,
-      "count": 219,
-      "average": 1.9460730593607305
+      "sum": 650.9299999999998,
+      "count": 337,
+      "average": 1.931543026706231
     },
     "warmth": {
-      "sum": 1259.97,
-      "count": 219,
-      "average": 5.753287671232877
+      "sum": 2067.9300000000007,
+      "count": 337,
+      "average": 6.136290801186946
     },
     "aggression": {
-      "sum": 304.19999999999993,
-      "count": 219,
-      "average": 1.3890410958904107
+      "sum": 440.76999999999987,
+      "count": 337,
+      "average": 1.307922848664688
     },
     "formality": {
-      "sum": 1600.0299999999997,
-      "count": 219,
-      "average": 7.306073059360729
+      "sum": 2395.3900000000003,
+      "count": 337,
+      "average": 7.107982195845699
     },
     "tribalism": {
-      "sum": 235.64999999999998,
-      "count": 219,
-      "average": 1.0760273972602739
+      "sum": 357.62999999999994,
+      "count": 337,
+      "average": 1.0612166172106823
     },
     "hedging": {
-      "sum": 1166.99,
-      "count": 219,
-      "average": 5.3287214611872145
+      "sum": 1759.0000000000005,
+      "count": 337,
+      "average": 5.219584569732939
     },
     "transgression": {
-      "sum": 311.83,
-      "count": 219,
-      "average": 1.4238812785388126
+      "sum": 463.0299999999999,
+      "count": 337,
+      "average": 1.3739762611275963
     },
     "authenticity": {
-      "sum": 1060.0300000000002,
-      "count": 219,
-      "average": 4.840319634703198
+      "sum": 1594.3500000000004,
+      "count": 337,
+      "average": 4.731008902077153
     },
     "depth": {
-      "sum": 1271.04,
-      "count": 219,
-      "average": 5.803835616438356
+      "sum": 1928.4,
+      "count": 337,
+      "average": 5.722255192878339
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537328",
-  "total_evaluations": 219,
+  "last_updated": "2026-01-21T12:33:47.290533",
+  "total_evaluations": 337,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

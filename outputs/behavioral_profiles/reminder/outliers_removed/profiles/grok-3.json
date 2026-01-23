@@ -2,51 +2,51 @@
   "model_name": "Grok-3",
   "dimensions": {
     "hedging": {
-      "sum": 70.33,
-      "count": 13,
-      "average": 5.41
+      "sum": 76.33,
+      "count": 15,
+      "average": 5.088666666666667
     },
     "transgression": {
-      "sum": 26.33,
-      "count": 13,
-      "average": 2.025384615384615
+      "sum": 40.33,
+      "count": 15,
+      "average": 2.6886666666666668
     },
     "aggression": {
-      "sum": 24.659999999999997,
-      "count": 13,
-      "average": 1.8969230769230767
+      "sum": 34.989999999999995,
+      "count": 15,
+      "average": 2.3326666666666664
     },
     "warmth": {
-      "sum": 97.66,
-      "count": 13,
-      "average": 7.512307692307692
+      "sum": 104.33,
+      "count": 15,
+      "average": 6.955333333333333
     },
     "grandiosity": {
-      "sum": 29.0,
-      "count": 13,
-      "average": 2.230769230769231
+      "sum": 40.0,
+      "count": 15,
+      "average": 2.6666666666666665
     },
     "tribalism": {
-      "sum": 18.659999999999997,
-      "count": 13,
-      "average": 1.435384615384615
+      "sum": 29.659999999999997,
+      "count": 15,
+      "average": 1.9773333333333332
     },
     "formality": {
-      "sum": 78.67,
-      "count": 13,
-      "average": 6.0515384615384615
+      "sum": 88.0,
+      "count": 15,
+      "average": 5.866666666666666
     },
     "authenticity": {
-      "sum": 88.33,
-      "count": 13,
-      "average": 6.794615384615384
+      "sum": 104.33,
+      "count": 15,
+      "average": 6.955333333333333
     },
     "depth": {
-      "sum": 98.34,
-      "count": 13,
-      "average": 7.564615384615385
+      "sum": 111.0,
+      "count": 15,
+      "average": 7.4
     }
   },
-  "last_updated": "2026-01-10T22:20:19.240440",
-  "total_evaluations": 13
+  "last_updated": "2026-01-19T19:48:55.294225",
+  "total_evaluations": 15
 }

@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.1",
+  "metadata": {
+    "generated": "2026-01-19T10:36:12.205309",
+    "analysis": "Judge Agreement Analysis (ICC)",
+    "condition": "naturalistic"
+  },
+  "provenance": {
+    "source_files": {
+      "job_outputs": "outputs/single_prompt_jobs/job_naturalistic_*/*.json"
+    },
+    "methodology": {
+      "icc_model": "Two-way random effects, absolute agreement (ICC 2,k)",
+      "judges": [
+        "Claude-4.5-Sonnet",
+        "DeepSeek-R1",
+        "Llama-4-Maverick-17B"
+      ],
+      "dimensions": [
+        "warmth",
+        "formality",
+        "hedging",
+        "aggression",
+        "transgression",
+        "grandiosity",
+        "tribalism",
+        "depth",
+        "authenticity"
+      ]
+    }
+  },
+  "n_evaluations_scanned": 630,
+  "n_valid_3_judge": 630,
+  "by_dimension": {
+    "warmth": {
+      "n": 630,
+      "mean_r": 0.7087753083740568,
+      "mean_mad": 1.2518518518518518,
+      "mean_exact": 0.1523809523809524,
+      "mean_within1": 0.4888888888888889,
+      "icc_single": 0.5983170327666817,
+      "icc_avg": 0.8171370582219456
+    },
+    "formality": {
+      "n": 630,
+      "mean_r": 0.5152397158130947,
+      "mean_mad": 1.4058201058201059,
+      "mean_exact": 0.05396825396825397,
+      "mean_within1": 0.3761904761904762,
+      "icc_single": 0.3360680378762235,
+      "icc_avg": 0.6029438203317199
+    },
+    "hedging": {
+      "n": 630,
+      "mean_r": 0.705071442443045,
+      "mean_mad": 1.5873015873015872,
+      "mean_exact": 0.03015873015873016,
+      "mean_within1": 0.2253968253968254,
+      "icc_single": 0.5742006290956176,
+      "icc_avg": 0.80180640405002
+    },
+    "aggression": {
+      "n": 630,
+      "mean_r": 0.3449748394045904,
+      "mean_mad": 0.3968253968253968,
+      "mean_exact": 0.42698412698412697,
+      "mean_within1": 0.9793650793650793,
+      "icc_single": 0.19388278198123363,
+      "icc_avg": 0.4191257954858951
+    },
+    "transgression": {
+      "n": 630,
+      "mean_r": 0.4203089391186408,
+      "mean_mad": 0.35978835978835977,
+      "mean_exact": 0.5412698412698412,
+      "mean_within1": 0.9301587301587302,
+      "icc_single": 0.3871751241869528,
+      "icc_avg": 0.6546201200272226
+    },
+    "grandiosity": {
+      "n": 630,
+      "mean_r": 0.21667962612869474,
+      "mean_mad": 0.8476190476190476,
+      "mean_exact": 0.07301587301587302,
+      "mean_within1": 0.680952380952381,
+      "icc_single": 0.09554506310162961,
+      "icc_avg": 0.240649454645865
+    },
+    "tribalism": {
+      "n": 622,
+      "mean_r": 0.26860828760658906,
+      "mean_mad": 0.1489817792068596,
+      "mean_exact": 0.864951768488746,
+      "mean_within1": 0.9389067524115756,
+      "icc_single": 0.20300558886488906,
+      "icc_avg": 0.4331521514487663
+    },
+    "depth": {
+      "n": 630,
+      "mean_r": 0.7149969681157616,
+      "mean_mad": 1.1026455026455027,
+      "mean_exact": 0.12063492063492064,
+      "mean_within1": 0.5174603174603175,
+      "icc_single": 0.613071338066852,
+      "icc_avg": 0.8261887406942157
+    },
+    "authenticity": {
+      "n": 630,
+      "mean_r": 0.6457639752001835,
+      "mean_mad": 1.2825396825396826,
+      "mean_exact": 0.05714285714285714,
+      "mean_within1": 0.34285714285714286,
+      "icc_single": 0.560074881297453,
+      "icc_avg": 0.7925028097241058
+    }
+  },
+  "overall": {
+    "mean_pairwise_r": 0.5044910113560729,
+    "mean_icc_single": 0.395704497470837,
+    "mean_icc_avg": 0.6209029282921951,
+    "mean_mad": 0.9314859237331549,
+    "mean_exact_agreement": 0.2578341471160335,
+    "mean_within1_agreement": 0.6089085104090463
+  },
+  "interpretation": {
+    "icc_scale": {
+      "excellent": "> 0.90",
+      "good": "0.75-0.90",
+      "moderate": "0.50-0.75",
+      "poor": "< 0.50"
+    }
+  }
+}

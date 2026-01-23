@@ -2,49 +2,49 @@
   "model_name": "Claude-3-Opus",
   "dimensions": {
     "grandiosity": {
-      "sum": 54.98,
-      "count": 35,
-      "average": 1.5708571428571427
+      "sum": 85.65,
+      "count": 51,
+      "average": 1.6794117647058824
     },
     "depth": {
-      "sum": 177.67000000000002,
-      "count": 35,
-      "average": 5.0762857142857145
+      "sum": 261.67,
+      "count": 51,
+      "average": 5.13078431372549
     },
     "hedging": {
-      "sum": 163.00000000000003,
-      "count": 35,
-      "average": 4.657142857142858
+      "sum": 231.67000000000002,
+      "count": 51,
+      "average": 4.5425490196078435
     },
     "aggression": {
-      "sum": 39.64999999999999,
-      "count": 35,
-      "average": 1.1328571428571426
+      "sum": 59.97999999999999,
+      "count": 51,
+      "average": 1.1760784313725487
     },
     "formality": {
-      "sum": 244.01999999999995,
-      "count": 35,
-      "average": 6.971999999999999
+      "sum": 359.03000000000003,
+      "count": 51,
+      "average": 7.039803921568628
     },
     "tribalism": {
-      "sum": 38.010000000000005,
-      "count": 35,
-      "average": 1.086
+      "sum": 54.34,
+      "count": 51,
+      "average": 1.0654901960784315
     },
     "authenticity": {
-      "sum": 141.19000000000003,
-      "count": 35,
-      "average": 4.034000000000001
+      "sum": 202.53,
+      "count": 51,
+      "average": 3.9711764705882353
     },
     "transgression": {
-      "sum": 44.62999999999999,
-      "count": 35,
-      "average": 1.275142857142857
+      "sum": 64.94999999999999,
+      "count": 51,
+      "average": 1.2735294117647056
     },
     "warmth": {
-      "sum": 226.00999999999996,
-      "count": 35,
-      "average": 6.45742857142857
+      "sum": 329.6799999999999,
+      "count": 51,
+      "average": 6.464313725490194
     },
     "observability": {
       "sum": 4.0,
@@ -52,6 +52,6 @@
       "average": 4.0
     }
   },
-  "last_updated": "2026-01-10T12:53:17.169276",
-  "total_evaluations": 35
+  "last_updated": "2026-01-19T19:48:42.002304",
+  "total_evaluations": 51
 }

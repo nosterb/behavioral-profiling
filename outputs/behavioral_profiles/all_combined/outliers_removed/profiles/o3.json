@@ -1,0 +1,57 @@
+{
+  "model_name": "O3",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 680.62,
+      "count": 308,
+      "average": 2.209805194805195
+    },
+    "warmth": {
+      "sum": 1640.4700000000005,
+      "count": 308,
+      "average": 5.3262012987013
+    },
+    "aggression": {
+      "sum": 473.72999999999934,
+      "count": 308,
+      "average": 1.5380844155844133
+    },
+    "formality": {
+      "sum": 2329.9800000000005,
+      "count": 308,
+      "average": 7.5648701298701315
+    },
+    "tribalism": {
+      "sum": 378.72999999999996,
+      "count": 308,
+      "average": 1.229642857142857
+    },
+    "hedging": {
+      "sum": 1336.5900000000013,
+      "count": 308,
+      "average": 4.339577922077926
+    },
+    "transgression": {
+      "sum": 509.9799999999993,
+      "count": 308,
+      "average": 1.6557792207792184
+    },
+    "authenticity": {
+      "sum": 1926.6299999999987,
+      "count": 308,
+      "average": 6.255292207792204
+    },
+    "depth": {
+      "sum": 2361.750000000002,
+      "count": 308,
+      "average": 7.668019480519487
+    },
+    "ribalism": {
+      "sum": 2.0,
+      "count": 2,
+      "average": 1.0
+    }
+  },
+  "last_updated": "2026-01-23T14:54:03.518549",
+  "total_evaluations": 308
+}

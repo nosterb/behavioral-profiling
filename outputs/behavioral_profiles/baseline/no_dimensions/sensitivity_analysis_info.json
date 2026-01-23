@@ -1,37 +1,53 @@
 {
-  "condition": "baseline_no_dimensions",
-  "description": "Sensitivity analysis excluding dimensions suite prompts",
+  "metadata": {
+    "generated": "2026-01-23T13:40:53.655316Z",
+    "updated": "2026-01-23T13:40:53.655331Z",
+    "analysis": "No-Dimensions Sensitivity Analysis",
+    "condition": "baseline"
+  },
+  "provenance": {
+    "source_files": {
+      "full_dataset": "outputs/behavioral_profiles/baseline/median_split_classification.json",
+      "no_dimensions": "outputs/behavioral_profiles/baseline/no_dimensions/median_split_classification.json",
+      "job_directory": "outputs/single_prompt_jobs"
+    },
+    "methodology": {
+      "exclusion_patterns": [
+        "dimensions",
+        "baseline_dimensions"
+      ],
+      "purpose": "Test robustness of H1/H2 findings without dimension-specific probing"
+    }
+  },
   "config": {
     "excluded_suites": [
       "dimensions"
     ],
     "included_suites": [
       "broad",
-      "extended",
       "affective",
-      "general"
+      "general",
+      "typical",
+      "love"
     ]
   },
   "statistics": {
     "full_dataset": {
-      "n_models": 46,
-      "n_evaluations": 2300,
-      "median_sophistication": 5.93,
-      "h1_cohens_d": 2.17,
-      "h2_correlation": 0.738
+      "n_models": 45,
+      "cohens_d": 2.13296009907644,
+      "r": 0.7784540142202507,
+      "p_value": 7.747022669279929e-09
     },
     "no_dimensions": {
-      "n_models": 40,
-      "n_evaluations": 2024,
-      "median_sophistication": 5.392,
-      "h1_cohens_d": 2.04,
-      "h2_correlation": 0.778
+      "n_models": 46,
+      "cohens_d": 2.124735805194093,
+      "r": 0.7828119785033583,
+      "p_value": 5.723222634167404e-09
     }
   },
   "change": {
-    "h1_cohens_d": -0.13,
-    "h2_correlation": 0.04,
-    "interpretation": "H1/H2 effects remain robust; correlation actually strengthens without dimensions suite"
-  },
-  "generated": "2026-01-11T10:57:56.863585"
+    "d_delta": -0.008,
+    "r_delta": 0.004,
+    "interpretation": "robust"
+  }
 }

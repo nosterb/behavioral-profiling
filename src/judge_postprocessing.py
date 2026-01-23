@@ -48,8 +48,8 @@ def calculate_dimension_averages(
 
         # Extract scores from Pass 1 judges ONLY
         for judge_eval in model_eval.get('pass1_judges', []):
-            extracted = judge_eval.get('extracted_json', {})
-            if 'scores' in extracted:
+            extracted = judge_eval.get('extracted_json') or {}  # Handle None values
+            if extracted and 'scores' in extracted:
                 all_judge_scores.append(extracted['scores'])
 
         # DO NOT add comparative judge - it's for qualitative analysis only

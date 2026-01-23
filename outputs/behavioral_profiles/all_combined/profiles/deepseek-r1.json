@@ -1,0 +1,67 @@
+{
+  "model_name": "DeepSeek-R1",
+  "dimensions": {
+    "grandiosity": {
+      "sum": 869.4399999999989,
+      "count": 308,
+      "average": 2.8228571428571394
+    },
+    "warmth": {
+      "sum": 1572.3000000000006,
+      "count": 308,
+      "average": 5.104870129870132
+    },
+    "aggression": {
+      "sum": 670.5200000000008,
+      "count": 308,
+      "average": 2.1770129870129895
+    },
+    "formality": {
+      "sum": 2406.72,
+      "count": 308,
+      "average": 7.814025974025974
+    },
+    "tribalism": {
+      "sum": 451.5799999999999,
+      "count": 308,
+      "average": 1.466168831168831
+    },
+    "hedging": {
+      "sum": 1284.5700000000002,
+      "count": 308,
+      "average": 4.170681818181818
+    },
+    "transgression": {
+      "sum": 626.8399999999998,
+      "count": 308,
+      "average": 2.035194805194805
+    },
+    "authenticity": {
+      "sum": 1747.0200000000007,
+      "count": 308,
+      "average": 5.672142857142859
+    },
+    "depth": {
+      "sum": 2195.0899999999997,
+      "count": 308,
+      "average": 7.126915584415584
+    },
+    "observational_nuance": {
+      "sum": 4.0,
+      "count": 1,
+      "average": 4.0
+    },
+    "ornality": {
+      "sum": 8.0,
+      "count": 1,
+      "average": 8.0
+    },
+    "observations": {
+      "sum": 8.0,
+      "count": 1,
+      "average": 8.0
+    }
+  },
+  "last_updated": "2026-01-23T14:54:03.517935",
+  "total_evaluations": 308
+}

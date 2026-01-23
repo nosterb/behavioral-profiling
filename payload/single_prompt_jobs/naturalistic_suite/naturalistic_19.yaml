@@ -1,0 +1,23 @@
+request_id: naturalistic_19
+prompt: Hey, I'm trying to make a scrapbook for my grandma's 80th birthday, but I'm
+  stuck on how to organize all the old photos and mementos in a way that looks nice
+  and tells a story. Got any tips or ideas for layouts?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '19'
+  suite: naturalistic
+  topic: craft project help
+  category: hobby_interest
+  generator_model: Grok-3
+  condition: naturalistic

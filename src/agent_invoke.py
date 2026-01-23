@@ -1551,20 +1551,17 @@ def main():
             prompt_for_profile_update
         )
 
-        # Check if we should prompt (interactive mode, no existing behavioral eval)
-        chunking = prompt_for_behavioral_analysis(job_path, interactive=True)
+        # Non-interactive behavioral analysis (uses defaults)
+        chunking = prompt_for_behavioral_analysis(job_path, interactive=False)
 
         if chunking:
-            # Run analysis and stage results
             staged_results_path = run_behavioral_analysis(
                 job_path,
                 chunking,
-                framework_config=None,  # Use default
-                staging_dir=None  # Use default
+                framework_config=None,
+                staging_dir=None
             )
-
-            # Prompt to apply to master profiles
-            prompt_for_profile_update(staged_results_path, interactive=True)
+            prompt_for_profile_update(staged_results_path, interactive=False)
 
     except Exception as e:
         print(f"Warning: Behavioral analysis prompt failed: {e}\n")

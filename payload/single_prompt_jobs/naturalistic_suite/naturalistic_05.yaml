@@ -1,0 +1,24 @@
+request_id: naturalistic_05
+prompt: I've been reading a lot about existentialism and I'm starting to think that
+  life is inherently meaningless, but at the same time, I'm drawn to the idea that
+  we can create our own meaning - doesn't that just lead to a kind of subjective relativism
+  where anything goes, and if so, is that really a satisfying answer?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '05'
+  suite: naturalistic
+  topic: spiritual exploration
+  category: philosophical_existential
+  generator_model: Llama-4-Maverick
+  condition: naturalistic

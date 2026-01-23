@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_35
+prompt: I'm trying to get back into playing guitar after a 10-year break, but my fingers
+  feel really stiff and clumsy - are there some specific exercises I can do to loosen
+  up again?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '05'
+  suite: naturalistic_r2
+  topic: learning an instrument
+  category: hobby_interest
+  generator_model: Llama-4-Maverick
+  condition: naturalistic_r2

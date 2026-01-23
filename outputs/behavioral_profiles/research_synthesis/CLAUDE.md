@@ -97,28 +97,44 @@ The `MAIN_RESEARCH_BRIEF.md` is the consolidated research document combining all
 | Appendix A | Factor structure | Auto |
 | Appendix B | File references | Auto |
 
-### Manual Section Preservation
+### AUTO-Block Architecture (v2)
 
-Sections marked **MANUAL** use preservation markers:
+The regeneration system uses an **inverted paradigm**: mark AUTO content, preserve everything else.
 
 ```markdown
-### 5.1 H1/H2 Relationship
-
-<!-- MANUAL-START -->
-Your manually edited content here...
-<!-- MANUAL-END -->
+<!-- AUTO-START:section_id -->
+(This content is auto-generated from JSON)
+<!-- AUTO-END:section_id -->
 ```
 
-Content between markers is preserved when regenerating.
+**Everything OUTSIDE AUTO blocks is preserved exactly as-is**, including:
+- New sections you add anywhere
+- Manual edits to existing sections
+- Custom formatting, notes, interpretations
+
+**Available AUTO blocks** (run `python3 scripts/regenerate_main_brief_v2.py --list-sections`):
+- `header_metadata`, `h1h2_table`, `external_validation_table`
+- `outlier_sensitivity_table`, `no_dimensions_table`
+- `bert_primary_table`, `bert_extended_table`
+- `provider_h2_table`, `provider_constraint_table`
+- `constrained_models_table`, `outlier_models_table`
+- `judge_agreement_table`, `h3_variability_table`
+- `h3_anova_stats`, `h3_posthoc_table`
 
 ### Regeneration Commands
 
 ```bash
-# Regenerate from condition data
-python3 scripts/regenerate_main_brief.py
+# Regenerate from condition data (v2 - preserves all manual edits)
+python3 scripts/regenerate_main_brief_v2.py
+
+# Dry run to preview changes
+python3 scripts/regenerate_main_brief_v2.py --dry-run
+
+# List available AUTO sections
+python3 scripts/regenerate_main_brief_v2.py --list-sections
 
 # Full workflow: regenerate + sync to CDN
-python3 scripts/regenerate_main_brief.py && python3 scripts/sync_research_assets.py --invalidate
+python3 scripts/regenerate_main_brief_v2.py && python3 scripts/sync_research_assets.py --invalidate
 ```
 
 ## Development Patterns

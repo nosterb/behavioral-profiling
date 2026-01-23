@@ -2,59 +2,60 @@
   "model_name": "GPT-OSS-120B",
   "dimensions": {
     "grandiosity": {
-      "sum": 525.6,
-      "count": 236,
-      "average": 2.227118644067797
+      "sum": 775.2600000000001,
+      "count": 354,
+      "average": 2.1900000000000004
     },
     "warmth": {
-      "sum": 1365.12,
-      "count": 236,
-      "average": 5.784406779661016
+      "sum": 2093.23,
+      "count": 354,
+      "average": 5.913079096045198
     },
     "aggression": {
-      "sum": 328.7699999999999,
-      "count": 236,
-      "average": 1.3930932203389828
+      "sum": 484.7599999999998,
+      "count": 354,
+      "average": 1.3693785310734459
     },
     "formality": {
-      "sum": 1864.8300000000002,
-      "count": 236,
-      "average": 7.901822033898306
+      "sum": 2773.8600000000006,
+      "count": 354,
+      "average": 7.835762711864408
     },
     "tribalism": {
-      "sum": 255.63999999999996,
-      "count": 236,
-      "average": 1.0832203389830506
+      "sum": 393.5799999999999,
+      "count": 354,
+      "average": 1.1118079096045195
     },
     "hedging": {
-      "sum": 1092.9399999999998,
-      "count": 236,
-      "average": 4.6311016949152535
+      "sum": 1528.32,
+      "count": 354,
+      "average": 4.31728813559322
     },
     "transgression": {
-      "sum": 331.7799999999999,
-      "count": 236,
-      "average": 1.4058474576271183
+      "sum": 492.98999999999984,
+      "count": 354,
+      "average": 1.3926271186440673
     },
     "authenticity": {
-      "sum": 1401.5099999999998,
-      "count": 236,
-      "average": 5.938601694915254
+      "sum": 2162.67,
+      "count": 354,
+      "average": 6.109237288135594
     },
     "depth": {
-      "sum": 1771.0499999999997,
-      "count": 236,
-      "average": 7.504449152542372
+      "sum": 2744.24,
+      "count": 354,
+      "average": 7.752090395480225
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537309",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290515",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

@@ -876,44 +876,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "hedging": {
             "score": 4.67,
@@ -2589,44 +2551,6 @@
           },
           "authenticity": {
             "score": 4.0,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 4.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
             "weight": 1.0
           }
         },
@@ -4308,44 +4232,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "aggression": {
             "score": 1.0,
@@ -6021,44 +5907,6 @@
           },
           "warmth": {
             "score": 6.33,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
             "weight": 1.0
           }
         },
@@ -7740,44 +7588,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "depth": {
             "score": 7.33,
@@ -8579,50 +8389,6 @@
       },
       "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_4_telemetryV3_20260109_013800/job_love_v1_4_telemetryV3_20260109_013800.json",
       "timestamp": "2026-01-10T16:26:51.856791"
-    },
-    "job_love_v1_5_telemetryV3_20260109_013755": {
-      "contributions": {
-        "Llama-3-70B": {
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        }
-      },
-      "job_file": "outputs/single_prompt_jobs/baseline_affective/job_love_v1_5_telemetryV3_20260109_013755/job_love_v1_5_telemetryV3_20260109_013755.json",
-      "timestamp": "2026-01-10T16:26:51.866743"
     },
     "job_love_v1_6_telemetryV3_20260109_033830": {
       "contributions": {
@@ -9497,44 +9263,6 @@
           },
           "transgression": {
             "score": 1.67,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
             "weight": 1.0
           }
         },
@@ -11216,44 +10944,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "authenticity": {
             "score": 3.33,
@@ -12932,44 +12622,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "tribalism": {
             "score": 1.0,
@@ -14607,44 +14259,6 @@
           },
           "formality": {
             "score": 7.67,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
             "weight": 1.0
           }
         },
@@ -16323,44 +15937,6 @@
           },
           "hedging": {
             "score": 5.67,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
             "weight": 1.0
           }
         },
@@ -19796,44 +19372,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 4.33,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "authenticity": {
             "score": 7.0,
@@ -21547,44 +21085,6 @@
           },
           "hedging": {
             "score": 4.0,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
             "weight": 1.0
           }
         },
@@ -24982,44 +24482,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "grandiosity": {
             "score": 1.33,
@@ -26733,44 +26195,6 @@
           },
           "hedging": {
             "score": 7.67,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
             "weight": 1.0
           }
         },
@@ -28494,44 +27918,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 4.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "hedging": {
             "score": 3.33,
@@ -30245,44 +29631,6 @@
           },
           "hedging": {
             "score": 6.0,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "depth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
             "weight": 1.0
           }
         },
@@ -32002,44 +31350,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 2.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "warmth": {
             "score": 3.67,
@@ -33719,44 +33029,6 @@
           },
           "hedging": {
             "score": 1.67,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
             "weight": 1.0
           }
         },
@@ -35480,44 +34752,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.67,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "depth": {
             "score": 7.0,
@@ -37197,44 +36431,6 @@
           },
           "hedging": {
             "score": 3.0,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 3.67,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
             "weight": 1.0
           }
         },
@@ -40632,44 +39828,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "hedging": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "hedging": {
             "score": 3.0,
@@ -42311,44 +41469,6 @@
           },
           "warmth": {
             "score": 6.33,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
             "weight": 1.0
           }
         },
@@ -47462,44 +46582,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.67,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.67,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "grandiosity": {
             "score": 1.67,
@@ -49213,44 +48295,6 @@
           },
           "hedging": {
             "score": 2.33,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "aggression": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.67,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.67,
             "weight": 1.0
           }
         },
@@ -50970,44 +50014,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 2.33,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -52724,44 +51730,6 @@
             "weight": 1.0
           }
         },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.33,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 3.33,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
         "GPT-OSS-120B": {
           "transgression": {
             "score": 1.33,
@@ -54437,44 +53405,6 @@
           },
           "formality": {
             "score": 7.33,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
             "weight": 1.0
           }
         },
@@ -56191,44 +55121,6 @@
           },
           "transgression": {
             "score": 1.33,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "formality": {
-            "score": 2.67,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 5.33,
-            "weight": 1.0
-          },
-          "tribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
             "weight": 1.0
           }
         },
@@ -61384,44 +60276,6 @@
             "weight": 1.0
           },
           "ribalism": {
-            "score": 1.0,
-            "weight": 1.0
-          }
-        },
-        "Llama-3-70B": {
-          "warmth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "transgression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "grandiosity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "hedging": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "aggression": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "formality": {
-            "score": 3.0,
-            "weight": 1.0
-          },
-          "depth": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "authenticity": {
-            "score": 1.0,
-            "weight": 1.0
-          },
-          "tribalism": {
             "score": 1.0,
             "weight": 1.0
           }

@@ -1,4 +1,8 @@
 #!/bin/bash
+# DEPRECATED: Use run_complete_h1_h2_analysis.sh instead
+# This older script uses update_research_brief_median.py which has hardcoded values.
+# Kept for reference only.
+#
 # Complete H1/H2 analysis pipeline for any intervention
 
 if [ -z "$1" ]; then

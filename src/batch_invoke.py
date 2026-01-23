@@ -630,9 +630,8 @@ Examples:
             prompt_for_profile_update
         )
 
-        # Check if we should prompt (interactive mode, no existing behavioral eval)
-        interactive = not args.non_interactive
-        chunking = prompt_for_behavioral_analysis(job_path, interactive=interactive)
+        # Always run non-interactively (no prompt, uses defaults)
+        chunking = prompt_for_behavioral_analysis(job_path, interactive=False)
 
         if chunking:
             # Run analysis and stage results
@@ -643,8 +642,8 @@ Examples:
                 staging_dir=None  # Use default
             )
 
-            # Prompt to apply to master profiles
-            prompt_for_profile_update(staged_results_path, interactive=interactive)
+            # Apply to master profiles (non-interactive)
+            prompt_for_profile_update(staged_results_path, interactive=False)
 
     except Exception as e:
         print(f"Warning: Behavioral analysis prompt failed: {e}\n")

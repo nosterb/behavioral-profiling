@@ -60,10 +60,22 @@ def organize_by_provider(data):
     return provider_data
 
 
+def detect_scale(median_soph):
+    """Detect if using 1-10 or 1-50 scale based on median sophistication."""
+    if median_soph > 15:
+        return 50  # 1-50 scale
+    else:
+        return 10  # 1-10 scale
+
+
 def create_provider_h2_scatters(data, output_path, condition="baseline"):
     """Create multi-panel H2 scatter plots by provider."""
 
     provider_data = organize_by_provider(data)
+
+    # Detect scale for axis limits
+    median_soph = data['median_sophistication']
+    scale = detect_scale(median_soph)
 
     # Filter to providers with at least 3 models (needed for correlation)
     providers = [(p, models) for p, models in provider_data.items()
@@ -167,9 +179,13 @@ def create_provider_h2_scatters(data, output_path, condition="baseline"):
         ax.grid(True, alpha=0.3, linestyle='--')
         ax.set_axisbelow(True)
 
-        # Set consistent axis limits across all panels
-        ax.set_xlim([3, 9])
-        ax.set_ylim([1, 3])
+        # Set consistent axis limits across all panels (scale-aware)
+        if scale == 50:
+            ax.set_xlim([12, 42])
+            ax.set_ylim([3, 12])
+        else:
+            ax.set_xlim([3, 9])
+            ax.set_ylim([1, 3])
 
     # Hide unused subplots
     for idx in range(len(providers), len(axes)):
@@ -203,14 +219,20 @@ def create_provider_h2_scatters(data, output_path, condition="baseline"):
 
 
 def main():
-    # Get intervention name from command line or default to baseline
-    if len(sys.argv) > 1:
-        intervention = sys.argv[1]
-    else:
-        intervention = "baseline"
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Create provider-specific H2 scatter plots')
+    parser.add_argument('intervention', nargs='?', default='baseline',
+                        help='Intervention/condition name (default: baseline)')
+    parser.add_argument('--base-dir', type=str, default='outputs/behavioral_profiles',
+                        help='Base directory for behavioral profiles (default: outputs/behavioral_profiles)')
+
+    args = parser.parse_args()
+    intervention = args.intervention
+    base_dir = args.base_dir
 
     # Paths
-    profile_dir = Path(f"outputs/behavioral_profiles/{intervention}")
+    profile_dir = Path(f"{base_dir}/{intervention}")
 
     if not profile_dir.exists():
         print(f"Error: Profile directory not found: {profile_dir}")

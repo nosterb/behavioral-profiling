@@ -102,8 +102,8 @@ python3 src/judge_invoke.py outputs/single_prompt_jobs/job_*.json
 ### Research Brief
 
 ```bash
-# Regenerate + publish
-python3 scripts/regenerate_main_brief.py && python3 scripts/sync_research_assets.py --invalidate
+# Regenerate + publish (v2 - preserves all manual edits)
+python3 scripts/regenerate_main_brief_v2.py && python3 scripts/sync_research_assets.py --invalidate
 ```
 
 ## Architecture

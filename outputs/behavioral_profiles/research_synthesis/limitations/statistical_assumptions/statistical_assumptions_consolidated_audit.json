@@ -1,0 +1,302 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "generated": "2026-01-19T19:07:38.205692",
+    "analysis": "Statistical Assumptions - Cross-Condition Consolidated",
+    "n_conditions": 8
+  },
+  "provenance": {
+    "source_files": {
+      "per_condition_audits": "outputs/behavioral_profiles/*/statistical_assumptions/normality_audit.json"
+    },
+    "methodology": {
+      "description": "Consolidation of per-condition statistical assumption checks",
+      "tests_aggregated": [
+        "Shapiro-Wilk normality",
+        "Pearson vs Spearman agreement",
+        "outlier detection"
+      ],
+      "outlier_threshold": "2.0 SD from regression line"
+    }
+  },
+  "results": {
+    "n_conditions_analyzed": 8,
+    "all_conditions_parametric_appropriate": false,
+    "total_outliers_identified": 10,
+    "cross_condition_outlier_count": 5
+  },
+  "summary_table": [
+    {
+      "condition": "baseline",
+      "n_models": 45,
+      "unique_prompts": 50,
+      "total_evals": 2300,
+      "jobs_complete": "49/50",
+      "n_outliers": 1,
+      "outlier_models": [
+        "gemini-3-pro-preview"
+      ],
+      "status_clean": "OK"
+    },
+    {
+      "condition": "authority",
+      "n_models": 45,
+      "unique_prompts": 51,
+      "total_evals": 2295,
+      "jobs_complete": "50/51",
+      "n_outliers": 1,
+      "outlier_models": [
+        "gemini-3-pro-preview"
+      ],
+      "status_clean": "WARN"
+    },
+    {
+      "condition": "urgency",
+      "n_models": 45,
+      "unique_prompts": 51,
+      "total_evals": 2295,
+      "jobs_complete": "50/51",
+      "n_outliers": 1,
+      "outlier_models": [
+        "deepseek-r1"
+      ],
+      "status_clean": "OK"
+    },
+    {
+      "condition": "minimal_steering",
+      "n_models": 45,
+      "unique_prompts": 51,
+      "total_evals": 1610,
+      "jobs_complete": "35/51",
+      "n_outliers": 0,
+      "outlier_models": [],
+      "status_clean": "WARN"
+    },
+    {
+      "condition": "telemetryV3",
+      "n_models": 45,
+      "unique_prompts": 51,
+      "total_evals": 1472,
+      "jobs_complete": "30/51",
+      "n_outliers": 2,
+      "outlier_models": [
+        "grok-4-0709",
+        "claude-4.5-haiku-thinking_(thinking)"
+      ],
+      "status_clean": "WARN"
+    },
+    {
+      "condition": "reminder",
+      "n_models": 45,
+      "unique_prompts": 15,
+      "total_evals": 598,
+      "jobs_complete": "13/15",
+      "n_outliers": 1,
+      "outlier_models": [
+        "gemini-3-pro-preview"
+      ],
+      "status_clean": "OK"
+    },
+    {
+      "condition": "naturalistic",
+      "n_models": 45,
+      "unique_prompts": 20,
+      "total_evals": 630,
+      "jobs_complete": "14/20",
+      "n_outliers": 2,
+      "outlier_models": [
+        "claude-4.5-haiku-thinking_(thinking)",
+        "gemini-3-pro-preview"
+      ],
+      "status_clean": "OK"
+    },
+    {
+      "condition": "naturalistic_50",
+      "n_models": 45,
+      "unique_prompts": 20,
+      "total_evals": 540,
+      "jobs_complete": "12/20",
+      "n_outliers": 2,
+      "outlier_models": [
+        "llama-3-70b",
+        "gemini-3-pro-preview"
+      ],
+      "status_clean": "OK"
+    }
+  ],
+  "conditions": {
+    "baseline": {
+      "n_models": 45,
+      "parametric_appropriate_clean": true,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": true,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.7785,
+      "pearson_r_clean": 0.8195,
+      "spearman_rho_full": 0.7963,
+      "spearman_rho_clean": 0.7825,
+      "n_outliers": 1,
+      "outlier_models": [
+        "gemini-3-pro-preview"
+      ]
+    },
+    "authority": {
+      "n_models": 45,
+      "parametric_appropriate_clean": false,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": false,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.7702,
+      "pearson_r_clean": 0.83,
+      "spearman_rho_full": 0.8543,
+      "spearman_rho_clean": 0.8441,
+      "n_outliers": 1,
+      "outlier_models": [
+        "gemini-3-pro-preview"
+      ]
+    },
+    "urgency": {
+      "n_models": 45,
+      "parametric_appropriate_clean": true,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": true,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.7432,
+      "pearson_r_clean": 0.7677,
+      "spearman_rho_full": 0.7684,
+      "spearman_rho_clean": 0.7669,
+      "n_outliers": 1,
+      "outlier_models": [
+        "deepseek-r1"
+      ]
+    },
+    "minimal_steering": {
+      "n_models": 45,
+      "parametric_appropriate_clean": false,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": true,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.7662,
+      "pearson_r_clean": 0.7662,
+      "spearman_rho_full": 0.7326,
+      "spearman_rho_clean": 0.7326,
+      "n_outliers": 0,
+      "outlier_models": []
+    },
+    "telemetryV3": {
+      "n_models": 45,
+      "parametric_appropriate_clean": false,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": false,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.6245,
+      "pearson_r_clean": 0.7991,
+      "spearman_rho_full": 0.8046,
+      "spearman_rho_clean": 0.7984,
+      "n_outliers": 2,
+      "outlier_models": [
+        "grok-4-0709",
+        "claude-4.5-haiku-thinking_(thinking)"
+      ]
+    },
+    "reminder": {
+      "n_models": 45,
+      "parametric_appropriate_clean": true,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": false,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.6878,
+      "pearson_r_clean": 0.8038,
+      "spearman_rho_full": 0.8222,
+      "spearman_rho_clean": 0.8098,
+      "n_outliers": 1,
+      "outlier_models": [
+        "gemini-3-pro-preview"
+      ]
+    },
+    "naturalistic": {
+      "n_models": 45,
+      "parametric_appropriate_clean": true,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": false,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.8035,
+      "pearson_r_clean": 0.8882,
+      "spearman_rho_full": 0.8829,
+      "spearman_rho_clean": 0.8766,
+      "n_outliers": 2,
+      "outlier_models": [
+        "claude-4.5-haiku-thinking_(thinking)",
+        "gemini-3-pro-preview"
+      ]
+    },
+    "naturalistic_50": {
+      "n_models": 45,
+      "parametric_appropriate_clean": true,
+      "sophistication_symmetric": true,
+      "correlation_methods_agree_full": false,
+      "correlation_methods_agree_clean": true,
+      "pearson_r_full": 0.5987,
+      "pearson_r_clean": 0.7181,
+      "spearman_rho_full": 0.6837,
+      "spearman_rho_clean": 0.7392,
+      "n_outliers": 2,
+      "outlier_models": [
+        "llama-3-70b",
+        "gemini-3-pro-preview"
+      ]
+    }
+  },
+  "cross_condition_outliers": {
+    "gemini-3-pro-preview": {
+      "conditions": [
+        "baseline",
+        "authority",
+        "reminder",
+        "naturalistic",
+        "naturalistic_50"
+      ],
+      "provider": "Google"
+    },
+    "deepseek-r1": {
+      "conditions": [
+        "urgency"
+      ],
+      "provider": "DeepSeek"
+    },
+    "grok-4-0709": {
+      "conditions": [
+        "telemetryV3"
+      ],
+      "provider": "xAI"
+    },
+    "claude-4.5-haiku-thinking_(thinking)": {
+      "conditions": [
+        "telemetryV3",
+        "naturalistic"
+      ],
+      "provider": "Anthropic"
+    },
+    "llama-3-70b": {
+      "conditions": [
+        "naturalistic_50"
+      ],
+      "provider": "Meta"
+    }
+  },
+  "notable_patterns": {
+    "most_frequent_outlier": {
+      "model": "gemini-3-pro-preview",
+      "provider": "Google",
+      "frequency": "5/8",
+      "conditions": [
+        "baseline",
+        "authority",
+        "reminder",
+        "naturalistic",
+        "naturalistic_50"
+      ],
+      "interpretation": "Consistently exhibits higher disinhibition than predicted by sophistication level"
+    }
+  }
+}

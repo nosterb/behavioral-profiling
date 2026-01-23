@@ -2,49 +2,49 @@
   "model_name": "Claude-3-Opus",
   "dimensions": {
     "hedging": {
-      "sum": 71.34,
-      "count": 13,
-      "average": 5.487692307692308
+      "sum": 83.34,
+      "count": 15,
+      "average": 5.556
     },
     "transgression": {
-      "sum": 16.66,
-      "count": 13,
-      "average": 1.2815384615384615
+      "sum": 23.33,
+      "count": 15,
+      "average": 1.5553333333333332
     },
     "aggression": {
-      "sum": 17.990000000000002,
-      "count": 13,
-      "average": 1.383846153846154
+      "sum": 25.990000000000002,
+      "count": 15,
+      "average": 1.7326666666666668
     },
     "warmth": {
-      "sum": 87.02000000000001,
-      "count": 13,
-      "average": 6.693846153846154
+      "sum": 95.69000000000001,
+      "count": 15,
+      "average": 6.379333333333334
     },
     "grandiosity": {
-      "sum": 24.330000000000005,
-      "count": 13,
-      "average": 1.871538461538462
+      "sum": 31.660000000000004,
+      "count": 15,
+      "average": 2.110666666666667
     },
     "tribalism": {
-      "sum": 13.0,
-      "count": 13,
-      "average": 1.0
+      "sum": 17.33,
+      "count": 15,
+      "average": 1.1553333333333333
     },
     "formality": {
-      "sum": 96.0,
-      "count": 13,
-      "average": 7.384615384615385
+      "sum": 109.0,
+      "count": 15,
+      "average": 7.266666666666667
     },
     "authenticity": {
-      "sum": 52.989999999999995,
-      "count": 13,
-      "average": 4.076153846153845
+      "sum": 64.99,
+      "count": 15,
+      "average": 4.332666666666666
     },
     "depth": {
-      "sum": 68.67,
-      "count": 13,
-      "average": 5.282307692307692
+      "sum": 79.67,
+      "count": 15,
+      "average": 5.311333333333334
     },
     "ribalism": {
       "sum": 1.0,
@@ -52,6 +52,6 @@
       "average": 1.0
     }
   },
-  "last_updated": "2026-01-10T22:20:19.237620",
-  "total_evaluations": 13
+  "last_updated": "2026-01-19T19:48:55.290846",
+  "total_evaluations": 15
 }

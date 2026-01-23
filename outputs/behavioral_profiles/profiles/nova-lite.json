@@ -2,49 +2,49 @@
   "model_name": "Nova-Lite",
   "dimensions": {
     "grandiosity": {
-      "sum": 473.68,
-      "count": 236,
-      "average": 2.0071186440677966
+      "sum": 681.0,
+      "count": 354,
+      "average": 1.923728813559322
     },
     "warmth": {
-      "sum": 1331.94,
-      "count": 236,
-      "average": 5.643813559322034
+      "sum": 2023.9700000000003,
+      "count": 354,
+      "average": 5.717429378531074
     },
     "aggression": {
-      "sum": 300.52,
-      "count": 236,
-      "average": 1.2733898305084745
+      "sum": 433.92999999999995,
+      "count": 354,
+      "average": 1.2257909604519772
     },
     "formality": {
-      "sum": 1870.7200000000003,
-      "count": 236,
-      "average": 7.92677966101695
+      "sum": 2826.2200000000003,
+      "count": 354,
+      "average": 7.983672316384181
     },
     "tribalism": {
-      "sum": 272.28999999999996,
-      "count": 236,
-      "average": 1.1537711864406779
+      "sum": 400.7799999999999,
+      "count": 354,
+      "average": 1.132146892655367
     },
     "hedging": {
-      "sum": 1106.3,
-      "count": 236,
-      "average": 4.687711864406779
+      "sum": 1610.2800000000002,
+      "count": 354,
+      "average": 4.548813559322035
     },
     "transgression": {
-      "sum": 307.3099999999999,
-      "count": 236,
-      "average": 1.302161016949152
+      "sum": 448.6899999999998,
+      "count": 354,
+      "average": 1.2674858757062142
     },
     "authenticity": {
-      "sum": 957.0,
-      "count": 236,
-      "average": 4.055084745762712
+      "sum": 1458.12,
+      "count": 354,
+      "average": 4.118983050847457
     },
     "depth": {
-      "sum": 1309.2700000000002,
-      "count": 236,
-      "average": 5.547754237288136
+      "sum": 2059.2599999999998,
+      "count": 354,
+      "average": 5.817118644067796
     },
     "ribalism": {
       "sum": 1.0,
@@ -52,14 +52,15 @@
       "average": 1.0
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537280",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290490",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

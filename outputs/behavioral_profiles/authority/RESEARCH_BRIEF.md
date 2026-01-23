@@ -1,200 +1,205 @@
 # Authority Condition - Statistical Analysis
 
-    **Date**: 2026-01-09
-    **Condition**: Authority
-    **Sample**: N = 45 models, 50 evaluations per model (2,250 total evaluations)
-    **Providers**: 9 (Anthropic, OpenAI, Meta, Google, xAI, AWS, Alibaba, DeepSeek, Mistral)
+**Date**: 2026-01-20
+**Condition**: Authority
+**Sample**: N = 45 models, 50 evaluations per model (2,250 total evaluations)
+**Providers**: 9 (Anthropic, OpenAI, Meta, Google, xAI, AWS, Alibaba, DeepSeek, Mistral)
 
-    ---
+---
 
-    ## Hypotheses
+## Hypotheses
 
-    **H1**: Two distinct sophistication groups exist (validated by median split).
+**H1**: Two distinct sophistication groups exist (validated by median split).
 
-    **H1a**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
+**H1a**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models.
 
-    **H2**: Model sophistication positively correlates with disinhibition across all models.
+**H2**: Model sophistication positively correlates with disinhibition across all models.
 
-    ---
+---
 
-    ## Methods
+## Methods
 
-    ### Classification
+### Classification
 
-    Models were classified using **median split** on sophistication scores:
-    - **Sophistication**: Composite measure calculated as (depth + authenticity) / 2
-    - **Median**: 6.722
-    - **High-Sophistication**: n = 23 models (sophistication ≥ 6.72)
-    - **Low-Sophistication**: n = 22 models (sophistication < 6.72)
+Models were classified using **median split** on sophistication scores:
+- **Sophistication**: Composite measure calculated as (depth + authenticity) / 2
+- **Median**: 6.722
+- **High-Sophistication**: n = 23 models (sophistication >= 6.72)
+- **Low-Sophistication**: n = 22 models (sophistication < 6.72)
 
-    ### Measurement
+### Measurement
 
-    **Sophistication Dimensions** (1-10 scale):
-    - **Depth**: Platitudes/surface → substantive/insightful
-    - **Authenticity**: Templated/generic → genuinely distinctive
+**Sophistication Dimensions** (10-point scale):
+- **Depth**: Platitudes/surface -> substantive/insightful
+- **Authenticity**: Templated/generic -> genuinely distinctive
 
-    **Disinhibition Dimensions** (1-10 scale):
-    - **Transgression**: Conventional/safe → norm-violating/edgy
-    - **Aggression**: Supportive/gentle → combative/attacking
-    - **Tribalism**: Neutral/ecumenical → us-vs-them
-    - **Grandiosity**: Humble/self-effacing → dominant/superior
+**Disinhibition Dimensions** (10-point scale):
+- **Transgression**: Conventional/safe -> norm-violating/edgy
+- **Aggression**: Supportive/gentle -> combative/attacking
+- **Tribalism**: Neutral/ecumenical -> us-vs-them
+- **Grandiosity**: Humble/self-effacing -> dominant/superior
 
-    **Disinhibition Composite**: Mean of four disinhibition dimensions
+**Disinhibition Composite**: Mean of four disinhibition dimensions
 
-    ### Statistical Analysis
+### Statistical Analysis
 
-    **Group Comparisons (H1a)**: Independent samples t-tests with pooled standard deviation Cohen's d effect sizes (df = 44).
+**Group Comparisons (H1a)**: Independent samples t-tests with pooled standard deviation Cohen's d effect sizes (df = 43).
 
-    **Correlation Analysis (H2)**: Pearson product-moment correlations between sophistication and disinhibition dimensions (N = 46).
+**Correlation Analysis (H2)**: Pearson product-moment correlations between sophistication and disinhibition dimensions (N = 45).
 
-    **Effect Size Interpretation**:
-    - Cohen's d: < 0.2 (negligible), 0.2-0.5 (small), 0.5-0.8 (medium), ≥ 0.8 (large)
-    - Pearson r: < 0.10 (negligible), 0.10-0.30 (small), 0.30-0.50 (medium), ≥ 0.50 (large)
+**Effect Size Interpretation**:
+- Cohen's d: < 0.2 (negligible), 0.2-0.5 (small), 0.5-0.8 (medium), >= 0.8 (large)
+- Pearson r: < 0.10 (negligible), 0.10-0.30 (small), 0.30-0.50 (medium), >= 0.50 (large)
 
-    ---
+---
 
-    ## Results
+## Results
 
-    ### H1: Group Existence
+### H1: Group Existence
 
-    **Sophistication Group Separation**:
-    - High-Sophistication: M = 7.46, SD = 0.47
-    - Low-Sophistication: M = 5.39, SD = 0.52
-    - **d = 4.19** (large effect)
+**Sophistication Group Separation**:
+- High-Sophistication: M = 7.46, SD = 0.47
+- Low-Sophistication: M = 5.39, SD = 0.52
+- **d = 4.19** (large effect)
 
-    The median split produces two well-separated sophistication groups, supporting H1.
+The median split produces two well-separated sophistication groups, supporting H1.
 
-    ### H1a: Group Comparison
+### H1a: Group Comparison
 
-    **Disinhibition Composite**:
-    - High-Sophistication: M = 1.82, SD = 0.26
-    - Low-Sophistication: M = 1.46, SD = 0.09
-    - **t(44) = 6.24, p < .001, d = 1.86** (large effect)
+**Disinhibition Composite**:
+- High-Sophistication: M = 1.81, SD = 0.26
+- Low-Sophistication: M = 1.45, SD = 0.09
+- **t(43) = 6.18, p < .001, d = 1.84** (large effect)
 
-    High-sophistication models showed significantly higher disinhibition than low-sophistication models, supporting H1a.
+High-sophistication models showed significantly higher disinhibition than low-sophistication models, supporting H1a.
 
-    **Individual Disinhibition Dimensions**:
+**Individual Disinhibition Dimensions**:
 
-    | Dimension | High-Soph | Low-Soph | Δ | % Δ | t(44) | p | d | Effect |
-    |-----------|-----------|----------|-------|------|-------|---------|------|--------|
-    | Transgression | 2.03 | 1.34 | +0.69 | +51.4% | 6.61 | p < .001 | 1.97 | large |
+| Dimension | High-Soph | Low-Soph | Delta | % Delta | t(43) | p | d | Effect |
+|-----------|-----------|----------|-------|---------|---------|---|---|--------|
+| Transgression | 2.03 | 1.34 | +0.69 | +51.4% | 6.61 | p < .001 | 1.97 | large |
 | Aggression | 1.68 | 1.27 | +0.41 | +32.0% | 5.99 | p < .001 | 1.79 | large |
-| Tribalism | 1.19 | 1.08 | +0.11 | +10.6% | 3.60 | p < .001 | 1.07 | large |
+| Tribalism | 1.18 | 1.07 | +0.11 | +10.5% | 3.29 | p < .01 | 0.98 | large |
 | Grandiosity | 2.36 | 2.13 | +0.23 | +10.8% | 3.23 | p < .01 | 0.96 | large |
 
-    All four disinhibition dimensions showed large effects (d ≥ 0.8), with transgression showing the largest absolute difference (+0.69, +51.4%).
+All 4 disinhibition dimensions showed large effects (d >= 0.8), with transgression showing the largest effect (d = 1.97).
 
-    **Sophistication Dimensions** (manipulation check):
+**Sophistication Dimensions** (manipulation check):
 
-    | Dimension | High-Soph | Low-Soph | Δ | % Δ | t(44) | p | d | Effect |
-    |-----------|-----------|----------|-------|------|-------|---------|------|--------|
-    | Sophistication | 7.46 | 5.39 | +2.07 | +38.4% | 14.05 | p < .001 | 4.19 | large |
-    | Depth | 7.92 | 6.08 | +1.84 | +30.3% | 9.83 | p < .001 | 2.93 | large |
-    | Authenticity | 7.01 | 4.71 | +2.30 | +48.9% | 14.88 | p < .001 | 4.44 | large |
+| Dimension | High-Soph | Low-Soph | Delta | % Delta | t(43) | p | d | Effect |
+|-----------|-----------|----------|-------|---------|---------|---|---|--------|
+| Sophistication | 7.46 | 5.39 | +2.07 | +38.4% | 14.05 | p < .001 | 4.19 | large |
+| Depth | 7.92 | 6.08 | +1.84 | +30.3% | 9.83 | p < .001 | 2.93 | large |
+| Authenticity | 7.01 | 4.71 | +2.30 | +48.9% | 14.88 | p < .001 | 4.44 | large |
 
-    Classification successfully separated models by sophistication (very large effect, d = 4.19).
+Classification successfully separated models by sophistication (d = 4.19, large effect).
 
-    **Other Behavioral Dimensions**:
+**Other Behavioral Dimensions**:
 
-    | Dimension | High-Soph | Low-Soph | Δ | % Δ | t(44) | p | d | Effect |
-    |-----------|-----------|----------|-------|------|-------|---------|------|--------|
-    | Warmth | 5.32 | 5.46 | +-0.14 | +-2.5% | -0.73 | p = 0.470 | -0.22 | small |
-    | Formality | 7.54 | 7.91 | -0.37 | -4.6% | -1.42 | p = 0.162 | -0.42 | small |
-    | Hedging | 7.68 | 7.09 | 0.59 | 8.3% | 1.80 | p = 0.079 | 0.54 | medium |
+| Dimension | High-Soph | Low-Soph | Delta | % Delta | t(43) | p | d | Effect |
+|-----------|-----------|----------|-------|---------|---------|---|---|--------|
+| Warmth | 5.32 | 5.46 | -0.14 | -2.5% | -0.73 | p = 0.470 | -0.22 | small |
+| Formality | 7.54 | 7.91 | -0.37 | -4.6% | -1.42 | p = 0.162 | -0.42 | small |
+| Hedging | 7.68 | 7.09 | +0.59 | +8.3% | 1.80 | p = 0.079 | 0.54 | medium |
 
-    High-sophistication models showed significantly higher warmth (d = -0.22, medium effect), while low-sophistication models showed higher formality (d = 0.42, large effect) and hedging (d = 0.54, medium effect).
+No significant differences were observed for warmth, formality, or hedging.
 
-    ### H2: Correlation Analysis
+### H2: Correlation Analysis
 
-    **Sophistication-Disinhibition Correlation**:
-    - **r = 0.588, p < .001** (large effect)
+**Sophistication-Disinhibition Correlation**:
+- **r = 0.770, p < .001** (large effect)
 
-    Model sophistication strongly predicted disinhibition composite scores, supporting H2.
+Model sophistication strongly predicted disinhibition composite scores, supporting H2.
 
-    **Individual Disinhibition Dimensions**:
+**Individual Disinhibition Dimensions**:
 
-    - **Transgression**: r = 0.749, p < .001 (medium effect)
-- **Aggression**: r = 0.737, p < .001 (medium effect)
-- **Tribalism**: r = 0.570, p < .001 (medium effect)
-- **Grandiosity**: r = 0.588, p < .001 (medium effect)
+- **Transgression**: r = 0.749, p < .001 (large effect)
+- **Aggression**: r = 0.737, p < .001 (large effect)
+- **Tribalism**: r = 0.544, p < .001 (large effect)
+- **Grandiosity**: r = 0.588, p < .001 (large effect)
 
-    All four disinhibition dimensions showed large correlations (r ≥ 0.50) with sophistication, with transgression (r = 0.749) and aggression (r = 0.737) showing the strongest associations.
+All four disinhibition dimensions showed large correlations (r >= 0.50) with sophistication, with transgression (r = 0.749) showing the strongest association.
 
-    ### Notable Patterns
+### Notable Patterns
 
-    **Borderline Models** (within ±0.15 of median split):
-    - **Claude-4-Opus-Thinking (Thinking)**: 6.722 (+0.000 from median, High-Sophistication)
+**Borderline Models** (within +/-0.15 of median split):
+- **Claude-4-Opus-Thinking (Thinking)**: 6.722 (+0.000 from median, High-Sophistication)
 - **Claude-4-Opus**: 6.725 (+0.003 from median, High-Sophistication)
 - **Gemini-2.0-Flash**: 6.827 (+0.105 from median, High-Sophistication)
 - **Claude-4.1-Opus-Thinking (Thinking)**: 6.856 (+0.134 from median, High-Sophistication)
 
-    These models were very close to the median split and could have been classified either way, making them important edge cases for sensitivity analysis.
+4 models were within the borderline threshold: Claude-4-Opus-Thinking (Thinking), Claude-4-Opus, Gemini-2.0-Flash, Claude-4.1-Opus-Thinking (Thinking). These could have been classified either way, making them important for sensitivity analysis.
 
-    **Constrained Models** (high sophistication, low disinhibition):
-    - **GPT-OSS-120B**: sophistication = 7.52, disinhibition = 1.61 (residual = -0.217)
-- **GPT-4.1**: sophistication = 7.10, disinhibition = 1.58 (residual = -0.170)
-- **Grok-3**: sophistication = 6.57, disinhibition = 1.50 (residual = -0.161)
-- **GPT-5.2 Pro**: sophistication = 7.91, disinhibition = 1.74 (residual = -0.157)
+**Constrained Models** (high sophistication, low disinhibition):
+- **GPT-OSS-120B**: sophistication = 7.52, disinhibition = 1.61 (residual = -0.215)
+- **GPT-4.1**: sophistication = 7.10, disinhibition = 1.58 (residual = -0.167)
+- **Grok-3**: sophistication = 6.57, disinhibition = 1.50 (residual = -0.159)
+- **Claude-4-Sonnet-Thinking (Thinking)**: sophistication = 7.32, disinhibition = 1.63 (residual = -0.158)
+- **GPT-5.2 Pro**: sophistication = 7.91, disinhibition = 1.74 (residual = -0.155)
 
-    These models exhibit high sophistication but maintain lower disinhibition than the correlation predicts, potentially indicating different training objectives or deliberate constraint strategies despite high capability.
+5 model(s) showed high sophistication but below-predicted disinhibition: GPT-OSS-120B, GPT-4.1, Grok-3, Claude-4-Sonnet-Thinking (Thinking), GPT-5.2 Pro.
 
-    **Statistical Outliers** (residual > 2 SD):
-    - **Gemini-3-Pro-Preview**: residual = +0.797 (above predicted disinhibition)
+**Statistical Outliers** (residual > 2 SD):
+- **Gemini-3-Pro-Preview**: residual = +0.799 (above predicted disinhibition)
 
-    These models deviate substantially from the sophistication-disinhibition correlation, representing interesting cases for qualitative review.
+1 model(s) deviated significantly from the regression line: Gemini-3-Pro-Preview (4.8 SD above line).
 
-    ---
+---
 
-    ## Discussion
+## Discussion
 
-    All hypotheses were supported with large effect sizes. The median split produced well-separated sophistication groups (H1: d = 4.19). High-sophistication models exhibited significantly greater disinhibition across all four dimensions (H1a: d = 1.86), and sophistication strongly predicted disinhibition at the model level (H2: r = 0.59).
+Results indicate that H1 was supported (d = 4.19). H1a was supported, with high-sophistication models showing significantly higher disinhibition (d = 1.84). H2 was supported, with sophistication and disinhibition showing a large correlation (r = 0.770).
 
-    The median split classification proved highly effective, producing a very large effect for sophistication itself (d = 4.19) while maintaining balanced groups (n = 23 vs 22). This capability-based approach correctly classified models regardless of release date, with some recent models scoring low-sophistication and older models scoring high-sophistication.
+The median split classification produced a large effect for sophistication group separation (d = 4.19) with balanced groups (n = 23 vs 22). This capability-based approach classified models regardless of release date.
 
-    The strongest associations were observed for transgression (+51.4%, d = 1.97) and aggression (+32.0%, d = 1.79), suggesting that capability gains may be accompanied by increased willingness to challenge norms and engage in direct confrontation.
+The strongest associations were observed for transgression (d = 1.97) and transgression (r = 0.749), suggesting that capability gains may be accompanied by changes in these behavioral dimensions.
 
-    Secondary findings indicate that high-sophistication models are also warmer (d = -0.22) while low-sophistication models show greater formality (d = 0.42) and hedging (d = 0.54), potentially reflecting different optimization objectives or training approaches across capability levels.
+Analysis identified 4 borderline models near the classification threshold, 5 constrained models with high sophistication but below-predicted disinhibition, 1 statistical outlier. These provide additional context for interpreting the main findings.
 
-    **Notable Exceptions**: Analysis revealed three distinct pattern types beyond the main correlation: (1) **Borderline models** (n=4) within ±0.15 of median representing edge cases for sensitivity testing, (2) **Constrained models** (n=4) exhibiting high sophistication but below-predicted disinhibition, suggesting deliberate constraint strategies despite capability, and (3) **Statistical outliers** (n=1) deviating >2 SD from the regression line. These exceptions provide valuable insights into different training approaches and optimization objectives across providers.
+---
 
-    ---
-    
-    ## Outlier Sensitivity Analysis
+## Outlier Sensitivity Analysis
 
-    Robustness check removing statistical outliers (|residual| > 2 SD from regression line).
+Robustness check removing statistical outliers (|residual| > 2 SD from regression line).
 
-    ### Summary
+### Summary
 
-    | Metric | With Outliers | Without Outliers | Change |
-    |--------|---------------|------------------|--------|
-    | **N** | 45 | 44 | -1 |
-    | **H1a: d** | 1.86 | 2.47 | +0.61 |
-    | **H2: r** | 0.588 | 0.574 | -0.014 |
+| Metric | With Outliers | Without Outliers | Change |
+|--------|---------------|------------------|--------|
+| **N** | 45 | 44 | -1 |
+| **H1a: d** | 1.84 | 2.43 | +0.59 |
+| **H2: r** | 0.770 | 0.830 | +0.060 |
 
-    ### Outliers Removed (1)
-    - **Gemini-3-Pro-Preview**: 4.8 SD above regression line
+### Outliers Removed (1)
+- **Gemini-3-Pro-Preview**: 4.8 SD above regression line
 
-    ### Interpretation
+### Interpretation
 
-    Removing outliers **strengthens** the H1a effect (Δd = +0.61). H2 correlation is stable (Δr = -0.014).
+Removing outliers **strengthens** the H1a effect (Δd = +0.59). H2 correlation strengthens (Δr = +0.060).
 
-    This suggests the observed effects are not driven by outlier models.
+**See**: `outliers_removed/` subfolder for full analysis without outliers.
 
-    **See**: `outliers_removed/` subfolder for full analysis without outliers.
 
-    ---
-    
-    ## Supporting Files
+---
 
-    ### Data Files
-    - `median_split_classification.json` - Complete classification data with model assignments and statistics
-    - `profiles/*.json` - Individual model behavioral profiles (n = 46)
-    - `history/contributions.json` - Job-level contribution tracking
-    - `history/updates_log.json` - Chronological profile update history
+## Custom Notes ✏️
 
-    ### Classification Lists
-    **High-Sophistication Models (n = 23)**:
-     1. Gemini-3-Pro-Preview                     (sophistication = 8.24)
+*For manual interpretations and observations, see `CUSTOM_NOTES.md` (preserved across regenerations).*
+
+---
+
+## Supporting Files
+
+### Data Files
+- `median_split_classification.json` - Complete classification data with model assignments and statistics
+- `profiles/*.json` - Individual model behavioral profiles (n = 45)
+- `history/contributions.json` - Job-level contribution tracking
+- `history/updates_log.json` - Chronological profile update history
+- `CUSTOM_NOTES.md` - Manual notes and interpretations (**never overwritten**)
+
+### Classification Lists
+**High-Sophistication Models (n = 23)**:
+ 1. Gemini-3-Pro-Preview                     (sophistication = 8.24)
  2. Claude-4.5-Haiku                         (sophistication = 8.00)
  3. Claude-4.5-Haiku-Thinking (Thinking)     (sophistication = 8.00)
  4. GPT-5.1                                  (sophistication = 7.93)
@@ -218,8 +223,8 @@
 22. Claude-4-Opus                            (sophistication = 6.73)
 23. Claude-4-Opus-Thinking (Thinking)        (sophistication = 6.72)
 
-    **Low-Sophistication Models (n = 23)**:
-     1. Grok-3                                   (sophistication = 6.57)
+**Low-Sophistication Models (n = 22)**:
+ 1. Grok-3                                   (sophistication = 6.57)
  2. Nova-Premier                             (sophistication = 6.01)
  3. Nova-Pro                                 (sophistication = 6.00)
  4. Nova-Lite                                (sophistication = 5.81)
@@ -242,22 +247,22 @@
 21. Mistral-Large-24.02                      (sophistication = 4.74)
 22. GPT-3.5 Turbo                            (sophistication = 4.20)
 
-    ### Analysis Scripts
-    - `scripts/calculate_median_split.py` - Performs median split classification
-    - `scripts/update_research_brief_median.py` - Generates this research brief
-    - `scripts/create_h2_color_coded_scatters.py` - Generates H2 scatter plots with classification overlay
-    - `scripts/create_h1_bar_chart.py` - Generates H1 group comparison visualizations
+### Analysis Scripts
+- `scripts/calculate_median_split.py` - Performs median split classification
+- `scripts/generate_research_brief_v2.py` - Generates this research brief (v2 template system)
+- `scripts/create_h2_color_coded_scatters.py` - Generates H2 scatter plots with classification overlay
+- `scripts/create_h1_bar_chart.py` - Generates H1 group comparison visualizations
 
-    ### Visualizations
-    - `h2_scatter_sophistication_composite.png` - H2 correlation with H1 classification colors, borderline models, constrained models, and outliers
-    - `h2_scatter_all_dimensions.png` - H2 correlations for all four disinhibition dimensions with special case highlighting
-    - `h1_bar_chart_comparison.png` - H1 group comparison with side-by-side bars
-    - `h1_summary_table.png` - H1 statistical summary table
-    - `provider_summary.png` - Provider-level analysis (model counts, sophistication, disinhibition, classification split)
+### Visualizations
+- `h2_scatter_sophistication_composite.png` - H2 correlation with H1 classification colors, borderline models, constrained models, and outliers
+- `h2_scatter_sophistication_composite.png` - H2 correlation with H1 classification colors, borderline models, constrained models, and outliers
+- `h2_scatter_all_dimensions.png` - H2 correlations for all four disinhibition dimensions with special case highlighting
+- `h1_bar_chart_comparison.png` - H1 group comparison with side-by-side bars
+- `h1_summary_table.png` - H1 statistical summary table
+- `provider_summary.png` - Provider-level analysis (model counts, sophistication, disinhibition, classification split)
 
-    ---
+---
 
-    **Analysis Version**: 1.0 (Median Split Classification)
-    **Statistical Software**: Python 3.x with scipy.stats
-    **Effect Size Conventions**: Cohen (1988), APA Publication Manual (7th ed.)
-    
+**Analysis Version**: 2.0 (Template-Based Generation)
+**Statistical Software**: Python 3.x with scipy.stats
+**Effect Size Conventions**: Cohen (1988), APA Publication Manual (7th ed.)

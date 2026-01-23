@@ -214,3 +214,34 @@ Before accepting median split results, verify:
 - Classification results: `<condition>/median_split_classification.json`
 - Borderline models: Listed in classification JSON under `borderline_models`
 - Calculation script: `scripts/calculate_median_split.py`
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/*/profiles/*.json` | Per-model behavioral scores |
+| `outputs/behavioral_profiles/*/median_split_classification.json` | Classification results |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `classification_stability_analysis.json` | Cross-condition stability metrics |
+
+### Methodology
+- **Statistical tests**: Median calculation, Cohen's d for separation
+- **Borderline threshold**: ±0.15 from median sophistication
+- **Composite**: Sophistication = (depth + authenticity) / 2
+
+### Reproducibility
+To regenerate:
+```bash
+./scripts/run_complete_h1_h2_analysis.sh <condition>
+```
+
+### Data Quality
+- **N**: 45-46 models per condition
+- **Conditions**: All 6 intervention conditions analyzed
+- **Stability**: 76.1% classification stability across conditions

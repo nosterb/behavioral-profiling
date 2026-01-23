@@ -1,0 +1,48 @@
+Config_Provider,Config_Model_ID,Config_Display_Name,Config_Options,CSV_Match,Parameters_Total,MoE,Active_Params,TTS,Reasoning_Mode,Est_Thinking_Effort,Notes
+bedrock,us.anthropic.claude-sonnet-4-5-20250929-v1:0,Claude-4.5-Sonnet,,Claude Sonnet 4.5,Not disclosed,Not disclosed,N/A,No,Prompted,Low,77.2% SWE-bench; 1M context beta; ASL-3
+bedrock,global.anthropic.claude-opus-4-5-20251101-v1:0,Claude-4.5-Opus-Global,,Claude Opus 4.5,Not disclosed,Not disclosed,N/A,No,Prompted,Medium,80.9% SWE-bench; $5/$25 per MTok
+bedrock,us.anthropic.claude-sonnet-4-20250514-v1:0,Claude-4-Sonnet,,Claude Sonnet 4,Not disclosed,Not disclosed,N/A,No,Prompted,Low,72.7% SWE-bench; $3/$15 per MTok
+bedrock,us.anthropic.claude-opus-4-1-20250805-v1:0,Claude-4.1-Opus,,Claude Opus 4.1,Not disclosed,Not disclosed,N/A,No,Prompted,Low,74.5% SWE-bench; only 4.1 model released
+bedrock,us.anthropic.claude-opus-4-20250514-v1:0,Claude-4-Opus,,Claude Opus 4,Not disclosed,Not disclosed,N/A,No,Prompted,Low,72.5% SWE-bench; ASL-3; 7+ hr autonomous work
+bedrock,us.anthropic.claude-haiku-4-5-20251001-v1:0,Claude-4.5-Haiku,,Claude Haiku 4.5,Not disclosed,Not disclosed,N/A,No,Prompted,Low,First Haiku with 64K output; 73.3% SWE-bench
+bedrock,us.anthropic.claude-sonnet-4-5-20250929-v1:0,Claude-4.5-Sonnet-Thinking,extended_thinking=true,Claude Sonnet 4.5 (Extended Thinking),Not disclosed,Not disclosed,N/A,Yes,Native,Very High,82.0% SWE-bench high-compute; 87% AIME 2025
+bedrock,us.anthropic.claude-sonnet-4-20250514-v1:0,Claude-4-Sonnet-Thinking,extended_thinking=true,Claude Sonnet 4 (Extended Thinking),Not disclosed,Not disclosed,N/A,Yes,Native,High,Interleaved thinking beta available
+bedrock,us.anthropic.claude-opus-4-1-20250805-v1:0,Claude-4.1-Opus-Thinking,extended_thinking=true,Claude Opus 4.1 (Extended Thinking),Not disclosed,Not disclosed,N/A,Yes,Native,Very High,Incremental improvements for agentic tasks
+bedrock,us.anthropic.claude-opus-4-20250514-v1:0,Claude-4-Opus-Thinking,extended_thinking=true,Claude Opus 4 (Extended Thinking),Not disclosed,Not disclosed,N/A,Yes,Native,Very High,79.6% GPQA Diamond; interleaved thinking; summarized output
+bedrock,us.anthropic.claude-haiku-4-5-20251001-v1:0,Claude-4.5-Haiku-Thinking,extended_thinking=true,Claude Haiku 4.5 (Extended Thinking),Not disclosed,Not disclosed,N/A,Yes,Native,High,First Haiku with extended thinking; 4-5x faster than Sonnet
+bedrock,global.anthropic.claude-opus-4-5-20251101-v1:0,Claude-4.5-Opus-Global-Thinking,extended_thinking=true,Claude Opus 4.5 (Extended Thinking),Not disclosed,Not disclosed,N/A,Yes,Native,Maximum,First with effort parameter (low/med/high); thinking blocks preserved
+bedrock,us.anthropic.claude-3-7-sonnet-20250219-v1:0,Claude-3.7-Sonnet,,Claude 3.7 Sonnet,Not disclosed,Not disclosed,N/A,No,Prompted,Low,62.3% SWE-bench; deprecated Oct 28 2025
+bedrock,us.anthropic.claude-3-5-sonnet-20241022-v2:0,Claude-3.5-Sonnet-v2,,Claude 3.5 Sonnet (New),Not disclosed,Not disclosed,N/A,No,Prompted,None,49% SWE-bench (beat o1-preview); Computer Use beta
+bedrock,us.anthropic.claude-3-5-sonnet-20240620-v1:0,Claude-3.5-Sonnet-v1,,Claude 3.5 Sonnet,Not disclosed,Not disclosed,N/A,No,Prompted,None,Outperformed Opus at Sonnet price; Artifacts feature
+bedrock,us.anthropic.claude-3-5-haiku-20241022-v1:0,Claude-3.5-Haiku,,Claude 3.5 Haiku,Not disclosed,Not disclosed,N/A,No,Prompted,None,Opus-level at Haiku speed; 40.6% SWE-bench
+bedrock,us.anthropic.claude-3-opus-20240229-v1:0,Claude-3-Opus,,Claude 3 Opus,Not disclosed,Not disclosed,N/A,No,Prompted,None,Most capable Claude 3; 200K-1M context; 99.4% NIAH
+bedrock,us.anthropic.claude-3-sonnet-20240229-v1:0,Claude-3-Sonnet,,Claude 3 Sonnet,Not disclosed,Not disclosed,N/A,No,Prompted,None,Balanced mid-tier; 200K context; vision
+bedrock,us.anthropic.claude-3-haiku-20240307-v1:0,Claude-3-Haiku,,Claude 3 Haiku,Not disclosed,Not disclosed,N/A,No,Prompted,None,Fastest Claude 3; 200K context; vision; $0.25/MTok
+bedrock,us.meta.llama4-maverick-17b-instruct-v1:0,Llama-4-Maverick-17B,,Llama 4 Maverick,400B,Yes,17B,No,Prompted,Low,1M context; 128 experts + 1 shared; co-distilled from Behemoth
+bedrock,us.meta.llama4-scout-17b-instruct-v1:0,Llama-4-Scout-17B,,Llama 4 Scout,109B,Yes,17B,No,Prompted,Low,10M context (industry-leading); 16 experts + 1 shared; iRoPE
+bedrock,us.meta.llama3-3-70b-instruct-v1:0,Llama-3.3-70B,,Llama 3.3 70B Instruct,70B,No,N/A,No,Prompted,Medium,405B-level performance at 70B cost; 128K context
+bedrock,us.meta.llama3-2-90b-instruct-v1:0,Llama-3.2-90B,,Llama 3.2 90B Vision,90B,No,N/A,No,Prompted,Medium-High,Largest multimodal Llama 3.2; matches GPT-4o on ChartQA
+bedrock,us.meta.llama3-1-70b-instruct-v1:0,Llama-3.1-70B,,Llama 3.1 70B,70B,No,N/A,No,Prompted,Medium,128K context; multilingual; state-of-the-art tool use
+bedrock,meta.llama3-70b-instruct-v1:0,Llama-3-70B,,Llama 3 70B Instruct,70B,No,N/A,No,Prompted,Medium,Strong coding and reasoning; 8K context
+bedrock,openai.gpt-oss-120b-1:0,GPT-OSS-120B,,GPT-OSS-120B,116.8B,Yes,~5.1B,Yes,Native,High,First open-weight OpenAI model; Apache 2.0; visible CoT
+bedrock,us.amazon.nova-premier-v1:0,Nova-Premier,,Nova Premier,Not disclosed,Not disclosed,Not disclosed,No,Prompted,Low,1M context; 87.4% MMLU; best for distillation
+bedrock,us.amazon.nova-pro-v1:0,Nova-Pro,,Nova Pro,Not disclosed,Not disclosed,Not disclosed,No,Prompted,Low,Multimodal; 300K context; RAG/agentic optimized
+bedrock,us.amazon.nova-lite-v1:0,Nova-Lite,,Nova Lite,Not disclosed,Not disclosed,Not disclosed,No,None,None,Multimodal; 300K context; 30min video analysis
+bedrock,mistral.mistral-large-2402-v1:0,Mistral-Large-24.02,,Mistral Large,~70B (est),No,~70B,No,None,None,First flagship; 32K context; multilingual; Azure available
+bedrock,mistral.mixtral-8x7b-instruct-v0:1,Mixtral-8x7B,,Mixtral 8x7B,46.7B,Yes,~13B,No,None,None,First Mistral MoE; 32K context; 2 of 8 experts; Apache 2.0
+bedrock,us.deepseek.r1-v1:0,DeepSeek-R1,,DeepSeek-R1,671B,Yes,37B,Yes,Native,Very High,Rivals o1; visible reasoning via <think> tags; MIT License
+bedrock,qwen.qwen3-32b-v1:0,Qwen3-32B,,Qwen3-32B (Dense),32B,No,32B,Yes,Hybrid,High,Apache 2.0; 128K context; hybrid thinking modes
+openai,gpt-3.5-turbo,GPT-3.5 Turbo,,GPT-3.5 Turbo,~175B,No,N/A,No,Prompted,None,16K context available; 10x cheaper than davinci-003
+openai,gpt-4,GPT-4,,GPT-4,~1.8T (rumored),Yes (rumored),~280B (rumored),No,Prompted,None,8K/32K context; multimodal; MoE architecture per leaks
+openai,gpt-4.1,GPT-4.1,,GPT-4.1,~1.8T (rumored),Yes (rumored),~280B (rumored),No,Prompted,Low,Incremental update to GPT-4; improved instruction following
+openai,o3,O3,reasoning_effort=medium,o3,Not disclosed,No,N/A,Yes,Native,Very High,91.6% AIME 2024; first reasoning model with full tool access
+openai,o3-mini,O3 Mini,reasoning_effort=medium,o3-mini,Not disclosed,No,N/A,Yes,Native,High,87.3% AIME 2024 (high); reasoning_effort: low/med/high
+openai,gpt-5,GPT-5,,GPT-5,~1.7-1.8T (est),Yes (router),Variable,Yes,Native (auto-routing),Very High,94.6% AIME 2025; auto-routes between 5 sub-models
+openai,gpt-5.1,GPT-5.1,reasoning_effort=medium,GPT-5.1 Thinking,Not disclosed,Yes,Not disclosed,Yes,Native,High,Adapts thinking time per question complexity
+openai,gpt-5.2,GPT-5.2,reasoning_effort=medium,GPT-5.2 Thinking,Not disclosed,Yes,Not disclosed,Yes,Native,Very High,92.4% GPQA Diamond; knowledge cutoff Aug 2025
+openai,gpt-5.2-pro,GPT-5.2 Pro,reasoning_effort=high,GPT-5.2 Pro,Not disclosed,Yes,Not disclosed,Yes,Native (extended),Maximum,93.2% GPQA Diamond; 40.3% FrontierMath; most capable
+grok,grok-4-0709,Grok-4-0709,,Grok 4,~3T (rumored),Yes,Not disclosed,Yes,Native,Very High,256K context; native tool use via RL; 87.5-88% GPQA
+grok,grok-3,Grok-3,,Grok 3,~2.7T (rumored),Yes,Not disclosed,Yes,Native,Very High,1M context; Big Brain mode; 93.3% AIME 2025 (cons@64)
+gemini,gemini-3-pro-preview,Gemini-3-Pro-Preview,reasoning_effort=medium,Gemini 3 Pro,Not disclosed,Yes,Not disclosed,Yes,Native,Very High,91.9% GPQA; 1501 Elo (#1); cannot disable thinking
+gemini,gemini-2.5-pro,Gemini-2.5-Pro,reasoning_effort=medium,Gemini 2.5 Pro,~128B (est),Yes,16 experts,Yes,Native,Very High,86.7% AIME 2025; thinkingBudget parameter
+gemini,gemini-2.0-flash,Gemini-2.0-Flash,reasoning_effort=medium,Gemini 2.0 Flash,Not disclosed,Yes,Not disclosed,Yes (TTS for audio),Prompted,Medium,Agentic features; native tool use; 1M context

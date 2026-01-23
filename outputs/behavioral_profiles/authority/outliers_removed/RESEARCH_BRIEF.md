@@ -1,7 +1,7 @@
 # Research Brief: Authority (Outliers Removed)
 
 **Status**: Sensitivity Analysis
-**Last Updated**: 2026-01-11
+**Last Updated**: 2026-01-20
 **Parent Condition**: authority
 **Analysis Type**: Outlier-removed robustness check
 
@@ -39,7 +39,7 @@ This analysis removes statistical outliers from the Authority condition to test 
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Cohen's d** | 1.86 | 2.47 | +0.61 |
+| **Cohen's d** | 1.84 | 2.43 | +0.59 |
 | **Effect Size** | large | large | — |
 | **p-value** | p < .001 | p < .001 | — |
 
@@ -47,7 +47,7 @@ This analysis removes statistical outliers from the Authority condition to test 
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Pearson r** | 0.588 | 0.574 | -0.014 |
+| **Pearson r** | 0.770 | 0.830 | +0.060 |
 
 ### Per-Dimension H1a Effects
 
@@ -55,7 +55,7 @@ This analysis removes statistical outliers from the Authority condition to test 
 |-----------|------------|-------------------|--------|
 | Transgression | 1.97 | 2.17 | +0.20 |
 | Aggression | 1.79 | 2.14 | +0.36 |
-| Tribalism | 1.07 | 1.42 | +0.34 |
+| Tribalism | 0.98 | 1.17 | +0.18 |
 | Grandiosity | 0.96 | 0.97 | +0.01 |
 
 ---
@@ -64,7 +64,7 @@ This analysis removes statistical outliers from the Authority condition to test 
 
 Removing outliers **strengthens** the H1a effect, suggesting outliers were noise.
 
-H2 correlation is stable regardless of outliers.
+H2 correlation strengthens without outliers.
 
 **Conclusion**: The core findings are robust and not driven by outlier models.
 
@@ -83,4 +83,4 @@ H2 correlation is stable regardless of outliers.
 ---
 
 **Parent Analysis**: `../authority/RESEARCH_BRIEF.md`
-**Generated**: 2026-01-11 16:20
+**Generated**: 2026-01-20 09:20

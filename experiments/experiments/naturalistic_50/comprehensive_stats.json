@@ -1,0 +1,445 @@
+{
+  "overall": {
+    "n_models": 44,
+    "n_high_soph": 22,
+    "n_low_soph": 22,
+    "providers": {
+      "Anthropic": 19,
+      "OpenAI": 9,
+      "Meta": 4,
+      "AWS": 3,
+      "Google": 3,
+      "xAI": 2,
+      "Mistral": 2,
+      "DeepSeek": 1,
+      "Alibaba": 1
+    },
+    "overall_means": {
+      "warmth": 30.54051136363637,
+      "formality": 36.672367424242424,
+      "hedging": 22.961553030303033,
+      "aggression": 4.592083333333334,
+      "transgression": 5.0139772727272724,
+      "grandiosity": 7.546496212121212,
+      "tribalism": 3.6901136363636358,
+      "depth": 34.469185606060606,
+      "authenticity": 25.28357954545455,
+      "sophistication": 29.876382575757575
+    },
+    "overall_stds": {
+      "warmth": 3.4442088805958555,
+      "formality": 3.3466179654914776,
+      "hedging": 2.6696990606886324,
+      "aggression": 0.9690599466661276,
+      "transgression": 1.4634298857407588,
+      "grandiosity": 1.1120175488970871,
+      "tribalism": 0.5215311013054222,
+      "depth": 5.403404822157376,
+      "authenticity": 5.642676382395615,
+      "sophistication": 5.425918710517045
+    }
+  },
+  "by_provider": {
+    "Anthropic": {
+      "n": 19,
+      "means": {
+        "warmth": 30.43741228070175,
+        "formality": 34.406359649122805,
+        "hedging": 23.52473684210526,
+        "aggression": 4.752412280701756,
+        "transgression": 5.474561403508773,
+        "grandiosity": 7.302587719298246,
+        "tribalism": 3.920570175438597,
+        "depth": 32.956184210526324,
+        "authenticity": 25.00061403508772,
+        "sophistication": 28.978399122807016
+      },
+      "stds": {
+        "warmth": 3.2609574056945894,
+        "formality": 2.9284039259093593,
+        "hedging": 2.201098930301557,
+        "aggression": 0.8524948813582638,
+        "transgression": 1.4806127612572846,
+        "grandiosity": 0.7257386560023614,
+        "tribalism": 0.49349777138035256,
+        "depth": 4.406091053658778,
+        "authenticity": 5.0839078746511746,
+        "sophistication": 4.673682893751114
+      },
+      "models": [
+        "claude-4-sonnet",
+        "claude-4.5-sonnet",
+        "claude-3.5-sonnet-v1",
+        "claude-3.5-haiku",
+        "claude-4.5-haiku",
+        "claude-4.5-opus-global-thinking_(thinking)",
+        "claude-4.5-sonnet-thinking_(thinking)",
+        "claude-4.1-opus-thinking_(thinking)",
+        "claude-4.5-opus-global",
+        "claude-4-opus-thinking_(thinking)",
+        "claude-4-opus",
+        "claude-4.1-opus",
+        "claude-4.5-haiku-thinking_(thinking)",
+        "claude-3.5-sonnet-v2",
+        "claude-3-opus",
+        "claude-3-sonnet",
+        "claude-3.7-sonnet",
+        "claude-3-haiku",
+        "claude-4-sonnet-thinking_(thinking)"
+      ]
+    },
+    "xAI": {
+      "n": 2,
+      "means": {
+        "warmth": 34.97291666666666,
+        "formality": 37.513333333333335,
+        "hedging": 25.943749999999994,
+        "aggression": 4.097916666666667,
+        "transgression": 4.278333333333334,
+        "grandiosity": 8.415416666666665,
+        "tribalism": 3.2645833333333334,
+        "depth": 39.805416666666666,
+        "authenticity": 28.624583333333334,
+        "sophistication": 34.215
+      },
+      "stds": {
+        "warmth": 1.4937630752565847,
+        "formality": 0.6882506003549083,
+        "hedging": 0.03948012861625068,
+        "aggression": 0.2150783126109076,
+        "transgression": 0.23570226039551562,
+        "grandiosity": 0.2740038777097866,
+        "tribalism": 0.3352864654126216,
+        "depth": 0.07719249027952152,
+        "authenticity": 0.7265522176691774,
+        "sophistication": 0.32467986369482926
+      },
+      "models": [
+        "grok-4-0709",
+        "grok-3"
+      ]
+    },
+    "OpenAI": {
+      "n": 9,
+      "means": {
+        "warmth": 29.876759259259263,
+        "formality": 37.20074074074074,
+        "hedging": 21.423333333333332,
+        "aggression": 4.691203703703704,
+        "transgression": 5.053148148148149,
+        "grandiosity": 7.592037037037037,
+        "tribalism": 3.65212962962963,
+        "depth": 37.47259259259259,
+        "authenticity": 28.43185185185185,
+        "sophistication": 32.95222222222222
+      },
+      "stds": {
+        "warmth": 3.55668942423904,
+        "formality": 2.158069700937608,
+        "hedging": 2.454698195128408,
+        "aggression": 0.5458696093402111,
+        "transgression": 1.125846346595296,
+        "grandiosity": 0.9969836549206875,
+        "tribalism": 0.37221561457650865,
+        "depth": 7.2420183128619025,
+        "authenticity": 6.4138321496094814,
+        "sophistication": 6.803784505240446
+      },
+      "models": [
+        "gpt-5",
+        "gpt-4",
+        "gpt-3.5_turbo",
+        "gpt-5.1",
+        "gpt-5.2",
+        "gpt-oss-120b",
+        "o3",
+        "gpt-4.1",
+        "gpt-5.2_pro"
+      ]
+    },
+    "DeepSeek": {
+      "n": 1,
+      "means": {
+        "warmth": 26.250000000000004,
+        "formality": 41.63833333333333,
+        "hedging": 19.668333333333333,
+        "aggression": 4.168333333333334,
+        "transgression": 4.694166666666666,
+        "grandiosity": 8.249166666666666,
+        "tribalism": 3.334166666666667,
+        "depth": 37.61166666666667,
+        "authenticity": 24.25,
+        "sophistication": 30.930833333333336
+      },
+      "stds": {
+        "warmth": NaN,
+        "formality": NaN,
+        "hedging": NaN,
+        "aggression": NaN,
+        "transgression": NaN,
+        "grandiosity": NaN,
+        "tribalism": NaN,
+        "depth": NaN,
+        "authenticity": NaN,
+        "sophistication": NaN
+      },
+      "models": [
+        "deepseek-r1"
+      ]
+    },
+    "AWS": {
+      "n": 3,
+      "means": {
+        "warmth": 28.18527777777778,
+        "formality": 42.02805555555556,
+        "hedging": 23.778333333333336,
+        "aggression": 3.71388888888889,
+        "transgression": 3.603333333333334,
+        "grandiosity": 6.898611111111111,
+        "tribalism": 3.0933333333333337,
+        "depth": 32.43527777777778,
+        "authenticity": 19.74,
+        "sophistication": 26.08763888888889
+      },
+      "stds": {
+        "warmth": 1.005854505898865,
+        "formality": 0.7554231399489749,
+        "hedging": 2.3381647896017386,
+        "aggression": 0.11151835092303206,
+        "transgression": 0.2667200467406479,
+        "grandiosity": 0.2673134517406143,
+        "tribalism": 0.2440799049491787,
+        "depth": 0.9211199905750804,
+        "authenticity": 0.36270683754238775,
+        "sophistication": 0.6364168812651503
+      },
+      "models": [
+        "nova-pro",
+        "nova-premier",
+        "nova-lite"
+      ]
+    },
+    "Meta": {
+      "n": 4,
+      "means": {
+        "warmth": 30.082916666666662,
+        "formality": 39.92395833333334,
+        "hedging": 24.381874999999997,
+        "aggression": 3.965625,
+        "transgression": 3.7931250000000003,
+        "grandiosity": 7.0275,
+        "tribalism": 3.270833333333333,
+        "depth": 31.45104166666666,
+        "authenticity": 20.680833333333332,
+        "sophistication": 26.065937499999997
+      },
+      "stds": {
+        "warmth": 1.2637558843325642,
+        "formality": 0.6723801610833838,
+        "hedging": 0.8209427098588357,
+        "aggression": 0.07663760016636258,
+        "transgression": 0.1778008340083761,
+        "grandiosity": 0.3895765745105926,
+        "tribalism": 0.11625920911353071,
+        "depth": 1.30594126246877,
+        "authenticity": 0.41107413497378376,
+        "sophistication": 0.8346043345529844
+      },
+      "models": [
+        "llama-4-scout-17b",
+        "llama-3.2-90b",
+        "llama-4-maverick-17b",
+        "llama-3.1-70b"
+      ]
+    },
+    "Google": {
+      "n": 3,
+      "means": {
+        "warmth": 34.258611111111115,
+        "formality": 36.37,
+        "hedging": 19.796666666666667,
+        "aggression": 6.129166666666667,
+        "transgression": 6.573333333333333,
+        "grandiosity": 9.916944444444445,
+        "tribalism": 4.1755555555555555,
+        "depth": 40.57472222222222,
+        "authenticity": 31.57361111111111,
+        "sophistication": 36.07416666666666
+      },
+      "stds": {
+        "warmth": 4.298461638040253,
+        "formality": 1.7643678046257791,
+        "hedging": 4.7516012651877,
+        "aggression": 2.368426135878236,
+        "transgression": 2.7313066673500996,
+        "grandiosity": 2.1369309400616094,
+        "tribalism": 0.8524598122383727,
+        "depth": 1.8316947854479007,
+        "authenticity": 3.5755910868512863,
+        "sophistication": 2.7002450056018557
+      },
+      "models": [
+        "gemini-2.0-flash",
+        "gemini-2.5-pro",
+        "gemini-3-pro-preview"
+      ]
+    },
+    "Alibaba": {
+      "n": 1,
+      "means": {
+        "warmth": 36.666666666666664,
+        "formality": 34.05583333333333,
+        "hedging": 20.333333333333332,
+        "aggression": 4.0275,
+        "transgression": 4.2491666666666665,
+        "grandiosity": 8.499166666666666,
+        "tribalism": 3.25,
+        "depth": 37.25000000000001,
+        "authenticity": 28.721666666666668,
+        "sophistication": 32.98583333333334
+      },
+      "stds": {
+        "warmth": NaN,
+        "formality": NaN,
+        "hedging": NaN,
+        "aggression": NaN,
+        "transgression": NaN,
+        "grandiosity": NaN,
+        "tribalism": NaN,
+        "depth": NaN,
+        "authenticity": NaN,
+        "sophistication": NaN
+      },
+      "models": [
+        "qwen3-32b"
+      ]
+    },
+    "Mistral": {
+      "n": 2,
+      "means": {
+        "warmth": 28.027500000000003,
+        "formality": 39.72291666666666,
+        "hedging": 25.19333333333333,
+        "aggression": 3.8758333333333335,
+        "transgression": 3.95875,
+        "grandiosity": 6.41625,
+        "tribalism": 3.5008333333333335,
+        "depth": 26.958333333333336,
+        "authenticity": 17.347083333333334,
+        "sophistication": 22.152708333333337
+      },
+      "stds": {
+        "warmth": 0.7082852924885266,
+        "formality": 0.7454083985008191,
+        "hedging": 0.07896025723249633,
+        "aggression": 0.21566756826189648,
+        "transgression": 0.09840569371512786,
+        "grandiosity": 0.3541426462442633,
+        "tribalism": 0.47258303209300967,
+        "depth": 0.4113004443901728,
+        "authenticity": 0.6098795987734003,
+        "sophistication": 0.5105900215817866
+      },
+      "models": [
+        "mixtral-8x7b",
+        "mistral-large-24.02"
+      ]
+    }
+  },
+  "by_sophistication_group": {
+    "High-Sophistication": {
+      "n": 22,
+      "means": {
+        "warmth": 32.029242424242426,
+        "formality": 35.1917803030303,
+        "hedging": 21.921931818181815,
+        "aggression": 5.0643939393939394,
+        "transgression": 5.877689393939394,
+        "grandiosity": 8.306477272727271,
+        "tribalism": 3.8174242424242424,
+        "depth": 38.96757575757576,
+        "authenticity": 30.136287878787883,
+        "sophistication": 34.55193181818183
+      },
+      "stds": {
+        "warmth": 3.341127780927399,
+        "formality": 3.1003811561147496,
+        "hedging": 3.1377005025245106,
+        "aggression": 1.1416126792303551,
+        "transgression": 1.5884496895166498,
+        "grandiosity": 1.0153484145346503,
+        "tribalism": 0.5804034077093412,
+        "depth": 2.5133652121716588,
+        "authenticity": 2.913604614054873,
+        "sophistication": 2.541053746502942
+      }
+    },
+    "Low-Sophistication": {
+      "n": 22,
+      "means": {
+        "warmth": 29.0517803030303,
+        "formality": 38.15295454545454,
+        "hedging": 24.001174242424238,
+        "aggression": 4.1197727272727285,
+        "transgression": 4.1502651515151525,
+        "grandiosity": 6.786515151515152,
+        "tribalism": 3.5628030303030305,
+        "depth": 29.970795454545456,
+        "authenticity": 20.43087121212121,
+        "sophistication": 25.200833333333332
+      },
+      "stds": {
+        "warmth": 2.912590056916088,
+        "formality": 2.9542537232484896,
+        "hedging": 1.57615277916616,
+        "aggression": 0.39011887533511735,
+        "transgression": 0.5468264252116611,
+        "grandiosity": 0.5394157526962429,
+        "tribalism": 0.4314090781251511,
+        "depth": 3.326960470266982,
+        "authenticity": 2.7141085735515387,
+        "sophistication": 2.83243145660212
+      }
+    }
+  },
+  "correlations": {
+    "overall": {
+      "transgression": 0.6636155897898784,
+      "aggression": 0.5533277027356837,
+      "tribalism": 0.3007299877829448,
+      "grandiosity": 0.756785626390352
+    },
+    "by_provider": {
+      "Anthropic": {
+        "transgression": 0.9019689188665521,
+        "aggression": 0.804239981116136,
+        "tribalism": 0.5856195818470745,
+        "grandiosity": 0.7418559802111264
+      },
+      "OpenAI": {
+        "transgression": 0.631987930715549,
+        "aggression": 0.19472740427942026,
+        "tribalism": -0.3479889468638733,
+        "grandiosity": 0.8499594063637267
+      },
+      "AWS": {
+        "transgression": -0.9640596728617993,
+        "aggression": -0.5181919009504562,
+        "tribalism": -0.9385936286304352,
+        "grandiosity": -0.7150751310886359
+      },
+      "Meta": {
+        "transgression": -0.3169595828720677,
+        "aggression": -0.5021236423662789,
+        "tribalism": -0.02783347626168432,
+        "grandiosity": 0.03707137553769842
+      },
+      "Google": {
+        "transgression": 0.7990908284758357,
+        "aggression": 0.6989135149336044,
+        "tribalism": 0.9940407227780754,
+        "grandiosity": 0.9873666644832467
+      }
+    }
+  }
+}

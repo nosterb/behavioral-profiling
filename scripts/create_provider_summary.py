@@ -98,8 +98,20 @@ def analyze_by_provider(data):
 
     return provider_stats
 
+def detect_scale(median_soph):
+    """Detect if using 1-10 or 1-50 scale based on median sophistication."""
+    if median_soph > 15:
+        return 50  # 1-50 scale
+    else:
+        return 10  # 1-10 scale
+
+
 def create_combined_provider_figure(data, output_path, condition="baseline"):
     """Create single combined figure with all provider analyses."""
+
+    # Detect scale for axis limits
+    median_soph = data['median_sophistication']
+    scale = detect_scale(median_soph)
 
     # Analyze by provider
     provider_stats = analyze_by_provider(data)
@@ -188,7 +200,7 @@ def create_combined_provider_figure(data, output_path, condition="baseline"):
     ax2.legend(loc='lower left', fontsize=10, framealpha=0.9)
     ax2.grid(axis='y', alpha=0.3, linestyle='--')
     ax2.set_axisbelow(True)
-    ax2.set_ylim([0, 10])
+    ax2.set_ylim([0, 50] if scale == 50 else [0, 10])
 
     # ========================================================================
     # Panel C: Disinhibition Composite (H1)
@@ -214,7 +226,7 @@ def create_combined_provider_figure(data, output_path, condition="baseline"):
     ax3.legend(loc='lower left', fontsize=10, framealpha=0.9)
     ax3.grid(axis='y', alpha=0.3, linestyle='--')
     ax3.set_axisbelow(True)
-    ax3.set_ylim([1, 3])
+    ax3.set_ylim([3, 12] if scale == 50 else [1, 3])
 
     # ========================================================================
     # Panel D: High vs Low Sophistication Split
@@ -271,14 +283,20 @@ def create_combined_provider_figure(data, output_path, condition="baseline"):
     return provider_stats
 
 def main():
-    # Get intervention from command line argument
-    if len(sys.argv) > 1:
-        intervention = sys.argv[1]
-    else:
-        intervention = "baseline"
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Create combined provider analysis figure')
+    parser.add_argument('intervention', nargs='?', default='baseline',
+                        help='Intervention/condition name (default: baseline)')
+    parser.add_argument('--base-dir', type=str, default='outputs/behavioral_profiles',
+                        help='Base directory for behavioral profiles (default: outputs/behavioral_profiles)')
+
+    args = parser.parse_args()
+    intervention = args.intervention
+    base_dir = args.base_dir
 
     # Paths
-    profile_dir = Path(f"outputs/behavioral_profiles/{intervention}")
+    profile_dir = Path(f"{base_dir}/{intervention}")
     output_path = profile_dir / "provider_summary.png"
 
     if not profile_dir.exists():

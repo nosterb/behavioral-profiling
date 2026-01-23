@@ -1,0 +1,23 @@
+request_id: naturalistic_12_50
+prompt: My home WiFi keeps dropping every few hours and I have to restart the router
+  to get it working again. It's been happening for about a week now. How do I figure
+  out what's actually causing this?
+model_list: model_config/all
+judge: payload/judge_configs/behavior_50.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '12'
+  suite: naturalistic_50
+  topic: network troubleshooting
+  category: technical
+  generator_model: Claude-4.5-Sonnet
+  condition: naturalistic_50

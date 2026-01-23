@@ -1,0 +1,24 @@
+request_id: naturalistic_r2_44
+prompt: Hey, I've been thinking a lot about what really drives people to act the way
+  they do, you know, like why some folks are so kind while others seem to always look
+  out for themselves. Is there something deep in human nature that decides this, or
+  is it just how we're raised?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '14'
+  suite: naturalistic_r2
+  topic: human nature
+  category: philosophical_existential
+  generator_model: Grok-3
+  condition: naturalistic_r2

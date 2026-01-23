@@ -2,59 +2,65 @@
   "model_name": "Mistral-Large-24.02",
   "dimensions": {
     "grandiosity": {
-      "sum": 435.99,
-      "count": 236,
-      "average": 1.8474152542372881
+      "sum": 635.1199999999999,
+      "count": 354,
+      "average": 1.7941242937853104
     },
     "warmth": {
-      "sum": 1373.0,
-      "count": 236,
-      "average": 5.817796610169491
+      "sum": 2131.64,
+      "count": 354,
+      "average": 6.021581920903954
     },
     "aggression": {
-      "sum": 284.84999999999997,
-      "count": 236,
-      "average": 1.2069915254237287
+      "sum": 417.42999999999995,
+      "count": 354,
+      "average": 1.179180790960452
     },
     "formality": {
-      "sum": 1827.5500000000002,
-      "count": 236,
-      "average": 7.743855932203391
+      "sum": 2729.38,
+      "count": 354,
+      "average": 7.710112994350283
     },
     "tribalism": {
-      "sum": 250.66,
-      "count": 236,
-      "average": 1.0621186440677965
+      "sum": 374.65,
+      "count": 354,
+      "average": 1.0583333333333333
     },
     "hedging": {
-      "sum": 1253.54,
-      "count": 236,
-      "average": 5.311610169491526
+      "sum": 1814.01,
+      "count": 354,
+      "average": 5.124322033898305
     },
     "transgression": {
-      "sum": 304.01999999999987,
-      "count": 236,
-      "average": 1.2882203389830502
+      "sum": 441.53999999999985,
+      "count": 354,
+      "average": 1.24728813559322
     },
     "authenticity": {
-      "sum": 881.7,
-      "count": 236,
-      "average": 3.7360169491525426
+      "sum": 1340.37,
+      "count": 354,
+      "average": 3.7863559322033895
     },
     "depth": {
-      "sum": 1206.07,
-      "count": 236,
-      "average": 5.110466101694915
+      "sum": 1873.71,
+      "count": 354,
+      "average": 5.292966101694915
+    },
+    "ribalism": {
+      "sum": 1.0,
+      "count": 1,
+      "average": 1.0
     }
   },
-  "last_updated": "2026-01-11T21:27:57.537337",
-  "total_evaluations": 236,
+  "last_updated": "2026-01-21T12:33:47.290542",
+  "total_evaluations": 354,
   "conditions_included": [
     "baseline",
     "authority",
     "urgency",
     "minimal_steering",
     "telemetryV3",
-    "reminder"
+    "reminder",
+    "naturalistic"
   ]
 }

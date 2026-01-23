@@ -1,0 +1,52 @@
+{
+  "model_name": "Claude-4.1-Opus-Thinking (Thinking)",
+  "dimensions": {
+    "tribalism": {
+      "sum": 53.32,
+      "count": 50,
+      "average": 1.0664
+    },
+    "authenticity": {
+      "sum": 265.34,
+      "count": 50,
+      "average": 5.306799999999999
+    },
+    "formality": {
+      "sum": 308.96000000000004,
+      "count": 50,
+      "average": 6.179200000000001
+    },
+    "depth": {
+      "sum": 341.69000000000005,
+      "count": 50,
+      "average": 6.833800000000001
+    },
+    "hedging": {
+      "sum": 187.67,
+      "count": 50,
+      "average": 3.7533999999999996
+    },
+    "warmth": {
+      "sum": 301.30999999999995,
+      "count": 50,
+      "average": 6.026199999999999
+    },
+    "aggression": {
+      "sum": 64.27999999999997,
+      "count": 50,
+      "average": 1.2855999999999994
+    },
+    "grandiosity": {
+      "sum": 87.70000000000002,
+      "count": 50,
+      "average": 1.7540000000000004
+    },
+    "transgression": {
+      "sum": 67.8,
+      "count": 50,
+      "average": 1.3559999999999999
+    }
+  },
+  "last_updated": "2026-01-23T14:50:04.686836",
+  "total_evaluations": 50
+}

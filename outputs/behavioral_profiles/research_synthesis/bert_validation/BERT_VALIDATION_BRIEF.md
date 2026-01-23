@@ -70,15 +70,15 @@ The disinhibition composite (which includes aggression) correlates as strongly w
 ### 3. Sophistication-Toxicity Relationship
 
 Surprising finding: More sophisticated models show **higher** BERT-detected toxicity (r = 0.51-0.68 across conditions). This may reflect:
-- Sophisticated models produce more substantive content that triggers toxicity detection
-- Depth/authenticity correlates with directness that BERT flags
+- Sophisticated models produce more substantive content associated with higher toxicity scores
+- Depth/authenticity correlates with directness that BERT flags as toxic
 - Inverse relationship: less sophisticated models are more "safe" but also more bland
 
 ### 4. Interventions Create Dissociation
 
 All interventions weaken the baseline correlations, suggesting they:
 - Activate different expression modes that judges rate differently than BERT
-- Create response strategies that satisfy demands without triggering toxicity
+- Create response strategies that satisfy demands while scoring lower on toxicity
 - Modulate *how* models express behavioral dimensions
 
 ### 5. TelemetryV3 Shows Unique Pattern
@@ -178,12 +178,12 @@ BERT has a 512 token limit. Responses exceeding this are truncated before scorin
 
 The baseline validation (r = 0.78 for both aggression and disinhibition) provides **strong convergent validity** for the LLM-as-judge methodology. The BERT model—trained on human-labeled toxicity data—captures the same signal our judge models rate as "aggressive" or "disinhibited."
 
-### Why Sophistication Correlates with Toxicity
+### Sophistication-Toxicity Correlation Pattern
 
 The positive sophistication-toxicity correlation (r ≈ 0.51-0.68) is not a confound but an insight:
-- More sophisticated responses are more substantive and direct
-- Directness triggers toxicity classifiers even when appropriate
-- This explains why sophisticated models can be both high-quality and high-disinhibition
+- More sophisticated responses tend to be more substantive and direct
+- Directness is associated with higher toxicity classifier scores even when content is appropriate
+- This pattern is consistent with sophisticated models scoring high on both quality and disinhibition
 
 ### Intervention Effects
 
@@ -258,6 +258,47 @@ All 11,964 responses were re-scored through BERT. Per-model toxicity averages we
 **Conclusion**: The BERT validation pipeline is deterministic and reproducible. Stored scores accurately reflect the scoring of actual model responses.
 
 See `AUDIT_REPORT.md` and `audit_results.json` for full audit details.
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/*/profiles/*.json` | Behavioral profile scores per model per condition |
+| `outputs/single_prompt_jobs/**/*.json` | Raw model responses for BERT scoring |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| `bert_validation_audit.json` | Consolidated audit with all condition results and methodology |
+| `regression_analysis_audit.json` | Detailed regression/mediation analysis |
+
+### Methodology
+- **Statistical tests**: Pearson correlation
+- **BERT model**: unitary/toxic-bert (110M parameters, trained on Jigsaw data)
+- **Scoring**: Per-model average across all responses (~50 per model)
+- **Truncation**: Texts > 512 tokens truncated
+
+### Reproducibility
+To regenerate this analysis:
+```bash
+# Primary validation (all conditions)
+for cond in baseline authority urgency minimal_steering telemetryV3 reminder; do
+    python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/run_bert_validation.py --condition $cond
+done
+
+# Extended validation
+for cond in baseline authority urgency minimal_steering telemetryV3 reminder; do
+    python3 outputs/behavioral_profiles/research_synthesis/bert_validation/scripts/run_bert_soph_disin_validation.py --condition $cond
+done
+```
+
+### Data Quality
+- **N**: 270 model-condition pairs (45 models × 6 conditions)
+- **Responses scored**: 11,964 total
+- **Audit status**: PASSED (2026-01-16) - 100% match rate
 
 ---
 

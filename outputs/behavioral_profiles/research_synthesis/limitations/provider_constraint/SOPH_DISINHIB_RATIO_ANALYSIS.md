@@ -167,3 +167,37 @@
 
 - **Baseline**: `baseline/all_models_data.csv`
 - **Aggregate**: `profiles/*.json` (cross-condition weighted average)
+
+---
+
+## Data Provenance & Audit Trail
+
+### Source Files
+| File | Purpose |
+|------|---------|
+| `outputs/behavioral_profiles/baseline/all_models_data.csv` | Baseline behavioral scores |
+| `outputs/behavioral_profiles/profiles/*.json` | Cross-condition aggregate profiles |
+| `limitations/external_evals/arc_agi_validation_analysis.json` | ARC-AGI benchmark data |
+| `limitations/external_evals/gpqa_validation_analysis.json` | GPQA benchmark data |
+
+### Audit File
+| File | Description |
+|------|-------------|
+| N/A | Derived analysis from behavioral profiles |
+
+### Methodology
+- **Sophistication**: (depth + authenticity) / 2
+- **Disinhibition**: (transgression + aggression + tribalism + grandiosity) / 4
+- **Ratio**: sophistication / disinhibition
+- **Rankings**: Sorted by ratio descending (highest = most constrained)
+
+### Reproducibility
+To regenerate:
+```bash
+python3 scripts/calculate_soph_disinhib_ratio.py
+```
+
+### Data Quality
+- **N**: 45 models (baseline), 45 models (aggregate)
+- **Conditions**: All 6 for aggregate; baseline only for baseline column
+- **External benchmarks**: ARC-AGI, GPQA where available

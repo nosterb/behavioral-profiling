@@ -1,0 +1,23 @@
+request_id: naturalistic_r2_32
+prompt: I deployed my Node.js app to AWS EC2 and it works fine when I SSH in and run
+  it manually, but as soon as I log out the application stops. I tried using nohup
+  but I'm still having issues. What's the right way to keep it running permanently?
+model_list: model_config/all
+judge: payload/judge_configs/behavior.yaml
+analytics:
+  enabled: true
+  export_chat: true
+max_job_retries: 5
+retry_config:
+  max_retries: 3
+  initial_timeout: 120
+  backoff_multiplier: 2.0
+  max_timeout: 300
+metadata:
+  trait: naturalistic
+  scenario_id: '02'
+  suite: naturalistic_r2
+  topic: cloud deployment issue
+  category: technical
+  generator_model: Claude-4.5-Sonnet
+  condition: naturalistic_r2

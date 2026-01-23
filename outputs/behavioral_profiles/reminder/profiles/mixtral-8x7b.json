@@ -2,51 +2,51 @@
   "model_name": "Mixtral-8x7B",
   "dimensions": {
     "hedging": {
-      "sum": 84.0,
-      "count": 13,
-      "average": 6.461538461538462
+      "sum": 94.67,
+      "count": 15,
+      "average": 6.311333333333334
     },
     "transgression": {
-      "sum": 16.98,
-      "count": 13,
-      "average": 1.3061538461538462
+      "sum": 21.980000000000004,
+      "count": 15,
+      "average": 1.4653333333333336
     },
     "aggression": {
-      "sum": 15.66,
-      "count": 13,
-      "average": 1.2046153846153846
+      "sum": 20.990000000000002,
+      "count": 15,
+      "average": 1.3993333333333335
     },
     "warmth": {
-      "sum": 82.99,
-      "count": 13,
-      "average": 6.383846153846154
+      "sum": 90.66,
+      "count": 15,
+      "average": 6.044
     },
     "grandiosity": {
-      "sum": 22.020000000000003,
-      "count": 13,
-      "average": 1.693846153846154
+      "sum": 27.690000000000005,
+      "count": 15,
+      "average": 1.8460000000000003
     },
     "tribalism": {
-      "sum": 13.33,
-      "count": 13,
-      "average": 1.0253846153846153
+      "sum": 16.0,
+      "count": 15,
+      "average": 1.0666666666666667
     },
     "formality": {
-      "sum": 99.67,
-      "count": 13,
-      "average": 7.666923076923077
+      "sum": 115.0,
+      "count": 15,
+      "average": 7.666666666666667
     },
     "authenticity": {
-      "sum": 47.67,
-      "count": 13,
-      "average": 3.666923076923077
+      "sum": 56.34,
+      "count": 15,
+      "average": 3.7560000000000002
     },
     "depth": {
-      "sum": 67.01,
-      "count": 13,
-      "average": 5.154615384615385
+      "sum": 79.34,
+      "count": 15,
+      "average": 5.289333333333333
     }
   },
-  "last_updated": "2026-01-10T22:20:19.239130",
-  "total_evaluations": 13
+  "last_updated": "2026-01-19T19:48:55.292642",
+  "total_evaluations": 15
 }

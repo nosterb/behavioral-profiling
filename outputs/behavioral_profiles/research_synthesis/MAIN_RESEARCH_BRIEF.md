@@ -2,10 +2,12 @@
 
 <b>Author</b>: Nicholas Osterbur (Independent Researcher)<br>
 <b>Status</b>: Active Analysis<br>
-<b>Statistics Last Updated</b>: 2026-01-15<br>
-<b>Conditions Analyzed</b>: 6<br>
+<!-- AUTO-START:header_metadata -->
+<b>Statistics Last Updated</b>: 2026-01-23<br>
+<b>Conditions Analyzed</b>: 8<br>
 <b>Models</b>: 45 per condition<br>
-<b>Total Evaluations</b>: 13,650</b>
+<b>Total Evaluations</b>: 14,088</b>
+<!-- AUTO-END:header_metadata -->
 
 *Copyright 2026 Nicholas Osterbur. Results and analyses licensed under CC BY 4.0.*
 
@@ -20,40 +22,49 @@
 
 ---
 ## Executive Summary ✏️
-
-<!-- MANUAL-START -->
-This research investigates the relationship between model sophistication (authenticity/depth) and behavioral disinhibition (transgression, aggression, grandiosity, tribalism) across 45+ language models, 9 providers, and ~2.5 years of development under varying contextual conditions. The research demonstrates that sophistication (as measured here) in models strongly correlates with disinhibition factors in a generalizable way across contextual differences, models, and providers. Sophistication as a proxy for model capability finds convergent validity with 3 other public benchmarks (GPQA r=0.88, ARC-AGI r=0.80, AIME r=0.88). BERT toxicity evaluation shows convergent validity with toxicity ~ aggression (r=0.84), disinhibition (r=0.776), sophistication (r=0.51). Evidence shows some providers (notably OpenAI) may be actively suppressing disinhibition while maintaining sophistication (capability) i.e. constraint.
+This research investigates the relationship between model sophistication (authenticity/depth) and behavioral disinhibition (transgression, aggression, grandiosity, tribalism) measured from natural language responses across 45+ language models, 9 providers, and ~2.5 years of development under varying contextual conditions. The research demonstrates that sophistication (as measured here) in models strongly correlates with disinhibition factors across contextual differences and models. Sophistication as a proxy for model reasoning capability finds convergent validity with 3 other public benchmarks (GPQA r=.88, ARC-AGI r=.80, AIME r=.88). BERT toxicity evaluation shows convergent validity with toxicity ~ aggression (r=.84), ~disinhibition (r=.776), ~sophistication (r=.51). Removing outliers generally strengthens relationships. Further, GPQA ~ BERT toxicity directly shows (r=.423-.621). Models show strong group seperation dividing by low-sophistication (22) vs. high sophistication (23) (d= 3.75) with preliminary evidence of a continuum. Evidence shows some providers (mainly OpenAI) may be actively suppressing disinhibition while maintaining sophistication (reasoning capability) i.e. constraint with mixed findings on toxicity.
 
 ### Key Findings
 
-1. **H1 (Group Existence)**: Median split produces two well-separated sophistication groups across all conditions (d = 3.09-4.25) though preliminary evidence suggests a continuum.
+1. **H1 (Group Existence)**: Median split produces two well-separated sophistication groups across all conditions (d = 3.09-4.25) though preliminary evidence suggests a continuum
 
-2. **H1a (Group Comparison)**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models across all 6/6 conditions tested (d = 1.14-2.13, all p < .05)
+2. **H1a (Group Comparison)**: High-sophistication models exhibit significantly higher disinhibition than low-sophistication models across all 6/6 conditions tested (d = 1.14-2.13, all p < .05).
 
-3. **H2 (Correlation)**: Sophistication positively correlates with disinhibition across all conditions (r = 0.46-0.72)
+3. **H2 (Correlation)**: Sophistication positively correlates with disinhibition across all conditions (r = 0.46-0.72).
 
-4. **External Validation**: Sophistication predicts performance on three independent benchmarks: ARC-AGI (r = 0.80) and GPQA (r = 0.88) and AIME (r = 0.828)
+4. **H1 (External Validation)**: Sophistication predicts performance on three independent benchmarks: ARC-AGI (r = 0.80) and GPQA (r = 0.88) and AIME (r = 0.828).
 
-5. **BERT Validation**: Independent BERT toxicity classifier (trained on human-labeled data) correlates r = 0.78 with both aggression and disinhibition composite; sophistication also correlates with BERT toxicity (r = 0.51-0.68), suggesting more sophisticated models produce content that triggers toxicity detection
+5. **H2 (Provider Balance)**: H2 correlation holds when excluding Anthropic models (r = 0.726, p < .0001) sophistication to disinhibition, with 42% Anthropic representation in the sample. Anthropic shows stronger correlation (r = 0.934) than non-Anthropic providers.
 
-6. **Intervention Effects**: Constraint interventions reduce disinhibition variance; pressure interventions increase both mean and variance
-<!-- MANUAL-END -->
+6. **H2 (BERT Validation)**: Independent BERT toxicity classifier (trained on human-labeled data) correlates r = 0.78 with both aggression and disinhibition composite; sophistication also correlates with BERT toxicity (r = 0.51-0.68), suggesting more sophisticated models produce content associated with higher toxicity scores.
+
+7. **H2 (Direct GPQA Benchmark to BERT Validation)**: External benchmark evaluation GPQA (scientific reasoning) ~ BERT toxicity direct shows (r=.423, .455, .621) for baseline, naturalsitic, and all_combined respectively suggesting that reasoning capability correlates directly with toxicity.
+
+7. **H3 Intervention Effects**: Constraint interventions reduce disinhibition variance; pressure interventions increase both mean and variance (preliminary).
 
 ---
 
-## 1. Hypotheses & Methods 🔄
+## 0. Epistemic Framing and Study Trajectory ✏️
 
-### Core Hypotheses
+This research follows an **exploratory/observational → hypothesis generation --> data collection --> robustness/validation** methodology [1]:
 
-| Hypothesis | Description |
-|------------|-------------|
-| **H1** | Two distinct sophistication groups exist (validated by median split) |
-| **H1a** | High-sophistication models exhibit higher disinhibition than low-sophistication models |
-| **H2** | Sophistication positively correlates with disinhibition across all models |
+1. **Exploratory origin**: The sophistication-disinhibition relationship emerged from systematic observation of behavioral patterns across 45+ models, not from prior theory. An informal research project led to the development of the 9 behavioral dimension. Upon visual inspection of spider charts two consistent shapes were observed with one emphasizing high levels of warmth/formality - less recent models, and another emphasizing authenticy/depth - more recent models. Increased levels of authenticity and depth dimensions were observed to demonstrate subjectively higher levels of negative traits like agression, transgression, tribalism and grandiosity. The observations enabled targeted hypothesis creation and the resultant testing and statistical frameworks. [1]
+
+2. **Not claiming causality**: These findings are not intended to claim causality or implicate theory and are descriptive in nature. Findings describe statistical results mostly in the form of correlations. These results are not intended to imply the existence of pyschological constructs in models. Statements describing relationships, predictions, correlations, etc. are not intended to imply proof of an underlying theoretical structure or support claims about the substantive safety or alignment charactersitics of specific models, model families or providers. This research acknowledges the likelihood of other underlying factors and unmeasured confounds not addressed here like model architectures, training data size and quality, post training reinforcement/conditioning, providers designing toward consumer preferences etc.    
+
+3. **Constructs are observationally derived and empirically robust**: Sophistication (depth + authenticity) and Disinhibition (transgression + aggression + tribalism + grandiosity) are measured by assessing the language characteristics of model outputs. Conceptionally, Sophistication is an externally valdiated proxy for 'reasoning capability' where Authenticity and Depth measure nearly the same concept (r = 0.96) and as such are compressed into a single dimension. Disinhibition is both compressed into a single dimension and kept separate given average correleation between dimensions is (r = 0.75) suggesting distinct constructions. Disinhibitive linguistic traits represent a conceptual proxy for potentially negative or unsafe human ~ model interactions though that claim is not definitively made in this research. 
+
+4. **Hypotheses formalized post-hoc**: H1, H1a, and H2 were articulated after initial exploratory analysis revealed consistent patterns. They were then subjected to multiple robustness checks (outlier removal, prompt suite exclusion, external benchmark validation) to assess stability—not to confirm causal theory. [1]
+
+**The above framing should guide interpretation: this work is observational with results warranting further investigation. It does not imply causation.**
+
+---
+
+## 1. Provisional Hypotheses and Analytical Methods 🔄
 
 ### Measurement Framework
 
-Nine behavioral dimensions are measured on a 1-10 scale, then collapsed into two composite scores based on empirical inter-dimension correlations (see Appendix: Factor Structure).
+Nine behavioral dimensions are measured on a 1-10 scale, then collapsed into two composite scores based on empirical inter-dimension correlations to inform core hypotheses testing (see Appendix: Factor Structure).
 
 **Sophistication** (1-10 scale):
 - **Depth**: Platitudes/surface -> substantive/insightful
@@ -66,6 +77,14 @@ Nine behavioral dimensions are measured on a 1-10 scale, then collapsed into two
 - **Tribalism**: Neutral/ecumenical -> us-vs-them
 - **Grandiosity**: Humble/self-effacing -> dominant/superior
 - **Composite**: Mean of four dimensions — *avg r = 0.75 between dimensions*
+
+### Core Hypotheses
+
+| Hypothesis | Description |
+|------------|-------------|
+| **H1** | Two distinct sophistication groups exist (validated by median split) |
+| **H1a** | High-sophistication models exhibit higher disinhibition than low-sophistication models |
+| **H2** | Sophistication positively correlates with disinhibition across all models |
 
 ### Sample
 
@@ -92,27 +111,33 @@ Nine behavioral dimensions are measured on a 1-10 scale, then collapsed into two
 
 ### Summary Table
 
-| Metric | baseline | authority | minimal_steering | reminder | telemetryV3 | urgency |
-|--------|--------|--------|--------|--------|--------|--------|
-| **N** | 45 | 45 | 46 | 46 | 46 | 45 |
-| **High / Low** | 23 / 22 | 23 / 22 | 23 / 23 | 23 / 23 | 23 / 23 | 23 / 22 |
-| **Median Soph** | 5.94 | 6.72 | 5.17 | 6.83 | 5.02 | 6.17 |
-| **H1: Soph d** | 3.75 | 4.19 | 3.96 | 3.87 | 3.09 | 4.25 |
-| **H1a: d** | 2.13 | 1.86 | 1.83 | 1.51 | 1.14 | 1.77 |
-| **H1a: p** | < .001 | < .001 | < .001 | < .001 | < .001 | < .001 |
-| **H2: r** | 0.702 | 0.588 | 0.509 | 0.458 | 0.724 | 0.563 |
-| |  |  |  |  |  | |
-| **Per-Dimension d:** |  |  |  |  |  | |
-| *Transgression* | 1.81 | 1.97 | 1.56 | 2.05 | 1.12 | 1.80 |
-| *Aggression* | 2.17 | 1.79 | 1.39 | 1.41 | 0.84 | 1.81 |
-| *Tribalism* | 1.26 | 1.07 | 0.68 | 0.92 | 0.65 | 1.44 |
-| *Grandiosity* | 1.71 | 0.96 | 0.84 | 0.64 | 1.20 | 1.25 |
+<!-- AUTO-START:h1h2_table -->
+| Metric | baseline | authority | minimal_steering | reminder | telemetryV3 | urgency | naturalistic | all_combined |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| **N** | 45 | 45 | 45 | 45 | 45 | 45 | 44 | 45 |
+| **Evaluations** | 2,252 | 2,261 | 2,317 | 674 | 2,094 | 2,259 | 2,231 | 12,160 |
+| **High / Low** | 23 / 22 | 23 / 22 | 23 / 22 | 23 / 22 | 23 / 22 | 23 / 22 | 22 / 22 | 23 / 22 |
+| **Median Soph** | 5.94 | 6.72 | 5.42 | 6.91 | 5.11 | 6.17 | 6.36 | 7.03 |
+| **H1: Soph d** | 3.75 | 4.19 | 4.36 | 4.14 | 3.67 | 4.25 | 3.51 | 3.73 |
+| **H1a: d** | 2.13 | 1.84 | 2.32 | 1.65 | 1.09 | 1.77 | 2.09 | 2.30 |
+| **H1a: p** | < .001 | < .001 | < .001 | < .001 | < .001 | < .001 | < .001 | < .001 |
+| **H2: r** | 0.778 | 0.770 | 0.854 | 0.720 | 0.625 | 0.743 | 0.841 | 0.815 |
+| |  |  |  |  |  |  |  | |
+| **Per-Dimension d:** |  |  |  |  |  |  |  | |
+| *Transgression* | 1.81 | 1.97 | 1.89 | 2.28 | 1.07 | 1.80 | 1.28 | 2.06 |
+| *Aggression* | 2.17 | 1.79 | 2.13 | 1.73 | 0.80 | 1.81 | 2.08 | 2.25 |
+| *Tribalism* | 1.26 | 0.98 | 1.28 | 0.92 | 0.60 | 1.44 | 1.29 | 1.66 |
+| *Grandiosity* | 1.71 | 0.96 | 0.96 | 0.70 | 1.21 | 1.25 | 1.83 | 1.62 |
+<!-- AUTO-END:h1h2_table -->
 
 ### Key Observations
 
-- **H1a consistently large**: All conditions show d > 1.0 (large effects)
-- **H2 varies by condition**: Correlations vary across intervention conditions
-- **Baseline anchor**: r = 0.702
+<!-- MANUAL-START -->
+- **H1a consistently large**: All conditions show d > 1.0 (large effects), ranging from 1.09 (telemetryV3) to 2.32 (minimal_steering)
+- **H2 robust across conditions**: All correlations significant (p < .001), ranging from r = 0.625 (telemetryV3) to r = 0.854 (minimal_steering)
+- **Baseline anchor**: r = 0.778, d = 2.13
+- **Strongest signal**: naturalistic (r = 0.841) and all_combined (r = 0.815) show highest H2 correlations
+<!-- MANUAL-END -->
 
 **Visualizations**:
 - See `baseline/h2_scatter_sophistication_composite.png` for composite correlation
@@ -121,10 +146,13 @@ Nine behavioral dimensions are measured on a 1-10 scale, then collapsed into two
 ---
 ## 3. Robustness & Validation 🔄
 
+*All robustness and validation analyses are conducted to assess the stability and generalizability of observed associations, not to establish causal mechanisms.*
+
 ### 3.1 External Validation
 
 Cross-validation against independent reasoning benchmarks.
 
+<!-- AUTO-START:external_validation_table -->
 | Metric | ARC-AGI | GPQA | AIME 2025 |
 |--------|---------|------|-----------|
 | **Matched models** | 16 | 35 | 20 |
@@ -134,6 +162,7 @@ Cross-validation against independent reasoning benchmarks.
 | *p (Disinhibition)* | = 0.015 | < .001 | = 0.039 |
 | **Group diff (High-Low)** | +47.7 pp | +31.4 pp | +28.4 pp |
 | **Benchmark type** | Abstract reasoning | Expert scientific | Mathematical reasoning |
+<!-- AUTO-END:external_validation_table -->
 
 All three benchmarks show large correlations (r > 0.50) with sophistication, providing strong convergent validity across diverse reasoning domains.
 
@@ -145,11 +174,13 @@ All three benchmarks show large correlations (r > 0.50) with sophistication, pro
 
 Robustness check removing statistical outliers (|residual| > 2 SD from regression line).
 
-| Metric | baseline | authority | minimal_steering | reminder | telemetryV3 | urgency |
-|--------|--------|--------|--------|--------|--------|--------|
-| **Outliers Removed** | 1 | 1 | 1 | 1 | 2 | 1 |
-| **H1a d: Δ** | +0.71 | +0.61 | +0.01 | +0.59 | +0.66 | +0.06 |
-| **H2 r: Δ** | -0.005 | -0.014 | -0.036 | -0.046 | -0.017 | +0.007 |
+<!-- AUTO-START:outlier_sensitivity_table -->
+| Metric | baseline | authority | minimal_steering | reminder | telemetryV3 | urgency | naturalistic | all_combined |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| **Outliers Removed** | 1 | 1 | 2 | 1 | 2 | 1 | 1 | 2 |
+| **H1a d: Δ** | +0.71 | +0.59 | +0.13 | +0.54 | +0.71 | +0.06 | +0.31 | +0.50 |
+| **H2 r: Δ** | +0.041 | +0.060 | +0.021 | +0.085 | +0.175 | +0.025 | +0.071 | +0.042 |
+<!-- AUTO-END:outlier_sensitivity_table -->
 
 Removing outliers **strengthens H1a** in 4/6 conditions, suggesting outliers represent noise.
 
@@ -159,53 +190,121 @@ Removing outliers **strengthens H1a** in 4/6 conditions, suggesting outliers rep
 
 The **dimensions suite** contains prompts designed to indirectly elicit specific behavioral dimensions through targeted scenarios. Excluding these tests whether H1/H2 findings hold with only naturalistic prompts (broad, affective, general suites) — ruling out measurement artifact.
 
+<!-- AUTO-START:no_dimensions_table -->
 | Metric | baseline |
 |--------|--------|
-| **H1a d: Δ** | -0.09 |
-| **H2 r: Δ** | +0.076 |
+| **H1a d: Δ** | -0.01 |
+| **H2 r: Δ** | +0.004 |
+<!-- AUTO-END:no_dimensions_table -->
 
 H2 correlation **strengthens** in 1/1 conditions when dimensions suite excluded.
 
 **Visualizations**: See `baseline/no_dimensions/h2_scatter_sophistication_composite.png`
 
-### 3.4 BERT Toxicity Validation 🔄
+### 3.4 Naturalistic Control Condition
+
+<!-- MANUAL-START -->
+The **naturalistic** condition serves as a control group where prompts are randomly generated using a seed-based selection process across 50 potential topics, with random model selection to generate each query. This design eliminates experimenter bias in prompt construction and tests whether H1/H2 findings generalize to unstructured, real-world-like interactions.
+
+| Metric | Value |
+|--------|-------|
+| **N models** | 44 |
+| **Total queries** | ~50 |
+| **Topic pool** | 50 seed-generated topics |
+| **Query generation** | Random model selection per topic |
+
+#### Results
+
+| Statistic | Value | Interpretation |
+|-----------|-------|----------------|
+| **H1a: d** | 2.09 | Large effect (high-soph models show higher disinhibition) |
+| **H2: r** | 0.841 | Large correlation (strongest single-condition H2) |
+| **H2: p** | < .001 | Highly significant |
+
+**Key finding**: Naturalistic prompts produce the **second-highest H2 correlation** (r = 0.841) after minimal_steering (r = 0.854), stronger than baseline (r = 0.778). This suggests the sophistication-disinhibition relationship is not an artifact of structured experimental prompts but emerges naturally in unstructured interactions.
+
+**Implication**: The H2 relationship is robust to prompt design methodology, strengthening confidence that observed behavioral patterns reflect genuine model characteristics rather than measurement artifacts.
+<!-- MANUAL-END -->
+
+**Visualizations**: See `naturalistic/h2_scatter_sophistication_composite.png`
+
+### 3.5 BERT Toxicity Validation 🔄
 
 Independent validation using BERT toxicity detection (`unitary/toxic-bert`) as a non-LLM measure trained on human-labeled data (Jigsaw Toxic Comment Classification, ~160k Wikipedia comments).
 
-**Scale**: 11,964 total BERT evaluations across 270 model-condition pairs
+**Scale**: 14,203 total BERT evaluations across 8 conditions (~45 models each)
+
+#### Direct: GPQA Benchmark vs. BERT Toxicity
+
+<!-- AUTO-START:gpqa_bert_table -->
+External validation correlating GPQA benchmark (scientific reasoning capability) directly with BERT-detected toxicity, bypassing judge-based behavioral dimensions.
+
+| Condition | N | r | p | R² | Effect |
+|-----------|---|---|---|-----|--------|
+| **all_combined** | 35 | **0.621** | < .001 | 38.5% | Large |
+| naturalistic | 34 | 0.455 | .007 | 20.7% | Medium |
+| baseline | 35 | 0.423 | .011 | 17.9% | Medium |
+<!-- AUTO-END:gpqa_bert_table -->
+
+**Interpretation**: Reasoning capability (GPQA) correlates directly with BERT toxicity, suggesting the capability-disinhibition-toxicity pathway operates even when measured entirely through external instruments. The correlation strengthens when aggregating across conditions (r = 0.621), indicating a robust relationship.
+
+**Score magnitude caveat**: BERT toxicity scores are extremely low (max 0.02-0.04, mean 0.003-0.012 on 0-1 scale). All LLM responses score in bottom 1-5% of BERT's scale. Correlations reflect rank-order relationships within a narrow, low-toxicity band—not clinically meaningful toxicity levels.
 
 #### Primary: BERT vs. Aggression
 
+<!-- AUTO-START:bert_primary_table -->
 | Condition | Toxicity r | p | Insult r | p | Effect |
 |-----------|------------|---|----------|---|--------|
 | **baseline** | **0.776** | < .0001 | **0.624** | < .0001 | Large |
-| minimal_steering | 0.524 | 0.0002 | 0.507 | 0.0004 | Large |
-| telemetryV3 | 0.492 | 0.0006 | 0.264 | 0.080 | Medium |
-| reminder | 0.492 | 0.0006 | 0.458 | 0.002 | Medium |
-| authority | 0.355 | 0.017 | 0.356 | 0.017 | Medium |
-| urgency | 0.352 | 0.018 | 0.414 | 0.005 | Medium |
+| minimal_steering | 0.635 | < .0001 | 0.562 | < .0001 | Large |
+| all_combined | 0.606 | < .0001 | 0.516 | 0.0003 | Large |
+| reminder | 0.562 | < .0001 | 0.525 | 0.0002 | Large |
+| telemetryV3 | 0.492 | 0.0006 | 0.264 | 0.0799 | Medium |
+| naturalistic | 0.478 | 0.0010 | 0.497 | 0.0006 | Medium |
+| authority | 0.355 | 0.0166 | 0.356 | 0.0165 | Medium |
+| urgency | 0.352 | 0.0178 | 0.414 | 0.0047 | Medium |
+<!-- AUTO-END:bert_primary_table -->
 
 #### Extended: BERT vs. Sophistication/Disinhibition
 
+<!-- AUTO-START:bert_extended_table -->
 | Condition | Tox~Soph | Tox~Disin | Ins~Disin |
 |-----------|----------|-----------|-----------|
-| **baseline** | 0.510 (L) | **0.776** (L) | **0.555** (L) |
-| telemetryV3 | **0.682** (L) | 0.511 (L) | 0.281 (S) |
-| urgency | **0.602** (L) | 0.342 (M) | 0.390 (M) |
-| minimal_steering | 0.510 (L) | 0.467 (M) | 0.453 (M) |
-| reminder | 0.494 (M) | 0.536 (L) | 0.503 (L) |
+| **baseline** | 0.510 (L) | **0.776 (L)** | **0.555 (L)** |
 | authority | 0.471 (M) | 0.348 (M) | 0.365 (M) |
+| minimal_steering | 0.512 (L) | 0.590 (L) | 0.522 (L) |
+| reminder | 0.487 (M) | 0.579 (L) | 0.541 (L) |
+| telemetryV3 | 0.682 (L) | 0.511 (L) | 0.281 (S) |
+| urgency | 0.602 (L) | 0.342 (M) | 0.390 (M) |
+| naturalistic | 0.612 (L) | 0.454 (M) | 0.483 (M) |
 
-*Effect sizes: L = Large (≥0.5), M = Medium (0.3-0.5), S = Small (<0.3)*
+*Effect sizes: L = Large (>=0.5), M = Medium (0.3-0.5), S = Small (<0.3)*
+<!-- AUTO-END:bert_extended_table -->
 
 **Key findings**:
 - Baseline toxicity correlates equally with aggression and disinhibition composite (both r = 0.78), validating composite construction
-- Sophistication shows positive correlation with BERT toxicity (r = 0.51-0.68), suggesting more sophisticated models produce more direct/substantive content that triggers toxicity detection
+- Sophistication shows positive correlation with BERT toxicity (r = 0.51-0.68), suggesting more sophisticated models produce more direct/substantive content associated with higher toxicity scores
 - Interventions weaken baseline correlations, indicating altered expression patterns
 
 **Visualizations**:
 - See `research_synthesis/bert_validation/baseline/scatter_toxicity_vs_aggression.png` for primary BERT validation
 - See `research_synthesis/bert_validation/baseline/scatter_soph_disin_combined.png` for sophistication/disinhibition correlations
+
+### 3.5 Provider Balance Analysis
+
+Robustness check addressing sample composition: **42% of models are from Anthropic**. Does H2 hold when excluding Anthropic models?
+
+| Group | N | r | p | Effect |
+|-------|---|---|---|--------|
+| All Models | 45 | 0.778 | < .0001 | Large |
+| **Anthropic Only** | 19 | 0.934 | < .0001 | Large |
+| **Sans Anthropic** | 26 | 0.726 | < .0001 | Large |
+
+**Correlation comparison** (Fisher z-test): z = 2.36, p = .018 — correlations are significantly different.
+
+**Key finding**: H2 correlation **holds without Anthropic models** (r = 0.726, p < .0001). The sophistication-disinhibition relationship is NOT an artifact of Anthropic model dominance. Anthropic shows a *stronger* correlation, possibly due to consistent training methodology across Claude versions.
+
+**Visualizations**: See `research_synthesis/limitations/provider_balance/provider_balance_scatter.png`
 
 ---
 ## 4. Provider & Model Patterns 🔄
@@ -214,6 +313,7 @@ Independent validation using BERT toxicity detection (`unitary/toxic-bert`) as a
 
 Does the sophistication-disinhibition correlation (H2) hold within each provider family?
 
+<!-- AUTO-START:provider_h2_table -->
 | Provider | N | r | p | Effect | H2 Supported |
 |----------|---|---|---|--------|--------------|
 | Anthropic | 19 | 0.934 | < .001 | large | **Yes** |
@@ -222,6 +322,7 @@ Does the sophistication-disinhibition correlation (H2) hold within each provider
 | AWS | 3 | 1.000 | < .01 | large | **Yes** |
 | Google | 3 | 0.682 | = 0.522 | large | No (ns) |
 | **OVERALL** | **45** | **0.778** | **< .001** | **large** | **Yes** |
+<!-- AUTO-END:provider_h2_table -->
 
 **Summary**: H2 is statistically significant for 3/5 providers with n ≥ 3. All providers show positive correlation direction.
 
@@ -233,6 +334,7 @@ Statistical analysis of whether certain providers show systematically more const
 
 #### Cross-Condition Summary
 
+<!-- AUTO-START:provider_constraint_table -->
 | Condition | OpenAI Residual | Rank | ANOVA p | Sig |
 |-----------|-----------------|------|---------|-----|
 | baseline | -0.094 | 2nd | 0.0048 | Yes |
@@ -241,6 +343,7 @@ Statistical analysis of whether certain providers show systematically more const
 | minimal_steering | -0.029 | 3rd | 0.0114 | Yes |
 | telemetryV3 | -0.049 | 1st | 0.6358 | No |
 | reminder | -0.206 | 2nd | 0.0065 | Yes |
+<!-- AUTO-END:provider_constraint_table -->
 
 *Negative residual = more constrained than predicted by sophistication. Rank = OpenAI's position among all providers sorted by residual (1st = most constrained). ANOVA includes providers with n ≥ 3 only.*
 
@@ -261,11 +364,15 @@ Models exhibiting high sophistication (>6.5) but below-predicted disinhibition a
 
 | Model | # Conditions | Conditions |
 |-------|--------------|------------|
-| GPT-OSS-120B | 4 | authority, baseline, reminder, urgency |
-| GPT-5.2 Pro | 4 | authority, baseline, reminder, urgency |
-| O3 | 3 | baseline, reminder, urgency |
-| GPT-5 | 2 | reminder, urgency |
-| GPT-5.2 | 2 | reminder, urgency |
+<!-- AUTO-START:constrained_models_table -->
+| GPT-OSS-120B | 5 | all_combined, authority, baseline, reminder, urgency |
+| GPT-5.2 Pro | 5 | all_combined, authority, baseline, reminder, urgency |
+| O3 | 4 | all_combined, baseline, reminder, urgency |
+| GPT-5 | 4 | all_combined, baseline, reminder, urgency |
+| GPT-5.2 | 3 | all_combined, reminder, urgency |
+| GPT-5.1 | 3 | all_combined, reminder, urgency |
+| Claude-4-Sonnet-Thinking (Thinking) | 2 | authority, urgency |
+<!-- AUTO-END:constrained_models_table -->
 
 **Observation**: All consistently constrained models are OpenAI (GPT-OSS-120B, GPT-5.2 Pro, O3, GPT-5, GPT-5.2), suggesting deliberate constraint at the provider level rather than individual model characteristics.
 
@@ -277,16 +384,18 @@ Models with unusual sophistication-disinhibition relationships (|residual| > 2 S
 
 | Model | # Conditions | Conditions |
 |-------|--------------|------------|
-| Gemini-3-Pro-Preview | 3 | authority, baseline, reminder |
+<!-- AUTO-START:outlier_models_table -->
+| Gemini-3-Pro-Preview | 5 | all_combined, authority, baseline, naturalistic, reminder |
+| DeepSeek-R1 | 2 | all_combined, urgency |
+<!-- AUTO-END:outlier_models_table -->
 
 **Observation**: Gemini-3-Pro-Preview is a notable outlier — exhibiting disinhibition 4-5 SD above regression despite top-tier capability benchmarks. This may reflect different training priorities or less aggressive constraint strategies compared to peers.
 
 ---
-## 5. Interpretation ✏️
+## 5. Interpretation of Associational Patterns ✏️
 
 ### 5.1 H1/H2 Relationship
 
-<!-- MANUAL-START -->
 ### High-Confidence Claims
 
 H1: There is strong evidence for stable 2-class sophistication groupings with convergent validity in public benchmarks (H1 d=3.09-4.25; 76% stability; ARC-AGI r=0.80, GPQA r=0.88).
@@ -306,7 +415,7 @@ H2: There is evidence that providers can maintain sophistication and lower disin
 
 ### Open Questions
 - Do these correlations hold up across use cases? Are there any where they don't? Relationship advice (affective) styled prompts as a proxy indicate that even soft touch topics demonstrate robust H1/H2 effects.
-- What underlying mechanism drives sophistication-disinhibition—capability, byproduct or training artifact? 
+- What underlies the sophistication-disinhibition association—capability, byproduct, or training artifact? 
   - Magnitude training data? (test by parameter size) 
   - Less likely training data patterns emerging through longer internal reasoning chains bypassing existing alignment? (TTS or CoT?)
   - Agency/preference emergence? 
@@ -322,9 +431,6 @@ H2: There is evidence that providers can maintain sophistication and lower disin
 - Are thinking variants and thinking time strongly correlated with Sophistication/Disinhibition? (anecdotally, yes)
 - Can consistent constraint be achieved without capability loss as OpenAI seems to demonstrate? (constrained models top GPQA)
 - Are superficial treatments (prompt steering, system prompt modification etc.) enough to induce consistent restraint while maintaining sophistication/capability? If so, what is the most efficient method in doing so? Is there an effective global mitigation?
-- 
-<!-- MANUAL-END -->
-
 ---
 ## 6. Limitations
 
@@ -358,6 +464,7 @@ The fact that a Low-Sophistication judge (Llama-4-Maverick) contributes to score
 
 #### Inter-Judge Agreement (Statistical Validation)
 
+<!-- AUTO-START:judge_agreement_table -->
 Based on **N = 10,565** evaluations with 3 valid judge scores (baseline condition):
 
 | Dimension | ICC(3) | Mean r | Within-1 | Quality |
@@ -372,6 +479,7 @@ Based on **N = 10,565** evaluations with 3 valid judge scores (baseline conditio
 | Depth | 0.813 | 0.751 | 61.9% | Good |
 | Formality | 0.724 | 0.632 | 66.9% | Moderate |
 | **OVERALL** | **0.843** | 0.723 | 76.0% | **Good** |
+<!-- AUTO-END:judge_agreement_table -->
 
 **Key metrics**:
 - **ICC(3)**: Intraclass correlation for average of 3 raters (reliability of final score)
@@ -387,16 +495,13 @@ Based on **N = 10,565** evaluations with 3 valid judge scores (baseline conditio
 
 ### 6.2 Other Methodological Considerations ✏️
 
-<!-- MANUAL-START -->
 - **Prompt design**: Scenarios may not fully capture real-world deployment contexts
 - **Sample selection**: Model selection prioritized major providers; smaller/specialized models underrepresented
 - **Temporal validity**: Model behaviors may change with updates; results reflect evaluation period
-<!-- MANUAL-END -->
 
 ---
 ## 7. Future Directions ✏️
 
-<!-- MANUAL-START -->
 - Formalize H3 hypothesis testing (see Section 8 for preliminary work)
 - Inspect 'constrained' phenomena more deeply using OpenAI products as focal point
 - Test broader generalizability to multi-turn chat flows and separately to semi-autonomous agentic workflows
@@ -405,11 +510,10 @@ Based on **N = 10,565** evaluations with 3 valid judge scores (baseline conditio
 - Formalize a robust and standardized dimensions v2 prompt suite to assess extremes
 - Address provider differences between conditions
 - Address thinking vs. non thinking variants, compare total estimated thinking time
-<!-- MANUAL-END -->
 
 ---
 
-## 8. Preliminary: H3 Intervention Effects 🔄
+## 8. Exploratory: Contextual Intervention Effects (H3) 🔄
 
 > 🚧 **Work in Progress**
 > 
@@ -422,28 +526,35 @@ Based on **N = 10,565** evaluations with 3 valid judge scores (baseline conditio
 
 ### 8.2 Current Evidence: Response Variability
 
+<!-- AUTO-START:h3_variability_table -->
 | Condition | N | Mean | SD | CV% | Var Ratio |
 |-----------|---|------|-----|-----|-----------|
-| minimal_steering | 46 | 1.33 | 0.081 | 6.1% | 0.17 |
-| telemetryV3 | 46 | 1.33 | 0.142 | 10.7% | 0.54 |
+| minimal_steering | 45 | 1.36 | 0.095 | 7.0% | 0.24 |
+| naturalistic | 44 | 1.38 | 0.122 | 8.8% | 0.40 |
+| telemetryV3 | 45 | 1.33 | 0.135 | 10.2% | 0.49 |
 | baseline | 45 | 1.54 | 0.193 | 12.5% | 1.00 |
-| authority | 45 | 1.64 | 0.264 | 16.1% | 1.88 |
-| reminder | 46 | 1.80 | 0.460 | 25.6% | 5.69 |
+| all_combined | 45 | 1.72 | 0.251 | 14.6% | 1.70 |
+| authority | 45 | 1.64 | 0.265 | 16.2% | 1.89 |
+| reminder | 45 | 2.01 | 0.480 | 23.9% | 6.21 |
 | urgency | 45 | 2.38 | 0.842 | 35.4% | 19.10 |
+<!-- AUTO-END:h3_variability_table -->
 
 **Most consistent**: minimal_steering
 **Most variable**: urgency
 
 ### 8.3 Current Evidence: Cross-Condition ANOVA
 
+<!-- AUTO-START:h3_anova_stats -->
 - **F**(4, 176) = 67.99
 - **p** < .0001
-- **η²** = 0.476
+- **eta squared** = 0.476
 
-Sphericity violated (ε = 0.288), Greenhouse-Geisser corrected p < .0001
+Sphericity violated (epsilon = 0.288), Greenhouse-Geisser corrected p < .0001
+<!-- AUTO-END:h3_anova_stats -->
 
 #### Significant Pairwise Comparisons
 
+<!-- AUTO-START:h3_posthoc_table -->
 | Comparison | t | p | g | Sig |
 |------------|---|---|---|-----|
 | authority vs baseline | 5.13 | < .0001 | 0.43 | Yes |
@@ -455,10 +566,10 @@ Sphericity violated (ε = 0.288), Greenhouse-Geisser corrected p < .0001
 | baseline vs urgency | -7.81 | < .0001 | -1.36 | Yes |
 | minimal_steering vs urgency | -8.64 | < .0001 | -1.74 | Yes |
 | telemetryV3 vs urgency | -8.76 | < .0001 | -1.72 | Yes |
+<!-- AUTO-END:h3_posthoc_table -->
 
 ### 8.4 Preliminary Interpretation ✏️
 
-<!-- MANUAL-START -->
 #### Constraint vs. Pressure Interventions
 
 *Analysis in progress*
@@ -470,7 +581,6 @@ Sphericity violated (ε = 0.288), Greenhouse-Geisser corrected p < .0001
 *Analysis in progress*
 
 [To be filled: Theories about how different interventions affect the sophistication-disinhibition relationship]
-<!-- MANUAL-END -->
 
 ---
 ## Appendix A: Factor Structure 🔄
@@ -588,7 +698,78 @@ suggesting a genuine transitional zone rather than measurement noise.
 **Full analysis**: See `research_synthesis/limitations/median_split/GAP_VS_CONTINUUM_ANALYSIS.md`
 
 ---
-## Appendix C: File References 🔄
+## Appendix C: Consolidated Statistics 🔄
+
+Complete statistical reference across all conditions. For detailed methodology, see the individual analysis sections.
+
+### C.1 H1/H2 Core Statistics
+
+| Condition | N | Median Soph | N_High | N_Low | H1a d | p | H2 r |
+|-----------|---|-------------|--------|-------|-------|---|------|
+| baseline | 45 | 5.937 | 23 | 22 | 2.13 | 7.75e-09 | 0.778 |
+| authority | 45 | 6.722 | 23 | 22 | 1.84 | 1.99e-07 | 0.770 |
+| urgency | 45 | 6.173 | 23 | 22 | 1.77 | 4.68e-07 | 0.743 |
+| minimal_steering | 45 | 5.422 | 23 | 22 | 2.32 | 9.57e-10 | 0.854 |
+| telemetryV3 | 45 | 5.106 | 23 | 22 | 1.09 | 0.0007 | 0.625 |
+| reminder | 45 | 6.911 | 23 | 22 | 1.65 | 1.77e-06 | 0.720 |
+| naturalistic | 44 | 6.357 | 22 | 22 | 2.09 | 1.83e-08 | 0.841 |
+| all_combined | 45 | 7.025 | 23 | 22 | 2.30 | 1.25e-09 | 0.815 |
+
+### C.2 Outliers-Removed Sensitivity
+
+| Condition | N_Orig | N_Removed | N_Final | H1a d | H2 r |
+|-----------|--------|-----------|---------|-------|------|
+| baseline | 45 | 1 | 44 | 2.84 | 0.819 |
+| authority | 45 | 1 | 44 | 2.43 | 0.830 |
+| urgency | 45 | 1 | 44 | 1.82 | 0.768 |
+| minimal_steering | 45 | 2 | 43 | 2.46 | 0.875 |
+| telemetryV3 | 45 | 2 | 43 | 1.80 | 0.799 |
+| reminder | 45 | 1 | 44 | 2.18 | 0.806 |
+| naturalistic | 44 | 0 | 44 | 2.40 | 0.911 |
+| all_combined | 45 | 1 | 44 | 2.80 | 0.857 |
+
+### C.3 BERT External Validation
+
+| Condition | N | Evaluations | r(Tox,Aggr) | p | r(Tox,Soph) | p | r(Tox,Disin) | p |
+|-----------|---|-------------|-------------|---|-------------|---|--------------|---|
+| baseline | 45 | 2,234 | 0.776 | 3.65e-10 | 0.510 | 0.0003 | 0.776 | 3.96e-10 |
+| naturalistic | 44 | 4,438 | 0.469 | 0.0013 | 0.612 | 9.95e-06 | 0.454 | 0.0020 |
+| all_combined | 45 | 14,203 | 0.606 | 1.02e-05 | — | — | — | — |
+
+### C.4 Judge Agreement (ICC)
+
+| Condition | N_Evals | Overall | aggr | trans | grand | trib | depth | auth |
+|-----------|---------|---------|------|-------|-------|------|-------|------|
+| baseline | 2,252 | 0.808 | 0.93 | 0.85 | 0.69 | 0.85 | 0.74 | 0.80 |
+| all_combined | 12,160 | 0.833 | 0.93 | 0.84 | 0.82 | 0.85 | 0.79 | 0.82 |
+
+### C.5 Per-Dimension Effect Sizes (Cohen's d)
+
+| Condition | aggr | trans | grand | trib | depth | auth | soph | disin |
+|-----------|------|-------|-------|------|-------|------|------|-------|
+| baseline | 2.17 | 1.81 | 1.71 | 1.26 | 3.49 | 3.70 | 3.75 | 2.13 |
+| naturalistic | 2.08 | 1.28 | 1.83 | 1.29 | 3.18 | 3.48 | 3.51 | 2.09 |
+| all_combined | 2.25 | 2.06 | 1.62 | 1.66 | 3.45 | 3.68 | 3.73 | 2.30 |
+
+### C.6 External Benchmark Correlations
+
+| Benchmark | N | r(BM→Soph) | p | r(BM→Disin) | p |
+|-----------|---|------------|---|-------------|---|
+| GPQA | 35 | 0.884 | 1.92e-12 | 0.711 | 1.73e-06 |
+| AIME | 20 | 0.828 | 6.56e-06 | 0.464 | 0.039 |
+| ARC-AGI | 16 | 0.801 | 0.0002 | 0.596 | 0.015 |
+
+### C.7 Provider ANOVA (Baseline)
+
+| Composite | F | p | η² | N |
+|-----------|---|---|-----|---|
+| Disinhibition | 5.73 | 0.0012 | 0.403 | 39 |
+| Sophistication | 3.08 | 0.029 | 0.266 | 39 |
+
+*Full statistics: `research_synthesis/CONSOLIDATED_STATISTICS.md`*
+
+---
+## Appendix D: File References 🔄
 
 ### Per-Condition Data & Visualizations
 
@@ -727,4 +908,4 @@ pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
 ---
 
 **Document Version**: 3.2 (Auto-generated)
-**Statistics Generated**: 2026-01-15 17:34
+**Statistics Generated**: 2026-01-23 15:32
