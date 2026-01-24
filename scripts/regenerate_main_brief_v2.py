@@ -968,6 +968,300 @@ def generate_classification_stability_tables(stability_data):
 
 
 # ============================================================================
+# APPENDIX B: FLIPPER & BORDERLINE ANALYSIS
+# ============================================================================
+
+BORDERLINE_THRESHOLD = 0.15  # ±0.15 of median
+
+
+def compute_flipper_borderline_analysis(conditions_data):
+    """Compute flipper and borderline analysis from conditions data."""
+    from collections import defaultdict
+
+    if not conditions_data:
+        return None
+
+    # Track per-model data across conditions
+    model_classifications = defaultdict(dict)
+    model_sophistication = defaultdict(dict)
+    model_borderline = defaultdict(dict)
+    model_display_names = {}
+    condition_medians = {}
+
+    for cond, data in conditions_data.items():
+        median = data.get("median_sophistication", 0)
+        condition_medians[cond] = median
+
+        for model in data.get("models", []):
+            model_id = model.get("model_id", "")
+            display_name = model.get("display_name", model_id)
+            soph = model.get("sophistication", 0)
+            classification = model.get("classification", "")
+
+            model_display_names[model_id] = display_name
+            model_classifications[model_id][cond] = classification
+            model_sophistication[model_id][cond] = soph
+
+            # Borderline: within threshold of median
+            is_borderline = abs(soph - median) <= BORDERLINE_THRESHOLD
+            model_borderline[model_id][cond] = is_borderline
+
+    # Categorize models
+    flippers = []
+    stable_high = []
+    stable_low = []
+    borderline_summary = []
+
+    for model_id, classifications in model_classifications.items():
+        unique_classes = set(classifications.values())
+        high_conds = [c for c, cl in classifications.items() if cl == "High-Sophistication"]
+        low_conds = [c for c, cl in classifications.items() if cl == "Low-Sophistication"]
+        borderline_conds = [c for c, b in model_borderline[model_id].items() if b]
+        n_conditions = len(classifications)
+
+        soph_scores = model_sophistication[model_id]
+        avg_soph = sum(soph_scores.values()) / len(soph_scores) if soph_scores else 0
+        soph_range = max(soph_scores.values()) - min(soph_scores.values()) if soph_scores else 0
+
+        model_record = {
+            "model_id": model_id,
+            "display_name": model_display_names.get(model_id, model_id),
+            "n_high": len(high_conds),
+            "n_low": len(low_conds),
+            "n_conditions": n_conditions,
+            "n_borderline": len(borderline_conds),
+            "avg_soph": avg_soph,
+            "soph_range": soph_range,
+            "high_conds": high_conds,
+            "low_conds": low_conds,
+            "borderline_conds": borderline_conds,
+            "soph_scores": soph_scores,
+        }
+
+        if len(unique_classes) > 1:
+            flippers.append(model_record)
+        elif "High-Sophistication" in unique_classes:
+            stable_high.append(model_record)
+        else:
+            stable_low.append(model_record)
+
+        # Track borderline status
+        if len(borderline_conds) > 0:
+            borderline_summary.append(model_record)
+
+    # Sort flippers by flip ratio (most balanced first) and avg_soph
+    flippers.sort(key=lambda x: (abs(x["n_high"] - x["n_low"]), -x["avg_soph"]))
+    borderline_summary.sort(key=lambda x: (-x["n_borderline"], -x["avg_soph"]))
+
+    return {
+        "condition_medians": condition_medians,
+        "n_conditions": len(conditions_data),
+        "total_models": len(model_classifications),
+        "n_flippers": len(flippers),
+        "n_stable_high": len(stable_high),
+        "n_stable_low": len(stable_low),
+        "stability_rate": 100 * (len(stable_high) + len(stable_low)) / len(model_classifications) if model_classifications else 0,
+        "flippers": flippers,
+        "stable_high": stable_high,
+        "stable_low": stable_low,
+        "borderline_summary": borderline_summary,
+    }
+
+
+def generate_appendix_b_summary(conditions_data):
+    """Generate Appendix B summary table."""
+    analysis = compute_flipper_borderline_analysis(conditions_data)
+    if not analysis:
+        return "*Classification stability data not available.*"
+
+    lines = []
+    total = analysis["total_models"]
+    n_conds = analysis["n_conditions"]
+
+    lines.append(f"Cross-condition stability analysis across **{n_conds} conditions** and **{total} models**.")
+    lines.append("")
+    lines.append("| Metric | Value |")
+    lines.append("|--------|-------|")
+    lines.append(f"| **Conditions analyzed** | {n_conds} |")
+    lines.append(f"| **Total models** | {total} |")
+    lines.append(f"| **Always High-Sophistication** | {analysis['n_stable_high']} ({100*analysis['n_stable_high']/total:.0f}%) |")
+    lines.append(f"| **Always Low-Sophistication** | {analysis['n_stable_low']} ({100*analysis['n_stable_low']/total:.0f}%) |")
+    lines.append(f"| **Flippers (changed classification)** | {analysis['n_flippers']} ({100*analysis['n_flippers']/total:.0f}%) |")
+    lines.append(f"| **Stability rate** | {analysis['stability_rate']:.1f}% |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_b_medians(conditions_data):
+    """Generate condition medians table."""
+    analysis = compute_flipper_borderline_analysis(conditions_data)
+    if not analysis:
+        return "*Data not available.*"
+
+    medians = analysis["condition_medians"]
+    lines = []
+    lines.append("| Condition | Median Soph | Classification Threshold |")
+    lines.append("|-----------|-------------|-------------------------|")
+
+    for cond in CONDITIONS:
+        if cond in medians:
+            med = medians[cond]
+            lines.append(f"| {cond} | {med:.2f} | >{med:.2f} = High |")
+
+    lines.append("")
+    med_values = list(medians.values())
+    lines.append(f"*Median range: {min(med_values):.2f} (telemetryV3) to {max(med_values):.2f} (all_combined)*")
+    lines.append(f"*Threshold variance explains some classification instability*")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_b_flippers(conditions_data):
+    """Generate flippers table with full details."""
+    analysis = compute_flipper_borderline_analysis(conditions_data)
+    if not analysis:
+        return "*Data not available.*"
+
+    flippers = analysis["flippers"]
+    n_conds = analysis["n_conditions"]
+
+    if not flippers:
+        return "*No flippers identified (all models stable across conditions).*"
+
+    lines = []
+    lines.append(f"Models that changed High/Low classification across {n_conds} conditions:")
+    lines.append("")
+    lines.append("| Model | High | Low | Borderline | Avg Soph | Range | Flip Pattern |")
+    lines.append("|-------|------|-----|------------|----------|-------|--------------|")
+
+    for f in flippers:
+        name = f["display_name"]
+        n_high = f["n_high"]
+        n_low = f["n_low"]
+        n_bl = f["n_borderline"]
+        avg = f["avg_soph"]
+        rng = f["soph_range"]
+
+        # Determine flip pattern
+        if n_high > n_low:
+            pattern = f"Mostly High, Low in: {', '.join(f['low_conds'][:2])}" + ("..." if len(f['low_conds']) > 2 else "")
+        elif n_low > n_high:
+            pattern = f"Mostly Low, High in: {', '.join(f['high_conds'][:2])}" + ("..." if len(f['high_conds']) > 2 else "")
+        else:
+            pattern = "Balanced (equal H/L)"
+
+        lines.append(f"| {name} | {n_high}/{n_conds} | {n_low}/{n_conds} | {n_bl}/{n_conds} | {avg:.2f} | {rng:.2f} | {pattern} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_b_borderline(conditions_data):
+    """Generate borderline models table."""
+    analysis = compute_flipper_borderline_analysis(conditions_data)
+    if not analysis:
+        return "*Data not available.*"
+
+    borderline = analysis["borderline_summary"]
+    flippers = {f["model_id"] for f in analysis["flippers"]}
+    n_conds = analysis["n_conditions"]
+
+    # Top borderline models (appearing borderline in 3+ conditions)
+    top_borderline = [b for b in borderline if b["n_borderline"] >= 3]
+
+    if not top_borderline:
+        top_borderline = borderline[:10]  # Show top 10 by borderline count
+
+    lines = []
+    lines.append(f"Models within ±{BORDERLINE_THRESHOLD} of condition median (borderline classification):")
+    lines.append("")
+    lines.append("| Model | Borderline In | Flipper? | Avg Soph | Borderline Conditions |")
+    lines.append("|-------|---------------|----------|----------|----------------------|")
+
+    for b in top_borderline[:15]:  # Cap at 15
+        name = b["display_name"]
+        n_bl = b["n_borderline"]
+        is_flipper = "**Yes**" if b["model_id"] in flippers else "No"
+        avg = b["avg_soph"]
+        bl_conds = ", ".join(b["borderline_conds"][:4])
+        if len(b["borderline_conds"]) > 4:
+            bl_conds += "..."
+
+        lines.append(f"| {name} | {n_bl}/{n_conds} | {is_flipper} | {avg:.2f} | {bl_conds} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_b_top_flippers(conditions_data):
+    """Generate top 5 most volatile flippers analysis."""
+    analysis = compute_flipper_borderline_analysis(conditions_data)
+    if not analysis:
+        return "*Data not available.*"
+
+    flippers = analysis["flippers"]
+    n_conds = analysis["n_conditions"]
+
+    if len(flippers) < 3:
+        return "*Insufficient flippers for top analysis.*"
+
+    # Sort by volatility: most balanced flip ratio + highest soph range
+    flippers_sorted = sorted(flippers, key=lambda x: (abs(x["n_high"] - x["n_low"]), -x["soph_range"]))
+    top_5 = flippers_sorted[:5]
+
+    lines = []
+    lines.append("**Top 5 Most Volatile Models** (balanced flip ratio, high sophistication variance):")
+    lines.append("")
+
+    for i, f in enumerate(top_5, 1):
+        name = f["display_name"]
+        lines.append(f"**{i}. {name}**")
+        lines.append(f"   - Classification: {f['n_high']}H / {f['n_low']}L across {n_conds} conditions")
+        lines.append(f"   - Sophistication: {f['avg_soph']:.2f} avg (range: {f['soph_range']:.2f})")
+        lines.append(f"   - Borderline in: {f['n_borderline']}/{n_conds} conditions")
+
+        # Show per-condition scores
+        scores = f["soph_scores"]
+        medians = analysis["condition_medians"]
+        score_str = ", ".join([f"{c[:3]}:{scores.get(c, 0):.1f}" for c in CONDITIONS if c in scores])
+        lines.append(f"   - Scores: {score_str}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_b_stability_interpretation(conditions_data):
+    """Generate interpretation of stability patterns."""
+    analysis = compute_flipper_borderline_analysis(conditions_data)
+    if not analysis:
+        return "*Data not available.*"
+
+    flippers = analysis["flippers"]
+    borderline = analysis["borderline_summary"]
+    medians = analysis["condition_medians"]
+    n_conds = analysis["n_conditions"]
+
+    # Calculate overlap
+    flipper_ids = {f["model_id"] for f in flippers}
+    borderline_flippers = [b for b in borderline if b["model_id"] in flipper_ids]
+
+    lines = []
+    lines.append("| Pattern | Count | Interpretation |")
+    lines.append("|---------|-------|----------------|")
+    lines.append(f"| Stable models | {analysis['n_stable_high'] + analysis['n_stable_low']} | Consistent classification across all {n_conds} conditions |")
+    lines.append(f"| Flippers | {len(flippers)} | Changed classification at least once |")
+    lines.append(f"| Borderline (3+ conds) | {len([b for b in borderline if b['n_borderline'] >= 3])} | Near threshold in multiple conditions |")
+    lines.append(f"| Flipper + Borderline | {len(borderline_flippers)} | Flippers that are also frequently borderline |")
+    lines.append("")
+
+    # Median variance analysis
+    med_min = min(medians.values())
+    med_max = max(medians.values())
+    lines.append(f"**Threshold variance**: Median ranges from {med_min:.2f} to {med_max:.2f} (Δ={med_max-med_min:.2f})")
+    lines.append(f"Models with sophistication in [{med_min:.2f}, {med_max:.2f}] range are susceptible to flipping.")
+
+    return "\n".join(lines)
+
+
+# ============================================================================
 # APPENDIX C GENERATORS
 # ============================================================================
 
@@ -1772,6 +2066,13 @@ AUTO_GENERATORS = {
     "h3_posthoc_table": lambda data: generate_h3_posthoc_table(data["cross"]),
     "factor_structure_tables": lambda data: generate_factor_structure_tables(data["factor_structure"]),
     "classification_stability_tables": lambda data: generate_classification_stability_tables(data["classification_stability"]),
+    # Appendix B generators (flipper & borderline analysis)
+    "appendix_b_summary": lambda data: generate_appendix_b_summary(data["conditions"]),
+    "appendix_b_medians": lambda data: generate_appendix_b_medians(data["conditions"]),
+    "appendix_b_flippers": lambda data: generate_appendix_b_flippers(data["conditions"]),
+    "appendix_b_borderline": lambda data: generate_appendix_b_borderline(data["conditions"]),
+    "appendix_b_top_flippers": lambda data: generate_appendix_b_top_flippers(data["conditions"]),
+    "appendix_b_interpretation": lambda data: generate_appendix_b_stability_interpretation(data["conditions"]),
     # Appendix C generators (mirroring CONSOLIDATED_STATISTICS.md §0-§15)
     "appendix_c0_global": lambda data: generate_appendix_c0_global(data["conditions"], data.get("eval_counts", {}), data.get("bert", {})),
     "appendix_c1_h1h2": lambda data: generate_appendix_c1_h1h2(data["conditions"]),

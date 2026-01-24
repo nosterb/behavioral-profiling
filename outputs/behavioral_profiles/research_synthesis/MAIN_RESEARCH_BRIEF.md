@@ -649,54 +649,125 @@ grandi     0.728   0.667   0.573   0.620   0.811   1.000
 ---
 ## Appendix B: Classification Stability 🔄
 
-Cross-condition stability analysis of sophistication group classifications.
+Cross-condition stability analysis of sophistication group classifications across all 8 conditions.
 
 ### Summary
 
+<!-- AUTO-START:appendix_b_summary -->
+Cross-condition stability analysis across **8 conditions** and **45 models**.
+
 | Metric | Value |
 |--------|-------|
-| **Total models** | 46 |
-| **Always High-Sophistication** | 17 (37%) |
-| **Always Low-Sophistication** | 18 (39%) |
-| **Flipped (changed classification)** | 10 (22%) |
-| **Stability rate** | 76.1% |
+| **Conditions analyzed** | 8 |
+| **Total models** | 45 |
+| **Always High-Sophistication** | 15 (33%) |
+| **Always Low-Sophistication** | 18 (40%) |
+| **Flippers (changed classification)** | 12 (27%) |
+| **Stability rate** | 73.3% |
+<!-- AUTO-END:appendix_b_summary -->
 
-### Median Sophistication by Condition
+### Condition Medians & Classification Thresholds
 
-| Condition | Median |
-|-----------|--------|
-| baseline | 5.93 |
-| authority | 6.72 |
-| minimal_steering | 5.17 |
-| reminder | 6.83 |
-| telemetryV3 | 5.02 |
-| urgency | 6.17 |
+<!-- AUTO-START:appendix_b_medians -->
+| Condition | Median Soph | Classification Threshold |
+|-----------|-------------|-------------------------|
+| baseline | 5.94 | >5.94 = High |
+| authority | 6.72 | >6.72 = High |
+| minimal_steering | 5.42 | >5.42 = High |
+| reminder | 6.91 | >6.91 = High |
+| telemetryV3 | 5.11 | >5.11 = High |
+| urgency | 6.17 | >6.17 = High |
+| naturalistic | 6.36 | >6.36 = High |
+| all_combined | 7.03 | >7.03 = High |
 
-*Range: 5.02 - 6.83*
+*Median range: 5.11 (telemetryV3) to 7.03 (all_combined)*
+*Threshold variance explains some classification instability*
+<!-- AUTO-END:appendix_b_medians -->
 
 ### Flipped Models (Transitional Class)
 
-Models that changed classification across conditions:
+<!-- AUTO-START:appendix_b_flippers -->
+Models that changed High/Low classification across 8 conditions:
 
-| Model | High Conditions | Low Conditions | Avg Soph |
-|-------|-----------------|----------------|----------|
-| Claude-3.7-Sonnet | 1/6 | 5/6 | 5.51 |
-| GPT-4.1 | 2/6 | 4/6 | 5.60 |
-| Claude-4.1-Opus-Thinking (Thinking) | 5/6 | 1/6 | 6.55 |
-| Claude-4-Opus | 5/6 | 1/6 | 6.37 |
-| Gemini-2.0-Flash | 3/6 | 3/6 | 5.90 |
-| DeepSeek-R1 | 5/6 | 1/6 | 6.42 |
-| Qwen3-32B | 4/6 | 2/6 | 6.18 |
-| Grok-3 | 4/6 | 2/6 | 6.11 |
-| Claude-4.5-Opus-Global-Thinking (Thinking) | 4/6 | 2/6 | 6.26 |
-| Claude-4.5-Opus-Global | 3/6 | 3/6 | 6.05 |
+| Model | High | Low | Borderline | Avg Soph | Range | Flip Pattern |
+|-------|------|-----|------------|----------|-------|--------------|
+| Claude-4-Opus | 5/8 | 3/8 | 3/8 | 6.40 | 1.83 | Mostly High, Low in: baseline, naturalistic... |
+| Claude-4.5-Opus-Global | 5/8 | 3/8 | 0/8 | 6.37 | 3.37 | Mostly High, Low in: authority, telemetryV3... |
+| Gemini-2.0-Flash | 5/8 | 3/8 | 4/8 | 6.16 | 2.89 | Mostly High, Low in: reminder, telemetryV3... |
+| GPT-4.1 | 3/8 | 5/8 | 2/8 | 5.83 | 3.09 | Mostly Low, High in: authority, urgency... |
+| Claude-4.1-Opus-Thinking (Thinking) | 6/8 | 2/8 | 4/8 | 6.59 | 1.67 | Mostly High, Low in: baseline, naturalistic |
+| Claude-4.5-Opus-Global-Thinking (Thinking) | 6/8 | 2/8 | 0/8 | 6.56 | 3.24 | Mostly High, Low in: authority, urgency |
+| Claude-4-Opus-Thinking (Thinking) | 6/8 | 2/8 | 4/8 | 6.48 | 1.59 | Mostly High, Low in: naturalistic, all_combined |
+| Qwen3-32B | 6/8 | 2/8 | 1/8 | 6.41 | 2.54 | Mostly High, Low in: minimal_steering, telemetryV3 |
+| Grok-3 | 6/8 | 2/8 | 1/8 | 6.39 | 2.16 | Mostly High, Low in: authority, minimal_steering |
+| Claude-4-Sonnet-Thinking (Thinking) | 7/8 | 1/8 | 1/8 | 6.67 | 1.70 | Mostly High, Low in: naturalistic |
+| DeepSeek-R1 | 7/8 | 1/8 | 2/8 | 6.53 | 1.81 | Mostly High, Low in: reminder |
+| Claude-3.7-Sonnet | 1/8 | 7/8 | 0/8 | 5.57 | 1.02 | Mostly Low, High in: telemetryV3 |
+<!-- AUTO-END:appendix_b_flippers -->
 
-### Interpretation
+### Borderline Models
 
-**76% of models** maintain consistent classification across all 6 conditions, supporting H1 group validity.
+<!-- AUTO-START:appendix_b_borderline -->
+Models within ±0.15 of condition median (borderline classification):
 
-The 10 flipped models cluster in the middle tertile (80% vs 17%/29% for stable groups), 
-suggesting a genuine transitional zone rather than measurement noise.
+| Model | Borderline In | Flipper? | Avg Soph | Borderline Conditions |
+|-------|---------------|----------|----------|----------------------|
+| Claude-4.1-Opus-Thinking (Thinking) | 4/8 | **Yes** | 6.59 | baseline, authority, naturalistic, all_combined |
+| Claude-4-Opus-Thinking (Thinking) | 4/8 | **Yes** | 6.48 | baseline, authority, naturalistic, all_combined |
+| Gemini-2.0-Flash | 4/8 | **Yes** | 6.16 | authority, minimal_steering, urgency, all_combined |
+| Claude-4-Opus | 3/8 | **Yes** | 6.40 | baseline, authority, all_combined |
+<!-- AUTO-END:appendix_b_borderline -->
+
+### Top 5 Most Volatile Models
+
+<!-- AUTO-START:appendix_b_top_flippers -->
+**Top 5 Most Volatile Models** (balanced flip ratio, high sophistication variance):
+
+**1. Claude-4.5-Opus-Global**
+   - Classification: 5H / 3L across 8 conditions
+   - Sophistication: 6.37 avg (range: 3.37)
+   - Borderline in: 0/8 conditions
+   - Scores: bas:6.9, aut:4.8, min:6.9, rem:8.1, tel:4.9, urg:4.7, nat:7.3, all:7.4
+
+**2. GPT-4.1**
+   - Classification: 3H / 5L across 8 conditions
+   - Sophistication: 5.83 avg (range: 3.09)
+   - Borderline in: 2/8 conditions
+   - Scores: bas:5.6, aut:7.1, min:4.5, rem:6.2, tel:4.0, urg:6.2, nat:6.4, all:6.6
+
+**3. Gemini-2.0-Flash**
+   - Classification: 5H / 3L across 8 conditions
+   - Sophistication: 6.16 avg (range: 2.89)
+   - Borderline in: 4/8 conditions
+   - Scores: bas:6.2, aut:6.8, min:5.4, rem:6.7, tel:4.1, urg:6.1, nat:6.9, all:7.0
+
+**4. Claude-4-Opus**
+   - Classification: 5H / 3L across 8 conditions
+   - Sophistication: 6.40 avg (range: 1.83)
+   - Borderline in: 3/8 conditions
+   - Scores: bas:5.9, aut:6.7, min:5.9, rem:7.2, tel:5.4, urg:6.9, nat:6.1, all:7.0
+
+**5. Claude-4.5-Opus-Global-Thinking (Thinking)**
+   - Classification: 6H / 2L across 8 conditions
+   - Sophistication: 6.56 avg (range: 3.24)
+   - Borderline in: 0/8 conditions
+   - Scores: bas:6.8, aut:4.9, min:6.9, rem:8.1, tel:6.0, urg:5.1, nat:7.4, all:7.4
+
+<!-- AUTO-END:appendix_b_top_flippers -->
+
+### Stability Pattern Interpretation
+
+<!-- AUTO-START:appendix_b_interpretation -->
+| Pattern | Count | Interpretation |
+|---------|-------|----------------|
+| Stable models | 33 | Consistent classification across all 8 conditions |
+| Flippers | 12 | Changed classification at least once |
+| Borderline (3+ conds) | 4 | Near threshold in multiple conditions |
+| Flipper + Borderline | 9 | Flippers that are also frequently borderline |
+
+**Threshold variance**: Median ranges from 5.11 to 7.03 (Δ=1.92)
+Models with sophistication in [5.11, 7.03] range are susceptible to flipping.
+<!-- AUTO-END:appendix_b_interpretation -->
 
 **Full analysis**: See `research_synthesis/limitations/median_split/GAP_VS_CONTINUUM_ANALYSIS.md`
 
@@ -1090,4 +1161,4 @@ pandoc outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md \
 ---
 
 **Document Version**: 3.2 (Auto-generated)
-**Statistics Generated**: 2026-01-24 11:50
+**Statistics Generated**: 2026-01-24 12:28
