@@ -1,7 +1,7 @@
 # Research Brief: All Combined (Outliers Removed)
 
 **Status**: Sensitivity Analysis
-**Last Updated**: 2026-01-23
+**Last Updated**: 2026-01-24
 **Parent Condition**: all_combined
 **Analysis Type**: Outlier-removed robustness check
 
@@ -19,18 +19,19 @@ This analysis removes statistical outliers from the All Combined condition to te
 
 | Metric | Original | Outliers Removed |
 |--------|----------|------------------|
-| **N** | 45 | 44 |
-| **Outliers Removed** | — | 2 |
-| **High-Sophistication** | 23 | 22 |
-| **Low-Sophistication** | 22 | 22 |
+| **N** | 45 | 42 |
+| **Outliers Removed** | — | 3 |
+| **High-Sophistication** | 23 | 21 |
+| **Low-Sophistication** | 22 | 21 |
 | **Median Sophistication** | 7.025 | 6.118 |
 
 ---
 
-## Outliers Removed (2)
+## Outliers Removed (3)
 
 - **Gemini-3-Pro-Preview**: Soph=7.14, Disinhib=2.40, 3.5 SD above line
 - **DeepSeek-R1**: Soph=6.40, Disinhib=2.13, 2.6 SD above line
+- **GPT-OSS-120B**: Soph=6.82, Disinhib=1.52, 2.0 SD below line
 
 ---
 
@@ -40,7 +41,7 @@ This analysis removes statistical outliers from the All Combined condition to te
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Cohen's d** | 2.30 | 2.80 | +0.50 |
+| **Cohen's d** | 2.30 | 3.02 | +0.73 |
 | **Effect Size** | large | large | — |
 | **p-value** | p < .001 | p < .001 | — |
 
@@ -48,16 +49,16 @@ This analysis removes statistical outliers from the All Combined condition to te
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Pearson r** | 0.815 | 0.857 | +0.042 |
+| **Pearson r** | 0.815 | 0.873 | +0.058 |
 
 ### Per-Dimension H1a Effects
 
 | Dimension | Original d | Outliers Removed d | Change |
 |-----------|------------|-------------------|--------|
-| Transgression | 2.06 | 2.62 | +0.56 |
-| Aggression | 2.25 | 2.43 | +0.18 |
-| Tribalism | 1.66 | 2.28 | +0.62 |
-| Grandiosity | 1.62 | 1.54 | -0.08 |
+| Transgression | 2.06 | 2.85 | +0.80 |
+| Aggression | 2.25 | 2.60 | +0.35 |
+| Tribalism | 1.66 | 2.51 | +0.85 |
+| Grandiosity | 1.62 | 1.51 | -0.11 |
 
 ---
 
@@ -79,9 +80,9 @@ H2 correlation strengthens without outliers.
 - `h1_summary_table.png` - Statistical summary table
 - `h2_scatter_sophistication_composite.png` - H2 scatter with regression
 - `h2_scatter_all_dimensions.png` - Per-dimension H2 scatters
-- `profiles/` - Retained model profiles (n=44)
+- `profiles/` - Retained model profiles (n=42)
 
 ---
 
 **Parent Analysis**: `../all_combined/RESEARCH_BRIEF.md`
-**Generated**: 2026-01-23 14:55
+**Generated**: 2026-01-24 09:10

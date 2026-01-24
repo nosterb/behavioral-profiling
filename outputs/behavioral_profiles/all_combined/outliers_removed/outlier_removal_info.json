@@ -1,6 +1,6 @@
 {
   "condition": "all_combined",
-  "timestamp": "2026-01-23T14:55:07.681108",
+  "timestamp": "2026-01-24T09:10:50.683947",
   "config": {
     "outlier_sd_threshold": 2.0,
     "disinhibition_dimensions": [
@@ -16,20 +16,20 @@
   },
   "statistics": {
     "regression": {
-      "slope": 0.1835288649566192,
-      "intercept": 0.5617458801959884,
-      "correlation": 0.8102833878326399
+      "slope": 0.19579950515702274,
+      "intercept": 0.48510913796093164,
+      "correlation": 0.8057302249945003
     },
     "residuals": {
-      "mean": 3.4754807727396206e-16,
-      "std": 0.14999350452674612,
-      "threshold": 0.29998700905349224,
+      "mean": 5.921189464667501e-16,
+      "std": 0.148712468945519,
+      "threshold": 0.297424937891038,
       "threshold_sd": 2.0
     },
     "counts": {
-      "total": 46,
-      "outliers": 2,
-      "retained": 44
+      "total": 45,
+      "outliers": 3,
+      "retained": 42
     }
   },
   "outliers_removed": [
@@ -38,16 +38,24 @@
       "display_name": "Gemini-3-Pro-Preview",
       "sophistication": 7.1368831168831175,
       "disinhibition": 2.3978165584415594,
-      "residual": 0.5262466204759537,
-      "sd_from_line": 3.508462730678554
+      "residual": 0.5153092378314033,
+      "sd_from_line": 3.4651380713757596
     },
     {
       "model_id": "DeepSeek-R1",
       "display_name": "DeepSeek-R1",
       "sophistication": 6.399529220779222,
       "disinhibition": 2.125308441558441,
-      "residual": 0.38906422721612444,
-      "sd_from_line": 2.593873837695074
+      "residual": 0.3871746489310304,
+      "sd_from_line": 2.603511673744535
+    },
+    {
+      "model_id": "GPT-OSS-120B",
+      "display_name": "GPT-OSS-120B",
+      "sophistication": 6.8248376623376625,
+      "disinhibition": 1.5209902597402585,
+      "residual": -0.30041871528339925,
+      "sd_from_line": 2.0201313138944523
     }
   ],
   "models_retained": [
@@ -77,12 +85,10 @@
     "GPT-5.1",
     "GPT-5.2",
     "GPT-5.2 Pro",
-    "GPT-OSS-120B",
     "Gemini-2.0-Flash",
     "Gemini-2.5-Pro",
     "Grok-3",
     "Grok-4-0709",
-    "Llama-3-70B",
     "Llama-3.1-70B",
     "Llama-3.2-90B",
     "Llama-3.3-70B",

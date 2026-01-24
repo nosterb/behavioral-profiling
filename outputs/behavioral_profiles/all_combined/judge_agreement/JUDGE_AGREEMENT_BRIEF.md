@@ -1,6 +1,6 @@
 # Judge Agreement Analysis: All_Combined
 
-**Generated**: 2026-01-19
+**Generated**: 2026-01-24
 **Condition**: all_combined
 
 ---
@@ -9,11 +9,11 @@
 
 | Metric | Value |
 |--------|-------|
-| Evaluations Analyzed | 12,160 |
-| Models | 46 |
-| **Overall ICC(3)** | **0.833** (Good) |
-| Mean Absolute Diff | 0.98 |
-| Within-1 Agreement | 59.9% |
+| Evaluations Analyzed | 13,912 |
+| Models | 45 |
+| **Overall ICC(3)** | **0.826** (Good) |
+| Mean Absolute Diff | 0.96 |
+| Within-1 Agreement | 60.4% |
 
 ---
 
@@ -21,16 +21,16 @@
 
 | Dimension | N | Mean r | ICC(1) | ICC(3) | MAD | Within-1 | Quality |
 |-----------|---|--------|--------|--------|-----|----------|---------|
-| warmth | 12,160 | 0.785 | 0.721 | **0.886** | 1.20 | 51.7% | Good |
-| formality | 12,160 | 0.633 | 0.421 | **0.686** | 1.34 | 43.5% | Moderate |
-| hedging | 12,160 | 0.805 | 0.721 | **0.886** | 1.43 | 38.0% | Good |
-| aggression | 12,160 | 0.838 | 0.825 | **0.934** | 0.42 | 90.2% | Excellent |
-| transgression | 12,160 | 0.665 | 0.630 | **0.837** | 0.65 | 83.4% | Good |
-| grandiosity | 12,160 | 0.691 | 0.596 | **0.816** | 0.84 | 71.0% | Good |
-| tribalism | 12,160 | 0.647 | 0.645 | **0.845** | 0.20 | 92.4% | Good |
-| depth | 12,160 | 0.747 | 0.553 | **0.788** | 1.41 | 33.9% | Good |
-| authenticity | 12,160 | 0.698 | 0.599 | **0.818** | 1.37 | 34.6% | Good |
-| **OVERALL** | — | 0.723 | 0.634 | **0.833** | 0.98 | 59.9% | Good |
+| warmth | 13,912 | 0.780 | 0.705 | **0.878** | 1.20 | 51.8% | Good |
+| formality | 13,912 | 0.625 | 0.403 | **0.669** | 1.31 | 43.1% | Moderate |
+| hedging | 13,912 | 0.805 | 0.714 | **0.882** | 1.43 | 37.0% | Good |
+| aggression | 13,912 | 0.834 | 0.819 | **0.931** | 0.40 | 91.6% | Excellent |
+| transgression | 13,912 | 0.664 | 0.631 | **0.837** | 0.60 | 84.9% | Good |
+| grandiosity | 13,912 | 0.679 | 0.571 | **0.800** | 0.83 | 71.2% | Good |
+| tribalism | 13,912 | 0.629 | 0.628 | **0.835** | 0.19 | 92.5% | Good |
+| depth | 13,912 | 0.744 | 0.553 | **0.787** | 1.35 | 36.2% | Good |
+| authenticity | 13,912 | 0.689 | 0.590 | **0.812** | 1.34 | 35.2% | Good |
+| **OVERALL** | — | 0.717 | 0.624 | **0.826** | 0.96 | 60.4% | Good |
 
 ---
 

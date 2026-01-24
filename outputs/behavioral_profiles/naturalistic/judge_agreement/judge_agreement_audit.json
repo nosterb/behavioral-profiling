@@ -1,13 +1,14 @@
 {
   "schema_version": "1.0",
   "metadata": {
-    "generated": "2026-01-20T10:47:20.162390",
+    "generated": "2026-01-24T08:55:06.500495",
     "analysis": "Judge Agreement Analysis",
     "condition": "naturalistic"
   },
   "provenance": {
     "source_files": {
-      "job_outputs": "outputs/single_prompt_jobs/**/*_naturalistic_*.json"
+      "job_outputs": "outputs/single_prompt_jobs/**/*_naturalistic_*.json",
+      "profile_filter": "outputs/behavioral_profiles/naturalistic/profiles/*.json"
     },
     "methodology": {
       "description": "Inter-rater reliability analysis using ICC and Krippendorff alpha",
@@ -17,122 +18,130 @@
         "Krippendorff_alpha",
         "mean_absolute_difference"
       ],
-      "n_judges": 3
+      "n_judges": 3,
+      "profile_filtering": "Evaluations filtered to match current profile set (2026-01-24 audit)"
+    },
+    "exclusions": {
+      "n_excluded": 19,
+      "excluded_models": [
+        "Llama-3-70B"
+      ],
+      "reason": "Models removed during data audit (invalid scores or invocation failures)"
     }
   },
   "results": {
     "overall_icc_avg": {
       "statistic": "ICC(3,k)",
-      "value": 0.6295,
-      "n": 2231,
+      "value": 0.6288,
+      "n": 2168,
       "interpretation": "Moderate"
     }
   },
   "summary": {
-    "n_evaluations": 2231,
-    "n_models": 45,
-    "n_job_files": 52,
-    "overall_icc_avg": 0.6295,
+    "n_evaluations": 2168,
+    "n_models": 44,
+    "n_job_files": 51,
+    "overall_icc_avg": 0.6288,
     "overall_quality": "Moderate"
   },
   "by_dimension": {
     "warmth": {
-      "n": 2231,
-      "mean_r": 0.705,
-      "mean_mad": 1.2601,
-      "exact": 0.1358,
-      "within1": 0.5056,
-      "icc_single": 0.5633,
-      "icc_avg": 0.7946,
+      "n": 2168,
+      "mean_r": 0.7046,
+      "mean_mad": 1.2623,
+      "exact": 0.1379,
+      "within1": 0.5037,
+      "icc_single": 0.545,
+      "icc_avg": 0.7823,
       "quality": "Good"
     },
     "formality": {
-      "n": 2231,
-      "mean_r": 0.5295,
-      "mean_mad": 1.413,
-      "exact": 0.0578,
-      "within1": 0.3662,
-      "icc_single": 0.2556,
-      "icc_avg": 0.5074,
-      "quality": "Moderate"
+      "n": 2168,
+      "mean_r": 0.5372,
+      "mean_mad": 1.3876,
+      "exact": 0.0577,
+      "within1": 0.3685,
+      "icc_single": 0.2498,
+      "icc_avg": 0.4997,
+      "quality": "Poor"
     },
     "hedging": {
-      "n": 2231,
-      "mean_r": 0.7313,
-      "mean_mad": 1.4827,
-      "exact": 0.0377,
-      "within1": 0.2801,
-      "icc_single": 0.5738,
-      "icc_avg": 0.8015,
+      "n": 2168,
+      "mean_r": 0.7345,
+      "mean_mad": 1.4702,
+      "exact": 0.0387,
+      "within1": 0.2851,
+      "icc_single": 0.5773,
+      "icc_avg": 0.8038,
       "quality": "Good"
     },
     "aggression": {
-      "n": 2231,
-      "mean_r": 0.5114,
-      "mean_mad": 0.3293,
-      "exact": 0.5303,
-      "within1": 0.9798,
-      "icc_single": 0.3628,
-      "icc_avg": 0.6307,
+      "n": 2168,
+      "mean_r": 0.5189,
+      "mean_mad": 0.3287,
+      "exact": 0.5286,
+      "within1": 0.9825,
+      "icc_single": 0.3723,
+      "icc_avg": 0.6402,
       "quality": "Moderate"
     },
     "transgression": {
-      "n": 2231,
-      "mean_r": 0.4783,
-      "mean_mad": 0.3544,
-      "exact": 0.5522,
-      "within1": 0.9364,
-      "icc_single": 0.4507,
-      "icc_avg": 0.7111,
+      "n": 2168,
+      "mean_r": 0.4803,
+      "mean_mad": 0.3558,
+      "exact": 0.5512,
+      "within1": 0.9359,
+      "icc_single": 0.454,
+      "icc_avg": 0.7139,
       "quality": "Moderate"
     },
     "grandiosity": {
-      "n": 2231,
-      "mean_r": 0.2854,
-      "mean_mad": 0.8316,
-      "exact": 0.0892,
-      "within1": 0.7118,
+      "n": 2168,
+      "mean_r": 0.2864,
+      "mean_mad": 0.8281,
+      "exact": 0.0913,
+      "within1": 0.7145,
       "icc_single": 0,
       "icc_avg": 0,
       "quality": "Poor"
     },
     "tribalism": {
-      "n": 2231,
-      "mean_r": 0.4442,
-      "mean_mad": 0.1912,
-      "exact": 0.8386,
-      "within1": 0.9225,
-      "icc_single": 0.363,
-      "icc_avg": 0.6309,
+      "n": 2168,
+      "mean_r": 0.4443,
+      "mean_mad": 0.1943,
+      "exact": 0.8376,
+      "within1": 0.9202,
+      "icc_single": 0.3623,
+      "icc_avg": 0.6302,
       "quality": "Moderate"
     },
     "depth": {
-      "n": 2231,
-      "mean_r": 0.7166,
-      "mean_mad": 1.1179,
-      "exact": 0.0982,
-      "within1": 0.4922,
-      "icc_single": 0.5855,
-      "icc_avg": 0.8091,
+      "n": 2168,
+      "mean_r": 0.7265,
+      "mean_mad": 1.0947,
+      "exact": 0.0987,
+      "within1": 0.5009,
+      "icc_single": 0.5841,
+      "icc_avg": 0.8082,
       "quality": "Good"
     },
     "authenticity": {
-      "n": 2231,
-      "mean_r": 0.6257,
-      "mean_mad": 1.2583,
-      "exact": 0.0636,
-      "within1": 0.3675,
-      "icc_single": 0.5426,
-      "icc_avg": 0.7806,
+      "n": 2168,
+      "mean_r": 0.6279,
+      "mean_mad": 1.2435,
+      "exact": 0.065,
+      "within1": 0.3722,
+      "icc_single": 0.5428,
+      "icc_avg": 0.7808,
       "quality": "Good"
     }
   },
   "overall": {
-    "mean_r": 0.5586,
-    "mean_mad": 0.9154,
-    "within1": 0.618,
-    "icc_single": 0.4108,
-    "icc_avg": 0.6295,
+    "mean_r": 0.5623,
+    "mean_mad": 0.9072,
+    "within1": 0.6204,
+    "icc_single": 0.4097,
+    "icc_avg": 0.6288,
     "quality": "Moderate"
   }
 }

@@ -1,6 +1,6 @@
 # Judge Agreement Analysis: Telemetryv3
 
-**Generated**: 2026-01-20
+**Generated**: 2026-01-24
 **Condition**: telemetryV3
 
 ---
@@ -9,14 +9,14 @@
 
 | Metric | Value |
 |--------|-------|
-| Evaluations Analyzed | 2,094 |
-| Models | 46 |
+| Evaluations Analyzed | 2,053 |
+| Models | 45 |
 | Unique Prompts | 51 |
 | Judges | Claude-4.5-Sonnet, DeepSeek-R1, Llama-4-Maverick-17B |
 | Jobs Complete | 30/51 |
-| **Overall ICC(3)** | **0.795** (Good) |
+| **Overall ICC(3)** | **0.789** (Good) |
 | Mean Absolute Diff | 0.93 |
-| Within-1 Agreement | 62.1% |
+| Within-1 Agreement | 62.0% |
 
 ---
 
@@ -24,16 +24,16 @@
 
 | Dimension | N | Mean r | ICC(1) | ICC(3) | MAD | Within-1 | Quality |
 |-----------|---|--------|--------|--------|-----|----------|---------|
-| warmth | 2,094 | 0.805 | 0.764 | **0.906** | 1.10 | 55.1% | Excellent |
-| formality | 2,094 | 0.619 | 0.446 | **0.707** | 1.26 | 45.8% | Moderate |
-| hedging | 2,094 | 0.696 | 0.557 | **0.791** | 1.61 | 32.3% | Good |
-| aggression | 2,094 | 0.692 | 0.666 | **0.857** | 0.30 | 95.1% | Good |
-| transgression | 2,094 | 0.672 | 0.630 | **0.836** | 0.48 | 92.3% | Good |
-| grandiosity | 2,094 | 0.543 | 0.384 | **0.651** | 0.66 | 83.3% | Moderate |
-| tribalism | 2,094 | 0.589 | 0.586 | **0.809** | 0.12 | 95.4% | Good |
-| depth | 2,094 | 0.772 | 0.573 | **0.801** | 1.48 | 27.2% | Good |
-| authenticity | 2,094 | 0.696 | 0.561 | **0.793** | 1.36 | 32.8% | Good |
-| **OVERALL** | — | 0.676 | 0.574 | **0.795** | 0.93 | 62.1% | Good |
+| warmth | 2,053 | 0.804 | 0.756 | **0.903** | 1.10 | 54.8% | Excellent |
+| formality | 2,053 | 0.603 | 0.423 | **0.688** | 1.22 | 46.7% | Moderate |
+| hedging | 2,053 | 0.712 | 0.563 | **0.794** | 1.60 | 32.3% | Good |
+| aggression | 2,053 | 0.697 | 0.672 | **0.860** | 0.30 | 95.2% | Good |
+| transgression | 2,053 | 0.672 | 0.631 | **0.837** | 0.48 | 92.3% | Good |
+| grandiosity | 2,053 | 0.543 | 0.383 | **0.651** | 0.67 | 83.3% | Moderate |
+| tribalism | 2,053 | 0.590 | 0.587 | **0.810** | 0.12 | 95.3% | Good |
+| depth | 2,053 | 0.759 | 0.544 | **0.782** | 1.49 | 26.3% | Good |
+| authenticity | 2,053 | 0.686 | 0.544 | **0.781** | 1.37 | 32.0% | Good |
+| **OVERALL** | — | 0.674 | 0.567 | **0.789** | 0.93 | 62.0% | Good |
 
 ---
 

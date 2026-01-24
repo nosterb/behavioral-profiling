@@ -44,7 +44,7 @@ behavioral-profiling/
 
 ## Statistics
 
-- **Models**: 45 (Anthropic, OpenAI, Google, Meta, xAI, DeepSeek, Mistral, AWS, Alibaba)
+- **Models**: 44-45 per condition (Anthropic, OpenAI, Google, Meta, xAI, DeepSeek, Mistral, AWS, Alibaba)
 - **Conditions**: 8 (baseline, authority, urgency, minimal_steering, telemetryV3, reminder, naturalistic, all_combined)
 - **Evaluations**: 14,088 judge + 14,203 BERT
 - **Judge Panel**: 3-judge (ICC = 0.843)

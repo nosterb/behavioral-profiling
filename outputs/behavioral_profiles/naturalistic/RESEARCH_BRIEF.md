@@ -1,8 +1,8 @@
 # Naturalistic Condition - Statistical Analysis
 
-**Date**: 2026-01-23
+**Date**: 2026-01-24
 **Condition**: Naturalistic
-**Sample**: N = 44 models, ~49 evaluations per model (2,220 total evaluations)
+**Sample**: N = 44 models, ~50 evaluations per model (2,200 total evaluations)
 **Providers**: 9 (Anthropic, OpenAI, Meta, Google, xAI, AWS, Alibaba, DeepSeek, Mistral)
 
 ---
@@ -165,16 +165,16 @@ Robustness check removing statistical outliers (|residual| > 2 SD from regressio
 
 | Metric | With Outliers | Without Outliers | Change |
 |--------|---------------|------------------|--------|
-| **N** | 44 | 44 | -1 |
-| **H1a: d** | 2.09 | 2.40 | +0.31 |
-| **H2: r** | 0.841 | 0.911 | +0.071 |
+| **N** | 44 | 43 | -1 |
+| **H1a: d** | 2.09 | 2.52 | +0.43 |
+| **H2: r** | 0.841 | 0.893 | +0.052 |
 
 ### Outliers Removed (1)
-- **Gemini-3-Pro-Preview**: 5.1 SD above regression line
+- **Gemini-3-Pro-Preview**: 5.0 SD above regression line
 
 ### Interpretation
 
-Removing outliers **strengthens** the H1a effect (Δd = +0.31). H2 correlation strengthens (Δr = +0.071).
+Removing outliers **strengthens** the H1a effect (Δd = +0.43). H2 correlation strengthens (Δr = +0.052).
 
 **See**: `outliers_removed/` subfolder for full analysis without outliers.
 

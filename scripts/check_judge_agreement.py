@@ -63,13 +63,15 @@ def find_job_files(condition: str) -> list:
                         job_files.append(json_files[0])
 
     elif condition == 'naturalistic':
-        # Look for job_naturalistic_NN (without _50)
-        for item in base_dir.iterdir():
-            if item.is_dir() and item.name.startswith('job_naturalistic_'):
-                if '_50_' not in item.name and not item.name.startswith('job_naturalistic_suite'):
-                    json_files = list(item.glob('*.json'))
-                    if json_files:
-                        job_files.append(json_files[0])
+        # Look for job_naturalistic_NN (without _50) inside naturalistic_1/ directory
+        naturalistic_dir = base_dir / 'naturalistic_1'
+        if naturalistic_dir.exists():
+            for item in naturalistic_dir.iterdir():
+                if item.is_dir() and item.name.startswith('job_naturalistic_'):
+                    if '_50_' not in item.name and not item.name.startswith('job_naturalistic_suite'):
+                        json_files = list(item.glob('*.json'))
+                        if json_files:
+                            job_files.append(json_files[0])
 
     elif condition == 'naturalistic_50':
         # Look for job_naturalistic_NN_50
@@ -99,11 +101,13 @@ def find_job_files(condition: str) -> list:
                         json_files = list(item.glob('*.json'))
                         if json_files:
                             job_files.append(json_files[0])
-            # Get jobs from job_naturalistic_* directories
-            elif subdir.name.startswith('job_naturalistic_'):
-                json_files = list(subdir.glob('*.json'))
-                if json_files:
-                    job_files.append(json_files[0])
+            # Get jobs from naturalistic_1/ directory
+            elif subdir.name == 'naturalistic_1':
+                for item in subdir.iterdir():
+                    if item.is_dir() and item.name.startswith('job_naturalistic_'):
+                        json_files = list(item.glob('*.json'))
+                        if json_files:
+                            job_files.append(json_files[0])
 
     return sorted(set(job_files))
 
@@ -246,7 +250,22 @@ def calculate_dimension_stats(all_scores: list, dimension: str) -> dict:
     }
 
 
-def analyze_condition(condition: str) -> dict:
+def normalize_model_name(name: str) -> str:
+    """Normalize model name for matching between job files and profiles."""
+    if not name:
+        return ""
+    # Convert to lowercase and replace common separators
+    normalized = name.lower().replace('_', '-').replace(' ', '-')
+    # Handle thinking variants
+    is_thinking = 'thinking' in normalized
+    # Remove common suffixes/prefixes that vary
+    for prefix in ['us-', 'global-']:
+        if normalized.startswith(prefix):
+            normalized = normalized[len(prefix):]
+    return normalized
+
+
+def analyze_condition(condition: str, base_dir: str = 'outputs/behavioral_profiles') -> dict:
     """Run full judge agreement analysis for a condition."""
     print(f"\n{'='*60}")
     print(f"JUDGE AGREEMENT ANALYSIS: {condition.upper()}")
@@ -260,13 +279,38 @@ def analyze_condition(condition: str) -> dict:
         print(f"ERROR: No job files found for condition '{condition}'")
         return None
 
+    # Load current profile models (to filter out removed models)
+    # NOTE (2026-01-24): Filter judge evaluations to match current profile set.
+    # Some models were removed during data audit (e.g., llama-3-70b with invalid
+    # tribalism scores). This ensures judge agreement counts match BERT validation
+    # counts, which also use the current profile set.
+    profile_dir = Path(f'{base_dir}/{condition}/profiles')
+    if profile_dir.exists():
+        profile_models = {normalize_model_name(p.stem) for p in profile_dir.glob('*.json')}
+        print(f"Current profiles: {len(profile_models)} models")
+    else:
+        profile_models = None
+        print("WARNING: No profiles directory found, using all models from jobs")
+
     # Extract all judge scores
     all_scores = []
+    excluded_count = 0
+    excluded_models = set()
     for job_file in job_files:
         scores = extract_judge_scores(job_file, condition)
-        all_scores.extend(scores)
+        for score in scores:
+            # Filter to only include models in current profiles
+            if profile_models is not None:
+                model_normalized = normalize_model_name(score['model'])
+                if model_normalized not in profile_models:
+                    excluded_count += 1
+                    excluded_models.add(score['model'])
+                    continue
+            all_scores.append(score)
 
     print(f"Extracted {len(all_scores)} evaluations with 3 valid judges")
+    if excluded_count > 0:
+        print(f"  (Excluded {excluded_count} evaluations from removed models: {excluded_models})")
 
     if len(all_scores) < 10:
         print(f"ERROR: Insufficient evaluations ({len(all_scores)}) for analysis")
@@ -312,6 +356,8 @@ def analyze_condition(condition: str) -> dict:
         'n_job_files': len(job_files),
         'n_evaluations': len(all_scores),
         'n_models': len(models),
+        'excluded_evaluations': excluded_count,
+        'excluded_models': list(excluded_models) if excluded_models else [],
         'by_dimension': dimension_stats,
         'overall': {
             'mean_r': round(overall_r, 4),
@@ -346,12 +392,19 @@ def save_condition_outputs(results: dict, condition: str, base_dir: str = 'outpu
         },
         'provenance': {
             'source_files': {
-                'job_outputs': f'outputs/single_prompt_jobs/**/*_{condition}_*.json'
+                'job_outputs': f'outputs/single_prompt_jobs/**/*_{condition}_*.json',
+                'profile_filter': f'outputs/behavioral_profiles/{condition}/profiles/*.json'
             },
             'methodology': {
                 'description': 'Inter-rater reliability analysis using ICC and Krippendorff alpha',
                 'statistical_tests': ['ICC(1)', 'ICC(3,k)', 'Krippendorff_alpha', 'mean_absolute_difference'],
-                'n_judges': 3
+                'n_judges': 3,
+                'profile_filtering': 'Evaluations filtered to match current profile set (2026-01-24 audit)'
+            },
+            'exclusions': {
+                'n_excluded': results.get('excluded_evaluations', 0),
+                'excluded_models': results.get('excluded_models', []),
+                'reason': 'Models removed during data audit (invalid scores or invocation failures)'
             }
         },
         'results': {

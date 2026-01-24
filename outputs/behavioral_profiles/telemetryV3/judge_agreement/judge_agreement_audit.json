@@ -1,13 +1,14 @@
 {
   "schema_version": "1.0",
   "metadata": {
-    "generated": "2026-01-20T21:28:59.355677",
+    "generated": "2026-01-24T08:55:06.373514",
     "analysis": "Judge Agreement Analysis",
     "condition": "telemetryV3"
   },
   "provenance": {
     "source_files": {
-      "job_outputs": "outputs/single_prompt_jobs/**/*_telemetryV3_*.json"
+      "job_outputs": "outputs/single_prompt_jobs/**/*_telemetryV3_*.json",
+      "profile_filter": "outputs/behavioral_profiles/telemetryV3/profiles/*.json"
     },
     "methodology": {
       "description": "Inter-rater reliability analysis using ICC and Krippendorff alpha",
@@ -17,122 +18,130 @@
         "Krippendorff_alpha",
         "mean_absolute_difference"
       ],
-      "n_judges": 3
+      "n_judges": 3,
+      "profile_filtering": "Evaluations filtered to match current profile set (2026-01-24 audit)"
+    },
+    "exclusions": {
+      "n_excluded": 41,
+      "excluded_models": [
+        "Llama-3-70B"
+      ],
+      "reason": "Models removed during data audit (invalid scores or invocation failures)"
     }
   },
   "results": {
     "overall_icc_avg": {
       "statistic": "ICC(3,k)",
-      "value": 0.7946,
-      "n": 2094,
+      "value": 0.7895,
+      "n": 2053,
       "interpretation": "Good"
     }
   },
   "summary": {
-    "n_evaluations": 2094,
-    "n_models": 46,
+    "n_evaluations": 2053,
+    "n_models": 45,
     "n_job_files": 51,
-    "overall_icc_avg": 0.7946,
+    "overall_icc_avg": 0.7895,
     "overall_quality": "Good"
   },
   "by_dimension": {
     "warmth": {
-      "n": 2094,
-      "mean_r": 0.8048,
-      "mean_mad": 1.1014,
-      "exact": 0.1089,
-      "within1": 0.5506,
-      "icc_single": 0.7637,
-      "icc_avg": 0.9065,
+      "n": 2053,
+      "mean_r": 0.8037,
+      "mean_mad": 1.1026,
+      "exact": 0.0989,
+      "within1": 0.548,
+      "icc_single": 0.7561,
+      "icc_avg": 0.9029,
       "quality": "Excellent"
     },
     "formality": {
-      "n": 2094,
-      "mean_r": 0.6193,
-      "mean_mad": 1.2561,
-      "exact": 0.0793,
-      "within1": 0.458,
-      "icc_single": 0.4455,
-      "icc_avg": 0.7067,
+      "n": 2053,
+      "mean_r": 0.6027,
+      "mean_mad": 1.2156,
+      "exact": 0.0809,
+      "within1": 0.4671,
+      "icc_single": 0.4233,
+      "icc_avg": 0.6877,
       "quality": "Moderate"
     },
     "hedging": {
-      "n": 2094,
-      "mean_r": 0.6964,
-      "mean_mad": 1.6079,
-      "exact": 0.0678,
-      "within1": 0.3233,
-      "icc_single": 0.5572,
-      "icc_avg": 0.7906,
+      "n": 2053,
+      "mean_r": 0.7118,
+      "mean_mad": 1.5972,
+      "exact": 0.0623,
+      "within1": 0.3229,
+      "icc_single": 0.5628,
+      "icc_avg": 0.7943,
       "quality": "Good"
     },
     "aggression": {
-      "n": 2094,
-      "mean_r": 0.692,
-      "mean_mad": 0.2951,
-      "exact": 0.628,
-      "within1": 0.9508,
-      "icc_single": 0.6659,
-      "icc_avg": 0.8567,
+      "n": 2053,
+      "mean_r": 0.6968,
+      "mean_mad": 0.2952,
+      "exact": 0.6264,
+      "within1": 0.9518,
+      "icc_single": 0.6716,
+      "icc_avg": 0.8598,
       "quality": "Good"
     },
     "transgression": {
-      "n": 2094,
-      "mean_r": 0.6718,
-      "mean_mad": 0.4753,
-      "exact": 0.4126,
-      "within1": 0.9231,
-      "icc_single": 0.6303,
-      "icc_avg": 0.8364,
+      "n": 2053,
+      "mean_r": 0.6725,
+      "mean_mad": 0.4806,
+      "exact": 0.4053,
+      "within1": 0.9235,
+      "icc_single": 0.6311,
+      "icc_avg": 0.837,
       "quality": "Good"
     },
     "grandiosity": {
-      "n": 2094,
-      "mean_r": 0.5427,
-      "mean_mad": 0.6609,
-      "exact": 0.2173,
+      "n": 2053,
+      "mean_r": 0.5428,
+      "mean_mad": 0.6676,
+      "exact": 0.207,
       "within1": 0.8329,
-      "icc_single": 0.3839,
-      "icc_avg": 0.6515,
+      "icc_single": 0.3831,
+      "icc_avg": 0.6507,
       "quality": "Moderate"
     },
     "tribalism": {
-      "n": 2094,
-      "mean_r": 0.5887,
-      "mean_mad": 0.1188,
-      "exact": 0.8883,
-      "within1": 0.9537,
-      "icc_single": 0.5859,
-      "icc_avg": 0.8093,
+      "n": 2053,
+      "mean_r": 0.5896,
+      "mean_mad": 0.1198,
+      "exact": 0.888,
+      "within1": 0.9528,
+      "icc_single": 0.5868,
+      "icc_avg": 0.8099,
       "quality": "Good"
     },
     "depth": {
-      "n": 2094,
-      "mean_r": 0.772,
-      "mean_mad": 1.4756,
-      "exact": 0.0463,
-      "within1": 0.2722,
-      "icc_single": 0.5727,
-      "icc_avg": 0.8008,
+      "n": 2053,
+      "mean_r": 0.7594,
+      "mean_mad": 1.4856,
+      "exact": 0.0331,
+      "within1": 0.263,
+      "icc_single": 0.5441,
+      "icc_avg": 0.7817,
       "quality": "Good"
     },
     "authenticity": {
-      "n": 2094,
-      "mean_r": 0.6964,
-      "mean_mad": 1.362,
-      "exact": 0.0521,
-      "within1": 0.3276,
-      "icc_single": 0.5607,
-      "icc_avg": 0.7929,
+      "n": 2053,
+      "mean_r": 0.686,
+      "mean_mad": 1.3684,
+      "exact": 0.0448,
+      "within1": 0.3205,
+      "icc_single": 0.5439,
+      "icc_avg": 0.7815,
       "quality": "Good"
     }
   },
   "overall": {
-    "mean_r": 0.676,
-    "mean_mad": 0.9281,
-    "within1": 0.6214,
-    "icc_single": 0.574,
-    "icc_avg": 0.7946,
+    "mean_r": 0.6739,
+    "mean_mad": 0.9258,
+    "within1": 0.6203,
+    "icc_single": 0.567,
+    "icc_avg": 0.7895,
     "quality": "Good"
   }
 }

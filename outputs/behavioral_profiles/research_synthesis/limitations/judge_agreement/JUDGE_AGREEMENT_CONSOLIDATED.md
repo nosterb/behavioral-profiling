@@ -1,6 +1,6 @@
 # Judge Agreement Analysis: Cross-Condition Summary
 
-**Generated**: 2026-01-19
+**Generated**: 2026-01-24
 **Conditions Analyzed**: 8
 
 ---
@@ -13,17 +13,17 @@ This document consolidates inter-rater reliability metrics across all experiment
 
 | Condition | N Models | Unique Prompts | N Evals | Jobs | Overall ICC(3) | Quality |
 |-----------|----------|----------------|---------|------|----------------|---------|
-| baseline | 46 | N/A | 2,252 | ?/? | 0.808 | Good |
+| baseline | 45 | N/A | 2,202 | ?/? | 0.813 | Good |
 | authority | 45 | 51 | 2,261 | 50/51 | 0.765 | Good |
 | urgency | 45 | 51 | 2,259 | 50/51 | 0.835 | Good |
-| minimal_steering | 46 | 51 | 2,317 | 48/51 | 0.718 | Moderate |
-| telemetryV3 | 46 | 51 | 1,599 | 30/51 | 0.759 | Good |
-| reminder | 46 | 15 | 674 | 14/15 | 0.827 | Good |
-| naturalistic | 44 | 20 | 303 | 17/20 | 0.707 | Moderate |
-| all_combined | 46 | N/A | 12,160 | ?/? | 0.833 | Good |
+| minimal_steering | 45 | 51 | 2,266 | 48/51 | 0.727 | Moderate |
+| telemetryV3 | 45 | 51 | 2,053 | 30/51 | 0.789 | Good |
+| reminder | 45 | 15 | 659 | 14/15 | 0.830 | Good |
+| naturalistic | 44 | 20 | 2,168 | 17/20 | 0.629 | Moderate |
+| all_combined | 45 | N/A | 13,912 | ?/? | 0.826 | Good |
 
-**Cross-Condition Average ICC(3)**: 0.782 (Good)
-**Cross-Condition Average Within-1**: 59.9%
+**Cross-Condition Average ICC(3)**: 0.777 (Good)
+**Cross-Condition Average Within-1**: 60.2%
 
 ---
 
@@ -31,15 +31,15 @@ This document consolidates inter-rater reliability metrics across all experiment
 
 | Dimension | baseline | authorit | urgency | minimal_ | telemetr | reminder | naturali | all_comb | Avg |
 |-----------|--------|--------|--------|--------|--------|--------|--------|--------|-----|
-| warmth | 0.89 | 0.74 | 0.89 | 0.90 | 0.91 | 0.91 | 0.77 | 0.89 | **0.86** |
-| formality | 0.67 | 0.68 | 0.69 | 0.58 | 0.71 | 0.57 | 0.49 | 0.69 | **0.63** |
-| hedging | 0.83 | 0.87 | 0.87 | 0.80 | 0.78 | 0.84 | 0.71 | 0.89 | **0.82** |
-| aggression | 0.93 | 0.88 | 0.93 | 0.86 | 0.74 | 0.95 | 0.89 | 0.93 | **0.89** |
-| transgression | 0.85 | 0.78 | 0.82 | 0.76 | 0.73 | 0.89 | 0.73 | 0.84 | **0.80** |
-| grandiosity | 0.69 | 0.58 | 0.86 | 0.36 | 0.56 | 0.81 | 0.45 | 0.82 | **0.64** |
-| tribalism | 0.85 | 0.77 | 0.87 | 0.73 | 0.82 | 0.87 | 0.77 | 0.85 | **0.82** |
-| depth | 0.74 | 0.81 | 0.75 | 0.71 | 0.80 | 0.76 | 0.77 | 0.79 | **0.77** |
-| authenticity | 0.80 | 0.77 | 0.84 | 0.76 | 0.79 | 0.85 | 0.77 | 0.82 | **0.80** |
+| warmth | 0.89 | 0.74 | 0.89 | 0.90 | 0.90 | 0.91 | 0.78 | 0.88 | **0.86** |
+| formality | 0.69 | 0.68 | 0.69 | 0.57 | 0.69 | 0.59 | 0.50 | 0.67 | **0.63** |
+| hedging | 0.84 | 0.87 | 0.87 | 0.80 | 0.79 | 0.84 | 0.80 | 0.88 | **0.84** |
+| aggression | 0.94 | 0.88 | 0.93 | 0.87 | 0.86 | 0.95 | 0.64 | 0.93 | **0.88** |
+| transgression | 0.86 | 0.78 | 0.82 | 0.77 | 0.84 | 0.89 | 0.71 | 0.84 | **0.81** |
+| grandiosity | 0.71 | 0.58 | 0.86 | 0.39 | 0.65 | 0.82 | 0.00 | 0.80 | **0.60** |
+| tribalism | 0.85 | 0.77 | 0.87 | 0.76 | 0.81 | 0.87 | 0.63 | 0.84 | **0.80** |
+| depth | 0.74 | 0.81 | 0.75 | 0.71 | 0.78 | 0.75 | 0.81 | 0.79 | **0.77** |
+| authenticity | 0.80 | 0.77 | 0.84 | 0.76 | 0.78 | 0.85 | 0.78 | 0.81 | **0.80** |
 
 ---
 

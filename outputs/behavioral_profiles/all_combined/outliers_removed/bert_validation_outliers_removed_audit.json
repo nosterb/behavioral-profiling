@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "generated": "2026-01-24T09:26:25.226473",
+    "analysis": "BERT Validation - Outliers Removed (all_combined)",
+    "bert_model": "unitary/toxic-bert",
+    "bert_model_url": "https://huggingface.co/unitary/toxic-bert"
+  },
+  "provenance": {
+    "source_files": {
+      "bert_validation_results": "outputs/behavioral_profiles/research_synthesis/bert_validation/all_combined/bert_validation_results.json",
+      "outlier_removal_info": "outputs/behavioral_profiles/all_combined/outliers_removed/outlier_removal_info.json"
+    },
+    "methodology": {
+      "outlier_detection": "Regression residuals > 2.0 SD from sophistication~disinhibition regression line",
+      "correlation_method": "Pearson product-moment correlation",
+      "filter_logic": "Exclude models identified as outliers in H1/H2 analysis"
+    }
+  },
+  "sample": {
+    "n_original": 45,
+    "n_removed": 3,
+    "n_final": 42,
+    "outliers_removed": [
+      {
+        "model_id": "Gemini-3-Pro-Preview",
+        "sophistication": 7.1368831168831175,
+        "disinhibition": 2.3978165584415594,
+        "sd_from_line": 3.4651380713757596
+      },
+      {
+        "model_id": "DeepSeek-R1",
+        "sophistication": 6.399529220779222,
+        "disinhibition": 2.125308441558441,
+        "sd_from_line": 2.603511673744535
+      },
+      {
+        "model_id": "GPT-OSS-120B",
+        "sophistication": 6.8248376623376625,
+        "disinhibition": 1.5209902597402585,
+        "sd_from_line": 2.0201313138944523
+      }
+    ]
+  },
+  "correlations": {
+    "toxicity": {
+      "r": 0.5952806852489447,
+      "p": 3.206927743520511e-05,
+      "r_squared": 0.3543590942304532,
+      "interpretation": "large"
+    },
+    "insult": {
+      "r": 0.541306717547222,
+      "p": 0.00021417558824416485,
+      "r_squared": 0.293012962461748,
+      "interpretation": "large"
+    }
+  },
+  "regression": {
+    "toxicity": {
+      "slope": 0.009645914303692197,
+      "intercept": -0.009680728325368078,
+      "std_err": 0.0020586718741437623
+    },
+    "insult": {
+      "slope": 0.0016768767840594238,
+      "intercept": -0.00197526713319761,
+      "std_err": 0.00041184468470989644
+    }
+  },
+  "comparison_with_original": {
+    "toxicity": {
+      "r_original": 0.6060963309951068,
+      "r_outliers_removed": 0.5952806852489447,
+      "delta": -0.010815645746162117
+    },
+    "insult": {
+      "r_original": 0.5162583360012784,
+      "r_outliers_removed": 0.541306717547222,
+      "delta": 0.025048381545943688
+    }
+  },
+  "model_data": [
+    {
+      "model_id": "claude-3-haiku",
+      "aggression": 1.2987979458450045,
+      "bert_toxicity": 0.0009226436053722864,
+      "bert_insult": 0.0001904933424157207
+    },
+    {
+      "model_id": "claude-3-opus",
+      "aggression": 1.3085124183006533,
+      "bert_toxicity": 0.0010314280871664898,
+      "bert_insult": 0.00019397450693378658
+    },
+    {
+      "model_id": "claude-3-sonnet",
+      "aggression": 1.4221316526610646,
+      "bert_toxicity": 0.0010939836754914722,
+      "bert_insult": 0.0001971821382539929
+    },
+    {
+      "model_id": "claude-3.5-haiku",
+      "aggression": 1.3306425770308121,
+      "bert_toxicity": 0.0030634406095487064,
+      "bert_insult": 0.00030496120343741494
+    },
+    {
+      "model_id": "claude-3.5-sonnet-v1",
+      "aggression": 1.3313118580765637,
+      "bert_toxicity": 0.0009931178932674812,
+      "bert_insult": 0.0001937750382694503
+    },
+    {
+      "model_id": "claude-3.5-sonnet-v2",
+      "aggression": 1.3737214212000588,
+      "bert_toxicity": 0.0028678530656179647,
+      "bert_insult": 0.0003115537777375721
+    },
+    {
+      "model_id": "claude-3.7-sonnet",
+      "aggression": 1.4265967320261435,
+      "bert_toxicity": 0.0011174389925145078,
+      "bert_insult": 0.00020008737578791624
+    },
+    {
+      "model_id": "claude-4-opus",
+      "aggression": 1.7853689075630252,
+      "bert_toxicity": 0.010718635131812749,
+      "bert_insult": 0.0010300433814681806
+    },
+    {
+      "model_id": "claude-4-opus-thinking_(thinking)",
+      "aggression": 1.7149539015606237,
+      "bert_toxicity": 0.010046949230570769,
+      "bert_insult": 0.000876207370402832
+    },
+    {
+      "model_id": "claude-4-sonnet",
+      "aggression": 1.879470588235294,
+      "bert_toxicity": 0.0109702760770233,
+      "bert_insult": 0.001543276492611767
+    },
+    {
+      "model_id": "claude-4-sonnet-thinking_(thinking)",
+      "aggression": 1.7033277310924368,
+      "bert_toxicity": 0.00927015579673025,
+      "bert_insult": 0.0008438732323611476
+    },
+    {
+      "model_id": "claude-4.1-opus",
+      "aggression": 1.9936093370681605,
+      "bert_toxicity": 0.01042383882885582,
+      "bert_insult": 0.0008010748285454634
+    },
+    {
+      "model_id": "claude-4.1-opus-thinking_(thinking)",
+      "aggression": 1.7522803921568624,
+      "bert_toxicity": 0.009867680421660818,
+      "bert_insult": 0.0008173935779181886
+    },
+    {
+      "model_id": "claude-4.5-haiku",
+      "aggression": 2.3708569561157797,
+      "bert_toxicity": 0.0019245534769652295,
+      "bert_insult": 0.00022680616889374504
+    },
+    {
+      "model_id": "claude-4.5-haiku-thinking_(thinking)",
+      "aggression": 2.3466940242763767,
+      "bert_toxicity": 0.004421018744506,
+      "bert_insult": 0.000613810765071321
+    },
+    {
+      "model_id": "claude-4.5-opus-global",
+      "aggression": 1.807115406162465,
+      "bert_toxicity": 0.008783084569461714,
+      "bert_insult": 0.0014532635692452141
+    },
+    {
+      "model_id": "claude-4.5-opus-global-thinking_(thinking)",
+      "aggression": 1.819001587301587,
+      "bert_toxicity": 0.0060731403309067615,
+      "bert_insult": 0.001078092082599668
+    },
+    {
+      "model_id": "claude-4.5-sonnet",
+      "aggression": 2.1394427637721756,
+      "bert_toxicity": 0.01571017604037479,
+      "bert_insult": 0.005605401489401629
+    },
+    {
+      "model_id": "claude-4.5-sonnet-thinking_(thinking)",
+      "aggression": 2.1083086834733895,
+      "bert_toxicity": 0.016002800213937008,
+      "bert_insult": 0.003061251383724084
+    },
+    {
+      "model_id": "gemini-2.0-flash",
+      "aggression": 1.6993848739495796,
+      "bert_toxicity": 0.011696446574034701,
+      "bert_insult": 0.0012895694249024947
+    },
+    {
+      "model_id": "gemini-2.5-pro",
+      "aggression": 2.047596825396825,
+      "bert_toxicity": 0.005976371423915356,
+      "bert_insult": 0.0005499908928290806
+    },
+    {
+      "model_id": "gpt-3.5_turbo",
+      "aggression": 1.3501507002801116,
+      "bert_toxicity": 0.0034544129706671036,
+      "bert_insult": 0.000300451002324943
+    },
+    {
+      "model_id": "gpt-4",
+      "aggression": 1.2106845938375348,
+      "bert_toxicity": 0.003907142571782325,
+      "bert_insult": 0.0003141237350383651
+    },
+    {
+      "model_id": "gpt-4.1",
+      "aggression": 1.5734412698412696,
+      "bert_toxicity": 0.0035954503529357688,
+      "bert_insult": 0.00028045487977516165
+    },
+    {
+      "model_id": "gpt-5",
+      "aggression": 1.6497365079365076,
+      "bert_toxicity": 0.011137983395694682,
+      "bert_insult": 0.0009195173235331315
+    },
+    {
+      "model_id": "gpt-5.1",
+      "aggression": 1.7332168067226887,
+      "bert_toxicity": 0.020046176363131597,
+      "bert_insult": 0.0013679397689031882
+    },
+    {
+      "model_id": "gpt-5.2",
+      "aggression": 1.7090465919701212,
+      "bert_toxicity": 0.006793446191820114,
+      "bert_insult": 0.00040730689601172756
+    },
+    {
+      "model_id": "gpt-5.2_pro",
+      "aggression": 1.6587392156862744,
+      "bert_toxicity": 0.00816862313584118,
+      "bert_insult": 0.0005025425320053269
+    },
+    {
+      "model_id": "grok-3",
+      "aggression": 1.5906123249299717,
+      "bert_toxicity": 0.002140067849303873,
+      "bert_insult": 0.0002615196375540519
+    },
+    {
+      "model_id": "grok-4-0709",
+      "aggression": 1.7771295985060687,
+      "bert_toxicity": 0.014213845821142745,
+      "bert_insult": 0.0013129747287770968
+    },
+    {
+      "model_id": "llama-3.1-70b",
+      "aggression": 1.4342396825396821,
+      "bert_toxicity": 0.002374048242381832,
+      "bert_insult": 0.0002357015353481984
+    },
+    {
+      "model_id": "llama-3.2-90b",
+      "aggression": 1.3641917833800186,
+      "bert_toxicity": 0.0014247928311306168,
+      "bert_insult": 0.00020791729348275113
+    },
+    {
+      "model_id": "llama-3.3-70b",
+      "aggression": 1.3599103485838777,
+      "bert_toxicity": 0.0016031869398049152,
+      "bert_insult": 0.00020577207006008597
+    },
+    {
+      "model_id": "llama-4-maverick-17b",
+      "aggression": 1.2558007469654524,
+      "bert_toxicity": 0.0017021853966070922,
+      "bert_insult": 0.0002156396005375427
+    },
+    {
+      "model_id": "llama-4-scout-17b",
+      "aggression": 1.4062765639589168,
+      "bert_toxicity": 0.0017065347157767974,
+      "bert_insult": 0.0002192249275594804
+    },
+    {
+      "model_id": "mistral-large-24.02",
+      "aggression": 1.1989084967320258,
+      "bert_toxicity": 0.0010269607329973951,
+      "bert_insult": 0.0001926688574712898
+    },
+    {
+      "model_id": "mixtral-8x7b",
+      "aggression": 1.270321288515406,
+      "bert_toxicity": 0.0010628129448377877,
+      "bert_insult": 0.00019492142209855955
+    },
+    {
+      "model_id": "nova-lite",
+      "aggression": 1.250111297852474,
+      "bert_toxicity": 0.001839001070948143,
+      "bert_insult": 0.00022715322138537885
+    },
+    {
+      "model_id": "nova-premier",
+      "aggression": 1.3774794584500467,
+      "bert_toxicity": 0.0011833593140181619,
+      "bert_insult": 0.00019729268310584303
+    },
+    {
+      "model_id": "nova-pro",
+      "aggression": 1.2635654528478055,
+      "bert_toxicity": 0.0019337904295753106,
+      "bert_insult": 0.00022729119737050497
+    },
+    {
+      "model_id": "o3",
+      "aggression": 1.5740853408029876,
+      "bert_toxicity": 0.006943508303873124,
+      "bert_insult": 0.00067860888153735
+    },
+    {
+      "model_id": "qwen3-32b",
+      "aggression": 1.7939644257703082,
+      "bert_toxicity": 0.004897555993920832,
+      "bert_insult": 0.00031102336670301155
+    }
+  ]
+}

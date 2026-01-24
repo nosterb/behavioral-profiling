@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "metadata": {
-    "generated": "2026-01-19T22:18:43.781645",
+    "generated": "2026-01-24T08:55:07.062954",
     "analysis": "Judge Agreement - Cross-Condition Consolidated",
     "n_conditions": 8
   },
@@ -21,23 +21,23 @@
   "results": {
     "avg_icc_avg": {
       "statistic": "ICC(3,k)",
-      "value": 0.7816,
+      "value": 0.7766,
       "n": 8,
       "interpretation": "Good"
     }
   },
   "summary": {
-    "avg_icc_avg": 0.7816,
-    "avg_within1": 0.5985,
+    "avg_icc_avg": 0.7766,
+    "avg_within1": 0.6022,
     "overall_quality": "Good"
   },
   "conditions": {
     "baseline": {
-      "n_models": 46,
-      "n_evaluations": 2252,
-      "overall_icc_avg": 0.8084,
+      "n_models": 45,
+      "n_evaluations": 2202,
+      "overall_icc_avg": 0.8127,
       "overall_quality": "Good",
-      "overall_within1": 0.5979
+      "overall_within1": 0.6053
     },
     "authority": {
       "n_models": 45,
@@ -54,39 +54,39 @@
       "overall_within1": 0.5448
     },
     "minimal_steering": {
-      "n_models": 46,
-      "n_evaluations": 2317,
-      "overall_icc_avg": 0.7177,
+      "n_models": 45,
+      "n_evaluations": 2266,
+      "overall_icc_avg": 0.7265,
       "overall_quality": "Moderate",
-      "overall_within1": 0.6028
+      "overall_within1": 0.6096
     },
     "telemetryV3": {
-      "n_models": 46,
-      "n_evaluations": 1599,
-      "overall_icc_avg": 0.7594,
+      "n_models": 45,
+      "n_evaluations": 2053,
+      "overall_icc_avg": 0.7895,
       "overall_quality": "Good",
-      "overall_within1": 0.617
+      "overall_within1": 0.6203
     },
     "reminder": {
-      "n_models": 46,
-      "n_evaluations": 674,
-      "overall_icc_avg": 0.827,
+      "n_models": 45,
+      "n_evaluations": 659,
+      "overall_icc_avg": 0.8297,
       "overall_quality": "Good",
-      "overall_within1": 0.5767
+      "overall_within1": 0.5822
     },
     "naturalistic": {
       "n_models": 44,
-      "n_evaluations": 303,
-      "overall_icc_avg": 0.7073,
+      "n_evaluations": 2168,
+      "overall_icc_avg": 0.6288,
       "overall_quality": "Moderate",
-      "overall_within1": 0.6197
+      "overall_within1": 0.6204
     },
     "all_combined": {
-      "n_models": 46,
-      "n_evaluations": 12160,
-      "overall_icc_avg": 0.8326,
+      "n_models": 45,
+      "n_evaluations": 13912,
+      "overall_icc_avg": 0.8257,
       "overall_quality": "Good",
-      "overall_within1": 0.5985
+      "overall_within1": 0.6039
     }
   }
 }

@@ -1,13 +1,14 @@
 {
   "schema_version": "1.0",
   "metadata": {
-    "generated": "2026-01-19T22:18:42.964916",
+    "generated": "2026-01-24T08:55:06.015852",
     "analysis": "Judge Agreement Analysis",
     "condition": "authority"
   },
   "provenance": {
     "source_files": {
-      "job_outputs": "outputs/single_prompt_jobs/**/*_authority_*.json"
+      "job_outputs": "outputs/single_prompt_jobs/**/*_authority_*.json",
+      "profile_filter": "outputs/behavioral_profiles/authority/profiles/*.json"
     },
     "methodology": {
       "description": "Inter-rater reliability analysis using ICC and Krippendorff alpha",
@@ -17,7 +18,13 @@
         "Krippendorff_alpha",
         "mean_absolute_difference"
       ],
-      "n_judges": 3
+      "n_judges": 3,
+      "profile_filtering": "Evaluations filtered to match current profile set (2026-01-24 audit)"
+    },
+    "exclusions": {
+      "n_excluded": 0,
+      "excluded_models": [],
+      "reason": "Models removed during data audit (invalid scores or invocation failures)"
     }
   },
   "results": {

@@ -1,7 +1,7 @@
 # Research Brief: Naturalistic (Outliers Removed)
 
 **Status**: Sensitivity Analysis
-**Last Updated**: 2026-01-23
+**Last Updated**: 2026-01-24
 **Parent Condition**: naturalistic
 **Analysis Type**: Outlier-removed robustness check
 
@@ -19,17 +19,17 @@ This analysis removes statistical outliers from the Naturalistic condition to te
 
 | Metric | Original | Outliers Removed |
 |--------|----------|------------------|
-| **N** | 44 | 44 |
+| **N** | 44 | 43 |
 | **Outliers Removed** | — | 1 |
 | **High-Sophistication** | 22 | 22 |
-| **Low-Sophistication** | 22 | 22 |
-| **Median Sophistication** | 6.357 | 6.272 |
+| **Low-Sophistication** | 22 | 21 |
+| **Median Sophistication** | 6.357 | 6.274 |
 
 ---
 
 ## Outliers Removed (1)
 
-- **Gemini-3-Pro-Preview**: Soph=7.73, Disinhib=1.86, 5.1 SD above line
+- **Gemini-3-Pro-Preview**: Soph=7.73, Disinhib=1.86, 5.0 SD above line
 
 ---
 
@@ -39,7 +39,7 @@ This analysis removes statistical outliers from the Naturalistic condition to te
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Cohen's d** | 2.09 | 2.40 | +0.31 |
+| **Cohen's d** | 2.09 | 2.52 | +0.43 |
 | **Effect Size** | large | large | — |
 | **p-value** | p < .001 | p < .001 | — |
 
@@ -47,16 +47,16 @@ This analysis removes statistical outliers from the Naturalistic condition to te
 
 | Metric | Original | Outliers Removed | Change |
 |--------|----------|------------------|--------|
-| **Pearson r** | 0.841 | 0.911 | +0.071 |
+| **Pearson r** | 0.841 | 0.893 | +0.052 |
 
 ### Per-Dimension H1a Effects
 
 | Dimension | Original d | Outliers Removed d | Change |
 |-----------|------------|-------------------|--------|
-| Transgression | 1.28 | 1.28 | +0.01 |
-| Aggression | 2.08 | 2.18 | +0.10 |
-| Tribalism | 1.29 | 1.79 | +0.50 |
-| Grandiosity | 1.83 | 1.64 | -0.19 |
+| Transgression | 1.28 | 1.23 | -0.04 |
+| Aggression | 2.08 | 2.14 | +0.06 |
+| Tribalism | 1.29 | 2.10 | +0.81 |
+| Grandiosity | 1.83 | 1.68 | -0.15 |
 
 ---
 
@@ -78,9 +78,9 @@ H2 correlation strengthens without outliers.
 - `h1_summary_table.png` - Statistical summary table
 - `h2_scatter_sophistication_composite.png` - H2 scatter with regression
 - `h2_scatter_all_dimensions.png` - Per-dimension H2 scatters
-- `profiles/` - Retained model profiles (n=44)
+- `profiles/` - Retained model profiles (n=43)
 
 ---
 
 **Parent Analysis**: `../naturalistic/RESEARCH_BRIEF.md`
-**Generated**: 2026-01-23 14:50
+**Generated**: 2026-01-24 09:09

@@ -1,6 +1,6 @@
 # Judge Agreement Analysis: Minimal_Steering
 
-**Generated**: 2026-01-19
+**Generated**: 2026-01-24
 **Condition**: minimal_steering
 
 ---
@@ -9,14 +9,14 @@
 
 | Metric | Value |
 |--------|-------|
-| Evaluations Analyzed | 2,317 |
-| Models | 46 |
+| Evaluations Analyzed | 2,266 |
+| Models | 45 |
 | Unique Prompts | 51 |
 | Judges | Claude-4.5-Sonnet, DeepSeek-R1, Llama-4-Maverick-17B |
 | Jobs Complete | 48/51 |
-| **Overall ICC(3)** | **0.718** (Moderate) |
-| Mean Absolute Diff | 0.96 |
-| Within-1 Agreement | 60.3% |
+| **Overall ICC(3)** | **0.727** (Moderate) |
+| Mean Absolute Diff | 0.94 |
+| Within-1 Agreement | 61.0% |
 
 ---
 
@@ -24,16 +24,16 @@
 
 | Dimension | N | Mean r | ICC(1) | ICC(3) | MAD | Within-1 | Quality |
 |-----------|---|--------|--------|--------|-----|----------|---------|
-| warmth | 2,317 | 0.792 | 0.749 | **0.899** | 1.06 | 59.8% | Good |
-| formality | 2,317 | 0.574 | 0.314 | **0.578** | 1.42 | 36.4% | Moderate |
-| hedging | 2,317 | 0.746 | 0.575 | **0.802** | 1.63 | 27.6% | Good |
-| aggression | 2,317 | 0.702 | 0.667 | **0.857** | 0.25 | 97.0% | Good |
-| transgression | 2,317 | 0.588 | 0.515 | **0.761** | 0.50 | 91.8% | Good |
-| grandiosity | 2,317 | 0.419 | 0.158 | **0.360** | 0.78 | 78.1% | Poor |
-| tribalism | 2,317 | 0.485 | 0.472 | **0.729** | 0.10 | 96.5% | Moderate |
-| depth | 2,317 | 0.710 | 0.451 | **0.711** | 1.54 | 25.1% | Moderate |
-| authenticity | 2,317 | 0.665 | 0.515 | **0.761** | 1.40 | 30.1% | Good |
-| **OVERALL** | — | 0.631 | 0.491 | **0.718** | 0.96 | 60.3% | Moderate |
+| warmth | 2,266 | 0.807 | 0.747 | **0.899** | 1.02 | 60.9% | Good |
+| formality | 2,266 | 0.586 | 0.307 | **0.571** | 1.35 | 37.2% | Moderate |
+| hedging | 2,266 | 0.758 | 0.577 | **0.804** | 1.61 | 28.2% | Good |
+| aggression | 2,266 | 0.727 | 0.698 | **0.874** | 0.24 | 97.7% | Good |
+| transgression | 2,266 | 0.601 | 0.530 | **0.772** | 0.50 | 92.3% | Good |
+| grandiosity | 2,266 | 0.430 | 0.174 | **0.387** | 0.76 | 79.3% | Poor |
+| tribalism | 2,266 | 0.524 | 0.518 | **0.763** | 0.09 | 96.7% | Good |
+| depth | 2,266 | 0.725 | 0.447 | **0.708** | 1.50 | 25.6% | Moderate |
+| authenticity | 2,266 | 0.674 | 0.516 | **0.762** | 1.37 | 30.8% | Good |
+| **OVERALL** | — | 0.648 | 0.501 | **0.727** | 0.94 | 61.0% | Moderate |
 
 ---
 

@@ -1,6 +1,6 @@
 # Judge Agreement Analysis: Baseline
 
-**Generated**: 2026-01-19
+**Generated**: 2026-01-24
 **Condition**: baseline
 
 ---
@@ -9,11 +9,11 @@
 
 | Metric | Value |
 |--------|-------|
-| Evaluations Analyzed | 2,252 |
-| Models | 46 |
-| **Overall ICC(3)** | **0.808** (Good) |
-| Mean Absolute Diff | 0.98 |
-| Within-1 Agreement | 59.8% |
+| Evaluations Analyzed | 2,202 |
+| Models | 45 |
+| **Overall ICC(3)** | **0.813** (Good) |
+| Mean Absolute Diff | 0.96 |
+| Within-1 Agreement | 60.5% |
 
 ---
 
@@ -21,16 +21,16 @@
 
 | Dimension | N | Mean r | ICC(1) | ICC(3) | MAD | Within-1 | Quality |
 |-----------|---|--------|--------|--------|-----|----------|---------|
-| warmth | 2,252 | 0.788 | 0.732 | **0.891** | 1.16 | 54.2% | Good |
-| formality | 2,252 | 0.629 | 0.407 | **0.674** | 1.44 | 38.6% | Moderate |
-| hedging | 2,252 | 0.731 | 0.621 | **0.831** | 1.48 | 35.0% | Good |
-| aggression | 2,252 | 0.839 | 0.826 | **0.934** | 0.31 | 94.2% | Excellent |
-| transgression | 2,252 | 0.689 | 0.662 | **0.854** | 0.58 | 87.3% | Good |
-| grandiosity | 2,252 | 0.585 | 0.431 | **0.695** | 0.85 | 72.1% | Moderate |
-| tribalism | 2,252 | 0.654 | 0.651 | **0.848** | 0.17 | 93.5% | Good |
-| depth | 2,252 | 0.729 | 0.492 | **0.744** | 1.49 | 28.9% | Moderate |
-| authenticity | 2,252 | 0.703 | 0.577 | **0.804** | 1.37 | 34.2% | Good |
-| **OVERALL** | — | 0.705 | 0.600 | **0.808** | 0.98 | 59.8% | Good |
+| warmth | 2,202 | 0.800 | 0.732 | **0.891** | 1.13 | 55.4% | Good |
+| formality | 2,202 | 0.653 | 0.426 | **0.690** | 1.37 | 39.5% | Moderate |
+| hedging | 2,202 | 0.745 | 0.630 | **0.837** | 1.45 | 35.8% | Good |
+| aggression | 2,202 | 0.847 | 0.836 | **0.939** | 0.30 | 95.0% | Excellent |
+| transgression | 2,202 | 0.694 | 0.667 | **0.857** | 0.58 | 87.7% | Good |
+| grandiosity | 2,202 | 0.593 | 0.446 | **0.707** | 0.84 | 73.2% | Moderate |
+| tribalism | 2,202 | 0.663 | 0.660 | **0.854** | 0.16 | 93.6% | Good |
+| depth | 2,202 | 0.737 | 0.482 | **0.736** | 1.44 | 29.6% | Moderate |
+| authenticity | 2,202 | 0.710 | 0.577 | **0.804** | 1.33 | 35.0% | Good |
+| **OVERALL** | — | 0.716 | 0.606 | **0.813** | 0.96 | 60.5% | Good |
 
 ---
 

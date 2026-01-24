@@ -1,8 +1,8 @@
 # All Combined Condition - Statistical Analysis
 
-**Date**: 2026-01-23
+**Date**: 2026-01-24
 **Condition**: All Combined
-**Sample**: N = 45 models, ~304 evaluations per model (13,984 total evaluations)
+**Sample**: N = 45 models, ~307 evaluations per model (13,809 total evaluations)
 **Providers**: 9 (Anthropic, OpenAI, Meta, Google, xAI, AWS, Alibaba, DeepSeek, Mistral)
 
 ---
@@ -169,17 +169,18 @@ Robustness check removing statistical outliers (|residual| > 2 SD from regressio
 
 | Metric | With Outliers | Without Outliers | Change |
 |--------|---------------|------------------|--------|
-| **N** | 45 | 44 | -2 |
-| **H1a: d** | 2.30 | 2.80 | +0.50 |
-| **H2: r** | 0.815 | 0.857 | +0.042 |
+| **N** | 45 | 42 | -3 |
+| **H1a: d** | 2.30 | 3.02 | +0.73 |
+| **H2: r** | 0.815 | 0.873 | +0.058 |
 
-### Outliers Removed (2)
+### Outliers Removed (3)
 - **Gemini-3-Pro-Preview**: 3.5 SD above regression line
 - **DeepSeek-R1**: 2.6 SD above regression line
+- **GPT-OSS-120B**: 2.0 SD below regression line
 
 ### Interpretation
 
-Removing outliers **strengthens** the H1a effect (Δd = +0.50). H2 correlation strengthens (Δr = +0.042).
+Removing outliers **strengthens** the H1a effect (Δd = +0.73). H2 correlation strengthens (Δr = +0.058).
 
 **See**: `outliers_removed/` subfolder for full analysis without outliers.
 

@@ -1,6 +1,6 @@
 # Judge Agreement Analysis: Authority
 
-**Generated**: 2026-01-19
+**Generated**: 2026-01-24
 **Condition**: authority
 
 ---

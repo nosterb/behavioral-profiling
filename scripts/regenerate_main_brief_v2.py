@@ -968,6 +968,787 @@ def generate_classification_stability_tables(stability_data):
 
 
 # ============================================================================
+# APPENDIX C GENERATORS
+# ============================================================================
+
+def load_provider_anova():
+    """Load provider ANOVA from baseline."""
+    path = BASE_DIR / "baseline" / "provider_comparison_stats.json"
+    return load_json(path)
+
+
+def load_per_condition_judge_agreement_full():
+    """Load full judge agreement data per condition."""
+    data = {}
+    for condition in CONDITIONS:
+        path = BASE_DIR / condition / "judge_agreement" / "judge_agreement_audit.json"
+        ja_data = load_json(path)
+        if ja_data:
+            data[condition] = ja_data
+    return data
+
+
+def generate_appendix_c1_h1h2(conditions_data):
+    """Generate Appendix C.1 H1/H2 Core Statistics table."""
+    lines = []
+    lines.append("| Condition | N | Median Soph | N_High | N_Low | H1a d | p | H2 r |")
+    lines.append("|-----------|---|-------------|--------|-------|-------|---|------|")
+
+    for cond in CONDITIONS:
+        if cond not in conditions_data:
+            continue
+        data = conditions_data[cond]
+        n_high = data.get("n_high_sophistication", 0)
+        n_low = data.get("n_low_sophistication", 0)
+        n = n_high + n_low
+        median = data.get("median_sophistication", 0)
+        d = data.get("statistics", {}).get("disinhibition", {}).get("cohens_d", 0)
+        p = data.get("statistics", {}).get("disinhibition", {}).get("p_value", 1)
+        r = data.get("correlation", {}).get("sophistication_disinhibition", 0)
+        p_str = f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+        lines.append(f"| {cond} | {n} | {median:.3f} | {n_high} | {n_low} | {d:.2f} | {p_str} | {r:.3f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c2_outliers(outlier_data):
+    """Generate Appendix C.2 Outliers-Removed Sensitivity table."""
+    if not outlier_data:
+        return "*Outliers-removed data not available.*"
+
+    lines = []
+    lines.append("| Condition | N_Orig | N_Removed | N_Final | H1a d | H2 r |")
+    lines.append("|-----------|--------|-----------|---------|-------|------|")
+
+    for cond in CONDITIONS:
+        if cond not in outlier_data:
+            continue
+        data = outlier_data[cond]
+        orig = data.get("with_outliers", {})
+        wo = data.get("without_outliers", {})
+
+        n_orig = orig.get("n_high_sophistication", 0) + orig.get("n_low_sophistication", 0)
+        n_final = wo.get("n_high_sophistication", 0) + wo.get("n_low_sophistication", 0)
+        n_removed = n_orig - n_final
+
+        d = wo.get("statistics", {}).get("disinhibition", {}).get("cohens_d", 0)
+        r = wo.get("correlation", {}).get("sophistication_disinhibition", 0)
+        lines.append(f"| {cond} | {n_orig} | {n_removed} | {n_final} | {d:.2f} | {r:.3f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c3_bert(bert_data, conditions_data):
+    """Generate Appendix C.3 BERT External Validation table."""
+    if not bert_data:
+        return "*BERT validation data not available.*"
+
+    lines = []
+    lines.append("| Condition | N | Evaluations | r(Tox,Aggr) | p | r(Tox,Soph) | p | r(Tox,Disin) | p |")
+    lines.append("|-----------|---|-------------|-------------|---|-------------|---|--------------|---|")
+
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        if cond not in bert_data:
+            continue
+        primary = bert_data[cond].get("primary", {})
+        extended = bert_data[cond].get("extended", {})
+
+        # Get N from conditions data
+        n = len(conditions_data.get(cond, {}).get("models", []))
+
+        # Get evaluations from primary results
+        model_results = primary.get("model_results", [])
+        evals = sum(m.get("n_scored", m.get("n_responses", 0)) for m in model_results)
+        if not evals:
+            evals = primary.get("metadata", {}).get("total_evaluations", 0)
+
+        # Primary: toxicity vs aggression
+        r_tox_agg = primary.get("correlations", {}).get("toxicity", {}).get("r", 0)
+        p_tox_agg = primary.get("correlations", {}).get("toxicity", {}).get("p", 1)
+
+        # Extended: toxicity vs soph/disin
+        ext_corr = extended.get("correlations", {}) if extended else {}
+        r_tox_soph = ext_corr.get("toxicity_vs_sophistication", {}).get("r", 0)
+        p_tox_soph = ext_corr.get("toxicity_vs_sophistication", {}).get("p", 1)
+        r_tox_disin = ext_corr.get("toxicity_vs_disinhibition", {}).get("r", 0)
+        p_tox_disin = ext_corr.get("toxicity_vs_disinhibition", {}).get("p", 1)
+
+        def fmt_p(p):
+            return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+
+        # Handle missing extended data
+        soph_str = f"{r_tox_soph:.3f}" if r_tox_soph else "—"
+        soph_p_str = fmt_p(p_tox_soph) if r_tox_soph else "—"
+        disin_str = f"{r_tox_disin:.3f}" if r_tox_disin else "—"
+        disin_p_str = fmt_p(p_tox_disin) if r_tox_disin else "—"
+
+        lines.append(f"| {cond} | {n} | {evals:,} | {r_tox_agg:.3f} | {fmt_p(p_tox_agg)} | {soph_str} | {soph_p_str} | {disin_str} | {disin_p_str} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c4_judge(judge_data):
+    """Generate Appendix C.4 Judge Agreement (ICC) table."""
+    if not judge_data:
+        return "*Judge agreement data not available.*"
+
+    lines = []
+    lines.append("| Condition | N_Evals | Overall | aggr | trans | grand | trib | depth | auth |")
+    lines.append("|-----------|---------|---------|------|-------|-------|------|-------|------|")
+
+    for cond in ["baseline", "all_combined"]:
+        if cond not in judge_data:
+            continue
+        data = judge_data[cond]
+        summary = data.get("summary", {})
+        by_dim = data.get("by_dimension", {})
+
+        n_evals = summary.get("n_evaluations", 0)
+        overall = data.get("overall", {}).get("icc_avg", 0)
+
+        aggr = by_dim.get("aggression", {}).get("icc_avg", 0)
+        trans = by_dim.get("transgression", {}).get("icc_avg", 0)
+        grand = by_dim.get("grandiosity", {}).get("icc_avg", 0)
+        trib = by_dim.get("tribalism", {}).get("icc_avg", 0)
+        depth = by_dim.get("depth", {}).get("icc_avg", 0)
+        auth = by_dim.get("authenticity", {}).get("icc_avg", 0)
+
+        lines.append(f"| {cond} | {n_evals:,} | {overall:.3f} | {aggr:.2f} | {trans:.2f} | {grand:.2f} | {trib:.2f} | {depth:.2f} | {auth:.2f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c5_dimensions(conditions_data):
+    """Generate Appendix C.5 Per-Dimension Effect Sizes table."""
+    lines = []
+    lines.append("| Condition | aggr | trans | grand | trib | depth | auth | soph | disin |")
+    lines.append("|-----------|------|-------|-------|------|-------|------|------|-------|")
+
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        if cond not in conditions_data:
+            continue
+        stats = conditions_data[cond].get("statistics", {})
+
+        aggr = stats.get("aggression", {}).get("cohens_d", 0)
+        trans = stats.get("transgression", {}).get("cohens_d", 0)
+        grand = stats.get("grandiosity", {}).get("cohens_d", 0)
+        trib = stats.get("tribalism", {}).get("cohens_d", 0)
+        depth = stats.get("depth", {}).get("cohens_d", 0)
+        auth = stats.get("authenticity", {}).get("cohens_d", 0)
+        soph = stats.get("sophistication", {}).get("cohens_d", 0)
+        disin = stats.get("disinhibition", {}).get("cohens_d", 0)
+
+        lines.append(f"| {cond} | {aggr:.2f} | {trans:.2f} | {grand:.2f} | {trib:.2f} | {depth:.2f} | {auth:.2f} | {soph:.2f} | {disin:.2f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c6_external(external_data):
+    """Generate Appendix C.6 External Benchmark Correlations table."""
+    if not external_data:
+        return "*External validation data not available.*"
+
+    lines = []
+    lines.append("| Benchmark | N | r(BM→Soph) | p | r(BM→Disin) | p |")
+    lines.append("|-----------|---|------------|---|-------------|---|")
+
+    for bm_key, bm_name in [("gpqa", "GPQA"), ("aime", "AIME"), ("arc_agi", "ARC-AGI")]:
+        bm_data = external_data.get(bm_key, {})
+        if not bm_data:
+            continue
+        corrs = bm_data.get("correlations", {})
+        soph_corr = corrs.get("sophistication", {})
+        disin_corr = corrs.get("disinhibition", {})
+
+        n = soph_corr.get("n", bm_data.get("sample", {}).get("n_matched", "?"))
+        r_soph = soph_corr.get("r", 0)
+        p_soph = soph_corr.get("p", 1)
+        r_disin = disin_corr.get("r", 0)
+        p_disin = disin_corr.get("p", 1)
+
+        def fmt_p(p):
+            return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+
+        lines.append(f"| {bm_name} | {n} | {r_soph:.3f} | {fmt_p(p_soph)} | {r_disin:.3f} | {fmt_p(p_disin)} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c7_anova(provider_anova):
+    """Generate Appendix C.7 Provider ANOVA table."""
+    if not provider_anova:
+        return "*Provider ANOVA data not available.*"
+
+    lines = []
+    lines.append("| Composite | F | p | η² | N |")
+    lines.append("|-----------|---|---|-----|---|")
+
+    for composite in ["disinhibition", "sophistication"]:
+        anova = provider_anova.get(composite, {}).get("anova", {})
+        if not anova:
+            continue
+        F = anova.get("F", 0)
+        p = anova.get("p", 1)
+        eta = anova.get("eta_squared", 0)
+        N = anova.get("N", 0)
+
+        p_str = f"{p:.4f}"
+        lines.append(f"| {composite.capitalize()} | {F:.2f} | {p_str} | {eta:.3f} | {N} |")
+
+    return "\n".join(lines)
+
+
+# ============================================================================
+# ADDITIONAL APPENDIX C GENERATORS (Full Coverage)
+# ============================================================================
+
+def generate_appendix_c0_global(conditions_data, eval_counts, bert_data):
+    """Generate Appendix C.0 Global Summary table."""
+    lines = []
+    lines.append("| Metric | Value |")
+    lines.append("|--------|-------|")
+
+    n_conditions = len(conditions_data)
+    cond_names = ", ".join(conditions_data.keys())
+    n_models = max(len(d.get("models", [])) for d in conditions_data.values()) if conditions_data else 0
+
+    # Sum evaluations from individual conditions (not all_combined)
+    total_evals = sum(eval_counts.get(c, 0) for c in eval_counts if c != "all_combined")
+
+    # Sum BERT evaluations
+    total_bert = 0
+    for cond in CONDITIONS:
+        if cond in bert_data and cond != "all_combined":
+            primary = bert_data[cond].get("primary", {})
+            model_results = primary.get("model_results", [])
+            total_bert += sum(m.get("n_scored", m.get("n_responses", 0)) for m in model_results)
+
+    # Get providers from baseline
+    providers = set()
+    for cond_data in conditions_data.values():
+        for model in cond_data.get("models", []):
+            prov = model.get("provider", "")
+            if prov:
+                providers.add(prov)
+
+    lines.append(f"| Conditions | {n_conditions} |")
+    lines.append(f"| Condition Names | {cond_names} |")
+    lines.append(f"| Models (max per condition) | {n_models} |")
+    lines.append(f"| Total Judge Evaluations | {total_evals:,} |")
+    lines.append(f"| Total BERT Evaluations | {total_bert:,} |")
+    lines.append(f"| Unique Providers | {len(providers)} ({', '.join(sorted(providers))}) |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c2_outliers_full(outlier_data):
+    """Generate Appendix C.2 Outliers-Removed with p-values."""
+    if not outlier_data:
+        return "*Outliers-removed data not available.*"
+
+    lines = []
+    lines.append("| Condition | N_Orig | N_Removed | N_Final | H1_d | H1_p | H2_r |")
+    lines.append("|-----------|--------|-----------|---------|------|------|------|")
+
+    for cond in CONDITIONS:
+        if cond not in outlier_data:
+            continue
+        data = outlier_data[cond]
+        orig = data.get("with_outliers", {})
+        wo = data.get("without_outliers", {})
+
+        n_orig = orig.get("n_high_sophistication", 0) + orig.get("n_low_sophistication", 0)
+        n_final = wo.get("n_high_sophistication", 0) + wo.get("n_low_sophistication", 0)
+        n_removed = n_orig - n_final
+
+        d = wo.get("statistics", {}).get("disinhibition", {}).get("cohens_d", 0)
+        p = wo.get("statistics", {}).get("disinhibition", {}).get("p_value", 1)
+        r = wo.get("correlation", {}).get("sophistication_disinhibition", 0)
+
+        p_str = f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+        lines.append(f"| {cond} | {n_orig} | {n_removed} | {n_final} | {d:.2f} | {p_str} | {r:.3f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c3_bert_full(bert_data, conditions_data):
+    """Generate Appendix C.3 BERT vs Aggression (all 8 conditions)."""
+    if not bert_data:
+        return "*BERT validation data not available.*"
+
+    lines = []
+    lines.append("| Condition | N | Evaluations | r_tox | p_tox | r_ins | p_ins |")
+    lines.append("|-----------|---|-------------|-------|-------|-------|-------|")
+
+    for cond in CONDITIONS:
+        if cond not in bert_data:
+            continue
+        primary = bert_data[cond].get("primary", {})
+        n = len(conditions_data.get(cond, {}).get("models", []))
+
+        model_results = primary.get("model_results", [])
+        evals = sum(m.get("n_scored", m.get("n_responses", 0)) for m in model_results)
+        if not evals:
+            evals = primary.get("metadata", {}).get("total_evaluations", 0)
+
+        corr = primary.get("correlations", {})
+        r_tox = corr.get("toxicity", {}).get("r", 0)
+        p_tox = corr.get("toxicity", {}).get("p", 1)
+        r_ins = corr.get("insult", {}).get("r", 0)
+        p_ins = corr.get("insult", {}).get("p", 1)
+
+        def fmt_p(p):
+            return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+
+        lines.append(f"| {cond} | {n} | {evals:,} | {r_tox:.3f} | {fmt_p(p_tox)} | {r_ins:.3f} | {fmt_p(p_ins)} |")
+
+    return "\n".join(lines)
+
+
+def load_bert_outliers_removed():
+    """Load BERT outliers removed data."""
+    data = {}
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        path = BASE_DIR / cond / "outliers_removed" / "bert_validation_outliers_removed_audit.json"
+        audit = load_json(path)
+        if audit:
+            data[cond] = audit
+    return data
+
+
+def generate_appendix_c4_bert_outliers(bert_outliers):
+    """Generate Appendix C.4 BERT vs Aggression Outliers Removed."""
+    if not bert_outliers:
+        return "*BERT outliers-removed data not available.*"
+
+    lines = []
+    lines.append("| Condition | N | N_Removed | r_tox | p_tox | r_ins | p_ins |")
+    lines.append("|-----------|---|-----------|-------|-------|-------|-------|")
+
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        if cond not in bert_outliers:
+            continue
+        data = bert_outliers[cond]
+        sample = data.get("sample", {})
+        corr = data.get("correlations", {})
+
+        n = sample.get("n_final", 0)
+        n_removed = sample.get("n_removed", 0)
+        # Keys are 'toxicity' and 'insult' (vs aggression implied)
+        r_tox = corr.get("toxicity", {}).get("r", 0)
+        p_tox = corr.get("toxicity", {}).get("p", 1)
+        r_ins = corr.get("insult", {}).get("r", 0)
+        p_ins = corr.get("insult", {}).get("p", 1)
+
+        def fmt_p(p):
+            return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+
+        lines.append(f"| {cond} | {n} | {n_removed} | {r_tox:.3f} | {fmt_p(p_tox)} | {r_ins:.3f} | {fmt_p(p_ins)} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c5_bert_soph_disin_full(bert_data):
+    """Generate Appendix C.5 BERT vs Soph/Disin (all conditions except all_combined)."""
+    if not bert_data:
+        return "*BERT soph/disin data not available.*"
+
+    lines = []
+    lines.append("| Condition | r_tox_soph | p | r_tox_disin | p | r_ins_soph | p | r_ins_disin | p |")
+    lines.append("|-----------|------------|---|-------------|---|------------|---|-------------|---|")
+
+    for cond in CONDITIONS:
+        if cond == "all_combined" or cond not in bert_data:
+            continue
+        extended = bert_data[cond].get("extended", {})
+        if not extended:
+            continue
+
+        corr = extended.get("correlations", {})
+
+        def get_corr(key):
+            c = corr.get(key, {})
+            return c.get("r", 0), c.get("p", 1)
+
+        r_ts, p_ts = get_corr("toxicity_vs_sophistication")
+        r_td, p_td = get_corr("toxicity_vs_disinhibition")
+        r_is, p_is = get_corr("insult_vs_sophistication")
+        r_id, p_id = get_corr("insult_vs_disinhibition")
+
+        def fmt_p(p):
+            return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+
+        lines.append(f"| {cond} | {r_ts:.3f} | {fmt_p(p_ts)} | {r_td:.3f} | {fmt_p(p_td)} | {r_is:.3f} | {fmt_p(p_is)} | {r_id:.3f} | {fmt_p(p_id)} |")
+
+    return "\n".join(lines)
+
+
+def load_bert_soph_disin_outliers():
+    """Load BERT soph/disin outliers removed data."""
+    data = {}
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        path = BASE_DIR / cond / "outliers_removed" / "bert_soph_disin_outliers_removed_audit.json"
+        audit = load_json(path)
+        if audit:
+            data[cond] = audit
+    return data
+
+
+def generate_appendix_c6_bert_soph_disin_outliers(bert_sd_outliers):
+    """Generate Appendix C.6 BERT vs Soph/Disin Outliers Removed."""
+    if not bert_sd_outliers:
+        return "*BERT soph/disin outliers-removed data not available.*"
+
+    lines = []
+    lines.append("| Condition | N | N_Removed | r_tox_soph | p | r_tox_disin | p | r_ins_soph | p | r_ins_disin | p |")
+    lines.append("|-----------|---|-----------|------------|---|-------------|---|------------|---|-------------|---|")
+
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        if cond not in bert_sd_outliers:
+            continue
+        data = bert_sd_outliers[cond]
+        sample = data.get("sample", {})
+        corr = data.get("correlations", {})
+
+        n = sample.get("n_final", 0)
+        n_removed = sample.get("n_removed", 0)
+
+        def get_corr(key):
+            c = corr.get(key, {})
+            return c.get("r", 0), c.get("p", 1)
+
+        r_ts, p_ts = get_corr("toxicity_vs_sophistication")
+        r_td, p_td = get_corr("toxicity_vs_disinhibition")
+        r_is, p_is = get_corr("insult_vs_sophistication")
+        r_id, p_id = get_corr("insult_vs_disinhibition")
+
+        def fmt_p(p):
+            return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+
+        lines.append(f"| {cond} | {n} | {n_removed} | {r_ts:.3f} | {fmt_p(p_ts)} | {r_td:.3f} | {fmt_p(p_td)} | {r_is:.3f} | {fmt_p(p_is)} | {r_id:.3f} | {fmt_p(p_id)} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c7_judge_full(judge_data):
+    """Generate Appendix C.7 Judge Agreement ICC (all 8 conditions)."""
+    if not judge_data:
+        return "*Judge agreement data not available.*"
+
+    lines = []
+    lines.append("| Condition | N_Evals | Overall | warm | form | hedge | aggr | trans | grand | trib | depth | auth |")
+    lines.append("|-----------|---------|---------|------|------|-------|------|-------|-------|------|-------|------|")
+
+    for cond in CONDITIONS:
+        if cond not in judge_data:
+            continue
+        data = judge_data[cond]
+        summary = data.get("summary", {})
+        by_dim = data.get("by_dimension", {})
+
+        n_evals = summary.get("n_evaluations", 0)
+        overall = data.get("overall", {}).get("icc_avg", 0)
+
+        warm = by_dim.get("warmth", {}).get("icc_avg", 0)
+        form = by_dim.get("formality", {}).get("icc_avg", 0)
+        hedge = by_dim.get("hedging", {}).get("icc_avg", 0)
+        aggr = by_dim.get("aggression", {}).get("icc_avg", 0)
+        trans = by_dim.get("transgression", {}).get("icc_avg", 0)
+        grand = by_dim.get("grandiosity", {}).get("icc_avg", 0)
+        trib = by_dim.get("tribalism", {}).get("icc_avg", 0)
+        depth = by_dim.get("depth", {}).get("icc_avg", 0)
+        auth = by_dim.get("authenticity", {}).get("icc_avg", 0)
+
+        lines.append(f"| {cond} | {n_evals:,} | {overall:.3f} | {warm:.2f} | {form:.2f} | {hedge:.2f} | {aggr:.2f} | {trans:.2f} | {grand:.2f} | {trib:.2f} | {depth:.2f} | {auth:.2f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c8_dimensions_full(conditions_data):
+    """Generate Appendix C.8 Per-Dimension Effect Sizes (all 8 conditions)."""
+    lines = []
+    lines.append("| Condition | warm | form | hedge | aggr | trans | grand | trib | depth | auth | soph | disin |")
+    lines.append("|-----------|------|------|-------|------|-------|-------|------|-------|------|------|-------|")
+
+    for cond in CONDITIONS:
+        if cond not in conditions_data:
+            continue
+        stats = conditions_data[cond].get("statistics", {})
+
+        warm = stats.get("warmth", {}).get("cohens_d", 0)
+        form = stats.get("formality", {}).get("cohens_d", 0)
+        hedge = stats.get("hedging", {}).get("cohens_d", 0)
+        aggr = stats.get("aggression", {}).get("cohens_d", 0)
+        trans = stats.get("transgression", {}).get("cohens_d", 0)
+        grand = stats.get("grandiosity", {}).get("cohens_d", 0)
+        trib = stats.get("tribalism", {}).get("cohens_d", 0)
+        depth = stats.get("depth", {}).get("cohens_d", 0)
+        auth = stats.get("authenticity", {}).get("cohens_d", 0)
+        soph = stats.get("sophistication", {}).get("cohens_d", 0)
+        disin = stats.get("disinhibition", {}).get("cohens_d", 0)
+
+        lines.append(f"| {cond} | {warm:.2f} | {form:.2f} | {hedge:.2f} | {aggr:.2f} | {trans:.2f} | {grand:.2f} | {trib:.2f} | {depth:.2f} | {auth:.2f} | {soph:.2f} | {disin:.2f} |")
+
+    return "\n".join(lines)
+
+
+def load_comprehensive_stats():
+    """Load comprehensive_stats.json for all conditions."""
+    data = {}
+    for cond in CONDITIONS:
+        path = BASE_DIR / cond / "comprehensive_stats.json"
+        stats = load_json(path)
+        if stats:
+            data[cond] = stats
+    return data
+
+
+def generate_appendix_c9_dimension_means(comp_stats):
+    """Generate Appendix C.9 Dimension Means (all models)."""
+    if not comp_stats:
+        return "*Comprehensive stats not available.*"
+
+    lines = []
+    lines.append("| Condition | warm | form | hedge | aggr | trans | grand | trib | depth | auth |")
+    lines.append("|-----------|------|------|-------|------|-------|-------|------|-------|------|")
+
+    for cond in CONDITIONS:
+        if cond not in comp_stats:
+            continue
+        by_provider = comp_stats[cond].get("by_provider", {})
+
+        dims = ["warmth", "formality", "hedging", "aggression", "transgression",
+                "grandiosity", "tribalism", "depth", "authenticity"]
+        row_vals = {}
+
+        for dim in dims:
+            total_weighted = 0
+            total_n = 0
+            for prov, pdata in by_provider.items():
+                n = pdata.get("n", 0)
+                mean = pdata.get("means", {}).get(dim, 0)
+                total_weighted += n * mean
+                total_n += n
+            row_vals[dim] = total_weighted / total_n if total_n > 0 else 0
+
+        lines.append(f"| {cond} | {row_vals['warmth']:.2f} | {row_vals['formality']:.2f} | {row_vals['hedging']:.2f} | {row_vals['aggression']:.2f} | {row_vals['transgression']:.2f} | {row_vals['grandiosity']:.2f} | {row_vals['tribalism']:.2f} | {row_vals['depth']:.2f} | {row_vals['authenticity']:.2f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c10_provider_counts(comp_stats):
+    """Generate Appendix C.10 Model Counts by Provider."""
+    if not comp_stats:
+        return "*Comprehensive stats not available.*"
+
+    lines = []
+    lines.append("| Condition | N | Anthropic | OpenAI | Meta | Google | xAI | Mistral | DeepSeek | Alibaba | AWS |")
+    lines.append("|-----------|---|-----------|--------|------|--------|-----|---------|----------|---------|-----|")
+
+    providers = ["Anthropic", "OpenAI", "Meta", "Google", "xAI", "Mistral", "DeepSeek", "Alibaba", "AWS"]
+
+    for cond in CONDITIONS:
+        if cond not in comp_stats:
+            continue
+        by_provider = comp_stats[cond].get("by_provider", {})
+        n_total = sum(p.get("n", 0) for p in by_provider.values())
+
+        prov_counts = " | ".join(str(by_provider.get(p, {}).get("n", 0)) for p in providers)
+        lines.append(f"| {cond} | {n_total} | {prov_counts} |")
+
+    return "\n".join(lines)
+
+
+def load_triangulated_validation():
+    """Load triangulated external validation data."""
+    path = BASE_DIR / "research_synthesis" / "limitations" / "external_evals" / "reasoning_composite_triangulated_audit.json"
+    return load_json(path)
+
+
+def generate_appendix_c11_external_full(external_data, triangulated):
+    """Generate Appendix C.11 External Validation (full with triangulated)."""
+    lines = []
+
+    # 11.1 Per-Benchmark
+    lines.append("#### Per-Benchmark Correlations")
+    lines.append("")
+    lines.append("| Benchmark | N | r(BM→Soph) | p | r(BM→Disin) | p |")
+    lines.append("|-----------|---|------------|---|-------------|---|")
+
+    for bm_key, bm_name in [("gpqa", "GPQA"), ("aime", "AIME"), ("arc_agi", "ARC-AGI")]:
+        bm_data = external_data.get(bm_key, {}) if external_data else {}
+        if not bm_data:
+            continue
+        corrs = bm_data.get("correlations", {})
+        soph_corr = corrs.get("sophistication", {})
+        disin_corr = corrs.get("disinhibition", {})
+
+        n = soph_corr.get("n", bm_data.get("sample", {}).get("n_matched", "?"))
+        r_soph = soph_corr.get("r", 0)
+        p_soph = soph_corr.get("p", 1)
+        r_disin = disin_corr.get("r", 0)
+        p_disin = disin_corr.get("p", 1)
+
+        def fmt_p(p):
+            return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+
+        lines.append(f"| {bm_name} | {n} | {r_soph:.3f} | {fmt_p(p_soph)} | {r_disin:.3f} | {fmt_p(p_disin)} |")
+
+    # 11.2 Triangulated Summary
+    if triangulated:
+        lines.append("")
+        lines.append("#### Triangulated Analysis Summary")
+        lines.append("")
+        lines.append("| Approach | N | r(R→D) | r(S→D) | Δr | r(R→S) | Sig |")
+        lines.append("|----------|---|--------|--------|-----|--------|-----|")
+
+        summary_table = triangulated.get("summary", {}).get("table", {})
+        for approach_key, label in [
+            ("approach_1", "3-benchmark observed"),
+            ("approach_1b", "GPQA+AIME observed"),
+            ("approach_1c", "GPQA only (BEST)"),
+            ("approach_2", "Cross-benchmark imputed"),
+            ("approach_3", "Multiple imputation")
+        ]:
+            row = summary_table.get(approach_key, {})
+            if row:
+                sig = "Yes" if row.get("significant", approach_key != "approach_1") else "No"
+                lines.append(f"| {label} | {row.get('n', 'N/A')} | {row.get('r_RD', 0):.3f} | {row.get('r_SD', 0):.3f} | {row.get('delta_r', 0):.3f} | {row.get('r_RS', 0):.3f} | {sig} |")
+
+        # 11.3 Best Estimate
+        a1c = triangulated.get("approach_1c_gpqa_alone", {})
+        if a1c:
+            lines.append("")
+            lines.append("#### Best Estimate: GPQA Alone (N=35)")
+            lines.append("")
+            lines.append("| Correlation | r | p |")
+            lines.append("|-------------|---|---|")
+            for key in ["reasoning_to_disinhibition", "sophistication_to_disinhibition", "reasoning_to_sophistication"]:
+                corr = a1c.get("correlations", {}).get(key, {})
+                def fmt_p(p):
+                    return f"{p:.2e}" if p < 0.0001 else f"{p:.4f}"
+                lines.append(f"| {key} | {corr.get('r', 0):.3f} | {fmt_p(corr.get('p', 1))} |")
+
+            rng = a1c.get("range", {})
+            if rng:
+                lines.append("")
+                lines.append("| Variable | Min | Max | Mean |")
+                lines.append("|----------|-----|-----|------|")
+                for var in ["gpqa", "sophistication", "disinhibition"]:
+                    v = rng.get(var, {})
+                    lines.append(f"| {var} | {v.get('min', 0):.2f} | {v.get('max', 0):.2f} | {v.get('mean', 0):.2f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c13_provider_means(comp_stats):
+    """Generate Appendix C.13 Provider Means (baseline)."""
+    if not comp_stats or "baseline" not in comp_stats:
+        return "*Provider means data not available.*"
+
+    lines = []
+    lines.append("| Provider | N | Disin_Mean | Disin_SD | Soph_Mean | Soph_SD |")
+    lines.append("|----------|---|------------|----------|-----------|---------|")
+
+    by_provider = comp_stats["baseline"].get("by_provider", {})
+    results = []
+
+    for provider, pdata in by_provider.items():
+        means = pdata.get("means", {})
+        stds = pdata.get("stds", {})
+        n = pdata.get("n", 0)
+
+        disin_dims = ["aggression", "transgression", "grandiosity", "tribalism"]
+        disin_mean = sum(means.get(d, 0) for d in disin_dims) / len(disin_dims)
+        disin_sd = sum(stds.get(d, 0) for d in disin_dims) / len(disin_dims)
+
+        soph_dims = ["depth", "authenticity"]
+        soph_mean = sum(means.get(d, 0) for d in soph_dims) / len(soph_dims)
+        soph_sd = sum(stds.get(d, 0) for d in soph_dims) / len(soph_dims)
+
+        results.append({
+            "provider": provider,
+            "n": n,
+            "disin_mean": disin_mean,
+            "disin_sd": disin_sd,
+            "soph_mean": soph_mean,
+            "soph_sd": soph_sd
+        })
+
+    # Sort by disinhibition mean descending
+    results.sort(key=lambda x: x["disin_mean"], reverse=True)
+
+    for r in results:
+        sd_disin = f"{r['disin_sd']:.3f}" if r['n'] > 1 else "N/A"
+        sd_soph = f"{r['soph_sd']:.3f}" if r['n'] > 1 else "N/A"
+        lines.append(f"| {r['provider']} | {r['n']} | {r['disin_mean']:.3f} | {sd_disin} | {r['soph_mean']:.3f} | {sd_soph} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c14_composite_ranges(conditions_data):
+    """Generate Appendix C.14 Composite Ranges."""
+    lines = []
+    lines.append("| Condition | Soph_Min | Soph_Max | Disin_Min | Disin_Max |")
+    lines.append("|-----------|----------|----------|-----------|-----------|")
+
+    for cond in CONDITIONS:
+        if cond not in conditions_data:
+            continue
+        models = conditions_data[cond].get("models", [])
+        if not models:
+            continue
+
+        soph_vals = []
+        disin_vals = []
+        for m in models:
+            soph = m.get("sophistication_composite") or m.get("sophistication", 0)
+            disin = m.get("disinhibition_composite") or m.get("disinhibition", 0)
+            if soph:
+                soph_vals.append(soph)
+            if disin:
+                disin_vals.append(disin)
+
+        if soph_vals and disin_vals:
+            lines.append(f"| {cond} | {min(soph_vals):.2f} | {max(soph_vals):.2f} | {min(disin_vals):.2f} | {max(disin_vals):.2f} |")
+
+    return "\n".join(lines)
+
+
+def generate_appendix_c15_effect_summary(conditions_data, outlier_data):
+    """Generate Appendix C.15 Effect Size Summary."""
+    lines = []
+    lines.append("| Condition | H1_d_Range | H2_r_Range | All_p < .05 |")
+    lines.append("|-----------|------------|------------|-------------|")
+
+    for cond in CONDITIONS:
+        if cond not in conditions_data:
+            continue
+
+        d_orig = conditions_data[cond].get("statistics", {}).get("disinhibition", {}).get("cohens_d", 0)
+        r_orig = conditions_data[cond].get("correlation", {}).get("sophistication_disinhibition", 0)
+        p_orig = conditions_data[cond].get("statistics", {}).get("disinhibition", {}).get("p_value", 1)
+
+        d_or = d_orig
+        r_or = r_orig
+        p_or = p_orig
+
+        if outlier_data and cond in outlier_data:
+            wo = outlier_data[cond].get("without_outliers", {})
+            d_or = wo.get("statistics", {}).get("disinhibition", {}).get("cohens_d", d_orig)
+            r_or = wo.get("correlation", {}).get("sophistication_disinhibition", r_orig)
+            p_or = wo.get("statistics", {}).get("disinhibition", {}).get("p_value", p_orig)
+
+        d_min, d_max = (d_orig, d_or) if d_orig < d_or else (d_or, d_orig)
+        r_min, r_max = (r_orig, r_or) if r_orig < r_or else (r_or, r_orig)
+        all_sig = p_orig < 0.05 and p_or < 0.05
+
+        lines.append(f"| {cond} | {d_min:.2f} - {d_max:.2f} | {r_min:.3f} - {r_max:.3f} | {'Yes' if all_sig else 'No'} |")
+
+    return "\n".join(lines)
+
+
+# ============================================================================
 # MAIN REGENERATION LOGIC
 # ============================================================================
 
@@ -991,6 +1772,23 @@ AUTO_GENERATORS = {
     "h3_posthoc_table": lambda data: generate_h3_posthoc_table(data["cross"]),
     "factor_structure_tables": lambda data: generate_factor_structure_tables(data["factor_structure"]),
     "classification_stability_tables": lambda data: generate_classification_stability_tables(data["classification_stability"]),
+    # Appendix C generators (mirroring CONSOLIDATED_STATISTICS.md §0-§15)
+    "appendix_c0_global": lambda data: generate_appendix_c0_global(data["conditions"], data.get("eval_counts", {}), data.get("bert", {})),
+    "appendix_c1_h1h2": lambda data: generate_appendix_c1_h1h2(data["conditions"]),
+    "appendix_c2_outliers": lambda data: generate_appendix_c2_outliers_full(data["outlier"]),
+    "appendix_c3_bert": lambda data: generate_appendix_c3_bert_full(data["bert"], data["conditions"]),
+    "appendix_c4_bert_outliers": lambda data: generate_appendix_c4_bert_outliers(data.get("bert_outliers", {})),
+    "appendix_c5_bert_soph_disin": lambda data: generate_appendix_c5_bert_soph_disin_full(data["bert"]),
+    "appendix_c6_bert_soph_disin_outliers": lambda data: generate_appendix_c6_bert_soph_disin_outliers(data.get("bert_sd_outliers", {})),
+    "appendix_c7_judge": lambda data: generate_appendix_c7_judge_full(data["judge_agreement_full"]),
+    "appendix_c8_dimensions": lambda data: generate_appendix_c8_dimensions_full(data["conditions"]),
+    "appendix_c9_dimension_means": lambda data: generate_appendix_c9_dimension_means(data.get("comp_stats", {})),
+    "appendix_c10_provider_counts": lambda data: generate_appendix_c10_provider_counts(data.get("comp_stats", {})),
+    "appendix_c11_external": lambda data: generate_appendix_c11_external_full(data["external"], data.get("triangulated")),
+    "appendix_c12_anova": lambda data: generate_appendix_c7_anova(data["provider_anova"]),
+    "appendix_c13_provider_means": lambda data: generate_appendix_c13_provider_means(data.get("comp_stats", {})),
+    "appendix_c14_composite_ranges": lambda data: generate_appendix_c14_composite_ranges(data["conditions"]),
+    "appendix_c15_effect_summary": lambda data: generate_appendix_c15_effect_summary(data["conditions"], data["outlier"]),
 }
 
 
@@ -1095,6 +1893,13 @@ def main():
     classification_stability = load_classification_stability()
     bert_data = load_bert_validation()
     gpqa_bert_data = load_gpqa_bert_correlation()
+    judge_agreement_full = load_per_condition_judge_agreement_full()
+    provider_anova = load_provider_anova()
+    # Additional data for expanded Appendix C
+    bert_outliers = load_bert_outliers_removed()
+    bert_sd_outliers = load_bert_soph_disin_outliers()
+    comp_stats = load_comprehensive_stats()
+    triangulated = load_triangulated_validation()
 
     if not conditions_data:
         print("Error: No condition data found.")
@@ -1116,6 +1921,13 @@ def main():
         "classification_stability": classification_stability,
         "bert": bert_data,
         "gpqa_bert": gpqa_bert_data,
+        "judge_agreement_full": judge_agreement_full,
+        "provider_anova": provider_anova,
+        # Additional for expanded Appendix C
+        "bert_outliers": bert_outliers,
+        "bert_sd_outliers": bert_sd_outliers,
+        "comp_stats": comp_stats,
+        "triangulated": triangulated,
     }
 
     # Read existing document

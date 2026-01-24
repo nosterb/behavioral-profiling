@@ -1,0 +1,489 @@
+{
+  "audit_date": "2026-01-24T09:56:14.013882",
+  "files_checked": {
+    "consolidated": "outputs/behavioral_profiles/research_synthesis/CONSOLIDATED_STATISTICS.md",
+    "brief": "outputs/behavioral_profiles/research_synthesis/MAIN_RESEARCH_BRIEF.md",
+    "source_jsons": [
+      "h1h2_baseline",
+      "h1h2_authority",
+      "h1h2_urgency",
+      "h1h2_minimal_steering",
+      "h1h2_telemetryV3",
+      "h1h2_reminder",
+      "h1h2_naturalistic",
+      "h1h2_all_combined",
+      "outliers_baseline",
+      "outliers_authority",
+      "outliers_urgency",
+      "outliers_minimal_steering",
+      "outliers_telemetryV3",
+      "outliers_reminder",
+      "outliers_naturalistic",
+      "outliers_all_combined",
+      "bert_baseline",
+      "bert_authority",
+      "bert_urgency",
+      "bert_minimal_steering",
+      "bert_telemetryV3",
+      "bert_reminder",
+      "bert_naturalistic",
+      "bert_all_combined",
+      "bert_soph_disin_baseline",
+      "bert_soph_disin_authority",
+      "bert_soph_disin_urgency",
+      "bert_soph_disin_minimal_steering",
+      "bert_soph_disin_telemetryV3",
+      "bert_soph_disin_reminder",
+      "bert_soph_disin_naturalistic",
+      "bert_soph_disin_all_combined",
+      "judge_agreement_baseline",
+      "judge_agreement_authority",
+      "judge_agreement_urgency",
+      "judge_agreement_minimal_steering",
+      "judge_agreement_telemetryV3",
+      "judge_agreement_reminder",
+      "judge_agreement_naturalistic",
+      "judge_agreement_all_combined",
+      "external_gpqa",
+      "external_aime",
+      "external_arc_agi",
+      "provider_baseline",
+      "provider_authority",
+      "provider_urgency",
+      "provider_minimal_steering",
+      "provider_telemetryV3",
+      "provider_reminder",
+      "provider_naturalistic",
+      "provider_all_combined"
+    ]
+  },
+  "results": [
+    {
+      "check": "H1H2_baseline_N",
+      "status": "MATCH",
+      "value": 45
+    },
+    {
+      "check": "H1H2_baseline_H1_d",
+      "status": "MATCH",
+      "value": 2.13296009907644
+    },
+    {
+      "check": "H1H2_baseline_H2_r",
+      "status": "MATCH",
+      "value": 0.7784540142202507
+    },
+    {
+      "check": "H1H2_authority_N",
+      "status": "MATCH",
+      "value": 45
+    },
+    {
+      "check": "H1H2_authority_H1_d",
+      "status": "MATCH",
+      "value": 1.8436170902325462
+    },
+    {
+      "check": "H1H2_authority_H2_r",
+      "status": "MATCH",
+      "value": 0.7702031813785546
+    },
+    {
+      "check": "H1H2_urgency_N",
+      "status": "MATCH",
+      "value": 45
+    },
+    {
+      "check": "H1H2_urgency_H1_d",
+      "status": "MATCH",
+      "value": 1.7672295517170962
+    },
+    {
+      "check": "H1H2_urgency_H2_r",
+      "status": "MATCH",
+      "value": 0.7431623380360813
+    },
+    {
+      "check": "H1H2_minimal_steering_N",
+      "status": "MATCH",
+      "value": 45
+    },
+    {
+      "check": "H1H2_minimal_steering_H1_d",
+      "status": "MATCH",
+      "value": 2.321697585260947
+    },
+    {
+      "check": "H1H2_minimal_steering_H2_r",
+      "status": "MATCH",
+      "value": 0.8540593480014016
+    },
+    {
+      "check": "H1H2_telemetryV3_N",
+      "status": "MATCH",
+      "value": 45
+    },
+    {
+      "check": "H1H2_telemetryV3_H1_d",
+      "status": "MATCH",
+      "value": 1.0921617533129575
+    },
+    {
+      "check": "H1H2_telemetryV3_H2_r",
+      "status": "MATCH",
+      "value": 0.6245213922764894
+    },
+    {
+      "check": "H1H2_reminder_N",
+      "status": "MATCH",
+      "value": 45
+    },
+    {
+      "check": "H1H2_reminder_H1_d",
+      "status": "MATCH",
+      "value": 1.6486825760299462
+    },
+    {
+      "check": "H1H2_reminder_H2_r",
+      "status": "MATCH",
+      "value": 0.7201969543721471
+    },
+    {
+      "check": "H1H2_naturalistic_N",
+      "status": "MATCH",
+      "value": 44
+    },
+    {
+      "check": "H1H2_naturalistic_H1_d",
+      "status": "MATCH",
+      "value": 2.0893052722821217
+    },
+    {
+      "check": "H1H2_naturalistic_H2_r",
+      "status": "MATCH",
+      "value": 0.8407491626743993
+    },
+    {
+      "check": "H1H2_all_combined_N",
+      "status": "MATCH",
+      "value": 45
+    },
+    {
+      "check": "H1H2_all_combined_H1_d",
+      "status": "MATCH",
+      "value": 2.297427543709732
+    },
+    {
+      "check": "H1H2_all_combined_H2_r",
+      "status": "MATCH",
+      "value": 0.8150725900439021
+    },
+    {
+      "check": "Outliers_baseline_N_Final",
+      "status": "MATCH",
+      "value": 44
+    },
+    {
+      "check": "Outliers_baseline_H1_d",
+      "status": "MATCH",
+      "value": 2.844919675883414
+    },
+    {
+      "check": "Outliers_baseline_H2_r",
+      "status": "MATCH",
+      "value": 0.8194881992358996
+    },
+    {
+      "check": "Outliers_authority_N_Final",
+      "status": "MATCH",
+      "value": 44
+    },
+    {
+      "check": "Outliers_authority_H1_d",
+      "status": "MATCH",
+      "value": 2.430573863352003
+    },
+    {
+      "check": "Outliers_authority_H2_r",
+      "status": "MATCH",
+      "value": 0.8299650516232036
+    },
+    {
+      "check": "Outliers_urgency_N_Final",
+      "status": "MATCH",
+      "value": 44
+    },
+    {
+      "check": "Outliers_urgency_H1_d",
+      "status": "MATCH",
+      "value": 1.8224937785985988
+    },
+    {
+      "check": "Outliers_urgency_H2_r",
+      "status": "MATCH",
+      "value": 0.7676964980360061
+    },
+    {
+      "check": "Outliers_minimal_steering_N_Final",
+      "status": "MATCH",
+      "value": 43
+    },
+    {
+      "check": "Outliers_minimal_steering_H1_d",
+      "status": "MATCH",
+      "value": 2.4550892851227246
+    },
+    {
+      "check": "Outliers_minimal_steering_H2_r",
+      "status": "MATCH",
+      "value": 0.8751453204668513
+    },
+    {
+      "check": "Outliers_telemetryV3_N_Final",
+      "status": "MATCH",
+      "value": 43
+    },
+    {
+      "check": "Outliers_telemetryV3_H1_d",
+      "status": "MATCH",
+      "value": 1.7993775620805186
+    },
+    {
+      "check": "Outliers_telemetryV3_H2_r",
+      "status": "MATCH",
+      "value": 0.7990633025917457
+    },
+    {
+      "check": "Outliers_reminder_N_Final",
+      "status": "MATCH",
+      "value": 44
+    },
+    {
+      "check": "Outliers_reminder_H1_d",
+      "status": "MATCH",
+      "value": 2.184276969362864
+    },
+    {
+      "check": "Outliers_reminder_H2_r",
+      "status": "MATCH",
+      "value": 0.8056950053640747
+    },
+    {
+      "check": "Outliers_naturalistic_N_Final",
+      "status": "MATCH",
+      "value": 43
+    },
+    {
+      "check": "Outliers_naturalistic_H1_d",
+      "status": "MATCH",
+      "value": 2.523434253927656
+    },
+    {
+      "check": "Outliers_naturalistic_H2_r",
+      "status": "MATCH",
+      "value": 0.8926747213901582
+    },
+    {
+      "check": "Outliers_all_combined_N_Final",
+      "status": "MATCH",
+      "value": 42
+    },
+    {
+      "check": "Outliers_all_combined_H1_d",
+      "status": "MATCH",
+      "value": 3.0227842364293807
+    },
+    {
+      "check": "Outliers_all_combined_H2_r",
+      "status": "MATCH",
+      "value": 0.8732429858609017
+    },
+    {
+      "check": "BERT_baseline_r_tox",
+      "status": "MATCH",
+      "value": 0.7764785277994652
+    },
+    {
+      "check": "BERT_baseline_r_ins",
+      "status": "MATCH",
+      "value": 0.6235805896325054
+    },
+    {
+      "check": "BERT_authority_r_tox",
+      "status": "MATCH",
+      "value": 0.3552880608129736
+    },
+    {
+      "check": "BERT_authority_r_ins",
+      "status": "MATCH",
+      "value": 0.3555687520801387
+    },
+    {
+      "check": "BERT_urgency_r_tox",
+      "status": "MATCH",
+      "value": 0.3519014005203329
+    },
+    {
+      "check": "BERT_urgency_r_ins",
+      "status": "MATCH",
+      "value": 0.4140942704785264
+    },
+    {
+      "check": "BERT_minimal_steering_r_tox",
+      "status": "MATCH",
+      "value": 0.6350145036130331
+    },
+    {
+      "check": "BERT_minimal_steering_r_ins",
+      "status": "MATCH",
+      "value": 0.5622806794007688
+    },
+    {
+      "check": "BERT_telemetryV3_r_tox",
+      "status": "MATCH",
+      "value": 0.4915721215464123
+    },
+    {
+      "check": "BERT_telemetryV3_r_ins",
+      "status": "MATCH",
+      "value": 0.2638353262227503
+    },
+    {
+      "check": "BERT_reminder_r_tox",
+      "status": "MATCH",
+      "value": 0.5622355232709626
+    },
+    {
+      "check": "BERT_reminder_r_ins",
+      "status": "MATCH",
+      "value": 0.5247570411622304
+    },
+    {
+      "check": "BERT_naturalistic_r_tox",
+      "status": "MATCH",
+      "value": 0.47789659309793897
+    },
+    {
+      "check": "BERT_naturalistic_r_ins",
+      "status": "MATCH",
+      "value": 0.4974595815691497
+    },
+    {
+      "check": "BERT_all_combined_r_tox",
+      "status": "MATCH",
+      "value": 0.6060963309951068
+    },
+    {
+      "check": "BERT_all_combined_r_ins",
+      "status": "MATCH",
+      "value": 0.5162583360012784
+    },
+    {
+      "check": "BERT_SophDisin_baseline_r_tox_soph",
+      "status": "MATCH",
+      "value": 0.5102185218835138
+    },
+    {
+      "check": "BERT_SophDisin_baseline_r_tox_disin",
+      "status": "MATCH",
+      "value": 0.7755192609952225
+    },
+    {
+      "check": "BERT_SophDisin_authority_r_tox_soph",
+      "status": "MATCH",
+      "value": 0.47124624161529716
+    },
+    {
+      "check": "BERT_SophDisin_authority_r_tox_disin",
+      "status": "MATCH",
+      "value": 0.3476012589129819
+    },
+    {
+      "check": "BERT_SophDisin_urgency_r_tox_soph",
+      "status": "MATCH",
+      "value": 0.6024749214449869
+    },
+    {
+      "check": "BERT_SophDisin_urgency_r_tox_disin",
+      "status": "MATCH",
+      "value": 0.34202835205044846
+    },
+    {
+      "check": "BERT_SophDisin_minimal_steering_r_tox_soph",
+      "status": "MATCH",
+      "value": 0.5120986975093099
+    },
+    {
+      "check": "BERT_SophDisin_minimal_steering_r_tox_disin",
+      "status": "MATCH",
+      "value": 0.590264710455543
+    },
+    {
+      "check": "BERT_SophDisin_telemetryV3_r_tox_soph",
+      "status": "MATCH",
+      "value": 0.6818333453041714
+    },
+    {
+      "check": "BERT_SophDisin_telemetryV3_r_tox_disin",
+      "status": "MATCH",
+      "value": 0.5113467167702137
+    },
+    {
+      "check": "BERT_SophDisin_reminder_r_tox_soph",
+      "status": "MATCH",
+      "value": 0.4874663483738545
+    },
+    {
+      "check": "BERT_SophDisin_reminder_r_tox_disin",
+      "status": "MATCH",
+      "value": 0.5791542951277953
+    },
+    {
+      "check": "BERT_SophDisin_naturalistic_r_tox_soph",
+      "status": "MATCH",
+      "value": 0.6124268963427898
+    },
+    {
+      "check": "BERT_SophDisin_naturalistic_r_tox_disin",
+      "status": "MATCH",
+      "value": 0.45427656663018345
+    },
+    {
+      "check": "External_GPQA_r_soph",
+      "status": "MATCH",
+      "value": 0.884130444322355
+    },
+    {
+      "check": "External_GPQA_r_disin",
+      "status": "MATCH",
+      "value": 0.7105882229878897
+    },
+    {
+      "check": "External_AIME_r_soph",
+      "status": "MATCH",
+      "value": 0.8280657479217624
+    },
+    {
+      "check": "External_AIME_r_disin",
+      "status": "MATCH",
+      "value": 0.4643340373153714
+    },
+    {
+      "check": "External_ARC-AGI_r_soph",
+      "status": "MATCH",
+      "value": 0.800518621253566
+    },
+    {
+      "check": "External_ARC-AGI_r_disin",
+      "status": "MATCH",
+      "value": 0.5963359446778239
+    }
+  ],
+  "summary": {
+    "total_checks": 84,
+    "matches": 84,
+    "mismatches": 0,
+    "missing_sources": 0,
+    "status": "PASS"
+  }
+}

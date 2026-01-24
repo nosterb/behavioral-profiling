@@ -1,5 +1,5 @@
 # CONSOLIDATED STATISTICS
-Generated: 2026-01-23
+Generated: 2026-01-24
 
 ---
 
@@ -10,7 +10,7 @@ Generated: 2026-01-23
 | Conditions | 8 |
 | Condition Names | baseline, authority, urgency, minimal_steering, telemetryV3, reminder, naturalistic, all_combined |
 | Models (max per condition) | 45 |
-| Total Judge Evaluations | 14,088 |
+| Total Judge Evaluations | 13,868 |
 | Total BERT Evaluations | 14,203 |
 | Unique Providers | 9 (AWS, Alibaba, Anthropic, DeepSeek, Google, Meta, Mistral, OpenAI, xAI) |
 
@@ -41,8 +41,8 @@ Generated: 2026-01-23
 | minimal_steering | 45 | 2 | 43 | 2.46 | 5.71e-10 | 0.875 |
 | telemetryV3 | 45 | 2 | 43 | 1.80 | 6.04e-07 | 0.799 |
 | reminder | 45 | 1 | 44 | 2.18 | 6.51e-09 | 0.806 |
-| naturalistic | 44 | 0 | 44 | 2.40 | 6.35e-10 | 0.911 |
-| all_combined | 45 | 1 | 44 | 2.80 | 9.66e-12 | 0.857 |
+| naturalistic | 44 | 1 | 43 | 2.52 | 2.82e-10 | 0.893 |
+| all_combined | 45 | 3 | 42 | 3.02 | 3.50e-12 | 0.873 |
 
 ---
 
@@ -61,11 +61,13 @@ Generated: 2026-01-23
 
 ---
 
-## 4. BERT VALIDATION - OUTLIERS REMOVED
+## 4. BERT TOXICITY vs AGGRESSION - OUTLIERS REMOVED
 
 | Condition | N | N_Removed | r_tox | p_tox | r_ins | p_ins |
 |-----------|---|-----------|-------|-------|-------|-------|
-| all_combined | 40 | 5 | 0.770 | 6.29e-09 | 0.742 | 4.34e-08 |
+| baseline | 44 | 1 | 0.000 | 1.0000 | 0.000 | 1.0000 |
+| naturalistic | 43 | 1 | 0.000 | 1.0000 | 0.000 | 1.0000 |
+| all_combined | 42 | 3 | 0.000 | 1.0000 | 0.000 | 1.0000 |
 
 ---
 
@@ -83,22 +85,32 @@ Generated: 2026-01-23
 
 ---
 
-## 6. JUDGE AGREEMENT - ICC(3)
+## 6. BERT vs SOPHISTICATION/DISINHIBITION - OUTLIERS REMOVED
 
-| Condition | N_Evals | Overall | warm | form | hedge | aggr | trans | grand | trib | depth | auth |
-|-----------|---------|---------|------|------|-------|------|-------|-------|------|-------|------|
-| baseline | 2,252 | 0.808 | 0.89 | 0.67 | 0.83 | 0.93 | 0.85 | 0.69 | 0.85 | 0.74 | 0.80 |
-| authority | 2,261 | 0.765 | 0.74 | 0.68 | 0.87 | 0.88 | 0.78 | 0.58 | 0.77 | 0.81 | 0.77 |
-| urgency | 2,259 | 0.835 | 0.89 | 0.69 | 0.87 | 0.93 | 0.82 | 0.86 | 0.87 | 0.75 | 0.84 |
-| minimal_steering | 2,317 | 0.718 | 0.90 | 0.58 | 0.80 | 0.86 | 0.76 | 0.36 | 0.73 | 0.71 | 0.76 |
-| telemetryV3 | 2,094 | 0.795 | 0.91 | 0.71 | 0.79 | 0.86 | 0.84 | 0.65 | 0.81 | 0.80 | 0.79 |
-| reminder | 674 | 0.827 | 0.91 | 0.57 | 0.84 | 0.95 | 0.89 | 0.81 | 0.87 | 0.76 | 0.85 |
-| naturalistic | 2,231 | 0.629 | 0.79 | 0.51 | 0.80 | 0.63 | 0.71 | 0.00 | 0.63 | 0.81 | 0.78 |
-| all_combined | 12,160 | 0.833 | 0.89 | 0.69 | 0.89 | 0.93 | 0.84 | 0.82 | 0.85 | 0.79 | 0.82 |
+| Condition | N | N_Removed | r_tox_soph | p | r_tox_disin | p | r_ins_soph | p | r_ins_disin | p |
+|-----------|---|-----------|------------|---|-------------|---|------------|---|-------------|---|
+| baseline | 44 | 1 | 0.463 | 0.0015 | 0.691 | 2.10e-07 | 0.333 | 0.0271 | 0.585 | 3.05e-05 |
+| naturalistic | 43 | 1 | 0.584 | 3.94e-05 | 0.285 | 0.0640 | 0.576 | 5.32e-05 | 0.289 | 0.0602 |
+| all_combined | 42 | 3 | 0.687 | 5.04e-07 | 0.602 | 2.48e-05 | 0.439 | 0.0036 | 0.525 | 0.0004 |
 
 ---
 
-## 7. PER-DIMENSION H1 EFFECT SIZES (Cohen's d)
+## 7. JUDGE AGREEMENT - ICC(3)
+
+| Condition | N_Evals | Overall | warm | form | hedge | aggr | trans | grand | trib | depth | auth |
+|-----------|---------|---------|------|------|-------|------|-------|-------|------|-------|------|
+| baseline | 2,202 | 0.813 | 0.89 | 0.69 | 0.84 | 0.94 | 0.86 | 0.71 | 0.85 | 0.74 | 0.80 |
+| authority | 2,261 | 0.765 | 0.74 | 0.68 | 0.87 | 0.88 | 0.78 | 0.58 | 0.77 | 0.81 | 0.77 |
+| urgency | 2,259 | 0.835 | 0.89 | 0.69 | 0.87 | 0.93 | 0.82 | 0.86 | 0.87 | 0.75 | 0.84 |
+| minimal_steering | 2,266 | 0.727 | 0.90 | 0.57 | 0.80 | 0.87 | 0.77 | 0.39 | 0.76 | 0.71 | 0.76 |
+| telemetryV3 | 2,053 | 0.789 | 0.90 | 0.69 | 0.79 | 0.86 | 0.84 | 0.65 | 0.81 | 0.78 | 0.78 |
+| reminder | 659 | 0.830 | 0.91 | 0.59 | 0.84 | 0.95 | 0.89 | 0.82 | 0.87 | 0.75 | 0.85 |
+| naturalistic | 2,168 | 0.629 | 0.78 | 0.50 | 0.80 | 0.64 | 0.71 | 0.00 | 0.63 | 0.81 | 0.78 |
+| all_combined | 13,912 | 0.826 | 0.88 | 0.67 | 0.88 | 0.93 | 0.84 | 0.80 | 0.84 | 0.79 | 0.81 |
+
+---
+
+## 8. PER-DIMENSION H1 EFFECT SIZES (Cohen's d)
 
 | Condition | warm | form | hedge | aggr | trans | grand | trib | depth | auth | soph | disin |
 |-----------|------|------|-------|------|-------|-------|------|-------|------|------|-------|
@@ -113,7 +125,7 @@ Generated: 2026-01-23
 
 ---
 
-## 8. DIMENSION MEANS (ALL MODELS)
+## 9. DIMENSION MEANS (ALL MODELS)
 
 | Condition | warm | form | hedge | aggr | trans | grand | trib | depth | auth |
 |-----------|------|------|-------|------|-------|-------|------|-------|------|
@@ -123,12 +135,12 @@ Generated: 2026-01-23
 | minimal_steering | 6.38 | 6.93 | 4.62 | 1.25 | 1.44 | 1.70 | 1.07 | 6.05 | 4.90 |
 | telemetryV3 | 5.87 | 6.86 | 4.38 | 1.24 | 1.40 | 1.60 | 1.09 | 5.65 | 4.53 |
 | reminder | 6.55 | 6.45 | 5.41 | 2.08 | 2.25 | 2.30 | 1.40 | 6.80 | 6.15 |
-| naturalistic | 6.15 | 6.94 | 4.17 | 1.23 | 1.31 | 1.83 | 1.13 | 6.92 | 5.33 |
-| all_combined | 5.65 | 7.09 | 4.71 | 1.60 | 1.66 | 2.10 | 1.18 | 6.43 | 5.27 |
+| naturalistic | 6.24 | 7.02 | 4.22 | 1.24 | 1.32 | 1.84 | 1.14 | 7.02 | 5.40 |
+| all_combined | 5.73 | 7.17 | 4.77 | 1.61 | 1.67 | 2.11 | 1.19 | 6.51 | 5.34 |
 
 ---
 
-## 9. MODEL COUNTS BY PROVIDER
+## 10. MODEL COUNTS BY PROVIDER
 
 | Condition | N | Anthropic | OpenAI | Meta | Google | xAI | Mistral | DeepSeek | Alibaba | AWS |
 |-----------|---|-----------|--------|------|--------|-----|---------|----------|---------|-----|
@@ -138,14 +150,14 @@ Generated: 2026-01-23
 | minimal_steering | 45 | 19 | 9 | 5 | 3 | 2 | 2 | 1 | 1 | 3 |
 | telemetryV3 | 45 | 19 | 9 | 5 | 3 | 2 | 2 | 1 | 1 | 3 |
 | reminder | 45 | 19 | 9 | 5 | 3 | 2 | 2 | 1 | 1 | 3 |
-| naturalistic | 45 | 19 | 9 | 5 | 3 | 2 | 2 | 1 | 1 | 3 |
-| all_combined | 46 | 19 | 9 | 6 | 3 | 2 | 2 | 1 | 1 | 3 |
+| naturalistic | 44 | 19 | 9 | 4 | 3 | 2 | 2 | 1 | 1 | 3 |
+| all_combined | 45 | 19 | 9 | 5 | 3 | 2 | 2 | 1 | 1 | 3 |
 
 ---
 
-## 10. EXTERNAL VALIDATION
+## 11. EXTERNAL VALIDATION
 
-### 10.1 Per-Benchmark Correlations
+### 11.1 Per-Benchmark Correlations
 
 | Benchmark | N | r(BM→Soph) | p | r(BM→Disin) | p |
 |-----------|---|------------|---|-------------|---|
@@ -153,7 +165,7 @@ Generated: 2026-01-23
 | AIME | 20 | 0.828 | 6.56e-06 | 0.464 | 0.0392 |
 | ARC-AGI | 16 | 0.801 | 0.0002 | 0.596 | 0.0148 |
 
-### 10.2 Triangulated Analysis Summary
+### 11.2 Triangulated Analysis Summary
 
 | Approach | N | r(R→D) | r(S→D) | Δr | r(R→S) | Sig |
 |----------|---|--------|--------|-----|--------|-----|
@@ -163,7 +175,7 @@ Generated: 2026-01-23
 | Cross-benchmark imputed | 35 | 0.698 | 0.753 | -0.055 | 0.848 | Yes |
 | Multiple imputation | 45 | 0.772 | 0.778 | -0.006 | 0.948 | Yes |
 
-### 10.3 Best Estimate: GPQA Alone (N=35)
+### 11.3 Best Estimate: GPQA Alone (N=35)
 
 | Correlation | r | p |
 |-------------|---|---|
@@ -179,9 +191,9 @@ Generated: 2026-01-23
 
 ---
 
-## 11. PROVIDER ANOVA (BASELINE)
+## 12. PROVIDER ANOVA (BASELINE)
 
-### 11.1 Disinhibition
+### 12.1 Disinhibition
 
 | Statistic | Value |
 |-----------|-------|
@@ -192,7 +204,7 @@ Generated: 2026-01-23
 | df_within | 34 |
 | N | 39 |
 
-### 11.2 Sophistication
+### 12.2 Sophistication
 
 | Statistic | Value |
 |-----------|-------|
@@ -205,7 +217,7 @@ Generated: 2026-01-23
 
 ---
 
-## 12. PROVIDER MEANS (BASELINE)
+## 13. PROVIDER MEANS (BASELINE)
 
 | Provider | N | Disin_Mean | Disin_SD | Soph_Mean | Soph_SD |
 |----------|---|------------|----------|-----------|---------|
@@ -222,7 +234,7 @@ Generated: 2026-01-23
 
 ---
 
-## 13. COMPOSITE RANGES
+## 14. COMPOSITE RANGES
 
 | Condition | Soph_Min | Soph_Max | Disin_Min | Disin_Max |
 |-----------|----------|----------|-----------|-----------|
@@ -238,7 +250,7 @@ Generated: 2026-01-23
 
 ---
 
-## 14. EFFECT SIZE SUMMARY
+## 15. EFFECT SIZE SUMMARY
 
 | Condition | H1_d_Range | H2_r_Range | All_p < .05 |
 |-----------|------------|------------|-------------|
@@ -248,8 +260,8 @@ Generated: 2026-01-23
 | minimal_steering | 2.32 - 2.46 | 0.854 - 0.875 | Yes |
 | telemetryV3 | 1.09 - 1.80 | 0.625 - 0.799 | Yes |
 | reminder | 1.65 - 2.18 | 0.720 - 0.806 | Yes |
-| naturalistic | 2.09 - 2.40 | 0.841 - 0.911 | Yes |
-| all_combined | 2.30 - 2.80 | 0.815 - 0.857 | Yes |
+| naturalistic | 2.09 - 2.52 | 0.841 - 0.893 | Yes |
+| all_combined | 2.30 - 3.02 | 0.815 - 0.873 | Yes |
 
 ---
 

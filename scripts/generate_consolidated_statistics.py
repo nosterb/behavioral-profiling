@@ -215,34 +215,27 @@ def gather_bert_validation() -> list[dict]:
 
 
 def gather_bert_outliers_removed() -> list[dict]:
-    """Gather BERT validation with outliers removed."""
+    """Gather BERT validation (toxicity vs aggression) with outliers removed."""
     results = []
-    for cond in ["all_combined"]:  # Only all_combined has this analysis
-        path = RESEARCH_DIR / "bert_validation" / cond / "outliers_removed" / "bert_validation_results.json"
+    # Include baseline, naturalistic, and all_combined
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        # Try condition-specific outliers_removed folder first
+        path = BASE_DIR / cond / "outliers_removed" / "bert_validation_outliers_removed_audit.json"
         data = load_json(path)
         if not data:
             continue
 
-        meta = data.get("metadata", {})
+        sample = data.get("sample", {})
         corr = data.get("correlations", {})
-        model_results = data.get("model_results", [])
-
-        # Get removal info
-        removal_path = RESEARCH_DIR / "bert_validation" / cond / "outliers_removed" / "outlier_removal_info.json"
-        removal_data = load_json(removal_path)
-        n_removed = 0
-        if removal_data:
-            # Try different possible key names
-            n_removed = removal_data.get("n_removed", 0) or len(removal_data.get("outliers_removed", []))
 
         results.append({
             "condition": cond,
-            "n": len(model_results) or meta.get("n_models", 0),
-            "n_removed": n_removed,
-            "r_tox": corr.get("toxicity", {}).get("r", 0),
-            "p_tox": corr.get("toxicity", {}).get("p", 1),
-            "r_ins": corr.get("insult", {}).get("r", 0),
-            "p_ins": corr.get("insult", {}).get("p", 1)
+            "n": sample.get("n_final", 0),
+            "n_removed": sample.get("n_removed", 0),
+            "r_tox": corr.get("toxicity_vs_aggression", {}).get("r", 0),
+            "p_tox": corr.get("toxicity_vs_aggression", {}).get("p", 1),
+            "r_ins": corr.get("insult_vs_aggression", {}).get("r", 0),
+            "p_ins": corr.get("insult_vs_aggression", {}).get("p", 1)
         })
     return results
 
@@ -260,6 +253,35 @@ def gather_bert_soph_disin() -> list[dict]:
 
         results.append({
             "condition": cond,
+            "r_tox_soph": corr.get("toxicity_vs_sophistication", {}).get("r", 0),
+            "p_tox_soph": corr.get("toxicity_vs_sophistication", {}).get("p", 1),
+            "r_tox_disin": corr.get("toxicity_vs_disinhibition", {}).get("r", 0),
+            "p_tox_disin": corr.get("toxicity_vs_disinhibition", {}).get("p", 1),
+            "r_ins_soph": corr.get("insult_vs_sophistication", {}).get("r", 0),
+            "p_ins_soph": corr.get("insult_vs_sophistication", {}).get("p", 1),
+            "r_ins_disin": corr.get("insult_vs_disinhibition", {}).get("r", 0),
+            "p_ins_disin": corr.get("insult_vs_disinhibition", {}).get("p", 1)
+        })
+    return results
+
+
+def gather_bert_soph_disin_outliers_removed() -> list[dict]:
+    """Gather BERT vs sophistication/disinhibition with outliers removed."""
+    results = []
+    # Include baseline, naturalistic, and all_combined
+    for cond in ["baseline", "naturalistic", "all_combined"]:
+        path = BASE_DIR / cond / "outliers_removed" / "bert_soph_disin_outliers_removed_audit.json"
+        data = load_json(path)
+        if not data:
+            continue
+
+        sample = data.get("sample", {})
+        corr = data.get("correlations", {})
+
+        results.append({
+            "condition": cond,
+            "n": sample.get("n_final", 0),
+            "n_removed": sample.get("n_removed", 0),
             "r_tox_soph": corr.get("toxicity_vs_sophistication", {}).get("r", 0),
             "p_tox_soph": corr.get("toxicity_vs_sophistication", {}).get("p", 1),
             "r_tox_disin": corr.get("toxicity_vs_disinhibition", {}).get("r", 0),
@@ -558,10 +580,10 @@ def generate_markdown() -> str:
         lines.append(f"| {row['condition']} | {row['n']} | {row['evaluations']:,} | {fmt_r(row['r_tox'])} | {fmt_p(row['p_tox'])} | {fmt_r(row['r_ins'])} | {fmt_p(row['p_ins'])} |")
     lines.append("")
 
-    # === SECTION 4: BERT OUTLIERS REMOVED ===
+    # === SECTION 4: BERT TOXICITY vs AGGRESSION - OUTLIERS REMOVED ===
     lines.append("---")
     lines.append("")
-    lines.append("## 4. BERT VALIDATION - OUTLIERS REMOVED")
+    lines.append("## 4. BERT TOXICITY vs AGGRESSION - OUTLIERS REMOVED")
     lines.append("")
     lines.append("| Condition | N | N_Removed | r_tox | p_tox | r_ins | p_ins |")
     lines.append("|-----------|---|-----------|-------|-------|-------|-------|")
@@ -580,10 +602,21 @@ def generate_markdown() -> str:
         lines.append(f"| {row['condition']} | {fmt_r(row['r_tox_soph'])} | {fmt_p(row['p_tox_soph'])} | {fmt_r(row['r_tox_disin'])} | {fmt_p(row['p_tox_disin'])} | {fmt_r(row['r_ins_soph'])} | {fmt_p(row['p_ins_soph'])} | {fmt_r(row['r_ins_disin'])} | {fmt_p(row['p_ins_disin'])} |")
     lines.append("")
 
-    # === SECTION 6: JUDGE AGREEMENT ===
+    # === SECTION 6: BERT vs SOPH/DISIN - OUTLIERS REMOVED ===
     lines.append("---")
     lines.append("")
-    lines.append("## 6. JUDGE AGREEMENT - ICC(3)")
+    lines.append("## 6. BERT vs SOPHISTICATION/DISINHIBITION - OUTLIERS REMOVED")
+    lines.append("")
+    lines.append("| Condition | N | N_Removed | r_tox_soph | p | r_tox_disin | p | r_ins_soph | p | r_ins_disin | p |")
+    lines.append("|-----------|---|-----------|------------|---|-------------|---|------------|---|-------------|---|")
+    for row in gather_bert_soph_disin_outliers_removed():
+        lines.append(f"| {row['condition']} | {row['n']} | {row['n_removed']} | {fmt_r(row['r_tox_soph'])} | {fmt_p(row['p_tox_soph'])} | {fmt_r(row['r_tox_disin'])} | {fmt_p(row['p_tox_disin'])} | {fmt_r(row['r_ins_soph'])} | {fmt_p(row['p_ins_soph'])} | {fmt_r(row['r_ins_disin'])} | {fmt_p(row['p_ins_disin'])} |")
+    lines.append("")
+
+    # === SECTION 7: JUDGE AGREEMENT ===
+    lines.append("---")
+    lines.append("")
+    lines.append("## 7. JUDGE AGREEMENT - ICC(3)")
     lines.append("")
     lines.append("| Condition | N_Evals | Overall | warm | form | hedge | aggr | trans | grand | trib | depth | auth |")
     lines.append("|-----------|---------|---------|------|------|-------|------|-------|-------|------|-------|------|")
@@ -591,10 +624,10 @@ def generate_markdown() -> str:
         lines.append(f"| {row['condition']} | {row['n_evals']:,} | {row['overall']:.3f} | {row['warm']:.2f} | {row['form']:.2f} | {row['hedge']:.2f} | {row['aggr']:.2f} | {row['trans']:.2f} | {row['grand']:.2f} | {row['trib']:.2f} | {row['depth']:.2f} | {row['auth']:.2f} |")
     lines.append("")
 
-    # === SECTION 7: DIMENSION EFFECT SIZES ===
+    # === SECTION 8: DIMENSION EFFECT SIZES ===
     lines.append("---")
     lines.append("")
-    lines.append("## 7. PER-DIMENSION H1 EFFECT SIZES (Cohen's d)")
+    lines.append("## 8. PER-DIMENSION H1 EFFECT SIZES (Cohen's d)")
     lines.append("")
     lines.append("| Condition | warm | form | hedge | aggr | trans | grand | trib | depth | auth | soph | disin |")
     lines.append("|-----------|------|------|-------|------|-------|-------|------|-------|------|------|-------|")
@@ -602,10 +635,10 @@ def generate_markdown() -> str:
         lines.append(f"| {row['condition']} | {fmt_d(row.get('warmth', 0))} | {fmt_d(row.get('formality', 0))} | {fmt_d(row.get('hedging', 0))} | {fmt_d(row.get('aggression', 0))} | {fmt_d(row.get('transgression', 0))} | {fmt_d(row.get('grandiosity', 0))} | {fmt_d(row.get('tribalism', 0))} | {fmt_d(row.get('depth', 0))} | {fmt_d(row.get('authenticity', 0))} | {fmt_d(row.get('sophistication', 0))} | {fmt_d(row.get('disinhibition', 0))} |")
     lines.append("")
 
-    # === SECTION 8: DIMENSION MEANS ===
+    # === SECTION 9: DIMENSION MEANS ===
     lines.append("---")
     lines.append("")
-    lines.append("## 8. DIMENSION MEANS (ALL MODELS)")
+    lines.append("## 9. DIMENSION MEANS (ALL MODELS)")
     lines.append("")
     lines.append("| Condition | warm | form | hedge | aggr | trans | grand | trib | depth | auth |")
     lines.append("|-----------|------|------|-------|------|-------|-------|------|-------|------|")
@@ -613,10 +646,10 @@ def generate_markdown() -> str:
         lines.append(f"| {row['condition']} | {row.get('warmth', 0):.2f} | {row.get('formality', 0):.2f} | {row.get('hedging', 0):.2f} | {row.get('aggression', 0):.2f} | {row.get('transgression', 0):.2f} | {row.get('grandiosity', 0):.2f} | {row.get('tribalism', 0):.2f} | {row.get('depth', 0):.2f} | {row.get('authenticity', 0):.2f} |")
     lines.append("")
 
-    # === SECTION 9: PROVIDER COUNTS ===
+    # === SECTION 10: PROVIDER COUNTS ===
     lines.append("---")
     lines.append("")
-    lines.append("## 9. MODEL COUNTS BY PROVIDER")
+    lines.append("## 10. MODEL COUNTS BY PROVIDER")
     lines.append("")
     lines.append("| Condition | N | Anthropic | OpenAI | Meta | Google | xAI | Mistral | DeepSeek | Alibaba | AWS |")
     lines.append("|-----------|---|-----------|--------|------|--------|-----|---------|----------|---------|-----|")
@@ -624,15 +657,15 @@ def generate_markdown() -> str:
         lines.append(f"| {row['condition']} | {row['n']} | {row.get('Anthropic', 0)} | {row.get('OpenAI', 0)} | {row.get('Meta', 0)} | {row.get('Google', 0)} | {row.get('xAI', 0)} | {row.get('Mistral', 0)} | {row.get('DeepSeek', 0)} | {row.get('Alibaba', 0)} | {row.get('AWS', 0)} |")
     lines.append("")
 
-    # === SECTION 10: EXTERNAL VALIDATION ===
+    # === SECTION 11: EXTERNAL VALIDATION ===
     ext = gather_external_validation()
     lines.append("---")
     lines.append("")
-    lines.append("## 10. EXTERNAL VALIDATION")
+    lines.append("## 11. EXTERNAL VALIDATION")
     lines.append("")
 
-    # 10.1 Per-benchmark validations (most concrete, lead with this)
-    lines.append("### 10.1 Per-Benchmark Correlations")
+    # 11.1 Per-benchmark validations (most concrete, lead with this)
+    lines.append("### 11.1 Per-Benchmark Correlations")
     lines.append("")
     lines.append("| Benchmark | N | r(BM→Soph) | p | r(BM→Disin) | p |")
     lines.append("|-----------|---|------------|---|-------------|---|")
@@ -654,10 +687,10 @@ def generate_markdown() -> str:
             lines.append(f"| {bm_name} | {n} | {fmt_r(r_soph)} | {fmt_p(p_soph)} | {fmt_r(r_disin)} | {fmt_p(p_disin)} |")
     lines.append("")
 
-    # 10.2 Summary table of all approaches
+    # 11.2 Summary table of all approaches
     tri = ext.get("triangulated", {})
     if tri:
-        lines.append("### 10.2 Triangulated Analysis Summary")
+        lines.append("### 11.2 Triangulated Analysis Summary")
         lines.append("")
         lines.append("| Approach | N | r(R→D) | r(S→D) | Δr | r(R→S) | Sig |")
         lines.append("|----------|---|--------|--------|-----|--------|-----|")
@@ -676,10 +709,10 @@ def generate_markdown() -> str:
                 lines.append(f"| {label} | {row.get('n', 'N/A')} | {fmt_r(row.get('r_RD', 0))} | {fmt_r(row.get('r_SD', 0))} | {fmt_r(row.get('delta_r', 0))} | {fmt_r(row.get('r_RS', 0))} | {sig} |")
         lines.append("")
 
-    # 10.3 Best estimate detail (GPQA alone)
+    # 11.3 Best estimate detail (GPQA alone)
     a1c = tri.get("approach_1c", {})
     if a1c:
-        lines.append("### 10.3 Best Estimate: GPQA Alone (N=35)")
+        lines.append("### 11.3 Best Estimate: GPQA Alone (N=35)")
         lines.append("")
         lines.append("| Correlation | r | p |")
         lines.append("|-------------|---|---|")
@@ -698,15 +731,15 @@ def generate_markdown() -> str:
                 lines.append(f"| {var} | {v.get('min', 0):.2f} | {v.get('max', 0):.2f} | {v.get('mean', 0):.2f} |")
             lines.append("")
 
-    # === SECTION 11: PROVIDER ANOVA ===
+    # === SECTION 12: PROVIDER ANOVA ===
     anova = gather_provider_anova()
     lines.append("---")
     lines.append("")
-    lines.append("## 11. PROVIDER ANOVA (BASELINE)")
+    lines.append("## 12. PROVIDER ANOVA (BASELINE)")
     lines.append("")
 
     if anova.get("disinhibition"):
-        lines.append("### 11.1 Disinhibition")
+        lines.append("### 12.1 Disinhibition")
         lines.append("")
         lines.append("| Statistic | Value |")
         lines.append("|-----------|-------|")
@@ -720,7 +753,7 @@ def generate_markdown() -> str:
         lines.append("")
 
     if anova.get("sophistication"):
-        lines.append("### 11.2 Sophistication")
+        lines.append("### 12.2 Sophistication")
         lines.append("")
         lines.append("| Statistic | Value |")
         lines.append("|-----------|-------|")
@@ -733,10 +766,10 @@ def generate_markdown() -> str:
         lines.append(f"| N | {s.get('N', 0)} |")
         lines.append("")
 
-    # === SECTION 12: PROVIDER MEANS ===
+    # === SECTION 13: PROVIDER MEANS ===
     lines.append("---")
     lines.append("")
-    lines.append("## 12. PROVIDER MEANS (BASELINE)")
+    lines.append("## 13. PROVIDER MEANS (BASELINE)")
     lines.append("")
     lines.append("| Provider | N | Disin_Mean | Disin_SD | Soph_Mean | Soph_SD |")
     lines.append("|----------|---|------------|----------|-----------|---------|\n")
@@ -744,10 +777,10 @@ def generate_markdown() -> str:
         lines.append(f"| {row['provider']} | {row['n']} | {fmt_float(row['disin_mean'])} | {fmt_float(row['disin_sd'])} | {fmt_float(row['soph_mean'])} | {fmt_float(row['soph_sd'])} |")
     lines.append("")
 
-    # === SECTION 13: COMPOSITE RANGES ===
+    # === SECTION 14: COMPOSITE RANGES ===
     lines.append("---")
     lines.append("")
-    lines.append("## 13. COMPOSITE RANGES")
+    lines.append("## 14. COMPOSITE RANGES")
     lines.append("")
     lines.append("| Condition | Soph_Min | Soph_Max | Disin_Min | Disin_Max |")
     lines.append("|-----------|----------|----------|-----------|-----------|\n")
@@ -755,13 +788,13 @@ def generate_markdown() -> str:
         lines.append(f"| {row['condition']} | {row['soph_min']:.2f} | {row['soph_max']:.2f} | {row['disin_min']:.2f} | {row['disin_max']:.2f} |")
     lines.append("")
 
-    # === SECTION 14: EFFECT SIZE SUMMARY ===
+    # === SECTION 15: EFFECT SIZE SUMMARY ===
     h1h2 = gather_h1h2_core()
     h1h2_or = gather_h1h2_outliers_removed()
 
     lines.append("---")
     lines.append("")
-    lines.append("## 14. EFFECT SIZE SUMMARY")
+    lines.append("## 15. EFFECT SIZE SUMMARY")
     lines.append("")
     lines.append("| Condition | H1_d_Range | H2_r_Range | All_p < .05 |")
     lines.append("|-----------|------------|------------|-------------|")
